@@ -1,0 +1,11 @@
+
+"Paywall.title" = "Paywall Title";
+"Paywall.noPaymentNow" = "No payments title";
+"Paywall.cancelTitle" = "Cancel";
+"Paywall.cancelSubtitle" = "Cancel subtitle description";
+"Paywall.Continue" = "Continue";
+"Paywall.restore" = "Restore";
+"Paywall.headerTitle" = "Paywall Header Title";
+"Paywall.headerDescription" = "Paywall Header Description";
+"Paywall.headerBottomTitle" = "Paywall Header Bottom Title";
+"Paywall.savePercent" = "Save percent";
