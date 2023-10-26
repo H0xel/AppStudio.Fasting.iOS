@@ -370,8 +370,8 @@
 		563257082ADE57D80000F33C = {
 			isa = PBXGroup;
 			children = (
-				563257132ADE57D80000F33C /* AppStudioTemplate */,
-				563257242ADE57DA0000F33C /* AppStudioTemplateTests */,
+				563257132ADE57D80000F33C /* Fasting */,
+				563257242ADE57DA0000F33C /* FastingTests */,
 				563257122ADE57D80000F33C /* Products */,
 				A07D95912AE9206100D2C2E2 /* Frameworks */,
 			);
@@ -386,7 +386,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		563257132ADE57D80000F33C /* AppStudioTemplate */ = {
+		563257132ADE57D80000F33C /* Fasting */ = {
 			isa = PBXGroup;
 			children = (
 				A04272C72AE28D2400754326 /* UI */,
@@ -403,7 +403,7 @@
 				56C28D842AE106790007E48D /* Settings */,
 				5632571A2ADE57D90000F33C /* Preview Content */,
 			);
-			path = AppStudioTemplate;
+			path = Fasting;
 			sourceTree = "<group>";
 		};
 		5632571A2ADE57D90000F33C /* Preview Content */ = {
@@ -414,12 +414,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		563257242ADE57DA0000F33C /* AppStudioTemplateTests */ = {
+		563257242ADE57DA0000F33C /* FastingTests */ = {
 			isa = PBXGroup;
 			children = (
 				563257252ADE57DA0000F33C /* AppStudioTemplateTests.swift */,
 			);
-			path = AppStudioTemplateTests;
+			path = FastingTests;
 			sourceTree = "<group>";
 		};
 		566C24832AE8F80B00AEDB3C /* Paywall */ = {
@@ -1478,7 +1478,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AppStudioTemplate/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Fasting/Preview\\ Content";
 				DEVELOPMENT_TEAM = 2PE88CS8P2;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1487,7 +1487,7 @@
 					"$(inherited)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = AppStudioTemplate;
+				INFOPLIST_KEY_CFBundleDisplayName = Fasting;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1501,7 +1501,7 @@
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.municorm.AppStudioTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1519,12 +1519,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AppStudioTemplate/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Fasting/Preview\\ Content";
 				DEVELOPMENT_TEAM = 2PE88CS8P2;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = AppStudioTemplate;
+				INFOPLIST_KEY_CFBundleDisplayName = Fasting;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1534,7 +1534,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.municorm.AppStudioTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1556,7 +1556,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.municorm.AppStudioTemplateTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.FastingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1576,7 +1576,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.municorm.AppStudioTemplateTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.FastingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

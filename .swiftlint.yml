@@ -1,6 +1,6 @@
 included:
-  - AppStudioTemplate
-  - AppStudioTemplateTests
+  - Fasting
+  - FastingTests
 excluded:
   - Pods
 
