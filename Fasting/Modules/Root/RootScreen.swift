@@ -13,14 +13,28 @@ struct RootScreen: View {
     @StateObject var viewModel: RootViewModel
 
     var body: some View {
-        VStack {
-            Text(Localization.title)
-                .withDebugMenu()
-            Button("Show Paywall Template") {
-                viewModel.showPaywall()
-            }
-            .padding()
+        TabView(selection: $viewModel.currentTab) {
+            viewModel.fasringScreen
+                .tag(AppTab.fasting)
+                .tabItem {
+                    fastingTabImage
+                }
+            Text("Hello world 2")
+                .tag(AppTab.profile)
+                .tabItem {
+                    Image.personFill
+                }
+            Text("Hello world 3")
+                .tag(AppTab.paywall)
+                .tabItem {
+                    Image.crownFill
+                }
         }
+        .withDebugMenu()
+    }
+
+    private var fastingTabImage: Image {
+        viewModel.currentTab == .fasting ? Image.fastingTabBarItemActive : .fastingTabBarItemInactive
     }
 }
 
@@ -39,11 +53,8 @@ private extension RootScreen {
 
 struct RootScreen_Previews: PreviewProvider {
     static var previews: some View {
-        RootScreen(
-            viewModel: RootViewModel(
-                input: RootInput(),
-                output: { _ in }
-            )
-        )
+        var viewModel = RootViewModel(input: RootInput(), output: { _ in })
+        viewModel.router = .init(navigator: .init())
+        return RootScreen(viewModel: viewModel)
     }
 }

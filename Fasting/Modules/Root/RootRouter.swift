@@ -11,6 +11,12 @@ import Dependencies
 
 class RootRouter: BaseRouter {
     @Dependency(\.paywallService) private var paywallService
+    private let fastingNavigator = Navigator()
+
+    func fastingScreen(input: FastingInput, output: @escaping FastingOutputBlock) -> some View {
+        let route = FastingRoute(navigator: fastingNavigator, input: input, output: output)
+        return fastingNavigator.initialize(route: route)
+    }
 
     func presentPaywall() {
         Task {
