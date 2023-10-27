@@ -10,11 +10,15 @@ import Combine
 import MunicornFoundation
 import Dependencies
 import AppStudioFoundation
+import UIKit
+import AppStudioAnalytics
 
 final class AccountProviderImpl: AccountProvider {
 
     @Dependency(\.cloudStorage) private var cloudStorage
     @Dependency(\.storageService) private var storageService
+    @Dependency(\.trackerService) private var trackerService
+    @Dependency(\.analyticKeyStore) private var analyticStore
 
     private var lock = NSObject()
     private var currentAccountId: AuthId?
@@ -84,6 +88,12 @@ final class AccountProviderImpl: AccountProvider {
             cloudStorage.accountId = accountId.secret
             storageService.accountId = accountId.secret
             installationType = .new
+        }
+
+        if let publicID = currentAccountId?.publicId {
+            let id = UIDevice.current.isSandbox ? "stg_" + publicID : publicID
+            trackerService.set(userId: id)
+            analyticStore.accountId = id
         }
     }
 

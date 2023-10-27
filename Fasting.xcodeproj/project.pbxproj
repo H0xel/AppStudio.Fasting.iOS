@@ -126,7 +126,6 @@
 		5675FFFE2ADE84B4009331CB /* WillTerminateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE32ADE84B4009331CB /* WillTerminateMessage.swift */; };
 		5675FFFF2ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE42ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift */; };
 		56C28D862AE106A60007E48D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 56C28D852AE106A60007E48D /* .swiftlint.yml */; };
-		56C28D882AE108630007E48D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56C28D872AE108630007E48D /* GoogleService-Info.plist */; };
 		56C28DC52AE109580007E48D /* SubscriptionServiceInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C28DB12AE109580007E48D /* SubscriptionServiceInitializer.swift */; };
 		56C28DC62AE109580007E48D /* IntercomInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C28DB22AE109580007E48D /* IntercomInitializer.swift */; };
 		56C28DC72AE109580007E48D /* LateTimeInitializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C28DB32AE109580007E48D /* LateTimeInitializers.swift */; };
@@ -163,6 +162,7 @@
 		A07D95A92AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95A82AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
+		A77A57A62AEB857D001294E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A77A57A52AEB857D001294E4 /* GoogleService-Info.plist */; };
 		A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 /* End PBXBuildFile section */
@@ -292,7 +292,6 @@
 		5675FFED2ADE84B4009331CB /* MigrationLaunchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationLaunchService.swift; sourceTree = "<group>"; };
 		5675FFEE2ADE84B4009331CB /* MigrationServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationServiceImpl.swift; sourceTree = "<group>"; };
 		56C28D852AE106A60007E48D /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
-		56C28D872AE108630007E48D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		56C28DB12AE109580007E48D /* SubscriptionServiceInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionServiceInitializer.swift; sourceTree = "<group>"; };
 		56C28DB22AE109580007E48D /* IntercomInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntercomInitializer.swift; sourceTree = "<group>"; };
 		56C28DB32AE109580007E48D /* LateTimeInitializers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LateTimeInitializers.swift; sourceTree = "<group>"; };
@@ -326,6 +325,7 @@
 		A07D95A82AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentLifeCycleDelegateImpl.swift; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
+		A77A57A52AEB857D001294E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "Fasting/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerServiceDependencies.swift; sourceTree = "<group>"; };
 		AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountIdProviderImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -906,7 +906,7 @@
 		56C28D842AE106790007E48D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				56C28D872AE108630007E48D /* GoogleService-Info.plist */,
+				A77A57A52AEB857D001294E4 /* GoogleService-Info.plist */,
 				56C28D852AE106A60007E48D /* .swiftlint.yml */,
 				53D900712AE63D5400FFEB7A /* Settings.bundle */,
 			);
@@ -1146,10 +1146,10 @@
 			files = (
 				56F64D752AE10AD90067FE05 /* Localizable.strings in Resources */,
 				56C28D862AE106A60007E48D /* .swiftlint.yml in Resources */,
-				56C28D882AE108630007E48D /* GoogleService-Info.plist in Resources */,
 				5632571C2ADE57D90000F33C /* Preview Assets.xcassets in Resources */,
 				53D900722AE63D5400FFEB7A /* Settings.bundle in Resources */,
 				563257192ADE57D90000F33C /* Assets.xcassets in Resources */,
+				A77A57A62AEB857D001294E4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1623,7 +1623,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Analytics";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.0;
+				version = 1.0.1;
 			};
 		};
 		567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {

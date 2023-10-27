@@ -1,0 +1,4 @@
+**/xcuserdata/*
+**/MockingbirdCache*
+*.generated.swift
+.DS_Store

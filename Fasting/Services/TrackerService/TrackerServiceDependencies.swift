@@ -8,6 +8,7 @@
 import Dependencies
 import AppStudioAnalytics
 import MunicornAPI
+import UIKit
 
 extension DependencyValues {
     public var trackerService: TrackerService {
@@ -18,13 +19,16 @@ extension DependencyValues {
 private enum TrackerServiceKey: DependencyKey {
     static var liveValue: TrackerService {
         @Dependency(\.obfuscator) var obfusactor
+        @Dependency(\.analyticKeyStore) var analyticKeyStore
 
-        // TODO: добавить все необходимы ключи
-
-        let amplitudeKey = obfusactor.obfuscated(string: "")
-        let appsflyerAppId = obfusactor.obfuscated(string: "")
-        let appsflyerDevKey = obfusactor.obfuscated(string: "")
-        let accountId = ""
+        let amplitudeKey = obfusactor.reveal(
+            key: UIDevice.current.isSimulator
+            ? "3d12644614580d05474910442005425515141315761616705558555050110316"
+            : "3e433147105e5603401a411026021600151f104176484977045e5150514c5d43"
+        )
+        let appsflyerAppId = obfusactor.reveal(key: "6d166444465f5e53141f")
+        let appsflyerDevKey = obfusactor.reveal(key: "161b19393e381a556a796d651d5403044c7575730c33")
+        let accountId = analyticKeyStore.accountId ?? ""
 
         return TrackerServiceImpl(
             amplitudeKey: amplitudeKey,
