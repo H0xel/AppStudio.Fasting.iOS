@@ -23,3 +23,12 @@
 
 // MARK: - Start Fasting Screen
 "StartFastingScreen.whenToStart" = "When did you start\nfasting?";
+
+
+// MARK: - Fasting Stage
+"FastingStage.bloodSugarRises" = "Blood sugar rises";
+"FastingStage.bloodSugarFalls" = "Blood sugar falls";
+"FastingStage.bloodSugarNormal" = "Blood sugar normal";
+"FastingStage.burningFat" = "Burning fat";
+"FastingStage.ketosis" = "Ketosis";
+"FastingStage.autophagy" = "Autophagy";

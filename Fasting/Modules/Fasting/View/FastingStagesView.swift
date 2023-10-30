@@ -22,9 +22,10 @@ struct FastingStagesView: View {
                         updateStage(stage: stage, proxy: proxy)
                     }, label: {
                         HStack {
+
                             stage.whiteImage
                             if stage == currentStage {
-                                Text(stage.rawValue)
+                                Text(stage.title)
                                     .foregroundStyle(.white)
                                     .transition(
                                         .asymmetric(

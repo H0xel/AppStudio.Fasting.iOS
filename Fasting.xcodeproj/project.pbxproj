@@ -181,6 +181,19 @@
 		A0881E6D2AEAC4E500E38FF5 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0881E6C2AEAC4E500E38FF5 /* Color.xcassets */; };
 		A0881E702AEAC88D00E38FF5 /* FastingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E6F2AEAC88D00E38FF5 /* FastingProgressView.swift */; };
 		A0881E722AEAD19000E38FF5 /* Font+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E712AEAD19000E38FF5 /* Font+extensions.swift */; };
+		A0CEE6142AEFD0B40082B27F /* FastingStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6132AEFD0B40082B27F /* FastingStage.swift */; };
+		A0CEE6162AEFE2B10082B27F /* FastingPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6152AEFE2B10082B27F /* FastingPlan.swift */; };
+		A0CEE61A2AEFE2D70082B27F /* FastingInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6192AEFE2D70082B27F /* FastingInterval.swift */; };
+		A0CEE61C2AEFE2E50082B27F /* FastingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE61B2AEFE2E50082B27F /* FastingStatus.swift */; };
+		A0CEE61E2AEFE2F20082B27F /* FastingActiveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE61D2AEFE2F20082B27F /* FastingActiveState.swift */; };
+		A0CEE6202AEFE2FD0082B27F /* InActiveFastingStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE61F2AEFE2FD0082B27F /* InActiveFastingStage.swift */; };
+		A0CEE6222AEFE3630082B27F /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6212AEFE3630082B27F /* SwiftUIView.swift */; };
+		A0CEE6252AEFE3E30082B27F /* FastingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6242AEFE3E30082B27F /* FastingService.swift */; };
+		A0CEE6282AEFE3FB0082B27F /* FastingServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6262AEFE3FB0082B27F /* FastingServiceImpl.swift */; };
+		A0CEE6292AEFE3FB0082B27F /* FastingDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6272AEFE3FB0082B27F /* FastingDependencies.swift */; };
+		A0CEE62E2AEFE4280082B27F /* FastingParametersServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE62B2AEFE4280082B27F /* FastingParametersServiceImpl.swift */; };
+		A0CEE62F2AEFE4280082B27F /* FastingParametersDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE62C2AEFE4280082B27F /* FastingParametersDependencies.swift */; };
+		A0CEE6302AEFE4280082B27F /* FastingParametersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
 		A77A57A62AEB857D001294E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A77A57A52AEB857D001294E4 /* GoogleService-Info.plist */; };
@@ -365,6 +378,19 @@
 		A0881E6C2AEAC4E500E38FF5 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		A0881E6F2AEAC88D00E38FF5 /* FastingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingProgressView.swift; sourceTree = "<group>"; };
 		A0881E712AEAD19000E38FF5 /* Font+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+extensions.swift"; sourceTree = "<group>"; };
+		A0CEE6132AEFD0B40082B27F /* FastingStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingStage.swift; sourceTree = "<group>"; };
+		A0CEE6152AEFE2B10082B27F /* FastingPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPlan.swift; sourceTree = "<group>"; };
+		A0CEE6192AEFE2D70082B27F /* FastingInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInterval.swift; sourceTree = "<group>"; };
+		A0CEE61B2AEFE2E50082B27F /* FastingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingStatus.swift; sourceTree = "<group>"; };
+		A0CEE61D2AEFE2F20082B27F /* FastingActiveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingActiveState.swift; sourceTree = "<group>"; };
+		A0CEE61F2AEFE2FD0082B27F /* InActiveFastingStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingStage.swift; sourceTree = "<group>"; };
+		A0CEE6212AEFE3630082B27F /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		A0CEE6242AEFE3E30082B27F /* FastingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingService.swift; sourceTree = "<group>"; };
+		A0CEE6262AEFE3FB0082B27F /* FastingServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingServiceImpl.swift; sourceTree = "<group>"; };
+		A0CEE6272AEFE3FB0082B27F /* FastingDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingDependencies.swift; sourceTree = "<group>"; };
+		A0CEE62B2AEFE4280082B27F /* FastingParametersServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersServiceImpl.swift; sourceTree = "<group>"; };
+		A0CEE62C2AEFE4280082B27F /* FastingParametersDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersDependencies.swift; sourceTree = "<group>"; };
+		A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersService.swift; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
 		A77A57A52AEB857D001294E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "Fasting/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -623,6 +649,7 @@
 		567500812ADFAA10009331CB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A0CEE6182AEFE2C30082B27F /* Fasting */,
 				567500E82ADFD65E009331CB /* Common */,
 			);
 			path = Models;
@@ -860,6 +887,8 @@
 		5675FFD12ADE8358009331CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A0CEE62A2AEFE41C0082B27F /* FastingParameters */,
+				A0CEE6232AEFE3D30082B27F /* FastingService */,
 				A749A0832AE67E8F0093C377 /* TrackerService */,
 				53D900752AE67E3600FFEB7A /* PreferencesService */,
 				567500FB2ADFD955009331CB /* Intercom */,
@@ -938,12 +967,9 @@
 		56C28D762AE0FE8B0007E48D /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				A0CEE6112AEFCF210082B27F /* Routing */,
 				56F64D792AE10EF20067FE05 /* RootScreen.swift */,
 				56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */,
-				56F64D762AE10EF20067FE05 /* RootInput.swift */,
-				56F64D7A2AE10EF20067FE05 /* RootOutput.swift */,
-				56F64D772AE10EF20067FE05 /* RootRouter.swift */,
-				56F64D782AE10EF20067FE05 /* RootRoute.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -1056,11 +1082,8 @@
 		A063B1EE2AEBD0C600084696 /* StartFasting */ = {
 			isa = PBXGroup;
 			children = (
-				A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */,
-				A063B1F02AEBD0E800084696 /* StartFastingRouter.swift */,
-				A063B1F12AEBD0E800084696 /* StartFastingRoute.swift */,
+				A0CEE6102AEFCF0D0082B27F /* Routing */,
 				A063B1F22AEBD0E800084696 /* StartFastingScreen.swift */,
-				A063B1F32AEBD0E800084696 /* StartFastingOutput.swift */,
 				A063B1F42AEBD0E800084696 /* StartFastingViewModel.swift */,
 			);
 			path = StartFasting;
@@ -1105,12 +1128,9 @@
 		A0881E5F2AEAC31100E38FF5 /* Fasting */ = {
 			isa = PBXGroup;
 			children = (
+				A0CEE60F2AEFCEFF0082B27F /* Routing */,
 				A0881E6E2AEAC77000E38FF5 /* View */,
-				A0881E602AEAC32500E38FF5 /* FastingInput.swift */,
-				A0881E612AEAC32500E38FF5 /* FastingRouter.swift */,
-				A0881E622AEAC32500E38FF5 /* FastingRoute.swift */,
 				A0881E632AEAC32500E38FF5 /* FastingScreen.swift */,
-				A0881E642AEAC32500E38FF5 /* FastingOutput.swift */,
 				A0881E652AEAC32500E38FF5 /* FastingViewModel.swift */,
 			);
 			path = Fasting;
@@ -1123,8 +1143,75 @@
 				A02787562AEAE4E700844246 /* FastingIntervalView.swift */,
 				A02787582AEAE4FB00844246 /* FastingTimeView.swift */,
 				A063B1FD2AEC1E2E00084696 /* FastingStagesView.swift */,
+				A0CEE6212AEFE3630082B27F /* SwiftUIView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A0CEE60F2AEFCEFF0082B27F /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A0881E642AEAC32500E38FF5 /* FastingOutput.swift */,
+				A0881E602AEAC32500E38FF5 /* FastingInput.swift */,
+				A0881E612AEAC32500E38FF5 /* FastingRouter.swift */,
+				A0881E622AEAC32500E38FF5 /* FastingRoute.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		A0CEE6102AEFCF0D0082B27F /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A063B1F32AEBD0E800084696 /* StartFastingOutput.swift */,
+				A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */,
+				A063B1F02AEBD0E800084696 /* StartFastingRouter.swift */,
+				A063B1F12AEBD0E800084696 /* StartFastingRoute.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		A0CEE6112AEFCF210082B27F /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				56F64D762AE10EF20067FE05 /* RootInput.swift */,
+				56F64D7A2AE10EF20067FE05 /* RootOutput.swift */,
+				56F64D772AE10EF20067FE05 /* RootRouter.swift */,
+				56F64D782AE10EF20067FE05 /* RootRoute.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		A0CEE6182AEFE2C30082B27F /* Fasting */ = {
+			isa = PBXGroup;
+			children = (
+				A0CEE6132AEFD0B40082B27F /* FastingStage.swift */,
+				A0CEE6152AEFE2B10082B27F /* FastingPlan.swift */,
+				A0CEE6192AEFE2D70082B27F /* FastingInterval.swift */,
+				A0CEE61B2AEFE2E50082B27F /* FastingStatus.swift */,
+				A0CEE61D2AEFE2F20082B27F /* FastingActiveState.swift */,
+				A0CEE61F2AEFE2FD0082B27F /* InActiveFastingStage.swift */,
+			);
+			path = Fasting;
+			sourceTree = "<group>";
+		};
+		A0CEE6232AEFE3D30082B27F /* FastingService */ = {
+			isa = PBXGroup;
+			children = (
+				A0CEE6242AEFE3E30082B27F /* FastingService.swift */,
+				A0CEE6262AEFE3FB0082B27F /* FastingServiceImpl.swift */,
+				A0CEE6272AEFE3FB0082B27F /* FastingDependencies.swift */,
+			);
+			path = FastingService;
+			sourceTree = "<group>";
+		};
+		A0CEE62A2AEFE41C0082B27F /* FastingParameters */ = {
+			isa = PBXGroup;
+			children = (
+				A0CEE62B2AEFE4280082B27F /* FastingParametersServiceImpl.swift */,
+				A0CEE62C2AEFE4280082B27F /* FastingParametersDependencies.swift */,
+				A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */,
+			);
+			path = FastingParameters;
 			sourceTree = "<group>";
 		};
 		A749A0832AE67E8F0093C377 /* TrackerService */ = {
@@ -1297,6 +1384,7 @@
 				56C28DCB2AE109580007E48D /* AppInitializerService.swift in Sources */,
 				A0881E662AEAC32500E38FF5 /* FastingInput.swift in Sources */,
 				566C24912AE8F80B00AEDB3C /* PaywallRouter.swift in Sources */,
+				A0CEE6282AEFE3FB0082B27F /* FastingServiceImpl.swift in Sources */,
 				567500922ADFAA4A009331CB /* PaywallContext.swift in Sources */,
 				A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */,
 				AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */,
@@ -1310,8 +1398,11 @@
 				567500752ADFA97F009331CB /* SubscriptionInfo.swift in Sources */,
 				567500742ADFA97F009331CB /* PricingOngoingExperiment.swift in Sources */,
 				56C28DCA2AE109580007E48D /* AppInitializerServiceImpl.swift in Sources */,
+				A0CEE6302AEFE4280082B27F /* FastingParametersService.swift in Sources */,
 				56C28DC62AE109580007E48D /* IntercomInitializer.swift in Sources */,
+				A0CEE61C2AEFE2E50082B27F /* FastingStatus.swift in Sources */,
 				566C24922AE8F80B00AEDB3C /* PaywallViewModel.swift in Sources */,
+				A0CEE61E2AEFE2F20082B27F /* FastingActiveState.swift in Sources */,
 				567500DD2ADFCDAC009331CB /* ApiDependencies.swift in Sources */,
 				567500472ADFA67E009331CB /* AppStudioMobileDeviceDataProviderPreview.swift in Sources */,
 				A02787542AEADC5200844246 /* AccentButton.swift in Sources */,
@@ -1330,14 +1421,17 @@
 				567500D92ADFCDAC009331CB /* SandboxApiSettingsProviderImpl.swift in Sources */,
 				567500422ADFA67E009331CB /* AccountProviderImpl.swift in Sources */,
 				56C28DD62AE109580007E48D /* AppSyncServiceInitializer.swift in Sources */,
+				A0CEE6292AEFE3FB0082B27F /* FastingDependencies.swift in Sources */,
 				53D900772AE67EE700FFEB7A /* PreferencesService.swift in Sources */,
 				56F64D7C2AE10EF20067FE05 /* RootInput.swift in Sources */,
 				56F64D812AE10EF20067FE05 /* RootViewModel.swift in Sources */,
+				A0CEE6222AEFE3630082B27F /* SwiftUIView.swift in Sources */,
 				5675FFF82ADE84B4009331CB /* PurchaseMessage.swift in Sources */,
 				567500032ADE84B4009331CB /* MigrationLaunchServiceImpl.swift in Sources */,
 				A04272D02AE29E6F00754326 /* WithDebugMenuModifier.swift in Sources */,
 				A063B1FC2AEBD77000084696 /* BorderedButton.swift in Sources */,
 				5675FFFB2ADE84B4009331CB /* FinishTransactionMessage.swift in Sources */,
+				A0CEE6142AEFD0B40082B27F /* FastingStage.swift in Sources */,
 				A07D95992AE9270600D2C2E2 /* AppCustomizationDependency.swift in Sources */,
 				5675FFFC2ADE84B4009331CB /* RestoreSubscriptionStateMessage.swift in Sources */,
 				A04272CE2AE28F2C00754326 /* DebugMenuActionsView.swift in Sources */,
@@ -1346,6 +1440,7 @@
 				567500432ADFA67E009331CB /* AccountProvider.swift in Sources */,
 				56F64D802AE10EF20067FE05 /* RootOutput.swift in Sources */,
 				5675001F2ADE86C3009331CB /* FirstLaunchService.swift in Sources */,
+				A0CEE6202AEFE2FD0082B27F /* InActiveFastingStage.swift in Sources */,
 				A04272CC2AE28DF600754326 /* DebugMenuInfoView.swift in Sources */,
 				56C28DCC2AE109580007E48D /* Initializers.swift in Sources */,
 				5675FFFF2ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift in Sources */,
@@ -1358,7 +1453,9 @@
 				5675FFF52ADE84B4009331CB /* UpdateIdentifiersMessage.swift in Sources */,
 				A063B1F82AEBD0E800084696 /* StartFastingScreen.swift in Sources */,
 				567500CD2ADFCC54009331CB /* AppSyncService.swift in Sources */,
+				A0CEE62E2AEFE4280082B27F /* FastingParametersServiceImpl.swift in Sources */,
 				567500B92ADFC031009331CB /* MailSenderServiceImpl.swift in Sources */,
+				A0CEE62F2AEFE4280082B27F /* FastingParametersDependencies.swift in Sources */,
 				56C28DC72AE109580007E48D /* LateTimeInitializers.swift in Sources */,
 				566C24942AE8F80B00AEDB3C /* PaywallScreenOutput.swift in Sources */,
 				5675010B2ADFD955009331CB /* IntercomDataStorage.swift in Sources */,
@@ -1399,6 +1496,7 @@
 				53D900702AE631E400FFEB7A /* AppTemplateManager.swift in Sources */,
 				5675009C2ADFAB69009331CB /* SubscriptionDelegateImpl.swift in Sources */,
 				567500FA2ADFD8FB009331CB /* InstallationType.swift in Sources */,
+				A0CEE6162AEFE2B10082B27F /* FastingPlan.swift in Sources */,
 				5675FFEF2ADE84B4009331CB /* MessengerService.swift in Sources */,
 				567500412ADFA67E009331CB /* ProvidersDependencies.swift in Sources */,
 				567500ED2ADFD6A0009331CB /* AppSettingsProvider.swift in Sources */,
@@ -1428,10 +1526,12 @@
 				56F64D7F2AE10EF20067FE05 /* RootScreen.swift in Sources */,
 				567500262ADE86C3009331CB /* ConcurrentDispatchQueue.swift in Sources */,
 				A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */,
+				A0CEE6252AEFE3E30082B27F /* FastingService.swift in Sources */,
 				5675008F2ADFAA4A009331CB /* Contacts.swift in Sources */,
 				56C28DCD2AE109580007E48D /* AppInitializer.swift in Sources */,
 				56C28DD42AE109580007E48D /* FirebaseInitializer.swift in Sources */,
 				567500462ADFA67E009331CB /* AppStudioMobileDeviceDataProviderImpl.swift in Sources */,
+				A0CEE61A2AEFE2D70082B27F /* FastingInterval.swift in Sources */,
 				A063B1F52AEBD0E800084696 /* StartFastingInput.swift in Sources */,
 				56F64D7E2AE10EF20067FE05 /* RootRoute.swift in Sources */,
 				56C28DD52AE109580007E48D /* EarlyTimeInitializers.swift in Sources */,
