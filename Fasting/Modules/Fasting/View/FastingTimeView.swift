@@ -17,7 +17,7 @@ struct FastingTimeView: View {
     var body: some View {
         VStack(spacing: Layout.spacing) {
             Text(title)
-                .foregroundStyle(.grayText)
+                .foregroundStyle(.fastingGrayText)
                 .font(.footnote)
                 .frame(height: Layout.titleHeight)
             HStack(spacing: Layout.horizontalSpacing) {
@@ -36,7 +36,7 @@ struct FastingTimeView: View {
         }
         .aligned(.centerHorizontaly)
         .padding(.vertical, Layout.verticalPadding)
-        .background(Color.grayFillCard)
+        .background(Color.fastingGrayFillCard)
         .continiousCornerRadius(Layout.cornerRadius)
     }
 }

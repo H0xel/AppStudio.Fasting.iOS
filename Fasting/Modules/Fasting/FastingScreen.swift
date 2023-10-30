@@ -14,15 +14,18 @@ struct FastingScreen: View {
 
     var body: some View {
         VStack {
+            FastingStagesView()
             Spacer()
             FastingProgressView()
+                .padding(.horizontal, Layout.horizontalPadding)
             Spacer()
             FastingIntervalView()
                 .padding(.bottom, Layout.timeBottomPadding)
+                .padding(.horizontal, Layout.horizontalPadding)
             AccentButton(title: Localization.startFasting,
                          action: viewModel.startFasting)
+            .padding(.horizontal, Layout.horizontalPadding)
         }
-        .padding(.horizontal, Layout.horizontalPadding)
         .padding(.bottom, Layout.bottomPadding)
         .padding(.top, Layout.topPadding)
     }

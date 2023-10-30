@@ -17,28 +17,21 @@ struct StartFastingScreen: View {
             Text(Localization.whenToStart)
                 .font(.semiTitle)
                 .fontWeight(.semibold)
-                .padding(.bottom, Layout.titleBottomPadding)
-            Text("Fast will end the following day, 13:00")
-                .font(.casual)
 
             DatePicker("", selection: $viewModel.fastTime, displayedComponents: .hourAndMinute)
                 .datePickerStyle(.wheel)
                 .padding(.vertical, Layout.datePickerVerticalPadding)
 
             HStack(spacing: Layout.buttonsSpacing) {
-
                 BorderedButton(title: Localization.cancel, action: viewModel.cancel)
                 AccentButton(title: Localization.save, action: viewModel.save)
             }
         }
         .multilineTextAlignment(.center)
         .foregroundStyle(Color.accentColor)
+
         .padding(.top, Layout.topPadding)
         .padding(.horizontal, Layout.horizontalPadding)
-        .padding(.bottom, Layout.bottomPadding)
-        .aligned(.bottom)
-        .presentationDetents([.medium])
-        .presentationDragIndicator(.visible)
     }
 }
 
@@ -67,6 +60,13 @@ struct StartFastingScreen_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = StartFastingViewModel(input: .init(), output: { _ in })
         viewModel.router = .init(navigator: .init())
-        return StartFastingScreen(viewModel: viewModel)
+
+        return FastingScreen(viewModel: .init(input: .init(), output: { _ in }))
+            .sheet(isPresented: .constant(true)) {
+                ModernNavigationView {
+                    StartFastingScreen(viewModel: viewModel)
+                }
+                .presentationDetents([.height(474)])
+            }
     }
 }

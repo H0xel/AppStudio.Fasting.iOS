@@ -20,7 +20,9 @@ class StartFastingViewModel: BaseViewModel<StartFastingOutput> {
         // initialization code here
     }
 
-    func save() {}
+    func save() {
+        router.dismiss()
+    }
 
     func cancel() {
         router.dismiss()

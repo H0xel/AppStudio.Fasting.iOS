@@ -23,7 +23,7 @@ struct BorderedButton: View {
                 .aligned(.centerHorizontaly)
                 .continiousCornerRadius(Layout.cornerRadius)
                 .border(configuration: .init(cornerRadius: Layout.cornerRadius,
-                                             color: .greyStrokeFill))
+                                             color: .fastingGreyStrokeFill))
         }
     }
 }

@@ -27,7 +27,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
 
     var fasringScreen: some View {
-        router.fastingScreen(input: .init(), output: { _ in })
+        router.fastingScreen
     }
 
     func showPaywall() {

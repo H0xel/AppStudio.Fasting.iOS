@@ -11,6 +11,6 @@ import AppStudioNavigation
 class FastingRouter: BaseRouter {
     func presentStartFastingDialog() {
         let route = StartFastingRoute(navigator: navigator, input: .init(), output: { _ in })
-        present(sheet: route)
+        present(sheet: route, detents: [.height(484)], showIndicator: false)
     }
 }

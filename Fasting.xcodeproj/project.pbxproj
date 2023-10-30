@@ -165,6 +165,7 @@
 		A063B1F92AEBD0E800084696 /* StartFastingOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F32AEBD0E800084696 /* StartFastingOutput.swift */; };
 		A063B1FA2AEBD0E800084696 /* StartFastingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F42AEBD0E800084696 /* StartFastingViewModel.swift */; };
 		A063B1FC2AEBD77000084696 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1FB2AEBD77000084696 /* BorderedButton.swift */; };
+		A063B1FE2AEC1E2E00084696 /* FastingStagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1FD2AEC1E2E00084696 /* FastingStagesView.swift */; };
 		A07D95902AE9202500D2C2E2 /* AppCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D958F2AE9202500D2C2E2 /* AppCustomization.swift */; };
 		A07D95932AE9206100D2C2E2 /* AppStudioABTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A07D95922AE9206100D2C2E2 /* AppStudioABTesting */; };
 		A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95942AE920A100D2C2E2 /* AppCustomizationImpl.swift */; };
@@ -349,6 +350,7 @@
 		A063B1F32AEBD0E800084696 /* StartFastingOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingOutput.swift; sourceTree = "<group>"; };
 		A063B1F42AEBD0E800084696 /* StartFastingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingViewModel.swift; sourceTree = "<group>"; };
 		A063B1FB2AEBD77000084696 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		A063B1FD2AEC1E2E00084696 /* FastingStagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingStagesView.swift; sourceTree = "<group>"; };
 		A07D958F2AE9202500D2C2E2 /* AppCustomization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomization.swift; sourceTree = "<group>"; };
 		A07D95942AE920A100D2C2E2 /* AppCustomizationImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationImpl.swift; sourceTree = "<group>"; };
 		A07D95982AE9270600D2C2E2 /* AppCustomizationDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationDependency.swift; sourceTree = "<group>"; };
@@ -1120,6 +1122,7 @@
 				A0881E6F2AEAC88D00E38FF5 /* FastingProgressView.swift */,
 				A02787562AEAE4E700844246 /* FastingIntervalView.swift */,
 				A02787582AEAE4FB00844246 /* FastingTimeView.swift */,
+				A063B1FD2AEC1E2E00084696 /* FastingStagesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1314,6 +1317,7 @@
 				A02787542AEADC5200844246 /* AccentButton.swift in Sources */,
 				567500C92ADFCC54009331CB /* IdentifiersSyncServiceImpl.swift in Sources */,
 				567500AF2ADFBF52009331CB /* ServicesDependencies.swift in Sources */,
+				A063B1FE2AEC1E2E00084696 /* FastingStagesView.swift in Sources */,
 				A02787592AEAE4FB00844246 /* FastingTimeView.swift in Sources */,
 				567500082ADE84B4009331CB /* MigrationServiceImpl.swift in Sources */,
 				567500A42ADFAE0C009331CB /* PaywallService.swift in Sources */,
@@ -1758,8 +1762,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:m-unicorn/AppStudio.iOS.Navigation.git";
 			requirement = {
-				kind = exactVersion;
-				version = 1.0.0;
+				branch = "feature/ST2-360_presentation_detents";
+				kind = branch;
 			};
 		};
 		5675FFA02ADE7DB2009331CB /* XCRemoteSwiftPackageReference "AppStudio.iOS.Subscriptions" */ = {

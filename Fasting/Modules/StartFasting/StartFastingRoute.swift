@@ -24,8 +24,6 @@ struct StartFastingRoute: Route {
 
     var view: AnyView {
         StartFastingScreen(viewModel: viewModel)
-            .presentationDetents([.medium])
-            .presentationDragIndicator(.visible)
             .eraseToAnyView()
     }
 }

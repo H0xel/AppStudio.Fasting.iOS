@@ -12,7 +12,7 @@ struct FastingProgressView: View {
         ZStack(alignment: .bottom) {
             ZStack {
                 Circle()
-                    .fill(.grayFillProgress)
+                    .fill(.fastingGrayFillProgress)
                     .padding(.horizontal, Layout.horizontalPadding)
                 VStack(spacing: Layout.labelsSpacing) {
                     Text(Localization.nextFasIn)
@@ -29,7 +29,7 @@ struct FastingProgressView: View {
                 .background(.white)
                 .continiousCornerRadius(Layout.planCornerRadius)
                 .border(configuration: .init(cornerRadius: Layout.planCornerRadius,
-                                             color: .greyStrokeFill,
+                                             color: .fastingGreyStrokeFill,
                                              lineWidth: Layout.planBorderWidth))
                 .offset(y: Layout.planOffset)
         }
