@@ -1,4 +1,9 @@
 
+// MARK: - Common
+"SaveTitle" = "Save";
+"CancelTitle" = "Cancel";
+
+// MARK: - Paywall Screen
 "Paywall.title" = "Paywall Title";
 "Paywall.noPaymentNow" = "No payments title";
 "Paywall.cancelTitle" = "Cancel";
@@ -9,3 +14,12 @@
 "Paywall.headerDescription" = "Paywall Header Description";
 "Paywall.headerBottomTitle" = "Paywall Header Bottom Title";
 "Paywall.savePercent" = "Save percent";
+
+// MARK: - Fasting Screen
+"FastingScreen.startFasting" = "Start fasting";
+"FastingProgressView.nextFastIn" = "Next fast in";
+"FastingIntervalView.fastingStarted" = "Fasting started";
+"FastingIntervalView.fastingEnd" = "Fasting end";
+
+// MARK: - Start Fasting Screen
+"StartFastingScreen.whenToStart" = "When did you start\nfasting?";

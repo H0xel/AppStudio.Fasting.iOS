@@ -11,6 +11,12 @@ import Dependencies
 
 class RootRouter: BaseRouter {
     @Dependency(\.paywallService) private var paywallService
+    private let fastingNavigator = Navigator()
+
+    lazy var fastingScreen: some View = {
+        let route = FastingRoute(navigator: fastingNavigator, input: .init(), output: { _ in })
+        return fastingNavigator.initialize(route: route)
+    }()
 
     func presentPaywall() {
         Task {
