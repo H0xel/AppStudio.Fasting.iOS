@@ -8,7 +8,7 @@
 import Dependencies
 
 extension DependencyValues {
-    var FastingService: FastingService {
+    var fastingService: FastingService {
         self[FastingServiceKey.self]
     }
 }

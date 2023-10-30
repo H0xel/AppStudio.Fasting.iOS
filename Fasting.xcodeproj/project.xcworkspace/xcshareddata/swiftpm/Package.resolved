@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Analytics",
       "state" : {
-        "revision" : "23052234d0ef02a0f1adf95bc4cf9e3c26841f57",
-        "version" : "1.0.1"
+        "revision" : "204540fb8617064432c4b025124a5c5accda2014",
+        "version" : "1.0.2"
       }
     },
     {

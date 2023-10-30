@@ -171,6 +171,7 @@
 		A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95942AE920A100D2C2E2 /* AppCustomizationImpl.swift */; };
 		A07D95992AE9270600D2C2E2 /* AppCustomizationDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95982AE9270600D2C2E2 /* AppCustomizationDependency.swift */; };
 		A07D95A92AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95A82AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift */; };
+		A7088D622AEFC1FF00436465 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7088D612AEFC1FF00436465 /* Poppins-SemiBold.ttf */; };
 		A0881E5C2AEAB7A800E38FF5 /* Image+icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E5B2AEAB7A800E38FF5 /* Image+icons.swift */; };
 		A0881E662AEAC32500E38FF5 /* FastingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E602AEAC32500E38FF5 /* FastingInput.swift */; };
 		A0881E672AEAC32500E38FF5 /* FastingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E612AEAC32500E38FF5 /* FastingRouter.swift */; };
@@ -196,7 +197,9 @@
 		A0CEE6302AEFE4280082B27F /* FastingParametersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
+		A7622F502AEBC9AA00D12632 /* Font+Poppins.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7622F4F2AEBC9AA00D12632 /* Font+Poppins.swift */; };
 		A77A57A62AEB857D001294E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A77A57A52AEB857D001294E4 /* GoogleService-Info.plist */; };
+		A7A3CE6D2AEBB32D00308201 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */; };
 		A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 /* End PBXBuildFile section */
@@ -368,6 +371,7 @@
 		A07D95942AE920A100D2C2E2 /* AppCustomizationImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationImpl.swift; sourceTree = "<group>"; };
 		A07D95982AE9270600D2C2E2 /* AppCustomizationDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationDependency.swift; sourceTree = "<group>"; };
 		A07D95A82AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentLifeCycleDelegateImpl.swift; sourceTree = "<group>"; };
+		A7088D612AEFC1FF00436465 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		A0881E5B2AEAB7A800E38FF5 /* Image+icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+icons.swift"; sourceTree = "<group>"; };
 		A0881E602AEAC32500E38FF5 /* FastingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInput.swift; sourceTree = "<group>"; };
 		A0881E612AEAC32500E38FF5 /* FastingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingRouter.swift; sourceTree = "<group>"; };
@@ -393,7 +397,10 @@
 		A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersService.swift; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
+		A7622F4F2AEBC9AA00D12632 /* Font+Poppins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Poppins.swift"; sourceTree = "<group>"; };
 		A77A57A52AEB857D001294E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "Fasting/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A7A3CE4C2AEBB30700308201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerServiceDependencies.swift; sourceTree = "<group>"; };
 		AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountIdProviderImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -457,6 +464,8 @@
 		563257132ADE57D80000F33C /* Fasting */ = {
 			isa = PBXGroup;
 			children = (
+				A7A3CE4D2AEBB31500308201 /* Fonts */,
+				A7A3CE4C2AEBB30700308201 /* Info.plist */,
 				A0881E5A2AEAB77F00E38FF5 /* Extensions */,
 				A04272C72AE28D2400754326 /* UI */,
 				5675FFA62ADE7F9E009331CB /* Application */,
@@ -1224,6 +1233,24 @@
 			path = TrackerService;
 			sourceTree = "<group>";
 		};
+		A7A3CE4D2AEBB31500308201 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A7A3CE4E2AEBB32D00308201 /* Poppins */,
+				A7622F4F2AEBC9AA00D12632 /* Font+Poppins.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A7A3CE4E2AEBB32D00308201 /* Poppins */ = {
+			isa = PBXGroup;
+			children = (
+				A7088D612AEFC1FF00436465 /* Poppins-SemiBold.ttf */,
+				A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */,
+			);
+			path = Poppins;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1327,9 +1354,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F64D752AE10AD90067FE05 /* Localizable.strings in Resources */,
+				A7A3CE6D2AEBB32D00308201 /* Poppins-Regular.ttf in Resources */,
 				56C28D862AE106A60007E48D /* .swiftlint.yml in Resources */,
 				5632571C2ADE57D90000F33C /* Preview Assets.xcassets in Resources */,
 				53D900722AE63D5400FFEB7A /* Settings.bundle in Resources */,
+				A7088D622AEFC1FF00436465 /* Poppins-SemiBold.ttf in Resources */,
 				A0881E6D2AEAC4E500E38FF5 /* Color.xcassets in Resources */,
 				563257192ADE57D90000F33C /* Assets.xcassets in Resources */,
 				A77A57A62AEB857D001294E4 /* GoogleService-Info.plist in Resources */,
@@ -1483,6 +1512,7 @@
 				567500502ADFA81D009331CB /* DataDependencies.swift in Sources */,
 				A07D95902AE9202500D2C2E2 /* AppCustomization.swift in Sources */,
 				566C249B2AE8F80B00AEDB3C /* PaywallRoute.swift in Sources */,
+				A7622F502AEBC9AA00D12632 /* Font+Poppins.swift in Sources */,
 				567500A62ADFAE8D009331CB /* PaywallServiceContext.swift in Sources */,
 				A0881E722AEAD19000E38FF5 /* Font+extensions.swift in Sources */,
 				567500E12ADFD298009331CB /* AppSyncServiceDependencies.swift in Sources */,
@@ -1703,6 +1733,7 @@
 					"$(inherited)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fasting/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Fasting;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1740,6 +1771,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fasting/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Fasting;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1839,7 +1871,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Analytics";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.1;
+				version = 1.0.2;
 			};
 		};
 		567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
