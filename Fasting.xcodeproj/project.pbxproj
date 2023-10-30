@@ -184,6 +184,7 @@
 		A0881E722AEAD19000E38FF5 /* Font+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E712AEAD19000E38FF5 /* Font+extensions.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
+		A77A57A62AEB857D001294E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A77A57A52AEB857D001294E4 /* GoogleService-Info.plist */; };
 		A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 /* End PBXBuildFile section */
@@ -368,6 +369,7 @@
 		A0881E712AEAD19000E38FF5 /* Font+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+extensions.swift"; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
+		A77A57A52AEB857D001294E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "Fasting/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerServiceDependencies.swift; sourceTree = "<group>"; };
 		AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountIdProviderImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -951,7 +953,7 @@
 		56C28D842AE106790007E48D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				A0881E4A2AEAAE7600E38FF5 /* GoogleService-Info.plist */,
+				A77A57A52AEB857D001294E4 /* GoogleService-Info.plist */,
 				56C28D852AE106A60007E48D /* .swiftlint.yml */,
 				53D900712AE63D5400FFEB7A /* Settings.bundle */,
 			);
@@ -1245,7 +1247,7 @@
 				53D900722AE63D5400FFEB7A /* Settings.bundle in Resources */,
 				A0881E6D2AEAC4E500E38FF5 /* Color.xcassets in Resources */,
 				563257192ADE57D90000F33C /* Assets.xcassets in Resources */,
-				A0881E4B2AEAAE7600E38FF5 /* GoogleService-Info.plist in Resources */,
+				A77A57A62AEB857D001294E4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1739,7 +1741,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Analytics";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.0;
+				version = 1.0.1;
 			};
 		};
 		567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
