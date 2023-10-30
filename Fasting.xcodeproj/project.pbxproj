@@ -171,7 +171,6 @@
 		A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95942AE920A100D2C2E2 /* AppCustomizationImpl.swift */; };
 		A07D95992AE9270600D2C2E2 /* AppCustomizationDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95982AE9270600D2C2E2 /* AppCustomizationDependency.swift */; };
 		A07D95A92AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95A82AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift */; };
-		A0881E4B2AEAAE7600E38FF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0881E4A2AEAAE7600E38FF5 /* GoogleService-Info.plist */; };
 		A0881E5C2AEAB7A800E38FF5 /* Image+icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E5B2AEAB7A800E38FF5 /* Image+icons.swift */; };
 		A0881E662AEAC32500E38FF5 /* FastingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E602AEAC32500E38FF5 /* FastingInput.swift */; };
 		A0881E672AEAC32500E38FF5 /* FastingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E612AEAC32500E38FF5 /* FastingRouter.swift */; };
@@ -356,7 +355,6 @@
 		A07D95942AE920A100D2C2E2 /* AppCustomizationImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationImpl.swift; sourceTree = "<group>"; };
 		A07D95982AE9270600D2C2E2 /* AppCustomizationDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationDependency.swift; sourceTree = "<group>"; };
 		A07D95A82AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentLifeCycleDelegateImpl.swift; sourceTree = "<group>"; };
-		A0881E4A2AEAAE7600E38FF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0881E5B2AEAB7A800E38FF5 /* Image+icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+icons.swift"; sourceTree = "<group>"; };
 		A0881E602AEAC32500E38FF5 /* FastingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInput.swift; sourceTree = "<group>"; };
 		A0881E612AEAC32500E38FF5 /* FastingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingRouter.swift; sourceTree = "<group>"; };
@@ -1764,8 +1762,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:m-unicorn/AppStudio.iOS.Navigation.git";
 			requirement = {
-				branch = "feature/ST2-360_presentation_detents";
-				kind = branch;
+				kind = exactVersion;
+				version = 1.0.1;
 			};
 		};
 		5675FFA02ADE7DB2009331CB /* XCRemoteSwiftPackageReference "AppStudio.iOS.Subscriptions" */ = {
