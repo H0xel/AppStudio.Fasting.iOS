@@ -5,6 +5,8 @@
 //  Created by Руслан Сафаргалеев on 27.10.2023.
 //
 
+import Foundation
+
 struct StartFastingInput {
-    // add Input parameters here
+    let initialDate: Date
 }

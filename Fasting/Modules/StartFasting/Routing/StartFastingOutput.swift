@@ -4,10 +4,12 @@
 //
 //  Created by Руслан Сафаргалеев on 27.10.2023.
 //
+
+import Foundation
 import AppStudioUI
 
 typealias StartFastingOutputBlock = ViewOutput<StartFastingOutput>
 
 enum StartFastingOutput {
-    // add Output parameters here
+    case save(Date)
 }

@@ -8,22 +8,23 @@
 import SwiftUI
 
 struct FastingProgressView: View {
+
+    let status: FastingStatus
+    let plan: FastingPlan
+
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack {
                 Circle()
-                    .fill(.fastingGrayFillProgress)
+                    .fill(backgroundColor)
                     .padding(.horizontal, Layout.horizontalPadding)
-                VStack(spacing: Layout.labelsSpacing) {
-                    Text(Localization.nextFasIn)
-                        .font(.subheadline)
-                    Text("01:25:33")
-                        .font(.headerSemibold)
-                }
+                FastingProgressLabelView(status: status)
             }
-            Text("16:8")
+            .foregroundColor(foregroundColor)
+            Text(plan.description)
+                .foregroundStyle(.accent)
                 .frame(height: Layout.planTextHeight)
-                .font(.footnote)
+                .font(.poppins(.description))
                 .padding(.vertical, Layout.planVerticalPadding)
                 .padding(.horizontal, Layout.planHorizontalPadding)
                 .background(.white)
@@ -33,14 +34,30 @@ struct FastingProgressView: View {
                                              lineWidth: Layout.planBorderWidth))
                 .offset(y: Layout.planOffset)
         }
-        .foregroundColor(.accent)
+    }
+
+    private var backgroundColor: Color {
+        switch status {
+        case .active(let state):
+            return state.stage.backgroundColor
+        case .inActive:
+            return .fastingGrayFillProgress
+        }
+    }
+
+    private var foregroundColor: Color {
+        switch status {
+        case .active:
+            return .white
+        case .inActive:
+            return .accent
+        }
     }
 }
 
 private extension FastingProgressView {
     enum Layout {
         static let horizontalPadding: CGFloat = 15
-        static let labelsSpacing: CGFloat = 10
         static let planVerticalPadding: CGFloat = 12
         static let planHorizontalPadding: CGFloat = 20
         static let planCornerRadius: CGFloat = 44
@@ -48,12 +65,8 @@ private extension FastingProgressView {
         static let planTextHeight: CGFloat = 20
         static let planOffset: CGFloat = 22
     }
-
-    enum Localization {
-        static let nextFasIn: LocalizedStringKey = "FastingProgressView.nextFastIn"
-    }
 }
 
 #Preview {
-    FastingProgressView()
+    FastingProgressView(status: .active(.init(interval: 30, stage: .autophagy, isFinished: false)), plan: .expert)
 }

@@ -11,9 +11,9 @@ struct PaywallCancelView: View {
     var body: some View {
         VStack(spacing: Layout.spacing) {
             Text(Localization.title)
-                .font(.footnoteSemibold)
+                .font(.poppinsBold(.description))
             Text(Localization.subtitle)
-                .font(.caption)
+//                .font(.poppins(.caption))
                 .foregroundColor(.tertiaryLabel)
                 .multilineTextAlignment(.center)
         }

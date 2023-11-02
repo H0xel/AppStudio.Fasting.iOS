@@ -22,4 +22,15 @@ enum FastingPlan {
             return .hour * 20
         }
     }
+
+    var description: String {
+        switch self {
+        case .regular:
+            return "16:8"
+        case .beginner:
+            return "14:10"
+        case .expert:
+            return "20:4"
+        }
+    }
 }

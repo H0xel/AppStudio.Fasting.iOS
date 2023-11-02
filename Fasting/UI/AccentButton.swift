@@ -16,7 +16,7 @@ struct AccentButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.casual)
+                .font(.poppins(.buttonText))
                 .frame(height: Layout.lineHeight)
                 .foregroundStyle(.white)
                 .padding(.vertical, Layout.verticalPadding)

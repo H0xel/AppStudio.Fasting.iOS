@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FastingActiveState {
+struct FastingActiveState: Hashable {
     let interval: TimeInterval
     let stage: FastingStage
     let isFinished: Bool

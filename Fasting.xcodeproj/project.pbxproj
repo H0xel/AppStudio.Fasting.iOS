@@ -151,6 +151,8 @@
 		56F64D812AE10EF20067FE05 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */; };
 		56F64D842AE116D30067FE05 /* AppStudioFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 56F64D832AE116D30067FE05 /* AppStudioFoundation */; };
 		56F64D862AE116D30067FE05 /* AppStudioUI in Frameworks */ = {isa = PBXBuildFile; productRef = 56F64D852AE116D30067FE05 /* AppStudioUI */; };
+		A008A82F2AF117540011A261 /* FastingProgressLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008A82E2AF117540011A261 /* FastingProgressLabelView.swift */; };
+		A008A8312AF14C0B0011A261 /* Animation+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008A8302AF14C0B0011A261 /* Animation+extensions.swift */; };
 		A02787542AEADC5200844246 /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02787532AEADC5200844246 /* AccentButton.swift */; };
 		A02787572AEAE4E700844246 /* FastingIntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02787562AEAE4E700844246 /* FastingIntervalView.swift */; };
 		A02787592AEAE4FB00844246 /* FastingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02787582AEAE4FB00844246 /* FastingTimeView.swift */; };
@@ -158,6 +160,8 @@
 		A04272CC2AE28DF600754326 /* DebugMenuInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */; };
 		A04272CE2AE28F2C00754326 /* DebugMenuActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CD2AE28F2C00754326 /* DebugMenuActionsView.swift */; };
 		A04272D02AE29E6F00754326 /* WithDebugMenuModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CF2AE29E6F00754326 /* WithDebugMenuModifier.swift */; };
+		A04426302AF23DAE005400AE /* TimeInterval+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044262F2AF23DAE005400AE /* TimeInterval+extensions.swift */; };
+		A04426322AF23DC0005400AE /* Int+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426312AF23DC0005400AE /* Int+extensions.swift */; };
 		A063B1F52AEBD0E800084696 /* StartFastingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */; };
 		A063B1F62AEBD0E800084696 /* StartFastingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F02AEBD0E800084696 /* StartFastingRouter.swift */; };
 		A063B1F72AEBD0E800084696 /* StartFastingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F12AEBD0E800084696 /* StartFastingRoute.swift */; };
@@ -171,7 +175,6 @@
 		A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95942AE920A100D2C2E2 /* AppCustomizationImpl.swift */; };
 		A07D95992AE9270600D2C2E2 /* AppCustomizationDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95982AE9270600D2C2E2 /* AppCustomizationDependency.swift */; };
 		A07D95A92AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95A82AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift */; };
-		A7088D622AEFC1FF00436465 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7088D612AEFC1FF00436465 /* Poppins-SemiBold.ttf */; };
 		A0881E5C2AEAB7A800E38FF5 /* Image+icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E5B2AEAB7A800E38FF5 /* Image+icons.swift */; };
 		A0881E662AEAC32500E38FF5 /* FastingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E602AEAC32500E38FF5 /* FastingInput.swift */; };
 		A0881E672AEAC32500E38FF5 /* FastingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E612AEAC32500E38FF5 /* FastingRouter.swift */; };
@@ -195,6 +198,7 @@
 		A0CEE62E2AEFE4280082B27F /* FastingParametersServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE62B2AEFE4280082B27F /* FastingParametersServiceImpl.swift */; };
 		A0CEE62F2AEFE4280082B27F /* FastingParametersDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE62C2AEFE4280082B27F /* FastingParametersDependencies.swift */; };
 		A0CEE6302AEFE4280082B27F /* FastingParametersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */; };
+		A7088D622AEFC1FF00436465 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7088D612AEFC1FF00436465 /* Poppins-SemiBold.ttf */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
 		A7622F502AEBC9AA00D12632 /* Font+Poppins.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7622F4F2AEBC9AA00D12632 /* Font+Poppins.swift */; };
@@ -352,6 +356,8 @@
 		56F64D792AE10EF20067FE05 /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
 		56F64D7A2AE10EF20067FE05 /* RootOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootOutput.swift; sourceTree = "<group>"; };
 		56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		A008A82E2AF117540011A261 /* FastingProgressLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingProgressLabelView.swift; sourceTree = "<group>"; };
+		A008A8302AF14C0B0011A261 /* Animation+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation+extensions.swift"; sourceTree = "<group>"; };
 		A02787532AEADC5200844246 /* AccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentButton.swift; sourceTree = "<group>"; };
 		A02787562AEAE4E700844246 /* FastingIntervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingIntervalView.swift; sourceTree = "<group>"; };
 		A02787582AEAE4FB00844246 /* FastingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingTimeView.swift; sourceTree = "<group>"; };
@@ -359,6 +365,8 @@
 		A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuInfoView.swift; sourceTree = "<group>"; };
 		A04272CD2AE28F2C00754326 /* DebugMenuActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuActionsView.swift; sourceTree = "<group>"; };
 		A04272CF2AE29E6F00754326 /* WithDebugMenuModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDebugMenuModifier.swift; sourceTree = "<group>"; };
+		A044262F2AF23DAE005400AE /* TimeInterval+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+extensions.swift"; sourceTree = "<group>"; };
+		A04426312AF23DC0005400AE /* Int+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extensions.swift"; sourceTree = "<group>"; };
 		A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingInput.swift; sourceTree = "<group>"; };
 		A063B1F02AEBD0E800084696 /* StartFastingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingRouter.swift; sourceTree = "<group>"; };
 		A063B1F12AEBD0E800084696 /* StartFastingRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingRoute.swift; sourceTree = "<group>"; };
@@ -371,7 +379,6 @@
 		A07D95942AE920A100D2C2E2 /* AppCustomizationImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationImpl.swift; sourceTree = "<group>"; };
 		A07D95982AE9270600D2C2E2 /* AppCustomizationDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationDependency.swift; sourceTree = "<group>"; };
 		A07D95A82AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentLifeCycleDelegateImpl.swift; sourceTree = "<group>"; };
-		A7088D612AEFC1FF00436465 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		A0881E5B2AEAB7A800E38FF5 /* Image+icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+icons.swift"; sourceTree = "<group>"; };
 		A0881E602AEAC32500E38FF5 /* FastingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInput.swift; sourceTree = "<group>"; };
 		A0881E612AEAC32500E38FF5 /* FastingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingRouter.swift; sourceTree = "<group>"; };
@@ -395,6 +402,7 @@
 		A0CEE62B2AEFE4280082B27F /* FastingParametersServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersServiceImpl.swift; sourceTree = "<group>"; };
 		A0CEE62C2AEFE4280082B27F /* FastingParametersDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersDependencies.swift; sourceTree = "<group>"; };
 		A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersService.swift; sourceTree = "<group>"; };
+		A7088D612AEFC1FF00436465 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
 		A7622F4F2AEBC9AA00D12632 /* Font+Poppins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Poppins.swift"; sourceTree = "<group>"; };
@@ -1130,6 +1138,9 @@
 			children = (
 				A0881E5B2AEAB7A800E38FF5 /* Image+icons.swift */,
 				A0881E712AEAD19000E38FF5 /* Font+extensions.swift */,
+				A008A8302AF14C0B0011A261 /* Animation+extensions.swift */,
+				A044262F2AF23DAE005400AE /* TimeInterval+extensions.swift */,
+				A04426312AF23DC0005400AE /* Int+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1153,6 +1164,7 @@
 				A02787582AEAE4FB00844246 /* FastingTimeView.swift */,
 				A063B1FD2AEC1E2E00084696 /* FastingStagesView.swift */,
 				A0CEE6212AEFE3630082B27F /* SwiftUIView.swift */,
+				A008A82E2AF117540011A261 /* FastingProgressLabelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1449,6 +1461,7 @@
 				5675FFFD2ADE84B4009331CB /* SubscriptionStateMessage.swift in Sources */,
 				567500D92ADFCDAC009331CB /* SandboxApiSettingsProviderImpl.swift in Sources */,
 				567500422ADFA67E009331CB /* AccountProviderImpl.swift in Sources */,
+				A04426322AF23DC0005400AE /* Int+extensions.swift in Sources */,
 				56C28DD62AE109580007E48D /* AppSyncServiceInitializer.swift in Sources */,
 				A0CEE6292AEFE3FB0082B27F /* FastingDependencies.swift in Sources */,
 				53D900772AE67EE700FFEB7A /* PreferencesService.swift in Sources */,
@@ -1465,6 +1478,7 @@
 				5675FFFC2ADE84B4009331CB /* RestoreSubscriptionStateMessage.swift in Sources */,
 				A04272CE2AE28F2C00754326 /* DebugMenuActionsView.swift in Sources */,
 				56C28DC52AE109580007E48D /* SubscriptionServiceInitializer.swift in Sources */,
+				A008A8312AF14C0B0011A261 /* Animation+extensions.swift in Sources */,
 				5675010A2ADFD955009331CB /* IntercomUpdaterImpl.swift in Sources */,
 				567500432ADFA67E009331CB /* AccountProvider.swift in Sources */,
 				56F64D802AE10EF20067FE05 /* RootOutput.swift in Sources */,
@@ -1531,6 +1545,7 @@
 				567500412ADFA67E009331CB /* ProvidersDependencies.swift in Sources */,
 				567500ED2ADFD6A0009331CB /* AppSettingsProvider.swift in Sources */,
 				A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */,
+				A04426302AF23DAE005400AE /* TimeInterval+extensions.swift in Sources */,
 				567500532ADFA8C1009331CB /* KeyValueStorageImpl.swift in Sources */,
 				567500062ADE84B4009331CB /* Migration.swift in Sources */,
 				A063B1FA2AEBD0E800084696 /* StartFastingViewModel.swift in Sources */,
@@ -1550,6 +1565,7 @@
 				53D900742AE652DD00FFEB7A /* PreferencesInitializer.swift in Sources */,
 				5675FFF22ADE84B4009331CB /* UpdateSubscriptionMessage.swift in Sources */,
 				567500022ADE84B4009331CB /* MessengerServiceImpl.swift in Sources */,
+				A008A82F2AF117540011A261 /* FastingProgressLabelView.swift in Sources */,
 				567500002ADE84B4009331CB /* MessageSubjectService.swift in Sources */,
 				56C28DC92AE109580007E48D /* AppInitializerServiceDependency.swift in Sources */,
 				56C28DCF2AE109580007E48D /* AccountProviderInitializer.swift in Sources */,

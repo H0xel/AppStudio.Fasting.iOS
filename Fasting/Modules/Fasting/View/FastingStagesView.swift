@@ -11,7 +11,8 @@ import AppStudioNavigation
 
 struct FastingStagesView: View {
 
-    @State var currentStage: FastingStage?
+    let currentStage: FastingStage?
+    @State private var openedStage: FastingStage?
 
     var body: some View {
         ScrollViewWithReader(axis: .horizontal, showIndicators: false) { proxy in
@@ -22,36 +23,65 @@ struct FastingStagesView: View {
                         updateStage(stage: stage, proxy: proxy)
                     }, label: {
                         HStack {
-
-                            stage.whiteImage
-                            if stage == currentStage {
-                                Text(stage.title)
-                                    .foregroundStyle(.white)
-                                    .transition(
-                                        .asymmetric(
-                                            insertion: .move(edge: .leading),
-                                            removal: .move(edge: .leading).combined(with: .opacity)
-                                        )
-                                    )
-                            }
+                            image(for: stage)
+                            title(for: stage)
                         }
-                        .padding(Layout.padding)
                         .id(stage)
-
-                        //                            .border(configuration: .init(cornerRadius: Layout.cornerRadius, color: .greyStrokeFill))
-                            .background(stage.backgroundColor)
-                            .continiousCornerRadius(Layout.cornerRadius)
+                        .padding(Layout.padding)
+                        .border(configuration: borderConfiguration(for: stage))
+                        .background(stage == currentStage ? stage.backgroundColor : nil)
+                        .continiousCornerRadius(Layout.cornerRadius)
                     })
                 }
                 Spacer(minLength: Layout.horizontalPadding)
             }
+            .onAppear {
+                if let currentStage {
+                    updateStage(stage: currentStage, proxy: proxy)
+                }
+            }
+            .onChange(of: currentStage?.rawValue) { newValue in
+                if let newValue, let stage = FastingStage(rawValue: newValue) {
+                    updateStage(stage: stage, proxy: proxy)
+                } else {
+                    openedStage = nil
+                }
+            }
         }
     }
 
+    private func image(for stage: FastingStage) -> Image {
+        if stage == currentStage {
+            stage.whiteImage
+        } else if let currentStage, stage < currentStage {
+            stage.coloredImage
+        } else {
+            stage.disabledImage
+        }
+    }
+
+    private func borderConfiguration(for stage: FastingStage) -> BorderConfiguration {
+        stage == currentStage ? .empty : .init(cornerRadius: Layout.cornerRadius, color: .fastingGreyStrokeFill)
+    }
+
     private func updateStage(stage: FastingStage, proxy: ScrollViewProxy) {
-        withAnimation(.easeInOut(duration: 0.3)) {
-            currentStage = currentStage == stage ? nil : stage
-            proxy.scrollTo(stage, anchor: .center)
+        openedStage = openedStage == stage ? nil : stage
+        withAnimation(.fastingStageChage) {
+            proxy.scrollTo(openedStage ?? currentStage, anchor: .center)
+        }
+    }
+
+    @ViewBuilder
+    private func title(for stage: FastingStage) -> some View {
+        if stage == currentStage || stage == openedStage {
+            Text(stage.title)
+                .foregroundStyle(stage == currentStage ? .white : .accentColor)
+                .transition(
+                    .asymmetric(
+                        insertion: .move(edge: .leading),
+                        removal: .move(edge: .leading).combined(with: .opacity)
+                    )
+                )
         }
     }
 }

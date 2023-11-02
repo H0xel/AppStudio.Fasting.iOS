@@ -14,20 +14,24 @@ struct FastingScreen: View {
 
     var body: some View {
         VStack {
-            FastingStagesView()
+            FastingStagesView(currentStage: viewModel.currentStage)
             Spacer()
-            FastingProgressView()
+            FastingProgressView(status: viewModel.fastingStatus, 
+                                plan: viewModel.fastingInterval.plan)
                 .padding(.horizontal, Layout.horizontalPadding)
             Spacer()
-            FastingIntervalView()
+            FastingIntervalView(fastStarts: viewModel.fastingStartTime,
+                                fastEnds: viewModel.fastingEndTime,
+                                onEdit: viewModel.changeFastingTime)
                 .padding(.bottom, Layout.timeBottomPadding)
                 .padding(.horizontal, Layout.horizontalPadding)
-            AccentButton(title: Localization.startFasting,
-                         action: viewModel.startFasting)
+            AccentButton(title: viewModel.isFastingActive ? Localization.endFasting : Localization.startFasting,
+                         action: viewModel.toggleFasting)
             .padding(.horizontal, Layout.horizontalPadding)
         }
         .padding(.bottom, Layout.bottomPadding)
         .padding(.top, Layout.topPadding)
+        .animation(.fastingStageChage, value: viewModel.fastingStatus)
     }
 }
 
@@ -45,6 +49,7 @@ private extension FastingScreen {
 private extension FastingScreen {
     enum Localization {
         static let startFasting: LocalizedStringKey = "FastingScreen.startFasting"
+        static let endFasting: LocalizedStringKey = "FastingScreen.endFasting"
     }
 }
 

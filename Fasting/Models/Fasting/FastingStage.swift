@@ -60,12 +60,15 @@ enum FastingStage: String, CaseIterable, Equatable {
     var coloredImage: Image {
         Image("\(rawValue)Enabled")
     }
+}
 
-    static func > (lhs: FastingStage, rhs: FastingStage) -> Bool {
+extension FastingStage: Comparable {
+    
+    static func < (lhs: FastingStage, rhs: FastingStage) -> Bool {
         guard let leftIndex = FastingStage.allCases.firstIndex(of: lhs),
               let rightIndex = FastingStage.allCases.firstIndex(of: rhs) else {
                   return true
               }
-        return leftIndex > rightIndex
+        return leftIndex < rightIndex
     }
 }

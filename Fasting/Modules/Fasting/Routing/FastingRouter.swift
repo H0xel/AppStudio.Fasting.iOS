@@ -9,8 +9,14 @@ import SwiftUI
 import AppStudioNavigation
 
 class FastingRouter: BaseRouter {
-    func presentStartFastingDialog() {
-        let route = StartFastingRoute(navigator: navigator, input: .init(), output: { _ in })
+    func presentStartFastingDialog(initialDate: Date, onSave: @escaping (Date) -> Void) {
+        let route = StartFastingRoute(navigator: navigator,
+                                      input: .init(initialDate: initialDate)) { event in
+            switch event {
+            case .save(let date):
+                onSave(date)
+            }
+        }
         present(sheet: route, detents: [.height(484)], showIndicator: false)
     }
 }

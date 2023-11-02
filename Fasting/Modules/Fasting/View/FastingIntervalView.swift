@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct FastingIntervalView: View {
+
+    let fastStarts: String
+    let fastEnds: String
+    let onEdit: () -> Void
+
     var body: some View {
         HStack(spacing: Layout.spacing) {
-            FastingTimeView(title: Localization.fastingStarted, time: "20:40") {}
-            FastingTimeView(title: Localization.fastingEnd, time: "13:40")
+            FastingTimeView(title: Localization.fastingStarted, time: fastStarts, onEdit: onEdit)
+            FastingTimeView(title: Localization.fastingEnd, time: fastEnds)
         }
     }
 }
@@ -28,5 +33,5 @@ private extension FastingIntervalView {
 }
 
 #Preview {
-    FastingIntervalView()
+    FastingIntervalView(fastStarts: "20:40", fastEnds: "13:40", onEdit: {})
 }

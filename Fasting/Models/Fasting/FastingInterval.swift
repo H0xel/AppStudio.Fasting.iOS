@@ -15,4 +15,14 @@ struct FastingInterval {
     var startDate: Date {
         currentDate ?? start
     }
+
+    var endDate: Date {
+        startDate.addingTimeInterval(plan.duration)
+    }
+}
+
+extension FastingInterval {
+    static var empty: FastingInterval {
+        .init(start: .now, plan: .beginner)
+    }
 }

@@ -15,7 +15,7 @@ struct StartFastingScreen: View {
     var body: some View {
         VStack(spacing: .zero) {
             Text(Localization.whenToStart)
-                .font(.semiTitle)
+                .font(.poppins(.headerM))
                 .fontWeight(.semibold)
 
             DatePicker("", selection: $viewModel.fastTime, displayedComponents: .hourAndMinute)
@@ -58,7 +58,7 @@ private extension StartFastingScreen {
 
 struct StartFastingScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = StartFastingViewModel(input: .init(), output: { _ in })
+        let viewModel = StartFastingViewModel(input: .init(initialDate: .now), output: { _ in })
         viewModel.router = .init(navigator: .init())
 
         return FastingScreen(viewModel: .init(input: .init(), output: { _ in }))

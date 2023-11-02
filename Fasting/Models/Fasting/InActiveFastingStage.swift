@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum InActiveFastingStage {
+enum InActiveFastingStage: Hashable {
     case left(TimeInterval)
     case expired
 }

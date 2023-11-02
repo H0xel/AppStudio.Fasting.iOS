@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FastingStatus {
+enum FastingStatus: Hashable {
     case active(FastingActiveState)
     case inActive(InActiveFastingStage)
 }

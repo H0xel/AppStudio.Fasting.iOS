@@ -9,7 +9,7 @@ import Foundation
 
 class FastingParametersServiceImpl: FastingParametersService {
     var fastingInterval: FastingInterval = {
-        .init(start: Date().addingTimeInterval(.hour), plan: .beginner, currentDate: nil)
+        .init(start: Date().addingTimeInterval(.second * 10), plan: .regular, currentDate: nil)
     }()
 
     func set(currentDate date: Date) {
@@ -20,5 +20,7 @@ class FastingParametersServiceImpl: FastingParametersService {
         fastingInterval.currentDate = nil
     }
 
-    func set(fastingInterval interval: FastingInterval) {}
+    func set(fastingInterval interval: FastingInterval) {
+        fastingInterval = interval
+    }
 }

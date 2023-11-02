@@ -16,7 +16,7 @@ struct BorderedButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.casual)
+                .font(.poppins(.buttonText))
                 .frame(height: Layout.lineHeight)
                 .foregroundStyle(Color.accentColor)
                 .padding(.vertical, Layout.verticalPadding)

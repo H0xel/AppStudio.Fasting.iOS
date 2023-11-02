@@ -11,16 +11,17 @@ import AppStudioUI
 
 class StartFastingViewModel: BaseViewModel<StartFastingOutput> {
 
-    @Published var fastTime: Date = .now
+    @Published var fastTime: Date
 
     var router: StartFastingRouter!
 
     init(input: StartFastingInput, output: @escaping StartFastingOutputBlock) {
+        fastTime = input.initialDate
         super.init(output: output)
-        // initialization code here
     }
 
     func save() {
+        output(.save(fastTime))
         router.dismiss()
     }
 

@@ -18,11 +18,11 @@ struct FastingTimeView: View {
         VStack(spacing: Layout.spacing) {
             Text(title)
                 .foregroundStyle(.fastingGrayText)
-                .font(.footnote)
+                .font(.poppins(.description))
                 .frame(height: Layout.titleHeight)
             HStack(spacing: Layout.horizontalSpacing) {
                 Text(time)
-                    .font(.casual)
+                    .font(.poppins(.buttonText))
                     .frame(height: Layout.timeLineHeight)
                 if let onEdit {
                     Button(action: onEdit) {

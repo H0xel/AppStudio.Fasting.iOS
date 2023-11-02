@@ -17,7 +17,10 @@
 
 // MARK: - Fasting Screen
 "FastingScreen.startFasting" = "Start fasting";
+"FastingScreen.endFasting" = "End fasting";
 "FastingProgressView.nextFastIn" = "Next fast in";
+"FastingProgressView.readyToFast" = "Ready\nto fast?";
+"FastingProgressView.youFastFor" = "You've fasted for";
 "FastingIntervalView.fastingStarted" = "Fasting started";
 "FastingIntervalView.fastingEnd" = "Fasting end";
 

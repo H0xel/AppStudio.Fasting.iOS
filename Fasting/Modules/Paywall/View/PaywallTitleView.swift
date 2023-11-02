@@ -14,12 +14,12 @@ struct PaywallTitleView: View {
     var body: some View {
         VStack(spacing: Layout.spacing) {
             Text(titles.title)
-                .font(.boldTitle)
+//                .font(.poppins(.title).bold())
             Text(titles.description)
                 .foregroundColor(.secondaryLabel)
             Text(titles.subTitle)
                 .foregroundColor(.secondaryLabel)
-                .font(.subheadline)
+                .font(.poppins(.body))
         }
     }
 }
