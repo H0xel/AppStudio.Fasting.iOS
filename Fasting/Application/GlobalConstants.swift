@@ -14,6 +14,7 @@ public enum GlobalConstants {
     public static let applicationPrefix = "APP_PREFIX"
     public static let appStoreURL = "https://apps.apple.com/us/app/APPSTORE_IDENTIFIER"
 
+    // TODO: - Add contactEmail, termsOfUse, privacyPolicy
     // MARK: - Contact and other info
     public static let contactEmail = "CONTACT_EMAIL"
     public static let termsOfUse = "https://getpaidapp.com/terms"

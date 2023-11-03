@@ -19,7 +19,7 @@ struct RootScreen: View {
                 .tabItem {
                     fastingTabImage
                 }
-            Text("Hello world 2")
+            viewModel.profileScreen
                 .tag(AppTab.profile)
                 .tabItem {
                     Image.personFill
@@ -31,6 +31,19 @@ struct RootScreen: View {
                 }
         }
         .withDebugMenu()
+        .navBarButton(placement: .principal,
+                      isVisible: viewModel.currentTab.navigationTitle != nil,
+                      content: navigationTitleView,
+                      action: {})
+        .navigationBarTitleDisplayMode(.inline)
+    }
+
+    @ViewBuilder
+    private var navigationTitleView: some View {
+        if let title = viewModel.currentTab.navigationTitle {
+            Text(title)
+                .font(.poppins(.buttonText))
+        }
     }
 
     private var fastingTabImage: Image {

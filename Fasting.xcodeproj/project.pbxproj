@@ -160,6 +160,13 @@
 		A04272CC2AE28DF600754326 /* DebugMenuInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */; };
 		A04272CE2AE28F2C00754326 /* DebugMenuActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CD2AE28F2C00754326 /* DebugMenuActionsView.swift */; };
 		A04272D02AE29E6F00754326 /* WithDebugMenuModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CF2AE29E6F00754326 /* WithDebugMenuModifier.swift */; };
+		A044263A2AF240F4005400AE /* ProfileInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426342AF240F4005400AE /* ProfileInput.swift */; };
+		A044263B2AF240F4005400AE /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426352AF240F4005400AE /* ProfileRouter.swift */; };
+		A044263C2AF240F4005400AE /* ProfileRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426362AF240F4005400AE /* ProfileRoute.swift */; };
+		A044263D2AF240F4005400AE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426372AF240F4005400AE /* ProfileScreen.swift */; };
+		A044263E2AF240F4005400AE /* ProfileOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426382AF240F4005400AE /* ProfileOutput.swift */; };
+		A044263F2AF240F4005400AE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426392AF240F4005400AE /* ProfileViewModel.swift */; };
+		A04426532AF3BEDA005400AE /* ProfileButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426522AF3BEDA005400AE /* ProfileButtonView.swift */; };
 		A04426302AF23DAE005400AE /* TimeInterval+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044262F2AF23DAE005400AE /* TimeInterval+extensions.swift */; };
 		A04426322AF23DC0005400AE /* Int+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426312AF23DC0005400AE /* Int+extensions.swift */; };
 		A063B1F52AEBD0E800084696 /* StartFastingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */; };
@@ -365,6 +372,13 @@
 		A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuInfoView.swift; sourceTree = "<group>"; };
 		A04272CD2AE28F2C00754326 /* DebugMenuActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuActionsView.swift; sourceTree = "<group>"; };
 		A04272CF2AE29E6F00754326 /* WithDebugMenuModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDebugMenuModifier.swift; sourceTree = "<group>"; };
+		A04426342AF240F4005400AE /* ProfileInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInput.swift; sourceTree = "<group>"; };
+		A04426352AF240F4005400AE /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		A04426362AF240F4005400AE /* ProfileRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoute.swift; sourceTree = "<group>"; };
+		A04426372AF240F4005400AE /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		A04426382AF240F4005400AE /* ProfileOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOutput.swift; sourceTree = "<group>"; };
+		A04426392AF240F4005400AE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		A04426522AF3BEDA005400AE /* ProfileButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonView.swift; sourceTree = "<group>"; };
 		A044262F2AF23DAE005400AE /* TimeInterval+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+extensions.swift"; sourceTree = "<group>"; };
 		A04426312AF23DC0005400AE /* Int+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extensions.swift"; sourceTree = "<group>"; };
 		A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingInput.swift; sourceTree = "<group>"; };
@@ -973,6 +987,7 @@
 		56C28D682AE0FBFC0007E48D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A04426332AF240E4005400AE /* Profile */,
 				A063B1EE2AEBD0C600084696 /* StartFasting */,
 				A0881E5F2AEAC31100E38FF5 /* Fasting */,
 				566C24832AE8F80B00AEDB3C /* Paywall */,
@@ -1094,6 +1109,36 @@
 				A04272CF2AE29E6F00754326 /* WithDebugMenuModifier.swift */,
 			);
 			path = Modifier;
+			sourceTree = "<group>";
+		};
+		A04426332AF240E4005400AE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A04426412AF2425C005400AE /* View */,
+				A04426402AF240F6005400AE /* Routing */,
+				A04426372AF240F4005400AE /* ProfileScreen.swift */,
+				A04426392AF240F4005400AE /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A04426402AF240F6005400AE /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A04426382AF240F4005400AE /* ProfileOutput.swift */,
+				A04426342AF240F4005400AE /* ProfileInput.swift */,
+				A04426352AF240F4005400AE /* ProfileRouter.swift */,
+				A04426362AF240F4005400AE /* ProfileRoute.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		A04426412AF2425C005400AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A04426522AF3BEDA005400AE /* ProfileButtonView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A063B1EE2AEBD0C600084696 /* StartFasting */ = {
@@ -1422,6 +1467,7 @@
 				567500072ADE84B4009331CB /* MigrationLaunchService.swift in Sources */,
 				A0881E702AEAC88D00E38FF5 /* FastingProgressView.swift in Sources */,
 				567500E72ADFD59B009331CB /* BackendEnvironmentService.swift in Sources */,
+				A044263C2AF240F4005400AE /* ProfileRoute.swift in Sources */,
 				56C28DCB2AE109580007E48D /* AppInitializerService.swift in Sources */,
 				A0881E662AEAC32500E38FF5 /* FastingInput.swift in Sources */,
 				566C24912AE8F80B00AEDB3C /* PaywallRouter.swift in Sources */,
@@ -1441,6 +1487,7 @@
 				56C28DCA2AE109580007E48D /* AppInitializerServiceImpl.swift in Sources */,
 				A0CEE6302AEFE4280082B27F /* FastingParametersService.swift in Sources */,
 				56C28DC62AE109580007E48D /* IntercomInitializer.swift in Sources */,
+				A044263F2AF240F4005400AE /* ProfileViewModel.swift in Sources */,
 				A0CEE61C2AEFE2E50082B27F /* FastingStatus.swift in Sources */,
 				566C24922AE8F80B00AEDB3C /* PaywallViewModel.swift in Sources */,
 				A0CEE61E2AEFE2F20082B27F /* FastingActiveState.swift in Sources */,
@@ -1493,6 +1540,7 @@
 				A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */,
 				567500912ADFAA4A009331CB /* IntercomData.swift in Sources */,
 				567500A02ADFAB69009331CB /* ProductProvider.swift in Sources */,
+				A044263A2AF240F4005400AE /* ProfileInput.swift in Sources */,
 				5675FFF52ADE84B4009331CB /* UpdateIdentifiersMessage.swift in Sources */,
 				A063B1F82AEBD0E800084696 /* StartFastingScreen.swift in Sources */,
 				567500CD2ADFCC54009331CB /* AppSyncService.swift in Sources */,
@@ -1525,6 +1573,7 @@
 				567500272ADE86C3009331CB /* ExecutionDispatchQueue.swift in Sources */,
 				567500502ADFA81D009331CB /* DataDependencies.swift in Sources */,
 				A07D95902AE9202500D2C2E2 /* AppCustomization.swift in Sources */,
+				A044263E2AF240F4005400AE /* ProfileOutput.swift in Sources */,
 				566C249B2AE8F80B00AEDB3C /* PaywallRoute.swift in Sources */,
 				A7622F502AEBC9AA00D12632 /* Font+Poppins.swift in Sources */,
 				567500A62ADFAE8D009331CB /* PaywallServiceContext.swift in Sources */,
@@ -1559,6 +1608,7 @@
 				563257152ADE57D80000F33C /* FastingApp.swift in Sources */,
 				56C28DCE2AE109580007E48D /* CrashlyticsInitializer.swift in Sources */,
 				5675008D2ADFAA4A009331CB /* Account.swift in Sources */,
+				A044263D2AF240F4005400AE /* ProfileScreen.swift in Sources */,
 				567500A12ADFAB69009331CB /* SubscriptionDependencies.swift in Sources */,
 				A063B1F72AEBD0E800084696 /* StartFastingRoute.swift in Sources */,
 				A07D95A92AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift in Sources */,
@@ -1588,8 +1638,10 @@
 				5675010C2ADFD955009331CB /* IntercomDataStorageImpl.swift in Sources */,
 				566C24982AE8F80B00AEDB3C /* PaywallScreen.swift in Sources */,
 				5675FFFA2ADE84B4009331CB /* AppWillEnterForegroundMessage.swift in Sources */,
+				A04426532AF3BEDA005400AE /* ProfileButtonView.swift in Sources */,
 				5675FFFE2ADE84B4009331CB /* WillTerminateMessage.swift in Sources */,
 				567501082ADFD955009331CB /* IntercomDependencies.swift in Sources */,
+				A044263B2AF240F4005400AE /* ProfileRouter.swift in Sources */,
 				567500252ADE86C3009331CB /* Atomic.swift in Sources */,
 				567500C72ADFCC54009331CB /* SyncServiceBaseImpl.swift in Sources */,
 			);
@@ -1911,7 +1963,7 @@
 			repositoryURL = "git@github.com:m-unicorn/AppStudio.iOS.Navigation.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.1;
+				version = 1.0.2;
 			};
 		};
 		5675FFA02ADE7DB2009331CB /* XCRemoteSwiftPackageReference "AppStudio.iOS.Subscriptions" */ = {

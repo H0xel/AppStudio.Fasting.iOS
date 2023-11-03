@@ -8,6 +8,11 @@
 import SwiftUI
 
 extension Image {
+
+    static var heart: Image {
+        Image("heart")
+    }
+
     static var fastingTabBarItemActive: Image {
         Image("fastingTabBarItemActive")
     }

@@ -13,6 +13,15 @@ enum AppTab {
     case fasting
     case profile
     case paywall
+
+    var navigationTitle: String? {
+        switch self {
+        case .profile:
+            return NSLocalizedString("ProfileScreen.navigationTitle", comment: "Profile")
+        case .fasting, .paywall:
+            return nil
+        }
+    }
 }
 
 class RootViewModel: BaseViewModel<RootOutput> {
@@ -28,6 +37,10 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     var fasringScreen: some View {
         router.fastingScreen
+    }
+
+    var profileScreen: some View {
+        router.profileScreen
     }
 
     func showPaywall() {

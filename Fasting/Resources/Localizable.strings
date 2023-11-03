@@ -35,3 +35,10 @@
 "FastingStage.burningFat" = "Burning fat";
 "FastingStage.ketosis" = "Ketosis";
 "FastingStage.autophagy" = "Autophagy";
+
+// MARK: - Profile
+"ProfileScreen.navigationTitle" = "Profile";
+"ProfileScreen.support" = "Support";
+"ProfileScreen.termsOfUse" = "Terms of use";
+"ProfileScreen.privacyPolicy" = "Privacy policy";
+"ProfileScreen.supportEmailSubject" = "Fasting App Support";
