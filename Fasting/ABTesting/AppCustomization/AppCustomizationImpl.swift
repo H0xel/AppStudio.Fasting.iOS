@@ -8,9 +8,12 @@
 
 import Foundation
 import AppStudioABTesting
+import AppStudioNavigation
 import RxRelay
 import RxSwift
 import Dependencies
+
+private let requiredAppVersionKey = "force_update_version"
 
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
 
@@ -48,6 +51,12 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     var paywallProductIds: Observable<[String]> {
         productIds
+    }
+
+    func shouldForceUpdate() async throws -> Bool {
+        let requierdVersion: String = try await remoteConfigValue(forKey: requiredAppVersionKey,
+                                                                  defaultValue: Bundle.appVersion)
+        return !Bundle.lessOrEqualToCurrentVersion(requierdVersion)
     }
 }
 

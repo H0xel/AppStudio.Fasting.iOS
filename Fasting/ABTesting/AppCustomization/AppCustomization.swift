@@ -10,5 +10,5 @@ import AppStudioABTesting
 
 protocol AppCustomization {
     func initialize()
-    // TODO: - add app cutomization functions here
+    func shouldForceUpdate() async throws -> Bool
 }

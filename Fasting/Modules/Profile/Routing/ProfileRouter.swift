@@ -34,7 +34,8 @@ class ProfileRouter: BaseRouter {
 
     private func sendEmailWithOpenUrl() {
         Task {
-            await openURL(URL(fileURLWithPath: ""))
+            guard let url = URL(string: GlobalConstants.contactEmail) else { return }
+            await openURL(url)
         }
     }
 }

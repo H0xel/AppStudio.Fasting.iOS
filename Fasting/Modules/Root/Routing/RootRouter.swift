@@ -11,6 +11,7 @@ import Dependencies
 
 class RootRouter: BaseRouter {
     @Dependency(\.paywallService) private var paywallService
+    @Dependency(\.openURL) private var openURL
     private let fastingNavigator = Navigator()
     private let profileNavigator = Navigator()
 
@@ -27,6 +28,15 @@ class RootRouter: BaseRouter {
     func presentPaywall() {
         Task {
             await paywallService.presentPaywallIfNeeded(paywallContext: .onboarding, router: self)
+        }
+    }
+
+    func presentAppStore() {
+        Task {
+            guard let url = URL(string: GlobalConstants.appStoreURL) else {
+                return
+            }
+            await openURL(url)
         }
     }
 }

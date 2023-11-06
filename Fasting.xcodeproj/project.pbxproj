@@ -156,10 +156,13 @@
 		A02787542AEADC5200844246 /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02787532AEADC5200844246 /* AccentButton.swift */; };
 		A02787572AEAE4E700844246 /* FastingIntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02787562AEAE4E700844246 /* FastingIntervalView.swift */; };
 		A02787592AEAE4FB00844246 /* FastingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02787582AEAE4FB00844246 /* FastingTimeView.swift */; };
+		A0382D342AF4EAF2009CC579 /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0382D332AF4EAF2009CC579 /* AppTab.swift */; };
 		A04272C92AE28D3D00754326 /* DebugMenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272C82AE28D3D00754326 /* DebugMenuScreen.swift */; };
 		A04272CC2AE28DF600754326 /* DebugMenuInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */; };
 		A04272CE2AE28F2C00754326 /* DebugMenuActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CD2AE28F2C00754326 /* DebugMenuActionsView.swift */; };
 		A04272D02AE29E6F00754326 /* WithDebugMenuModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CF2AE29E6F00754326 /* WithDebugMenuModifier.swift */; };
+		A04426302AF23DAE005400AE /* TimeInterval+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044262F2AF23DAE005400AE /* TimeInterval+extensions.swift */; };
+		A04426322AF23DC0005400AE /* Int+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426312AF23DC0005400AE /* Int+extensions.swift */; };
 		A044263A2AF240F4005400AE /* ProfileInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426342AF240F4005400AE /* ProfileInput.swift */; };
 		A044263B2AF240F4005400AE /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426352AF240F4005400AE /* ProfileRouter.swift */; };
 		A044263C2AF240F4005400AE /* ProfileRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426362AF240F4005400AE /* ProfileRoute.swift */; };
@@ -167,8 +170,7 @@
 		A044263E2AF240F4005400AE /* ProfileOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426382AF240F4005400AE /* ProfileOutput.swift */; };
 		A044263F2AF240F4005400AE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426392AF240F4005400AE /* ProfileViewModel.swift */; };
 		A04426532AF3BEDA005400AE /* ProfileButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426522AF3BEDA005400AE /* ProfileButtonView.swift */; };
-		A04426302AF23DAE005400AE /* TimeInterval+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044262F2AF23DAE005400AE /* TimeInterval+extensions.swift */; };
-		A04426322AF23DC0005400AE /* Int+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04426312AF23DC0005400AE /* Int+extensions.swift */; };
+		A04DBFB02AF3D2780045980F /* ForceUpdateBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04DBFAF2AF3D2780045980F /* ForceUpdateBanner.swift */; };
 		A063B1F52AEBD0E800084696 /* StartFastingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */; };
 		A063B1F62AEBD0E800084696 /* StartFastingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F02AEBD0E800084696 /* StartFastingRouter.swift */; };
 		A063B1F72AEBD0E800084696 /* StartFastingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F12AEBD0E800084696 /* StartFastingRoute.swift */; };
@@ -368,10 +370,13 @@
 		A02787532AEADC5200844246 /* AccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentButton.swift; sourceTree = "<group>"; };
 		A02787562AEAE4E700844246 /* FastingIntervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingIntervalView.swift; sourceTree = "<group>"; };
 		A02787582AEAE4FB00844246 /* FastingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingTimeView.swift; sourceTree = "<group>"; };
+		A0382D332AF4EAF2009CC579 /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
 		A04272C82AE28D3D00754326 /* DebugMenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuScreen.swift; sourceTree = "<group>"; };
 		A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuInfoView.swift; sourceTree = "<group>"; };
 		A04272CD2AE28F2C00754326 /* DebugMenuActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuActionsView.swift; sourceTree = "<group>"; };
 		A04272CF2AE29E6F00754326 /* WithDebugMenuModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDebugMenuModifier.swift; sourceTree = "<group>"; };
+		A044262F2AF23DAE005400AE /* TimeInterval+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+extensions.swift"; sourceTree = "<group>"; };
+		A04426312AF23DC0005400AE /* Int+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extensions.swift"; sourceTree = "<group>"; };
 		A04426342AF240F4005400AE /* ProfileInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInput.swift; sourceTree = "<group>"; };
 		A04426352AF240F4005400AE /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		A04426362AF240F4005400AE /* ProfileRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoute.swift; sourceTree = "<group>"; };
@@ -379,8 +384,7 @@
 		A04426382AF240F4005400AE /* ProfileOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOutput.swift; sourceTree = "<group>"; };
 		A04426392AF240F4005400AE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A04426522AF3BEDA005400AE /* ProfileButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonView.swift; sourceTree = "<group>"; };
-		A044262F2AF23DAE005400AE /* TimeInterval+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+extensions.swift"; sourceTree = "<group>"; };
-		A04426312AF23DC0005400AE /* Int+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extensions.swift"; sourceTree = "<group>"; };
+		A04DBFAF2AF3D2780045980F /* ForceUpdateBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateBanner.swift; sourceTree = "<group>"; };
 		A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingInput.swift; sourceTree = "<group>"; };
 		A063B1F02AEBD0E800084696 /* StartFastingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingRouter.swift; sourceTree = "<group>"; };
 		A063B1F12AEBD0E800084696 /* StartFastingRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingRoute.swift; sourceTree = "<group>"; };
@@ -1002,6 +1006,7 @@
 				A0CEE6112AEFCF210082B27F /* Routing */,
 				56F64D792AE10EF20067FE05 /* RootScreen.swift */,
 				56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */,
+				A0382D332AF4EAF2009CC579 /* AppTab.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -1077,6 +1082,7 @@
 		A04272C72AE28D2400754326 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A04DBFAE2AF3D2690045980F /* Route */,
 				A02787532AEADC5200844246 /* AccentButton.swift */,
 				A04272CA2AE28DCB00754326 /* DebugMenu */,
 				A063B1FB2AEBD77000084696 /* BorderedButton.swift */,
@@ -1139,6 +1145,14 @@
 				A04426522AF3BEDA005400AE /* ProfileButtonView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A04DBFAE2AF3D2690045980F /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				A04DBFAF2AF3D2780045980F /* ForceUpdateBanner.swift */,
+			);
+			path = Route;
 			sourceTree = "<group>";
 		};
 		A063B1EE2AEBD0C600084696 /* StartFasting */ = {
@@ -1529,6 +1543,7 @@
 				5675010A2ADFD955009331CB /* IntercomUpdaterImpl.swift in Sources */,
 				567500432ADFA67E009331CB /* AccountProvider.swift in Sources */,
 				56F64D802AE10EF20067FE05 /* RootOutput.swift in Sources */,
+				A0382D342AF4EAF2009CC579 /* AppTab.swift in Sources */,
 				5675001F2ADE86C3009331CB /* FirstLaunchService.swift in Sources */,
 				A0CEE6202AEFE2FD0082B27F /* InActiveFastingStage.swift in Sources */,
 				A04272CC2AE28DF600754326 /* DebugMenuInfoView.swift in Sources */,
@@ -1551,6 +1566,7 @@
 				566C24942AE8F80B00AEDB3C /* PaywallScreenOutput.swift in Sources */,
 				5675010B2ADFD955009331CB /* IntercomDataStorage.swift in Sources */,
 				567500DF2ADFD0AB009331CB /* ObfuscatorDepenendencies.swift in Sources */,
+				A04DBFB02AF3D2780045980F /* ForceUpdateBanner.swift in Sources */,
 				5675FFF92ADE84B4009331CB /* AppStudioMessage.swift in Sources */,
 				567500B62ADFC031009331CB /* IDFARequestServiceImpl.swift in Sources */,
 				566C24932AE8F80B00AEDB3C /* PaywallScreenInput.swift in Sources */,
@@ -1979,7 +1995,7 @@
 			repositoryURL = "git@github.com:m-unicorn/AppStudio.iOS.Common.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.2;
+				version = 1.0.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
