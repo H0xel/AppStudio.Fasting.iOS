@@ -17,6 +17,7 @@ enum Step {
 
 class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.storageService) private var storageService
+    @Dependency(\.idfaRequestService) private var idfaRequestService
 
     @Published var currentTab: AppTab = .fasting
     @Published var step: Step
@@ -39,6 +40,10 @@ class RootViewModel: BaseViewModel<RootOutput> {
                 return
             }
         }
+    }
+
+    func requestIdfa() {
+        idfaRequestService.requestIDFATracking()
     }
 
     var fastingScreen: some View {

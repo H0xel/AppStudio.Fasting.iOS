@@ -89,12 +89,6 @@ final class AccountProviderImpl: AccountProvider {
             storageService.accountId = accountId.secret
             installationType = .new
         }
-
-        if let publicID = currentAccountId?.publicId {
-            let id = UIDevice.current.isSandbox ? "stg_" + publicID : publicID
-            trackerService.set(userId: id)
-            analyticStore.accountId = id
-        }
     }
 
     private func configureAccessToken() {

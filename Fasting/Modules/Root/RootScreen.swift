@@ -15,6 +15,9 @@ struct RootScreen: View {
     var body: some View {
         currentView
             .withDebugMenu()
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+                viewModel.requestIdfa()
+            }
     }
 
     @ViewBuilder

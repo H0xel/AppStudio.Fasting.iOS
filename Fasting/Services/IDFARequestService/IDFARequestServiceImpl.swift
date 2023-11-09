@@ -15,7 +15,7 @@ final class IDFARequestServiceImpl: IDFARequestService {
     @Dependency(\.storageService) private var storageService
 
     public func requestIDFATracking() {
-        guard #available(iOS 14.5, *), ATTrackingManager.trackingAuthorizationStatus == .notDetermined else {
+        guard ATTrackingManager.trackingAuthorizationStatus == .notDetermined else {
             return
         }
         trackService.track(.idfaShown(afId: analyticKeyStore.currentAppsFlyerId))
