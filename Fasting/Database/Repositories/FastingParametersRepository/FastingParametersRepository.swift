@@ -6,7 +6,6 @@
 //
 
 import MunicornCoreData
-import Dependencies
 import Foundation
 
 protocol FastingParametersRepository {

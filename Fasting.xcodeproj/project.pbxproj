@@ -26,6 +26,13 @@
 		564BE0C32AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0C22AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift */; };
 		564BE0C52AF0F4DF00CE7F38 /* FastingParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0C42AF0F4DF00CE7F38 /* FastingParametersTests.swift */; };
 		56655B622AFB693E00508ED4 /* ClosedRange+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56655B612AFB693E00508ED4 /* ClosedRange+extentions.swift */; };
+		56655B662AFCB09100508ED4 /* FastingIntervalHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56655B652AFCB09100508ED4 /* FastingIntervalHistory.swift */; };
+		56655B682AFCB10900508ED4 /* FastingIntervalHistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56655B672AFCB10900508ED4 /* FastingIntervalHistoryRepository.swift */; };
+		56655B6A2AFCB12A00508ED4 /* FastingIntervalHistory+Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56655B692AFCB12A00508ED4 /* FastingIntervalHistory+Mappable.swift */; };
+		56655B6C2AFCB46000508ED4 /* FastingIntervalHistoryRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56655B6B2AFCB46000508ED4 /* FastingIntervalHistoryRepositoryImpl.swift */; };
+		56655B712AFCB6AB00508ED4 /* FastingHistoryServiceServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56655B6E2AFCB6AB00508ED4 /* FastingHistoryServiceServiceImpl.swift */; };
+		56655B722AFCB6AB00508ED4 /* FastingHistoryServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56655B6F2AFCB6AB00508ED4 /* FastingHistoryServiceDependencies.swift */; };
+		56655B732AFCB6AB00508ED4 /* FastingHistoryServiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56655B702AFCB6AB00508ED4 /* FastingHistoryServiceService.swift */; };
 		566C24912AE8F80B00AEDB3C /* PaywallRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C24842AE8F80B00AEDB3C /* PaywallRouter.swift */; };
 		566C24922AE8F80B00AEDB3C /* PaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C24852AE8F80B00AEDB3C /* PaywallViewModel.swift */; };
 		566C24932AE8F80B00AEDB3C /* PaywallScreenInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C24872AE8F80B00AEDB3C /* PaywallScreenInput.swift */; };
@@ -288,6 +295,13 @@
 		564BE0C42AF0F4DF00CE7F38 /* FastingParametersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersTests.swift; sourceTree = "<group>"; };
 		564BE0C62AF10FC500CE7F38 /* Fasting.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fasting.entitlements; sourceTree = "<group>"; };
 		56655B612AFB693E00508ED4 /* ClosedRange+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClosedRange+extentions.swift"; sourceTree = "<group>"; };
+		56655B652AFCB09100508ED4 /* FastingIntervalHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingIntervalHistory.swift; sourceTree = "<group>"; };
+		56655B672AFCB10900508ED4 /* FastingIntervalHistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingIntervalHistoryRepository.swift; sourceTree = "<group>"; };
+		56655B692AFCB12A00508ED4 /* FastingIntervalHistory+Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FastingIntervalHistory+Mappable.swift"; sourceTree = "<group>"; };
+		56655B6B2AFCB46000508ED4 /* FastingIntervalHistoryRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingIntervalHistoryRepositoryImpl.swift; sourceTree = "<group>"; };
+		56655B6E2AFCB6AB00508ED4 /* FastingHistoryServiceServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingHistoryServiceServiceImpl.swift; sourceTree = "<group>"; };
+		56655B6F2AFCB6AB00508ED4 /* FastingHistoryServiceDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingHistoryServiceDependencies.swift; sourceTree = "<group>"; };
+		56655B702AFCB6AB00508ED4 /* FastingHistoryServiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingHistoryServiceService.swift; sourceTree = "<group>"; };
 		566C24842AE8F80B00AEDB3C /* PaywallRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallRouter.swift; sourceTree = "<group>"; };
 		566C24852AE8F80B00AEDB3C /* PaywallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallViewModel.swift; sourceTree = "<group>"; };
 		566C24872AE8F80B00AEDB3C /* PaywallScreenInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallScreenInput.swift; sourceTree = "<group>"; };
@@ -628,6 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				564BE0C02AF0F31600CE7F38 /* FastingParameters+Mappable.swift */,
+				56655B692AFCB12A00508ED4 /* FastingIntervalHistory+Mappable.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -638,6 +653,34 @@
 				564BE0BE2AF0F30400CE7F38 /* FastingParameters.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		56655B632AFCB06D00508ED4 /* FastingIntervalHistoryRepository */ = {
+			isa = PBXGroup;
+			children = (
+				56655B642AFCB08000508ED4 /* Model */,
+				56655B672AFCB10900508ED4 /* FastingIntervalHistoryRepository.swift */,
+				56655B6B2AFCB46000508ED4 /* FastingIntervalHistoryRepositoryImpl.swift */,
+			);
+			path = FastingIntervalHistoryRepository;
+			sourceTree = "<group>";
+		};
+		56655B642AFCB08000508ED4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56655B652AFCB09100508ED4 /* FastingIntervalHistory.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56655B6D2AFCB67C00508ED4 /* FastingHistoryService */ = {
+			isa = PBXGroup;
+			children = (
+				56655B702AFCB6AB00508ED4 /* FastingHistoryServiceService.swift */,
+				56655B6E2AFCB6AB00508ED4 /* FastingHistoryServiceServiceImpl.swift */,
+				56655B6F2AFCB6AB00508ED4 /* FastingHistoryServiceDependencies.swift */,
+			);
+			path = FastingHistoryService;
 			sourceTree = "<group>";
 		};
 		566C24832AE8F80B00AEDB3C /* Paywall */ = {
@@ -1036,6 +1079,7 @@
 		5675FFD12ADE8358009331CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				56655B6D2AFCB67C00508ED4 /* FastingHistoryService */,
 				A0CEE62A2AEFE41C0082B27F /* FastingParameters */,
 				A0CEE6232AEFE3D30082B27F /* FastingService */,
 				A749A0832AE67E8F0093C377 /* TrackerService */,
@@ -1116,6 +1160,7 @@
 		56B10AB82AF0DEE1008FC07E /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				56655B632AFCB06D00508ED4 /* FastingIntervalHistoryRepository */,
 				564BE0BB2AF0F2CE00CE7F38 /* FastingParametersRepository */,
 			);
 			path = Repositories;
@@ -1751,17 +1796,20 @@
 				A044263C2AF240F4005400AE /* ProfileRoute.swift in Sources */,
 				56C28DCB2AE109580007E48D /* AppInitializerService.swift in Sources */,
 				A7D01B732AF0D01E00C50C1F /* FastingPlanView.swift in Sources */,
+				56655B712AFCB6AB00508ED4 /* FastingHistoryServiceServiceImpl.swift in Sources */,
 				A0881E662AEAC32500E38FF5 /* FastingInput.swift in Sources */,
 				566C24912AE8F80B00AEDB3C /* PaywallRouter.swift in Sources */,
 				56B10ABE2AF0E0AC008FC07E /* DatabaseInitializer.swift in Sources */,
 				A0CEE6282AEFE3FB0082B27F /* FastingServiceImpl.swift in Sources */,
 				567500922ADFAA4A009331CB /* PaywallContext.swift in Sources */,
 				A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */,
+				56655B682AFCB10900508ED4 /* FastingIntervalHistoryRepository.swift in Sources */,
 				AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */,
 				A7D01B942AF115F200C50C1F /* NotificationOnboardingViewModel.swift in Sources */,
 				A0881E6A2AEAC32500E38FF5 /* FastingOutput.swift in Sources */,
 				A0881E692AEAC32500E38FF5 /* FastingScreen.swift in Sources */,
 				5675FFF42ADE84B4009331CB /* MayUseStateChangedMessage.swift in Sources */,
+				56655B6C2AFCB46000508ED4 /* FastingIntervalHistoryRepositoryImpl.swift in Sources */,
 				A7D01B5D2AF0C82100C50C1F /* OnboardingInput.swift in Sources */,
 				567500EF2ADFD6BC009331CB /* AppSettingsProviderImpl.swift in Sources */,
 				567500442ADFA67E009331CB /* AccountProviderPreview.swift in Sources */,
@@ -1819,6 +1867,7 @@
 				A008A8312AF14C0B0011A261 /* Animation+extensions.swift in Sources */,
 				5675010A2ADFD955009331CB /* IntercomUpdaterImpl.swift in Sources */,
 				567500432ADFA67E009331CB /* AccountProvider.swift in Sources */,
+				56655B732AFCB6AB00508ED4 /* FastingHistoryServiceService.swift in Sources */,
 				56F64D802AE10EF20067FE05 /* RootOutput.swift in Sources */,
 				A0382D342AF4EAF2009CC579 /* AppTab.swift in Sources */,
 				5675001F2ADE86C3009331CB /* FirstLaunchService.swift in Sources */,
@@ -1830,6 +1879,7 @@
 				567500CB2ADFCC54009331CB /* AccountSyncService.swift in Sources */,
 				5675008C2ADFAA4A009331CB /* RestoreResult.swift in Sources */,
 				56B10ABB2AF0DFF9008FC07E /* Model.xcdatamodeld in Sources */,
+				56655B722AFCB6AB00508ED4 /* FastingHistoryServiceDependencies.swift in Sources */,
 				A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */,
 				567500912ADFAA4A009331CB /* IntercomData.swift in Sources */,
 				567500A02ADFAB69009331CB /* ProductProvider.swift in Sources */,
@@ -1899,6 +1949,7 @@
 				5675FFEF2ADE84B4009331CB /* MessengerService.swift in Sources */,
 				567500412ADFA67E009331CB /* ProvidersDependencies.swift in Sources */,
 				567500ED2ADFD6A0009331CB /* AppSettingsProvider.swift in Sources */,
+				56655B662AFCB09100508ED4 /* FastingIntervalHistory.swift in Sources */,
 				A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */,
 				A04426302AF23DAE005400AE /* TimeInterval+extensions.swift in Sources */,
 				567500532ADFA8C1009331CB /* KeyValueStorageImpl.swift in Sources */,
@@ -1912,6 +1963,7 @@
 				56F64D7D2AE10EF20067FE05 /* RootRouter.swift in Sources */,
 				A0881E5C2AEAB7A800E38FF5 /* Image+icons.swift in Sources */,
 				A7D01B612AF0C82100C50C1F /* OnboardingOutput.swift in Sources */,
+				56655B6A2AFCB12A00508ED4 /* FastingIntervalHistory+Mappable.swift in Sources */,
 				567500CC2ADFCC54009331CB /* AppSyncServiceImpl.swift in Sources */,
 				567501072ADFD955009331CB /* IntercomService.swift in Sources */,
 				564BE0BF2AF0F30400CE7F38 /* FastingParameters.swift in Sources */,

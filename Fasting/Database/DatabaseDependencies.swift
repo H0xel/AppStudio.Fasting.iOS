@@ -17,6 +17,10 @@ extension DependencyValues {
     var fastingParametersRepository: FastingParametersRepository {
         self[FastingParametersRepositoryKey.self]
     }
+
+    var fastingIntervalHistoryRepository: FastingIntervalHistoryRepository {
+        self[FastingIntervalHistoryRepositoryKey.self]
+    }
 }
 
 private enum FastingParametersRepositoryKey: DependencyKey {
@@ -27,4 +31,9 @@ private enum FastingParametersRepositoryKey: DependencyKey {
 private enum CoreDataServiceKey: DependencyKey {
     static let liveValue = MunicornCoreDataFactory.instance.coreDataService
     static let testValue = MunicornCoreDataFactory.instance.coreDataService
+}
+
+private enum FastingIntervalHistoryRepositoryKey: DependencyKey {
+    static let liveValue: FastingIntervalHistoryRepository = FastingIntervalHistoryRepositoryImpl()
+    static let testValue: FastingIntervalHistoryRepository = FastingIntervalHistoryRepositoryImpl()
 }
