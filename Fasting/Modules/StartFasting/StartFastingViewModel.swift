@@ -5,20 +5,24 @@
 //  Created by Руслан Сафаргалеев on 27.10.2023.
 //
 
-import Foundation
+import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
 
 class StartFastingViewModel: BaseViewModel<StartFastingOutput> {
 
     @Published var fastTime: Date
-    @Published var allowSelectFuture: Bool
+    let title: LocalizedStringKey
+    let dateComponents: DatePickerComponents
+    let datesRange: ClosedRange<Date>
 
     var router: StartFastingRouter!
 
     init(input: StartFastingInput, output: @escaping StartFastingOutputBlock) {
         fastTime = input.initialDate
-        allowSelectFuture = input.allowSelectFuture
+        title = input.title
+        dateComponents = input.datePickerComponents
+        datesRange = input.datesRange
         super.init(output: output)
     }
 

@@ -9,5 +9,4 @@ import AppStudioUI
 typealias FastingOutputBlock = ViewOutput<FastingOutput>
 
 enum FastingOutput {
-    // add Output parameters here
 }

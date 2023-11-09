@@ -20,4 +20,21 @@ extension TimeInterval {
         let secondsString = seconds.withLeadingZeroIfOneNumber
         return "\(hoursString):\(minutesString):\(secondsString)"
     }
+
+    var fastingStage: FastingStage {
+        switch self {
+        case 0 ... .hour * 2:
+            return .sugarRises
+        case .hour * 2 ... .hour * 8:
+            return .sugarDrop
+        case .hour * 8 ... .hour * 10:
+            return .sugarNormal
+        case .hour * 10 ... .hour * 14:
+            return .burning
+        case .hour * 14 ... .hour * 16:
+            return .ketosis
+        default:
+            return .autophagy
+        }
+    }
 }

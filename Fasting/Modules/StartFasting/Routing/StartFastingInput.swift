@@ -5,9 +5,28 @@
 //  Created by Руслан Сафаргалеев on 27.10.2023.
 //
 
-import Foundation
+import SwiftUI
+import AppStudioUI
 
 struct StartFastingInput {
+    let title: LocalizedStringKey
+    let datePickerComponents: DatePickerComponents
     let initialDate: Date
-    let allowSelectFuture: Bool
+    let datesRange: ClosedRange<Date>
+}
+
+extension StartFastingInput {
+    static func startFasting(initialDate: Date, maxDate: Date, components: DatePickerComponents) -> StartFastingInput {
+        .init(title: "StartFastingScreen.whenToStart",
+              datePickerComponents: components,
+              initialDate: initialDate,
+              datesRange: .now.adding(.day, value: -3) ... maxDate)
+    }
+
+    static func endFasting(initialDate: Date, minDate: Date) -> StartFastingInput {
+        .init(title: "StartFastingScreen.whenFinished",
+              datePickerComponents: [.date, .hourAndMinute],
+              initialDate: initialDate,
+              datesRange: minDate ... .now)
+    }
 }

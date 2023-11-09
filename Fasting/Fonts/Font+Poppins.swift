@@ -27,13 +27,21 @@ extension Font {
 
 extension Font {
     enum Poppins: CGFloat {
+        /// Size: 96
         case accentL = 96
+        /// Size: 40
         case accentS = 40
+        /// Size: 32
         case headerL = 32
+        /// Size: 24
         case headerM = 24
+        /// Size: 20
         case headerS = 20
+        /// Size: 18
         case buttonText = 18
+        /// Size: 15
         case body = 15
+        /// Size: 13
         case description = 13
 
         var isBold: Bool {

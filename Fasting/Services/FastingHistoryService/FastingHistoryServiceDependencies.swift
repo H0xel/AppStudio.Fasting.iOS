@@ -8,12 +8,12 @@
 import Dependencies
 
 extension DependencyValues {
-    var fastingHistoryServiceService: FastingHistoryServiceService {
-        self[FastingHistoryServiceServiceKey.self]
+    var fastingHistoryService: FastingHistoryService {
+        self[FastingHistoryServiceKey.self]
     }
 }
 
-private enum FastingHistoryServiceServiceKey: DependencyKey {
-    static var liveValue: FastingHistoryServiceService = FastingHistoryServiceServiceImpl()
-    static var testValue: FastingHistoryServiceService = FastingHistoryServiceServiceImpl()
+private enum FastingHistoryServiceKey: DependencyKey {
+    static var liveValue: FastingHistoryService = FastingHistoryServiceImpl()
+    static var testValue: FastingHistoryService = FastingHistoryServiceImpl()
 }

@@ -6,6 +6,8 @@
 //
 import Foundation
 
-protocol FastingHistoryServiceService {
-    func saveHistory(interval: FastingInterval, finishedAt finishedDate: Date) async throws
+protocol FastingHistoryService {
+    func saveHistory(interval: FastingInterval,
+                     startedAt startedDate: Date,
+                     finishedAt finishedDate: Date) async throws
 }

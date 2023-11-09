@@ -14,14 +14,16 @@ struct StartFastingScreen: View {
 
     var body: some View {
         VStack(spacing: .zero) {
-            Text(Localization.whenToStart)
+            Text(viewModel.title)
                 .font(.poppins(.headerM))
                 .fontWeight(.semibold)
 
-            DatePicker("", selection: $viewModel.fastTime,
-                       in: .threeDaysUntilNow(allowFuture: viewModel.allowSelectFuture))
-                .datePickerStyle(.wheel)
-                .padding(.vertical, Layout.datePickerVerticalPadding)
+            DatePicker("",
+                       selection: $viewModel.fastTime,
+                       in: viewModel.datesRange,
+                       displayedComponents: viewModel.dateComponents)
+            .datePickerStyle(.wheel)
+            .padding(.vertical, Layout.datePickerVerticalPadding)
 
             HStack(spacing: Layout.buttonsSpacing) {
                 BorderedButton(title: Localization.cancel, action: viewModel.cancel)
@@ -30,7 +32,6 @@ struct StartFastingScreen: View {
         }
         .multilineTextAlignment(.center)
         .foregroundStyle(Color.accentColor)
-
         .padding(.top, Layout.topPadding)
         .padding(.horizontal, Layout.horizontalPadding)
     }
@@ -51,7 +52,6 @@ private extension StartFastingScreen {
 // MARK: - Localization
 private extension StartFastingScreen {
     enum Localization {
-        static let whenToStart: LocalizedStringKey = "StartFastingScreen.whenToStart"
         static let save: LocalizedStringKey = "SaveTitle"
         static let cancel: LocalizedStringKey = "CancelTitle"
     }
@@ -59,8 +59,10 @@ private extension StartFastingScreen {
 
 struct StartFastingScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = StartFastingViewModel(input: .init(initialDate: .now,
-                                                           allowSelectFuture: true), output: { _ in })
+        let viewModel = StartFastingViewModel(input: .startFasting(initialDate: .now,
+                                                                   maxDate: .now.adding(.year, value: 1), 
+                                                                   components: .hourAndMinute),
+                                              output: { _ in })
         viewModel.router = .init(navigator: .init())
 
         return FastingScreen(viewModel: .init(input: .init(), output: { _ in }))

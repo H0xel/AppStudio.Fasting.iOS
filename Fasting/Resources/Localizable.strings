@@ -2,6 +2,8 @@
 // MARK: - Common
 "SaveTitle" = "Save";
 "CancelTitle" = "Cancel";
+"Button.cancel" = "Cancel";
+"TodayTitle" = "Today";
 
 // MARK: - Paywall Screen
 "Paywall.title" = "Paywall Title";
@@ -21,11 +23,13 @@
 "FastingProgressView.nextFastIn" = "Next fast in";
 "FastingProgressView.readyToFast" = "Ready\nto fast?";
 "FastingProgressView.youFastFor" = "You've fasted for";
+
 "FastingIntervalView.fastingStarted" = "Fasting started";
 "FastingIntervalView.fastingEnd" = "Fasting end";
 
 // MARK: - Start Fasting Screen
 "StartFastingScreen.whenToStart" = "When did you start\nfasting?";
+"StartFastingScreen.whenFinished" = "When did you finish\nfasting?";
 
 
 // MARK: - Fasting Stage
@@ -82,3 +86,18 @@
 "ProfileScreen.termsOfUse" = "Terms of use";
 "ProfileScreen.privacyPolicy" = "Privacy policy";
 "ProfileScreen.supportEmailSubject" = "Fasting App Support";
+
+// MARK: - Success screen
+"SuccessScreen.striveForProgress" = "Strive for progress, not perfection!";
+"SuccessScreen.fastingChampion" = "You are a fasting champion! Keep it up!";
+"SuccessScreen.outdoneYourself" = "You've outdone yourself!";
+"SuccessScreen.youFastedFor" = "You fasted for %@ hours more than you planned";
+"SuccessScreen.yourFastingTime" = "Your fasting time";
+"SuccessScreen.fastingEnded" = "Fasting ended";
+"SuccessScreen.submit" = "Submit";
+
+// MARK: - End Fasting Early Screen
+"EndFastingEarlyScreen.title" = "Don't give up!\nYou can do it.";
+"EndFastingEarlyScreen.fastingTime" = "You have fasted for less than %@";
+"EndFastingEarlyScreen.hour.form1" = "%i hour";
+"EndFastingEarlyScreen.hour.form2" = "%i hours";

@@ -7,13 +7,15 @@
 import Foundation
 import Dependencies
 
-class FastingHistoryServiceServiceImpl: FastingHistoryServiceService {
+class FastingHistoryServiceImpl: FastingHistoryService {
     @Dependency(\.fastingIntervalHistoryRepository) private var fastingIntervalHistoryRepository
 
-    func saveHistory(interval: FastingInterval, finishedAt finishedDate: Date) async throws {
+    func saveHistory(interval: FastingInterval, 
+                     startedAt startedDate: Date,
+                     finishedAt finishedDate: Date) async throws {
         let history = FastingIntervalHistory(
             currentDate: .now,
-            startedDate: interval.startDate,
+            startedDate: startedDate,
             finishedDate: finishedDate,
             plan: interval.plan)
 

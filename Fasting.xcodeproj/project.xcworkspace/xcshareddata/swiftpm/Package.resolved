@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:m-unicorn/AppStudio.iOS.Navigation.git",
       "state" : {
-        "revision" : "37f24b9d143d99478e6d071fe028d302c793797c",
-        "version" : "1.0.2"
+        "revision" : "94a8cc646cdd557216cfc31541b92c0419f32339",
+        "version" : "1.0.3"
       }
     },
     {
