@@ -36,6 +36,46 @@
 "FastingStage.ketosis" = "Ketosis";
 "FastingStage.autophagy" = "Autophagy";
 
+// MARK: - Onboarding
+
+"Onboarding.buttonTitle" = "Get started";
+"Onboarding.description" = "Take your health and well-being to the next level";
+
+// MARK: Choose fasting plan
+
+"ChooseFastingPlan.title" = "Choose your fasting time";
+"ChooseFastingPlan.description" = "Your fasting period starts right after the last meal of the day. Select a fasting schedule that best suits your daily routine.";
+"ChooseFastingPlan.buttonTitle" = "Choose";
+"ChooseFastingPlan.regular" = "Regular";
+"ChooseFastingPlan.beginner" = "Beginner";
+"ChooseFastingPlan.expert" = "Expert";
+"ChooseFastingPlan.regular.description" = "Full health benefits";
+"ChooseFastingPlan.beginner.description" = "Getting into things";
+"ChooseFastingPlan.expert.description" = "Occasions";
+"ChooseFastingPlan.regular.intervalPlan" = "16:8";
+"ChooseFastingPlan.beginner.intervalPlan" = "14:10";
+"ChooseFastingPlan.expert.intervalPlan" = "20:4";
+"ChooseFastingPlan.beginner.intervalDescription" = "14h fasting · 10h eating";
+"ChooseFastingPlan.expert.intervalDescription" = "20h fasting · 4h eating";
+"ChooseFastingPlan.regular.intervalDescription" = "16h fasting · 8h eating";
+"ChooseFastingPlan.beginner.intervalDescription" = "14h fasting · 10h eating";
+"ChooseFastingPlan.expert.intervalDescription" = "20h fasting · 4h eating";
+
+
+// MARK: Setup fasting
+
+"SetupFasting.title" = "Start fasting at";
+"SetupFasting.buttonBannerTitle" = "Change";
+"SetupFasting.description" = "Fasting ends on the following day at 2:00 pm";
+"SetupFasting.buttonTitle" = "Save";
+"SetupFasting.sameDay" = "Fasting ends on the same day at";
+"SetupFasting.followingDay" = "Fasting ends on the following day at";
+
+// MARK: Notification onboarding
+
+"NotificationOnboarding.title" = "Stay Motivated with Notifications";
+"NotificationOnboarding.button" = "Allow notifications";
+
 // MARK: - Profile
 "ProfileScreen.navigationTitle" = "Profile";
 "ProfileScreen.support" = "Support";

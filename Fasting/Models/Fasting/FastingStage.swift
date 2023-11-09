@@ -63,7 +63,6 @@ enum FastingStage: String, CaseIterable, Equatable {
 }
 
 extension FastingStage: Comparable {
-    
     static func < (lhs: FastingStage, rhs: FastingStage) -> Bool {
         guard let leftIndex = FastingStage.allCases.firstIndex(of: lhs),
               let rightIndex = FastingStage.allCases.firstIndex(of: rhs) else {

@@ -13,29 +13,40 @@ struct RootScreen: View {
     @StateObject var viewModel: RootViewModel
 
     var body: some View {
-        TabView(selection: $viewModel.currentTab) {
-            viewModel.fasringScreen
-                .tag(AppTab.fasting)
-                .tabItem {
-                    fastingTabImage
-                }
-            viewModel.profileScreen
-                .tag(AppTab.profile)
-                .tabItem {
-                    Image.personFill
-                }
-            Text("Hello world 3")
-                .tag(AppTab.paywall)
-                .tabItem {
-                    Image.crownFill
-                }
+        currentView
+            .withDebugMenu()
+    }
+
+    @ViewBuilder
+    private var currentView: some View {
+        switch viewModel.step {
+        case .onboarding:
+            viewModel.onboardingScreen
+        case .fasting:
+            TabView(selection: $viewModel.currentTab) {
+                viewModel.fastingScreen
+                    .tag(AppTab.fasting)
+                    .tabItem {
+                        fastingTabImage
+                    }
+                viewModel.profileScreen
+                    .tag(AppTab.profile)
+                    .tabItem {
+                        Image.personFill
+                    }
+                Text("Hello world 3")
+                    .tag(AppTab.paywall)
+                    .tabItem {
+                        Image.crownFill
+                    }
+            }
+            .withDebugMenu()
+            .navBarButton(placement: .principal,
+                          isVisible: viewModel.currentTab.navigationTitle != nil,
+                          content: navigationTitleView,
+                          action: {})
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .withDebugMenu()
-        .navBarButton(placement: .principal,
-                      isVisible: viewModel.currentTab.navigationTitle != nil,
-                      content: navigationTitleView,
-                      action: {})
-        .navigationBarTitleDisplayMode(.inline)
     }
 
     @ViewBuilder
@@ -66,7 +77,7 @@ private extension RootScreen {
 
 struct RootScreen_Previews: PreviewProvider {
     static var previews: some View {
-        var viewModel = RootViewModel(input: RootInput(), output: { _ in })
+        let viewModel = RootViewModel(input: RootInput(step: .fasting), output: { _ in })
         viewModel.router = .init(navigator: .init())
         return RootScreen(viewModel: viewModel)
     }

@@ -6,5 +6,5 @@
 //
 
 struct RootInput {
-    // add Input parameters here
+    let step: Step
 }

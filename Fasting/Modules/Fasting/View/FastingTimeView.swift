@@ -12,7 +12,7 @@ struct FastingTimeView: View {
 
     let title: LocalizedStringKey
     let time: String
-    var onEdit: (() -> Void)? = nil
+    var onEdit: (() -> Void)?
 
     var body: some View {
         VStack(spacing: Layout.spacing) {

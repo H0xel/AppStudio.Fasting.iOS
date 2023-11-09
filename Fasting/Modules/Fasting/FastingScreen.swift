@@ -1,4 +1,4 @@
-//  
+//
 //  FastingScreen.swift
 //  Fasting
 //
@@ -16,15 +16,17 @@ struct FastingScreen: View {
         VStack {
             FastingStagesView(currentStage: viewModel.currentStage)
             Spacer()
-            FastingProgressView(status: viewModel.fastingStatus, 
-                                plan: viewModel.fastingInterval.plan)
-                .padding(.horizontal, Layout.horizontalPadding)
+            FastingProgressView(status: viewModel.fastingStatus,
+                                plan: viewModel.fastingInterval.plan) {
+                viewModel.onChangeFastingTapped()
+            }
+            .padding(.horizontal, Layout.horizontalPadding)
             Spacer()
             FastingIntervalView(fastStarts: viewModel.fastingStartTime,
                                 fastEnds: viewModel.fastingEndTime,
                                 onEdit: viewModel.changeFastingTime)
-                .padding(.bottom, Layout.timeBottomPadding)
-                .padding(.horizontal, Layout.horizontalPadding)
+            .padding(.bottom, Layout.timeBottomPadding)
+            .padding(.horizontal, Layout.horizontalPadding)
             AccentButton(title: viewModel.isFastingActive ? Localization.endFasting : Localization.startFasting,
                          action: viewModel.toggleFasting)
             .padding(.horizontal, Layout.horizontalPadding)

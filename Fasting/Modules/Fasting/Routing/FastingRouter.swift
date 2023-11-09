@@ -20,4 +20,14 @@ class FastingRouter: BaseRouter {
         }
         present(sheet: route, detents: [.height(484)], showIndicator: false)
     }
+
+    func presentSetupFasting(plan: FastingPlan) {
+        let route = SetupFastingRoute(navigator: navigator, input: .init(plan: plan, context: .mainScreen)) { event in
+            switch event {
+            case .onboardingIsFinished: break
+            }
+        }
+
+        present(route: route)
+    }
 }

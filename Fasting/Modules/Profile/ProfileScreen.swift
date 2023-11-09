@@ -15,7 +15,9 @@ struct ProfileScreen: View {
     var body: some View {
         VStack(spacing: .zero) {
 
-            // TODO: - Добавить плашку с планом сюда. Все паддинги расставлены
+            SetupFastingBanner(plan: viewModel.plan) {
+                viewModel.changePlan()
+            }
 
             ProfileButtonView(title: Localization.support,
                               image: .heart,

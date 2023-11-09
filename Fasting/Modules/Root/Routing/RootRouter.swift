@@ -21,7 +21,11 @@ class RootRouter: BaseRouter {
     }()
 
     lazy var profileScreen: some View = {
-        let route = ProfileRoute(navigator: profileNavigator, input: .init(), output: { _ in })
+        let route = ProfileRoute(
+            navigator: profileNavigator,
+            input: .init(),
+            output: { _ in }
+        )
         return profileNavigator.initialize(route: route)
     }()
 

@@ -70,6 +70,10 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
         startFasting()
     }
 
+    func onChangeFastingTapped() {
+        router.presentSetupFasting(plan: fastingInterval.plan)
+    }
+
     private func endFasting() {
         fastingService.endFasting()
     }

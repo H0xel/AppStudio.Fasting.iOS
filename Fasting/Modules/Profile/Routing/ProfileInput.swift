@@ -6,5 +6,4 @@
 //
 
 struct ProfileInput {
-    // add Input parameters here
 }

@@ -19,6 +19,7 @@ private let currentAccountKey = "AppStudioApp.currentAccountKey"
 private let firstLaunchRegisteredKey = "AppStudioApp.hasLaunchedOnceKey"
 private let intercomUserIdKey = "AppStudioApp.intercomUserIdKey"
 private let intercomUserHashKey = "AppStudioApp.intercomUserHashKey"
+private let onboardingFinishedKey = "AppStudioApp.onboadrdingFinishedKey"
 
 extension StorageService {
     var currentAppsFlyerId: String? {
@@ -82,5 +83,10 @@ extension StorageService {
     var intercomUserHash: String? {
         get { return get(key: intercomUserHashKey) }
         set { set(key: intercomUserHashKey, value: newValue) }
+    }
+
+    var onboardingIsFinished: Bool {
+        get { return get(key: onboardingFinishedKey, defaultValue: false) }
+        set { set(key: onboardingFinishedKey, value: newValue) }
     }
 }

@@ -32,6 +32,16 @@ class ProfileRouter: BaseRouter {
         present(route: route)
     }
 
+    func presentChooseFastingPlan() {
+        let route = ChooseFastingPlanRoute(navigator: navigator, input: .init(context: .profile)) { event in
+            switch event {
+            case .onboardingIsFinished: break
+            }
+        }
+
+        present(route: route)
+    }
+
     private func sendEmailWithOpenUrl() {
         Task {
             guard let url = URL(string: GlobalConstants.contactEmail) else { return }

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol FastingParametersService {
-    var fastingIntervalPublisher: AnyPublisher <FastingInterval, Never> { get }
+    var fastingIntervalPublisher: AnyPublisher<FastingInterval, Never> { get }
     var isFastingProcess: Bool { get }
     func set(currentDate date: Date)
     func clearCurrentDate()

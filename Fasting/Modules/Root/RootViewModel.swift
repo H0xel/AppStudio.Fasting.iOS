@@ -10,14 +10,22 @@ import AppStudioUI
 import SwiftUI
 import Dependencies
 
+enum Step {
+    case fasting
+    case onboarding
+}
+
 class RootViewModel: BaseViewModel<RootOutput> {
+    @Dependency(\.storageService) private var storageService
 
     @Published var currentTab: AppTab = .fasting
+    @Published var step: Step
 
     var router: RootRouter!
     @Dependency(\.appCustomization) private var appCustomization
 
     init(input: RootInput, output: @escaping RootOutputBlock) {
+        step = input.step
         super.init(output: output)
         initialize()
     }
@@ -28,12 +36,27 @@ class RootViewModel: BaseViewModel<RootOutput> {
             let shouldForceUpdate = try await self.appCustomization.shouldForceUpdate()
             if shouldForceUpdate {
                 self.presentForceUpdateScreen()
+                return
             }
         }
     }
 
-    var fasringScreen: some View {
+    var fastingScreen: some View {
         router.fastingScreen
+    }
+
+    var onboardingScreen: some View {
+        OnboardingRoute(navigator: router.navigator, input: .init(), output: { [weak self] event in
+            switch event {
+            case .onboardingIsFinished:
+                self?.storageService.onboardingIsFinished = true
+                DispatchQueue.main.async {
+                    self?.router.popToRoot()
+                    self?.step = .fasting
+                }
+            }
+        })
+        .view
     }
 
     var profileScreen: some View {

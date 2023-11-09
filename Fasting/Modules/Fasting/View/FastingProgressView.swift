@@ -11,6 +11,7 @@ struct FastingProgressView: View {
 
     let status: FastingStatus
     let plan: FastingPlan
+    let action: () -> Void
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -33,6 +34,9 @@ struct FastingProgressView: View {
                                              color: .fastingGreyStrokeFill,
                                              lineWidth: Layout.planBorderWidth))
                 .offset(y: Layout.planOffset)
+                .onTapGesture {
+                    action()
+                }
         }
     }
 
@@ -68,5 +72,9 @@ private extension FastingProgressView {
 }
 
 #Preview {
-    FastingProgressView(status: .active(.init(interval: 30, stage: .autophagy, isFinished: false)), plan: .expert)
+    FastingProgressView(
+        status: .active(.init(interval: 30, stage: .autophagy, isFinished: false)),
+        plan: .expert,
+        action: {}
+    )
 }

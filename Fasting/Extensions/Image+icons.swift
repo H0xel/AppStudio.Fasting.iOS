@@ -34,4 +34,14 @@ extension Image {
     static var crownFill: Image {
         Image(systemName: "crown.fill")
     }
+
+    /// 􀯶
+    static var chevronLeft: Image {
+        Image(systemName: "chevron.backward")
+    }
+
+    /// 􀆄
+    static var xmark: Image {
+        Image(systemName: "xmark")
+    }
 }

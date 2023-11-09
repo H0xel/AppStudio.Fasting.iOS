@@ -8,16 +8,22 @@
 import AppStudioNavigation
 import AppStudioUI
 import Foundation
+import Dependencies
 
 class ProfileViewModel: BaseViewModel<ProfileOutput> {
+    @Dependency(\.fastingParametersService) private var fastingParametersService
+
     var router: ProfileRouter!
+    @Published var plan: FastingPlan = .beginner
 
     init(input: ProfileInput, output: @escaping ProfileOutputBlock) {
         super.init(output: output)
-        // initialization code here
+        subscribeToFastingPlan()
     }
 
-    func changePlan() {}
+    func changePlan() {
+        router.presentChooseFastingPlan()
+    }
 
     func presentTermsOfUse() {
         guard let url = URL(string: GlobalConstants.termsOfUse) else {
@@ -35,5 +41,11 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
 
     func contactSupport() {
         router.presentSupport()
+    }
+
+    private func subscribeToFastingPlan() {
+        fastingParametersService.fastingIntervalPublisher
+            .map(\.plan)
+            .assign(to: &$plan)
     }
 }

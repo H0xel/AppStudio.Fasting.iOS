@@ -28,7 +28,7 @@ extension Font {
 extension Font {
     enum Poppins: CGFloat {
         case accentL = 96
-        case accentM = 40
+        case accentS = 40
         case headerL = 32
         case headerM = 24
         case headerS = 20
@@ -54,7 +54,7 @@ struct PoppinsFont_Previews: PreviewProvider {
             Text("Accent L")
                 .font(.poppins(.accentL))
             Text("Accent M")
-                .font(.poppins(.accentM))
+                .font(.poppins(.accentS))
             Text("Some text")
                 .font(.poppins(.body))
         }

@@ -16,6 +16,7 @@ struct DebugMenuInfoView: View {
         Text("Model name - \(UIDevice.current.modelName)")
         Text("System version - \(UIDevice.current.systemVersion)")
         Text("AccountID - \(accountIdProvider.accountId)")
+        Text("Locale - \(Locale.current.identifier)")
     }
 }
 
