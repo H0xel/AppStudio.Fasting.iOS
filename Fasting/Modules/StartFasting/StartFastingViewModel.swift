@@ -12,11 +12,13 @@ import AppStudioUI
 class StartFastingViewModel: BaseViewModel<StartFastingOutput> {
 
     @Published var fastTime: Date
+    @Published var allowSelectFuture: Bool
 
     var router: StartFastingRouter!
 
     init(input: StartFastingInput, output: @escaping StartFastingOutputBlock) {
         fastTime = input.initialDate
+        allowSelectFuture = input.allowSelectFuture
         super.init(output: output)
     }
 

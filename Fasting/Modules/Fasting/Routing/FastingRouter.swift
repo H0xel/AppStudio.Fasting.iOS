@@ -9,9 +9,10 @@ import SwiftUI
 import AppStudioNavigation
 
 class FastingRouter: BaseRouter {
-    func presentStartFastingDialog(initialDate: Date, onSave: @escaping (Date) -> Void) {
+    func presentStartFastingDialog(initialDate: Date, allowSelectFuture: Bool, onSave: @escaping (Date) -> Void) {
         let route = StartFastingRoute(navigator: navigator,
-                                      input: .init(initialDate: initialDate)) { event in
+                                      input: .init(initialDate: initialDate,
+                                                   allowSelectFuture: allowSelectFuture)) { event in
             switch event {
             case .save(let date):
                 onSave(date)

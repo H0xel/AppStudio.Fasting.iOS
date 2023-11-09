@@ -18,7 +18,8 @@ struct StartFastingScreen: View {
                 .font(.poppins(.headerM))
                 .fontWeight(.semibold)
 
-            DatePicker("", selection: $viewModel.fastTime, displayedComponents: .hourAndMinute)
+            DatePicker("", selection: $viewModel.fastTime,
+                       in: .threeDaysUntilNow(allowFuture: viewModel.allowSelectFuture))
                 .datePickerStyle(.wheel)
                 .padding(.vertical, Layout.datePickerVerticalPadding)
 
@@ -58,7 +59,8 @@ private extension StartFastingScreen {
 
 struct StartFastingScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = StartFastingViewModel(input: .init(initialDate: .now), output: { _ in })
+        let viewModel = StartFastingViewModel(input: .init(initialDate: .now,
+                                                           allowSelectFuture: true), output: { _ in })
         viewModel.router = .init(navigator: .init())
 
         return FastingScreen(viewModel: .init(input: .init(), output: { _ in }))

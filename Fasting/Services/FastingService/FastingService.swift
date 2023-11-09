@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 protocol FastingService {
-    func status() -> FastingStatus
-    func startFasting()
+    var statusPublisher: AnyPublisher<FastingStatus, Never> { get }
+    func startFasting(from date: Date)
     func endFasting()
 }

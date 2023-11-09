@@ -21,10 +21,10 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     @Published var fastingInterval: FastingInterval = .empty
     private let fastingStatusUpdateTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
-
     init(input: FastingInput, output: @escaping FastingOutputBlock) {
         super.init(output: output)
         configureFastingStatus()
+        configureFastingInterval()
     }
 
     var isFastingActive: Bool {
@@ -54,9 +54,11 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     }
 
     func changeFastingTime() {
-        router.presentStartFastingDialog(initialDate: fastingInterval.startDate) { [weak self] date in
+        router.presentStartFastingDialog(
+            initialDate: fastingInterval.startDate,
+            allowSelectFuture: !isFastingActive
+        ) { [weak self] date in
             self?.setCurrentDate(date)
-            self?.updateFastingInterval()
         }
     }
 
@@ -70,34 +72,27 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
 
     private func endFasting() {
         fastingService.endFasting()
-        updateFastingInterval()
     }
 
     private func startFasting() {
-        router.presentStartFastingDialog(initialDate: fastingInterval.startDate) { [weak self] date in
-            self?.setCurrentDate(date)
-            self?.updateFastingInterval()
-            self?.fastingService.startFasting()
+        let minAllowedDate = min(fastingInterval.startDate, .now)
+        router.presentStartFastingDialog(
+            initialDate: minAllowedDate,
+            allowSelectFuture: false
+        ) { [weak self] date in
+            self?.fastingService.startFasting(from: date)
         }
     }
 
     private func configureFastingStatus() {
-        updateFastingInterval()
-        updateFastingStatus()
-
         fastingStatusUpdateTimer
-            .sink(with: self) { this, _ in
-                this.updateFastingStatus()
-            }
-            .store(in: &cancellables)
+            .flatMap(with: self) { this, _ in this.fastingService.statusPublisher }
+            .assign(to: &$fastingStatus)
     }
 
-    private func updateFastingInterval() {
-        fastingInterval = fastingParametersService.fastingInterval
-    }
-
-    private func updateFastingStatus() {
-        fastingStatus = fastingService.status()
+    private func configureFastingInterval() {
+        fastingParametersService.fastingIntervalPublisher
+            .assign(to: &$fastingInterval)
     }
 
     private func setCurrentDate(_ date: Date) {

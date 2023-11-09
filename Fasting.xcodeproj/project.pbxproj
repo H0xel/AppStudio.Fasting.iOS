@@ -17,6 +17,15 @@
 		5632571C2ADE57D90000F33C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5632571B2ADE57D90000F33C /* Preview Assets.xcassets */; };
 		563257262ADE57DA0000F33C /* AppStudioTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563257252ADE57DA0000F33C /* AppStudioTemplateTests.swift */; };
 		563257FD2ADE61E30000F33C /* AppStudioAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 563257FC2ADE61E30000F33C /* AppStudioAnalytics */; };
+		564BE0B42AF0E99F00CE7F38 /* MunicornAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 564BE0B32AF0E99F00CE7F38 /* MunicornAPI */; };
+		564BE0B62AF0E99F00CE7F38 /* MunicornCoreData in Frameworks */ = {isa = PBXBuildFile; productRef = 564BE0B52AF0E99F00CE7F38 /* MunicornCoreData */; };
+		564BE0B82AF0E99F00CE7F38 /* MunicornFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 564BE0B72AF0E99F00CE7F38 /* MunicornFoundation */; };
+		564BE0BA2AF0F18300CE7F38 /* DatabaseDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0B92AF0F18300CE7F38 /* DatabaseDependencies.swift */; };
+		564BE0BF2AF0F30400CE7F38 /* FastingParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0BE2AF0F30400CE7F38 /* FastingParameters.swift */; };
+		564BE0C12AF0F31600CE7F38 /* FastingParameters+Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0C02AF0F31600CE7F38 /* FastingParameters+Mappable.swift */; };
+		564BE0C32AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0C22AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift */; };
+		564BE0C52AF0F4DF00CE7F38 /* FastingParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0C42AF0F4DF00CE7F38 /* FastingParametersTests.swift */; };
+		56655B622AFB693E00508ED4 /* ClosedRange+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56655B612AFB693E00508ED4 /* ClosedRange+extentions.swift */; };
 		566C24912AE8F80B00AEDB3C /* PaywallRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C24842AE8F80B00AEDB3C /* PaywallRouter.swift */; };
 		566C24922AE8F80B00AEDB3C /* PaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C24852AE8F80B00AEDB3C /* PaywallViewModel.swift */; };
 		566C24932AE8F80B00AEDB3C /* PaywallScreenInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C24872AE8F80B00AEDB3C /* PaywallScreenInput.swift */; };
@@ -125,6 +134,9 @@
 		5675FFFD2ADE84B4009331CB /* SubscriptionStateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE22ADE84B4009331CB /* SubscriptionStateMessage.swift */; };
 		5675FFFE2ADE84B4009331CB /* WillTerminateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE32ADE84B4009331CB /* WillTerminateMessage.swift */; };
 		5675FFFF2ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE42ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift */; };
+		56B10ABB2AF0DFF9008FC07E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56B10AB92AF0DFF9008FC07E /* Model.xcdatamodeld */; };
+		56B10ABE2AF0E0AC008FC07E /* DatabaseInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B10ABD2AF0E0AC008FC07E /* DatabaseInitializer.swift */; };
+		56B10AC02AF0E1CC008FC07E /* FastingParametersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B10ABF2AF0E1CC008FC07E /* FastingParametersRepository.swift */; };
 		56C28D862AE106A60007E48D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 56C28D852AE106A60007E48D /* .swiftlint.yml */; };
 		56C28DC52AE109580007E48D /* SubscriptionServiceInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C28DB12AE109580007E48D /* SubscriptionServiceInitializer.swift */; };
 		56C28DC62AE109580007E48D /* IntercomInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C28DB22AE109580007E48D /* IntercomInitializer.swift */; };
@@ -239,6 +251,13 @@
 		5632571B2ADE57D90000F33C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		563257212ADE57DA0000F33C /* FastingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		563257252ADE57DA0000F33C /* AppStudioTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStudioTemplateTests.swift; sourceTree = "<group>"; };
+		564BE0B92AF0F18300CE7F38 /* DatabaseDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDependencies.swift; sourceTree = "<group>"; };
+		564BE0BE2AF0F30400CE7F38 /* FastingParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParameters.swift; sourceTree = "<group>"; };
+		564BE0C02AF0F31600CE7F38 /* FastingParameters+Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FastingParameters+Mappable.swift"; sourceTree = "<group>"; };
+		564BE0C22AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersRepositoryImpl.swift; sourceTree = "<group>"; };
+		564BE0C42AF0F4DF00CE7F38 /* FastingParametersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersTests.swift; sourceTree = "<group>"; };
+		564BE0C62AF10FC500CE7F38 /* Fasting.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fasting.entitlements; sourceTree = "<group>"; };
+		56655B612AFB693E00508ED4 /* ClosedRange+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClosedRange+extentions.swift"; sourceTree = "<group>"; };
 		566C24842AE8F80B00AEDB3C /* PaywallRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallRouter.swift; sourceTree = "<group>"; };
 		566C24852AE8F80B00AEDB3C /* PaywallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallViewModel.swift; sourceTree = "<group>"; };
 		566C24872AE8F80B00AEDB3C /* PaywallScreenInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallScreenInput.swift; sourceTree = "<group>"; };
@@ -341,6 +360,9 @@
 		5675FFEC2ADE84B4009331CB /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		5675FFED2ADE84B4009331CB /* MigrationLaunchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationLaunchService.swift; sourceTree = "<group>"; };
 		5675FFEE2ADE84B4009331CB /* MigrationServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationServiceImpl.swift; sourceTree = "<group>"; };
+		56B10ABA2AF0DFF9008FC07E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		56B10ABD2AF0E0AC008FC07E /* DatabaseInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInitializer.swift; sourceTree = "<group>"; };
+		56B10ABF2AF0E1CC008FC07E /* FastingParametersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersRepository.swift; sourceTree = "<group>"; };
 		56C28D852AE106A60007E48D /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		56C28DB12AE109580007E48D /* SubscriptionServiceInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionServiceInitializer.swift; sourceTree = "<group>"; };
 		56C28DB22AE109580007E48D /* IntercomInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntercomInitializer.swift; sourceTree = "<group>"; };
@@ -438,9 +460,12 @@
 			files = (
 				A07D95932AE9206100D2C2E2 /* AppStudioABTesting in Frameworks */,
 				56F64D862AE116D30067FE05 /* AppStudioUI in Frameworks */,
+				564BE0B82AF0E99F00CE7F38 /* MunicornFoundation in Frameworks */,
 				5675002A2ADE8763009331CB /* ABTesting in Frameworks */,
 				563257FD2ADE61E30000F33C /* AppStudioAnalytics in Frameworks */,
+				564BE0B42AF0E99F00CE7F38 /* MunicornAPI in Frameworks */,
 				567500AC2ADFB4AE009331CB /* AppStudioNavigation in Frameworks */,
+				564BE0B62AF0E99F00CE7F38 /* MunicornCoreData in Frameworks */,
 				56F64D842AE116D30067FE05 /* AppStudioFoundation in Frameworks */,
 				5675000D2ADE85FD009331CB /* FirebaseCrashlytics in Frameworks */,
 				5675000F2ADE85FD009331CB /* FirebaseRemoteConfig in Frameworks */,
@@ -490,6 +515,7 @@
 		563257132ADE57D80000F33C /* Fasting */ = {
 			isa = PBXGroup;
 			children = (
+				564BE0C62AF10FC500CE7F38 /* Fasting.entitlements */,
 				A7A3CE4D2AEBB31500308201 /* Fonts */,
 				A7A3CE4C2AEBB30700308201 /* Info.plist */,
 				A0881E5A2AEAB77F00E38FF5 /* Extensions */,
@@ -501,6 +527,7 @@
 				567500CE2ADFCCDE009331CB /* API */,
 				5675004D2ADFA7E4009331CB /* Data */,
 				567500812ADFAA10009331CB /* Models */,
+				56B10AB72AF0DE3D008FC07E /* Database */,
 				567500302ADFA60F009331CB /* Providers */,
 				567500542ADFA91A009331CB /* ABTesting */,
 				56C28DD72AE109A80007E48D /* Resources */,
@@ -522,8 +549,35 @@
 			isa = PBXGroup;
 			children = (
 				563257252ADE57DA0000F33C /* AppStudioTemplateTests.swift */,
+				564BE0C42AF0F4DF00CE7F38 /* FastingParametersTests.swift */,
 			);
 			path = FastingTests;
+			sourceTree = "<group>";
+		};
+		564BE0BB2AF0F2CE00CE7F38 /* FastingParametersRepository */ = {
+			isa = PBXGroup;
+			children = (
+				564BE0BD2AF0F2F800CE7F38 /* Model */,
+				56B10ABF2AF0E1CC008FC07E /* FastingParametersRepository.swift */,
+				564BE0C22AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift */,
+			);
+			path = FastingParametersRepository;
+			sourceTree = "<group>";
+		};
+		564BE0BC2AF0F2E800CE7F38 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				564BE0C02AF0F31600CE7F38 /* FastingParameters+Mappable.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		564BE0BD2AF0F2F800CE7F38 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				564BE0BE2AF0F30400CE7F38 /* FastingParameters.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		566C24832AE8F80B00AEDB3C /* Paywall */ = {
@@ -988,6 +1042,33 @@
 			path = MigrationService;
 			sourceTree = "<group>";
 		};
+		56B10AB72AF0DE3D008FC07E /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				564BE0BC2AF0F2E800CE7F38 /* Entity */,
+				56B10ABC2AF0E09B008FC07E /* Initializer */,
+				56B10AB82AF0DEE1008FC07E /* Repositories */,
+				564BE0B92AF0F18300CE7F38 /* DatabaseDependencies.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		56B10AB82AF0DEE1008FC07E /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				564BE0BB2AF0F2CE00CE7F38 /* FastingParametersRepository */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		56B10ABC2AF0E09B008FC07E /* Initializer */ = {
+			isa = PBXGroup;
+			children = (
+				56B10ABD2AF0E0AC008FC07E /* DatabaseInitializer.swift */,
+			);
+			path = Initializer;
+			sourceTree = "<group>";
+		};
 		56C28D682AE0FBFC0007E48D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -1075,6 +1156,7 @@
 				56F64D742AE10AD90067FE05 /* Localizable.strings */,
 				563257182ADE57D90000F33C /* Assets.xcassets */,
 				A0881E6C2AEAC4E500E38FF5 /* Color.xcassets */,
+				56B10AB92AF0DFF9008FC07E /* Model.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1200,6 +1282,7 @@
 				A008A8302AF14C0B0011A261 /* Animation+extensions.swift */,
 				A044262F2AF23DAE005400AE /* TimeInterval+extensions.swift */,
 				A04426312AF23DC0005400AE /* Int+extensions.swift */,
+				56655B612AFB693E00508ED4 /* ClosedRange+extentions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1287,9 +1370,9 @@
 		A0CEE62A2AEFE41C0082B27F /* FastingParameters */ = {
 			isa = PBXGroup;
 			children = (
+				A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */,
 				A0CEE62B2AEFE4280082B27F /* FastingParametersServiceImpl.swift */,
 				A0CEE62C2AEFE4280082B27F /* FastingParametersDependencies.swift */,
-				A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */,
 			);
 			path = FastingParameters;
 			sourceTree = "<group>";
@@ -1350,6 +1433,9 @@
 				56F64D832AE116D30067FE05 /* AppStudioFoundation */,
 				56F64D852AE116D30067FE05 /* AppStudioUI */,
 				A07D95922AE9206100D2C2E2 /* AppStudioABTesting */,
+				564BE0B32AF0E99F00CE7F38 /* MunicornAPI */,
+				564BE0B52AF0E99F00CE7F38 /* MunicornCoreData */,
+				564BE0B72AF0E99F00CE7F38 /* MunicornFoundation */,
 			);
 			productName = AppStudioTemplate;
 			productReference = 563257112ADE57D80000F33C /* Fasting.app */;
@@ -1408,6 +1494,7 @@
 				567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */,
 				567500AA2ADFB4AE009331CB /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */,
 				56F64D822AE116D20067FE05 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Common" */,
+				564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */,
 			);
 			productRefGroup = 563257122ADE57D80000F33C /* Products */;
 			projectDirPath = "";
@@ -1485,6 +1572,7 @@
 				56C28DCB2AE109580007E48D /* AppInitializerService.swift in Sources */,
 				A0881E662AEAC32500E38FF5 /* FastingInput.swift in Sources */,
 				566C24912AE8F80B00AEDB3C /* PaywallRouter.swift in Sources */,
+				56B10ABE2AF0E0AC008FC07E /* DatabaseInitializer.swift in Sources */,
 				A0CEE6282AEFE3FB0082B27F /* FastingServiceImpl.swift in Sources */,
 				567500922ADFAA4A009331CB /* PaywallContext.swift in Sources */,
 				A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */,
@@ -1552,6 +1640,7 @@
 				A04272C92AE28D3D00754326 /* DebugMenuScreen.swift in Sources */,
 				567500CB2ADFCC54009331CB /* AccountSyncService.swift in Sources */,
 				5675008C2ADFAA4A009331CB /* RestoreResult.swift in Sources */,
+				56B10ABB2AF0DFF9008FC07E /* Model.xcdatamodeld in Sources */,
 				A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */,
 				567500912ADFAA4A009331CB /* IntercomData.swift in Sources */,
 				567500A02ADFAB69009331CB /* ProductProvider.swift in Sources */,
@@ -1563,6 +1652,7 @@
 				567500B92ADFC031009331CB /* MailSenderServiceImpl.swift in Sources */,
 				A0CEE62F2AEFE4280082B27F /* FastingParametersDependencies.swift in Sources */,
 				56C28DC72AE109580007E48D /* LateTimeInitializers.swift in Sources */,
+				564BE0C12AF0F31600CE7F38 /* FastingParameters+Mappable.swift in Sources */,
 				566C24942AE8F80B00AEDB3C /* PaywallScreenOutput.swift in Sources */,
 				5675010B2ADFD955009331CB /* IntercomDataStorage.swift in Sources */,
 				567500DF2ADFD0AB009331CB /* ObfuscatorDepenendencies.swift in Sources */,
@@ -1571,6 +1661,7 @@
 				567500B62ADFC031009331CB /* IDFARequestServiceImpl.swift in Sources */,
 				566C24932AE8F80B00AEDB3C /* PaywallScreenInput.swift in Sources */,
 				567500B82ADFC031009331CB /* MailSenderService.swift in Sources */,
+				56B10AC02AF0E1CC008FC07E /* FastingParametersRepository.swift in Sources */,
 				566C24992AE8F80B00AEDB3C /* PaywallCancelView.swift in Sources */,
 				566C249A2AE8F80B00AEDB3C /* PaywallBottomInfoView.swift in Sources */,
 				567500DA2ADFCDAC009331CB /* ApiSettingsProviderImpl.swift in Sources */,
@@ -1581,6 +1672,7 @@
 				566C24952AE8F80B00AEDB3C /* SubscriptionProduct.swift in Sources */,
 				567501062ADFD955009331CB /* IntercomServiceImpl.swift in Sources */,
 				5675009E2ADFAB69009331CB /* ProductIdsService.swift in Sources */,
+				564BE0C32AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift in Sources */,
 				567500CA2ADFCC54009331CB /* AccountSyncServiceImpl.swift in Sources */,
 				56C28DD22AE109580007E48D /* MobileDeviceDataProviderInitializer.swift in Sources */,
 				567500012ADE84B4009331CB /* MessagePublisherService.swift in Sources */,
@@ -1620,6 +1712,7 @@
 				A0881E5C2AEAB7A800E38FF5 /* Image+icons.swift in Sources */,
 				567500CC2ADFCC54009331CB /* AppSyncServiceImpl.swift in Sources */,
 				567501072ADFD955009331CB /* IntercomService.swift in Sources */,
+				564BE0BF2AF0F30400CE7F38 /* FastingParameters.swift in Sources */,
 				567500BB2ADFC9F2009331CB /* GlobalConstants.swift in Sources */,
 				563257152ADE57D80000F33C /* FastingApp.swift in Sources */,
 				56C28DCE2AE109580007E48D /* CrashlyticsInitializer.swift in Sources */,
@@ -1638,6 +1731,7 @@
 				56F64D7F2AE10EF20067FE05 /* RootScreen.swift in Sources */,
 				567500262ADE86C3009331CB /* ConcurrentDispatchQueue.swift in Sources */,
 				A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */,
+				564BE0BA2AF0F18300CE7F38 /* DatabaseDependencies.swift in Sources */,
 				A0CEE6252AEFE3E30082B27F /* FastingService.swift in Sources */,
 				5675008F2ADFAA4A009331CB /* Contacts.swift in Sources */,
 				56C28DCD2AE109580007E48D /* AppInitializer.swift in Sources */,
@@ -1651,6 +1745,7 @@
 				567500232ADE86C3009331CB /* Synchronized.swift in Sources */,
 				A0881E6B2AEAC32500E38FF5 /* FastingViewModel.swift in Sources */,
 				56C28DD02AE109580007E48D /* TrackerServiceInitializer.swift in Sources */,
+				56655B622AFB693E00508ED4 /* ClosedRange+extentions.swift in Sources */,
 				5675010C2ADFD955009331CB /* IntercomDataStorageImpl.swift in Sources */,
 				566C24982AE8F80B00AEDB3C /* PaywallScreen.swift in Sources */,
 				5675FFFA2ADE84B4009331CB /* AppWillEnterForegroundMessage.swift in Sources */,
@@ -1667,6 +1762,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564BE0C52AF0F4DF00CE7F38 /* FastingParametersTests.swift in Sources */,
 				563257262ADE57DA0000F33C /* AppStudioTemplateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1806,6 +1902,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Fasting/Fasting.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Fasting/Preview\\ Content";
@@ -1848,6 +1945,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Fasting/Fasting.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Fasting/Preview\\ Content";
@@ -1958,6 +2056,14 @@
 				version = 1.0.2;
 			};
 		};
+		564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:m-unicorn/iOS.MunicornFoundation.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.5;
+			};
+		};
 		567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -2006,6 +2112,21 @@
 			package = 563257FB2ADE61E30000F33C /* XCRemoteSwiftPackageReference "AppStudio.iOS" */;
 			productName = AppStudioAnalytics;
 		};
+		564BE0B32AF0E99F00CE7F38 /* MunicornAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */;
+			productName = MunicornAPI;
+		};
+		564BE0B52AF0E99F00CE7F38 /* MunicornCoreData */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */;
+			productName = MunicornCoreData;
+		};
+		564BE0B72AF0E99F00CE7F38 /* MunicornFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */;
+			productName = MunicornFoundation;
+		};
 		5675000A2ADE85FD009331CB /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -2052,6 +2173,19 @@
 			productName = AppStudioABTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		56B10AB92AF0DFF9008FC07E /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				56B10ABA2AF0DFF9008FC07E /* Model.xcdatamodel */,
+			);
+			currentVersion = 56B10ABA2AF0DFF9008FC07E /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 563257092ADE57D80000F33C /* Project object */;
 }

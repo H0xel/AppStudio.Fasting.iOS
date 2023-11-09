@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import Combine
 
 protocol FastingParametersService {
-    var fastingInterval: FastingInterval { get }
+    var fastingIntervalPublisher: AnyPublisher <FastingInterval, Never> { get }
+    var isFastingProcess: Bool { get }
     func set(currentDate date: Date)
     func clearCurrentDate()
-
     func set(fastingInterval interval: FastingInterval)
+    func startFastingProcess()
+    func endFastingProcess()
 }

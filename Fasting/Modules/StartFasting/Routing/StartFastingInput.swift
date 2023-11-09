@@ -9,4 +9,5 @@ import Foundation
 
 struct StartFastingInput {
     let initialDate: Date
+    let allowSelectFuture: Bool
 }

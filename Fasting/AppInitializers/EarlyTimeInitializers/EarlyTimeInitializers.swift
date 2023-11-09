@@ -10,9 +10,11 @@ import Dependencies
 final class EarlyTimeInitializers: Initializers {
 
     @Dependency(\.paywallServiceInitializer) private var paywallServiceInitializer
+    @Dependency(\.fastingParametersInitializer) private var fastingParametersInitializer
 
     func initializers() -> [AppInitializer] {
         [
+            DatabaseInitializer(),
             PreferencesInitializer(),
             FirebaseInitializer(),
             CrashlyticsInitializer(),
@@ -21,7 +23,8 @@ final class EarlyTimeInitializers: Initializers {
             MobileDeviceDataProviderInitializer(),
             TrackerServiceInitializer(),
             SubscriptionServiceInitializer(),
-            paywallServiceInitializer
+            paywallServiceInitializer,
+            fastingParametersInitializer
         ]
     }
 }

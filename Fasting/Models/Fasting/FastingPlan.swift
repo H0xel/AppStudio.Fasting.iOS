@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum FastingPlan {
-    case regular
+enum FastingPlan: Int {
+    case regular = 0
     case beginner
     case expert
 

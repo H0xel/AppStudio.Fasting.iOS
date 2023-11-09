@@ -9,10 +9,19 @@ import Dependencies
 
 extension DependencyValues {
     var fastingParametersService: FastingParametersService {
-        self[FastingParametersServiceKey.self]
+        fastingParametersServiceImpl
+    }
+
+    var fastingParametersInitializer: AppInitializer {
+        fastingParametersServiceImpl
+    }
+
+    private var fastingParametersServiceImpl: FastingParametersServiceImpl {
+        self[FastingParametersServiceImplKey.self]
     }
 }
 
-private enum FastingParametersServiceKey: DependencyKey {
-    static var liveValue: FastingParametersService = FastingParametersServiceImpl()
+private enum FastingParametersServiceImplKey: DependencyKey {
+    static var liveValue = FastingParametersServiceImpl()
+    static var testValue = FastingParametersServiceImpl()
 }
