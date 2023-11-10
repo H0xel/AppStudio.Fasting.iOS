@@ -13,7 +13,6 @@ struct NotificationOnboardingScreen: View {
 
     var body: some View {
         VStack(spacing: 0) {
-
             Text(Localization.title)
                 .font(.poppins(.headerL))
                 .padding(.horizontal, Layout.titleHorizontalPadding)
@@ -22,10 +21,12 @@ struct NotificationOnboardingScreen: View {
                 .multilineTextAlignment(.center)
             Image(.notification)
                 .resizable()
+                .aspectRatio(contentMode: .fit)
             AccentButton(title: Localization.buttonTitle) {
                 viewModel.notificationButtonTapped()
             }
             .padding(.horizontal, Layout.horizontalPadding)
+            .padding(.bottom, Layout.bottomPadding)
         }
     }
 }
@@ -37,6 +38,7 @@ private extension NotificationOnboardingScreen {
         static let titleHorizontalPadding: CGFloat = 53
         static let titleBottomPadding: CGFloat = 40
         static let titleTopPadding: CGFloat = 72
+        static let bottomPadding: CGFloat = 42
     }
 }
 

@@ -20,7 +20,7 @@ struct FastingPlanView: View {
                 .foregroundStyle(.white)
                 .font(.poppins(.headerS))
 
-            Text(plan.description)
+            Text(plan.fastingDescription)
                 .foregroundStyle(.white)
                 .font(.poppins(.description))
                 .padding(.horizontal, Layout.descriptionHorizontalPadding)
