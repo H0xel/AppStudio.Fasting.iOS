@@ -14,6 +14,6 @@ final class AccountIdProviderImpl: AccountIdProvider {
     @Dependency(\.accountProvider) private var accountProvider
 
     var accountId: String {
-        accountProvider.accountId.secret
+        accountProvider.accountId
     }
 }

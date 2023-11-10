@@ -16,8 +16,4 @@ final class SandBoxApiSettingsProvider: AppStudioApiSettingsProvider {
     }
     public let servicePath = GlobalConstants.sandboxServicePath
     public let timeout = GlobalConstants.sandboxTimeout
-    public lazy var sharedParameter: String = { obfuscator.reveal(key: obfuscatedSharedParameter) }()
-
-    private let obfuscatedSharedParameter = GlobalConstants.sandboxObfuscatedSharedParameter
-    @Dependency(\.obfuscator) private var obfuscator
 }

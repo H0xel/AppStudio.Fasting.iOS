@@ -23,9 +23,7 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
     func initialize() {
         @Dependency(\.lifeCycleDelegate) var lifeCycleDelegate
         super.initialize(lifecycleDelegate: lifeCycleDelegate)
-
-        // Uncoment to start pricing experiment
-//        configurePricingExperiment()
+        configurePricingExperiment()
     }
 
     override func registerExperiments() async {
@@ -41,8 +39,7 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
         // 3) Register experiment with custom migration
 //        await register(experiment: TestAAExperiment(), migration: <#T##ExperimentMigration#>)
 
-        // 4) Register pricing experiment
-//        await register(experiment: PricingOngoingExperiment(experimentName: pricingExperimentName))
+        await register(experiment: PricingOngoingExperiment(experimentName: pricingExperimentName))
     }
 
     var productIds: Observable<[String]> {

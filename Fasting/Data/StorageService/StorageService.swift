@@ -10,9 +10,6 @@ import MunicornUtilities
 import ABTesting
 import Foundation
 
-private var currentAppsFlyerIdKey = "AppStudioApp.currentAppsFlyerIdKey"
-private var currentFirebaseIdKey = "AppStudioApp.currentFirebaseIdKey"
-private let currentIdentifiersKey = "AppStudioApp.currentIdentifiersKey"
 private let accountIdKey = "AppStudioApp.accountIdKey"
 private let accessTokenKey = "AppStudioApp.accessToken"
 private let currentAccountKey = "AppStudioApp.currentAccountKey"
@@ -22,16 +19,6 @@ private let intercomUserHashKey = "AppStudioApp.intercomUserHashKey"
 private let onboardingFinishedKey = "AppStudioApp.onboadrdingFinishedKey"
 
 extension StorageService {
-    var currentAppsFlyerId: String? {
-        get { get(key: currentAppsFlyerIdKey) }
-        set { set(key: currentAppsFlyerIdKey, value: newValue) }
-    }
-
-    var currentFirebaseId: String? {
-        get { get(key: currentFirebaseIdKey) }
-        set { set(key: currentFirebaseIdKey, value: newValue) }
-    }
-
     var accountId: String? {
         get { get(key: accountIdKey) }
         set { set(key: accountIdKey, value: newValue) }
@@ -57,21 +44,6 @@ extension StorageService {
         }
         set {
             set(key: currentAccountKey, value: newValue?.json())
-        }
-    }
-
-    var currentIdentifiers: Identifiers? {
-        get {
-            guard let json: String = get(key: currentIdentifiersKey),
-                  let result = try? Identifiers(json: json) else {
-                return nil
-            }
-            return result
-        }
-        set {
-            if let json = newValue?.json() {
-                set(key: currentIdentifiersKey, value: json)
-            }
         }
     }
 

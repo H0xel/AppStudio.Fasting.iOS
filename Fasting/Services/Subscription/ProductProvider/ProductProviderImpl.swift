@@ -11,22 +11,19 @@ import AppStudioSubscriptions
 class ProductProviderImpl: ProductProvider {
     // TODO: SETUP products here
     // EXAMPLE:
-    //    private let weeklyProductId = "app.app.premium.weekly"
-    //    private let monthlyProductId = "app.app.premium.monthly"
-
+        private let weeklyProductId = "com.municorn.Fasting.weekly_exp_1"
+        private let monthlyProductId = "com.municorn.Fasting.monthly_exp_1"
+        private let yearlyProductId = "com.municorn.Fasting.yearly_exp_1"
     // TODO: SETUP default product list
     var defaultProductIds: [String] {
         // EXAMPLE: - [monthlyExp3ProductId]
-        []
+        [weeklyProductId]
     }
 
     // TODO: SETUP add all product items here
     var productItems: [ProductCatalogItem] {
-        // EXAMPLE
-        //        [
-        //            ProductCatalogItem(productId: weeklyProductId, duration: .week, isTrial: true),
-        //            ProductCatalogItem(productId: monthlyProductId, duration: .month, isTrial: false)
-        //        ]
-        []
+        [
+            ProductCatalogItem(productId: weeklyProductId, duration: .week, isTrial: true)
+        ]
     }
 }

@@ -9,4 +9,5 @@
 enum PaywallContext: String {
     case onboarding = "onbording"
     case settingsScreen = "settings"
+    case freeUsageLimit
 }

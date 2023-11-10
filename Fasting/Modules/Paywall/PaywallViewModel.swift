@@ -28,7 +28,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     @Dependency(\.messengerService) private var messenger
     @Dependency(\.productIdsService) private var productIdsService
     @Dependency(\.trackerService) private var trackerService
-    @Dependency(\.storageService) private var storageService
+    @Dependency(\.analyticKeyStore) private var analyticKeyStore
 
     init(input: PaywallScreenInput, output: @escaping ViewOutput<PaywallScreenOutput>) {
         self.input = input
@@ -42,13 +42,19 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     }
 
     var headerDescription: String {
-        String(format: input.headerTitles.description, selectedProduct?.titleDetails ?? "")
+        let title = isTrialAvailable ? input.headerTitles.description : NSLocalizedString("Paywall.renewsAt",
+                                                                                          comment: "")
+        return String(format: title, selectedProduct?.titleDetails ?? "")
     }
 
     var headerTitles: PaywallTitle {
         PaywallTitle(title: input.headerTitles.title,
                      description: headerDescription,
                      subTitle: input.headerTitles.subTitle)
+    }
+
+    var bottomInfo: LocalizedStringKey {
+        isTrialAvailable ? "Paywall.noPaymentNow" : "Paywall.cancelAnyTime"
     }
 
     func selectProduct(_ product: SubscriptionProduct) {
@@ -72,7 +78,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
         trackerService.track(.tapSubscribe(context: input.paywallContext,
                                            productId: subscription.productIdentifier,
                                            type: .main,
-                                           afId: storageService.currentAppsFlyerId))
+                                           afId: analyticKeyStore.currentAppsFlyerId))
         router.presentProgressView()
     }
 
@@ -85,7 +91,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
         router.presentProgressView()
         subscriptionService.restore()
         trackerService.track(.tapRestorePurchases(context: input.paywallContext,
-                                                  afId: storageService.currentAppsFlyerId))
+                                                  afId: analyticKeyStore.currentAppsFlyerId))
     }
 
     private func handle(paywallScreenOutput event: PaywallScreenOutput) {
@@ -231,13 +237,13 @@ private extension PaywallViewModel {
     func trackPaywallShown() {
         trackerService.track(.paywallShown(context: input.paywallContext,
                                            type: .main,
-                                           afId: storageService.currentAppsFlyerId))
+                                           afId: analyticKeyStore.currentAppsFlyerId))
     }
 
     func trackRestoreFinishedEvent(result: RestoreResult, context: PaywallContext) {
         trackerService.track(.restoreFinished(context: context,
                                               result: result,
-                                              afId: storageService.currentAppsFlyerId))
+                                              afId: analyticKeyStore.currentAppsFlyerId))
     }
 
     func trackPurchaseFinished(transaction: FinishTransactionMessage) {
@@ -249,6 +255,6 @@ private extension PaywallViewModel {
                                                message: transaction.error?.localizedDescription ?? "",
                                                productId: selectedProduct.id,
                                                type: .main,
-                                               afId: storageService.currentAppsFlyerId))
+                                               afId: analyticKeyStore.currentAppsFlyerId))
     }
 }

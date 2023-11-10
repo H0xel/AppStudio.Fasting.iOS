@@ -67,8 +67,8 @@ extension MessagePublisherService {
         publish(message: SubscriptionStateMessage(sender: sender, stateChangeType: stateChangeType))
     }
 
-    func publishAppInitializedMessage(sender: Any?, isInitial: Bool) {
-        publish(message: AppInitializedMessage(sender: sender, isInitial: isInitial))
+    func publishAppInitializedMessage(sender: Any?) {
+        publish(message: AppInitializedMessage(sender: sender))
     }
 
     func publishMigrationFinishedMessage(sender: Any?) {

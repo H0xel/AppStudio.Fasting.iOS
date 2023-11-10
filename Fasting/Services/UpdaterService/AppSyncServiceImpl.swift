@@ -12,7 +12,6 @@ import RxSwift
 final class AppSyncServiceImpl: ServiceBaseImpl, AppSyncService {
     @Dependency(\.storageService) private var storageService
     @Dependency(\.subscriptionService) private var subscriptionService
-    @Dependency(\.identifiersSyncService) private var identifiersSyncService
     @Dependency(\.accountSyncService) private var accountSyncService
     @Dependency(\.firstLaunchService) private var firstLaunchService
 
@@ -43,27 +42,19 @@ final class AppSyncServiceImpl: ServiceBaseImpl, AppSyncService {
 
     private func onAppInitializedMessage(_ message: AppInitializedMessage) {
         Task {
-            try? await syncIdentifiers(force: true)
             try? await syncAccount(force: true)
-            // Upload receipt only for the first time at launch
             uploadReceiptIfNeeded()
         }
     }
 
     private func onUpdateIdentifiers(_ message: UpdateIdentifiersMessage) {
         Task {
-            try? await syncIdentifiers(force: true)
+            try? await syncAccount(force: true)
         }
     }
 
     private func syncAccount(force: Bool) async throws {
         try await accountSyncService.sync(isForce: force)
-        try await syncIdentifiers(force: false)
-        uploadReceipt()
-    }
-
-    private func syncIdentifiers(force: Bool) async throws {
-        try await identifiersSyncService.sync(isForce: force)
     }
 
     private func uploadReceiptIfNeeded() {

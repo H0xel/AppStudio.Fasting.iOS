@@ -37,13 +37,12 @@ struct RootScreen: View {
                     .tabItem {
                         Image.personFill
                     }
-                Text("Hello world 3")
+                viewModel.paywallScreen
                     .tag(AppTab.paywall)
                     .tabItem {
                         Image.crownFill
                     }
             }
-            .withDebugMenu()
             .navBarButton(placement: .principal,
                           isVisible: viewModel.currentTab.navigationTitle != nil,
                           content: navigationTitleView,

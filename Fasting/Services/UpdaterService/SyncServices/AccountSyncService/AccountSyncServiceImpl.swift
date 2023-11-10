@@ -5,74 +5,26 @@
 //  Created by Konstantin Golenkov on 23.06.2023.
 //
 
-import Foundation
 import Dependencies
-import MunicornAPI
+import UIKit
 
-private let errorCodeVersionMismatch = "version_mismatch"
-private let errorCodeNotFound = "not_found"
-
-class AccountSyncServiceImpl: SyncServiceBaseImpl<Account> {
+class AccountSyncServiceImpl: SyncServiceBaseImpl<EmptyResult> {
     @Dependency(\.accountApi) private var accountApi
-    @Dependency(\.intercomDataStorage) private var intercomDataStorage
+    @Dependency(\.backendEnvironmentService) private var backendEnvironmentService
+    @Dependency(\.analyticKeyStore) private var analyticKeyStore
 
-    override var shouldUpdate: Bool {
-        guard currentAccount != nil else {
-            return false
-        }
-        return super.shouldUpdate
-    }
-
-    override func syncRequest() async throws -> Account? {
-        guard let currentAccount else {
-            return try await retry()
-        }
+    override func syncRequest() async throws -> EmptyResult? {
         do {
-            let account = try await accountApi.set(account: currentAccount)
-            saveAccountToStorage(account)
-            return account
+            return try await accountApi.putAccount(
+                PutAccountRequest(isProduction: backendEnvironmentService.currentEnvironment == .production,
+                                  idfa: UIDevice.current.idfa,
+                                  appsflyerId: analyticKeyStore.currentAppsFlyerId,
+                                  firebaseId: analyticKeyStore.currentFirebaseId))
         } catch {
-            if let error = error as? InvokeResultError,
-               error.resultCode == errorCodeVersionMismatch {
-                await accountFromServer()
-                return try await retry()
-            }
             return try await retry()
         }
     }
 }
 
 // MARK: - AccountSyncService
-extension AccountSyncServiceImpl: AccountSyncService {
-
-    @discardableResult
-    func accountFromServer() async -> Account? {
-        do {
-            let serverAccount = try await accountApi.account()
-            saveAccountToStorage(serverAccount)
-            return serverAccount
-        } catch {
-            if let error = error as? InvokeResultError,
-               error.resultCode == errorCodeNotFound {
-                saveAccountToStorage(nil)
-            }
-            return nil
-        }
-    }
-}
-
-// MARK: - private functions
-extension AccountSyncServiceImpl {
-    private func saveAccountToStorage(_ account: Account?) {
-        storageService.currentAccount = account
-        if let intercomData = account?.intercom {
-            storageService.intercomUserId = intercomData.userId
-            storageService.intercomUserHash = intercomData.hash
-            intercomDataStorage.sync(userId: intercomData.userId, hash: intercomData.hash)
-        }
-    }
-
-    private var currentAccount: Account? {
-        storageService.currentAccount
-    }
-}
+extension AccountSyncServiceImpl: AccountSyncService {}

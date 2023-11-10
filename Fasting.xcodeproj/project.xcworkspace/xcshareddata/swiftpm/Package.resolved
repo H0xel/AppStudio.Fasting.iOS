@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:m-unicorn/AppStudio.iOS.Common.git",
       "state" : {
-        "revision" : "69767911be8120e3379e5b7481a22fd2cd9705c1",
-        "version" : "1.0.4"
+        "revision" : "3f6696fe5e75fa712cc00de33e118694cb6ab925",
+        "version" : "1.0.5"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:m-unicorn/AppStudio.iOS.Subscriptions.git",
       "state" : {
-        "revision" : "ec53a2fe8063ce2af4c2ce9f88c522566b8b479f",
-        "version" : "1.0.0"
+        "revision" : "99094aa18331ea9bd4912cc8d0dd3b5cb3d6a83b",
+        "version" : "1.0.1"
       }
     },
     {
@@ -190,6 +190,15 @@
       }
     },
     {
+      "identity" : "moya",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Moya/Moya.git",
+      "state" : {
+        "revision" : "c263811c1f3dbf002be9bd83107f7cdc38992b26",
+        "version" : "15.0.3"
+      }
+    },
+    {
       "identity" : "nanopb",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/nanopb.git",
@@ -205,6 +214,15 @@
       "state" : {
         "revision" : "e70e889c0196c76d22759eb50d6a0270ca9f1d9e",
         "version" : "2.3.1"
+      }
+    },
+    {
+      "identity" : "reactiveswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveCocoa/ReactiveSwift.git",
+      "state" : {
+        "revision" : "c43bae3dac73fdd3cb906bd5a1914686ca71ed3c",
+        "version" : "6.7.0"
       }
     },
     {

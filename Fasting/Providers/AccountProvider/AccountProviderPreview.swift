@@ -5,14 +5,16 @@
 //  Created by Konstantin Golenkov on 11.07.2023.
 //
 
+import Foundation
+
 final class AccountProviderPreview: AccountProvider {
 
-    var accountId: AuthId {
-        AuthId()
+    var accountId: String {
+        UUID().uuidString
     }
 
-    var accessToken: AuthId {
-        AuthId()
+    var accessToken: String {
+        UUID().uuidString
     }
 
     func initialize() {}

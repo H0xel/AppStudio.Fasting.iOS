@@ -17,6 +17,12 @@ struct PaywallTitle: Equatable {
         description: NSLocalizedString("Paywall.headerDescription", comment: ""),
         subTitle: NSLocalizedString("Paywall.headerBottomTitle", comment: "")
     )
+
+    static let usageLimit = PaywallTitle(
+        title: NSLocalizedString("Paywall.reachYourWeightGoals", comment: ""),
+        description: NSLocalizedString("Paywall.tryForFree", comment: ""),
+        subTitle: ""
+    )
 }
 
 struct PaywallScreenInput: Equatable {
@@ -40,4 +46,10 @@ extension PaywallScreenInput {
         headerTitles: .defaultHeaderTitles,
         paywallContext: .onboarding,
         paywallImage: .paywall)
+
+    static let freeUsageLimit = PaywallScreenInput(
+        headerTitles: .usageLimit,
+        paywallContext: .freeUsageLimit,
+        paywallImage: nil
+    )
 }

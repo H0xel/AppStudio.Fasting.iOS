@@ -11,13 +11,13 @@
 public enum GlobalConstants {
     // MARK: - Common Application Settings
     // TODO: - Add information
-    public static let applicationName = "APP_NAME"
-    public static let applicationPrefix = "APP_PREFIX"
+    public static let applicationName = "fasting"
+    public static let applicationPrefix = ""
     public static let appStoreURL = "https://apps.apple.com/us/app/APPSTORE_IDENTIFIER"
 
     // TODO: - Add contactEmail, termsOfUse, privacyPolicy
     // MARK: - Contact and other info
-    public static let contactEmail = "CONTACT_EMAIL"
+    public static let contactEmail = "fasting-support@municorn.com"
     public static let termsOfUse = "https://getpaidapp.com/terms"
     public static let privacyPolicy = "https://getpaidapp.com/privacy"
 
@@ -30,15 +30,13 @@ public enum GlobalConstants {
 
     // MARK: - Backend server settings
     // MARK: Production server
-    public static let productionBaseAddress = "https://PRODUCTION_ADDRESS/"
+    public static let productionBaseAddress = "https://telecom.municorn.com/"
     public static let productionServicePath = "api/"
     public static let productionTimeout = 90.0
-    public static let productionObfuscatedSharedParameter = "3a44211d1108003856454747363e1c144c58494c262f04360a1c0d1e"
 
     // MARK: Sandbox server
-    public static let sandboxBaseAddress = "https://SANDBOX_ADDRESS/"
+    public static let sandboxBaseAddress = "https://telecom.municorn.com/"
     public static let sandboxServicePath = "api/"
     public static let sandboxTimeout = 90.0
-    public static let sandboxObfuscatedSharedParameter = "3a44211d1108003856454747363e1c144c58494c262f04360a1c0d1e"
 }
 // swiftlint:enable line_length

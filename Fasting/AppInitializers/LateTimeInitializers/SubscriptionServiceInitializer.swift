@@ -54,15 +54,15 @@ final class SubscriptionServiceInitializer: AppInitializer {
     private var dependencies: AppStudioSubscriptionDependencies {
         @Dependency(\.storageService) var storageService
         @Dependency(\.cloudStorage) var cloudStorage
-        @Dependency(\.baseApi) var baseApi
         @Dependency(\.concurrentQueue) var concurrentQueue
         @Dependency(\.serialQueue) var serialQueue
+        @Dependency(\.subscriptionApi) var subscriptionApi
 
         return AppStudioSubscriptionDependencies(storageService: storageService,
                                                  cloudStorage: cloudStorage,
-                                                 baseApi: baseApi,
                                                  logger: nil,
                                                  serialQueue: serialQueue,
-                                                 concurrentQueue: concurrentQueue)
+                                                 concurrentQueue: concurrentQueue,
+                                                 subscriptionApi: subscriptionApi)
     }
 }

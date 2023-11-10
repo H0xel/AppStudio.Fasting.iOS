@@ -9,7 +9,5 @@ import Foundation
 
 protocol AccountSyncService {
     @discardableResult
-    func sync(isForce: Bool) async throws -> Account?
-    @discardableResult
-    func accountFromServer() async -> Account?
+    func sync(isForce: Bool) async throws -> EmptyResult?
 }

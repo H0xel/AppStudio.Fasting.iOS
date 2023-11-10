@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AppStudioNavigation
+import AppStudioUI
 
 class FastingRouter: BaseRouter {
     func presentStartFastingDialog(initialDate: Date, maxDate: Date, onSave: @escaping (Date) -> Void) {
@@ -35,13 +36,19 @@ class FastingRouter: BaseRouter {
         present(sheet: route, detents: [.height(549)])
     }
 
+    func presentPaywall(output: @escaping ViewOutput<PaywallScreenOutput>) {
+        let route = PaywallRoute(navigator: navigator,
+                                 input: .freeUsageLimit,
+                                 output: output)
+        present(route: route)
+    }
+
     func presentSetupFasting(plan: FastingPlan) {
         let route = SetupFastingRoute(navigator: navigator, input: .init(plan: plan, context: .mainScreen)) { event in
             switch event {
             case .onboardingIsFinished: break
             }
         }
-
         present(route: route)
     }
 }

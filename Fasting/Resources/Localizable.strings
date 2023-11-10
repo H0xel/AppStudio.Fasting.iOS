@@ -7,15 +7,19 @@
 
 // MARK: - Paywall Screen
 "Paywall.title" = "Paywall Title";
-"Paywall.noPaymentNow" = "No payments title";
-"Paywall.cancelTitle" = "Cancel";
-"Paywall.cancelSubtitle" = "Cancel subtitle description";
+"Paywall.noPaymentNow" = "No payment now!";
+"Paywall.cancelTitle" = "Super easy to cancel!";
+"Paywall.cancelSubtitle" = "Tap your name in iPhone Settings, then tap Subscriptions and choose Fasting Tracker & Timer. Tap Cancel. Done!";
 "Paywall.Continue" = "Continue";
 "Paywall.restore" = "Restore";
 "Paywall.headerTitle" = "Paywall Header Title";
 "Paywall.headerDescription" = "Paywall Header Description";
 "Paywall.headerBottomTitle" = "Paywall Header Bottom Title";
 "Paywall.savePercent" = "Save percent";
+"Paywall.reachYourWeightGoals" = "Reach your weight goals";
+"Paywall.tryForFree" = "Try 3 days for free, then %@";
+"Paywall.renewsAt" = "Cancel anytime. Renews at %@";
+"Paywall.cancelAnyTime" = "Cancel anytime";
 
 // MARK: - Fasting Screen
 "FastingScreen.startFasting" = "Start fasting";
@@ -86,6 +90,29 @@
 "ProfileScreen.termsOfUse" = "Terms of use";
 "ProfileScreen.privacyPolicy" = "Privacy policy";
 "ProfileScreen.supportEmailSubject" = "Fasting App Support";
+
+// MARK: - Subscription
+"ProductCatalog.duration.day.period" = "daily";
+"ProductCatalog.duration.week.period" = "weekly";
+"ProductCatalog.duration.month.period" = "monthly";
+"ProductCatalog.duration.year.period" = "yearly";
+"ProductCatalog.duration.day" = "day";
+"ProductCatalog.duration.week" = "week";
+"ProductCatalog.duration.month" = "month";
+"ProductCatalog.duration.quater" = "quater";
+"ProductCatalog.duration.year" = "year";
+"ProductCatalog.duration.day.form1" = "day";
+"ProductCatalog.duration.day.form2" = "days";
+"ProductCatalog.duration.week.form1" = "week";
+"ProductCatalog.duration.week.form2" = "weeks";
+"ProductCatalog.duration.month.form1" = "month";
+"ProductCatalog.duration.month.form2" = "months";
+"ProductCatalog.duration.year.form1" = "year";
+"ProductCatalog.duration.year.form2" = "years";
+"ProductCatalog.duration.year.short" = "yr";
+"ProductCatalog.duration.month.short" = "mo";
+"ProductCatalog.duration.week.short" = "wk";
+"ProductCatalog.priceTitle" = "%@ per %@";
 
 // MARK: - Success screen
 "SuccessScreen.striveForProgress" = "Strive for progress, not perfection!";

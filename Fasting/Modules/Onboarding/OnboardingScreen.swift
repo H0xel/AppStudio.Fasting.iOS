@@ -1,4 +1,4 @@
-//  
+//
 //  OnboardingScreen.swift
 //  Fasting
 //
@@ -12,11 +12,23 @@ struct OnboardingScreen: View {
     @StateObject var viewModel: OnboardingViewModel
 
     var body: some View {
-        VStack(spacing: 0) {
-            Image(.onboardingMock)
-                .resizable()
+        ZStack {
+            VStack(spacing: 0) {
+                Image(.onboardingMock)
+                    .resizable()
+                    .scaledToFit()
+                    .overlay {
+                        LinearGradient(colors: [.white, .background.opacity(0)],
+                                       startPoint: .bottom,
+                                       endPoint: .top)
+                        .frame(height: Layout.gradientHeight)
+                        .aligned(.bottom)
+                    }
+                Spacer()
+            }
 
             VStack(spacing: 0) {
+                Spacer()
                 Text(Localization.description)
                     .multilineTextAlignment(.center)
                     .font(.poppins(.headerL))
@@ -24,11 +36,12 @@ struct OnboardingScreen: View {
                 AccentButton(title: Localization.buttonTitle) {
                     viewModel.getStartedTapped()
                 }
-                .padding(.bottom, Layout.buttonBottomPadding)
             }
             .padding(.horizontal, Layout.horizontalPadding)
+            .padding(.bottom, Layout.buttonBottomPadding)
         }
-        .ignoresSafeArea()
+        .frame(width: UIScreen.main.bounds.width)
+        .ignoresSafeArea(edges: .top)
     }
 }
 
@@ -36,8 +49,9 @@ struct OnboardingScreen: View {
 private extension OnboardingScreen {
     enum Layout {
         static let textVerticalPadding: CGFloat = 56
-        static let buttonBottomPadding: CGFloat = 73
+        static let buttonBottomPadding: CGFloat = 58
         static let horizontalPadding: CGFloat = 32
+        static let gradientHeight: CGFloat = 100
     }
 }
 

@@ -67,6 +67,13 @@ class RootViewModel: BaseViewModel<RootOutput> {
     var profileScreen: some View {
         router.profileScreen
     }
+
+    var paywallScreen: some View {
+        PaywallRoute(navigator: router.navigator, input: .fromSettings) { [weak self] _ in
+
+        }
+        .view
+    }
 }
 
 // MARK: Routing

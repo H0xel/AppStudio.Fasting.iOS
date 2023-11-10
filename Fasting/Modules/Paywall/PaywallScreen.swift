@@ -15,22 +15,19 @@ struct PaywallScreen: View {
         VStack(spacing: .zero) {
             PaywallTitleView(titles: viewModel.headerTitles)
                 .padding(.horizontal, Layout.horizontalPadding)
+                .padding(.top, Layout.verticalPadding)
 
             Spacer()
             ShadingImageView(image: .paywall)
             Spacer(minLength: Layout.bottomInfoTopPadding)
 
-            PaywallBottomInfoView(onSaveTap: viewModel.subscribe)
-                .padding(.bottom, Layout.bottomPadding)
+            PaywallBottomInfoView(bottomInfo: viewModel.bottomInfo, onSaveTap: viewModel.subscribe)
+                .padding(.bottom, Layout.verticalPadding)
                 .padding(.horizontal, Layout.horizontalPadding)
         }
-        .background(
-            LinearGradient(colors: [.white, .white, .background],
-                           startPoint: .bottom,
-                           endPoint: .top)
-        )
         .navigationBarTitleDisplayMode(.inline)
-        .closeButton(color: .tertiaryLabel, action: viewModel.close)
+        .navBarButton(content: Image.close.foregroundStyle(.fastingGreyStrokeFill),
+                      action: viewModel.close)
         .navBarButton(placement: .navigationBarTrailing,
                       content: restoreButton,
                       action: viewModel.restore)
@@ -38,22 +35,22 @@ struct PaywallScreen: View {
 
     private var restoreButton: some View {
         Text(Localization.restore)
-            .foregroundColor(.tertiaryLabel)
+            .foregroundColor(.fastingGrayPlaceholder)
     }
 }
 
 private extension PaywallScreen {
     enum Localization {
-        static let title: LocalizedStringKey = "Paywall.title"
         static let restore: LocalizedStringKey = "Paywall.restore"
         static let noPaymentsNow: LocalizedStringKey = "Paywall.noPaymentNow"
+        static let title = NSLocalizedString("Paywall.reachYourWeightGoals", comment: "")
     }
 
     enum Layout {
         static let bottomInfoTopPadding: CGFloat = 24
-        static let bottomPadding: CGFloat = 16
+        static let verticalPadding: CGFloat = 16
         static let titleSpacing: CGFloat = 12
-        static let horizontalPadding: CGFloat = 36
+        static let horizontalPadding: CGFloat = 32
     }
 }
 

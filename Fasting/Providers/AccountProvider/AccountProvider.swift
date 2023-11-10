@@ -10,8 +10,8 @@ import MunicornFoundation
 typealias AuthId = DeviceId
 
 protocol AccountProvider {
-    var accountId: AuthId { get }
-    var accessToken: AuthId { get }
+    var accountId: String { get }
+    var accessToken: String { get }
 
     func initialize()
 }

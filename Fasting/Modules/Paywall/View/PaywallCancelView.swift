@@ -11,10 +11,11 @@ struct PaywallCancelView: View {
     var body: some View {
         VStack(spacing: Layout.spacing) {
             Text(Localization.title)
-                .font(.poppinsBold(.description))
+                .font(.poppins(.body))
+                .foregroundStyle(.accent)
             Text(Localization.subtitle)
-//                .font(.poppins(.caption))
-                .foregroundColor(.tertiaryLabel)
+                .font(.poppins(.description))
+                .foregroundColor(.fastingGrayText)
                 .multilineTextAlignment(.center)
         }
     }
@@ -22,7 +23,7 @@ struct PaywallCancelView: View {
 
 private extension PaywallCancelView {
     enum Layout {
-        static let spacing: CGFloat = 8
+        static let spacing: CGFloat = 12
     }
 
     enum Localization {

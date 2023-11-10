@@ -15,10 +15,6 @@ extension DependencyValues {
     var accountSyncService: AccountSyncService {
         self[AccountSyncServiceKey.self]
     }
-
-    var identifiersSyncService: IdentifiersSyncService {
-        self[IdentifiersSyncServiceKey.self]
-    }
 }
 
 private enum AppSyncServiceKey: DependencyKey {
@@ -29,9 +25,4 @@ private enum AppSyncServiceKey: DependencyKey {
 private enum AccountSyncServiceKey: DependencyKey {
     static let liveValue: AccountSyncService = AccountSyncServiceImpl()
     static let testValue: AccountSyncService = AccountSyncServiceImpl()
-}
-
-private enum IdentifiersSyncServiceKey: DependencyKey {
-    static let liveValue: IdentifiersSyncService = IdentifiersSyncServiceImpl()
-    static let testValue: IdentifiersSyncService = IdentifiersSyncServiceImpl()
 }

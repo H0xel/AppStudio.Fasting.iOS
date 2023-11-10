@@ -7,14 +7,9 @@
 
 import Foundation
 import Dependencies
-import MunicornAPI
-import UIKit
+import AppStudioSubscriptions
 
 extension DependencyValues {
-
-    var baseApi: ApiImplBase {
-        self[ApiImplBaseKey.self]
-    }
 
     var apiSettingsProvider: AppStudioApiSettingsProvider {
         self[AppStudioApiSettingsProviderKey.self]
@@ -23,18 +18,9 @@ extension DependencyValues {
     var accountApi: AccountApi {
         self[AccountApiKey.self]
     }
-}
 
-private enum ApiImplBaseKey: DependencyKey {
-    static var liveValue: ApiImplBase {
-        @Dependency(\.mobileDeviceDataProvider) var deviceDataProvider
-        @Dependency(\.apiSettingsProvider) var settingsProvider
-        @Dependency(\.accountIdProvider) var accountIdProvider
-
-        return ApiImplBase(deviceDataProvider: deviceDataProvider,
-                           settingsProvider: settingsProvider,
-                           tracker: MockAPITracker(),
-                           accountIdProvider: accountIdProvider)
+    var subscriptionApi: SubscriptionApi {
+        self[SubscriptionApiKey.self]
     }
 }
 
@@ -51,12 +37,17 @@ private enum AppStudioApiSettingsProviderKey: DependencyKey {
 }
 
 private enum AccountApiKey: DependencyKey {
-    static var liveValue: AccountApi = AccountApiImpl()
+    static let liveValue: AccountApi = AccountApiImpl()
+}
+
+private enum SubscriptionApiKey: DependencyKey {
+    static let liveValue: SubscriptionApi = SubscriptionsApiImpl()
 }
 
 // TODO: TEMP if we want to track server errors we need to implement it and remove mocking
-private class MockAPITracker: ApiTracker {
-    func serverError(code: String, message: String?) {
-        print("Code: \(code) - Error: \(message ?? "")")
-    }
-}
+// private class MockAPITracker: ApiTracker {
+//     func serverError(code: String, message: String?) {
+//         print("Code: \(code) - Error: \(message ?? "")")
+//     }
+// }
+

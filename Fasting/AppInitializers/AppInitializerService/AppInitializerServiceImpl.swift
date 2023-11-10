@@ -17,7 +17,7 @@ final class AppInitializerServiceImpl: AppInitializerService {
 
     func initialize() {
         earlyInitializersInitialization()
-
+        messengerService.publish(message: AppInitializedMessage(sender: self))
         migrationLaunchService
             .migrateObservable()
             .subscribe(with: self) { this, _ in

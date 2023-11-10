@@ -9,15 +9,21 @@ import SwiftUI
 import AppStudioUI
 
 struct PaywallBottomInfoView: View {
+    let bottomInfo: LocalizedStringKey
     let onSaveTap: () -> Void
 
     var body: some View {
         VStack(spacing: Layout.spacing) {
             PaywallCancelView()
-
-            BaseButton(configuration: .init(title: Localization.continueTitle),
-                       style: .primaryExtraLarge(.fill),
-                       action: onSaveTap)
+            AccentButton(title: Localization.continueTitle,
+                         action: onSaveTap)
+            HStack(spacing: Layout.noPaymentsSpacing) {
+                Image.checkmark
+                    .foregroundStyle(.green)
+                    .font(.subheadline)
+                Text(bottomInfo)
+                    .font(.poppins(.description))
+            }
         }
     }
 }
@@ -25,15 +31,17 @@ struct PaywallBottomInfoView: View {
 private extension PaywallBottomInfoView {
     enum Layout {
         static let spacing: CGFloat = 24
+        static let noPaymentsSpacing: CGFloat = 4
     }
 
     enum Localization {
-        static let continueTitle = NSLocalizedString("Paywall.Continue", comment: "Continue")
+        static let continueTitle: LocalizedStringKey = "Paywall.Continue"
     }
 }
 
 struct PaywallBottomInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        PaywallBottomInfoView {}
+        PaywallBottomInfoView(bottomInfo: "Paywall.cancelAnyTime") {}
+            .padding(.horizontal, 32)
     }
 }

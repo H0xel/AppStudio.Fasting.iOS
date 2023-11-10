@@ -8,11 +8,4 @@
 
 import Foundation
 
-class AppInitializedMessage: AppStudioMessage {
-    public let isInitial: Bool
-
-    public init(sender: Any?, isInitial: Bool) {
-        self.isInitial = isInitial
-        super.init(sender: sender)
-    }
-}
+class AppInitializedMessage: AppStudioMessage {}

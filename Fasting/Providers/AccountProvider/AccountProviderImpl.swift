@@ -5,35 +5,31 @@
 //  Created by Konstantin Golenkov on 11.07.2023.
 //
 
-import Foundation
+import UIKit
 import Combine
 import MunicornFoundation
 import Dependencies
 import AppStudioFoundation
-import UIKit
-import AppStudioAnalytics
 
 final class AccountProviderImpl: AccountProvider {
 
     @Dependency(\.cloudStorage) private var cloudStorage
     @Dependency(\.storageService) private var storageService
-    @Dependency(\.trackerService) private var trackerService
-    @Dependency(\.analyticKeyStore) private var analyticStore
 
     private var lock = NSObject()
-    private var currentAccountId: AuthId?
-    private var currentAccessToken: AuthId?
+    private var currentAccountId: String?
+    private var currentAccessToken: String?
     private var installationType: InstallationType = .notNew
     private var isInitialized = false
     private var cancellable: Cancellable?
 
-    var accountId: AuthId {
+    var accountId: String {
         guard isInitialized, let currentAccountId else {
             fatalError("Must be initialized!")
         }
         return currentAccountId
     }
-    var accessToken: AuthId {
+    var accessToken: String {
         guard isInitialized, let currentAccessToken else {
             fatalError("Must be initialized!")
         }
@@ -75,34 +71,34 @@ final class AccountProviderImpl: AccountProvider {
 
     private func configureAccountId() {
         if let accountIdStr = cloudStorage.accountId {
-            currentAccountId = AuthId(secret: accountIdStr)
+            currentAccountId = accountIdStr
             storageService.accountId = accountIdStr
             installationType = .notNew
         } else if let accountId = storageService.accountId {
-            currentAccountId = AuthId(secret: accountId)
+            currentAccountId = accountId
             cloudStorage.accountId = accountId
             installationType = .notNew
         } else {
-            let accountId = AuthId()
+            let accountId = UUID().uuidString
             currentAccountId = accountId
-            cloudStorage.accountId = accountId.secret
-            storageService.accountId = accountId.secret
+            cloudStorage.accountId = accountId
+            storageService.accountId = accountId
             installationType = .new
         }
     }
 
     private func configureAccessToken() {
         if let accessTokenStr = cloudStorage.accessToken {
-            currentAccessToken = AuthId(secret: accessTokenStr)
+            currentAccessToken = accessTokenStr
             storageService.accessToken = accessTokenStr
         } else if let accessToken = storageService.accessToken {
-            currentAccessToken = AuthId(secret: accessToken)
+            currentAccessToken = accessToken
             cloudStorage.accessToken = accessToken
         } else {
-            let accessToken = AuthId()
+            let accessToken = UUID().uuidString
             currentAccessToken = accessToken
-            cloudStorage.accessToken = accessToken.secret
-            storageService.accessToken = accessToken.secret
+            cloudStorage.accessToken = accessToken
+            storageService.accessToken = accessToken
         }
     }
 }
