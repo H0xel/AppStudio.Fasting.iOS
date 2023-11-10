@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AppStudioFoundation
+import AppStudioUI
 
 struct FastingPlanView: View {
     let plan: FastingPlan
@@ -28,21 +29,17 @@ struct FastingPlanView: View {
                 .background(plan.descriptionBackgroundColor)
                 .continiousCornerRadius(Layout.descriptionCornerRadius)
 
-            Spacer()
-            HStack(spacing: 0) {
+            VStack(spacing: 0) {
                 Spacer()
-                VStack(spacing: Layout.planIntervalSpacing) {
-                    Text(plan.intervalPlan)
-                        .foregroundStyle(.white)
-                        .font(.poppins(.accentL))
-                    Text(plan.intervalDescription)
-                        .foregroundStyle(.white)
-                        .font(.poppins(.headerS))
-                }
+                Text(plan.intervalPlan)
+                    .foregroundStyle(.white)
+                    .font(.poppins(UIDevice.hasHomeIndicator ? .accentL : .accentS))
+                Text(plan.intervalDescription)
+                    .foregroundStyle(.white)
+                    .font(.poppins(.headerS))
                 Spacer()
             }
 
-            Spacer()
             AccentButton(title: Localization.buttonTitle) {
                 action()
             }
