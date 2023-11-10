@@ -1334,8 +1334,8 @@
 				A0255E7D2AFBD23700221EC6 /* EmptyResult.swift */,
 			);
 			path = Models;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		A0382D352AF4F022009CC579 /* Success */ = {
 			isa = PBXGroup;
 			children = (
