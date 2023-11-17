@@ -11,9 +11,9 @@ import MunicornCoreData
 extension FastingParameters: EntityMappable {
     func map(to entity: FastingParametersEntity) {
         entity.id = id
-        entity.startDate = start
+        entity.startDate = start.withoutSeconds
         entity.plan = Int16(plan.rawValue)
-        entity.currentDate = currentDate
+        entity.currentDate = currentDate?.withoutSeconds
         entity.creationDate = creationDate
     }
 
@@ -26,9 +26,9 @@ extension FastingParameters: EntityMappable {
         }
 
         self.id = id
-        self.start = startDate
+        self.start = startDate.withoutSeconds
         self.plan = plan
-        self.currentDate = entity.currentDate
+        self.currentDate = entity.currentDate?.withoutSeconds
         self.creationDate = entity.creationDate ?? .utcNow
     }
 

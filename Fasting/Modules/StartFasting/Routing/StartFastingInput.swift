@@ -16,11 +16,14 @@ struct StartFastingInput {
 }
 
 extension StartFastingInput {
-    static func startFasting(initialDate: Date, maxDate: Date, components: DatePickerComponents) -> StartFastingInput {
+    static func startFasting(initialDate: Date, 
+                             minDate: Date,
+                             maxDate: Date,
+                             components: DatePickerComponents) -> StartFastingInput {
         .init(title: "StartFastingScreen.whenToStart",
               datePickerComponents: components,
               initialDate: initialDate,
-              datesRange: .now.adding(.day, value: -3) ... maxDate)
+              datesRange: minDate ... maxDate)
     }
 
     static func endFasting(initialDate: Date, minDate: Date) -> StartFastingInput {

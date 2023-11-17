@@ -10,8 +10,9 @@ import AppStudioNavigation
 import AppStudioUI
 
 class FastingRouter: BaseRouter {
-    func presentStartFastingDialog(initialDate: Date, maxDate: Date, onSave: @escaping (Date) -> Void) {
+    func presentStartFastingDialog(initialDate: Date, minDate: Date, maxDate: Date, onSave: @escaping (Date) -> Void) {
         let input = StartFastingInput.startFasting(initialDate: initialDate,
+                                                   minDate: minDate,
                                                    maxDate: maxDate,
                                                    components: [.hourAndMinute, .date])
 

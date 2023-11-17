@@ -98,10 +98,16 @@ private enum ExecutionDispatchQueueKey: DependencyKey {
     static var liveValue: ExecutionDispatchQueue {
         ExecutionDispatchQueue(label: "AppStudioSerialQueue", qos: .userInitiated)
     }
+    static var testValue: ExecutionDispatchQueue {
+        ExecutionDispatchQueue(label: "AppStudioSerialQueue", qos: .userInitiated)
+    }
 }
 
 private enum ConcurrentDispatchQueueKey: DependencyKey {
     static var liveValue: ConcurrentDispatchQueue {
+        ConcurrentDispatchQueue(label: "AppStudioConcurrentQueue", qos: .userInitiated, attributes: .concurrent)
+    }
+    static var testValue: ConcurrentDispatchQueue {
         ConcurrentDispatchQueue(label: "AppStudioConcurrentQueue", qos: .userInitiated, attributes: .concurrent)
     }
 }
@@ -114,14 +120,21 @@ private enum MigrationLaunchServiceKey: DependencyKey {
     static var liveValue: MigrationLaunchService = MigrationLaunchServiceImpl(
         migrationService: MigrationServiceKey.liveValue
     )
+    static var testValue: MigrationLaunchService = MigrationLaunchServiceImpl(
+        migrationService: MigrationServiceKey.testValue
+    )
 }
 
 private enum MigrationServiceKey: DependencyKey {
     static var liveValue: MigrationService = MigrationServiceImpl(
         appMigrationsProvider: AppMigrationsProviderKey.liveValue
     )
+    static var testValue: MigrationService = MigrationServiceImpl(
+        appMigrationsProvider: AppMigrationsProviderKey.testValue
+    )
 }
 
 private enum AppMigrationsProviderKey: DependencyKey {
     static var liveValue = AppMigrationsProvider(migrations: [])
+    static var testValue = AppMigrationsProvider(migrations: [])
 }

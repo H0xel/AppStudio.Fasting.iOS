@@ -128,3 +128,43 @@
 "EndFastingEarlyScreen.fastingTime" = "You have fasted for less than %@";
 "EndFastingEarlyScreen.hour.form1" = "%i hour";
 "EndFastingEarlyScreen.hour.form2" = "%i hours";
+
+// MARK: - Local Notifications
+
+"NotificationType.beforeStartOfFasting1.title" = "Nearly time to start fasting";
+"NotificationType.beforeStartOfFasting1.subtitle" = "Finish your meal before your fast begins in 1 hour.";
+"NotificationType.beforeStartOfFasting2.title" = "Are you ready? 😎";
+"NotificationType.beforeStartOfFasting2.subtitle" = "Fasting begins in 1 hour!";
+"NotificationType.beforeStartOfFasting3.title" = "1 hour to go! ⏰";
+"NotificationType.beforeStartOfFasting3.subtitle" = "Fasting starts in an hour. Get ready!";
+
+"NotificationType.startOfFasting1.title" = "It’s fasting time ⏰";
+"NotificationType.startOfFasting1.subtitle" = "Tap to start your timer.";
+"NotificationType.startOfFasting2.title" = "Ready, set, GO! 🏁";
+"NotificationType.startOfFasting2.subtitle" = "It’s time to start your fasting timer.";
+"NotificationType.startOfFasting3.title" = "It’s time to fast! 🔔";
+"NotificationType.startOfFasting3.subtitle" = "Start your timer to track your success";
+
+
+"NotificationType.beforeEndOfFasting1.title" = "You almost made it! 🕐";
+"NotificationType.beforeEndOfFasting1.subtitle" = "Just 1 hour left to complete another successful fast. Keep it up!";
+"NotificationType.beforeEndOfFasting2.title" = "One More Hour";
+"NotificationType.beforeEndOfFasting2.subtitle" = "Only one hour left on this %i-hour fast. You've got this! 💪";
+"NotificationType.beforeEndOfFasting3.title" = "Hang in there! 😃";
+"NotificationType.beforeEndOfFasting3.subtitle" = "You're almost done! Just one more hour of fasting to go!";
+
+"NotificationType.endOfFasting1.title" = "Fasting completed!";
+"NotificationType.endOfFasting1.subtitle" = "You made it! 💪 Stop your timer, it’s time to eat!";
+"NotificationType.endOfFasting2.title" = "Goal reached! 👏";
+"NotificationType.endOfFasting2.subtitle" = "You did it! Tap here to end your fast.";
+"NotificationType.endOfFasting3.title" = "You did it! 🥳";
+"NotificationType.endOfFasting3.subtitle" = "Now you can end the timer and enjoy your long-awaited meal.";
+
+"NotificationType.forgotToStartFasting.title" = "How is it going?";
+"NotificationType.forgotToStartFasting.subtitle" = "If you’re already fasting, start the timer and enjoy your %i hour fast! ⏰";
+
+"NotificationType.forgotToFinishFasting.title" = "Your fast is already over";
+"NotificationType.forgotToFinishFasting.subtitle" = "Wow! Are you still fasting? 🤯 Or just forgot to stop your timer?";
+
+"NotificationType.fatBurningPhaseInfos.title" = "You start to burn fat!";
+"NotificationType.fatBurningPhaseInfos.subtitle" = "Your body is now actively burning through its fat reserves.";

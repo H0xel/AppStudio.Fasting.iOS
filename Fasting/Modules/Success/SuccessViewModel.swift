@@ -74,7 +74,7 @@ class SuccessViewModel: BaseViewModel<SuccessOutput> {
     }
 
     func editStartDate() {
-        let input = StartFastingInput.startFasting(initialDate: startDate,
+        let input = StartFastingInput.startFasting(initialDate: startDate, minDate: .now.adding(.day, value: -2),
                                                    maxDate: endDate,
                                                    components: [.date, .hourAndMinute])
         router.presentEditFastingTime(input: input) { [weak self] event in
@@ -105,9 +105,9 @@ class SuccessViewModel: BaseViewModel<SuccessOutput> {
 
     private func fastingDateString(_ date: Date) -> String {
         if date.isSameDay(with: .now) {
-            return NSLocalizedString("TodayTitle", comment: "Today") + ", " + date.currentLocaleFormatted(with: "hhmm")
+            return NSLocalizedString("TodayTitle", comment: "Today") + ", " + date.localeTimeString
         }
-        return date.currentLocaleFormatted(with: "MMMMdhhmm")
+        return date.localeDateTimeString
     }
 
     private var beginerPlanImage: Image {

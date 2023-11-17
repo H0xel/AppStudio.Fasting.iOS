@@ -38,11 +38,11 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     }
 
     var fastingStartTime: String {
-        fastingInterval.startDate.currentLocaleFormatted(with: "hhmm")
+        fastingInterval.startDate.localeTimeString
     }
 
     var fastingEndTime: String {
-        fastingInterval.endDate.currentLocaleFormatted(with: "hhmm")
+        fastingInterval.endDate.localeTimeString
     }
 
     var currentStage: FastingStage? {
@@ -55,8 +55,11 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     }
 
     func changeFastingTime() {
-        router.presentStartFastingDialog(initialDate: fastingInterval.startDate,
-                                         maxDate: .now.adding(.day, value: 1)) { [weak self] date in
+        router.presentStartFastingDialog(
+            initialDate: fastingInterval.startDate,
+            minDate: fastingInterval.minAllowedCurrentDate,
+            maxDate: .now.adding(.day, value: isFastingActive ? 0 : 1)
+        ) { [weak self] date in
             self?.setCurrentDate(date)
         }
     }
@@ -85,7 +88,9 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     private func startFasting() {
         let minAllowedDate = min(fastingInterval.startDate, .now)
 
-        router.presentStartFastingDialog(initialDate: minAllowedDate, maxDate: .now) { [weak self] date in
+        router.presentStartFastingDialog(initialDate: minAllowedDate,
+                                         minDate: fastingInterval.minAllowedCurrentDate.adding(.day, value: -1),
+                                         maxDate: .now) { [weak self] date in
             self?.fastingService.startFasting(from: date)
         }
     }
@@ -102,7 +107,9 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     }
 
     private func setCurrentDate(_ date: Date) {
-        fastingParametersService.set(currentDate: date)
+        Task { [weak self] in
+            try await self?.fastingParametersService.set(currentDate: date)
+        }
     }
 }
 

@@ -17,6 +17,15 @@
 		5632571C2ADE57D90000F33C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5632571B2ADE57D90000F33C /* Preview Assets.xcassets */; };
 		563257262ADE57DA0000F33C /* AppStudioTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563257252ADE57DA0000F33C /* AppStudioTemplateTests.swift */; };
 		563257FD2ADE61E30000F33C /* AppStudioAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 563257FC2ADE61E30000F33C /* AppStudioAnalytics */; };
+		563B8ABC2B01F6E300AF6BB7 /* FastingLocalNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8ABB2B01F6E300AF6BB7 /* FastingLocalNotificationService.swift */; };
+		563B8ABE2B034D5C00AF6BB7 /* FastingNotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8ABD2B034D5C00AF6BB7 /* FastingNotificationTests.swift */; };
+		563B8AC12B03AE9600AF6BB7 /* FastingLocalNotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8AC02B03AE9600AF6BB7 /* FastingLocalNotificationType.swift */; };
+		563B8AC32B03AEDE00AF6BB7 /* FastingNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8AC22B03AEDE00AF6BB7 /* FastingNotifications.swift */; };
+		563B8AC52B03AEFC00AF6BB7 /* FastingNotificationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8AC42B03AEFC00AF6BB7 /* FastingNotificationInfo.swift */; };
+		563B8AC72B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8AC62B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift */; };
+		563B8AC92B03AF8400AF6BB7 /* LocalNotificationDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8AC82B03AF8400AF6BB7 /* LocalNotificationDependencies.swift */; };
+		563B8ACB2B04AA4000AF6BB7 /* NotificationCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8ACA2B04AA4000AF6BB7 /* NotificationCenterDelegate.swift */; };
+		563B8ACF2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8ACE2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift */; };
 		564BE0B42AF0E99F00CE7F38 /* MunicornAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 564BE0B32AF0E99F00CE7F38 /* MunicornAPI */; };
 		564BE0B62AF0E99F00CE7F38 /* MunicornCoreData in Frameworks */ = {isa = PBXBuildFile; productRef = 564BE0B52AF0E99F00CE7F38 /* MunicornCoreData */; };
 		564BE0B82AF0E99F00CE7F38 /* MunicornFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 564BE0B72AF0E99F00CE7F38 /* MunicornFoundation */; };
@@ -309,6 +318,15 @@
 		5632571B2ADE57D90000F33C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		563257212ADE57DA0000F33C /* FastingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		563257252ADE57DA0000F33C /* AppStudioTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStudioTemplateTests.swift; sourceTree = "<group>"; };
+		563B8ABB2B01F6E300AF6BB7 /* FastingLocalNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingLocalNotificationService.swift; sourceTree = "<group>"; };
+		563B8ABD2B034D5C00AF6BB7 /* FastingNotificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingNotificationTests.swift; sourceTree = "<group>"; };
+		563B8AC02B03AE9600AF6BB7 /* FastingLocalNotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingLocalNotificationType.swift; sourceTree = "<group>"; };
+		563B8AC22B03AEDE00AF6BB7 /* FastingNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingNotifications.swift; sourceTree = "<group>"; };
+		563B8AC42B03AEFC00AF6BB7 /* FastingNotificationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingNotificationInfo.swift; sourceTree = "<group>"; };
+		563B8AC62B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingLocalNotificationServiceImpl.swift; sourceTree = "<group>"; };
+		563B8AC82B03AF8400AF6BB7 /* LocalNotificationDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationDependencies.swift; sourceTree = "<group>"; };
+		563B8ACA2B04AA4000AF6BB7 /* NotificationCenterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterDelegate.swift; sourceTree = "<group>"; };
+		563B8ACE2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterInitializer.swift; sourceTree = "<group>"; };
 		564BE0B92AF0F18300CE7F38 /* DatabaseDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDependencies.swift; sourceTree = "<group>"; };
 		564BE0BE2AF0F30400CE7F38 /* FastingParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParameters.swift; sourceTree = "<group>"; };
 		564BE0C02AF0F31600CE7F38 /* FastingParameters+Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FastingParameters+Mappable.swift"; sourceTree = "<group>"; };
@@ -666,8 +684,32 @@
 			children = (
 				563257252ADE57DA0000F33C /* AppStudioTemplateTests.swift */,
 				564BE0C42AF0F4DF00CE7F38 /* FastingParametersTests.swift */,
+				563B8ABD2B034D5C00AF6BB7 /* FastingNotificationTests.swift */,
 			);
 			path = FastingTests;
+			sourceTree = "<group>";
+		};
+		563B8ABA2B01F6C800AF6BB7 /* LocalNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				563B8ABF2B03AE8B00AF6BB7 /* Model */,
+				563B8ACA2B04AA4000AF6BB7 /* NotificationCenterDelegate.swift */,
+				563B8ABB2B01F6E300AF6BB7 /* FastingLocalNotificationService.swift */,
+				563B8AC62B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift */,
+				563B8AC82B03AF8400AF6BB7 /* LocalNotificationDependencies.swift */,
+				563B8ACE2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift */,
+			);
+			path = LocalNotifications;
+			sourceTree = "<group>";
+		};
+		563B8ABF2B03AE8B00AF6BB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				563B8AC02B03AE9600AF6BB7 /* FastingLocalNotificationType.swift */,
+				563B8AC22B03AEDE00AF6BB7 /* FastingNotifications.swift */,
+				563B8AC42B03AEFC00AF6BB7 /* FastingNotificationInfo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		564BE0BB2AF0F2CE00CE7F38 /* FastingParametersRepository */ = {
@@ -1106,6 +1148,7 @@
 		5675FFD12ADE8358009331CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				563B8ABA2B01F6C800AF6BB7 /* LocalNotifications */,
 				56655B6D2AFCB67C00508ED4 /* FastingHistoryService */,
 				A0CEE62A2AEFE41C0082B27F /* FastingParameters */,
 				A0CEE6232AEFE3D30082B27F /* FastingService */,
@@ -1903,6 +1946,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A72230372AFB624300303D5D /* Date+LocaleTime.swift in Sources */,
+				563B8AC52B03AEFC00AF6BB7 /* FastingNotificationInfo.swift in Sources */,
 				56C28DC82AE109580007E48D /* AppCustomizationInitializer.swift in Sources */,
 				5675FFF12ADE84B4009331CB /* MigrationFinishedMessage.swift in Sources */,
 				5675FFF72ADE84B4009331CB /* AppActivationMessage.swift in Sources */,
@@ -1993,11 +2037,13 @@
 				A04272CE2AE28F2C00754326 /* DebugMenuActionsView.swift in Sources */,
 				56C28DC52AE109580007E48D /* SubscriptionServiceInitializer.swift in Sources */,
 				A008A8312AF14C0B0011A261 /* Animation+extensions.swift in Sources */,
+				563B8ACB2B04AA4000AF6BB7 /* NotificationCenterDelegate.swift in Sources */,
 				5675010A2ADFD955009331CB /* IntercomUpdaterImpl.swift in Sources */,
 				567500432ADFA67E009331CB /* AccountProvider.swift in Sources */,
 				56655B732AFCB6AB00508ED4 /* FastingHistoryServiceService.swift in Sources */,
 				56F64D802AE10EF20067FE05 /* RootOutput.swift in Sources */,
 				A07EAB342AFA56A200A46D7E /* EndFastingEarlyInput.swift in Sources */,
+				563B8ABC2B01F6E300AF6BB7 /* FastingLocalNotificationService.swift in Sources */,
 				A0382D342AF4EAF2009CC579 /* AppTab.swift in Sources */,
 				5675001F2ADE86C3009331CB /* FirstLaunchService.swift in Sources */,
 				A0CEE6202AEFE2FD0082B27F /* InActiveFastingStage.swift in Sources */,
@@ -2015,6 +2061,7 @@
 				A044263A2AF240F4005400AE /* ProfileInput.swift in Sources */,
 				5675FFF52ADE84B4009331CB /* UpdateIdentifiersMessage.swift in Sources */,
 				A063B1F82AEBD0E800084696 /* StartFastingScreen.swift in Sources */,
+				563B8ACF2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift in Sources */,
 				567500CD2ADFCC54009331CB /* AppSyncService.swift in Sources */,
 				A0382D3C2AF4F03A009CC579 /* SuccessInput.swift in Sources */,
 				A0CEE62E2AEFE4280082B27F /* FastingParametersServiceImpl.swift in Sources */,
@@ -2025,6 +2072,7 @@
 				56C28DC72AE109580007E48D /* LateTimeInitializers.swift in Sources */,
 				564BE0C12AF0F31600CE7F38 /* FastingParameters+Mappable.swift in Sources */,
 				566C24942AE8F80B00AEDB3C /* PaywallScreenOutput.swift in Sources */,
+				563B8AC72B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift in Sources */,
 				A0255E802AFBD25400221EC6 /* TelecomApiError.swift in Sources */,
 				5675010B2ADFD955009331CB /* IntercomDataStorage.swift in Sources */,
 				567500DF2ADFD0AB009331CB /* ObfuscatorDepenendencies.swift in Sources */,
@@ -2056,6 +2104,7 @@
 				567500502ADFA81D009331CB /* DataDependencies.swift in Sources */,
 				A0255E732AFBD02F00221EC6 /* PutAccountRequest.swift in Sources */,
 				A07D95902AE9202500D2C2E2 /* AppCustomization.swift in Sources */,
+				563B8AC32B03AEDE00AF6BB7 /* FastingNotifications.swift in Sources */,
 				A044263E2AF240F4005400AE /* ProfileOutput.swift in Sources */,
 				566C249B2AE8F80B00AEDB3C /* PaywallRoute.swift in Sources */,
 				A7622F502AEBC9AA00D12632 /* Font+Poppins.swift in Sources */,
@@ -2064,6 +2113,7 @@
 				A7D01B5E2AF0C82100C50C1F /* OnboardingRouter.swift in Sources */,
 				567500E12ADFD298009331CB /* AppSyncServiceDependencies.swift in Sources */,
 				A7D01B7C2AF10A6D00C50C1F /* SetupFastingInput.swift in Sources */,
+				563B8AC92B03AF8400AF6BB7 /* LocalNotificationDependencies.swift in Sources */,
 				5675009D2ADFAB69009331CB /* PaywallServiceImpl.swift in Sources */,
 				567500E42ADFD4E8009331CB /* StorageService.swift in Sources */,
 				566C249E2AE8F8FD00AEDB3C /* Image+Paywall.swift in Sources */,
@@ -2122,6 +2172,7 @@
 				A78535E82AF21F0900437F5E /* FastingBackgroundModifier.swift in Sources */,
 				56C28DC92AE109580007E48D /* AppInitializerServiceDependency.swift in Sources */,
 				56C28DCF2AE109580007E48D /* AccountProviderInitializer.swift in Sources */,
+				563B8AC12B03AE9600AF6BB7 /* FastingLocalNotificationType.swift in Sources */,
 				56F64D7F2AE10EF20067FE05 /* RootScreen.swift in Sources */,
 				567500262ADE86C3009331CB /* ConcurrentDispatchQueue.swift in Sources */,
 				A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */,
@@ -2163,6 +2214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				564BE0C52AF0F4DF00CE7F38 /* FastingParametersTests.swift in Sources */,
+				563B8ABE2B034D5C00AF6BB7 /* FastingNotificationTests.swift in Sources */,
 				563257262ADE57DA0000F33C /* AppStudioTemplateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

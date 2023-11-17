@@ -12,9 +12,27 @@ struct FastingInterval {
     let plan: FastingPlan
     var currentDate: Date?
 
+    init(start: Date, plan: FastingPlan, currentDate: Date? = nil) {
+        self.start = start.withoutSeconds
+        self.plan = plan
+        self.currentDate = currentDate?.withoutSeconds
+    }
     /// nearest date of start fasting
     var startDate: Date {
-        currentDate ?? nearestStartDate
+        checkedCurrentDate ?? nearestStartDate
+    }
+
+    var checkedCurrentDate: Date? {
+        guard let currentDate else {
+            return nil
+        }
+        let lastEnoughDate = Date.now.addingTimeInterval( -1 * (plan.duration + .hour))
+        let isEnoughInterval = lastEnoughDate.timeIntervalSince(currentDate)
+        return isEnoughInterval < 0 ? currentDate : nil
+    }
+
+    var minAllowedCurrentDate: Date {
+        Date.now.addingTimeInterval( -1 * (plan.duration + .hour))
     }
 
     var endDate: Date {

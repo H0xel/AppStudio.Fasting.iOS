@@ -23,6 +23,7 @@ final class EarlyTimeInitializers: Initializers {
             MobileDeviceDataProviderInitializer(),
             TrackerServiceInitializer(),
             SubscriptionServiceInitializer(),
+            NotificationCenterInitializer(),
             paywallServiceInitializer,
             fastingParametersInitializer
         ]

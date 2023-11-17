@@ -16,7 +16,34 @@ extension Date {
         return dateFormatter
     }
 
+    private var dateTimeFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+        return dateFormatter
+    }
+
     var localeTimeString: String {
         dateFormatter.string(from: self)
+    }
+
+    var localeDateTimeString: String {
+        dateTimeFormatter.string(from: self)
+    }
+
+    var withoutSeconds: Date {
+        guard let result = DateComponents(
+            calendar: .current,
+            year: year,
+            month: month,
+            day: day,
+            hour: hour,
+            minute: minute,
+            second: 0
+        ).date else {
+            fatalError("wrong input date!")
+        }
+        return result
     }
 }

@@ -74,7 +74,7 @@ extension FastingInterval {
 
 private extension FastingParameters {
     static let defaultParameters = FastingParameters(id: UUID().uuidString,
-                                                     start: .now,
+                                                     start: .now.withoutSeconds,
                                                      plan: .beginner,
                                                      currentDate: nil,
                                                      creationDate: .now)

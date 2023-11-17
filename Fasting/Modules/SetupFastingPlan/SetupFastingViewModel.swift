@@ -34,19 +34,25 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
                 guard let self else { return }
                 switch event {
                 case .onboardingIsFinished:
-                    fastingParametersService.set(
-                        fastingInterval: FastingInterval(start: self.startFastingDate, plan: self.plan)
-                    )
-                    self.output(.onboardingIsFinished)
+                    Task { [weak self] in
+                        guard let self else { return }
+                        try await self.fastingParametersService.set(
+                            fastingInterval: FastingInterval(start: self.startFastingDate, plan: self.plan)
+                        )
+                        self.output(.onboardingIsFinished)
+                    }
                 }
             }
         }
 
         if context == .profile || context == .mainScreen {
-            fastingParametersService.set(
-                fastingInterval: FastingInterval(start: startFastingDate, plan: plan)
-            )
-            router.popToRoot()
+            Task { [weak self] in
+                guard let self else { return }
+                try await self.fastingParametersService.set(
+                    fastingInterval: FastingInterval(start: self.startFastingDate, plan: self.plan)
+                )
+                await self.router.popToRoot()
+            }
         }
     }
 

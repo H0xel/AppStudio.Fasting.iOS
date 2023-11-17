@@ -19,4 +19,16 @@ struct FastingParameters {
                         plan: plan,
                         currentDate: currentDate)
     }
+
+    init(id: String,
+         start: Date,
+         plan: FastingPlan,
+         currentDate: Date? = nil,
+         creationDate: Date) {
+        self.id = id
+        self.start = start.withoutSeconds
+        self.plan = plan
+        self.currentDate = currentDate?.withoutSeconds
+        self.creationDate = creationDate
+    }
 }

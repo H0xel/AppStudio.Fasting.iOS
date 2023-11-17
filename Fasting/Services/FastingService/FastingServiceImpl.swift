@@ -26,13 +26,17 @@ class FastingServiceImpl: FastingService {
             .eraseToAnyPublisher()
     }
 
-    func startFasting(from date: Date) {     
-        fastingParametersService.set(currentDate: date)
-        fastingParametersService.startFastingProcess()
+    func startFasting(from date: Date) {
+        Task { [unowned self] in
+            try await fastingParametersService.set(currentDate: date)
+            try await fastingParametersService.startFastingProcess()
+        }
     }
 
     func endFasting() {
-        fastingParametersService.endFastingProcess()
-        fastingParametersService.clearCurrentDate()
+        Task { [unowned self] in
+            try await fastingParametersService.endFastingProcess()
+            try await fastingParametersService.clearCurrentDate()
+        }
     }
 }

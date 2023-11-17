@@ -31,6 +31,7 @@ private enum AppStudioMobileDeviceDataProviderKey: DependencyKey {
 private enum AccountProviderKey: DependencyKey {
     public static var liveValue: AccountProvider = AccountProviderImpl()
     public static var previewValue: AccountProvider = AccountProviderPreview()
+    public static var testValue: AccountProvider = AccountProviderImpl()
 }
 
 private enum AccountIdProviderKey: DependencyKey {

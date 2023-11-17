@@ -15,4 +15,5 @@ extension DependencyValues {
 
 private enum FastingServiceKey: DependencyKey {
     static var liveValue: FastingService = FastingServiceImpl()
+    static var testValue: FastingService = FastingServiceImpl()
 }
