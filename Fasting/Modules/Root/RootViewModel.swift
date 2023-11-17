@@ -19,6 +19,7 @@ enum Step {
 class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.storageService) private var storageService
     @Dependency(\.idfaRequestService) private var idfaRequestService
+    @Dependency(\.fastingParametersInitializer) private var fastingParametersInitializer
 
     @Published var currentTab: AppTab = .fasting
     @Published var step: Step
@@ -51,6 +52,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
             switch event {
             case .onboardingIsFinished:
                 self?.storageService.onboardingIsFinished = true
+                self?.fastingParametersInitializer.initialize()
                 DispatchQueue.main.async {
                     self?.router.popToRoot()
                     self?.step = .fasting
@@ -77,7 +79,6 @@ class RootViewModel: BaseViewModel<RootOutput> {
                     (shouldShowForceUpdate: !Bundle.lessOrEqualToCurrentVersion(version), appLink: $0)
                 }
             }
-            .take(1)
             .asDriver()
             .drive(with: self) { this, args in
                 if args.shouldShowForceUpdate {

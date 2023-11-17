@@ -15,6 +15,7 @@ class FastingParametersServiceImpl: FastingParametersService {
     @Dependency(\.cloudStorage) private var cloudStorage
     @Dependency(\.fastingParametersRepository) private var fastingParametersRepository
     @Dependency(\.fastingLocalNotificationService) private var fastingLocalNotificationService
+    @Dependency(\.storageService) private var storageService
 
     private var cancellables = Set<AnyCancellable>()
     private var fastingIntervalTrigger: CurrentValueSubject<FastingData, Never> = .init(.empty)
@@ -65,6 +66,7 @@ class FastingParametersServiceImpl: FastingParametersService {
 
 extension FastingParametersServiceImpl: AppInitializer {
     func initialize() {
+        guard storageService.onboardingIsFinished else { return }
         Task { [unowned self] in
             let parameters = try await self.fastingParametersRepository.current()
             await update(interval: parameters.asInterval)
