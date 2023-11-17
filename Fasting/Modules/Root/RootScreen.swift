@@ -48,6 +48,10 @@ struct RootScreen: View {
                           content: navigationTitleView,
                           action: {})
             .navigationBarTitleDisplayMode(.inline)
+        case let .forceUpdate(link):
+            ForceUpdateScreen(theme: .init()) {
+                viewModel.openAppStore(link)
+            }
         }
     }
 

@@ -14,6 +14,7 @@ import RxSwift
 enum Step {
     case fasting
     case onboarding
+    case forceUpdate(String)
 }
 
 class RootViewModel: BaseViewModel<RootOutput> {
@@ -41,6 +42,10 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     func requestIdfa() {
         idfaRequestService.requestIDFATracking()
+    }
+
+    func openAppStore(_ applink: String) {
+        router.presentAppStore(applink)
     }
 
     var fastingScreen: some View {
@@ -79,10 +84,13 @@ class RootViewModel: BaseViewModel<RootOutput> {
                     (shouldShowForceUpdate: !Bundle.lessOrEqualToCurrentVersion(version), appLink: $0)
                 }
             }
+            .distinctUntilChanged(at: \.shouldShowForceUpdate)
             .asDriver()
             .drive(with: self) { this, args in
                 if args.shouldShowForceUpdate {
-                    this.presentForceUpdateScreen(args.appLink)
+                    this.step = .forceUpdate(args.appLink)
+                } else {
+                    this.step = this.storageService.onboardingIsFinished ? .fasting : .onboarding
                 }
             }
             .disposed(by: disposeBag)
@@ -93,12 +101,5 @@ class RootViewModel: BaseViewModel<RootOutput> {
 extension RootViewModel {
     func showPaywall() {
         router.presentPaywall()
-    }
-
-    private func presentForceUpdateScreen(_ appLink: String) {
-        let banner = ForceUpdateBanner { [weak self] in
-            self?.router.presentAppStore(appLink)
-        }
-        router.present(banner: banner)
     }
 }
