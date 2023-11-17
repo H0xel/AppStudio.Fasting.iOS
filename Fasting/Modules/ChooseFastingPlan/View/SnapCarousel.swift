@@ -8,6 +8,7 @@
 import SwiftUI
 
 // To for acepting List....
+@MainActor
 struct SnapCarousel<Content: View, T: Hashable>: View {
 
     var content: (T) -> Content
@@ -57,7 +58,25 @@ struct SnapCarousel<Content: View, T: Hashable>: View {
             .gesture(
                 DragGesture()
                     .updating($offset, body: { value, out, _ in
-                        out = value.translation.width
+                        let maximumWidthScroll: CGFloat = 100
+                        let isFirstItemLeftScroll = currentIndex == 0 && value.translation.width > maximumWidthScroll
+                        let isLastItemRightScroll = currentIndex == list.count - 1 && value.translation.width < -maximumWidthScroll
+                        let isDefaultScroll = currentIndex != 0 || index != list.count - 1
+
+                        if isFirstItemLeftScroll {
+                            out = maximumWidthScroll + value.translation.width / maximumWidthScroll
+                            return
+                        }
+
+                        if isLastItemRightScroll {
+                            out = -maximumWidthScroll - value.translation.width / maximumWidthScroll
+                            return
+                        }
+
+                        if isDefaultScroll {
+                            out = value.translation.width
+                            return
+                        }
                     })
                     .onEnded({ value in
 
@@ -91,11 +110,14 @@ struct SnapCarousel<Content: View, T: Hashable>: View {
                         let roundIndex = progress.rounded()
 
                         // setting max....
-                        index = max(min(currentIndex + Int(roundIndex), list.count - 1), 0)
+
+                        let roundIndexCustom = progress.rounded(progress > 0 ? .up : .down)
+
+                        index = max(min(currentIndex + Int(roundIndexCustom), list.count - 1), 0)
                     })
             )
         }
         // Animatiing when offset = 0
-        .animation(.easeInOut, value: offset == 0)
+        .animation(.bouncy, value: offset == 0)
     }
 }

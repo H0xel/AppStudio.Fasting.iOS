@@ -18,8 +18,8 @@ public enum GlobalConstants {
     // TODO: - Add contactEmail, termsOfUse, privacyPolicy
     // MARK: - Contact and other info
     public static let contactEmail = "fasting-support@municorn.com"
-    public static let termsOfUse = "https://getpaidapp.com/terms"
-    public static let privacyPolicy = "https://getpaidapp.com/privacy"
+    public static let termsOfUse = "https://telecom.municorn.com/terms?app=fasting"
+    public static let privacyPolicy = "https://telecom.municorn.com/privacy?app=fasting"
 
     // MARK: - Intercom
     public static let intercomObfuscatedAppId = "28553b15100f0911"

@@ -23,6 +23,18 @@ struct PaywallTitle: Equatable {
         description: NSLocalizedString("Paywall.tryForFree", comment: ""),
         subTitle: ""
     )
+
+    static let onboardingTitle = PaywallTitle(
+        title: NSLocalizedString("Paywall.reachYourWeightGoals", comment: ""),
+        description: NSLocalizedString("Paywall.tryForFree", comment: ""),
+        subTitle: NSLocalizedString("Paywall.headerBottomTitle", comment: "")
+    )
+
+    static let settingsTitle = PaywallTitle(
+        title: NSLocalizedString("Paywall.reachYourWeightGoals", comment: ""),
+        description: NSLocalizedString("Paywall.tryForFree", comment: ""),
+        subTitle: NSLocalizedString("Paywall.headerBottomTitle", comment: "")
+    )
 }
 
 struct PaywallScreenInput: Equatable {
@@ -33,12 +45,12 @@ struct PaywallScreenInput: Equatable {
 
 extension PaywallScreenInput {
     static let onboarding = PaywallScreenInput(
-        headerTitles: .defaultHeaderTitles,
+        headerTitles: .onboardingTitle,
         paywallContext: .onboarding,
         paywallImage: .paywall)
 
     static let fromSettings = PaywallScreenInput(
-        headerTitles: .defaultHeaderTitles,
+        headerTitles: .settingsTitle,
         paywallContext: .settingsScreen,
         paywallImage: .paywall)
 

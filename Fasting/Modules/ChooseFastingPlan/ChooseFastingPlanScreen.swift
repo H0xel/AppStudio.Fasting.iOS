@@ -24,10 +24,13 @@ struct ChooseFastingPlanScreen: View {
                 .padding(.bottom, Layout.descriptionBottomPadding)
                 .font(.poppins(.body))
 
-            SnapCarousel(index: $viewModel.index, items: viewModel.plans) { plan in
-                    FastingPlanView(plan: plan.plan) {
-                        viewModel.choosePlanTapped()
-                    }
+            SnapCarousel(spacing: Layout.carouselSpacing,
+                         trailingSpace: Layout.carouselTrailingSpace,
+                         index: $viewModel.index,
+                         items: viewModel.plans) { plan in
+                FastingPlanView(plan: plan.plan) {
+                    viewModel.choosePlanTapped()
+                }
             }
             Spacer(minLength: 20)
         }
@@ -51,6 +54,8 @@ private extension ChooseFastingPlanScreen {
         static let titleBottomPadding: CGFloat = 48
         static let descriptionBottomPadding: CGFloat = 48
         static let horizontalPadding: CGFloat = 32
+        static let carouselSpacing: CGFloat = 16
+        static let carouselTrailingSpace: CGFloat = 48
     }
 }
 

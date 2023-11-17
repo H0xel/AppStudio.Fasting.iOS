@@ -17,31 +17,32 @@ struct OnboardingScreen: View {
                 Image(.onboardingMock)
                     .resizable()
                     .scaledToFit()
-                    .overlay {
-                        LinearGradient(colors: [.white, .background.opacity(0)],
-                                       startPoint: .bottom,
-                                       endPoint: .top)
-                        .frame(height: Layout.gradientHeight)
-                        .aligned(.bottom)
-                    }
                 Spacer()
             }
 
-            VStack(spacing: 0) {
-                Spacer()
-                Text(Localization.description)
-                    .multilineTextAlignment(.center)
-                    .font(.poppins(.headerL))
-                    .padding(.vertical, Layout.textVerticalPadding)
-                AccentButton(title: Localization.buttonTitle) {
-                    viewModel.getStartedTapped()
-                }
+                VStack(spacing: .zero) {
+                    Spacer()
+                    LinearGradient(colors: [.white, .background.opacity(0)],
+                                   startPoint: .bottom,
+                                   endPoint: .top)
+                    .frame(height: Layout.gradientHeight)
+
+                    VStack(spacing: .zero) {
+                        Text(Localization.description)
+                            .multilineTextAlignment(.center)
+                            .font(.poppins(.headerL))
+                            .padding(.bottom, Layout.textVerticalPadding)
+                            .background()
+                        AccentButton(title: Localization.buttonTitle) {
+                            viewModel.getStartedTapped()
+                        }
+                    }
+                    .padding(.horizontal, Layout.horizontalPadding)
+                    .padding(.bottom, Layout.buttonBottomPadding)
+                    .background()
             }
-            .padding(.horizontal, Layout.horizontalPadding)
-            .padding(.bottom, Layout.buttonBottomPadding)
         }
         .frame(width: UIScreen.main.bounds.width)
-        .ignoresSafeArea(edges: .top)
     }
 }
 

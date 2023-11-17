@@ -9,6 +9,7 @@ import AppStudioNavigation
 import AppStudioUI
 import SwiftUI
 import Dependencies
+import RxSwift
 
 enum Step {
     case fasting
@@ -25,6 +26,8 @@ class RootViewModel: BaseViewModel<RootOutput> {
     var router: RootRouter!
     @Dependency(\.appCustomization) private var appCustomization
 
+    private let disposeBag = DisposeBag()
+
     init(input: RootInput, output: @escaping RootOutputBlock) {
         step = input.step
         super.init(output: output)
@@ -32,14 +35,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
 
     func initialize() {
-        Task { [weak self] in
-            guard let self else { return }
-            let shouldForceUpdate = try await self.appCustomization.shouldForceUpdate()
-            if shouldForceUpdate {
-                self.presentForceUpdateScreen()
-                return
-            }
-        }
+        initializeForceUpdateIfNeeded()
     }
 
     func requestIdfa() {
@@ -69,10 +65,26 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
 
     var paywallScreen: some View {
-        PaywallRoute(navigator: router.navigator, input: .fromSettings) { [weak self] _ in
-
+        NavigationView {
+            PaywallRoute(navigator: router.navigator, input: .fromSettings) { [weak self] _ in }.view
         }
-        .view
+    }
+
+    private func initializeForceUpdateIfNeeded() {
+        appCustomization.forceUpdateAppVersion
+            .flatMap(with: self) { this, version -> Observable<(shouldShowForceUpdate: Bool, appLink: String)> in
+                this.appCustomization.appStoreLink.map {
+                    (shouldShowForceUpdate: !Bundle.lessOrEqualToCurrentVersion(version), appLink: $0)
+                }
+            }
+            .take(1)
+            .asDriver()
+            .drive(with: self) { this, args in
+                if args.shouldShowForceUpdate {
+                    this.presentForceUpdateScreen(args.appLink)
+                }
+            }
+            .disposed(by: disposeBag)
     }
 }
 
@@ -82,9 +94,9 @@ extension RootViewModel {
         router.presentPaywall()
     }
 
-    private func presentForceUpdateScreen() {
+    private func presentForceUpdateScreen(_ appLink: String) {
         let banner = ForceUpdateBanner { [weak self] in
-            self?.router.presentAppStore()
+            self?.router.presentAppStore(appLink)
         }
         router.present(banner: banner)
     }

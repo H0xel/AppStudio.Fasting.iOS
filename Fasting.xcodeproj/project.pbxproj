@@ -292,6 +292,7 @@
 		A7D01B922AF115F200C50C1F /* NotificationOnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8C2AF115F200C50C1F /* NotificationOnboardingScreen.swift */; };
 		A7D01B932AF115F200C50C1F /* NotificationOnboardingOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8D2AF115F200C50C1F /* NotificationOnboardingOutput.swift */; };
 		A7D01B942AF115F200C50C1F /* NotificationOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8E2AF115F200C50C1F /* NotificationOnboardingViewModel.swift */; };
+		A7E0A1CA2B07418F005DA180 /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */; };
 		A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 /* End PBXBuildFile section */
@@ -582,6 +583,7 @@
 		A7D01B8C2AF115F200C50C1F /* NotificationOnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingScreen.swift; sourceTree = "<group>"; };
 		A7D01B8D2AF115F200C50C1F /* NotificationOnboardingOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingOutput.swift; sourceTree = "<group>"; };
 		A7D01B8E2AF115F200C50C1F /* NotificationOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingViewModel.swift; sourceTree = "<group>"; };
+		A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
 		A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerServiceDependencies.swift; sourceTree = "<group>"; };
 		AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountIdProviderImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -630,6 +632,7 @@
 		563257082ADE57D80000F33C = {
 			isa = PBXGroup;
 			children = (
+				A7E0A1C82B07418F005DA180 /* TestFlight */,
 				563257132ADE57D80000F33C /* Fasting */,
 				563257242ADE57DA0000F33C /* FastingTests */,
 				563257122ADE57D80000F33C /* Products */,
@@ -1789,6 +1792,14 @@
 			path = Routing;
 			sourceTree = "<group>";
 		};
+		A7E0A1C82B07418F005DA180 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */,
+			);
+			path = TestFlight;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1898,6 +1909,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F64D752AE10AD90067FE05 /* Localizable.strings in Resources */,
+				A7E0A1CA2B07418F005DA180 /* WhatToTest.en-US.txt in Resources */,
 				A7A3CE6D2AEBB32D00308201 /* Poppins-Regular.ttf in Resources */,
 				56C28D862AE106A60007E48D /* .swiftlint.yml in Resources */,
 				5632571C2ADE57D90000F33C /* Preview Assets.xcassets in Resources */,

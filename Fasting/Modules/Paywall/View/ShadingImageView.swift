@@ -15,13 +15,6 @@ struct ShadingImageView: View {
         image
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .overlay {
-                LinearGradient(colors: [.white, .background.opacity(0)],
-                               startPoint: .bottom,
-                               endPoint: .top)
-                .frame(height: Layout.shadingHeight)
-                .aligned(.bottom)
-            }
     }
 }
 

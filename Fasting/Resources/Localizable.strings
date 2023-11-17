@@ -51,7 +51,7 @@
 
 // MARK: Choose fasting plan
 
-"ChooseFastingPlan.title" = "Choose your fasting time";
+"ChooseFastingPlan.title" = "Choose your\nfasting time";
 "ChooseFastingPlan.description" = "Your fasting period starts right after the last meal of the day. Select a fasting schedule that best suits your daily routine.";
 "ChooseFastingPlan.buttonTitle" = "Choose";
 "ChooseFastingPlan.regular" = "Regular";
@@ -59,7 +59,7 @@
 "ChooseFastingPlan.expert" = "Expert";
 "ChooseFastingPlan.regular.description" = "Full health benefits";
 "ChooseFastingPlan.beginner.description" = "Getting into things";
-"ChooseFastingPlan.expert.description" = "Occasions";
+"ChooseFastingPlan.expert.description" = "Maximum fat burning";
 "ChooseFastingPlan.regular.intervalPlan" = "16:8";
 "ChooseFastingPlan.beginner.intervalPlan" = "14:10";
 "ChooseFastingPlan.expert.intervalPlan" = "20:4";

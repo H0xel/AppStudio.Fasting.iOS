@@ -12,22 +12,35 @@ struct PaywallScreen: View {
     @StateObject var viewModel: PaywallViewModel
 
     var body: some View {
-        VStack(spacing: .zero) {
-            PaywallTitleView(titles: viewModel.headerTitles)
-                .padding(.horizontal, Layout.horizontalPadding)
-                .padding(.top, Layout.verticalPadding)
+        ZStack {
+            VStack(spacing: .zero) {
+                PaywallTitleView(titles: viewModel.headerTitles)
+                    .padding(.horizontal, Layout.horizontalPadding)
+                    .padding(.top, Layout.verticalPadding)
 
-            Spacer()
-            ShadingImageView(image: .paywall)
-            Spacer(minLength: Layout.bottomInfoTopPadding)
+                ShadingImageView(image: .paywall)
+                Spacer()
+            }
 
-            PaywallBottomInfoView(bottomInfo: viewModel.bottomInfo, onSaveTap: viewModel.subscribe)
-                .padding(.bottom, Layout.verticalPadding)
-                .padding(.horizontal, Layout.horizontalPadding)
+            VStack(spacing: .zero) {
+                Spacer()
+                LinearGradient(
+                    colors: [.white, .background.opacity(0)],
+                    startPoint: .bottom,
+                    endPoint: .top
+                )
+                .frame(height: Layout.shadingHeight)
+                PaywallBottomInfoView(bottomInfo: viewModel.bottomInfo, onSaveTap: viewModel.subscribe)
+                    .background()
+                    .padding(.bottom, Layout.verticalPadding)
+                    .padding(.horizontal, Layout.horizontalPadding)
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navBarButton(content: Image.close.foregroundStyle(.fastingGreyStrokeFill),
-                      action: viewModel.close)
+        .if(viewModel.context != .settingsScreen) {
+            $0.navBarButton(content: Image.close.foregroundStyle(.fastingGreyStrokeFill),
+                            action: viewModel.close)
+        }
         .navBarButton(placement: .navigationBarTrailing,
                       content: restoreButton,
                       action: viewModel.restore)
@@ -51,6 +64,7 @@ private extension PaywallScreen {
         static let verticalPadding: CGFloat = 16
         static let titleSpacing: CGFloat = 12
         static let horizontalPadding: CGFloat = 32
+        static let shadingHeight: CGFloat = 70
     }
 }
 

@@ -35,9 +35,9 @@ class RootRouter: BaseRouter {
         }
     }
 
-    func presentAppStore() {
+    func presentAppStore(_ appLink: String) {
         Task {
-            guard let url = URL(string: GlobalConstants.appStoreURL) else {
+            guard let url = URL(string: appLink) else {
                 return
             }
             await openURL(url)

@@ -53,6 +53,10 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
                      subTitle: input.headerTitles.subTitle)
     }
 
+    var context: PaywallContext {
+        input.paywallContext
+    }
+
     var bottomInfo: LocalizedStringKey {
         isTrialAvailable ? "Paywall.noPaymentNow" : "Paywall.cancelAnyTime"
     }

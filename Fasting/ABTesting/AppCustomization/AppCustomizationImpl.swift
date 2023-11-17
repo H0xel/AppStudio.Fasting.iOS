@@ -14,6 +14,7 @@ import RxSwift
 import Dependencies
 
 private let requiredAppVersionKey = "force_update_version"
+private let forceUpdateLink = "force_update_link"
 
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
 
@@ -24,6 +25,14 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
         @Dependency(\.lifeCycleDelegate) var lifeCycleDelegate
         super.initialize(lifecycleDelegate: lifeCycleDelegate)
         configurePricingExperiment()
+    }
+
+    var forceUpdateAppVersion: Observable<String> {
+        remoteConfigValueObservable(forKey: requiredAppVersionKey, defaultValue: Bundle.appVersion)
+    }
+
+    var appStoreLink: Observable<String> {
+        remoteConfigValueObservable(forKey: forceUpdateLink, defaultValue: "")
     }
 
     override func registerExperiments() async {
@@ -50,11 +59,12 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
         productIds
     }
 
-    func shouldForceUpdate() async throws -> Bool {
-        let requierdVersion: String = try await remoteConfigValue(forKey: requiredAppVersionKey,
-                                                                  defaultValue: Bundle.appVersion)
-        return !Bundle.lessOrEqualToCurrentVersion(requierdVersion)
-    }
+    //TODO: Протестить на то чтобы в кэше не сохранялось
+//    func shouldForceUpdate() async throws -> Bool {
+//        let requierdVersion: String = try await remoteConfigValue(forKey: requiredAppVersionKey,
+//                                                                  defaultValue: Bundle.appVersion)
+//        return !Bundle.lessOrEqualToCurrentVersion(requierdVersion)
+//    }
 }
 
 private extension AppCustomizationImpl {
