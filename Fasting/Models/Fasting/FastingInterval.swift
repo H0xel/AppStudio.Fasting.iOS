@@ -19,7 +19,7 @@ struct FastingInterval {
     }
     /// nearest date of start fasting
     var startDate: Date {
-        checkedCurrentDate ?? nearestStartDate
+        currentDate ?? nearestStartDate
     }
 
     var checkedCurrentDate: Date? {

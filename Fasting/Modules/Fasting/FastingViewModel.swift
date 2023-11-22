@@ -57,7 +57,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     func changeFastingTime() {
         router.presentStartFastingDialog(
             initialDate: fastingInterval.startDate,
-            minDate: fastingInterval.minAllowedCurrentDate,
+            minDate: .now.adding(.day, value: -2),
             maxDate: .now.adding(.day, value: isFastingActive ? 0 : 1)
         ) { [weak self] date in
             self?.setCurrentDate(date)
@@ -89,7 +89,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
         let minAllowedDate = min(fastingInterval.startDate, .now)
 
         router.presentStartFastingDialog(initialDate: minAllowedDate,
-                                         minDate: fastingInterval.minAllowedCurrentDate.adding(.day, value: -1),
+                                         minDate: .now.adding(.day, value: -2),
                                          maxDate: .now) { [weak self] date in
             self?.fastingService.startFasting(from: date)
         }

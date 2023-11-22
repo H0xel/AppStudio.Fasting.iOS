@@ -147,6 +147,7 @@
 		56B10ABB2AF0DFF9008FC07E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56B10AB92AF0DFF9008FC07E /* Model.xcdatamodeld */; };
 		56B10ABE2AF0E0AC008FC07E /* DatabaseInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B10ABD2AF0E0AC008FC07E /* DatabaseInitializer.swift */; };
 		56B10AC02AF0E1CC008FC07E /* FastingParametersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B10ABF2AF0E1CC008FC07E /* FastingParametersRepository.swift */; };
+		56B92DB72B0CB0F700B5F67C /* Locale+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B92DB62B0CB0F700B5F67C /* Locale+Extensions.swift */; };
 		56C28D862AE106A60007E48D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 56C28D852AE106A60007E48D /* .swiftlint.yml */; };
 		56C28DC52AE109580007E48D /* SubscriptionServiceInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C28DB12AE109580007E48D /* SubscriptionServiceInitializer.swift */; };
 		56C28DC62AE109580007E48D /* IntercomInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C28DB22AE109580007E48D /* IntercomInitializer.swift */; };
@@ -443,6 +444,7 @@
 		56B10ABA2AF0DFF9008FC07E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		56B10ABD2AF0E0AC008FC07E /* DatabaseInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInitializer.swift; sourceTree = "<group>"; };
 		56B10ABF2AF0E1CC008FC07E /* FastingParametersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersRepository.swift; sourceTree = "<group>"; };
+		56B92DB62B0CB0F700B5F67C /* Locale+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Extensions.swift"; sourceTree = "<group>"; };
 		56C28D852AE106A60007E48D /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		56C28DB12AE109580007E48D /* SubscriptionServiceInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionServiceInitializer.swift; sourceTree = "<group>"; };
 		56C28DB22AE109580007E48D /* IntercomInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntercomInitializer.swift; sourceTree = "<group>"; };
@@ -1557,6 +1559,7 @@
 				A04426312AF23DC0005400AE /* Int+extensions.swift */,
 				A72230362AFB624300303D5D /* Date+LocaleTime.swift */,
 				56655B612AFB693E00508ED4 /* ClosedRange+extentions.swift */,
+				56B92DB62B0CB0F700B5F67C /* Locale+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2196,6 +2199,7 @@
 				A7D01B922AF115F200C50C1F /* NotificationOnboardingScreen.swift in Sources */,
 				56C28DD42AE109580007E48D /* FirebaseInitializer.swift in Sources */,
 				A7D01B6D2AF0CCF900C50C1F /* ChooseFastingPlanScreen.swift in Sources */,
+				56B92DB72B0CB0F700B5F67C /* Locale+Extensions.swift in Sources */,
 				567500462ADFA67E009331CB /* AppStudioMobileDeviceDataProviderImpl.swift in Sources */,
 				A7D01B7F2AF10A6D00C50C1F /* SetupFastingScreen.swift in Sources */,
 				A0CEE61A2AEFE2D70082B27F /* FastingInterval.swift in Sources */,

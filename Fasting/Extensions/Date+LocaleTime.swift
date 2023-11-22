@@ -19,8 +19,7 @@ extension Date {
     private var dateTimeFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
-        dateFormatter.dateStyle = .long
-        dateFormatter.timeStyle = .short
+        dateFormatter.dateFormat = Locale.current.shortDateTimeFormat
         return dateFormatter
     }
 

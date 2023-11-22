@@ -71,6 +71,12 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
     }
 
     private func subscribeToStartingDate() {
+        fastingParametersService
+            .fastingIntervalPublisher
+            .receive(on: DispatchQueue.main)
+            .map(\.start)
+            .assign(to: &$startFastingDate)
+
         $startFastingDate.sink(with: self) { this, date in
             let dateWithFasting = date.addingTimeInterval(this.plan.duration)
             let endingFasting: String = " \(dateWithFasting.localeTimeString.lowercased())"
@@ -86,3 +92,4 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
         .store(in: &cancellables)
     }
 }
+
