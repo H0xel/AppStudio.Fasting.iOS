@@ -1,1 +1,3 @@
-- Bug fixes
+- Release 1.0.0
+- ATT fix
+- remote config fetch to 1 hour fix
