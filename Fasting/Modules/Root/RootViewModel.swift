@@ -11,27 +11,22 @@ import SwiftUI
 import Dependencies
 import RxSwift
 
-enum Step {
-    case fasting
-    case onboarding
-    case forceUpdate(String)
-}
 
 class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.storageService) private var storageService
     @Dependency(\.idfaRequestService) private var idfaRequestService
     @Dependency(\.fastingParametersInitializer) private var fastingParametersInitializer
+    @Dependency(\.appCustomization) private var appCustomization
+    @Dependency(\.subscriptionService) private var subscriptionService
 
     @Published var currentTab: AppTab = .fasting
-    @Published var step: Step
+    @Published var rootScreen: RootScreen = .launchScreen
 
     var router: RootRouter!
-    @Dependency(\.appCustomization) private var appCustomization
 
     private let disposeBag = DisposeBag()
 
     init(input: RootInput, output: @escaping RootOutputBlock) {
-        step = input.step
         super.init(output: output)
         initialize()
     }
@@ -60,7 +55,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
                 self?.fastingParametersInitializer.initialize()
                 DispatchQueue.main.async {
                     self?.router.popToRoot()
-                    self?.step = .fasting
+                    self?.rootScreen = .fasting
                 }
             }
         })
@@ -73,7 +68,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     var paywallScreen: some View {
         NavigationView {
-            PaywallRoute(navigator: router.navigator, input: .fromSettings) { [weak self] _ in }.view
+            PaywallRoute(navigator: router.navigator, input: .fromSettings) { _ in }.view
         }
     }
 
@@ -88,9 +83,9 @@ class RootViewModel: BaseViewModel<RootOutput> {
             .asDriver()
             .drive(with: self) { this, args in
                 if args.shouldShowForceUpdate {
-                    this.step = .forceUpdate(args.appLink)
+                    this.rootScreen = .forceUpdate(args.appLink)
                 } else {
-                    this.step = this.storageService.onboardingIsFinished ? .fasting : .onboarding
+                    this.rootScreen = this.storageService.onboardingIsFinished ? .fasting : .onboarding
                 }
             }
             .disposed(by: disposeBag)
@@ -101,5 +96,14 @@ class RootViewModel: BaseViewModel<RootOutput> {
 extension RootViewModel {
     func showPaywall() {
         router.presentPaywall()
+    }
+}
+
+extension RootViewModel {
+    enum RootScreen {
+        case launchScreen
+        case fasting
+        case onboarding
+        case forceUpdate(String)
     }
 }

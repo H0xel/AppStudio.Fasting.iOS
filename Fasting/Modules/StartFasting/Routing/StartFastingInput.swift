@@ -16,11 +16,12 @@ struct StartFastingInput {
 }
 
 extension StartFastingInput {
-    static func startFasting(initialDate: Date, 
+    static func startFasting(isActiveState: Bool,
+                             initialDate: Date,
                              minDate: Date,
                              maxDate: Date,
                              components: DatePickerComponents) -> StartFastingInput {
-        .init(title: "StartFastingScreen.whenToStart",
+        .init(title: isActiveState ? "StartFastingScreen.whenToStart" : "StartFastingScreen.whenWantToStart",
               datePickerComponents: components,
               initialDate: initialDate,
               datesRange: minDate ... maxDate)

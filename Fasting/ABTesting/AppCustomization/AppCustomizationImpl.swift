@@ -59,7 +59,7 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
         productIds
     }
 
-    //TODO: Протестить на то чтобы в кэше не сохранялось
+    // TODO: Протестить на то чтобы в кэше не сохранялось
 //    func shouldForceUpdate() async throws -> Bool {
 //        let requierdVersion: String = try await remoteConfigValue(forKey: requiredAppVersionKey,
 //                                                                  defaultValue: Bundle.appVersion)

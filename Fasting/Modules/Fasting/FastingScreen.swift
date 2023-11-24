@@ -14,7 +14,9 @@ struct FastingScreen: View {
 
     var body: some View {
         VStack {
-            FastingStagesView(currentStage: viewModel.currentStage)
+            FastingStagesView(stages: viewModel.fastingStages,
+                              currentStage: viewModel.currentStage)
+                .allowsHitTesting(false)
             Spacer()
             FastingProgressView(status: viewModel.fastingStatus,
                                 plan: viewModel.fastingInterval.plan) {
@@ -24,6 +26,7 @@ struct FastingScreen: View {
             Spacer()
             FastingIntervalView(fastStarts: viewModel.fastingStartTime,
                                 fastEnds: viewModel.fastingEndTime,
+                                status: viewModel.fastingStatus,
                                 onEdit: viewModel.changeFastingTime)
             .padding(.bottom, Layout.timeBottomPadding)
             .padding(.horizontal, Layout.horizontalPadding)

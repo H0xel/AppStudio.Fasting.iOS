@@ -12,7 +12,7 @@ extension DependencyValues {
     var fastingLocalNotificationService: FastingLocalNotificationService {
         self[FastingLocalNotificationServiceKey.self]
     }
-    
+
     var notificationCenterDelegate: UNUserNotificationCenterDelegate {
         self[NotificationCenterDelegateKey.self]
     }

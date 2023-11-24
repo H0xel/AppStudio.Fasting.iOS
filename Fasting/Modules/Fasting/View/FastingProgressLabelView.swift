@@ -12,7 +12,8 @@ struct FastingProgressLabelView: View {
     let status: FastingStatus
 
     var body: some View {
-        view.multilineTextAlignment(.center)
+        view
+            .multilineTextAlignment(.center)
     }
 
     @ViewBuilder
@@ -22,8 +23,7 @@ struct FastingProgressLabelView: View {
             VStack(spacing: Layout.labelsSpacing) {
                 Text(Localization.youFastFor)
                     .font(.poppins(.body))
-                Text(fastingActiveState.interval.toTime)
-                    .font(.poppins(.accentS))
+                FastingTimeIntervalView(timeInterval: fastingActiveState.interval)
             }
         case .inActive(let stage):
             switch stage {
@@ -31,13 +31,14 @@ struct FastingProgressLabelView: View {
                 VStack(spacing: Layout.labelsSpacing) {
                     Text(Localization.nextFasIn)
                         .font(.poppins(.body))
-                    Text(timeInterval.toTime)
-                        .font(.poppins(.accentS))
+                    FastingTimeIntervalView(timeInterval: timeInterval)
                 }
             case .expired:
                 Text(Localization.readyToFast)
                     .font(.poppins(.accentS))
             }
+        case .unknown:
+            Text("")
         }
     }
 }

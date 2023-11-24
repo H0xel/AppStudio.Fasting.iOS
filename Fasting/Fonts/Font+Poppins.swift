@@ -58,13 +58,31 @@ extension Font {
 
 struct PoppinsFont_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            Text("Accent L")
+        VStack(spacing: 10) {
+            Text("AccentL")
                 .font(.poppins(.accentL))
-            Text("Accent M")
+                .border(configuration: .init(cornerRadius: 0, color: Color.red))
+            Text("Accent S")
                 .font(.poppins(.accentS))
-            Text("Some text")
+                .border(configuration: .init(cornerRadius: 0, color: Color.red))
+            Text("Header L")
+                .font(.poppins(.headerL))
+                .border(configuration: .init(cornerRadius: 0, color: Color.red))
+            Text("Header M")
+                .font(.poppins(.headerM))
+                .border(configuration: .init(cornerRadius: 0, color: Color.red))
+            Text("Header S")
+                .font(.poppins(.headerS))
+                .border(configuration: .init(cornerRadius: 0, color: Color.red))
+            Text("Button text")
+                .font(.poppins(.headerS))
+                .border(configuration: .init(cornerRadius: 0, color: Color.red))
+            Text("Body")
                 .font(.poppins(.body))
+                .border(configuration: .init(cornerRadius: 0, color: Color.red))
+            Text("Description")
+                .font(.poppins(.description))
+                .border(configuration: .init(cornerRadius: 0, color: Color.red))
         }
     }
 }

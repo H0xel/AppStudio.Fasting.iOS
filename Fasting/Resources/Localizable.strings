@@ -29,10 +29,14 @@
 "FastingProgressView.youFastFor" = "You've fasted for";
 
 "FastingIntervalView.fastingStarted" = "Fasting started";
-"FastingIntervalView.fastingEnd" = "Fasting end";
+"FastingIntervalView.fastingStarts" = "Fasting starts";
+"FastingIntervalView.fastingEnd" = "Fasting ends";
+"FastingIntervalView.fastingEnds" = "Fasting ends";
+"StartFastingScreen.goalReached" = "Goal reached";
 
 // MARK: - Start Fasting Screen
 "StartFastingScreen.whenToStart" = "When did you start\nfasting?";
+"StartFastingScreen.whenWantToStart" = "When do you want to start\nfasting?";
 "StartFastingScreen.whenFinished" = "When did you finish\nfasting?";
 
 
@@ -40,7 +44,7 @@
 "FastingStage.bloodSugarRises" = "Blood sugar rises";
 "FastingStage.bloodSugarFalls" = "Blood sugar falls";
 "FastingStage.bloodSugarNormal" = "Blood sugar normal";
-"FastingStage.burningFat" = "Burning fat";
+"FastingStage.burningFat" = "Fat burning";
 "FastingStage.ketosis" = "Ketosis";
 "FastingStage.autophagy" = "Autophagy";
 

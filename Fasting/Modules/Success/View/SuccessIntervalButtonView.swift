@@ -47,7 +47,7 @@ private extension SuccessIntervalButtonView {
 
 #Preview {
     SuccessIntervalButtonView(title: "Fasting started",
-                              date: "October 10, 8:40 pm", 
+                              date: "October 10, 8:40 pm",
                               roundedCorners: [.topLeft, .topRight],
                               action: {})
 }

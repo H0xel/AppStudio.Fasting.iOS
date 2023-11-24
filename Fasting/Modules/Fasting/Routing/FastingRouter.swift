@@ -1,4 +1,4 @@
-//  
+//
 //  FastingRouter.swift
 //  Fasting
 //
@@ -10,8 +10,13 @@ import AppStudioNavigation
 import AppStudioUI
 
 class FastingRouter: BaseRouter {
-    func presentStartFastingDialog(initialDate: Date, minDate: Date, maxDate: Date, onSave: @escaping (Date) -> Void) {
-        let input = StartFastingInput.startFasting(initialDate: initialDate,
+    func presentStartFastingDialog(isActiveState: Bool,
+                                   initialDate: Date,
+                                   minDate: Date,
+                                   maxDate: Date,
+                                   onSave: @escaping (Date) -> Void) {
+        let input = StartFastingInput.startFasting(isActiveState: isActiveState,
+                                                   initialDate: initialDate,
                                                    minDate: minDate,
                                                    maxDate: maxDate,
                                                    components: [.hourAndMinute, .date])
@@ -23,9 +28,9 @@ class FastingRouter: BaseRouter {
             }
         }
         present(route: route)
-        
+
         // TODO: Разобраться в следующих версиях почему он переоткрывает экран
-//        present(sheet: route, detents: [.height(484)])
+        //        present(sheet: route, detents: [.height(484)])
     }
 
     func presentSuccess(plan: FastingPlan, startDate: Date, endDate: Date, output: @escaping SuccessOutputBlock) {

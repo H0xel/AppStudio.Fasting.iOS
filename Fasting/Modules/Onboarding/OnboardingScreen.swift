@@ -20,26 +20,26 @@ struct OnboardingScreen: View {
                 Spacer()
             }
 
-                VStack(spacing: .zero) {
-                    Spacer()
-                    LinearGradient(colors: [.white, .background.opacity(0)],
-                                   startPoint: .bottom,
-                                   endPoint: .top)
-                    .frame(height: Layout.gradientHeight)
+            VStack(spacing: .zero) {
+                Spacer()
+                LinearGradient(colors: [.white, .background.opacity(0)],
+                               startPoint: .bottom,
+                               endPoint: .top)
+                .frame(height: Layout.gradientHeight)
 
-                    VStack(spacing: .zero) {
-                        Text(Localization.description)
-                            .multilineTextAlignment(.center)
-                            .font(.poppins(.headerL))
-                            .padding(.bottom, Layout.textVerticalPadding)
-                            .background()
-                        AccentButton(title: Localization.buttonTitle) {
-                            viewModel.getStartedTapped()
-                        }
+                VStack(spacing: .zero) {
+                    Text(Localization.description)
+                        .multilineTextAlignment(.center)
+                        .font(.poppins(.headerL))
+                        .padding(.bottom, Layout.textVerticalPadding)
+                        .background()
+                    AccentButton(title: Localization.buttonTitle) {
+                        viewModel.getStartedTapped()
                     }
-                    .padding(.horizontal, Layout.horizontalPadding)
-                    .padding(.bottom, Layout.buttonBottomPadding)
-                    .background()
+                }
+                .padding(.horizontal, Layout.horizontalPadding)
+                .padding(.bottom, Layout.buttonBottomPadding)
+                .background()
             }
         }
         .frame(width: UIScreen.main.bounds.width)

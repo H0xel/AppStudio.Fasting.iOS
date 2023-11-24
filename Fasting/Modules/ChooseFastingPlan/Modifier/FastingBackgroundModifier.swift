@@ -16,7 +16,6 @@ struct FastingPlanBackgroundModifier: ViewModifier {
                 plan.backgroundColor
                     .overlay(
                         plan.maskImage
-                            .resizable()
                             .scaledToFill()
                     )
             )

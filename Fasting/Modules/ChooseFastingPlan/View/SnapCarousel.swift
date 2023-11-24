@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppStudioFoundation
 
 // To for acepting List....
 @MainActor
@@ -20,7 +21,7 @@ struct SnapCarousel<Content: View, T: Hashable>: View {
     @Binding var index: Int
 
     init(spacing: CGFloat = 16,
-         trailingSpace: CGFloat = 80,
+         trailingSpace: CGFloat = 64,
          index: Binding<Int>,
          items: [T],
          @ViewBuilder content: @escaping (T) -> Content) {
@@ -47,6 +48,9 @@ struct SnapCarousel<Content: View, T: Hashable>: View {
             HStack(spacing: spacing) {
                 ForEach(list, id: \.self) { item in
                     content(item)
+                        .if(item == list.first) {
+                            $0.padding(.leading, spacing)
+                        }
                         .frame(width: abs(proxy.size.width - trailingSpace))
                 }
             }
@@ -60,7 +64,8 @@ struct SnapCarousel<Content: View, T: Hashable>: View {
                     .updating($offset, body: { value, out, _ in
                         let maximumWidthScroll: CGFloat = 100
                         let isFirstItemLeftScroll = currentIndex == 0 && value.translation.width > maximumWidthScroll
-                        let isLastItemRightScroll = currentIndex == list.count - 1 && value.translation.width < -maximumWidthScroll
+                        let isLastItemRightScroll = currentIndex == list.count - 1
+                        && value.translation.width < -maximumWidthScroll
                         let isDefaultScroll = currentIndex != 0 || index != list.count - 1
 
                         if isFirstItemLeftScroll {
@@ -107,7 +112,6 @@ struct SnapCarousel<Content: View, T: Hashable>: View {
                         // based on the progress increasing or decreasing the currentInde....
 
                         let progress = -offsetX / width
-                        let roundIndex = progress.rounded()
 
                         // setting max....
 
@@ -119,5 +123,17 @@ struct SnapCarousel<Content: View, T: Hashable>: View {
         }
         // Animatiing when offset = 0
         .animation(.bouncy, value: offset == 0)
+    }
+}
+
+
+struct SnapCarousel_Previews: PreviewProvider {
+    static var previews: some View {
+        ChooseFastingPlanScreen(
+            viewModel: ChooseFastingPlanViewModel(
+                input: ChooseFastingPlanInput(context: .onboarding),
+                output: { _ in }
+            )
+        )
     }
 }

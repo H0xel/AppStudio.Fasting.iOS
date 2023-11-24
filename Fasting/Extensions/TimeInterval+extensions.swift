@@ -21,6 +21,26 @@ extension TimeInterval {
         return "\(hoursString):\(minutesString):\(secondsString)"
     }
 
+    var toHours: String {
+        let left = Int(self)
+        let minutes = left / 60
+        let hours = minutes / 60
+        return hours.withLeadingZeroIfOneNumber
+    }
+
+    var toMinutes: String {
+        let left = Int(self)
+        let minutes = left / 60
+        let minutesLeft = minutes % 60
+        return minutesLeft.withLeadingZeroIfOneNumber
+    }
+
+    var toSeconds: String {
+        let left = Int(self)
+        let seconds = left % 60
+        return seconds.withLeadingZeroIfOneNumber
+    }
+
     var fastingStage: FastingStage {
         switch self {
         case 0 ... .hour * 2:

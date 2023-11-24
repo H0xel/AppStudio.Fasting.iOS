@@ -39,7 +39,9 @@ final class SubscriptionsApiImpl: SubscriptionApi {
              completion: @escaping CompletionCallback<AppStudioSubscriptions.ApiSubscription>) {
 
         _Concurrency.Task {
-            let putReceiptRequest = PutReceiptRequest(receiptData: receipt, transactions: transactions, context: context)
+            let putReceiptRequest = PutReceiptRequest(receiptData: receipt,
+                                                      transactions: transactions,
+                                                      context: context)
             do {
                 let subscription: ApiSubscription = try await provider.request(.putReceipt(putReceiptRequest))
                 completion(.success(subscription))

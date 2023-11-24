@@ -11,6 +11,7 @@ import AppStudioNavigation
 
 struct FastingStagesView: View {
 
+    let stages: [FastingStage]
     let currentStage: FastingStage?
     @State private var openedStage: FastingStage?
 
@@ -18,7 +19,7 @@ struct FastingStagesView: View {
         ScrollViewWithReader(axis: .horizontal, showIndicators: false) { proxy in
             HStack(spacing: 4) {
                 Spacer(minLength: Layout.horizontalPadding)
-                ForEach(FastingStage.allCases, id: \.self) { stage in
+                ForEach(stages, id: \.self) { stage in
                     Button(action: {
                         updateStage(stage: stage, proxy: proxy)
                     }, label: {

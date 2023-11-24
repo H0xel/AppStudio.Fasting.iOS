@@ -36,10 +36,7 @@ struct SetupFastingBanner: View {
             .frame(width: 101)
             .padding(.bottom, Layout.buttonBottomPadding)
         }
-        .clipped()
-        .background(plan.backgroundColor)
-        // TODO: зафиксить когда обсудим это с Олей
-//        .fastingPlanBackground(plan)
+        .fastingPlanBackground(plan)
         .continiousCornerRadius(Layout.cornerRadius)
     }
 }

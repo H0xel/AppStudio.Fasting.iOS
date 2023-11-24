@@ -46,6 +46,8 @@ struct FastingProgressView: View {
             return state.stage.backgroundColor
         case .inActive:
             return .fastingGrayFillProgress
+        case .unknown:
+            return .fastingGrayFillProgress
         }
     }
 
@@ -54,6 +56,8 @@ struct FastingProgressView: View {
         case .active:
             return .white
         case .inActive:
+            return .accent
+        case .unknown:
             return .accent
         }
     }

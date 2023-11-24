@@ -107,7 +107,7 @@ class IntercomServiceImpl: IntercomService {
 //    }
 //}
 //
-//// MARK: - Intercom extension
+// MARK: - Intercom extension
 //private extension Intercom {
 //    static func updateUser(paidSubscription: Bool, businessName: String?) {
 //        let userAttributes = ICMUserAttributes()
@@ -124,8 +124,5 @@ class IntercomServiceImpl: IntercomService {
 // swiftlint:enable orphaned_doc_comment
 // swiftlint:enable comment_spacing
 // swiftlint:enable mark
-
-//}
-
 // swiftlint:enable orphaned_doc_comment
 // swiftlint:enable comment_spacing

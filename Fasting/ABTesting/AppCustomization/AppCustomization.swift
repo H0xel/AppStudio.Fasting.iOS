@@ -14,6 +14,6 @@ protocol AppCustomization {
     var appStoreLink: Observable<String> { get }
     func initialize()
 
-    //TODO: Протестить на то чтобы в кэше не сохранялось
+    // TODO: Протестить на то чтобы в кэше не сохранялось
 //    func shouldForceUpdate() async throws -> Bool
 }

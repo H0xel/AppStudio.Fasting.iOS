@@ -20,6 +20,11 @@ struct DebugMenuScreen: View {
                 Section("Actions") {
                     DebugMenuActionsView()
                 }
+                Section("Fonts") {
+                    NavigationLink("Fonts") {
+                        DebugFontView()
+                    }
+                }
             }
             .buttonStyle(BorderlessButtonStyle())
             .toolbar(content: {

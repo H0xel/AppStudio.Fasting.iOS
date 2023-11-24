@@ -18,7 +18,7 @@ enum FastingStage: String, CaseIterable, Equatable {
     var backgroundColor: Color {
         switch self {
         case .autophagy:
-            return .fastingBlueLight
+            return .fastingSky
         case .burning:
             return .fastingOrange
         case .ketosis:

@@ -50,4 +50,3 @@ private enum SubscriptionApiKey: DependencyKey {
 //         print("Code: \(code) - Error: \(message ?? "")")
 //     }
 // }
-

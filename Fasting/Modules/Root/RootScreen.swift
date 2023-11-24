@@ -22,7 +22,9 @@ struct RootScreen: View {
 
     @ViewBuilder
     private var currentView: some View {
-        switch viewModel.step {
+        switch viewModel.rootScreen {
+        case .launchScreen:
+            LaunchScreen()
         case .onboarding:
             viewModel.onboardingScreen
         case .fasting:
@@ -31,6 +33,7 @@ struct RootScreen: View {
                     .tag(AppTab.fasting)
                     .tabItem {
                         fastingTabImage
+                            .foregroundStyle(.fastingGreyStrokeFill)
                     }
                 viewModel.profileScreen
                     .tag(AppTab.profile)
@@ -64,7 +67,7 @@ struct RootScreen: View {
     }
 
     private var fastingTabImage: Image {
-        viewModel.currentTab == .fasting ? Image.fastingTabBarItemActive : .fastingTabBarItemInactive
+        viewModel.currentTab == .fasting ? .fastingTabBarItemActive : .fastingTabBarItemInactive
     }
 }
 
@@ -83,7 +86,7 @@ private extension RootScreen {
 
 struct RootScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = RootViewModel(input: RootInput(step: .fasting), output: { _ in })
+        let viewModel = RootViewModel(input: .init(), output: { _ in })
         viewModel.router = .init(navigator: .init())
         return RootScreen(viewModel: viewModel)
     }

@@ -18,7 +18,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     @Dependency(\.fastingHistoryService) private var fastingHistoryService
 
     var router: FastingRouter!
-    @Published var fastingStatus: FastingStatus = .inActive(.expired)
+    @Published var fastingStatus: FastingStatus = .unknown
     @Published var fastingInterval: FastingInterval = .empty
     private let fastingStatusUpdateTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
@@ -34,6 +34,8 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
             return true
         case .inActive:
             return false
+        case .unknown:
+            return false
         }
     }
 
@@ -45,22 +47,34 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
         fastingInterval.endDate.localeTimeString
     }
 
+    var fastingStages: [FastingStage] {
+        return fastingInterval.plan != .beginner
+        ? FastingStage.allCases
+        : FastingStage.allCases.filter { $0 != .autophagy }
+    }
+
     var currentStage: FastingStage? {
         switch fastingStatus {
         case .active(let fastingActiveState):
             return fastingActiveState.stage
         case .inActive:
             return nil
+        case .unknown:
+            return nil
         }
     }
 
     func changeFastingTime() {
         router.presentStartFastingDialog(
+            isActiveState: isFastingActive,
             initialDate: fastingInterval.startDate,
             minDate: .now.adding(.day, value: -2),
             maxDate: .now.adding(.day, value: isFastingActive ? 0 : 1)
         ) { [weak self] date in
             self?.setCurrentDate(date)
+            if date.timeIntervalSinceNow < 0 && self?.isFastingActive == false {
+                self?.fastingService.startFasting(from: date)
+            }
         }
     }
 
@@ -88,7 +102,8 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     private func startFasting() {
         let minAllowedDate = min(fastingInterval.startDate, .now)
 
-        router.presentStartFastingDialog(initialDate: minAllowedDate,
+        router.presentStartFastingDialog(isActiveState: isFastingActive,
+                                         initialDate: minAllowedDate,
                                          minDate: .now.adding(.day, value: -2),
                                          maxDate: .now) { [weak self] date in
             self?.fastingService.startFasting(from: date)

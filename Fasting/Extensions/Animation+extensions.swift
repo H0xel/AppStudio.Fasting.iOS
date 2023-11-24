@@ -12,3 +12,9 @@ extension Animation {
         .easeInOut(duration: 0.25)
     }
 }
+
+extension View {
+    func withoutAnimation() -> some View {
+        self.animation(nil, value: UUID())
+    }
+}

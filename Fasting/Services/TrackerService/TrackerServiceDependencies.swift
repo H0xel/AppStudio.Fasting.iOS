@@ -22,7 +22,7 @@ private enum TrackerServiceKey: DependencyKey {
         @Dependency(\.analyticKeyStore) var analyticKeyStore
 
         let amplitudeKey = obfusactor.reveal(
-            key: UIDevice.current.isSimulator
+            key: UIDevice.current.isSandbox
             ? "3d12644614580d05474910442005425515141315761616705558555050110316"
             : "3e433147105e5603401a411026021600151f104176484977045e5150514c5d43"
         )

@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import Dependencies
+import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     @Dependency(\.appInitializerService) var appInitializerService
@@ -26,7 +27,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         appInitializerService.initialize()
         trackLaunch()
         initializeMessageEvents()
+        congifureAppearance()
         return true
+    }
+
+    private func congifureAppearance() {
+        UIDatePicker.appearance().minuteInterval = 5
     }
 
     private func initializeMessageEvents() {

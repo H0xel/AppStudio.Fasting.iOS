@@ -21,7 +21,7 @@ final class PreferencesServiceImpl: PreferencesService {
     func initialize() {
         // this function writes default settings as settings
         guard let settingsBundle = Bundle.main.path(forResource: "Settings", ofType: "bundle"),
-              var settings = NSDictionary(contentsOfFile: settingsBundle.appending("/Root.plist")),
+              let settings = NSDictionary(contentsOfFile: settingsBundle.appending("/Root.plist")),
               let preferences = settings.object(forKey: "PreferenceSpecifiers") as? [[String: Any]] else {
             return
         }

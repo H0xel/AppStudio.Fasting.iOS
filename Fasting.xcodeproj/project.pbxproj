@@ -250,7 +250,6 @@
 		A0CEE61C2AEFE2E50082B27F /* FastingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE61B2AEFE2E50082B27F /* FastingStatus.swift */; };
 		A0CEE61E2AEFE2F20082B27F /* FastingActiveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE61D2AEFE2F20082B27F /* FastingActiveState.swift */; };
 		A0CEE6202AEFE2FD0082B27F /* InActiveFastingStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE61F2AEFE2FD0082B27F /* InActiveFastingStage.swift */; };
-		A0CEE6222AEFE3630082B27F /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6212AEFE3630082B27F /* SwiftUIView.swift */; };
 		A0CEE6252AEFE3E30082B27F /* FastingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6242AEFE3E30082B27F /* FastingService.swift */; };
 		A0CEE6282AEFE3FB0082B27F /* FastingServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6262AEFE3FB0082B27F /* FastingServiceImpl.swift */; };
 		A0CEE6292AEFE3FB0082B27F /* FastingDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6272AEFE3FB0082B27F /* FastingDependencies.swift */; };
@@ -258,6 +257,11 @@
 		A0CEE62F2AEFE4280082B27F /* FastingParametersDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE62C2AEFE4280082B27F /* FastingParametersDependencies.swift */; };
 		A0CEE6302AEFE4280082B27F /* FastingParametersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */; };
 		A7088D622AEFC1FF00436465 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7088D612AEFC1FF00436465 /* Poppins-SemiBold.ttf */; };
+		A70DBE1E2B0B529F0067D7BD /* FastingTimeIntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70DBE1D2B0B529F0067D7BD /* FastingTimeIntervalView.swift */; };
+		A70DBE222B0B9F230067D7BD /* DebugFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70DBE212B0B9F230067D7BD /* DebugFontView.swift */; };
+		A70DBE242B0C83520067D7BD /* MonoSpacedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70DBE232B0C83520067D7BD /* MonoSpacedView.swift */; };
+		A70DBE262B0C85550067D7BD /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70DBE252B0C85550067D7BD /* String+subscript.swift */; };
+		A70DBE492B0DD5A00067D7BD /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70DBE482B0DD5A00067D7BD /* LaunchScreen.swift */; };
 		A72230372AFB624300303D5D /* Date+LocaleTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72230362AFB624300303D5D /* Date+LocaleTime.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
@@ -541,7 +545,6 @@
 		A0CEE61B2AEFE2E50082B27F /* FastingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingStatus.swift; sourceTree = "<group>"; };
 		A0CEE61D2AEFE2F20082B27F /* FastingActiveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingActiveState.swift; sourceTree = "<group>"; };
 		A0CEE61F2AEFE2FD0082B27F /* InActiveFastingStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingStage.swift; sourceTree = "<group>"; };
-		A0CEE6212AEFE3630082B27F /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		A0CEE6242AEFE3E30082B27F /* FastingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingService.swift; sourceTree = "<group>"; };
 		A0CEE6262AEFE3FB0082B27F /* FastingServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingServiceImpl.swift; sourceTree = "<group>"; };
 		A0CEE6272AEFE3FB0082B27F /* FastingDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingDependencies.swift; sourceTree = "<group>"; };
@@ -549,6 +552,11 @@
 		A0CEE62C2AEFE4280082B27F /* FastingParametersDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersDependencies.swift; sourceTree = "<group>"; };
 		A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersService.swift; sourceTree = "<group>"; };
 		A7088D612AEFC1FF00436465 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		A70DBE1D2B0B529F0067D7BD /* FastingTimeIntervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingTimeIntervalView.swift; sourceTree = "<group>"; };
+		A70DBE212B0B9F230067D7BD /* DebugFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugFontView.swift; sourceTree = "<group>"; };
+		A70DBE232B0C83520067D7BD /* MonoSpacedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoSpacedView.swift; sourceTree = "<group>"; };
+		A70DBE252B0C85550067D7BD /* String+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+subscript.swift"; sourceTree = "<group>"; };
+		A70DBE482B0DD5A00067D7BD /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		A72230362AFB624300303D5D /* Date+LocaleTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+LocaleTime.swift"; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
@@ -1252,6 +1260,7 @@
 		56C28D682AE0FBFC0007E48D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A70DBE472B0DD58A0067D7BD /* Launch */,
 				A07EAB2D2AFA568500A46D7E /* EndFastingEarly */,
 				A0382D352AF4F022009CC579 /* Success */,
 				A7D01B882AF115DC00C50C1F /* NotificationOnboarding */,
@@ -1441,6 +1450,7 @@
 			children = (
 				A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */,
 				A04272CD2AE28F2C00754326 /* DebugMenuActionsView.swift */,
+				A70DBE212B0B9F230067D7BD /* DebugFontView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1559,6 +1569,7 @@
 				A04426312AF23DC0005400AE /* Int+extensions.swift */,
 				A72230362AFB624300303D5D /* Date+LocaleTime.swift */,
 				56655B612AFB693E00508ED4 /* ClosedRange+extentions.swift */,
+				A70DBE252B0C85550067D7BD /* String+subscript.swift */,
 				56B92DB62B0CB0F700B5F67C /* Locale+Extensions.swift */,
 			);
 			path = Extensions;
@@ -1582,8 +1593,9 @@
 				A02787562AEAE4E700844246 /* FastingIntervalView.swift */,
 				A02787582AEAE4FB00844246 /* FastingTimeView.swift */,
 				A063B1FD2AEC1E2E00084696 /* FastingStagesView.swift */,
-				A0CEE6212AEFE3630082B27F /* SwiftUIView.swift */,
 				A008A82E2AF117540011A261 /* FastingProgressLabelView.swift */,
+				A70DBE1D2B0B529F0067D7BD /* FastingTimeIntervalView.swift */,
+				A70DBE232B0C83520067D7BD /* MonoSpacedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1652,6 +1664,14 @@
 				A0CEE62C2AEFE4280082B27F /* FastingParametersDependencies.swift */,
 			);
 			path = FastingParameters;
+			sourceTree = "<group>";
+		};
+		A70DBE472B0DD58A0067D7BD /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				A70DBE482B0DD5A00067D7BD /* LaunchScreen.swift */,
+			);
+			path = Launch;
 			sourceTree = "<group>";
 		};
 		A749A0832AE67E8F0093C377 /* TrackerService */ = {
@@ -2032,11 +2052,11 @@
 				A0CEE6292AEFE3FB0082B27F /* FastingDependencies.swift in Sources */,
 				A7D01B6E2AF0CCF900C50C1F /* ChooseFastingPlanOutput.swift in Sources */,
 				53D900772AE67EE700FFEB7A /* PreferencesService.swift in Sources */,
+				A70DBE492B0DD5A00067D7BD /* LaunchScreen.swift in Sources */,
 				56F64D7C2AE10EF20067FE05 /* RootInput.swift in Sources */,
 				A0255E782AFBD1D700221EC6 /* SubscriptionTarget.swift in Sources */,
 				A7D01B872AF1102400C50C1F /* SetupFastingButton.swift in Sources */,
 				56F64D812AE10EF20067FE05 /* RootViewModel.swift in Sources */,
-				A0CEE6222AEFE3630082B27F /* SwiftUIView.swift in Sources */,
 				A7D01B622AF0C82100C50C1F /* OnboardingViewModel.swift in Sources */,
 				5675FFF82ADE84B4009331CB /* PurchaseMessage.swift in Sources */,
 				567500032ADE84B4009331CB /* MigrationLaunchServiceImpl.swift in Sources */,
@@ -2123,6 +2143,7 @@
 				A044263E2AF240F4005400AE /* ProfileOutput.swift in Sources */,
 				566C249B2AE8F80B00AEDB3C /* PaywallRoute.swift in Sources */,
 				A7622F502AEBC9AA00D12632 /* Font+Poppins.swift in Sources */,
+				A70DBE262B0C85550067D7BD /* String+subscript.swift in Sources */,
 				567500A62ADFAE8D009331CB /* PaywallServiceContext.swift in Sources */,
 				A0881E722AEAD19000E38FF5 /* Font+extensions.swift in Sources */,
 				A7D01B5E2AF0C82100C50C1F /* OnboardingRouter.swift in Sources */,
@@ -2130,6 +2151,7 @@
 				A7D01B7C2AF10A6D00C50C1F /* SetupFastingInput.swift in Sources */,
 				563B8AC92B03AF8400AF6BB7 /* LocalNotificationDependencies.swift in Sources */,
 				5675009D2ADFAB69009331CB /* PaywallServiceImpl.swift in Sources */,
+				A70DBE222B0B9F230067D7BD /* DebugFontView.swift in Sources */,
 				567500E42ADFD4E8009331CB /* StorageService.swift in Sources */,
 				566C249E2AE8F8FD00AEDB3C /* Image+Paywall.swift in Sources */,
 				567500042ADE84B4009331CB /* AppMigrationsProvider.swift in Sources */,
@@ -2145,9 +2167,11 @@
 				A7D01B812AF10A6D00C50C1F /* SetupFastingViewModel.swift in Sources */,
 				567500FA2ADFD8FB009331CB /* InstallationType.swift in Sources */,
 				A07EAB392AFA56A200A46D7E /* EndFastingEarlyViewModel.swift in Sources */,
+				A70DBE1E2B0B529F0067D7BD /* FastingTimeIntervalView.swift in Sources */,
 				A0CEE6162AEFE2B10082B27F /* FastingPlan.swift in Sources */,
 				5675FFEF2ADE84B4009331CB /* MessengerService.swift in Sources */,
 				567500412ADFA67E009331CB /* ProvidersDependencies.swift in Sources */,
+				A70DBE242B0C83520067D7BD /* MonoSpacedView.swift in Sources */,
 				A0382D402AF4F03A009CC579 /* SuccessOutput.swift in Sources */,
 				567500ED2ADFD6A0009331CB /* AppSettingsProvider.swift in Sources */,
 				56655B662AFCB09100508ED4 /* FastingIntervalHistory.swift in Sources */,

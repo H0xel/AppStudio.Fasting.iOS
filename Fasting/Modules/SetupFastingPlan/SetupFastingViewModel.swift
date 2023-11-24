@@ -25,6 +25,14 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
         self.context = input.context
         self.plan = input.plan
         super.init(output: output)
+        if context == .onboarding {
+            startFastingDate = DateComponents(calendar: .current,
+                                                 year: Date().year,
+                                                 month: Date().month,
+                                                 day: Date().day,
+                                                 hour: 20).date ?? .now
+            return
+        }        
         subscribeToStartingDate()
     }
 

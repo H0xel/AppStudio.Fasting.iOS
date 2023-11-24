@@ -74,7 +74,8 @@ class SuccessViewModel: BaseViewModel<SuccessOutput> {
     }
 
     func editStartDate() {
-        let input = StartFastingInput.startFasting(initialDate: startDate, minDate: .now.adding(.day, value: -2),
+        let input = StartFastingInput.startFasting(isActiveState: true,
+                                                   initialDate: startDate, minDate: .now.adding(.day, value: -2),
                                                    maxDate: endDate,
                                                    components: [.date, .hourAndMinute])
         router.presentEditFastingTime(input: input) { [weak self] event in
