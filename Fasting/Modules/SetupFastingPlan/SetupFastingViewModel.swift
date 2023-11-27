@@ -25,6 +25,7 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
         self.context = input.context
         self.plan = input.plan
         super.init(output: output)
+        subscribeToStartingDate()
         if context == .onboarding {
             startFastingDate = DateComponents(calendar: .current,
                                                  year: Date().year,
@@ -32,8 +33,8 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
                                                  day: Date().day,
                                                  hour: 20).date ?? .now
             return
-        }        
-        subscribeToStartingDate()
+        }
+        subscripeToInitialStartingDate()
     }
 
     func saveTapped() {
@@ -78,13 +79,15 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
         router.dismiss()
     }
 
-    private func subscribeToStartingDate() {
+    private func subscripeToInitialStartingDate() {
         fastingParametersService
             .fastingIntervalPublisher
             .receive(on: DispatchQueue.main)
             .map(\.start)
             .assign(to: &$startFastingDate)
+    }
 
+    private func subscribeToStartingDate() {
         $startFastingDate.sink(with: self) { this, date in
             let dateWithFasting = date.addingTimeInterval(this.plan.duration)
             let endingFasting: String = " \(dateWithFasting.localeTimeString.lowercased())"
@@ -100,4 +103,3 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
         .store(in: &cancellables)
     }
 }
-

@@ -14,7 +14,12 @@ class FastingFinishedCyclesLimitServiceImpl: FastingLimitService {
     @Dependency(\.cloudStorage) private var cloudStorage
 
     var isLimited: Bool {
+#if DEBUG
+        // MARK: - disable fasting limits in Debug version
+        false
+#else
         fastingFinishedCyclesLimitCount <= cyclesCount
+#endif
     }
 
     func increaseLimit(by count: Int) {
