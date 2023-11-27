@@ -16,6 +16,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     @Dependency(\.fastingService) private var fastingService
     @Dependency(\.fastingParametersService) private var fastingParametersService
     @Dependency(\.fastingHistoryService) private var fastingHistoryService
+    @Dependency(\.fastingFinishedCyclesLimitService) private var fastingFinishedCyclesLimitService
 
     var router: FastingRouter!
     @Published var fastingStatus: FastingStatus = .unknown
@@ -73,7 +74,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
         ) { [weak self] date in
             self?.setCurrentDate(date)
             if date.timeIntervalSinceNow < 0 && self?.isFastingActive == false {
-                self?.fastingService.startFasting(from: date)
+                self?.startFastingIfPossible(from: date)
             }
         }
     }
@@ -88,6 +89,27 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
 
     func onChangeFastingTapped() {
         router.presentSetupFasting(plan: fastingInterval.plan)
+    }
+
+    private func startFastingIfPossible(from date: Date) {
+        if fastingFinishedCyclesLimitService.isLimited {
+            Task {
+                await router.dismiss()
+                await presentPaywallAndStartFasting(from: date)
+            }
+            return
+        }
+        fastingService.startFasting(from: date)
+    }
+
+    @MainActor
+    private func presentPaywallAndStartFasting(from date: Date) async {
+        router.presentPaywall { [weak self] paywallOutput in
+            if paywallOutput == .subscribed {
+                self?.fastingService.startFasting(from: date)
+            }
+            self?.router.dismiss()
+        }
     }
 
     private func endFasting() {
@@ -106,7 +128,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
                                          initialDate: minAllowedDate,
                                          minDate: .now.adding(.day, value: -2),
                                          maxDate: .now) { [weak self] date in
-            self?.fastingService.startFasting(from: date)
+            self?.startFastingIfPossible(from: date)
         }
     }
 
@@ -144,11 +166,25 @@ extension FastingViewModel {
         case let .submit(startDate, endDate):
             let fastingInterval = fastingInterval
             Task { [weak self] in
-                try await self?.fastingHistoryService.saveHistory(interval: fastingInterval,
-                                                                  startedAt: startDate,
-                                                                  finishedAt: endDate)
-                self?.fastingService.endFasting()
+                try await self?.finishFastingSuccessfully(fastingInterval: fastingInterval,
+                                                          startDate: startDate,
+                                                          endDate: endDate)
             }
+        }
+    }
+
+    private func finishFastingSuccessfully(
+        fastingInterval: FastingInterval,
+        startDate: Date,
+        endDate: Date
+    ) async throws {
+        try await fastingHistoryService.saveHistory(interval: fastingInterval,
+                                                    startedAt: startDate,
+                                                    finishedAt: endDate)
+        fastingService.endFasting()
+        let interval = endDate.timeIntervalSince(startDate)
+        if interval >= 5 * .hour {
+            fastingFinishedCyclesLimitService.increaseLimit(by: 1)
         }
     }
 

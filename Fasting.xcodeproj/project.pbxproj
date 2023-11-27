@@ -165,6 +165,9 @@
 		56C28DD42AE109580007E48D /* FirebaseInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C28DC22AE109580007E48D /* FirebaseInitializer.swift */; };
 		56C28DD52AE109580007E48D /* EarlyTimeInitializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C28DC32AE109580007E48D /* EarlyTimeInitializers.swift */; };
 		56C28DD62AE109580007E48D /* AppSyncServiceInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C28DC42AE109580007E48D /* AppSyncServiceInitializer.swift */; };
+		56C7E96A2B107CE7007B5937 /* FastingLimitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C7E9692B107CE7007B5937 /* FastingLimitService.swift */; };
+		56C7E96C2B107F30007B5937 /* FastingFinishedCyclesLimitServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C7E96B2B107F30007B5937 /* FastingFinishedCyclesLimitServiceImpl.swift */; };
+		56C7E96E2B107F58007B5937 /* FastingLimitServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C7E96D2B107F58007B5937 /* FastingLimitServiceDependencies.swift */; };
 		56F64D752AE10AD90067FE05 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56F64D742AE10AD90067FE05 /* Localizable.strings */; };
 		56F64D7C2AE10EF20067FE05 /* RootInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D762AE10EF20067FE05 /* RootInput.swift */; };
 		56F64D7D2AE10EF20067FE05 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D772AE10EF20067FE05 /* RootRouter.swift */; };
@@ -466,6 +469,9 @@
 		56C28DC22AE109580007E48D /* FirebaseInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseInitializer.swift; sourceTree = "<group>"; };
 		56C28DC32AE109580007E48D /* EarlyTimeInitializers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarlyTimeInitializers.swift; sourceTree = "<group>"; };
 		56C28DC42AE109580007E48D /* AppSyncServiceInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSyncServiceInitializer.swift; sourceTree = "<group>"; };
+		56C7E9692B107CE7007B5937 /* FastingLimitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingLimitService.swift; sourceTree = "<group>"; };
+		56C7E96B2B107F30007B5937 /* FastingFinishedCyclesLimitServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingFinishedCyclesLimitServiceImpl.swift; sourceTree = "<group>"; };
+		56C7E96D2B107F58007B5937 /* FastingLimitServiceDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingLimitServiceDependencies.swift; sourceTree = "<group>"; };
 		56F64D742AE10AD90067FE05 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		56F64D762AE10EF20067FE05 /* RootInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInput.swift; sourceTree = "<group>"; };
 		56F64D772AE10EF20067FE05 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
@@ -1161,6 +1167,7 @@
 		5675FFD12ADE8358009331CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				56C7E9682B107C73007B5937 /* FastingLimitService */,
 				563B8ABA2B01F6C800AF6BB7 /* LocalNotifications */,
 				56655B6D2AFCB67C00508ED4 /* FastingHistoryService */,
 				A0CEE62A2AEFE41C0082B27F /* FastingParameters */,
@@ -1354,6 +1361,16 @@
 				56B10AB92AF0DFF9008FC07E /* Model.xcdatamodeld */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		56C7E9682B107C73007B5937 /* FastingLimitService */ = {
+			isa = PBXGroup;
+			children = (
+				56C7E9692B107CE7007B5937 /* FastingLimitService.swift */,
+				56C7E96B2B107F30007B5937 /* FastingFinishedCyclesLimitServiceImpl.swift */,
+				56C7E96D2B107F58007B5937 /* FastingLimitServiceDependencies.swift */,
+			);
+			path = FastingLimitService;
 			sourceTree = "<group>";
 		};
 		A0255E712AFBD02500221EC6 /* Models */ = {
@@ -1986,6 +2003,7 @@
 				5675FFF12ADE84B4009331CB /* MigrationFinishedMessage.swift in Sources */,
 				5675FFF72ADE84B4009331CB /* AppActivationMessage.swift in Sources */,
 				567500DB2ADFCDAC009331CB /* AccountApiImpl.swift in Sources */,
+				56C7E96A2B107CE7007B5937 /* FastingLimitService.swift in Sources */,
 				A0881E672AEAC32500E38FF5 /* FastingRouter.swift in Sources */,
 				A07EAB382AFA56A200A46D7E /* EndFastingEarlyOutput.swift in Sources */,
 				5675FFF02ADE84B4009331CB /* AppInitializedMessage.swift in Sources */,
@@ -2012,6 +2030,7 @@
 				A0881E6A2AEAC32500E38FF5 /* FastingOutput.swift in Sources */,
 				A0881E692AEAC32500E38FF5 /* FastingScreen.swift in Sources */,
 				A0382D472AF544D9009CC579 /* SuccessIntervalButtonView.swift in Sources */,
+				56C7E96C2B107F30007B5937 /* FastingFinishedCyclesLimitServiceImpl.swift in Sources */,
 				5675FFF42ADE84B4009331CB /* MayUseStateChangedMessage.swift in Sources */,
 				56655B6C2AFCB46000508ED4 /* FastingIntervalHistoryRepositoryImpl.swift in Sources */,
 				A7D01B5D2AF0C82100C50C1F /* OnboardingInput.swift in Sources */,
@@ -2099,6 +2118,7 @@
 				563B8ACF2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift in Sources */,
 				567500CD2ADFCC54009331CB /* AppSyncService.swift in Sources */,
 				A0382D3C2AF4F03A009CC579 /* SuccessInput.swift in Sources */,
+				56C7E96E2B107F58007B5937 /* FastingLimitServiceDependencies.swift in Sources */,
 				A0CEE62E2AEFE4280082B27F /* FastingParametersServiceImpl.swift in Sources */,
 				567500B92ADFC031009331CB /* MailSenderServiceImpl.swift in Sources */,
 				A0CEE62F2AEFE4280082B27F /* FastingParametersDependencies.swift in Sources */,
