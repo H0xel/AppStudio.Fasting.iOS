@@ -18,7 +18,7 @@ struct FastingStagesView: View {
     var body: some View {
         ScrollViewWithReader(axis: .horizontal, showIndicators: false) { proxy in
             HStack(spacing: 4) {
-                Spacer(minLength: Layout.horizontalPadding)
+                Spacer(minLength: Layout.horizontalPadding(stages))
                 ForEach(stages, id: \.self) { stage in
                     Button(action: {
                         updateStage(stage: stage, proxy: proxy)
@@ -34,7 +34,7 @@ struct FastingStagesView: View {
                         .continiousCornerRadius(Layout.cornerRadius)
                     })
                 }
-                Spacer(minLength: Layout.horizontalPadding)
+                Spacer(minLength: Layout.horizontalPadding(stages))
             }
             .onAppear {
                 if let currentStage {
@@ -89,16 +89,17 @@ struct FastingStagesView: View {
 
 private extension FastingStagesView {
     enum Layout {
-        static let horizontalPadding: CGFloat = 25
+        static func horizontalPadding(_ stages: [FastingStage]) -> CGFloat {
+            stages.count > 5 ? 25 : 50
+        }
         static let cornerRadius: CGFloat = 26
         static let padding: CGFloat = 14
     }
 }
 
 #Preview {
-    let viewModel = FastingViewModel(input: .init(), output: { _ in })
-    viewModel.router = .init(navigator: .init())
-    return ModernNavigationView {
-        FastingScreen(viewModel: viewModel)
+    VStack {
+        FastingStagesView(stages: FastingStage.allCases, currentStage: nil)
+        FastingStagesView(stages: FastingStage.allCases.filter{$0 != .autophagy}, currentStage: nil)
     }
 }

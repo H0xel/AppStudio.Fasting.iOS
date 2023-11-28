@@ -6,5 +6,4 @@
 //
 
 struct FastingInput {
-    // add Input parameters here
 }

@@ -1,1 +1,1 @@
-- Denis and Ivan bug fixes
+- Bug fixes

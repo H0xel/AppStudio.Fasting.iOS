@@ -14,6 +14,18 @@ struct PaywallScreen: View {
     var body: some View {
         ZStack {
             VStack(spacing: .zero) {
+                if viewModel.context == .settingsScreen {
+                    HStack {
+                        Spacer()
+                        Button(action: viewModel.restore,
+                               label: {
+                            restoreButton
+                                .padding(.trailing, Layout.tabBarRestoreButtonTrailingPadding)
+                                .padding(.vertical, Layout.tabBarRestoreButtonVerticalPadding)
+                        })
+                    }
+                }
+
                 PaywallTitleView(titles: viewModel.headerTitles)
                     .padding(.horizontal, Layout.horizontalPadding)
                     .padding(.top, Layout.verticalPadding)
@@ -44,6 +56,9 @@ struct PaywallScreen: View {
         .navBarButton(placement: .navigationBarTrailing,
                       content: restoreButton,
                       action: viewModel.restore)
+        .onAppear {
+            viewModel.appeared()
+        }
     }
 
     private var restoreButton: some View {
@@ -65,6 +80,8 @@ private extension PaywallScreen {
         static let titleSpacing: CGFloat = 12
         static let horizontalPadding: CGFloat = 32
         static let shadingHeight: CGFloat = 70
+        static let tabBarRestoreButtonTrailingPadding: CGFloat = 16
+        static let tabBarRestoreButtonVerticalPadding: CGFloat = 16
     }
 }
 

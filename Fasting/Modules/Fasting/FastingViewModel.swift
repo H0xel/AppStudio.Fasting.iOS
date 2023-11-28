@@ -21,10 +21,12 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     var router: FastingRouter!
     @Published var fastingStatus: FastingStatus = .unknown
     @Published var fastingInterval: FastingInterval = .empty
+    @Published var fastingStages: [FastingStage] = []
     private let fastingStatusUpdateTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     init(input: FastingInput, output: @escaping FastingOutputBlock) {
         super.init(output: output)
+        fastingStages = updateFastingStages(fastingInterval: fastingInterval, fastingStatus: fastingStatus)
         configureFastingStatus()
         configureFastingInterval()
     }
@@ -46,12 +48,6 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
 
     var fastingEndTime: String {
         fastingInterval.endDate.localeTimeString
-    }
-
-    var fastingStages: [FastingStage] {
-        return fastingInterval.plan != .beginner
-        ? FastingStage.allCases
-        : FastingStage.allCases.filter { $0 != .autophagy }
     }
 
     var currentStage: FastingStage? {
@@ -133,11 +129,18 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     private func configureFastingStatus() {
         fastingStatusUpdateTimer
             .flatMap(with: self) { this, _ in this.fastingService.statusPublisher }
-            .assign(to: &$fastingStatus)
+            .receive(on: DispatchQueue.main)
+            .sink(with: self) { this, status in
+                this.fastingStages = this.updateFastingStages(fastingInterval: this.fastingInterval,
+                                                              fastingStatus: status)
+                this.fastingStatus = status
+            }
+            .store(in: &cancellables)
     }
 
     private func configureFastingInterval() {
         fastingParametersService.fastingIntervalPublisher
+            .receive(on: DispatchQueue.main)
             .assign(to: &$fastingInterval)
     }
 
@@ -145,6 +148,19 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
         Task { [weak self] in
             try await self?.fastingParametersService.set(currentDate: date)
         }
+    }
+
+    private func updateFastingStages(fastingInterval: FastingInterval,
+                                     fastingStatus: FastingStatus) -> [FastingStage] {
+        guard fastingInterval.plan == .beginner else { return FastingStage.allCases }
+
+        if case let .active(activeState) = fastingStatus {
+            return activeState.interval > FastingPlan.regular.duration
+            ? FastingStage.allCases
+            : FastingStage.withoutAutophagy
+        }
+
+        return FastingStage.withoutAutophagy
     }
 }
 

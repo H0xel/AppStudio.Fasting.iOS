@@ -33,7 +33,6 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     init(input: PaywallScreenInput, output: @escaping ViewOutput<PaywallScreenOutput>) {
         self.input = input
         super.init(output: output)
-        trackPaywallShown()
         subscribeToLoadingState()
         subscribeToMayUseAppStatus()
         subscribeToFinishTransactionState()
@@ -96,6 +95,10 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
         subscriptionService.restore()
         trackerService.track(.tapRestorePurchases(context: input.paywallContext,
                                                   afId: analyticKeyStore.currentAppsFlyerId))
+    }
+
+    func appeared() {
+        trackPaywallShown()
     }
 
     private func handle(paywallScreenOutput event: PaywallScreenOutput) {

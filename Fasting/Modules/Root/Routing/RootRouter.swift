@@ -12,11 +12,21 @@ import Dependencies
 class RootRouter: BaseRouter {
     @Dependency(\.paywallService) private var paywallService
     @Dependency(\.openURL) private var openURL
+    @Dependency(\.fastingService) private var fastingService
+    @Dependency(\.fastingParametersService) private var fastingParametersService
+
     private let fastingNavigator = Navigator()
     private let profileNavigator = Navigator()
+    private let paywallNavigator = Navigator()
+
+    override init(navigator: Navigator) {
+        super.init(navigator: navigator)
+    }
 
     lazy var fastingScreen: some View = {
-        let route = FastingRoute(navigator: fastingNavigator, input: .init(), output: { _ in })
+        let route = FastingRoute(navigator: fastingNavigator,
+                                 input: .init(),
+                                 output: { _ in })
         return fastingNavigator.initialize(route: route)
     }()
 
@@ -27,6 +37,11 @@ class RootRouter: BaseRouter {
             output: { _ in }
         )
         return profileNavigator.initialize(route: route)
+    }()
+
+    lazy var paywallScreen: some View = {
+        let route = PaywallRoute(navigator: self.paywallNavigator, input: .fromSettings) { _ in }
+        return paywallNavigator.initialize(route: route)
     }()
 
     func presentPaywall() {

@@ -60,6 +60,10 @@ enum FastingStage: String, CaseIterable, Equatable {
     var coloredImage: Image {
         Image("\(rawValue)Enabled")
     }
+
+    static var withoutAutophagy: [FastingStage] {
+        FastingStage.allCases.filter { $0 != .autophagy }
+    }
 }
 
 extension FastingStage: Comparable {

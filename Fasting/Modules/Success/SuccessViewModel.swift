@@ -121,8 +121,10 @@ class SuccessViewModel: BaseViewModel<SuccessOutput> {
             Image("beginnerThreeStagesCompleted")
         case .burning:
             Image("beginnerFourStagesCompleted")
-        case .ketosis, .autophagy:
+        case .ketosis:
             Image("beginnerFiveStagesCompleted")
+        case .autophagy:
+            Image("regularSixStagesCompleted")
         }
     }
 

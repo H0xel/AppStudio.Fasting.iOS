@@ -11,13 +11,13 @@ import SwiftUI
 import Dependencies
 import RxSwift
 
-
 class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.storageService) private var storageService
     @Dependency(\.idfaRequestService) private var idfaRequestService
     @Dependency(\.fastingParametersInitializer) private var fastingParametersInitializer
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.subscriptionService) private var subscriptionService
+    @Dependency(\.fastingService) private var fastingService
 
     @Published var currentTab: AppTab = .fasting
     @Published var rootScreen: RootScreen = .launchScreen
@@ -67,9 +67,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
 
     var paywallScreen: some View {
-        NavigationView {
-            PaywallRoute(navigator: router.navigator, input: .fromSettings) { _ in }.view
-        }
+        router.paywallScreen
     }
 
     private func initializeForceUpdateIfNeeded() {
