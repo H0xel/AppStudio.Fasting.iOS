@@ -266,6 +266,7 @@
 		A70DBE262B0C85550067D7BD /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70DBE252B0C85550067D7BD /* String+subscript.swift */; };
 		A70DBE492B0DD5A00067D7BD /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70DBE482B0DD5A00067D7BD /* LaunchScreen.swift */; };
 		A72230372AFB624300303D5D /* Date+LocaleTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72230362AFB624300303D5D /* Date+LocaleTime.swift */; };
+		A722FEA72B15B201001CD1A3 /* UIScreen+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
 		A7622F502AEBC9AA00D12632 /* Font+Poppins.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7622F4F2AEBC9AA00D12632 /* Font+Poppins.swift */; };
@@ -564,6 +565,7 @@
 		A70DBE252B0C85550067D7BD /* String+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+subscript.swift"; sourceTree = "<group>"; };
 		A70DBE482B0DD5A00067D7BD /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		A72230362AFB624300303D5D /* Date+LocaleTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+LocaleTime.swift"; sourceTree = "<group>"; };
+		A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+extensions.swift"; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
 		A7622F4F2AEBC9AA00D12632 /* Font+Poppins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Poppins.swift"; sourceTree = "<group>"; };
@@ -1588,6 +1590,7 @@
 				56655B612AFB693E00508ED4 /* ClosedRange+extentions.swift */,
 				A70DBE252B0C85550067D7BD /* String+subscript.swift */,
 				56B92DB62B0CB0F700B5F67C /* Locale+Extensions.swift */,
+				A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2241,6 +2244,7 @@
 				567501072ADFD955009331CB /* IntercomService.swift in Sources */,
 				564BE0BF2AF0F30400CE7F38 /* FastingParameters.swift in Sources */,
 				567500BB2ADFC9F2009331CB /* GlobalConstants.swift in Sources */,
+				A722FEA72B15B201001CD1A3 /* UIScreen+extensions.swift in Sources */,
 				563257152ADE57D80000F33C /* FastingApp.swift in Sources */,
 				56C28DCE2AE109580007E48D /* CrashlyticsInitializer.swift in Sources */,
 				A0255E752AFBD1A900221EC6 /* PutPushTokenRequest.swift in Sources */,

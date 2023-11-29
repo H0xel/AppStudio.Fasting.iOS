@@ -12,16 +12,20 @@ extension Font {
         font.isBold ? .poppinsBold(font.rawValue) : .poppins(font.rawValue)
     }
 
+    static func adaptivePoppins(font: Poppins, smallDeviceFont: Poppins) -> Font {
+        UIScreen.isSmallDevice ? .poppins(smallDeviceFont) : .poppins(font)
+    }
+
     static func poppins(_ size: CGFloat) -> Font {
-        return .custom("Poppins-Regular", size: size)
+        .custom("Poppins-Regular", size: size)
     }
 
     static func poppinsBold(_ size: CGFloat) -> Font {
-        return .custom("Poppins-SemiBold", size: size)
+        .custom("Poppins-SemiBold", size: size)
     }
 
     static func poppinsBold(_ font: Poppins) -> Font {
-        return .custom("Poppins-SemiBold", size: font.rawValue)
+        .custom("Poppins-SemiBold", size: font.rawValue)
     }
 }
 

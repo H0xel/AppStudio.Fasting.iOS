@@ -19,7 +19,7 @@ struct FastingPlanView: View {
                 .padding(.top, Layout.titleTopPadding)
                 .padding(.bottom, Layout.titleBottomPadding)
                 .foregroundStyle(.white)
-                .font(.poppins(.headerS))
+                .font(.adaptivePoppins(font: .headerS, smallDeviceFont: .buttonText))
 
             Text(plan.fastingDescription)
                 .foregroundStyle(.white)
@@ -33,10 +33,12 @@ struct FastingPlanView: View {
                 Spacer()
                 Text(plan.intervalPlan)
                     .foregroundStyle(.white)
-                    .font(.poppins(UIDevice.hasHomeIndicator ? .accentL : .accentS))
+                    .font(.adaptivePoppins(font: .accentL, smallDeviceFont: .accentS))
+                    .frame(height: Layout.intervalPlanHeight)
+                    .padding(.bottom, Layout.intervalPlanBottomPadding)
                 Text(plan.intervalDescription)
                     .foregroundStyle(.white)
-                    .font(.poppins(.headerS))
+                    .font(.adaptivePoppins(font: .headerS, smallDeviceFont: .description))
                 Spacer()
             }
 
@@ -58,10 +60,10 @@ struct FastingPlanView: View {
 // MARK: - Layout properties
 private extension FastingPlanView {
     enum Layout {
-        static let titleTopPadding: CGFloat = 32
-        static let titleBottomPadding: CGFloat = 16
+        static let titleTopPadding: CGFloat = 24
+        static let titleBottomPadding: CGFloat = 8
         static let descriptionHorizontalPadding: CGFloat = 12
-        static let descriptionVerticalPadding: CGFloat = 10
+        static let descriptionVerticalPadding: CGFloat = 8
         static let descriptionCornerRadius: CGFloat = 56
         static let planIntervalSpacing: CGFloat = 28
         static let planIntervalHorizontalPadding: CGFloat = 60
@@ -69,6 +71,8 @@ private extension FastingPlanView {
         static let buttonBottomPadding: CGFloat = 24
         static let horizontalPadding: CGFloat = 16
         static let cornerRadius: CGFloat = 40
+        static let intervalPlanHeight: CGFloat = UIScreen.isSmallDevice ? 53 : 100
+        static let intervalPlanBottomPadding: CGFloat = 4
     }
 }
 

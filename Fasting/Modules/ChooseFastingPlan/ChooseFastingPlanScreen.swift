@@ -15,7 +15,7 @@ struct ChooseFastingPlanScreen: View {
     var body: some View {
         VStack(spacing: 0) {
             Text(Localization.title)
-                .font(.poppins(.headerL))
+                .font(.adaptivePoppins(font: .headerL, smallDeviceFont: .headerM))
                 .padding(.top, Layout.titleTopPadding)
                 .padding(.bottom, Layout.titleBottomPadding)
 
@@ -23,6 +23,7 @@ struct ChooseFastingPlanScreen: View {
                 .padding(.horizontal, Layout.horizontalPadding)
                 .padding(.bottom, Layout.descriptionBottomPadding)
                 .font(.poppins(.body))
+                .lineSpacing(Layout.lineSpacing)
 
             SnapCarousel(index: $viewModel.index,
                          items: viewModel.plans) { plan in
@@ -49,9 +50,10 @@ struct ChooseFastingPlanScreen: View {
 private extension ChooseFastingPlanScreen {
     enum Layout {
         static let titleTopPadding: CGFloat = 12
-        static let titleBottomPadding: CGFloat = 48
-        static let descriptionBottomPadding: CGFloat = 48
+        static let titleBottomPadding: CGFloat = 32
+        static let descriptionBottomPadding: CGFloat = 40
         static let horizontalPadding: CGFloat = 32
+        static let lineSpacing: CGFloat = 3
     }
 }
 
