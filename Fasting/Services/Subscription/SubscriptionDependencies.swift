@@ -40,6 +40,7 @@ private enum PaywallServiceAndInitializerKey: DependencyKey {
 
 enum SubscriptionServiceKey: DependencyKey {
     static var liveValue: SubscriptionService?
+    static var previewValue: SubscriptionService? = PreviewSubscriptionService()
 }
 
 private enum AppStudioSubscriptionDelegateKey: DependencyKey {

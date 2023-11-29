@@ -19,6 +19,7 @@ extension DependencyValues {
 
 private enum AppSyncServiceKey: DependencyKey {
     static let liveValue: AppSyncService = AppSyncServiceImpl()
+    static var previewValue: AppSyncService = AppSyncServicePreview()
     static let testValue: AppSyncService = AppSyncServiceImpl()
 }
 
