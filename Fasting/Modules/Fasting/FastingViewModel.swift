@@ -10,6 +10,7 @@ import AppStudioUI
 import Foundation
 import SwiftUI
 import Dependencies
+import Combine
 
 class FastingViewModel: BaseViewModel<FastingOutput> {
 
@@ -126,7 +127,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     }
 
     private func configureFastingStatus() {
-        fastingStatusUpdateTimer
+        Publishers.Merge(fastingStatusUpdateTimer, Just(.now))
             .flatMap(with: self) { this, _ in this.fastingService.statusPublisher }
             .receive(on: DispatchQueue.main)
             .sink(with: self) { this, status in
