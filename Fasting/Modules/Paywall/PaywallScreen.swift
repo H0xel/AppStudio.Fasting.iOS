@@ -49,11 +49,11 @@ struct PaywallScreen: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .if(viewModel.context != .settingsScreen) {
-            $0.navBarButton(content: Image.close.foregroundStyle(.fastingGreyStrokeFill),
-                            action: viewModel.close)
-        }
+        .navBarButton(isVisible: viewModel.context != .settingsScreen && viewModel.canDisplayCloseButton,
+                      content: Image.close.foregroundStyle(.fastingGreyStrokeFill),
+                      action: viewModel.close)
         .navBarButton(placement: .navigationBarTrailing,
+                      isVisible: viewModel.context != .settingsScreen,
                       content: restoreButton,
                       action: viewModel.restore)
         .onAppear {

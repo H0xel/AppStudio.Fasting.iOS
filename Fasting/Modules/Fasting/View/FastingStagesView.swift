@@ -16,39 +16,43 @@ struct FastingStagesView: View {
     @State private var openedStage: FastingStage?
 
     var body: some View {
-        ScrollViewWithReader(axis: .horizontal, showIndicators: false) { proxy in
-            HStack(spacing: 4) {
-                Spacer(minLength: Layout.horizontalPadding(stages))
-                ForEach(stages, id: \.self) { stage in
-                    Button(action: {
+        GeometryReader { geometry in
+            ScrollViewWithReader(axis: .horizontal, showIndicators: false) { proxy in
+                HStack(spacing: 4) {
+                    Spacer(minLength: Layout.horizontalPadding)
+                    ForEach(stages, id: \.self) { stage in
+                        Button(action: {
+                            updateStage(stage: stage, proxy: proxy)
+                        }, label: {
+                            HStack {
+                                image(for: stage)
+                                title(for: stage)
+                            }
+                            .id(stage)
+                            .padding(Layout.padding)
+                            .border(configuration: borderConfiguration(for: stage))
+                            .background(stage == currentStage ? stage.backgroundColor : nil)
+                            .continiousCornerRadius(Layout.cornerRadius)
+                        })
+                    }
+                    Spacer(minLength: Layout.horizontalPadding)
+                }
+                .frame(minWidth: geometry.size.width)
+                .onAppear {
+                    if let currentStage {
+                        updateStage(stage: currentStage, proxy: proxy)
+                    }
+                }
+                .onChange(of: currentStage?.rawValue) { newValue in
+                    if let newValue, let stage = FastingStage(rawValue: newValue) {
                         updateStage(stage: stage, proxy: proxy)
-                    }, label: {
-                        HStack {
-                            image(for: stage)
-                            title(for: stage)
-                        }
-                        .id(stage)
-                        .padding(Layout.padding)
-                        .border(configuration: borderConfiguration(for: stage))
-                        .background(stage == currentStage ? stage.backgroundColor : nil)
-                        .continiousCornerRadius(Layout.cornerRadius)
-                    })
-                }
-                Spacer(minLength: Layout.horizontalPadding(stages))
-            }
-            .onAppear {
-                if let currentStage {
-                    updateStage(stage: currentStage, proxy: proxy)
-                }
-            }
-            .onChange(of: currentStage?.rawValue) { newValue in
-                if let newValue, let stage = FastingStage(rawValue: newValue) {
-                    updateStage(stage: stage, proxy: proxy)
-                } else {
-                    openedStage = nil
+                    } else {
+                        openedStage = nil
+                    }
                 }
             }
         }
+        .frame(height: Layout.height)
     }
 
     private func image(for stage: FastingStage) -> Image {
@@ -89,11 +93,10 @@ struct FastingStagesView: View {
 
 private extension FastingStagesView {
     enum Layout {
-        static func horizontalPadding(_ stages: [FastingStage]) -> CGFloat {
-            stages.count > 5 ? 25 : 50
-        }
+        static var horizontalPadding: CGFloat = 25
         static let cornerRadius: CGFloat = 26
         static let padding: CGFloat = 14
+        static let height: CGFloat = 52
     }
 }
 

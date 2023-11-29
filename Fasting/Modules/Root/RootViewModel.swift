@@ -21,6 +21,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     @Published var currentTab: AppTab = .fasting
     @Published var rootScreen: RootScreen = .launchScreen
+    @Published var hasSubscription = false
 
     var router: RootRouter!
 
@@ -29,6 +30,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     init(input: RootInput, output: @escaping RootOutputBlock) {
         super.init(output: output)
         initialize()
+        initializePaywallTab()
     }
 
     func initialize() {
@@ -85,6 +87,16 @@ class RootViewModel: BaseViewModel<RootOutput> {
                 } else {
                     this.rootScreen = this.storageService.onboardingIsFinished ? .fasting : .onboarding
                 }
+            }
+            .disposed(by: disposeBag)
+    }
+
+    private func initializePaywallTab() {
+        subscriptionService.hasSubscriptionObservable
+            .asDriver()
+            .drive(with: self) { this, hasSubscription in
+                this.currentTab = hasSubscription ? .fasting : .paywall
+                this.hasSubscription = hasSubscription
             }
             .disposed(by: disposeBag)
     }

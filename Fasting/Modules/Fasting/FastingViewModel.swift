@@ -90,7 +90,6 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     private func startFastingIfPossible(from date: Date) {
         if fastingFinishedCyclesLimitService.isLimited {
             Task {
-                await router.dismiss()
                 await presentPaywallAndStartFasting(from: date)
             }
             return

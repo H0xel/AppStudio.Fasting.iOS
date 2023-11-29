@@ -16,6 +16,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     @Published var products: [SubscriptionProduct] = []
     @Published var selectedProduct: SubscriptionProduct?
     @Published var isTrialAvailable = false
+    @Published var canDisplayCloseButton = false
     @Published private var highestPriceSubscription: SubscriptionProduct?
     @Published private var input: PaywallScreenInput
 
@@ -33,6 +34,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     init(input: PaywallScreenInput, output: @escaping ViewOutput<PaywallScreenOutput>) {
         self.input = input
         super.init(output: output)
+        configureCloseButton()
         subscribeToLoadingState()
         subscribeToMayUseAppStatus()
         subscribeToFinishTransactionState()
@@ -234,6 +236,12 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
         let alertTitle = NSLocalizedString("PaywallDetailsScreen.errorSubscription",
                                              comment: "error subscription status")
         router.present(systemAlert: Alert(title: alertTitle, message: nil, actions: []))
+    }
+
+    private func configureCloseButton() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.canDisplayCloseButton = true
+        }
     }
 }
 

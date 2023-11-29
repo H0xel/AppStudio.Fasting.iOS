@@ -40,11 +40,13 @@ struct RootScreen: View {
                     .tabItem {
                         Image.personFill
                     }
-                viewModel.paywallScreen
-                    .tag(AppTab.paywall)
-                    .tabItem {
-                        Image.crownFill
-                    }
+                if !viewModel.hasSubscription {
+                    viewModel.paywallScreen
+                        .tag(AppTab.paywall)
+                        .tabItem {
+                            Image.crownFill
+                        }
+                }
             }
             .navBarButton(placement: .principal,
                           isVisible: viewModel.currentTab.navigationTitle != nil,

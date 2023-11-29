@@ -27,8 +27,11 @@ class StartFastingViewModel: BaseViewModel<StartFastingOutput> {
     }
 
     func save() {
-        output(.save(fastTime))
-        router.dismiss()
+        Task { [weak self] in
+            guard let self else { return }
+            await self.router.dismiss()
+            self.output(.save(fastTime))
+        }
     }
 
     func cancel() {

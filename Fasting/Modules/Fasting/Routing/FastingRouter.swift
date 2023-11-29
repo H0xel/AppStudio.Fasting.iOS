@@ -27,10 +27,7 @@ class FastingRouter: BaseRouter {
                 onSave(date)
             }
         }
-        present(route: route)
-
-        // TODO: Разобраться в следующих версиях почему он переоткрывает экран
-        //        present(sheet: route, detents: [.height(484)])
+        present(sheet: route, detents: [.height(484)])
     }
 
     func presentSuccess(plan: FastingPlan, startDate: Date, endDate: Date, output: @escaping SuccessOutputBlock) {
