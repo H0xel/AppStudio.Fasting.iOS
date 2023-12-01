@@ -34,6 +34,14 @@
 		564BE0C12AF0F31600CE7F38 /* FastingParameters+Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0C02AF0F31600CE7F38 /* FastingParameters+Mappable.swift */; };
 		564BE0C32AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0C22AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift */; };
 		564BE0C52AF0F4DF00CE7F38 /* FastingParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0C42AF0F4DF00CE7F38 /* FastingParametersTests.swift */; };
+		5662DEC12B16144700C1637C /* FastingStagePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662DEC02B16144700C1637C /* FastingStagePoint.swift */; };
+		5662DEC32B16146800C1637C /* FastingRingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662DEC22B16146800C1637C /* FastingRingSettings.swift */; };
+		5662DEC62B16149C00C1637C /* FastingRingActiveStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662DEC52B16149C00C1637C /* FastingRingActiveStateData.swift */; };
+		5662DEC82B1614BE00C1637C /* FastingRingPointCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662DEC72B1614BE00C1637C /* FastingRingPointCircleView.swift */; };
+		5662DECA2B1614E300C1637C /* FastingRingActiveStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662DEC92B1614E300C1637C /* FastingRingActiveStateView.swift */; };
+		5662DECC2B1615DA00C1637C /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662DECB2B1615DA00C1637C /* CGFloat+Extensions.swift */; };
+		5662DECE2B1615F200C1637C /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662DECD2B1615F200C1637C /* Double+Extensions.swift */; };
+		5662DED02B16164600C1637C /* FastingRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662DECF2B16164600C1637C /* FastingRingView.swift */; };
 		56655B622AFB693E00508ED4 /* ClosedRange+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56655B612AFB693E00508ED4 /* ClosedRange+extentions.swift */; };
 		56655B662AFCB09100508ED4 /* FastingIntervalHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56655B652AFCB09100508ED4 /* FastingIntervalHistory.swift */; };
 		56655B682AFCB10900508ED4 /* FastingIntervalHistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56655B672AFCB10900508ED4 /* FastingIntervalHistoryRepository.swift */; };
@@ -345,6 +353,14 @@
 		564BE0C22AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersRepositoryImpl.swift; sourceTree = "<group>"; };
 		564BE0C42AF0F4DF00CE7F38 /* FastingParametersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersTests.swift; sourceTree = "<group>"; };
 		564BE0C62AF10FC500CE7F38 /* Fasting.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fasting.entitlements; sourceTree = "<group>"; };
+		5662DEC02B16144700C1637C /* FastingStagePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingStagePoint.swift; sourceTree = "<group>"; };
+		5662DEC22B16146800C1637C /* FastingRingSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingRingSettings.swift; sourceTree = "<group>"; };
+		5662DEC52B16149C00C1637C /* FastingRingActiveStateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingRingActiveStateData.swift; sourceTree = "<group>"; };
+		5662DEC72B1614BE00C1637C /* FastingRingPointCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingRingPointCircleView.swift; sourceTree = "<group>"; };
+		5662DEC92B1614E300C1637C /* FastingRingActiveStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingRingActiveStateView.swift; sourceTree = "<group>"; };
+		5662DECB2B1615DA00C1637C /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
+		5662DECD2B1615F200C1637C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		5662DECF2B16164600C1637C /* FastingRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingRingView.swift; sourceTree = "<group>"; };
 		56655B612AFB693E00508ED4 /* ClosedRange+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClosedRange+extentions.swift"; sourceTree = "<group>"; };
 		56655B652AFCB09100508ED4 /* FastingIntervalHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingIntervalHistory.swift; sourceTree = "<group>"; };
 		56655B672AFCB10900508ED4 /* FastingIntervalHistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingIntervalHistoryRepository.swift; sourceTree = "<group>"; };
@@ -760,6 +776,27 @@
 			isa = PBXGroup;
 			children = (
 				564BE0BE2AF0F30400CE7F38 /* FastingParameters.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5662DEBE2B16142A00C1637C /* FastingRing */ = {
+			isa = PBXGroup;
+			children = (
+				5662DEBF2B16143600C1637C /* Model */,
+				5662DEC72B1614BE00C1637C /* FastingRingPointCircleView.swift */,
+				5662DEC92B1614E300C1637C /* FastingRingActiveStateView.swift */,
+				5662DECF2B16164600C1637C /* FastingRingView.swift */,
+			);
+			path = FastingRing;
+			sourceTree = "<group>";
+		};
+		5662DEBF2B16143600C1637C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5662DEC02B16144700C1637C /* FastingStagePoint.swift */,
+				5662DEC22B16146800C1637C /* FastingRingSettings.swift */,
+				5662DEC52B16149C00C1637C /* FastingRingActiveStateData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1596,6 +1633,8 @@
 				56655B612AFB693E00508ED4 /* ClosedRange+extentions.swift */,
 				A70DBE252B0C85550067D7BD /* String+subscript.swift */,
 				56B92DB62B0CB0F700B5F67C /* Locale+Extensions.swift */,
+				5662DECB2B1615DA00C1637C /* CGFloat+Extensions.swift */,
+				5662DECD2B1615F200C1637C /* Double+Extensions.swift */,
 				A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */,
 			);
 			path = Extensions;
@@ -1615,6 +1654,7 @@
 		A0881E6E2AEAC77000E38FF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5662DEBE2B16142A00C1637C /* FastingRing */,
 				A0881E6F2AEAC88D00E38FF5 /* FastingProgressView.swift */,
 				A02787562AEAE4E700844246 /* FastingIntervalView.swift */,
 				A02787582AEAE4FB00844246 /* FastingTimeView.swift */,
@@ -2051,6 +2091,7 @@
 				5675FFF02ADE84B4009331CB /* AppInitializedMessage.swift in Sources */,
 				567500072ADE84B4009331CB /* MigrationLaunchService.swift in Sources */,
 				A0881E702AEAC88D00E38FF5 /* FastingProgressView.swift in Sources */,
+				5662DEC62B16149C00C1637C /* FastingRingActiveStateData.swift in Sources */,
 				A0382D3D2AF4F03A009CC579 /* SuccessRouter.swift in Sources */,
 				567500E72ADFD59B009331CB /* BackendEnvironmentService.swift in Sources */,
 				A7D01B7D2AF10A6D00C50C1F /* SetupFastingRouter.swift in Sources */,
@@ -2087,6 +2128,7 @@
 				A0CEE6302AEFE4280082B27F /* FastingParametersService.swift in Sources */,
 				56C28DC62AE109580007E48D /* IntercomInitializer.swift in Sources */,
 				A044263F2AF240F4005400AE /* ProfileViewModel.swift in Sources */,
+				5662DECA2B1614E300C1637C /* FastingRingActiveStateView.swift in Sources */,
 				A0CEE61C2AEFE2E50082B27F /* FastingStatus.swift in Sources */,
 				566C24922AE8F80B00AEDB3C /* PaywallViewModel.swift in Sources */,
 				A0CEE61E2AEFE2F20082B27F /* FastingActiveState.swift in Sources */,
@@ -2105,6 +2147,7 @@
 				567500DC2ADFCDAC009331CB /* AccountApi.swift in Sources */,
 				A0255E6E2AFBCE9D00221EC6 /* Account.swift in Sources */,
 				A0881E682AEAC32500E38FF5 /* FastingRoute.swift in Sources */,
+				5662DEC82B1614BE00C1637C /* FastingRingPointCircleView.swift in Sources */,
 				5675FFFD2ADE84B4009331CB /* SubscriptionStateMessage.swift in Sources */,
 				567500D92ADFCDAC009331CB /* SandboxApiSettingsProviderImpl.swift in Sources */,
 				567500422ADFA67E009331CB /* AccountProviderImpl.swift in Sources */,
@@ -2114,6 +2157,7 @@
 				A0CEE6292AEFE3FB0082B27F /* FastingDependencies.swift in Sources */,
 				A7D01B6E2AF0CCF900C50C1F /* ChooseFastingPlanOutput.swift in Sources */,
 				53D900772AE67EE700FFEB7A /* PreferencesService.swift in Sources */,
+				5662DEC12B16144700C1637C /* FastingStagePoint.swift in Sources */,
 				A70DBE492B0DD5A00067D7BD /* LaunchScreen.swift in Sources */,
 				56F64D7C2AE10EF20067FE05 /* RootInput.swift in Sources */,
 				A0255E782AFBD1D700221EC6 /* SubscriptionTarget.swift in Sources */,
@@ -2234,17 +2278,20 @@
 				A0CEE6162AEFE2B10082B27F /* FastingPlan.swift in Sources */,
 				5675FFEF2ADE84B4009331CB /* MessengerService.swift in Sources */,
 				567500412ADFA67E009331CB /* ProvidersDependencies.swift in Sources */,
+				5662DEC32B16146800C1637C /* FastingRingSettings.swift in Sources */,
 				A70DBE242B0C83520067D7BD /* MonoSpacedView.swift in Sources */,
 				A0382D402AF4F03A009CC579 /* SuccessOutput.swift in Sources */,
 				567500ED2ADFD6A0009331CB /* AppSettingsProvider.swift in Sources */,
 				56655B662AFCB09100508ED4 /* FastingIntervalHistory.swift in Sources */,
 				A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */,
+				5662DECE2B1615F200C1637C /* Double+Extensions.swift in Sources */,
 				A0255E702AFBD00200221EC6 /* AccountTarget.swift in Sources */,
 				A04426302AF23DAE005400AE /* TimeInterval+extensions.swift in Sources */,
 				567500532ADFA8C1009331CB /* KeyValueStorageImpl.swift in Sources */,
 				567500062ADE84B4009331CB /* Migration.swift in Sources */,
 				A7D01B932AF115F200C50C1F /* NotificationOnboardingOutput.swift in Sources */,
 				A7D01B802AF10A6D00C50C1F /* SetupFastingOutput.swift in Sources */,
+				5662DED02B16164600C1637C /* FastingRingView.swift in Sources */,
 				A063B1FA2AEBD0E800084696 /* StartFastingViewModel.swift in Sources */,
 				A7D01B852AF10D6200C50C1F /* SetupFastingBanner.swift in Sources */,
 				567500452ADFA67E009331CB /* AppStudioMobileDeviceDataProvider.swift in Sources */,
@@ -2268,6 +2315,7 @@
 				567500A12ADFAB69009331CB /* SubscriptionDependencies.swift in Sources */,
 				A063B1F72AEBD0E800084696 /* StartFastingRoute.swift in Sources */,
 				A07D95A92AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift in Sources */,
+				5662DECC2B1615DA00C1637C /* CGFloat+Extensions.swift in Sources */,
 				53D900742AE652DD00FFEB7A /* PreferencesInitializer.swift in Sources */,
 				5675FFF22ADE84B4009331CB /* UpdateSubscriptionMessage.swift in Sources */,
 				567500022ADE84B4009331CB /* MessengerServiceImpl.swift in Sources */,

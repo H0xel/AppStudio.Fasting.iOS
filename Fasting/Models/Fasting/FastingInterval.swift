@@ -75,6 +75,7 @@ struct FastingInterval {
     private var beforeStartInterval: TimeInterval {
         startDate.timeIntervalSinceNow
     }
+
     private var currentActiveStage: FastingStage {
         switch currentFastingInterval {
         case 0 ... .hour * 2:

@@ -16,10 +16,10 @@ struct FastingProgressView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack {
-                Circle()
-                    .fill(backgroundColor)
+                FastingRingView(status: status, plan: plan)
                     .padding(.horizontal, Layout.horizontalPadding)
                 FastingProgressLabelView(status: status)
+                    .foregroundColor(.label)
             }
             .foregroundColor(foregroundColor)
             Text(plan.description)
@@ -77,8 +77,8 @@ private extension FastingProgressView {
 
 #Preview {
     FastingProgressView(
-        status: .active(.init(interval: 30, stage: .autophagy, isFinished: false)),
-        plan: .expert,
+        status: .active(.init(interval: .hour * 6.01, stage: .autophagy, isFinished: false)),
+        plan: .regular,
         action: {}
     )
 }

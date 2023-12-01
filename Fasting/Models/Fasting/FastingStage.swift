@@ -61,6 +61,31 @@ enum FastingStage: String, CaseIterable, Equatable {
         Image("\(rawValue)Enabled")
     }
 
+    var timeRange: ClosedRange<TimeInterval> {
+        switch self {
+        case .sugarRises:
+            return hoursRange(from: 0, to: 2)
+        case .sugarDrop:
+            return hoursRange(from: 2, to: 8)
+        case .sugarNormal:
+            return hoursRange(from: 8, to: 10)
+        case .burning:
+            return hoursRange(from: 10, to: 14)
+        case .ketosis:
+            return hoursRange(from: 14, to: 16)
+        case .autophagy:
+            return hoursRange(from: 16, to: .infinity)
+        }
+    }
+
+    var startHour: Double {
+        timeRange.lowerBound
+    }
+
+    func hoursRange(from: Double, to hoursTo: Double) -> ClosedRange<TimeInterval> {
+        (.hour * from) ... (.hour * hoursTo)
+    }
+
     static var withoutAutophagy: [FastingStage] {
         FastingStage.allCases.filter { $0 != .autophagy }
     }

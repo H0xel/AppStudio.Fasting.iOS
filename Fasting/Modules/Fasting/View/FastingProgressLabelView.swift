@@ -16,8 +16,7 @@ struct FastingProgressLabelView: View {
             .multilineTextAlignment(.center)
     }
 
-    @ViewBuilder
-    var view: some View {
+    @ViewBuilder var view: some View {
         switch status {
         case .active(let fastingActiveState):
             VStack(spacing: Layout.labelsSpacing) {
