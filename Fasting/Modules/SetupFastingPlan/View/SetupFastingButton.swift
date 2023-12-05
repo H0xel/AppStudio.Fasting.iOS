@@ -18,15 +18,13 @@ struct SetupFastingButton: View {
             Text(title)
                 .font(.poppins(.description))
                 .foregroundStyle(.white)
-                .padding(.vertical, Layout.verticalPadding)
                 .padding(.horizontal, Layout.horizontalPadding)
-                .aligned(.centerHorizontaly)
+                .frame(height: Layout.buttonHeight)
                 .background(color)
                 .continiousCornerRadius(Layout.cornerRadius)
                 .border(configuration: .init(cornerRadius: Layout.cornerRadius,
                                              color: .white))
         }
-        .frame(width: Layout.buttonWidth, height: Layout.buttonHeight)
     }
 }
 
@@ -37,9 +35,8 @@ struct SetupFastingButton: View {
 private extension SetupFastingButton {
     enum Layout {
         static let cornerRadius: CGFloat = 44
-        static let verticalPadding: CGFloat = 18
+        static let verticalPadding: CGFloat = 13
         static let horizontalPadding: CGFloat = 24
-        static let buttonWidth: CGFloat = 117
         static let buttonHeight: CGFloat = 44
     }
 }

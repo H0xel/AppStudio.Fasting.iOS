@@ -33,6 +33,7 @@ struct FastingTimeView: View {
                     }
                 }
             }
+            .foregroundStyle(.accent)
         }
         .aligned(.centerHorizontaly)
         .padding(.vertical, Layout.verticalPadding)

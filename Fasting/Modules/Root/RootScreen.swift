@@ -10,6 +10,7 @@ import AppStudioNavigation
 import AppStudioUI
 
 struct RootScreen: View {
+
     @StateObject var viewModel: RootViewModel
 
     var body: some View {

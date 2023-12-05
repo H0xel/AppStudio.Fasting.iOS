@@ -14,18 +14,19 @@ struct SuccessScreen: View {
 
     var body: some View {
         VStack(spacing: .zero) {
+            Spacer()
             Group {
                 Text(viewModel.resultTitle)
-                    .font(.poppins(.headerM))
-                    .padding(.top, Layout.topPadding)
+                    .font(.adaptivePoppins(font: .headerM, smallDeviceFont: .headerS))
 
                 if let subtitle = viewModel.resultSubtitle {
                     Text(subtitle)
-                        .font(.poppins(.buttonText))
+                        .font(.adaptivePoppins(font: .buttonText, smallDeviceFont: .body))
                         .padding(.top, Layout.subtitleTopPadding)
                 }
+                Spacer()
                 viewModel.resultImage
-                    .padding(.top, Layout.imageTopPadding)
+                Spacer()
                 Spacer()
                 Text(Localization.youFastingTime)
                     .font(.poppins(.body))

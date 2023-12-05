@@ -23,29 +23,33 @@ struct StartFastingScreen: View {
                        in: viewModel.datesRange,
                        displayedComponents: viewModel.dateComponents)
             .datePickerStyle(.wheel)
+            .frame(height: Layout.datePickerHeight)
             .padding(.vertical, Layout.datePickerVerticalPadding)
+            .padding(.horizontal, Layout.horizontalPadding)
 
             HStack(spacing: Layout.buttonsSpacing) {
                 BorderedButton(title: Localization.cancel, action: viewModel.cancel)
                 AccentButton(title: Localization.save, action: viewModel.save)
             }
+            .padding(.horizontal, Layout.horizontalPadding)
         }
         .multilineTextAlignment(.center)
         .foregroundStyle(Color.accentColor)
         .padding(.top, Layout.topPadding)
-        .padding(.horizontal, Layout.horizontalPadding)
+        .padding(.bottom, Layout.bottomPadding)
     }
 }
 
 // MARK: - Layout properties
 private extension StartFastingScreen {
     enum Layout {
-        static let topPadding: CGFloat = 40
-        static let bottomPadding: CGFloat = 16
+        static let topPadding: CGFloat = 48
+        static let bottomPadding: CGFloat = 8
         static let titleBottomPadding: CGFloat = 16
         static let horizontalPadding: CGFloat = 32
         static let buttonsSpacing: CGFloat = 8
         static let datePickerVerticalPadding: CGFloat = 48
+        static let datePickerHeight: CGFloat = 182
     }
 }
 

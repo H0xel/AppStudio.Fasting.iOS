@@ -12,58 +12,48 @@ struct PaywallScreen: View {
     @StateObject var viewModel: PaywallViewModel
 
     var body: some View {
-        ZStack {
-            VStack(spacing: .zero) {
-                if viewModel.context == .settingsScreen {
-                    HStack {
-                        Spacer()
-                        Button(action: viewModel.restore,
-                               label: {
-                            restoreButton
-                                .padding(.trailing, Layout.tabBarRestoreButtonTrailingPadding)
-                                .padding(.vertical, Layout.tabBarRestoreButtonVerticalPadding)
-                        })
-                    }
+        VStack(spacing: .zero) {
+            if isSettings {
+                Button(action: viewModel.restore) {
+                    restoreButton
+                        .padding(.trailing, Layout.tabBarRestoreButtonTrailingPadding)
+                        .padding(.top, Layout.tabBarRestoreButtonBottomPadding)
                 }
-
-                PaywallTitleView(titles: viewModel.headerTitles)
-                    .padding(.horizontal, Layout.horizontalPadding)
-                    .padding(.top, Layout.verticalPadding)
-
-                ShadingImageView(image: .paywall)
-                Spacer()
+                .aligned(.right)
             }
 
-            VStack(spacing: .zero) {
-                Spacer()
-                LinearGradient(
-                    colors: [.white, .background.opacity(0)],
-                    startPoint: .bottom,
-                    endPoint: .top
-                )
-                .frame(height: Layout.shadingHeight)
-                PaywallBottomInfoView(bottomInfo: viewModel.bottomInfo, onSaveTap: viewModel.subscribe)
-                    .background()
-                    .padding(.bottom, Layout.verticalPadding)
-                    .padding(.horizontal, Layout.horizontalPadding)
-            }
+            PaywallTitleView(titles: viewModel.headerTitles)
+                .padding(.horizontal, Layout.horizontalPadding)
+                .padding(.top, Layout.verticalPadding)
+
+            ShadingImageView(image: isSettings ? .init(.paywallImageTabBar) : .paywall)
+
+            Spacer()
+
+            PaywallBottomInfoView(bottomInfo: viewModel.bottomInfo, onSaveTap: viewModel.subscribe)
+                .background()
+                .padding(.bottom, Layout.verticalPadding)
+                .padding(.horizontal, Layout.horizontalPadding)
         }
         .navigationBarTitleDisplayMode(.inline)
         .navBarButton(isVisible: viewModel.context != .settingsScreen && viewModel.canDisplayCloseButton,
                       content: Image.close.foregroundStyle(.fastingGreyStrokeFill),
                       action: viewModel.close)
         .navBarButton(placement: .navigationBarTrailing,
-                      isVisible: viewModel.context != .settingsScreen,
+                      isVisible: !isSettings,
                       content: restoreButton,
                       action: viewModel.restore)
-        .onAppear {
-            viewModel.appeared()
-        }
+        .onAppear(perform: viewModel.appeared)
     }
 
     private var restoreButton: some View {
         Text(Localization.restore)
             .foregroundColor(.fastingGrayPlaceholder)
+            .font(.poppins(.buttonText))
+    }
+
+    private var isSettings: Bool {
+        viewModel.context == .settingsScreen
     }
 }
 
@@ -81,7 +71,8 @@ private extension PaywallScreen {
         static let horizontalPadding: CGFloat = 32
         static let shadingHeight: CGFloat = 70
         static let tabBarRestoreButtonTrailingPadding: CGFloat = 16
-        static let tabBarRestoreButtonVerticalPadding: CGFloat = 16
+        static let tabBarRestoreButtonBottomPadding: CGFloat = 10
+        static let imageBottomPadding: CGFloat = 24
     }
 }
 

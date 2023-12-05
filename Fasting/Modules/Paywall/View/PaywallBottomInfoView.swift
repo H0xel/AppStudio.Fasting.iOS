@@ -13,10 +13,11 @@ struct PaywallBottomInfoView: View {
     let onSaveTap: () -> Void
 
     var body: some View {
-        VStack(spacing: Layout.spacing) {
+        VStack(spacing: .zero) {
             PaywallCancelView()
             AccentButton(title: Localization.continueTitle,
                          action: onSaveTap)
+            .padding(.top, Layout.buttonTopPadding)
             HStack(spacing: Layout.noPaymentsSpacing) {
                 Image.checkmark
                     .foregroundStyle(.green)
@@ -24,14 +25,16 @@ struct PaywallBottomInfoView: View {
                 Text(bottomInfo)
                     .font(.poppins(.description))
             }
+            .padding(.top, Layout.bottomTextTopPadding)
         }
     }
 }
 
 private extension PaywallBottomInfoView {
     enum Layout {
-        static let spacing: CGFloat = 24
         static let noPaymentsSpacing: CGFloat = 4
+        static let bottomTextTopPadding: CGFloat = 16
+        static let buttonTopPadding: CGFloat = 20
     }
 
     enum Localization {

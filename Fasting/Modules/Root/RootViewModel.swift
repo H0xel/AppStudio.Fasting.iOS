@@ -18,6 +18,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.subscriptionService) private var subscriptionService
     @Dependency(\.fastingService) private var fastingService
+    @Dependency(\.firstLaunchService) private var firstLaunchService
 
     @Published var currentTab: AppTab = .fasting
     @Published var rootScreen: RootScreen = .launchScreen
@@ -95,10 +96,20 @@ class RootViewModel: BaseViewModel<RootOutput> {
         subscriptionService.hasSubscriptionObservable
             .asDriver()
             .drive(with: self) { this, hasSubscription in
-                this.currentTab = hasSubscription ? .fasting : .paywall
+                this.changeCurrentTabOnLaunch(hasSubsctiption: hasSubscription)
                 this.hasSubscription = hasSubscription
             }
             .disposed(by: disposeBag)
+    }
+
+    private func changeCurrentTabOnLaunch(hasSubsctiption: Bool) {
+        if hasSubsctiption {
+            currentTab = .fasting
+            return
+        }
+        if !firstLaunchService.isFirstTimeLaunch {
+            currentTab = .paywall
+        }
     }
 }
 

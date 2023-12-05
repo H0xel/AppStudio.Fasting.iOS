@@ -8,7 +8,7 @@
 // MARK: - Paywall Screen
 "Paywall.title" = "Paywall Title";
 "Paywall.noPaymentNow" = "No payment now!";
-"Paywall.cancelTitle" = "Super easy to cancel!";
+"Paywall.cancelTitle" = "Get in Shape You Always Dreamed Of!";
 "Paywall.cancelSubtitle" = "Tap your name in iPhone Settings, then tap Subscriptions and choose Fasting Tracker & Timer. Tap Cancel. Done!";
 "Paywall.Continue" = "Continue";
 "Paywall.restore" = "Restore";

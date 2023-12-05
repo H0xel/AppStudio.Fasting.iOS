@@ -30,6 +30,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     @Dependency(\.productIdsService) private var productIdsService
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.analyticKeyStore) private var analyticKeyStore
+    @Dependency(\.appCustomization) private var appCustomization
 
     init(input: PaywallScreenInput, output: @escaping ViewOutput<PaywallScreenOutput>) {
         self.input = input
@@ -239,8 +240,12 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     }
 
     private func configureCloseButton() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.canDisplayCloseButton = true
+        Task {
+            let delay = try? await appCustomization.closePaywallButtonDelay()
+            try await Task.sleep(seconds: Double(delay ?? 3))
+            await MainActor.run { [weak self] in
+                self?.canDisplayCloseButton = true
+            }
         }
     }
 }

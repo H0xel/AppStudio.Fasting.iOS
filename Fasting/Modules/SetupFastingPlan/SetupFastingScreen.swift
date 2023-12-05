@@ -18,7 +18,7 @@ struct SetupFastingScreen: View {
                 viewModel.changeTapped()
             }
 
-            VStack(spacing: 0) {
+            VStack(spacing: Layout.textSpacing) {
                 Text(Localization.title)
                     .font(.poppins(.headerM))
                 Text(viewModel.title)
@@ -26,26 +26,26 @@ struct SetupFastingScreen: View {
             }
             .multilineTextAlignment(.center)
             .padding(.top, Layout.topTextPadding)
-
-            Spacer()
+            .foregroundStyle(.accent)
 
             DatePicker("", selection: $viewModel.startFastingDate, displayedComponents: [.hourAndMinute])
                 .datePickerStyle(.wheel)
                 .labelsHidden()
                 .frame(height: Layout.pickerHeight, alignment: .center)
                 .clipped()
+                .aligned(.centerVerticaly)
 
-            Spacer()
 
             AccentButton(title: Localization.buttonTitle) {
                 viewModel.saveTapped()
             }
+            .padding(.bottom, Layout.bottomPadding)
         }
         .padding(.horizontal, Layout.horizontalPadding)
         .navBarButton(
             isVisible: true,
             content: viewModel.context == .onboarding
-            ? Image.chevronLeft.foregroundColor(.black)
+            ? Image.chevronLeft.foregroundColor(.accent)
             : Image.xmark.foregroundColor(.black)) {
                 viewModel.backButtonTapped()
         }
@@ -55,10 +55,12 @@ struct SetupFastingScreen: View {
 // MARK: - Layout properties
 private extension SetupFastingScreen {
     enum Layout {
-        static let topTextPadding: CGFloat = 56
+        static let topTextPadding: CGFloat = 48
         static let horizontalPadding: CGFloat = 32
         static let pickerBottomPadding: CGFloat = 44
         static let pickerHeight: CGFloat = 178
+        static let textSpacing: CGFloat = 8
+        static let bottomPadding: CGFloat = 16
     }
 }
 
@@ -73,11 +75,13 @@ private extension SetupFastingScreen {
 
 struct SetupFastingScreen_Previews: PreviewProvider {
     static var previews: some View {
-        SetupFastingScreen(
-            viewModel: SetupFastingViewModel(
-                input: SetupFastingInput(plan: .beginner, context: .onboarding),
-                output: { _ in }
+        NavigationStack {
+            SetupFastingScreen(
+                viewModel: SetupFastingViewModel(
+                    input: SetupFastingInput(plan: .regular, context: .onboarding),
+                    output: { _ in }
+                )
             )
-        )
+        }
     }
 }

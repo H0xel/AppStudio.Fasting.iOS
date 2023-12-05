@@ -15,6 +15,7 @@ struct PaywallTitleView: View {
         VStack(spacing: Layout.spacing) {
             Text(titles.title)
                 .font(.poppins(.headerL))
+                .foregroundStyle(.accent)
             Text(titles.description)
                 .font(.poppins(.body))
                 .foregroundColor(.fastingGrayText)
@@ -25,7 +26,7 @@ struct PaywallTitleView: View {
 
 private extension PaywallTitleView {
     enum Layout {
-        static let spacing: CGFloat = 24
+        static let spacing: CGFloat = 16
     }
 }
 

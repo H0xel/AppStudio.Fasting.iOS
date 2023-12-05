@@ -18,12 +18,14 @@ struct ChooseFastingPlanScreen: View {
                 .font(.adaptivePoppins(font: .headerL, smallDeviceFont: .headerM))
                 .padding(.top, Layout.titleTopPadding)
                 .padding(.bottom, Layout.titleBottomPadding)
+                .foregroundStyle(.accent)
 
             Text(Localization.description)
                 .padding(.horizontal, Layout.horizontalPadding)
                 .padding(.bottom, Layout.descriptionBottomPadding)
                 .font(.poppins(.body))
                 .lineSpacing(Layout.lineSpacing)
+                .foregroundStyle(.accent)
 
             SnapCarousel(index: $viewModel.index,
                          items: viewModel.plans) { plan in
@@ -34,14 +36,9 @@ struct ChooseFastingPlanScreen: View {
             Spacer(minLength: 20)
         }
         .multilineTextAlignment(.center)
-        .if(viewModel.context != .onboarding) {
-            $0.navBarButton(
-                isVisible: true,
-                content: Image.xmark.foregroundColor(.black)
-            ) {
-                viewModel.backButtonTapped()
-            }
-        }
+        .navBarButton(isVisible: viewModel.context != .onboarding,
+                      content: Image.xmark.foregroundColor(.accent),
+                      action: viewModel.backButtonTapped)
         .navigationBarHidden(false)
     }
 }

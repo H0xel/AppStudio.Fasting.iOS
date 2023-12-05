@@ -12,30 +12,27 @@ struct SetupFastingBanner: View {
     let action: () -> Void
 
     var body: some View {
-        VStack(spacing: 0) {
-            HStack(spacing: 0) {
-                Spacer()
-                VStack(spacing: 0) {
-                    Text(plan.intervalPlan)
-                        .foregroundStyle(.white)
-                        .font(.poppins(.accentS))
-                    Text(plan.intervalDescription)
-                        .foregroundStyle(.white)
-                        .font(.poppins(.headerS))
-                }
-                Spacer()
+        VStack(spacing: Layout.buttonSpacing) {
+            VStack(spacing: Layout.spacing) {
+                Text(plan.intervalPlan)
+                    .foregroundStyle(.white)
+                    .font(.poppins(.headerL))
+                    .frame(height: Layout.planHeight)
+                Text(plan.intervalDescription)
+                    .foregroundStyle(.white)
+                    .font(.poppins(.body))
+                    .frame(height: Layout.descriptionHeight)
             }
-            .padding(.vertical, Layout.verticalPadding)
+            .aligned(.centerHorizontaly)
+
             SetupFastingButton(
                 title: Localization.buttonTitle,
                 color: plan.backgroundColor
             ) {
                 action()
             }
-
-            .frame(width: 101)
-            .padding(.bottom, Layout.buttonBottomPadding)
         }
+        .padding(.vertical, Layout.verticalPadding)
         .fastingPlanBackground(plan)
         .continiousCornerRadius(Layout.cornerRadius)
     }
@@ -43,10 +40,12 @@ struct SetupFastingBanner: View {
 
 private extension SetupFastingBanner {
     enum Layout {
-        static let verticalPadding: CGFloat = 32
-        static let buttonBottomPadding: CGFloat = 24
-        static let buttonWidth: CGFloat = 100
-        static let cornerRadius: CGFloat = 40
+        static let verticalPadding: CGFloat = 24
+        static let spacing: CGFloat = 4
+        static let cornerRadius: CGFloat = 20
+        static let planHeight: CGFloat = 42
+        static let descriptionHeight: CGFloat = 18
+        static let buttonSpacing: CGFloat = 24
     }
 }
 
@@ -58,5 +57,5 @@ private extension SetupFastingBanner {
 }
 
 #Preview {
-    SetupFastingBanner(plan: .beginner, action: {})
+    SetupFastingBanner(plan: .regular, action: {})
 }

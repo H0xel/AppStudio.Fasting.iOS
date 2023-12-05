@@ -14,6 +14,7 @@ import RxSwift
 import Dependencies
 
 private let requiredAppVersionKey = "force_update_version"
+private let closePaywallButtonDelayKey = "close_paywall_button_delay"
 private let forceUpdateLink = "force_update_link"
 
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
@@ -57,6 +58,11 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     var paywallProductIds: Observable<[String]> {
         productIds
+    }
+
+    func closePaywallButtonDelay() async throws -> Int {
+        let value = try await remoteConfigValue(forKey: closePaywallButtonDelayKey, defaultValue: "3")
+        return Int(value) ?? 3
     }
 
     // TODO: Протестить на то чтобы в кэше не сохранялось
