@@ -5,7 +5,7 @@
 //  Created by Denis Khlopin on 28.11.2023.
 //
 
-import Foundation
+import UIKit
 
 struct FastingRingSettings {
     let radius: CGFloat
@@ -24,7 +24,7 @@ struct FastingRingSettings {
 
 extension FastingRingSettings {
     static let `default` = FastingRingSettings(
-        radius: 160,
+        radius: UIScreen.isSmallDevice ? 130 : 160,
         borderWidth: 52,
         angleRange: 0.5 ... 5.8,
         trimRange: 0.08 ... 0.92
