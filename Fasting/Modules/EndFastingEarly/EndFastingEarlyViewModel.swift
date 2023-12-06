@@ -14,6 +14,7 @@ class EndFastingEarlyViewModel: BaseViewModel<EndFastingEarlyOutput> {
     var router: EndFastingEarlyRouter!
     @Published private var fastingPlan: FastingPlan = .beginner
     @Dependency(\.fastingParametersService) private var fastingParametersService
+    @Dependency(\.trackerService) private var trackerService
 
     init(input: EndFastingEarlyInput, output: @escaping EndFastingEarlyOutputBlock) {
         super.init(output: output)
@@ -36,10 +37,22 @@ class EndFastingEarlyViewModel: BaseViewModel<EndFastingEarlyOutput> {
     }
 
     func cancel() {
+        trackTapCancelFasting()
         router.dismiss()
     }
 
     func endFasting() {
+        trackTapEndFastingEarly()
         output(.end)
+    }
+}
+
+private extension EndFastingEarlyViewModel {
+    func trackTapEndFastingEarly() {
+        trackerService.track(.tapEndFastingEarly)
+    }
+
+    func trackTapCancelFasting() {
+        trackerService.track(.tapCancelFasting(context: .dontGiveUp))
     }
 }

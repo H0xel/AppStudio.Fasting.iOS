@@ -15,7 +15,9 @@ final class TrackerServiceInitializer: AppInitializer {
 
     func initialize() {
         trackerService.initialize()
-        let id = UIDevice.current.isSandbox ? "stg_\(accountIdProvider.accountId)" : accountIdProvider.accountId
+        let id = UIDevice.current.isSandbox 
+        ? "stg_\(accountIdProvider.accountId)".lowercased()
+        : accountIdProvider.accountId.lowercased()
         trackerService.set(userId: id)
         analyticKeyStore.accountId = id
     }

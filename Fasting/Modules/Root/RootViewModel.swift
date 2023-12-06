@@ -14,15 +14,21 @@ import RxSwift
 class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.storageService) private var storageService
     @Dependency(\.idfaRequestService) private var idfaRequestService
+    @Dependency(\.trackerService) private var trackerService
     @Dependency(\.fastingParametersInitializer) private var fastingParametersInitializer
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.subscriptionService) private var subscriptionService
     @Dependency(\.fastingService) private var fastingService
     @Dependency(\.firstLaunchService) private var firstLaunchService
 
-    @Published var currentTab: AppTab = .fasting
+    @Published var currentTab: AppTab = .fasting {
+        willSet {
+            trackTabSwitched(currentTab: newValue.rawValue, previousTab: currentTab.rawValue)
+        }
+    }
     @Published var rootScreen: RootScreen = .launchScreen
     @Published var hasSubscription = false
+
 
     var router: RootRouter!
 
@@ -121,10 +127,17 @@ extension RootViewModel {
 }
 
 extension RootViewModel {
-    enum RootScreen {
+    enum RootScreen: Equatable {
         case launchScreen
         case fasting
         case onboarding
         case forceUpdate(String)
+    }
+}
+
+private extension RootViewModel {
+    func trackTabSwitched(currentTab: String, previousTab: String) {
+        guard rootScreen == .fasting, currentTab != previousTab else { return }
+        trackerService.track(.tabSwitched(currentTab: currentTab, previousTab: previousTab))
     }
 }

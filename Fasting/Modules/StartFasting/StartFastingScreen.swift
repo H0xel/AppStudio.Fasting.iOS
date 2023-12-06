@@ -64,7 +64,7 @@ private extension StartFastingScreen {
 struct StartFastingScreen_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = StartFastingViewModel(
-            input: .startFasting(isActiveState: true, initialDate: .now, minDate: .now,
+            input: .startFasting(context: .endFasting, isActiveState: true, initialDate: .now, minDate: .now,
                                  maxDate: .now.adding(.year, value: 1),
                                  components: .hourAndMinute),
             output: { _ in })

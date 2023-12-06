@@ -25,3 +25,13 @@ extension SetupFastingInput.Context {
         }
     }
 }
+
+extension ChooseFastingPlanInput.Context {
+    init(_ context: SetupFastingInput.Context) {
+        switch context {
+        case .onboarding: self = .onboarding
+        case .mainScreen: self = .mainScreen
+        case .profile: self = .profile
+        }
+    }
+}

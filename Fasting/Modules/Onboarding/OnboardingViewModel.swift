@@ -7,8 +7,10 @@
 
 import AppStudioNavigation
 import AppStudioUI
+import Dependencies
 
 class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
+    @Dependency(\.trackerService) private var trackerService
     var router: OnboardingRouter!
 
     init(input: OnboardingInput, output: @escaping OnboardingOutputBlock) {
@@ -22,5 +24,12 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
                 self?.output(.onboardingIsFinished)
             }
         }
+        trackTapGetStarted()
+    }
+}
+
+private extension OnboardingViewModel {
+    func trackTapGetStarted() {
+        trackerService.track(.tapGetStarted)
     }
 }

@@ -17,6 +17,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     @Dependency(\.fastingService) private var fastingService
     @Dependency(\.fastingParametersService) private var fastingParametersService
     @Dependency(\.fastingHistoryService) private var fastingHistoryService
+    @Dependency(\.trackerService) private var trackerService
     @Dependency(\.fastingFinishedCyclesLimitService) private var fastingFinishedCyclesLimitService
 
     var router: FastingRouter!
@@ -74,18 +75,22 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
                 self?.startFastingIfPossible(from: date)
             }
         }
+        trackTapChangeFastingStartTime()
     }
 
     func toggleFasting() {
         if isFastingActive {
+            trackTapEndFasting()
             endFasting()
             return
         }
         startFasting()
+        trackTapStartFasting()
     }
 
     func onChangeFastingTapped() {
         router.presentSetupFasting(plan: fastingInterval.plan)
+        trackTapSchedule()
     }
 
     private func startFastingIfPossible(from date: Date) {
@@ -96,6 +101,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
             return
         }
         fastingService.startFasting(from: date)
+        trackFastingStarted(startTime: date.description)
     }
 
     @MainActor
@@ -110,6 +116,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
 
     private func endFasting() {
         if fastingStatus.isFinished {
+            trackFastingFinished()
             fastingService.endFasting()
             presentSuccesScreen()
             return
@@ -212,5 +219,70 @@ extension FastingViewModel {
                 }
             }
         }
+        trackDontGiveUpScreenShown()
+    }
+}
+
+private extension FastingViewModel {
+    func trackTapStartFasting() {
+
+        if case let .inActive(stage) = fastingStatus {
+            switch stage {
+            case .expired:
+                trackerService.track(.tapStartFasting(
+                    currentTime: Date.now.description,
+                    startTime: fastingInterval.startDate.description,
+                    timeUntilFast: "",
+                    schedule: fastingInterval.plan.description
+                ))
+            case let .left(interval):
+                trackerService.track(.tapStartFasting(
+                    currentTime: Date.now.description,
+                    startTime: fastingInterval.startDate.description,
+                    timeUntilFast: interval.toTime,
+                    schedule: fastingInterval.plan.description
+                ))
+            }
+        }
+    }
+
+    func trackFastingStarted(startTime: String) {
+        trackerService.track(.fastingStarted(
+            currentTime: Date.now.description,
+            startTime: startTime,
+            schedule: fastingInterval.plan.description)
+        )
+    }
+
+    func trackTapChangeFastingStartTime() {
+        trackerService.track(.tapChangeFastingStartTime(context: .fastingScreen))
+    }
+
+    func trackTapSchedule() {
+        trackerService.track(.tapSchedule(currentSchedule: fastingInterval.plan.description))
+    }
+
+    func trackTapEndFasting() {
+        if case let .active(stage) = fastingStatus {
+            trackerService.track(.tapEndFasting(
+                timeFasted: stage.interval.toTime,
+                startTime: fastingInterval.startDate.description,
+                currentTime: Date.now.description,
+                schedule: fastingInterval.plan.description))
+        }
+    }
+
+    func trackFastingFinished() {
+        if case let .active(stage) = fastingStatus {
+            trackerService.track(.tapEndFasting(
+                timeFasted: stage.interval.toTime,
+                startTime: fastingInterval.startDate.description,
+                currentTime: Date.now.description,
+                schedule: fastingInterval.plan.description))
+        }
+    }
+
+    func trackDontGiveUpScreenShown() {
+        trackerService.track(.dontGiveUpScreenShown)
     }
 }

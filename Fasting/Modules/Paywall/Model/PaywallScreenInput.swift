@@ -51,7 +51,7 @@ extension PaywallScreenInput {
 
     static let fromSettings = PaywallScreenInput(
         headerTitles: .settingsTitle,
-        paywallContext: .settingsScreen,
+        paywallContext: .paywallTab,
         paywallImage: .paywall)
 
     static let mock = PaywallScreenInput(

@@ -13,6 +13,7 @@ import Dependencies
 
 class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
     @Dependency(\.fastingParametersService) private var fastingParametersService
+    @Dependency(\.trackerService) private var trackerService
 
     @Published var startFastingDate: Date = .now
     @Published var title = ""
@@ -38,6 +39,7 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
     }
 
     func saveTapped() {
+        trackGlobalTimeSet(startTime: startFastingDate.description, schedule: plan.description, context: .init(context))
         if context == . onboarding {
             router.pushNotificationOnboarding { [weak self] event in
                 guard let self else { return }
@@ -48,6 +50,7 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
                         try await self.fastingParametersService.set(
                             fastingInterval: FastingInterval(start: self.startFastingDate, plan: self.plan)
                         )
+                        trackOnboardingFinished(schedule: plan.description, startTime: startFastingDate.description)
                         self.output(.onboardingIsFinished)
                     }
                 }
@@ -73,6 +76,8 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
         if context == .mainScreen {
             router.presentChooseFasting()
         }
+
+        trackChangeTapped(currentSchedule: plan.description, context: .init(context))
     }
 
     func backButtonTapped() {
@@ -101,5 +106,23 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
             this.title = title
         }
         .store(in: &cancellables)
+    }
+}
+
+private extension SetupFastingViewModel {
+    func trackOnboardingFinished(schedule: String, startTime: String) {
+        trackerService.track(.onboardingFinished(schedule: schedule, startTime: startTime.lowercased()))
+    }
+
+    func trackGlobalTimeSet(startTime: String, schedule: String, context: ChooseFastingPlanInput.Context) {
+        trackerService.track(.globalTimeSet(
+            startTime: startTime.lowercased(),
+            schedule: schedule,
+            context: context)
+        )
+    }
+
+    func trackChangeTapped(currentSchedule: String, context: ChooseFastingPlanInput.Context) {
+        trackerService.track(.tapChangeSchedule(currentSchedule: currentSchedule, context: context))
     }
 }

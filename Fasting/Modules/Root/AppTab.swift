@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AppTab {
+enum AppTab: String {
     case fasting
     case profile
     case paywall

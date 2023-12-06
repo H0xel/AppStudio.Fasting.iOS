@@ -16,6 +16,7 @@ class FastingParametersServiceImpl: FastingParametersService {
     @Dependency(\.fastingParametersRepository) private var fastingParametersRepository
     @Dependency(\.fastingLocalNotificationService) private var fastingLocalNotificationService
     @Dependency(\.storageService) private var storageService
+    @Dependency(\.userPropertyService) private var userPropertyService
 
     private var cancellables = Set<AnyCancellable>()
     private var fastingIntervalTrigger: CurrentValueSubject<FastingData, Never> = .init(.empty)
@@ -60,6 +61,8 @@ class FastingParametersServiceImpl: FastingParametersService {
             interval.currentDate = currentParameters.currentDate
         }
         let parameters = try await self.fastingParametersRepository.save(interval: interval)
+        userPropertyService.set(userProperties: ["schedule": interval.plan.description])
+        userPropertyService.set(userProperties: ["global_start_time": interval.startDate.description])
         await update(interval: parameters.asInterval)
     }
 }

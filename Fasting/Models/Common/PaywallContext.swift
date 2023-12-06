@@ -8,6 +8,6 @@
 // context for PayWall
 enum PaywallContext: String {
     case onboarding = "onbording"
-    case settingsScreen = "settings"
+    case paywallTab = "paywall_tab"
     case freeUsageLimit
 }

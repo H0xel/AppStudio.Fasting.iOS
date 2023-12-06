@@ -36,7 +36,7 @@ struct PaywallScreen: View {
                 .padding(.horizontal, Layout.horizontalPadding)
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navBarButton(isVisible: viewModel.context != .settingsScreen && viewModel.canDisplayCloseButton,
+        .navBarButton(isVisible: viewModel.context != .paywallTab && viewModel.canDisplayCloseButton,
                       content: Image.close.foregroundStyle(.fastingGreyStrokeFill),
                       action: viewModel.close)
         .navBarButton(placement: .navigationBarTrailing,
@@ -53,7 +53,7 @@ struct PaywallScreen: View {
     }
 
     private var isSettings: Bool {
-        viewModel.context == .settingsScreen
+        viewModel.context == .paywallTab
     }
 }
 

@@ -15,8 +15,7 @@ class NotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        // TODO: - add analytic event here
-        // trackerService.track(.pushOpened)
+        trackerService.track(.launchFromPush)
         completionHandler()
     }
 }

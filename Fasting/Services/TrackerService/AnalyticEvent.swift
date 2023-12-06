@@ -9,6 +9,7 @@ import AppStudioAnalytics
 
 enum AnalyticEvent: MirrorEnum {
     case launch(firstTime: Bool, afId: String?)
+    case launchFromPush
     case idfaShown(afId: String?)
     case idfaAnswered(isGranted: Bool, afId: String?)
 
@@ -31,12 +32,55 @@ enum AnalyticEvent: MirrorEnum {
                           afId: String?)
     // swiftlint:enable enum_case_associated_values_count
     case restoreFinished(context: PaywallContext, result: RestoreResult, afId: String?)
+
+    // Onboarding
+
+    case tapGetStarted
+    case fastingScheduleScreenShown
+    case allowNotificationsScreenShown
+    case tapAllowNotifications
+    case pushAccessDialogShown
+    case pushAccessAnswered(isGranted: Bool)
+    case onboardingFinished(schedule: String, startTime: String)
+
+    // FastingSetup
+
+    case scheduleSet(schedule: String, previousSchedule: String, context: ChooseFastingPlanInput.Context)
+    case globalTimeSet(startTime: String, schedule: String, context: ChooseFastingPlanInput.Context)
+    case tapChangeSchedule(currentSchedule: String, context: ChooseFastingPlanInput.Context)
+
+    // Common
+    case tabSwitched(currentTab: String, previousTab: String)
+
+    // Profile
+    case tapSupport
+
+    // Fasting cycle
+    case tapStartFasting(currentTime: String, startTime: String, timeUntilFast: String, schedule: String)
+    case tapSaveStartFasting(currentTime: String, startTime: String)
+    case tapCancelStartFasting
+    case fastingStarted(currentTime: String, startTime: String, schedule: String)
+    case tapChangeFastingStartTime(context: FastingChangeTimeContext)
+    // Fasting start time changed
+    case fastingStartTimeChanged(oldEndTime: String,
+                                 newStartTime: String,
+                                 fastingInitiated: Bool,
+                                 context: StartFastingInput.Context)
+    case tapChangeFastingEndTime
+    case fastingEndTimeChanged(oldEndTime: String, newStartTime: String)
+    case tapSchedule(currentSchedule: String)
+    case tapEndFasting(timeFasted: String, startTime: String, currentTime: String, schedule: String)
+    case fastingFinished(timeFasted: String, startTime: String, currentTime: String, schedule: String)
+    case dontGiveUpScreenShown
+    case tapCancelFasting(context: CancelFastingContext)
+    case tapEndFastingEarly
 }
 
 extension AnalyticEvent {
     var name: String {
         switch self {
         case .launch: return "App launched"
+        case .launchFromPush: return "Launch from push"
         case .idfaShown: return "Idfa access dialog shown"
         case .idfaAnswered: return "Idfa access answered"
         case .startedExperiment: return "Experiment started"
@@ -47,6 +91,32 @@ extension AnalyticEvent {
         case .paywallShown: return "Paywall shown"
         case .purchaseFinished: return "Purchase finished"
         case .restoreFinished: return "Restore finished"
+        case .tapGetStarted: return "Tap get started"
+        case .fastingScheduleScreenShown: return "Fasting schedule screen shown"
+        case .allowNotificationsScreenShown: return "Allow notifications screen shown"
+        case .tapAllowNotifications: return "Tap Allow notifications"
+        case .pushAccessDialogShown: return "Push access dialog shown"
+        case .pushAccessAnswered: return "Push access answered"
+        case .onboardingFinished: return "Onboarding finished"
+        case .scheduleSet: return "Schedule set"
+        case .globalTimeSet: return "Global start time set"
+        case .tapChangeSchedule: return "Tap change schedule"
+        case .tabSwitched: return "Tab switched"
+        case .tapSupport: return "Tap Support"
+        case .tapStartFasting: return "Tap start fasting"
+        case .tapSaveStartFasting: return "Tap save start fasting"
+        case .tapCancelStartFasting: return "Tap cancel start fasting"
+        case .fastingStarted: return "Fasting started"
+        case .tapChangeFastingStartTime: return "Tap change fasting start time"
+        case .tapChangeFastingEndTime: return "Tap change fasting end time"
+        case .fastingEndTimeChanged: return "Fasting end time changed"
+        case .fastingStartTimeChanged: return "Fasting start time changed"
+        case .tapSchedule: return "Tap schedule"
+        case .tapEndFasting: return "Tap end fasting"
+        case .fastingFinished: return "Fasting finished"
+        case .dontGiveUpScreenShown: return "Dont give up screen shown"
+        case .tapCancelFasting: return "Tap cancel end fasting"
+        case .tapEndFastingEarly: return "Tap end fasting early"
         }
     }
 
@@ -58,4 +128,14 @@ extension AnalyticEvent {
 enum AnalyticEventType: String {
     case main
     case promo
+}
+
+enum FastingChangeTimeContext: String {
+    case fastingScreen
+    case endFasting
+}
+
+enum CancelFastingContext: String {
+    case dontGiveUp
+    case endFasting
 }

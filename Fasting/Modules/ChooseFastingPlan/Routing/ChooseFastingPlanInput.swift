@@ -6,7 +6,7 @@
 //
 
 struct ChooseFastingPlanInput {
-    enum Context {
+    enum Context: String {
         case onboarding
         case mainScreen
         case profile

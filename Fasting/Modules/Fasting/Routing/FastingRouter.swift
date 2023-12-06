@@ -15,7 +15,8 @@ class FastingRouter: BaseRouter {
                                    minDate: Date,
                                    maxDate: Date,
                                    onSave: @escaping (Date) -> Void) {
-        let input = StartFastingInput.startFasting(isActiveState: isActiveState,
+        let input = StartFastingInput.startFasting(context: .fastingScreen,
+                                                   isActiveState: isActiveState,
                                                    initialDate: initialDate,
                                                    minDate: minDate,
                                                    maxDate: maxDate,

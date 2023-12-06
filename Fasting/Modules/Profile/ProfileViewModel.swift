@@ -12,6 +12,7 @@ import Dependencies
 
 class ProfileViewModel: BaseViewModel<ProfileOutput> {
     @Dependency(\.fastingParametersService) private var fastingParametersService
+    @Dependency(\.trackerService) private var trackerService
 
     var router: ProfileRouter!
     @Published var plan: FastingPlan = .beginner
@@ -23,6 +24,7 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
 
     func changePlan() {
         router.presentChooseFastingPlan()
+        trackChangeTapped(currentSchedule: plan.description)
     }
 
     func presentTermsOfUse() {
@@ -41,11 +43,22 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
 
     func contactSupport() {
         router.presentSupport()
+        trackTapSupport()
     }
 
     private func subscribeToFastingPlan() {
         fastingParametersService.fastingIntervalPublisher
             .map(\.plan)
             .assign(to: &$plan)
+    }
+}
+
+private extension ProfileViewModel {
+    func trackChangeTapped(currentSchedule: String) {
+        trackerService.track(.tapChangeSchedule(currentSchedule: currentSchedule, context: .profile))
+    }
+
+    func trackTapSupport() {
+        trackerService.track(.tapSupport)
     }
 }

@@ -21,6 +21,13 @@ extension TimeInterval {
         return "\(hoursString):\(minutesString):\(secondsString)"
     }
 
+    var toHour: Int {
+        let left = Int(self)
+        let minutes = left / 60
+        let hours = minutes / 60
+        return hours
+    }
+
     var toHours: String {
         let left = Int(self)
         let minutes = left / 60

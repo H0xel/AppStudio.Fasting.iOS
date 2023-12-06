@@ -8,9 +8,12 @@
 import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
+import Dependencies
 
 class SuccessViewModel: BaseViewModel<SuccessOutput> {
 
+    @Dependency(\.trackerService) private var trackerService
+    @Dependency(\.userPropertyService) private var userPropertyService
     @Published private var plan: FastingPlan
     @Published private var startDate: Date
     @Published private var endDate: Date
@@ -66,16 +69,21 @@ class SuccessViewModel: BaseViewModel<SuccessOutput> {
 
     func submit() {
         output(.submit(startDate: startDate, endDate: endDate))
+        trackFastingProperties()
+        trackFastingFinished()
         router.dismiss()
     }
 
     func dismiss() {
         router.dismiss()
+        trackTapCancelFasting()
     }
 
     func editStartDate() {
-        let input = StartFastingInput.startFasting(isActiveState: true,
-                                                   initialDate: startDate, minDate: .now.adding(.day, value: -2),
+        let input = StartFastingInput.startFasting(context: .endFasting,
+                                                   isActiveState: true,
+                                                   initialDate: startDate,
+                                                   minDate: .now.adding(.day, value: -2),
                                                    maxDate: endDate,
                                                    components: [.date, .hourAndMinute])
         router.presentEditFastingTime(input: input) { [weak self] event in
@@ -86,6 +94,7 @@ class SuccessViewModel: BaseViewModel<SuccessOutput> {
                 }
             }
         }
+        trackTapChangeFastingStartTime()
     }
 
     func editEndDate() {
@@ -98,6 +107,7 @@ class SuccessViewModel: BaseViewModel<SuccessOutput> {
                 }
             }
         }
+        trackTapChangeFastingEndTime()
     }
 
     private var fastingInterval: TimeInterval {
@@ -143,5 +153,33 @@ class SuccessViewModel: BaseViewModel<SuccessOutput> {
         case .autophagy:
             Image("regularSixStagesCompleted")
         }
+    }
+}
+
+extension SuccessViewModel {
+    func trackTapChangeFastingStartTime() {
+        trackerService.track(.tapChangeFastingStartTime(context: .endFasting))
+    }
+
+    func trackTapChangeFastingEndTime() {
+        trackerService.track(.tapChangeFastingEndTime)
+    }
+
+    func trackTapCancelFasting() {
+        trackerService.track(.tapCancelFasting(context: .endFasting))
+    }
+
+    func trackFastingFinished() {
+        trackerService.track(.fastingFinished(
+            timeFasted: fastingInterval.toTime,
+            startTime: startDate.description,
+            currentTime: Date.now.description,
+            schedule: plan.description)
+        )
+    }
+
+    func trackFastingProperties() {
+        userPropertyService.incrementProperty(property: "fasting_cycles_count", value: 1)
+        userPropertyService.incrementProperty(property: "hours_fasted_count", value: fastingInterval.toHour)
     }
 }
