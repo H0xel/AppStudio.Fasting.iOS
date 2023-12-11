@@ -15,8 +15,9 @@ struct FastingScreen: View {
     var body: some View {
         VStack {
             FastingStagesView(stages: viewModel.fastingStages,
-                              currentStage: viewModel.currentStage)
-                .allowsHitTesting(false)
+                              currentStage: viewModel.currentStage,
+                              hasSubscription: viewModel.hasSubscription,
+                              onTap: viewModel.presentArticle)
             Spacer()
             FastingProgressView(status: viewModel.fastingStatus,
                                 plan: viewModel.fastingInterval.plan) {

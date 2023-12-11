@@ -13,7 +13,9 @@ struct FastingStagesView: View {
 
     let stages: [FastingStage]
     let currentStage: FastingStage?
-    @State private var openedStage: FastingStage?
+    let hasSubscription: Bool
+    let onTap: (FastingStage) -> Void
+
 
     var body: some View {
         GeometryReader { geometry in
@@ -22,7 +24,7 @@ struct FastingStagesView: View {
                     Spacer(minLength: Layout.horizontalPadding)
                     ForEach(stages, id: \.self) { stage in
                         Button(action: {
-                            updateStage(stage: stage, proxy: proxy)
+                            onTap(stage)
                         }, label: {
                             HStack {
                                 image(for: stage)
@@ -40,14 +42,16 @@ struct FastingStagesView: View {
                 .frame(minWidth: geometry.size.width)
                 .onAppear {
                     if let currentStage {
-                        updateStage(stage: currentStage, proxy: proxy)
+                        withAnimation(.bouncy) {
+                            proxy.scrollTo(currentStage, anchor: .center)
+                        }
                     }
                 }
                 .onChange(of: currentStage?.rawValue) { newValue in
                     if let newValue, let stage = FastingStage(rawValue: newValue) {
-                        updateStage(stage: stage, proxy: proxy)
-                    } else {
-                        openedStage = nil
+                        withAnimation(.bouncy) {
+                            proxy.scrollTo(stage, anchor: .center)
+                        }
                     }
                 }
             }
@@ -55,7 +59,32 @@ struct FastingStagesView: View {
         .frame(height: Layout.height)
     }
 
-    private func image(for stage: FastingStage) -> Image {
+    @ViewBuilder
+    private func image(for stage: FastingStage) -> some View {
+        if hasSubscription {
+            unlockedImage(for: stage)
+        } else {
+            lockedImage(for: stage)
+        }
+    }
+
+    @ViewBuilder
+    private func lockedImage(for stage: FastingStage) -> some View {
+        if stage == .sugarRises {
+            if currentStage == stage {
+                stage.whiteImage
+            } else {
+                stage.coloredImage
+            }
+        } else {
+            Image.lockFill
+                .foregroundStyle(stage == currentStage ? .white : stage.backgroundColor)
+                .font(.poppins(.headerS))
+        }
+    }
+
+    @ViewBuilder
+    private func unlockedImage(for stage: FastingStage) -> some View {
         if stage == currentStage {
             stage.whiteImage
         } else if let currentStage, stage < currentStage {
@@ -69,17 +98,10 @@ struct FastingStagesView: View {
         stage == currentStage ? .empty : .init(cornerRadius: Layout.cornerRadius, color: .fastingGreyStrokeFill)
     }
 
-    private func updateStage(stage: FastingStage, proxy: ScrollViewProxy) {
-        openedStage = openedStage == stage ? nil : stage
-        withAnimation(.fastingStageChage) {
-            proxy.scrollTo(openedStage ?? currentStage, anchor: .center)
-        }
-    }
-
     @ViewBuilder
     private func title(for stage: FastingStage) -> some View {
-        if stage == currentStage || stage == openedStage {
-            Text(stage.title)
+        if stage == currentStage {
+            Text(hasSubscription || stage == .sugarRises ? stage.title : Localization.title(for: stage))
                 .foregroundStyle(stage == currentStage ? .white : .accentColor)
                 .transition(
                     .asymmetric(
@@ -98,11 +120,21 @@ private extension FastingStagesView {
         static let padding: CGFloat = 14
         static let height: CGFloat = 52
     }
+
+    enum Localization {
+        static func title(for stage: FastingStage) -> String {
+            NSLocalizedString("FastingPhase.\(stage.rawValue).locked", comment: "")
+        }
+    }
 }
 
 #Preview {
     VStack {
-        FastingStagesView(stages: FastingStage.allCases, currentStage: nil)
-        FastingStagesView(stages: FastingStage.allCases.filter{$0 != .autophagy}, currentStage: nil)
+        FastingStagesView(stages: FastingStage.allCases,
+                          currentStage: nil,
+                          hasSubscription: false) { _ in }
+        FastingStagesView(stages: FastingStage.allCases.filter { $0 != .autophagy },
+                          currentStage: nil,
+                          hasSubscription: false) { _ in }
     }
 }

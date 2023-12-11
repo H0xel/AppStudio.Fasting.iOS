@@ -64,4 +64,10 @@ extension PaywallScreenInput {
         paywallContext: .freeUsageLimit,
         paywallImage: nil
     )
+
+    static let fastingStages = PaywallScreenInput(
+        headerTitles: .usageLimit,
+        paywallContext: .fastingStages,
+        paywallImage: .paywall
+    )
 }

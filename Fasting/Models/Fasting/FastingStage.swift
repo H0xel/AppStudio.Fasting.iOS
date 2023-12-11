@@ -32,20 +32,20 @@ enum FastingStage: String, CaseIterable, Equatable {
         }
     }
 
-    var title: LocalizedStringKey {
+    var title: String {
         switch self {
         case .sugarRises:
-            return "FastingStage.bloodSugarRises"
+            return NSLocalizedString("FastingStage.bloodSugarRises", comment: "")
         case .sugarDrop:
-            return "FastingStage.bloodSugarFalls"
+            return NSLocalizedString("FastingStage.bloodSugarFalls", comment: "")
         case .sugarNormal:
-            return "FastingStage.bloodSugarNormal"
+            return NSLocalizedString("FastingStage.bloodSugarNormal", comment: "")
         case .burning:
-            return "FastingStage.burningFat"
+            return NSLocalizedString("FastingStage.burningFat", comment: "")
         case .ketosis:
-            return "FastingStage.ketosis"
+            return NSLocalizedString("FastingStage.ketosis", comment: "")
         case .autophagy:
-            return "FastingStage.autophagy"
+            return NSLocalizedString("FastingStage.autophagy", comment: "")
         }
     }
 

@@ -246,6 +246,14 @@
 		A07EAB372AFA56A200A46D7E /* EndFastingEarlyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EAB312AFA56A200A46D7E /* EndFastingEarlyScreen.swift */; };
 		A07EAB382AFA56A200A46D7E /* EndFastingEarlyOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EAB322AFA56A200A46D7E /* EndFastingEarlyOutput.swift */; };
 		A07EAB392AFA56A200A46D7E /* EndFastingEarlyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07EAB332AFA56A200A46D7E /* EndFastingEarlyViewModel.swift */; };
+		A084496E2B1A86AC00D30E04 /* FastingPhaseInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08449682B1A86AC00D30E04 /* FastingPhaseInput.swift */; };
+		A084496F2B1A86AC00D30E04 /* FastingPhaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08449692B1A86AC00D30E04 /* FastingPhaseRouter.swift */; };
+		A08449702B1A86AC00D30E04 /* FastingPhaseRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084496A2B1A86AC00D30E04 /* FastingPhaseRoute.swift */; };
+		A08449712B1A86AC00D30E04 /* FastingPhaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084496B2B1A86AC00D30E04 /* FastingPhaseScreen.swift */; };
+		A08449722B1A86AC00D30E04 /* FastingPhaseOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084496C2B1A86AC00D30E04 /* FastingPhaseOutput.swift */; };
+		A08449732B1A86AC00D30E04 /* FastingPhaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084496D2B1A86AC00D30E04 /* FastingPhaseViewModel.swift */; };
+		A08449772B1A87DF00D30E04 /* FastingPhaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08449762B1A87DF00D30E04 /* FastingPhaseImageView.swift */; };
+		A08449792B1A9A3800D30E04 /* FastingPhaseStartDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08449782B1A9A3800D30E04 /* FastingPhaseStartDescriptionView.swift */; };
 		A0881E5C2AEAB7A800E38FF5 /* Image+icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E5B2AEAB7A800E38FF5 /* Image+icons.swift */; };
 		A0881E662AEAC32500E38FF5 /* FastingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E602AEAC32500E38FF5 /* FastingInput.swift */; };
 		A0881E672AEAC32500E38FF5 /* FastingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E612AEAC32500E38FF5 /* FastingRouter.swift */; };
@@ -256,6 +264,13 @@
 		A0881E6D2AEAC4E500E38FF5 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0881E6C2AEAC4E500E38FF5 /* Color.xcassets */; };
 		A0881E702AEAC88D00E38FF5 /* FastingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E6F2AEAC88D00E38FF5 /* FastingProgressView.swift */; };
 		A0881E722AEAD19000E38FF5 /* Font+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E712AEAD19000E38FF5 /* Font+extensions.swift */; };
+		A0C8C1A82B1DD58500EB371C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8C1A72B1DD58500EB371C /* Article.swift */; };
+		A0C8C1AC2B1DD66000EB371C /* FastingPhaseArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8C1AB2B1DD66000EB371C /* FastingPhaseArticleView.swift */; };
+		A0C8C1AE2B1DDB9D00EB371C /* FastingPhaseArticleParagraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8C1AD2B1DDB9D00EB371C /* FastingPhaseArticleParagraphView.swift */; };
+		A0C8C1B02B1E0E6A00EB371C /* FastingPhaseLockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8C1AF2B1E0E6A00EB371C /* FastingPhaseLockedView.swift */; };
+		A0C8C1B22B1F01D800EB371C /* FastingPhaseTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8C1B12B1F01D800EB371C /* FastingPhaseTitleView.swift */; };
+		A0C8C1B42B1F1CD200EB371C /* LockedViewPaywallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8C1B32B1F1CD200EB371C /* LockedViewPaywallButton.swift */; };
+		A0C8C1B62B1F789A00EB371C /* FastingStagesContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8C1B52B1F789A00EB371C /* FastingStagesContext.swift */; };
 		A0CEE6142AEFD0B40082B27F /* FastingStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6132AEFD0B40082B27F /* FastingStage.swift */; };
 		A0CEE6162AEFE2B10082B27F /* FastingPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6152AEFE2B10082B27F /* FastingPlan.swift */; };
 		A0CEE61A2AEFE2D70082B27F /* FastingInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE6192AEFE2D70082B27F /* FastingInterval.swift */; };
@@ -557,6 +572,14 @@
 		A07EAB312AFA56A200A46D7E /* EndFastingEarlyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndFastingEarlyScreen.swift; sourceTree = "<group>"; };
 		A07EAB322AFA56A200A46D7E /* EndFastingEarlyOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndFastingEarlyOutput.swift; sourceTree = "<group>"; };
 		A07EAB332AFA56A200A46D7E /* EndFastingEarlyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndFastingEarlyViewModel.swift; sourceTree = "<group>"; };
+		A08449682B1A86AC00D30E04 /* FastingPhaseInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPhaseInput.swift; sourceTree = "<group>"; };
+		A08449692B1A86AC00D30E04 /* FastingPhaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPhaseRouter.swift; sourceTree = "<group>"; };
+		A084496A2B1A86AC00D30E04 /* FastingPhaseRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPhaseRoute.swift; sourceTree = "<group>"; };
+		A084496B2B1A86AC00D30E04 /* FastingPhaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPhaseScreen.swift; sourceTree = "<group>"; };
+		A084496C2B1A86AC00D30E04 /* FastingPhaseOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPhaseOutput.swift; sourceTree = "<group>"; };
+		A084496D2B1A86AC00D30E04 /* FastingPhaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPhaseViewModel.swift; sourceTree = "<group>"; };
+		A08449762B1A87DF00D30E04 /* FastingPhaseImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPhaseImageView.swift; sourceTree = "<group>"; };
+		A08449782B1A9A3800D30E04 /* FastingPhaseStartDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPhaseStartDescriptionView.swift; sourceTree = "<group>"; };
 		A0881E5B2AEAB7A800E38FF5 /* Image+icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+icons.swift"; sourceTree = "<group>"; };
 		A0881E602AEAC32500E38FF5 /* FastingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInput.swift; sourceTree = "<group>"; };
 		A0881E612AEAC32500E38FF5 /* FastingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingRouter.swift; sourceTree = "<group>"; };
@@ -567,6 +590,13 @@
 		A0881E6C2AEAC4E500E38FF5 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		A0881E6F2AEAC88D00E38FF5 /* FastingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingProgressView.swift; sourceTree = "<group>"; };
 		A0881E712AEAD19000E38FF5 /* Font+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+extensions.swift"; sourceTree = "<group>"; };
+		A0C8C1A72B1DD58500EB371C /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		A0C8C1AB2B1DD66000EB371C /* FastingPhaseArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPhaseArticleView.swift; sourceTree = "<group>"; };
+		A0C8C1AD2B1DDB9D00EB371C /* FastingPhaseArticleParagraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPhaseArticleParagraphView.swift; sourceTree = "<group>"; };
+		A0C8C1AF2B1E0E6A00EB371C /* FastingPhaseLockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPhaseLockedView.swift; sourceTree = "<group>"; };
+		A0C8C1B12B1F01D800EB371C /* FastingPhaseTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPhaseTitleView.swift; sourceTree = "<group>"; };
+		A0C8C1B32B1F1CD200EB371C /* LockedViewPaywallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedViewPaywallButton.swift; sourceTree = "<group>"; };
+		A0C8C1B52B1F789A00EB371C /* FastingStagesContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingStagesContext.swift; sourceTree = "<group>"; };
 		A0CEE6132AEFD0B40082B27F /* FastingStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingStage.swift; sourceTree = "<group>"; };
 		A0CEE6152AEFE2B10082B27F /* FastingPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingPlan.swift; sourceTree = "<group>"; };
 		A0CEE6192AEFE2D70082B27F /* FastingInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInterval.swift; sourceTree = "<group>"; };
@@ -1150,6 +1180,7 @@
 				567500832ADFAA4A009331CB /* RestoreResult.swift */,
 				567500F92ADFD8FB009331CB /* InstallationType.swift */,
 				A0255E6D2AFBCE9D00221EC6 /* Account.swift */,
+				A0C8C1B52B1F789A00EB371C /* FastingStagesContext.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1316,6 +1347,7 @@
 		56C28D682AE0FBFC0007E48D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A08449672B1A866000D30E04 /* FastingPhase */,
 				A70DBE472B0DD58A0067D7BD /* Launch */,
 				A07EAB2D2AFA568500A46D7E /* EndFastingEarly */,
 				A0382D352AF4F022009CC579 /* Success */,
@@ -1626,6 +1658,43 @@
 			path = Routing;
 			sourceTree = "<group>";
 		};
+		A08449672B1A866000D30E04 /* FastingPhase */ = {
+			isa = PBXGroup;
+			children = (
+				A0C8C1A62B1DD57D00EB371C /* Model */,
+				A08449752B1A87CA00D30E04 /* View */,
+				A08449742B1A86B000D30E04 /* Routing */,
+				A084496B2B1A86AC00D30E04 /* FastingPhaseScreen.swift */,
+				A084496D2B1A86AC00D30E04 /* FastingPhaseViewModel.swift */,
+			);
+			path = FastingPhase;
+			sourceTree = "<group>";
+		};
+		A08449742B1A86B000D30E04 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A08449682B1A86AC00D30E04 /* FastingPhaseInput.swift */,
+				A08449692B1A86AC00D30E04 /* FastingPhaseRouter.swift */,
+				A084496A2B1A86AC00D30E04 /* FastingPhaseRoute.swift */,
+				A084496C2B1A86AC00D30E04 /* FastingPhaseOutput.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		A08449752B1A87CA00D30E04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A08449762B1A87DF00D30E04 /* FastingPhaseImageView.swift */,
+				A08449782B1A9A3800D30E04 /* FastingPhaseStartDescriptionView.swift */,
+				A0C8C1AB2B1DD66000EB371C /* FastingPhaseArticleView.swift */,
+				A0C8C1AD2B1DDB9D00EB371C /* FastingPhaseArticleParagraphView.swift */,
+				A0C8C1AF2B1E0E6A00EB371C /* FastingPhaseLockedView.swift */,
+				A0C8C1B12B1F01D800EB371C /* FastingPhaseTitleView.swift */,
+				A0C8C1B32B1F1CD200EB371C /* LockedViewPaywallButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A0881E5A2AEAB77F00E38FF5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1669,6 +1738,14 @@
 				A70DBE232B0C83520067D7BD /* MonoSpacedView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A0C8C1A62B1DD57D00EB371C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0C8C1A72B1DD58500EB371C /* Article.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A0CEE60F2AEFCEFF0082B27F /* Routing */ = {
@@ -2092,12 +2169,16 @@
 				5675FFF72ADE84B4009331CB /* AppActivationMessage.swift in Sources */,
 				567500DB2ADFCDAC009331CB /* AccountApiImpl.swift in Sources */,
 				56C7E96A2B107CE7007B5937 /* FastingLimitService.swift in Sources */,
+				A084496F2B1A86AC00D30E04 /* FastingPhaseRouter.swift in Sources */,
 				A0881E672AEAC32500E38FF5 /* FastingRouter.swift in Sources */,
 				A07EAB382AFA56A200A46D7E /* EndFastingEarlyOutput.swift in Sources */,
 				5675FFF02ADE84B4009331CB /* AppInitializedMessage.swift in Sources */,
 				567500072ADE84B4009331CB /* MigrationLaunchService.swift in Sources */,
 				A0881E702AEAC88D00E38FF5 /* FastingProgressView.swift in Sources */,
+				A0C8C1B42B1F1CD200EB371C /* LockedViewPaywallButton.swift in Sources */,
 				5662DEC62B16149C00C1637C /* FastingRingActiveStateData.swift in Sources */,
+				A0C8C1A82B1DD58500EB371C /* Article.swift in Sources */,
+				A08449722B1A86AC00D30E04 /* FastingPhaseOutput.swift in Sources */,
 				A0382D3D2AF4F03A009CC579 /* SuccessRouter.swift in Sources */,
 				567500E72ADFD59B009331CB /* BackendEnvironmentService.swift in Sources */,
 				A7D01B7D2AF10A6D00C50C1F /* SetupFastingRouter.swift in Sources */,
@@ -2168,6 +2249,8 @@
 				56F64D7C2AE10EF20067FE05 /* RootInput.swift in Sources */,
 				A0255E782AFBD1D700221EC6 /* SubscriptionTarget.swift in Sources */,
 				A7D01B872AF1102400C50C1F /* SetupFastingButton.swift in Sources */,
+				A08449712B1A86AC00D30E04 /* FastingPhaseScreen.swift in Sources */,
+				A0C8C1B22B1F01D800EB371C /* FastingPhaseTitleView.swift in Sources */,
 				56F64D812AE10EF20067FE05 /* RootViewModel.swift in Sources */,
 				A7D01B622AF0C82100C50C1F /* OnboardingViewModel.swift in Sources */,
 				5675FFF82ADE84B4009331CB /* PurchaseMessage.swift in Sources */,
@@ -2210,17 +2293,21 @@
 				A063B1F82AEBD0E800084696 /* StartFastingScreen.swift in Sources */,
 				563B8ACF2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift in Sources */,
 				567500CD2ADFCC54009331CB /* AppSyncService.swift in Sources */,
+				A0C8C1AE2B1DDB9D00EB371C /* FastingPhaseArticleParagraphView.swift in Sources */,
 				A0382D3C2AF4F03A009CC579 /* SuccessInput.swift in Sources */,
+				A0C8C1B62B1F789A00EB371C /* FastingStagesContext.swift in Sources */,
 				56C7E96E2B107F58007B5937 /* FastingLimitServiceDependencies.swift in Sources */,
 				A0CEE62E2AEFE4280082B27F /* FastingParametersServiceImpl.swift in Sources */,
 				567500B92ADFC031009331CB /* MailSenderServiceImpl.swift in Sources */,
 				A0CEE62F2AEFE4280082B27F /* FastingParametersDependencies.swift in Sources */,
 				A7D01B602AF0C82100C50C1F /* OnboardingScreen.swift in Sources */,
 				A7D01B6B2AF0CCF900C50C1F /* ChooseFastingPlanRouter.swift in Sources */,
+				A0C8C1AC2B1DD66000EB371C /* FastingPhaseArticleView.swift in Sources */,
 				56C28DC72AE109580007E48D /* LateTimeInitializers.swift in Sources */,
 				564BE0C12AF0F31600CE7F38 /* FastingParameters+Mappable.swift in Sources */,
 				566C24942AE8F80B00AEDB3C /* PaywallScreenOutput.swift in Sources */,
 				563B8AC72B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift in Sources */,
+				A08449792B1A9A3800D30E04 /* FastingPhaseStartDescriptionView.swift in Sources */,
 				A0255E802AFBD25400221EC6 /* TelecomApiError.swift in Sources */,
 				5675010B2ADFD955009331CB /* IntercomDataStorage.swift in Sources */,
 				567500DF2ADFD0AB009331CB /* ObfuscatorDepenendencies.swift in Sources */,
@@ -2246,6 +2333,7 @@
 				5675009E2ADFAB69009331CB /* ProductIdsService.swift in Sources */,
 				564BE0C32AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift in Sources */,
 				567500CA2ADFCC54009331CB /* AccountSyncServiceImpl.swift in Sources */,
+				A08449732B1A86AC00D30E04 /* FastingPhaseViewModel.swift in Sources */,
 				56C28DD22AE109580007E48D /* MobileDeviceDataProviderInitializer.swift in Sources */,
 				567500012ADE84B4009331CB /* MessagePublisherService.swift in Sources */,
 				A063B1F62AEBD0E800084696 /* StartFastingRouter.swift in Sources */,
@@ -2271,6 +2359,7 @@
 				567500042ADE84B4009331CB /* AppMigrationsProvider.swift in Sources */,
 				A7D01B6C2AF0CCF900C50C1F /* ChooseFastingPlanRoute.swift in Sources */,
 				A7D01B5F2AF0C82100C50C1F /* OnboardingRoute.swift in Sources */,
+				A08449702B1A86AC00D30E04 /* FastingPhaseRoute.swift in Sources */,
 				53D900792AE67EEF00FFEB7A /* PreferencesServiceImpl.swift in Sources */,
 				A7D01B912AF115F200C50C1F /* NotificationOnboardingRoute.swift in Sources */,
 				566C24962AE8F80B00AEDB3C /* PaywallTitleView.swift in Sources */,
@@ -2314,6 +2403,7 @@
 				567501072ADFD955009331CB /* IntercomService.swift in Sources */,
 				A7A1AEA42AFE2C0A00B6211E /* Contexts.swift in Sources */,
 				564BE0BF2AF0F30400CE7F38 /* FastingParameters.swift in Sources */,
+				A084496E2B1A86AC00D30E04 /* FastingPhaseInput.swift in Sources */,
 				567500BB2ADFC9F2009331CB /* GlobalConstants.swift in Sources */,
 				A722FEA72B15B201001CD1A3 /* UIScreen+extensions.swift in Sources */,
 				563257152ADE57D80000F33C /* FastingApp.swift in Sources */,
@@ -2326,6 +2416,7 @@
 				5662DECC2B1615DA00C1637C /* CGFloat+Extensions.swift in Sources */,
 				53D900742AE652DD00FFEB7A /* PreferencesInitializer.swift in Sources */,
 				5675FFF22ADE84B4009331CB /* UpdateSubscriptionMessage.swift in Sources */,
+				A0C8C1B02B1E0E6A00EB371C /* FastingPhaseLockedView.swift in Sources */,
 				567500022ADE84B4009331CB /* MessengerServiceImpl.swift in Sources */,
 				A008A82F2AF117540011A261 /* FastingProgressLabelView.swift in Sources */,
 				567500002ADE84B4009331CB /* MessageSubjectService.swift in Sources */,
@@ -2363,6 +2454,7 @@
 				5675FFFE2ADE84B4009331CB /* WillTerminateMessage.swift in Sources */,
 				A07EAB362AFA56A200A46D7E /* EndFastingEarlyRoute.swift in Sources */,
 				567501082ADFD955009331CB /* IntercomDependencies.swift in Sources */,
+				A08449772B1A87DF00D30E04 /* FastingPhaseImageView.swift in Sources */,
 				A044263B2AF240F4005400AE /* ProfileRouter.swift in Sources */,
 				567500252ADE86C3009331CB /* Atomic.swift in Sources */,
 				A7D01B8F2AF115F200C50C1F /* NotificationOnboardingInput.swift in Sources */,
@@ -2539,7 +2631,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -2580,7 +2672,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

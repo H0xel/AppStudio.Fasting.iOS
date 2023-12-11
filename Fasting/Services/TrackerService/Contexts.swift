@@ -13,6 +13,12 @@ extension ChooseFastingPlanInput.Context: TrackerParam {
     }
 }
 
+extension FastingStagesContext: TrackerParam {
+    var description: String {
+        rawValue
+    }
+}
+
 extension AnalyticEventType: TrackerParam {
     var description: String {
         return self.rawValue

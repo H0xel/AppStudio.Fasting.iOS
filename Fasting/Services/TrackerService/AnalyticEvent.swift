@@ -32,6 +32,8 @@ enum AnalyticEvent: MirrorEnum {
                           afId: String?)
     // swiftlint:enable enum_case_associated_values_count
     case restoreFinished(context: PaywallContext, result: RestoreResult, afId: String?)
+    case tapFastingStages(stage: String, context: FastingStagesContext)
+    case tapUnlockFastingStages
 
     // Onboarding
 
@@ -91,6 +93,8 @@ extension AnalyticEvent {
         case .paywallShown: return "Paywall shown"
         case .purchaseFinished: return "Purchase finished"
         case .restoreFinished: return "Restore finished"
+        case .tapFastingStages: return "Tap fasting stages"
+        case .tapUnlockFastingStages: return "Tap unlock fasting stages"
         case .tapGetStarted: return "Tap get started"
         case .fastingScheduleScreenShown: return "Fasting schedule screen shown"
         case .allowNotificationsScreenShown: return "Allow notifications screen shown"

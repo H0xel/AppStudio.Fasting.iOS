@@ -11,6 +11,7 @@ import Foundation
 import SwiftUI
 import Dependencies
 import Combine
+import RxSwift
 
 class FastingViewModel: BaseViewModel<FastingOutput> {
 
@@ -19,18 +20,22 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     @Dependency(\.fastingHistoryService) private var fastingHistoryService
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.fastingFinishedCyclesLimitService) private var fastingFinishedCyclesLimitService
+    @Dependency(\.subscriptionService) private var subscriptionService
 
     var router: FastingRouter!
     @Published var fastingStatus: FastingStatus = .unknown
     @Published var fastingInterval: FastingInterval = .empty
     @Published var fastingStages: [FastingStage] = []
+    @Published var hasSubscription = false
     private let fastingStatusUpdateTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    private let disposeBag = DisposeBag()
 
     init(input: FastingInput, output: @escaping FastingOutputBlock) {
         super.init(output: output)
         fastingStages = updateFastingStages(fastingInterval: fastingInterval, fastingStatus: fastingStatus)
         configureFastingStatus()
         configureFastingInterval()
+        observeSubscription()
     }
 
     var isFastingActive: Bool {
@@ -169,10 +174,24 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
 
         return FastingStage.withoutAutophagy
     }
+
+    private func observeSubscription() {
+        subscriptionService.hasSubscriptionObservable
+            .asDriver()
+            .drive(with: self) { this, hasSubscription in
+                this.hasSubscription = hasSubscription
+            }
+            .disposed(by: disposeBag)
+    }
 }
 
 // MARK: Routing
 extension FastingViewModel {
+
+    func presentArticle(for stage: FastingStage) {
+        trackerService.track(.tapFastingStages(stage: stage.rawValue, context: .mainScreen))
+        router.presentArticle(for: stage)
+    }
 
     private func presentSuccesScreen() {
         router.presentSuccess(plan: fastingInterval.plan,

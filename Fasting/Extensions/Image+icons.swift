@@ -44,4 +44,19 @@ extension Image {
     static var xmark: Image {
         Image(systemName: "xmark")
     }
+
+    /// 􀐬
+    static var clockFill: Image {
+        Image(systemName: "clock.fill")
+    }
+
+    /// 􀟉
+    static var diamondFill: Image {
+        Image(systemName: "diamond.fill")
+    }
+
+    /// 􀎡
+    static var lockFill: Image {
+        Image(systemName: "lock.fill")
+    }
 }

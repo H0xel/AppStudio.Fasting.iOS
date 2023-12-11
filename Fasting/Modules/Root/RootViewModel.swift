@@ -100,6 +100,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     private func initializePaywallTab() {
         subscriptionService.hasSubscriptionObservable
+            .distinctUntilChanged()
             .asDriver()
             .drive(with: self) { this, hasSubscription in
                 this.changeCurrentTabOnLaunch(hasSubsctiption: hasSubscription)

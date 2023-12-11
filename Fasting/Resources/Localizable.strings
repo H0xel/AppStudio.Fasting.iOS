@@ -172,3 +172,73 @@
 
 "NotificationType.fatBurningPhaseInfos.title" = "You start to burn fat!";
 "NotificationType.fatBurningPhaseInfos.subtitle" = "Your body is now actively burning through its fat reserves.";
+
+// MARK: - Fasting Phase
+"FastingPhase.sugarRises" = "Blood sugar slowly rises";
+"FastingPhase.sugarDrop" = "Blood sugar is going down";
+"FastingPhase.sugarNormal" = "Blood sugar returns to normal";
+"FastingPhase.burning" = "Fat burning";
+"FastingPhase.ketosis" = "Ketosis";
+"FastingPhase.autophagy" = "Autophagy";
+
+"FastingPhase.sugarRises.locked" = "Stage 1";
+"FastingPhase.sugarDrop.locked" = "Stage 2";
+"FastingPhase.sugarNormal.locked" = "Stage 3";
+"FastingPhase.burning.locked" = "Stage 4";
+"FastingPhase.ketosis.locked" = "Stage 5";
+"FastingPhase.autophagy.locked" = "Stage 6";
+
+"FastingPhase.startDescription.sugarRises" = "Begins right after your last meal";
+"FastingPhase.startDescription.sugarDrop" = "Begins 2h after your last meal";
+"FastingPhase.startDescription.sugarNormal" = "Begins 8h after your last meal";
+"FastingPhase.startDescription.burning" = "Begins 10h after your last meal";
+"FastingPhase.startDescription.ketosis" = "Begins 14-16h after your last meal";
+"FastingPhase.startDescription.autophagy" = "Begins 16h after your last meal";
+
+"FastingPhaseArticle.sugarRises.paragraph" = "You feel fairly normal as your body begins the digestion process. Absorbed nutrients are broken down into their individual components and utilized for both energy and muscle development.";
+"FastingPhaseArticle.sugarRises.point1" = "Levels of the hunger hormone \"ghrelin\" decrease, while the levels of the hormone \"leptin\", responsible for creating a sense of fullness, increase";
+"FastingPhaseArticle.sugarRises.point2" = "Ingested carbohydrates are processed and released into the bloodstream as glucose (blood sugar).";
+"FastingPhaseArticle.sugarRises.point3" = "As a result, blood sugar rises, which triggers the production of insulin.";
+"FastingPhaseArticle.sugarRises.point4" = "Insulin stimulates the absorption of blood sugar into the tissues, providing a quick supply of energy.";
+"FastingPhaseArticle.sugarRises.point5" = "Insulin also stimulates the conversion of excess glucose into its storage form glycogen.";
+"FastingPhaseArticle.sugarRises.point6" = "Glycogen is stored in your liver and muscles, to be released when energy is needed once more.";
+"FastingPhaseArticle.sugarRises.point7" = "Once the glycogen stores are full, any excess glycogen is stored in your fatty tissue in the form of fat.";
+
+"FastingPhaseArticle.sugarDrop.paragraph" = "After rising, your blood sugar starts dropping again. This process is actually the natural way for your body to react after your blood sugar spikes.";
+"FastingPhaseArticle.sugarDrop.point1" = "Insulin transports the glucose in the blood to our cells and tissues. As a result, the level of glucose in the blood drops and your blood sugar decreases to near normal after spiking.";
+"FastingPhaseArticle.sugarDrop.point2" = "Insulin also plays a role in how your body uses fat. As there's plenty of glucose in our blood and glycogen in our muscles or liver, fat is not used as a primary source of energy. Only when glucose levels drop does your body turn to fat stores.";
+"FastingPhaseArticle.sugarDrop.point3" = "You might feel a sense of hunger as your blood sugar decreases. A smart tip is to drink a large glass of water when this happens. It's often enough to keep hunger at bay until it fades naturally.";
+
+"FastingPhaseArticle.sugarNormal.paragraph" = "Now, your blood sugar has gone back to its usual level, and your body is using stored energy to keep things going.";
+"FastingPhaseArticle.sugarNormal.point1" = "After your food is all digested and your body stops producing insulin, there's a short resting period. Your digestive organs get a break.";
+"FastingPhaseArticle.sugarNormal.point2" = "As your organs, muscles, and cognitive processes continues to constantly consume energy, a hormone called glucagon steps in. Its job is to release the stored glycogen into your bloodstream. This keeps your blood sugar steady and makes sure your body keeps getting energy. The body uses glycogen stores to produce glucose and meet its energy needs.";
+"FastingPhaseArticle.sugarNormal.point3" = "Feeling hungry? Your stomach is reminding you that it's been a while since your last meal. But it doesn't necessarily mean you're actually that hungry. As your glycogen reserves are running out, you might even lose a little body fat.";
+
+"FastingPhaseArticle.ketosis.paragraph" = "After your fat-metabolizing hormones have kicked into gear, providing your body with new energy, something interesting happens. Research shows that during a fasting period of approximately 14 to 16 hours, the energy supply from fat increases by 60%, as your liver starts to produce ketones and your body switches into a ketosis st";
+"FastingPhaseArticle.ketosis.point1" = "Ketones are fatty acid molecules formed in the liver when fat cells are broken down. They are known to provide energy to all vital organs.";
+"FastingPhaseArticle.ketosis.point2" = "Ketones also activate your nerve cells, strengthen intellectual capacity, and develop new cells from your brain's stem cells. Your ability to concentrate increases and you feel more alert.";
+"FastingPhaseArticle.ketosis.point3" = "As a result, you experience a surge in energy levels, accompanied by a decrease in “ghrelin” — the hunger hormone, which brings an additional benefit of appetite suppression.";
+"FastingPhaseArticle.ketosis.point4" = "Ketones act as signaling molecules, instructing your body on how to better regulate its metabolism in a stressful environment.";
+"FastingPhaseArticle.ketosis.point5" = "Ketosis produces fewer inflammatory by-products, providing health benefits to your body and triggering rejuvenation processes.";
+
+"FastingPhaseArticle.autophagy.paragraph" = "At this point, your body triggers autophagy, a process kickstarted by a longer fast and fat-burning. Autophagy is translated from the ancient Greek αὐτόφαγος (autóphagos), meaning \"to consume oneself.\" And this is exactly what happens - your body is actually reusing old or damaged cell parts as it self-repairs.";
+"FastingPhaseArticle.autophagy.point1" = "During the autophagy process, viruses, bacteria and damaged cell structures are identified and broken down into their most basic components.";
+"FastingPhaseArticle.autophagy.point2" = "These components are then recycled for energy generation or discarded. The primary advantage of autophagy is best known as the body resetting the clock and producing younger cells.";
+"FastingPhaseArticle.autophagy.point3" = "Autophagy has the potential to reduce inflammation in the body, thereby minimizing the risk of chronic diseases and slowing down the aging process.";
+"FastingPhaseArticle.autophagy.point4" = "Additionally, as it activates certain immune cells, it can also strengthen your immune system.";
+"FastingPhaseArticle.autophagy.point5" = "Various studies have already shown that autophagy induced by fasting can potentially extend life expectancy.";
+
+"FastingPhaseArticle.burning.paragraph" = "As you surpass 10-hour mark your body starts to deplete its glycogen stores. These stored carbohydrates served as a quick energy source, but now it's time to tap into a more substantial reserve — your fat stores. The average calorie supply of an adult person in the form of fat reserves amounts to about 80,000 calories.";
+"FastingPhaseArticle.burning.point1" = "Your body produces fat burning hormones, breaking down fats into a more simple form, ready to fuel your cells and keep you functioning at your best.";
+"FastingPhaseArticle.burning.point1.point1" = "Growth Hormone (HGH): Stimulates fat metabolism.";
+"FastingPhaseArticle.burning.point1.point2" = "IGF-1 (Insulin-Like Growth Factor): Supports muscle preservation.";
+"FastingPhaseArticle.burning.point1.point3" = "Glucagon: Initiates the breakdown of stored fats.";
+"FastingPhaseArticle.burning.point1.point4" = "Testosterone and Adrenaline: Released to burn body fat.";
+"FastingPhaseArticle.burning.point1.point5" = "T3 (triiodothyronine): Plays a role in regulating metabolism.";
+"FastingPhaseArticle.burning.point2" = "This stage is particularly conducive to weight loss. Consider complementing your body's efforts with gentle exercise for even greater results.";
+
+// MARK: - LockedViewPaywallButton
+
+"LockedViewPaywallButton.title" = "Unlock fasting stages";
+"LockedViewPaywallButton.description" = "See the different fasting stages your body has been through with Fasting Plus";
+"LockedViewPaywallButton.buttonTitle" = "Fasting Tracker Plus";
