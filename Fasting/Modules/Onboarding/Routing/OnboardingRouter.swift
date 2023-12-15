@@ -18,15 +18,24 @@ class OnboardingRouter: BaseRouter {
         OnboardingRoute(navigator: navigator, input: input, output: output)
     }
 
-    func presentPaywall(output: @escaping ChooseFastingPlanOutputBlock) {
-        let route = PaywallRoute(navigator: navigator, input: .onboarding) { [weak self] _ in
+    func presentPaywall(input: PersonalizedPaywallInput, output: @escaping ChooseFastingPlanOutputBlock) {
+        let route = PersonalizedPaywallRoute(navigator: navigator, input: input) { [weak self] _ in
             self?.pushChooseFastingScreen(output: output)
         }
+
         present(route: route)
     }
 
     private func pushChooseFastingScreen(output: @escaping ChooseFastingPlanOutputBlock) {
         let route = ChooseFastingPlanRoute(navigator: navigator, input: .init(context: .onboarding), output: output)
+        push(route: route)
+    }
+
+    func presentLoadingView(completion: @escaping () -> Void) {
+        let route = OnboardingLoadingViewRoute(navigator: navigator) { _ in
+            self.navigator.dismiss()
+            completion()
+        }
         push(route: route)
     }
 }

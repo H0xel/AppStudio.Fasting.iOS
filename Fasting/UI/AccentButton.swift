@@ -12,6 +12,7 @@ struct AccentButton: View {
 
     let title: LocalizedStringKey
     let action: () -> Void
+    @Environment(\.isEnabled) private var isEnabled
 
     var body: some View {
         Button(action: action) {
@@ -21,7 +22,7 @@ struct AccentButton: View {
                 .foregroundStyle(.white)
                 .padding(.vertical, Layout.verticalPadding)
                 .aligned(.centerHorizontaly)
-                .background(Color.accentColor)
+                .background(isEnabled ? Color.accentColor : Color.fastingGreyStrokeFill)
                 .continiousCornerRadius(Layout.cornerRadius)
         }
     }

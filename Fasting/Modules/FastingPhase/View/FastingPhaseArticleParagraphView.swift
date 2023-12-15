@@ -44,7 +44,7 @@ private extension FastingPhaseArticleParagraphView {
 }
 
 #Preview {
-    var points = (1...7).map {
+    let points = (1...7).map {
         Paragraph(text: NSLocalizedString("FastingPhaseArticle.sugarRises.point\($0)", comment: ""),
                   paragraphs: [])
     }

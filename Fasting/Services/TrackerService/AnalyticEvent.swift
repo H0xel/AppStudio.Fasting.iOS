@@ -5,6 +5,7 @@
 //  Created by Amakhin Ivan on 23.10.2023.
 //
 
+import UIKit
 import AppStudioAnalytics
 
 enum AnalyticEvent: MirrorEnum {
@@ -44,6 +45,22 @@ enum AnalyticEvent: MirrorEnum {
     case pushAccessDialogShown
     case pushAccessAnswered(isGranted: Bool)
     case onboardingFinished(schedule: String, startTime: String)
+    // swiftlint:disable enum_case_associated_values_count
+    case goalAnswered(loseWeight: Bool,
+                      lookBetter: Bool,
+                      feelEnergetic: Bool,
+                      mentalClarity: Bool,
+                      liveLonger: Bool,
+                      healthierLifestyle: Bool)
+    // swiftlint:enable enum_case_associated_values_count
+    case sexAnswered(sex: String)
+    case birthdayAnswered(date: String)
+    case heightAnswered(height: Double, units: String)
+    case startingWeightAnswered(startingWeight: Double, units: String)
+    case targetWeightAnswered(targetWeight: Double, units: String)
+    case activityLevelAnswered(activityLevel: String)
+    case specialEventAnswered(event: String)
+    case eventDateAnswered(date: String)
 
     // FastingSetup
 
@@ -121,6 +138,15 @@ extension AnalyticEvent {
         case .dontGiveUpScreenShown: return "Dont give up screen shown"
         case .tapCancelFasting: return "Tap cancel end fasting"
         case .tapEndFastingEarly: return "Tap end fasting early"
+        case .goalAnswered: return "Goals answered"
+        case .sexAnswered: return "Sex answered"
+        case .birthdayAnswered: return "Birthday answered"
+        case .heightAnswered: return "Height answered"
+        case .startingWeightAnswered: return "Starting weight answered"
+        case .targetWeightAnswered: return "Target weight answered"
+        case .activityLevelAnswered: return "Activity level answered"
+        case .specialEventAnswered: return "Special event answered"
+        case .eventDateAnswered: return "Event date answered"
         }
     }
 
@@ -143,3 +169,5 @@ enum CancelFastingContext: String {
     case dontGiveUp
     case endFasting
 }
+
+extension Double: TrackerParam {}

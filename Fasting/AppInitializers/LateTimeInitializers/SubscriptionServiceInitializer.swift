@@ -20,6 +20,7 @@ final class SubscriptionServiceInitializer: AppInitializer {
             delegate: appStudioSubscriptionDelegate
         ) { subscriptionService in
             register(subscriptionService: subscriptionService)
+            subscribeMessages()
         }
     }
 

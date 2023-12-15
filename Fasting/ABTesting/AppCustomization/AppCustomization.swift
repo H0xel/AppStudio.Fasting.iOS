@@ -14,6 +14,7 @@ protocol AppCustomization {
     var appStoreLink: Observable<String> { get }
     func initialize()
     func closePaywallButtonDelay() async throws -> Int
+    func isLongOnboardingEnabled() async throws -> Bool
     // TODO: Протестить на то чтобы в кэше не сохранялось
 //    func shouldForceUpdate() async throws -> Bool
 }

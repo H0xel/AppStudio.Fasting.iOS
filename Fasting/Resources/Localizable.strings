@@ -4,6 +4,7 @@
 "CancelTitle" = "Cancel";
 "Button.cancel" = "Cancel";
 "TodayTitle" = "Today";
+"NextTitle" = "Next";
 
 // MARK: - Paywall Screen
 "Paywall.title" = "Paywall Title";
@@ -20,6 +21,38 @@
 "Paywall.tryForFree" = "Try 3 days for free, then %@";
 "Paywall.renewsAt" = "Cancel anytime. Renews at %@";
 "Paywall.cancelAnyTime" = "Cancel anytime";
+
+// MARK: Personalized Paywall
+"PersonalizedPaywall.headerTitle" = "Reach your dream weight of %@ by %@";
+"PersonalizedPaywall.getPlus" = "Get Plus for %@";
+"PersonalizedPaywall.now" = "Now";
+"PersonalizedPaywall.realTransformation" = "Real transformations";
+"PersonalizedPaywall.whatYoullGet" = "What you’ll get";
+
+"PersonalizedPaywall.loseWeightBullet" = "Lose ~%@ kg by your %@!";
+
+"PersonalizedPaywall.description.1" = "Customized for %@ ages %@";
+"PersonalizedPaywall.description.2" = "Adapted for %@ lifestyle";
+"PersonalizedPaywall.description.3" = "Easy to follow fasting schedule";
+"PersonalizedPaywall.description.4" = "Eat whatever you want outside of fasting period";
+"PersonalizedPaywall.description.5" = "No exercise and yo-yo effect";
+"PersonalizedPaywall.description.6" = "No equipment and place limitations";
+"PersonalizedPaywall.description.7" = "Promote cell regeneration, detoxification and metabolism";
+"PersonalizedPaywall.description.8" = "Scientifically proven";
+
+"PersonalizedPaywall.female.name1" = "Diana C";
+"PersonalizedPaywall.female.description1" = "“I always found counting calories to be daunting, but fasting provides the simplicity that has helped me lose weight sustainably“";
+"PersonalizedPaywall.female.name2" = "Lisa M";
+"PersonalizedPaywall.female.description2" = "“I’ve started doing the 20 hour fasting with 4 hour eating window and so far so good“";
+"PersonalizedPaywall.female.name3" = "Paula S";
+"PersonalizedPaywall.female.description3" = "“I didn't believe it at first, but now I have lost 6kg! Didn't go to gym. I can still eat pizza! Crazy!“";
+
+"PersonalizedPaywall.male.name1" = "Trevor M";
+"PersonalizedPaywall.male.description1" = "“I always found counting calories to be daunting, but fasting provides the simplicity that has helped me lose weight sustainably“";
+"PersonalizedPaywall.male.name2" = "Eric K";
+"PersonalizedPaywall.male.description2" = "\"I didn't believe it at first, but now I have lost 6kg! Didn't go to gym. I can still eat pizza! Crazy!\"";
+"PersonalizedPaywall.male.name3" = "George P";
+"PersonalizedPaywall.male.description3" = "\"My customized fasting plan really helped me with my stomach cramps and bloating problems\"";
 
 // MARK: - Fasting Screen
 "FastingScreen.startFasting" = "Start fasting";
@@ -52,7 +85,31 @@
 
 "Onboarding.buttonTitle" = "Get started";
 "Onboarding.description" = "Take your health and well-being to the next level";
+"Onboarding.fastingGoal.title" = "What do you want to achieve?";
+"Onboarding.fastingGoal.description" = "Pick as many as you like";
+"Onboarding.sex.title" = "What’s your sex?";
+"Onboarding.sex.description" = "Sex can affect many physical elements lIke our metabolism, muscle mass, or hormones, so we use it in our calculations";
+"Onboarding.activityLevel.title" = "What's your activity level?";
+"Onboarding.specialEvent.title" = "Do you have an event that's inspiring you to lose weight?";
+"Onboarding.specialEvent.description" = "Having something to look forward to will help you stay on track";
+"Onboarding.birthdayTitle" = "When is your birthday?";
+"Onboarding.specialEventDateTitle" = "When will this event take place?";
+"Onboarding.height.title" = "How tall are you?";
+"Onboarding.currentWeight.title" = "What's your current weight?";
+"Onboarding.desiredWeight.title" = "What is your target weight?";
+"Onboarding.desiredWeight.description" = "Let's get there together";
 
+"OnboardingCalculationProccess.progress.title1" = "Analyzing your results...";
+"OnboardingCalculationProccess.progress.title2" = "Creating your plan...";
+"OnboardingCalculationProccess.phase1" = "We rely on behavioural change, not on restrictive eating styles";
+"OnboardingCalculationProccess.phase2" = "Intermittent fasting is backed by multidisciplinary research";
+"OnboardingCalculationProccess.phase3" = "We say no to diets and focus on your body as a whole";
+"OnboardingCalculationProccess.phase4" = "So you can stop labeling food and just lean to eat intuitively";
+"OnboardingCalculationProccess.phase5" = "And remember: Nobody’s perfect. That’s completely normal!";
+"OnboardingCalculationProccess.phase6" = "We’re always here to get you back on track";
+
+"OnboardingService.paywallTitle" = "Reach your dream weight of %@ by %@";
+"OnboardingService.bulletWeight.title" = "Lose ~%@ by your %@!";
 // MARK: Choose fasting plan
 
 "ChooseFastingPlan.title" = "Choose your\nfasting time";
@@ -172,6 +229,61 @@
 
 "NotificationType.fatBurningPhaseInfos.title" = "You start to burn fat!";
 "NotificationType.fatBurningPhaseInfos.subtitle" = "Your body is now actively burning through its fat reserves.";
+
+// MARK: - Fasting Goal
+"FastingGoal.loseWeight" = "Lose  weight";
+"FastingGoal.lookBetter" = "Look better";
+"FastingGoal.feelMoreEnergetic" = "Feel more energetic";
+"FastingGoal.improveMentalClarity" = "Improve mental clarity";
+"FastingGoal.liveLonger" = "Live longer";
+"FastingGoal.healthierLifestyle" = "Healthier lifestyle";
+
+"FastingGoal.bullet.loseWeight" = "";
+"FastingGoal.bullet.lookBetter" = "Build your dream body";
+"FastingGoal.bullet.feelMoreEnergetic" = "Become more active in daily life";
+"FastingGoal.bullet.improveMentalClarity" = "Boost focus and feel more alert";
+"FastingGoal.bullet.liveLonger" = "Activate rejuvenation mechanisms";
+"FastingGoal.bullet.healthierLifestyle" = "Develop a long lasting healthy habits";
+
+// MARK: - Sex
+"Sex.male" = "Male";
+"Sex.female" = "Female";
+"Sex.other" = "Other";
+
+"Sex.women" = "women";
+"Sex.men" = "men";
+
+// MARK: - Activity Level
+"ActivityLevel.sedentary" = "Sedentary";
+"ActivityLevel.lightlyActive" = "Lightly active";
+"ActivityLevel.moderatelyActive" = "Moderately active";
+"ActivityLevel.veryActive" = "Very active";
+
+"ActivityLevel.sedentary.description" = "I spend most of my day sitting";
+"ActivityLevel.lightlyActive.description" = "I work on my feet and move around throughout the day";
+"ActivityLevel.moderatelyActive.description" = "I have made exercise a lasting habit";
+"ActivityLevel.veryActive.description" = "I spend most of my day doing physical activities";
+
+// MARK: - Special Event
+"SpecialEvent.vacation" = "Vacation";
+"SpecialEvent.wedding" = "Wedding";
+"SpecialEvent.sportsCompetition" = "Sports competition";
+"SpecialEvent.summer" = "Summer";
+"SpecialEvent.reunion" = "Reunion";
+"SpecialEvent.birthday" = "Birthday";
+"SpecialEvent.somethingElse" = "Something else";
+"SpecialEvent.noSpecialEvent" = "No special event";
+
+"SpecialEvent.somethingElse.title" = "Big event";
+"SpecialEvent.sportsCompetition.title" = "Competition";
+
+// MARK: - Height Unit
+"HeightUnit.cm" = "cm";
+"HeightUnit.ft" = "ft";
+
+// MARK: - Weight Unit
+"WeightUnit.lb" = "lb";
+"WeightUnit.kg" = "kg";
 
 // MARK: - Fasting Phase
 "FastingPhase.sugarRises" = "Blood sugar slowly rises";

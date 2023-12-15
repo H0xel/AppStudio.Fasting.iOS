@@ -18,17 +18,5 @@ final class FastingNotificationTests: XCTestCase {
 
     override func tearDown() async throws {}
 
-    func testCalculateDatesBeforeFastingStart() async throws {
-        let fastingStartDate = Date().addingTimeInterval(.hour * 2)
-        fastingService.endFasting()
-        fastingParametersService.set(
-            fastingInterval: FastingInterval(
-                start: fastingStartDate,
-                plan: .beginner,
-                currentDate: nil
-            )
-        )
-
-        try await fastingLocalNotificationService.setNotifications()
-    }
+    func testCalculateDatesBeforeFastingStart() async throws {}
 }

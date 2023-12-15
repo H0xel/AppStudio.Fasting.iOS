@@ -26,6 +26,10 @@ extension Locale {
         is24TimeFormat ? "d MMMM" : "MMMM d"
     }
 
+    var paywallShortDateFormat: String {
+        is24TimeFormat ? "d MMM" : "MMM d"
+    }
+
     var shortDateTimeFormat: String {
         "\(shortDateFormat), \(shortTimeFormat)"
     }

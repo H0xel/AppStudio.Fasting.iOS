@@ -35,7 +35,7 @@ extension Article {
     }
 
     static var sugarNormal: Article {
-        let paragraphs = (1...4).map {
+        let paragraphs = (1...3).map {
             Paragraph(text: NSLocalizedString("FastingPhaseArticle.sugarNormal.point\($0)", comment: ""),
                       paragraphs: [])
         }

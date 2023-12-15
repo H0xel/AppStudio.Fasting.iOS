@@ -16,6 +16,7 @@ import Dependencies
 private let requiredAppVersionKey = "force_update_version"
 private let closePaywallButtonDelayKey = "close_paywall_button_delay"
 private let forceUpdateLink = "force_update_link"
+private let isLongOnboardingEnabledKey = "long_onboarding_enabled"
 
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
 
@@ -50,6 +51,7 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 //        await register(experiment: TestAAExperiment(), migration: <#T##ExperimentMigration#>)
 
         await register(experiment: PricingOngoingExperiment(experimentName: pricingExperimentName))
+        await register(experiment: TrialExperiment())
     }
 
     var productIds: Observable<[String]> {
@@ -60,9 +62,18 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
         productIds
     }
 
+    var onboardingPaywallProductIds: Observable<[String]> {
+        experimentValueObservable(forType: TrialExperiment.self, defaultValue: .control)
+            .map { [$0.onboardingPaywallSubscriptionIdentifier] }
+    }
+
     func closePaywallButtonDelay() async throws -> Int {
         let value = try await remoteConfigValue(forKey: closePaywallButtonDelayKey, defaultValue: "3")
         return Int(value) ?? 3
+    }
+
+    func isLongOnboardingEnabled() async throws -> Bool {
+        try await remoteConfigValue(forKey: isLongOnboardingEnabledKey, defaultValue: true)
     }
 
     // TODO: Протестить на то чтобы в кэше не сохранялось

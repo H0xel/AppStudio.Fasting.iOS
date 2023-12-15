@@ -25,6 +25,10 @@ extension Image {
         Image("pen")
     }
 
+    static var rainbow: Image {
+        Image("rainbow")
+    }
+
     /// 􀉪
     static var personFill: Image {
         Image(systemName: "person.fill")
@@ -43,6 +47,46 @@ extension Image {
     /// 􀆄
     static var xmark: Image {
         Image(systemName: "xmark")
+    }
+
+    /// 􀁣
+    static var checkmarkCircleFill: Image {
+        Image(systemName: "checkmark.circle.fill")
+    }
+
+    /// 􀝢
+    static var figureWalk: Image {
+        Image(systemName: "figure.walk")
+    }
+
+    /// 􀦇
+    static var highlighter: Image {
+        Image(systemName: "highlighter")
+    }
+
+    /// 􁖪
+    static var birthdayCakeFill: Image {
+        Image(systemName: "birthday.cake.fill")
+    }
+
+    /// 􁾩
+    static var arrowshapeUpFill: Image {
+        Image(systemName: "arrowshape.up.fill")
+    }
+
+    /// 􀕽
+    static var figure: Image {
+        Image(systemName: "figure")
+    }
+
+    /// 􀍱
+    static var wandAndRays: Image {
+        Image(systemName: "wand.and.rays")
+    }
+
+    /// 􀞜
+    static var checkmarkShieldFill: Image {
+        Image(systemName: "checkmark.shield.fill")
     }
 
     /// 􀐬

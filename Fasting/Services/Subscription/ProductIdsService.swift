@@ -10,4 +10,5 @@ import RxSwift
 public protocol ProductIdsService {
     var productIds: Observable<[String]> { get }
     var paywallProductIds: Observable<[String]> { get }
+    var onboardingPaywallProductIds: Observable<[String]> { get }
 }
