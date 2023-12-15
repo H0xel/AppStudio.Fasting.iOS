@@ -21,6 +21,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.fastingFinishedCyclesLimitService) private var fastingFinishedCyclesLimitService
     @Dependency(\.subscriptionService) private var subscriptionService
+    @Dependency(\.requestReviewService) private var requestReviewService
 
     var router: FastingRouter!
     @Published var fastingStatus: FastingStatus = .unknown
@@ -107,6 +108,10 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
         }
         fastingService.startFasting(from: date)
         trackFastingStarted(startTime: date.description)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.requestReviewService.requestAppStoreReview()
+        }
     }
 
     @MainActor
