@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioNavigation
 import Dependencies
+import AppStudioUI
 
 class OnboardingRouter: BaseRouter {
     @Dependency(\.paywallService) private var paywallService
@@ -18,11 +19,18 @@ class OnboardingRouter: BaseRouter {
         OnboardingRoute(navigator: navigator, input: input, output: output)
     }
 
-    func presentPaywall(input: PersonalizedPaywallInput, output: @escaping ChooseFastingPlanOutputBlock) {
+    func presentPersonalizedPaywall(input: PersonalizedPaywallInput, output: @escaping ChooseFastingPlanOutputBlock) {
         let route = PersonalizedPaywallRoute(navigator: navigator, input: input) { [weak self] _ in
             self?.pushChooseFastingScreen(output: output)
         }
 
+        present(route: route)
+    }
+
+    func presentPaywall(output: @escaping ChooseFastingPlanOutputBlock) {
+        let route = PaywallRoute(navigator: navigator, input: .onboarding) { [weak self] _ in
+            self?.pushChooseFastingScreen(output: output)
+        }
         present(route: route)
     }
 

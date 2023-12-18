@@ -139,11 +139,18 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
 
     private func presentPaywall() {
         if let input = onboardingService.paywallInput {
-            router.presentPaywall(input: input) { [weak self] event in
+            router.presentPersonalizedPaywall(input: input) { [weak self] event in
                 switch event {
                 case .onboardingIsFinished:
                     self?.output(.onboardingIsFinished)
                 }
+            }
+            return
+        }
+        router.presentPaywall { [weak self] output in
+            switch output {
+            case .onboardingIsFinished:
+                self?.output(.onboardingIsFinished)
             }
         }
     }
@@ -197,10 +204,10 @@ private extension OnboardingViewModel {
         case .height:
             trackerService.track(.heightAnswered(height: height, units: heightUnit.rawValue))
         case .currentWeight:
-            trackerService.track(.startingWeightAnswered(startingWeight: currentWeight, 
+            trackerService.track(.startingWeightAnswered(startingWeight: currentWeight,
                                                          units: weightUnit.rawValue))
         case .desiredWeight:
-            trackerService.track(.targetWeightAnswered(targetWeight: desiredWeight, 
+            trackerService.track(.targetWeightAnswered(targetWeight: desiredWeight,
                                                        units: weightUnit.rawValue))
         case .activityLevel:
             trackerService.track(.activityLevelAnswered(activityLevel: activityLevel?.rawValue ?? ""))
@@ -221,59 +228,5 @@ private extension OnboardingViewModel {
                                            mentalClarity: goals.contains(.improveMentalClarity),
                                            liveLonger: goals.contains(.liveLonger),
                                            healthierLifestyle: goals.contains(.healthierLifestyle)))
-    }
-}
-
-struct OnboardingResultBanner: Banner {
-
-    let sex: Sex?
-    let activityLevel: ActivityLevel?
-    let fastingGoals: [FastingGoal]
-    let specialEvent: SpecialEvent?
-    let birthdayDate: Date
-    let specialEventDate: Date
-    let height: CGFloat
-    let currentWeight: CGFloat
-    let desiredWeight: CGFloat
-    let heightUnit: HeightUnit
-    let weightUnit: WeightUnit
-
-    let onCloseTap: () -> Void
-
-    var view: AnyView {
-        ModernNavigationView {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 15) {
-                    if let sex {
-                        Text("Sex: " + sex.title)
-                    }
-                    if let activityLevel {
-                        Text("Activity Level:" + activityLevel.title)
-                    }
-                    HStack {
-                        Text("Fasting Goals")
-                        Spacer()
-                        VStack {
-                            ForEach(fastingGoals) { goal in
-                                Text(goal.title)
-                            }
-                        }
-                    }
-                    Text("Birthday: " + birthdayDate.description)
-                    if let specialEvent {
-                        Text("Special Event: " + specialEvent.title)
-                        Text("Special Event Date: " + specialEventDate.description)
-                    }
-                    Text("Height: \(height) \(heightUnit.title)")
-                    Text("Current Weight: \(currentWeight) \(weightUnit.title)")
-                    Text("Target Weight: \(desiredWeight) \(weightUnit.title)")
-                }
-                .padding(.horizontal, 16)
-            }
-            .navBarButton(content: Image.xmark,
-                          action: onCloseTap)
-            .background(.white)
-        }
-        .eraseToAnyView()
     }
 }
