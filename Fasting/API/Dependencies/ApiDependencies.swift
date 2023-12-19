@@ -8,6 +8,8 @@
 import Foundation
 import Dependencies
 import AppStudioSubscriptions
+import MunicornUtilities
+import UIKit
 
 extension DependencyValues {
 
@@ -26,13 +28,7 @@ extension DependencyValues {
 
 private enum AppStudioApiSettingsProviderKey: DependencyKey {
     static var liveValue: AppStudioApiSettingsProvider {
-        @Dependency(\.backendEnvironmentService) var backendEnvironmentService
-        switch backendEnvironmentService.currentEnvironment {
-        case .production:
-            return ApiSettingsProviderImpl()
-        case .staging:
-            return SandBoxApiSettingsProvider()
-        }
+        UIDevice.current.isSandbox ? SandBoxApiSettingsProvider() : ApiSettingsProviderImpl()
     }
 }
 
