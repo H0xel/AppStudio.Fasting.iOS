@@ -11,12 +11,16 @@ struct FastingProgressView: View {
 
     let status: FastingStatus
     let plan: FastingPlan
+    let hasSubscription: Bool
+    let onTapStage: (FastingStage) -> Void
     let action: () -> Void
 
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack {
-                FastingRingView(status: status, plan: plan)
+                FastingRingView(status: status, plan: plan,
+                                hasSubscription: hasSubscription,
+                                onTapStage: onTapStage)
                     .padding(.horizontal, Layout.horizontalPadding)
                 FastingProgressLabelView(status: status)
                     .foregroundColor(.label)
@@ -79,6 +83,8 @@ private extension FastingProgressView {
     FastingProgressView(
         status: .active(.init(interval: .hour * 6.01, stage: .autophagy, isFinished: false)),
         plan: .regular,
+        hasSubscription: true,
+        onTapStage: { _ in },
         action: {}
     )
 }

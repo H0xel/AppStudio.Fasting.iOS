@@ -10,12 +10,21 @@ import SwiftUI
 struct FastingRingPointCircleView: View {
     let radius: CGFloat
     let point: FastingStagePoint
+    let hasSubscription: Bool
+    let onTapStage: (FastingStage) -> Void
 
     var body: some View {
         ZStack {
             Circle().fill(fillColor)
             Circle().strokeBorder(strokeColor, lineWidth: strokeWidth)
-            image
+            if hasSubscription {
+                image
+            } else {
+                lockImageView
+            }
+        }
+        .onTapGesture {
+            onTapStage(point.stage)
         }
         .scaleEffect(scaleFactor)
         .rotationEffect(Layout.rotationAngle)
@@ -27,6 +36,10 @@ struct FastingRingPointCircleView: View {
 
     private var image: Image {
         point.isSelected ? point.stage.whiteImage : point.stage.disabledImage
+    }
+
+    private var lockImageView: some View {
+        Image.lockFill.foregroundStyle(point.isSelected ? .white : .fastingGrayFillProgress)
     }
 
     private var fillColor: Color {

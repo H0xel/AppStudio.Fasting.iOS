@@ -10,6 +10,8 @@ import SwiftUI
 struct FastingRingView: View {
     let status: FastingStatus
     let plan: FastingPlan
+    let hasSubscription: Bool
+    let onTapStage: (FastingStage) -> Void
     let settings: FastingRingSettings = .default
 
     var body: some View {
@@ -25,7 +27,9 @@ struct FastingRingView: View {
                 FastingRingActiveStateView(
                     interval: fastingActiveState.interval,
                     plan: plan,
-                    settings: settings
+                    settings: settings,
+                    hasSubscription: hasSubscription,
+                    onTapStage: onTapStage
                 )
             }
         }

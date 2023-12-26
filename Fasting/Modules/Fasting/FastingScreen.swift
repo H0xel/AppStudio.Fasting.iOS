@@ -20,7 +20,9 @@ struct FastingScreen: View {
                               onTap: viewModel.presentArticle)
             Spacer()
             FastingProgressView(status: viewModel.fastingStatus,
-                                plan: viewModel.fastingInterval.plan) {
+                                plan: viewModel.fastingInterval.plan,
+                                hasSubscription: viewModel.hasSubscription,
+                                onTapStage: viewModel.presentArticle) {
                 viewModel.onChangeFastingTapped()
             }
             .padding(.horizontal, Layout.horizontalPadding)

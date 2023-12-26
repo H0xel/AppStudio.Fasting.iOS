@@ -11,6 +11,8 @@ struct FastingRingActiveStateView: View {
     let interval: TimeInterval
     let plan: FastingPlan
     let settings: FastingRingSettings
+    let hasSubscription: Bool
+    let onTapStage: (FastingStage) -> Void
 
     var body: some View {
         ZStack {
@@ -19,9 +21,14 @@ struct FastingRingActiveStateView: View {
                 .stroke(gradient, style: StrokeStyle(lineWidth: settings.borderWidth, lineCap: .round))
 
             ForEach(data.stagePoints, id: \.stage) { point in
-                FastingRingPointCircleView(radius: settings.radius, point: point)
-                    .position(.init(x: point.center.x, y: point.center.y))
-                    .frame(width: settings.borderWidth)
+                FastingRingPointCircleView(
+                    radius: settings.radius,
+                    point: point,
+                    hasSubscription: hasSubscription || point.stage == data.stagePoints.first?.stage,
+                    onTapStage: onTapStage
+                )
+                .position(.init(x: point.center.x, y: point.center.y))
+                .frame(width: settings.borderWidth)
             }
         }
     }
