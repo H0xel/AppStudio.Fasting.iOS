@@ -135,7 +135,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     }
 
     private func startFasting() {
-        router.presentStartFastingDialog(isActiveState: isFastingActive,
+        router.presentStartFastingDialog(isActiveState: true,
                                          initialDate: .now,
                                          minDate: .now.adding(.day, value: -2),
                                          maxDate: .now) { [weak self] date in
