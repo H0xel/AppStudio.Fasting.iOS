@@ -18,6 +18,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     @Dependency(\.messengerService) var messenger
     @Dependency(\.storageService) var storageService
     @Dependency(\.cloudStorage) var cloudStorage
+    @Dependency(\.quickActionTypeServiceService) private var quickActionTypeServiceService
     private var cancellables = Set<AnyCancellable>()
 
     func application(
@@ -30,6 +31,25 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         congifureAppearance()
         return true
     }
+
+    func application(
+        _ application: UIApplication,
+        configurationForConnecting connectingSceneSession: UISceneSession,
+        options: UIScene.ConnectionOptions
+    ) -> UISceneConfiguration {
+        if let shortcutItem = options.shortcutItem {
+            quickActionTypeServiceService.set(.init(rawValue: shortcutItem.type))
+        }
+
+        let sceneConfiguration = UISceneConfiguration(
+            name: "Default",
+            sessionRole: connectingSceneSession.role
+        )
+        sceneConfiguration.delegateClass = SceneDelegate.self
+
+        return sceneConfiguration
+    }
+
 
     private func congifureAppearance() {
         UIDatePicker.appearance().minuteInterval = 5

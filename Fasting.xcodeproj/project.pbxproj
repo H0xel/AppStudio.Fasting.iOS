@@ -379,6 +379,12 @@
 		A7D01B922AF115F200C50C1F /* NotificationOnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8C2AF115F200C50C1F /* NotificationOnboardingScreen.swift */; };
 		A7D01B932AF115F200C50C1F /* NotificationOnboardingOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8D2AF115F200C50C1F /* NotificationOnboardingOutput.swift */; };
 		A7D01B942AF115F200C50C1F /* NotificationOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8E2AF115F200C50C1F /* NotificationOnboardingViewModel.swift */; };
+		A7DBD0902B3AB1C7003DCD10 /* QuickActionServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD08F2B3AB1C7003DCD10 /* QuickActionServiceImpl.swift */; };
+		A7DBD0922B3AB1DB003DCD10 /* QuickActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0912B3AB1DB003DCD10 /* QuickActionService.swift */; };
+		A7DBD0942B3AB20A003DCD10 /* QuickActionDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0932B3AB20A003DCD10 /* QuickActionDependencies.swift */; };
+		A7DBD0962B3AB243003DCD10 /* QuickAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0952B3AB243003DCD10 /* QuickAction.swift */; };
+		A7DBD0982B3AB3C7003DCD10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0972B3AB3C7003DCD10 /* SceneDelegate.swift */; };
+		A7DBD09A2B3AB415003DCD10 /* QuickTypeInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0992B3AB415003DCD10 /* QuickTypeInitializer.swift */; };
 		A7E0A1CA2B07418F005DA180 /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */; };
 		A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
@@ -757,6 +763,12 @@
 		A7D01B8C2AF115F200C50C1F /* NotificationOnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingScreen.swift; sourceTree = "<group>"; };
 		A7D01B8D2AF115F200C50C1F /* NotificationOnboardingOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingOutput.swift; sourceTree = "<group>"; };
 		A7D01B8E2AF115F200C50C1F /* NotificationOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingViewModel.swift; sourceTree = "<group>"; };
+		A7DBD08F2B3AB1C7003DCD10 /* QuickActionServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionServiceImpl.swift; sourceTree = "<group>"; };
+		A7DBD0912B3AB1DB003DCD10 /* QuickActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionService.swift; sourceTree = "<group>"; };
+		A7DBD0932B3AB20A003DCD10 /* QuickActionDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionDependencies.swift; sourceTree = "<group>"; };
+		A7DBD0952B3AB243003DCD10 /* QuickAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAction.swift; sourceTree = "<group>"; };
+		A7DBD0972B3AB3C7003DCD10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A7DBD0992B3AB415003DCD10 /* QuickTypeInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTypeInitializer.swift; sourceTree = "<group>"; };
 		A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
 		A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerServiceDependencies.swift; sourceTree = "<group>"; };
 		AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountIdProviderImpl.swift; sourceTree = "<group>"; };
@@ -1355,6 +1367,7 @@
 				5675FFA72ADE7FF8009331CB /* AppDelegate.swift */,
 				567500BA2ADFC9F2009331CB /* GlobalConstants.swift */,
 				53D9006F2AE631E400FFEB7A /* AppTemplateManager.swift */,
+				A7DBD0972B3AB3C7003DCD10 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -1362,6 +1375,7 @@
 		5675FFD12ADE8358009331CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A7DBD08E2B3AB1B7003DCD10 /* QuickActionService */,
 				56E223EB2B2079A200096664 /* OnboardingService */,
 				A75956EE2B172EA300ECCAB0 /* SubcriptionService */,
 				56C7E9682B107C73007B5937 /* FastingLimitService */,
@@ -1549,6 +1563,7 @@
 				56C28DC32AE109580007E48D /* EarlyTimeInitializers.swift */,
 				56C28DC42AE109580007E48D /* AppSyncServiceInitializer.swift */,
 				A036CBDF2B18CE28001B8AC7 /* AppearanceInitializer.swift */,
+				A7DBD0992B3AB415003DCD10 /* QuickTypeInitializer.swift */,
 			);
 			path = EarlyTimeInitializers;
 			sourceTree = "<group>";
@@ -2229,6 +2244,17 @@
 			path = Routing;
 			sourceTree = "<group>";
 		};
+		A7DBD08E2B3AB1B7003DCD10 /* QuickActionService */ = {
+			isa = PBXGroup;
+			children = (
+				A7DBD08F2B3AB1C7003DCD10 /* QuickActionServiceImpl.swift */,
+				A7DBD0912B3AB1DB003DCD10 /* QuickActionService.swift */,
+				A7DBD0932B3AB20A003DCD10 /* QuickActionDependencies.swift */,
+				A7DBD0952B3AB243003DCD10 /* QuickAction.swift */,
+			);
+			path = QuickActionService;
+			sourceTree = "<group>";
+		};
 		A7E0A1C82B07418F005DA180 /* TestFlight */ = {
 			isa = PBXGroup;
 			children = (
@@ -2421,6 +2447,7 @@
 			files = (
 				A72230372AFB624300303D5D /* Date+LocaleTime.swift in Sources */,
 				563B8AC52B03AEFC00AF6BB7 /* FastingNotificationInfo.swift in Sources */,
+				A7DBD0922B3AB1DB003DCD10 /* QuickActionService.swift in Sources */,
 				56C28DC82AE109580007E48D /* AppCustomizationInitializer.swift in Sources */,
 				5675FFF12ADE84B4009331CB /* MigrationFinishedMessage.swift in Sources */,
 				5675FFF72ADE84B4009331CB /* AppActivationMessage.swift in Sources */,
@@ -2544,6 +2571,7 @@
 				A04272CE2AE28F2C00754326 /* DebugMenuActionsView.swift in Sources */,
 				56C28DC52AE109580007E48D /* SubscriptionServiceInitializer.swift in Sources */,
 				A008A8312AF14C0B0011A261 /* Animation+extensions.swift in Sources */,
+				A7DBD0942B3AB20A003DCD10 /* QuickActionDependencies.swift in Sources */,
 				563B8ACB2B04AA4000AF6BB7 /* NotificationCenterDelegate.swift in Sources */,
 				5675010A2ADFD955009331CB /* IntercomUpdaterImpl.swift in Sources */,
 				567500432ADFA67E009331CB /* AccountProvider.swift in Sources */,
@@ -2564,6 +2592,7 @@
 				5675008C2ADFAA4A009331CB /* RestoreResult.swift in Sources */,
 				56B10ABB2AF0DFF9008FC07E /* Model.xcdatamodeld in Sources */,
 				56655B722AFCB6AB00508ED4 /* FastingHistoryServiceDependencies.swift in Sources */,
+				A7DBD0902B3AB1C7003DCD10 /* QuickActionServiceImpl.swift in Sources */,
 				A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */,
 				567500912ADFAA4A009331CB /* IntercomData.swift in Sources */,
 				567500A02ADFAB69009331CB /* ProductProvider.swift in Sources */,
@@ -2599,6 +2628,7 @@
 				566C24932AE8F80B00AEDB3C /* PaywallScreenInput.swift in Sources */,
 				567500B82ADFC031009331CB /* MailSenderService.swift in Sources */,
 				56B10AC02AF0E1CC008FC07E /* FastingParametersRepository.swift in Sources */,
+				A7DBD0982B3AB3C7003DCD10 /* SceneDelegate.swift in Sources */,
 				566C24992AE8F80B00AEDB3C /* PaywallCancelView.swift in Sources */,
 				566C249A2AE8F80B00AEDB3C /* PaywallBottomInfoView.swift in Sources */,
 				A0255E822AFBD27600221EC6 /* TelecomApiProvider.swift in Sources */,
@@ -2616,6 +2646,7 @@
 				564BE2C52B26E50E00FE35C2 /* OnboardingCalculationProccessData.swift in Sources */,
 				5675009E2ADFAB69009331CB /* ProductIdsService.swift in Sources */,
 				56E223FB2B21973400096664 /* OnboardingLoadingViewRouter.swift in Sources */,
+				A7DBD0962B3AB243003DCD10 /* QuickAction.swift in Sources */,
 				564BE0C32AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift in Sources */,
 				567500CA2ADFCC54009331CB /* AccountSyncServiceImpl.swift in Sources */,
 				A08449732B1A86AC00D30E04 /* FastingPhaseViewModel.swift in Sources */,
@@ -2641,6 +2672,7 @@
 				A7D01B7C2AF10A6D00C50C1F /* SetupFastingInput.swift in Sources */,
 				563B8AC92B03AF8400AF6BB7 /* LocalNotificationDependencies.swift in Sources */,
 				5675009D2ADFAB69009331CB /* PaywallServiceImpl.swift in Sources */,
+				A7DBD09A2B3AB415003DCD10 /* QuickTypeInitializer.swift in Sources */,
 				A70DBE222B0B9F230067D7BD /* DebugFontView.swift in Sources */,
 				567500E42ADFD4E8009331CB /* StorageService.swift in Sources */,
 				566C249E2AE8F8FD00AEDB3C /* Image+Paywall.swift in Sources */,
@@ -2939,7 +2971,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.7;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -2980,7 +3012,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

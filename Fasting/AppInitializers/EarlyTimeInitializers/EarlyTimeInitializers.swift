@@ -26,7 +26,8 @@ final class EarlyTimeInitializers: Initializers {
             NotificationCenterInitializer(),
             paywallServiceInitializer,
             fastingParametersInitializer,
-            AppearanceInitializer()
+            AppearanceInitializer(),
+            QuickActionInitializer()
         ]
     }
 }

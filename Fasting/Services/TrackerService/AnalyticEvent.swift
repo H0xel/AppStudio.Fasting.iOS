@@ -93,6 +93,9 @@ enum AnalyticEvent: MirrorEnum {
     case dontGiveUpScreenShown
     case tapCancelFasting(context: CancelFastingContext)
     case tapEndFastingEarly
+
+    // Quick action
+    case tapNeedAssistance
 }
 
 extension AnalyticEvent {
@@ -147,6 +150,7 @@ extension AnalyticEvent {
         case .activityLevelAnswered: return "Activity level answered"
         case .specialEventAnswered: return "Special event answered"
         case .eventDateAnswered: return "Event date answered"
+        case .tapNeedAssistance: return "Tap need assistance"
         }
     }
 

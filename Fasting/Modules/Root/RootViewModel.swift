@@ -20,6 +20,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.subscriptionService) private var subscriptionService
     @Dependency(\.fastingService) private var fastingService
     @Dependency(\.firstLaunchService) private var firstLaunchService
+    @Dependency(\.quickActionTypeServiceService) private var quickActionTypeServiceService
 
     @Published var currentTab: AppTab = .fasting {
         willSet {
@@ -38,6 +39,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         super.init(output: output)
         initialize()
         initializePaywallTab()
+        subscribeToActionTypeEvent()
     }
 
     func initialize() {
@@ -118,6 +120,23 @@ class RootViewModel: BaseViewModel<RootOutput> {
             currentTab = .paywall
         }
     }
+
+    private func subscribeToActionTypeEvent() {
+        $rootScreen
+            .filter { $0 != .launchScreen }
+            .flatMap(with: self) { this, _ in  this.quickActionTypeServiceService.quickActiveType }
+            .sink(with: self) { this, type in
+                if let type {
+                    switch type {
+                    case .review:
+                        this.router.presentSupport()
+                        this.quickActionTypeServiceService.resetType()
+                        this.trackQuickActionReviewTapped()
+                    }
+                }
+            }
+            .store(in: &cancellables)
+    }
 }
 
 // MARK: Routing
@@ -140,5 +159,9 @@ private extension RootViewModel {
     func trackTabSwitched(currentTab: String, previousTab: String) {
         guard rootScreen == .fasting, currentTab != previousTab else { return }
         trackerService.track(.tabSwitched(currentTab: currentTab, previousTab: previousTab))
+    }
+
+    func trackQuickActionReviewTapped() {
+        trackerService.track(.tapNeedAssistance)
     }
 }

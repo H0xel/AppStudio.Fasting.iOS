@@ -354,3 +354,7 @@
 "LockedViewPaywallButton.title" = "Unlock fasting stages";
 "LockedViewPaywallButton.description" = "See the different fasting stages your body has been through with Fasting Plus";
 "LockedViewPaywallButton.buttonTitle" = "Fasting Tracker Plus";
+
+// MARK: Quick action
+"Review.title" = "Need assistance?";
+"Review.subTitle" = "Contact support or share your feedback with us";
