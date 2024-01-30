@@ -19,8 +19,8 @@
 "Paywall.savePercent" = "Save percent";
 "Paywall.reachYourWeightGoals" = "Reach your weight goals";
 "Paywall.tryForFree" = "Try 3 days for free, then %@";
-"Paywall.renewsAt" = "Cancel anytime. Renews at %@";
-"Paywall.cancelAnyTime" = "Cancel anytime";
+"Paywall.renewsAt" = "Get Plus for %@";
+"Paywall.cancelAnyTime" = "Unlock your advantage now!";
 
 // MARK: Personalized Paywall
 "PersonalizedPaywall.headerTitle" = "Reach your dream weight of %@ by %@";

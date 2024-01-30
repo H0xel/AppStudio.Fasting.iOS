@@ -2971,7 +2971,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.9;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -3012,7 +3012,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -3150,7 +3150,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Common.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.7;
+				version = 1.0.13;
 			};
 		};
 		A0255E8F2AFBD3ED00221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */ = {

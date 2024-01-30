@@ -12,6 +12,7 @@ import AppStudioNavigation
 import RxRelay
 import RxSwift
 import Dependencies
+import ABTesting
 
 private let requiredAppVersionKey = "force_update_version"
 private let closePaywallButtonDelayKey = "close_paywall_button_delay"
@@ -48,9 +49,11 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 //        await registerForNewUser(experiment: OnboardingNotificationsExperiment())
 
         // 3) Register experiment with custom migration
-//        await register(experiment: TestAAExperiment(), migration: <#T##ExperimentMigration#>)
+//        await register(experiment: TestAAExperiment(), migration: ExperimentMigration)
 
-        await register(experiment: PricingOngoingExperiment(experimentName: pricingExperimentName))
+        let experimentName = await pricingExperimentName()
+
+        await register(experiment: PricingOngoingExperiment(experimentName: experimentName))
         await register(experiment: TrialExperiment())
     }
 
@@ -84,20 +87,60 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 //    }
 }
 
+enum PricingError: Error {
+    case error
+}
+
 private extension AppCustomizationImpl {
-    var pricingExperimentName: String {
+    private var tryCount: Int {
+        3
+    }
+    
+    private var nextTryIntervalSeconds: Int {
+        1
+    }
+
+    private func pricingExperimentName() async -> String {
         let remoteKey = "exp_pricing_active"
         let defaultName = "pricing_default"
         let experimentPrefix = "$"
-        if let remoteValue = value(forKey: remoteKey),
-           remoteValue.hasPrefix(experimentPrefix) {
-            return remoteValue.substring(from: experimentPrefix.count)
+
+        let observable = remoteConfigValueObservable(forKey: remoteKey, defaultValue: "")
+            .map { name -> String in
+                if name.isEmpty {
+                    throw PricingError.error
+                }
+                return name
+            }
+            .retry(times: tryCount, withDelay: .seconds(nextTryIntervalSeconds))
+            .catchAndReturn(defaultName)
+            .map { remoteValue in
+                if remoteValue.hasPrefix(experimentPrefix) {
+                    return remoteValue.substring(from: experimentPrefix.count)
+                }
+                return defaultName
+            }
+
+        do {
+            for try await value in observable.values.prefix(1) {
+                return value
+            }
+            throw PricingError.error
+        } catch {
+            return defaultName
         }
-        return defaultName
     }
 
-    func configurePricingExperiment() {
-        experimentValueObservable(forType: PricingOngoingExperiment.self, defaultValue: .base)
+    private func configurePricingExperiment() {
+        experimentValueObservable(forType: PricingOngoingExperiment.self, defaultValue: .empty)
+            .map { info -> SubscriptionInfo in
+                if info == .empty {
+                    throw PricingError.error
+                }
+                return info
+            }
+            .retry(times: tryCount, withDelay: .seconds(nextTryIntervalSeconds))
+            .catchAndReturn(SubscriptionInfo.base)
             .map { $0.productIds }
             .bind(to: productIdsRelay)
             .disposed(by: disposeBag)

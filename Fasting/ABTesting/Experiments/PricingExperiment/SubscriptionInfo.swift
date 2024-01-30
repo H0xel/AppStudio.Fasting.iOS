@@ -17,12 +17,18 @@ struct SubscriptionInfo: Named, Equatable {
         @Dependency(\.productProvider) var productProvider
         return SubscriptionInfo(name: "base", productIds: productProvider.defaultProductIds)
     }()
+
+    static var empty: SubscriptionInfo = {
+        SubscriptionInfo(name: "empty", productIds: [])
+    }()
 }
 
 extension SubscriptionInfo: RawRepresentable {
     typealias RawValue = String
 
-    init?(rawValue: RawValue) { nil }
+    init?(rawValue: RawValue) {
+        try? self.init(json: rawValue)
+    }
     var rawValue: RawValue { name }
 }
 

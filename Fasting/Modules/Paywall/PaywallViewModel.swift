@@ -169,7 +169,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
 
     private func loadAvailableProducts() {
         Observable.combineLatest(subscriptionService.subscriptionProducts,
-                                 productIdsService.onboardingPaywallProductIds)
+                                 productIdsService.paywallProductIds)
             .map { subscriptions, availableIds in
                 subscriptions
                     .filter { availableIds.contains($0.productIdentifier) }
