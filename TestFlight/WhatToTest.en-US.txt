@@ -1,2 +1,1 @@
-- Pricing experiment
-- Paywall pricing text changed(ST2-514)
+
