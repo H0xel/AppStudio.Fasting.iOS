@@ -31,6 +31,7 @@ class ProductProviderImpl: ProductProvider {
         [
             ProductCatalogItem(productId: weeklyProductId, duration: .week, isTrial: true),
             ProductCatalogItem(productId: weeklyProductIdWithoutTrial, duration: .week, isTrial: false),
+            ProductCatalogItem(productId: yearlyProductId, duration: .year, isTrial: false),
             ProductCatalogItem(productId: weeklyExp3ProductId, duration: .week, isTrial: false),
             ProductCatalogItem(productId: weeklyExp4ProductId, duration: .week, isTrial: false),
             ProductCatalogItem(productId: weeklyExp5ProductId, duration: .week, isTrial: false)

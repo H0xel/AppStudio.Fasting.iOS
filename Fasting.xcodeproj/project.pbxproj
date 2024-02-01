@@ -12,6 +12,7 @@
 		53D900742AE652DD00FFEB7A /* PreferencesInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D900732AE652DD00FFEB7A /* PreferencesInitializer.swift */; };
 		53D900772AE67EE700FFEB7A /* PreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D900762AE67EE700FFEB7A /* PreferencesService.swift */; };
 		53D900792AE67EEF00FFEB7A /* PreferencesServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D900782AE67EEF00FFEB7A /* PreferencesServiceImpl.swift */; };
+		562654C32B6A7E2F006FC4AB /* AppCustomizationImpl+Pricing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562654C22B6A7E2F006FC4AB /* AppCustomizationImpl+Pricing.swift */; };
 		563257152ADE57D80000F33C /* FastingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563257142ADE57D80000F33C /* FastingApp.swift */; };
 		563257192ADE57D90000F33C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 563257182ADE57D90000F33C /* Assets.xcassets */; };
 		5632571C2ADE57D90000F33C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5632571B2ADE57D90000F33C /* Preview Assets.xcassets */; };
@@ -406,6 +407,7 @@
 		53D900732AE652DD00FFEB7A /* PreferencesInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesInitializer.swift; sourceTree = "<group>"; };
 		53D900762AE67EE700FFEB7A /* PreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesService.swift; sourceTree = "<group>"; };
 		53D900782AE67EEF00FFEB7A /* PreferencesServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesServiceImpl.swift; sourceTree = "<group>"; };
+		562654C22B6A7E2F006FC4AB /* AppCustomizationImpl+Pricing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCustomizationImpl+Pricing.swift"; sourceTree = "<group>"; };
 		563257112ADE57D80000F33C /* Fasting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fasting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		563257142ADE57D80000F33C /* FastingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingApp.swift; sourceTree = "<group>"; };
 		563257182ADE57D90000F33C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1840,6 +1842,7 @@
 				A07D95942AE920A100D2C2E2 /* AppCustomizationImpl.swift */,
 				A07D95982AE9270600D2C2E2 /* AppCustomizationDependency.swift */,
 				A07D95A82AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift */,
+				562654C22B6A7E2F006FC4AB /* AppCustomizationImpl+Pricing.swift */,
 			);
 			path = AppCustomization;
 			sourceTree = "<group>";
@@ -2781,6 +2784,7 @@
 				56C28DD52AE109580007E48D /* EarlyTimeInitializers.swift in Sources */,
 				5675009F2ADFAB69009331CB /* ProductProviderImpl.swift in Sources */,
 				567500232ADE86C3009331CB /* Synchronized.swift in Sources */,
+				562654C32B6A7E2F006FC4AB /* AppCustomizationImpl+Pricing.swift in Sources */,
 				A0881E6B2AEAC32500E38FF5 /* FastingViewModel.swift in Sources */,
 				56C28DD02AE109580007E48D /* TrackerServiceInitializer.swift in Sources */,
 				56655B622AFB693E00508ED4 /* ClosedRange+extentions.swift in Sources */,
