@@ -10,20 +10,19 @@ import AppStudioNavigation
 
 struct RootRoute: Route {
 
-    private let viewModel: RootViewModel
-
-    init(navigator: Navigator,
-         input: RootInput,
-         output: @escaping RootOutputBlock) {
-
-        let router = RootRouter(navigator: navigator)
-        let viewModel = RootViewModel(input: input, output: output)
-        viewModel.router = router
-        self.viewModel = viewModel
-    }
+    let navigator: Navigator
+    let input: RootInput
+    let output: RootOutputBlock
 
     var view: AnyView {
         RootScreen(viewModel: viewModel)
             .eraseToAnyView()
+    }
+
+    private var viewModel: RootViewModel {
+        let router = RootRouter(navigator: navigator)
+        let viewModel = RootViewModel(input: input, output: output)
+        viewModel.router = router
+        return viewModel
     }
 }

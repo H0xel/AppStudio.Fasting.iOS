@@ -10,20 +10,19 @@ import AppStudioNavigation
 
 struct SetupFastingRoute: Route {
 
-    private let viewModel: SetupFastingViewModel
-
-    init(navigator: Navigator,
-         input: SetupFastingInput,
-         output: @escaping SetupFastingOutputBlock) {
-
-        let router = SetupFastingRouter(navigator: navigator)
-        let viewModel = SetupFastingViewModel(input: input, output: output)
-        viewModel.router = router
-        self.viewModel = viewModel
-    }
+    let navigator: Navigator
+    let input: SetupFastingInput
+    let output: SetupFastingOutputBlock
 
     var view: AnyView {
         SetupFastingScreen(viewModel: viewModel)
             .eraseToAnyView()
+    }
+
+    private var viewModel: SetupFastingViewModel {
+        let router = SetupFastingRouter(navigator: navigator)
+        let viewModel = SetupFastingViewModel(input: input, output: output)
+        viewModel.router = router
+        return viewModel
     }
 }

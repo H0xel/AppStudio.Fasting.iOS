@@ -40,7 +40,7 @@ class RootRouter: BaseRouter {
     }()
 
     lazy var paywallScreen: some View = {
-        let route = PaywallRoute(navigator: self.paywallNavigator, input: .fromSettings) { _ in }
+        let route = PaywallRoute(navigator: paywallNavigator, input: .fromSettings) { _ in }
         return paywallNavigator.initialize(route: route)
     }()
 

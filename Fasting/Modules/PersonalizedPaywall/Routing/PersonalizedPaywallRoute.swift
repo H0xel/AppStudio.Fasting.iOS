@@ -10,20 +10,19 @@ import AppStudioNavigation
 
 struct PersonalizedPaywallRoute: Route {
 
-    private let viewModel: PersonalizedPaywallViewModel
-
-    init(navigator: Navigator,
-         input: PersonalizedPaywallInput,
-         output: @escaping PersonalizedPaywallOutputBlock) {
-
-        let router = PersonalizedPaywallRouter(navigator: navigator)
-        let viewModel = PersonalizedPaywallViewModel(input: input, output: output)
-        viewModel.router = router
-        self.viewModel = viewModel
-    }
+    let navigator: Navigator
+    let input: PersonalizedPaywallInput
+    let output: PersonalizedPaywallOutputBlock
 
     var view: AnyView {
         PersonalizedPaywallScreen(viewModel: viewModel)
             .eraseToAnyView()
+    }
+
+    private var viewModel: PersonalizedPaywallViewModel {
+        let router = PersonalizedPaywallRouter(navigator: navigator)
+        let viewModel = PersonalizedPaywallViewModel(input: input, output: output)
+        viewModel.router = router
+        return viewModel
     }
 }

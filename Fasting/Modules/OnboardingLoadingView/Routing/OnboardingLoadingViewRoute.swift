@@ -10,19 +10,18 @@ import AppStudioNavigation
 
 struct OnboardingLoadingViewRoute: Route {
 
-    private let viewModel: OnboardingLoadingViewViewModel
-
-    init(navigator: Navigator,
-         output: @escaping OnboardingLoadingViewOutputBlock) {
-
-        let router = OnboardingLoadingViewRouter(navigator: navigator)
-        let viewModel = OnboardingLoadingViewViewModel(output: output)
-        viewModel.router = router
-        self.viewModel = viewModel
-    }
+    let navigator: Navigator
+    let output: OnboardingLoadingViewOutputBlock
 
     var view: AnyView {
         OnboardingLoadingViewScreen(viewModel: viewModel)
             .eraseToAnyView()
+    }
+
+    private var viewModel: OnboardingLoadingViewViewModel {
+        let router = OnboardingLoadingViewRouter(navigator: navigator)
+        let viewModel = OnboardingLoadingViewViewModel(output: output)
+        viewModel.router = router
+        return viewModel
     }
 }

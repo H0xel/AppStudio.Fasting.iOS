@@ -10,20 +10,19 @@ import AppStudioNavigation
 
 struct NotificationOnboardingRoute: Route {
 
-    private let viewModel: NotificationOnboardingViewModel
-
-    init(navigator: Navigator,
-         input: NotificationOnboardingInput,
-         output: @escaping NotificationOnboardingOutputBlock) {
-
-        let router = NotificationOnboardingRouter(navigator: navigator)
-        let viewModel = NotificationOnboardingViewModel(input: input, output: output)
-        viewModel.router = router
-        self.viewModel = viewModel
-    }
+    let navigator: Navigator
+    let input: NotificationOnboardingInput
+    let output: NotificationOnboardingOutputBlock
 
     var view: AnyView {
         NotificationOnboardingScreen(viewModel: viewModel)
             .eraseToAnyView()
+    }
+
+    private var viewModel: NotificationOnboardingViewModel {
+        let router = NotificationOnboardingRouter(navigator: navigator)
+        let viewModel = NotificationOnboardingViewModel(input: input, output: output)
+        viewModel.router = router
+        return viewModel
     }
 }

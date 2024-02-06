@@ -10,20 +10,19 @@ import AppStudioNavigation
 
 struct SuccessRoute: Route {
 
-    private let viewModel: SuccessViewModel
-
-    init(navigator: Navigator,
-         input: SuccessInput,
-         output: @escaping SuccessOutputBlock) {
-
-        let router = SuccessRouter(navigator: navigator)
-        let viewModel = SuccessViewModel(input: input, output: output)
-        viewModel.router = router
-        self.viewModel = viewModel
-    }
+    let navigator: Navigator
+    let input: SuccessInput
+    let output: SuccessOutputBlock
 
     var view: AnyView {
         SuccessScreen(viewModel: viewModel)
             .eraseToAnyView()
+    }
+
+    private var viewModel: SuccessViewModel {
+        let router = SuccessRouter(navigator: navigator)
+        let viewModel = SuccessViewModel(input: input, output: output)
+        viewModel.router = router
+        return viewModel
     }
 }

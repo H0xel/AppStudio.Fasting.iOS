@@ -10,20 +10,19 @@ import AppStudioNavigation
 
 struct FastingPhaseRoute: Route {
 
-    private let viewModel: FastingPhaseViewModel
-
-    init(navigator: Navigator,
-         input: FastingPhaseInput,
-         output: @escaping FastingPhaseOutputBlock) {
-
-        let router = FastingPhaseRouter(navigator: navigator)
-        let viewModel = FastingPhaseViewModel(input: input, output: output)
-        viewModel.router = router
-        self.viewModel = viewModel
-    }
+    let navigator: Navigator
+    let input: FastingPhaseInput
+    let output: FastingPhaseOutputBlock
 
     var view: AnyView {
         FastingPhaseScreen(viewModel: viewModel)
             .eraseToAnyView()
+    }
+
+    private var viewModel: FastingPhaseViewModel {
+        let router = FastingPhaseRouter(navigator: navigator)
+        let viewModel = FastingPhaseViewModel(input: input, output: output)
+        viewModel.router = router
+        return viewModel
     }
 }

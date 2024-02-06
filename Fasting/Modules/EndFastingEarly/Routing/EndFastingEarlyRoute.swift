@@ -10,20 +10,19 @@ import AppStudioNavigation
 
 struct EndFastingEarlyRoute: Route {
 
-    private let viewModel: EndFastingEarlyViewModel
-
-    init(navigator: Navigator,
-         input: EndFastingEarlyInput,
-         output: @escaping EndFastingEarlyOutputBlock) {
-
-        let router = EndFastingEarlyRouter(navigator: navigator)
-        let viewModel = EndFastingEarlyViewModel(input: input, output: output)
-        viewModel.router = router
-        self.viewModel = viewModel
-    }
+    let navigator: Navigator
+    let input: EndFastingEarlyInput
+    let output: EndFastingEarlyOutputBlock
 
     var view: AnyView {
         EndFastingEarlyScreen(viewModel: viewModel)
             .eraseToAnyView()
+    }
+
+    private var viewModel: EndFastingEarlyViewModel {
+        let router = EndFastingEarlyRouter(navigator: navigator)
+        let viewModel = EndFastingEarlyViewModel(input: input, output: output)
+        viewModel.router = router
+        return viewModel
     }
 }

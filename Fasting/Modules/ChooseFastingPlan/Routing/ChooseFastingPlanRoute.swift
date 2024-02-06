@@ -10,20 +10,19 @@ import AppStudioNavigation
 
 struct ChooseFastingPlanRoute: Route {
 
-    private let viewModel: ChooseFastingPlanViewModel
-
-    init(navigator: Navigator,
-         input: ChooseFastingPlanInput,
-         output: @escaping ChooseFastingPlanOutputBlock) {
-
-        let router = ChooseFastingPlanRouter(navigator: navigator)
-        let viewModel = ChooseFastingPlanViewModel(input: input, output: output)
-        viewModel.router = router
-        self.viewModel = viewModel
-    }
+    let navigator: Navigator
+    let input: ChooseFastingPlanInput
+    let output: ChooseFastingPlanOutputBlock
 
     var view: AnyView {
         ChooseFastingPlanScreen(viewModel: viewModel)
             .eraseToAnyView()
+    }
+
+    private var viewModel: ChooseFastingPlanViewModel {
+        let router = ChooseFastingPlanRouter(navigator: navigator)
+        let viewModel = ChooseFastingPlanViewModel(input: input, output: output)
+        viewModel.router = router
+        return viewModel
     }
 }

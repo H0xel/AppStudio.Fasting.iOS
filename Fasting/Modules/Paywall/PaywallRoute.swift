@@ -11,20 +11,19 @@ import AppStudioNavigation
 
 struct PaywallRoute: Route {
 
-    private let viewModel: PaywallViewModel
-
-    init(navigator: Navigator,
-         input: PaywallScreenInput,
-         output: @escaping ViewOutput<PaywallScreenOutput>) {
-
-        let router = PaywallRouter(navigator: navigator)
-        let viewModel = PaywallViewModel(input: input, output: output)
-        viewModel.router = router
-        self.viewModel = viewModel
-    }
+    let navigator: Navigator
+    let input: PaywallScreenInput
+    let output: ViewOutput<PaywallScreenOutput>
 
     var view: AnyView {
         PaywallScreen(viewModel: viewModel)
             .eraseToAnyView()
+    }
+
+    private var viewModel: PaywallViewModel {
+        let router = PaywallRouter(navigator: navigator)
+        let viewModel = PaywallViewModel(input: input, output: output)
+        viewModel.router = router
+        return viewModel
     }
 }

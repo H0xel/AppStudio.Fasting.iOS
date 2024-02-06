@@ -3162,7 +3162,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.6;
+				version = 1.0.8;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
