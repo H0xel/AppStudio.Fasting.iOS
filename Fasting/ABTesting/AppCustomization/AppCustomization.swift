@@ -12,6 +12,7 @@ import RxSwift
 protocol AppCustomization {
     var forceUpdateAppVersion: Observable<String> { get }
     var appStoreLink: Observable<String> { get }
+    var allProductsObservable: Observable<AvailableProducts> { get }
     func initialize()
     func closePaywallButtonDelay() async throws -> Int
     func isLongOnboardingEnabled() async throws -> Bool

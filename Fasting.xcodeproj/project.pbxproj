@@ -71,6 +71,12 @@
 		566C249A2AE8F80B00AEDB3C /* PaywallBottomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C248F2AE8F80B00AEDB3C /* PaywallBottomInfoView.swift */; };
 		566C249B2AE8F80B00AEDB3C /* PaywallRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C24902AE8F80B00AEDB3C /* PaywallRoute.swift */; };
 		566C249E2AE8F8FD00AEDB3C /* Image+Paywall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C249D2AE8F8FD00AEDB3C /* Image+Paywall.swift */; };
+		56728A632B7203CE00652341 /* ProductsLoaderServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56728A602B7203CE00652341 /* ProductsLoaderServiceImpl.swift */; };
+		56728A642B7203CE00652341 /* ProductsLoaderDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56728A612B7203CE00652341 /* ProductsLoaderDependencies.swift */; };
+		56728A652B7203CE00652341 /* ProductsLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56728A622B7203CE00652341 /* ProductsLoaderService.swift */; };
+		56728A682B7203FC00652341 /* AvailableProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56728A672B7203FC00652341 /* AvailableProducts.swift */; };
+		56728A6A2B7207C500652341 /* RemoteProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56728A692B7207C500652341 /* RemoteProducts.swift */; };
+		56728A6C2B7207CE00652341 /* RemoteExperimentPlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56728A6B2B7207CE00652341 /* RemoteExperimentPlans.swift */; };
 		567500002ADE84B4009331CB /* MessageSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE52ADE84B4009331CB /* MessageSubjectService.swift */; };
 		567500012ADE84B4009331CB /* MessagePublisherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE62ADE84B4009331CB /* MessagePublisherService.swift */; };
 		567500022ADE84B4009331CB /* MessengerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE72ADE84B4009331CB /* MessengerServiceImpl.swift */; };
@@ -472,6 +478,12 @@
 		566C248F2AE8F80B00AEDB3C /* PaywallBottomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallBottomInfoView.swift; sourceTree = "<group>"; };
 		566C24902AE8F80B00AEDB3C /* PaywallRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallRoute.swift; sourceTree = "<group>"; };
 		566C249D2AE8F8FD00AEDB3C /* Image+Paywall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Paywall.swift"; sourceTree = "<group>"; };
+		56728A602B7203CE00652341 /* ProductsLoaderServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsLoaderServiceImpl.swift; sourceTree = "<group>"; };
+		56728A612B7203CE00652341 /* ProductsLoaderDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsLoaderDependencies.swift; sourceTree = "<group>"; };
+		56728A622B7203CE00652341 /* ProductsLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsLoaderService.swift; sourceTree = "<group>"; };
+		56728A672B7203FC00652341 /* AvailableProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProducts.swift; sourceTree = "<group>"; };
+		56728A692B7207C500652341 /* RemoteProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProducts.swift; sourceTree = "<group>"; };
+		56728A6B2B7207CE00652341 /* RemoteExperimentPlans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteExperimentPlans.swift; sourceTree = "<group>"; };
 		567500112ADE86C3009331CB /* FirstLaunchServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLaunchServiceImpl.swift; sourceTree = "<group>"; };
 		567500122ADE86C3009331CB /* FirstLaunchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLaunchService.swift; sourceTree = "<group>"; };
 		567500182ADE86C3009331CB /* Synchronized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronized.swift; sourceTree = "<group>"; };
@@ -1048,6 +1060,27 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		56728A5F2B7203A300652341 /* ProductsLoader */ = {
+			isa = PBXGroup;
+			children = (
+				56728A662B7203D800652341 /* Model */,
+				56728A622B7203CE00652341 /* ProductsLoaderService.swift */,
+				56728A602B7203CE00652341 /* ProductsLoaderServiceImpl.swift */,
+				56728A612B7203CE00652341 /* ProductsLoaderDependencies.swift */,
+			);
+			path = ProductsLoader;
+			sourceTree = "<group>";
+		};
+		56728A662B7203D800652341 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56728A672B7203FC00652341 /* AvailableProducts.swift */,
+				56728A692B7207C500652341 /* RemoteProducts.swift */,
+				56728A6B2B7207CE00652341 /* RemoteExperimentPlans.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		567500102ADE86C3009331CB /* FirstLaunchService */ = {
 			isa = PBXGroup;
 			children = (
@@ -1174,6 +1207,7 @@
 		567500932ADFAAF4009331CB /* Subscription */ = {
 			isa = PBXGroup;
 			children = (
+				56728A5F2B7203A300652341 /* ProductsLoader */,
 				567500982ADFAB69009331CB /* ProductProvider */,
 				567500972ADFAB69009331CB /* ProductIdsService.swift */,
 				5675009B2ADFAB69009331CB /* SubscriptionDependencies.swift */,
@@ -2543,6 +2577,7 @@
 				56C28DCA2AE109580007E48D /* AppInitializerServiceImpl.swift in Sources */,
 				A0CEE6302AEFE4280082B27F /* FastingParametersService.swift in Sources */,
 				56C28DC62AE109580007E48D /* IntercomInitializer.swift in Sources */,
+				56728A682B7203FC00652341 /* AvailableProducts.swift in Sources */,
 				56E223F12B207E1B00096664 /* OnboardingServiceDependencies.swift in Sources */,
 				A044263F2AF240F4005400AE /* ProfileViewModel.swift in Sources */,
 				5662DECA2B1614E300C1637C /* FastingRingActiveStateView.swift in Sources */,
@@ -2550,6 +2585,7 @@
 				A0CEE61C2AEFE2E50082B27F /* FastingStatus.swift in Sources */,
 				566C24922AE8F80B00AEDB3C /* PaywallViewModel.swift in Sources */,
 				A0CEE61E2AEFE2F20082B27F /* FastingActiveState.swift in Sources */,
+				56728A6C2B7207CE00652341 /* RemoteExperimentPlans.swift in Sources */,
 				567500DD2ADFCDAC009331CB /* ApiDependencies.swift in Sources */,
 				567500472ADFA67E009331CB /* AppStudioMobileDeviceDataProviderPreview.swift in Sources */,
 				A7D01B902AF115F200C50C1F /* NotificationOnboardingRouter.swift in Sources */,
@@ -2589,6 +2625,7 @@
 				A0C8C1B22B1F01D800EB371C /* FastingPhaseTitleView.swift in Sources */,
 				56F64D812AE10EF20067FE05 /* RootViewModel.swift in Sources */,
 				A7D01B622AF0C82100C50C1F /* OnboardingViewModel.swift in Sources */,
+				56728A652B7203CE00652341 /* ProductsLoaderService.swift in Sources */,
 				5675FFF82ADE84B4009331CB /* PurchaseMessage.swift in Sources */,
 				567500032ADE84B4009331CB /* MigrationLaunchServiceImpl.swift in Sources */,
 				A78535E52AF1481900437F5E /* SnapCarousel.swift in Sources */,
@@ -2683,7 +2720,9 @@
 				A00B4DC92B7382170067A872 /* FacebookInitializerDependencies.swift in Sources */,
 				A7DBD0962B3AB243003DCD10 /* QuickAction.swift in Sources */,
 				564BE0C32AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift in Sources */,
+				56728A6A2B7207C500652341 /* RemoteProducts.swift in Sources */,
 				567500CA2ADFCC54009331CB /* AccountSyncServiceImpl.swift in Sources */,
+				56728A632B7203CE00652341 /* ProductsLoaderServiceImpl.swift in Sources */,
 				A08449732B1A86AC00D30E04 /* FastingPhaseViewModel.swift in Sources */,
 				56C28DD22AE109580007E48D /* MobileDeviceDataProviderInitializer.swift in Sources */,
 				567500012ADE84B4009331CB /* MessagePublisherService.swift in Sources */,
@@ -2814,6 +2853,7 @@
 				A063B1F52AEBD0E800084696 /* StartFastingInput.swift in Sources */,
 				A05004792B20FCEA00820E45 /* OnboardingSegmentedView.swift in Sources */,
 				56F64D7E2AE10EF20067FE05 /* RootRoute.swift in Sources */,
+				56728A642B7203CE00652341 /* ProductsLoaderDependencies.swift in Sources */,
 				56C28DD52AE109580007E48D /* EarlyTimeInitializers.swift in Sources */,
 				5675009F2ADFAB69009331CB /* ProductProviderImpl.swift in Sources */,
 				567500232ADE86C3009331CB /* Synchronized.swift in Sources */,
@@ -3049,6 +3089,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+
 				MARKETING_VERSION = 1.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -79,6 +79,18 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
         try await remoteConfigValue(forKey: isLongOnboardingEnabledKey, defaultValue: true)
     }
 
+     var allProductsObservable: Observable<AvailableProducts> {
+         remoteConfigValueObservable(forKey: "all_products", defaultValue: "")
+         .observe(on: MainScheduler.asyncInstance)
+         .map {
+             if $0.isEmpty { throw PricingError.error }
+             return $0
+         }
+         .map { try AvailableProducts(json: $0) }
+         .retry(times: 3, withDelay: .seconds(1))
+         .catchAndReturn(.empty)
+     }
+
     // TODO: Протестить на то чтобы в кэше не сохранялось
 //    func shouldForceUpdate() async throws -> Bool {
 //        let requierdVersion: String = try await remoteConfigValue(forKey: requiredAppVersionKey,
