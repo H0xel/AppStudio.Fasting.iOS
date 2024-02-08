@@ -212,6 +212,13 @@
 		56F64D812AE10EF20067FE05 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */; };
 		A008A82F2AF117540011A261 /* FastingProgressLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008A82E2AF117540011A261 /* FastingProgressLabelView.swift */; };
 		A008A8312AF14C0B0011A261 /* Animation+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008A8302AF14C0B0011A261 /* Animation+extensions.swift */; };
+		A00B4DBD2B73817F0067A872 /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = A00B4DBC2B73817F0067A872 /* FacebookAEM */; };
+		A00B4DBF2B73817F0067A872 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = A00B4DBE2B73817F0067A872 /* FacebookBasics */; };
+		A00B4DC12B73817F0067A872 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = A00B4DC02B73817F0067A872 /* FacebookCore */; };
+		A00B4DC32B73817F0067A872 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = A00B4DC22B73817F0067A872 /* FacebookLogin */; };
+		A00B4DC82B7382170067A872 /* FacebookInitializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC52B7382170067A872 /* FacebookInitializerService.swift */; };
+		A00B4DC92B7382170067A872 /* FacebookInitializerDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC62B7382170067A872 /* FacebookInitializerDependencies.swift */; };
+		A00B4DCA2B7382170067A872 /* FacebookInitializerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC72B7382170067A872 /* FacebookInitializerServiceImpl.swift */; };
 		A0255E6C2AFBAA9A00221EC6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A0255E6B2AFBAA9A00221EC6 /* Moya */; };
 		A0255E6E2AFBCE9D00221EC6 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E6D2AFBCE9D00221EC6 /* Account.swift */; };
 		A0255E702AFBD00200221EC6 /* AccountTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E6F2AFBD00200221EC6 /* AccountTarget.swift */; };
@@ -602,6 +609,9 @@
 		56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		A008A82E2AF117540011A261 /* FastingProgressLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingProgressLabelView.swift; sourceTree = "<group>"; };
 		A008A8302AF14C0B0011A261 /* Animation+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation+extensions.swift"; sourceTree = "<group>"; };
+		A00B4DC52B7382170067A872 /* FacebookInitializerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInitializerService.swift; sourceTree = "<group>"; };
+		A00B4DC62B7382170067A872 /* FacebookInitializerDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInitializerDependencies.swift; sourceTree = "<group>"; };
+		A00B4DC72B7382170067A872 /* FacebookInitializerServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInitializerServiceImpl.swift; sourceTree = "<group>"; };
 		A0255E6D2AFBCE9D00221EC6 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A0255E6F2AFBD00200221EC6 /* AccountTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTarget.swift; sourceTree = "<group>"; };
 		A0255E722AFBD02F00221EC6 /* PutAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutAccountRequest.swift; sourceTree = "<group>"; };
@@ -787,12 +797,16 @@
 				A0255E6C2AFBAA9A00221EC6 /* Moya in Frameworks */,
 				A0255E8E2AFBD3C000221EC6 /* AppStudioUI in Frameworks */,
 				A0255E912AFBD3ED00221EC6 /* AppStudioNavigation in Frameworks */,
+				A00B4DBD2B73817F0067A872 /* FacebookAEM in Frameworks */,
+				A00B4DC12B73817F0067A872 /* FacebookCore in Frameworks */,
 				A0255E872AFBD38300221EC6 /* AppStudioSubscriptions in Frameworks */,
 				564BE0B82AF0E99F00CE7F38 /* MunicornFoundation in Frameworks */,
 				564BE0B42AF0E99F00CE7F38 /* MunicornAPI in Frameworks */,
 				564BE0B62AF0E99F00CE7F38 /* MunicornCoreData in Frameworks */,
 				5675000D2ADE85FD009331CB /* FirebaseCrashlytics in Frameworks */,
 				A0255E8C2AFBD3C000221EC6 /* AppStudioFoundation in Frameworks */,
+				A00B4DC32B73817F0067A872 /* FacebookLogin in Frameworks */,
+				A00B4DBF2B73817F0067A872 /* FacebookBasics in Frameworks */,
 				5675000F2ADE85FD009331CB /* FirebaseRemoteConfig in Frameworks */,
 				5675000B2ADE85FD009331CB /* FirebaseAnalytics in Frameworks */,
 			);
@@ -1377,6 +1391,7 @@
 		5675FFD12ADE8358009331CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A00B4DC42B7382170067A872 /* FacebookInitializer */,
 				A7DBD08E2B3AB1B7003DCD10 /* QuickActionService */,
 				56E223EB2B2079A200096664 /* OnboardingService */,
 				A75956EE2B172EA300ECCAB0 /* SubcriptionService */,
@@ -1648,6 +1663,16 @@
 				56E223F62B21973400096664 /* OnboardingLoadingViewRoute.swift */,
 			);
 			path = Routing;
+			sourceTree = "<group>";
+		};
+		A00B4DC42B7382170067A872 /* FacebookInitializer */ = {
+			isa = PBXGroup;
+			children = (
+				A00B4DC52B7382170067A872 /* FacebookInitializerService.swift */,
+				A00B4DC62B7382170067A872 /* FacebookInitializerDependencies.swift */,
+				A00B4DC72B7382170067A872 /* FacebookInitializerServiceImpl.swift */,
+			);
+			path = FacebookInitializer;
 			sourceTree = "<group>";
 		};
 		A0255E712AFBD02500221EC6 /* Models */ = {
@@ -2299,6 +2324,10 @@
 				564BE0B32AF0E99F00CE7F38 /* MunicornAPI */,
 				564BE0B52AF0E99F00CE7F38 /* MunicornCoreData */,
 				564BE0B72AF0E99F00CE7F38 /* MunicornFoundation */,
+				A00B4DBC2B73817F0067A872 /* FacebookAEM */,
+				A00B4DBE2B73817F0067A872 /* FacebookBasics */,
+				A00B4DC02B73817F0067A872 /* FacebookCore */,
+				A00B4DC22B73817F0067A872 /* FacebookLogin */,
 			);
 			productName = AppStudioTemplate;
 			productReference = 563257112ADE57D80000F33C /* Fasting.app */;
@@ -2359,6 +2388,7 @@
 				A0255E882AFBD3C000221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Common" */,
 				A0255E8F2AFBD3ED00221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */,
 				564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */,
+				A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 563257122ADE57D80000F33C /* Products */;
 			projectDirPath = "";
@@ -2536,6 +2566,7 @@
 				567500DC2ADFCDAC009331CB /* AccountApi.swift in Sources */,
 				A0255E6E2AFBCE9D00221EC6 /* Account.swift in Sources */,
 				A0881E682AEAC32500E38FF5 /* FastingRoute.swift in Sources */,
+				A00B4DCA2B7382170067A872 /* FacebookInitializerServiceImpl.swift in Sources */,
 				5662DEC82B1614BE00C1637C /* FastingRingPointCircleView.swift in Sources */,
 				5675FFFD2ADE84B4009331CB /* SubscriptionStateMessage.swift in Sources */,
 				567500D92ADFCDAC009331CB /* SandboxApiSettingsProviderImpl.swift in Sources */,
@@ -2649,6 +2680,7 @@
 				564BE2C52B26E50E00FE35C2 /* OnboardingCalculationProccessData.swift in Sources */,
 				5675009E2ADFAB69009331CB /* ProductIdsService.swift in Sources */,
 				56E223FB2B21973400096664 /* OnboardingLoadingViewRouter.swift in Sources */,
+				A00B4DC92B7382170067A872 /* FacebookInitializerDependencies.swift in Sources */,
 				A7DBD0962B3AB243003DCD10 /* QuickAction.swift in Sources */,
 				564BE0C32AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift in Sources */,
 				567500CA2ADFCC54009331CB /* AccountSyncServiceImpl.swift in Sources */,
@@ -2725,6 +2757,7 @@
 				56F64D7D2AE10EF20067FE05 /* RootRouter.swift in Sources */,
 				A0881E5C2AEAB7A800E38FF5 /* Image+icons.swift in Sources */,
 				A0255E7A2AFBD1F200221EC6 /* SubscriptionsApiImpl.swift in Sources */,
+				A00B4DC82B7382170067A872 /* FacebookInitializerService.swift in Sources */,
 				A7D01B612AF0C82100C50C1F /* OnboardingOutput.swift in Sources */,
 				56655B6A2AFCB12A00508ED4 /* FastingIntervalHistory+Mappable.swift in Sources */,
 				A7AD9C362B17359B006AE1C5 /* AppSyncServicePreview.swift in Sources */,
@@ -2975,7 +3008,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.0.13;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -3016,7 +3049,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -3133,6 +3166,14 @@
 				version = 1.0.5;
 			};
 		};
+		A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.0;
+			};
+		};
 		A0255E6A2AFBAA9A00221EC6 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -3207,6 +3248,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */;
 			productName = ABTesting;
+		};
+		A00B4DBC2B73817F0067A872 /* FacebookAEM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookAEM;
+		};
+		A00B4DBE2B73817F0067A872 /* FacebookBasics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookBasics;
+		};
+		A00B4DC02B73817F0067A872 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		A00B4DC22B73817F0067A872 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
 		};
 		A0255E6B2AFBAA9A00221EC6 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;

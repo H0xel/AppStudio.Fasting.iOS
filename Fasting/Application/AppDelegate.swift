@@ -19,6 +19,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     @Dependency(\.storageService) var storageService
     @Dependency(\.cloudStorage) var cloudStorage
     @Dependency(\.quickActionTypeServiceService) private var quickActionTypeServiceService
+    @Dependency(\.facebookInitializerService) private var facebookInitializerService
     private var cancellables = Set<AnyCancellable>()
 
     func application(
@@ -29,6 +30,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         trackLaunch()
         initializeMessageEvents()
         congifureAppearance()
+        facebookInitializerService.application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
 

@@ -11,5 +11,24 @@
 		<string>Poppins-SemiBold.ttf</string>
 		<string>Poppins-Regular.ttf</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1624163004775525</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1624163004775525</string>
+	<key>FacebookClientToken</key>
+	<string>8fdb2b1d536ac5fee4d5276f3b84954d</string>
+	<key>FacebookDisplayName</key>
+	<string>Fasting Tracker</string>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<true/>
+	<key>FacebookAdvertiserIDCollectionEnabled</key>
+	<true/>
 </dict>
 </plist>
