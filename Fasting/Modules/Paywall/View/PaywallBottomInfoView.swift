@@ -15,7 +15,7 @@ struct PaywallBottomInfoView: View {
     var body: some View {
         VStack(spacing: .zero) {
             PaywallCancelView()
-            AccentButton(title: Localization.continueTitle,
+            AccentButton(title: .localizedString(Localization.continueTitle),
                          action: onSaveTap)
             .padding(.top, Layout.buttonTopPadding)
             HStack(spacing: Layout.noPaymentsSpacing) {

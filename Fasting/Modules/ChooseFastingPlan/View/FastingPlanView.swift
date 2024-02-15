@@ -42,7 +42,7 @@ struct FastingPlanView: View {
                 Spacer()
             }
 
-            AccentButton(title: Localization.buttonTitle) {
+            AccentButton(title: .localizedString(Localization.buttonTitle)) {
                 action()
             }
             .padding(.horizontal, Layout.buttonHorizontalPadding)

@@ -13,6 +13,10 @@ struct DebugMenuActionsView: View {
     @Dependency(\.backendEnvironmentService) private var backendEnvironmentService
     @Dependency(\.accountIdProvider) private var accountIdProvider
     @Dependency(\.cloudStorage) private var cloudStorage
+    @Dependency(\.storageService) private var storageService
+    @Dependency(\.appCustomization) private var appCustomization
+    @Dependency(\.subscriptionService) private var subscriptionService
+    @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
 
     @State private var currentEnvironment: BackendEnvironment
 
@@ -44,6 +48,14 @@ struct DebugMenuActionsView: View {
             fatalError("Crash for testing crashlytics")
         }
         .foregroundColor(.red)
+
+        Button("Reset onboarding") {
+            storageService.onboardingIsFinished = false
+        }
+
+        Button("Reset discount paywall timer") {
+            discountPaywallTimerService.reset()
+        }
     }
 }
 

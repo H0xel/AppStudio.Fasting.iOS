@@ -29,7 +29,7 @@ struct StartFastingScreen: View {
 
             HStack(spacing: Layout.buttonsSpacing) {
                 BorderedButton(title: Localization.cancel, action: viewModel.cancel)
-                AccentButton(title: Localization.save, action: viewModel.save)
+                AccentButton(title: .localizedString(Localization.save), action: viewModel.save)
             }
             .padding(.horizontal, Layout.horizontalPadding)
         }

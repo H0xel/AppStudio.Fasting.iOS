@@ -42,11 +42,19 @@ struct RootScreen: View {
                         Image.personFill
                     }
                 if !viewModel.hasSubscription {
-                    viewModel.paywallScreen
-                        .tag(AppTab.paywall)
-                        .tabItem {
-                            Image.crownFill
-                        }
+                    if let info = viewModel.discountPaywallInfo {
+                        viewModel.discountPaywall(input: .init(context: .discountPaywallTab, paywallInfo: info))
+                            .tag(AppTab.paywall)
+                            .tabItem {
+                                Image.crownFill
+                            }
+                    } else {
+                        viewModel.paywallScreen
+                            .tag(AppTab.paywall)
+                            .tabItem {
+                                Image.crownFill
+                            }
+                    }
                 }
             }
             .navBarButton(placement: .principal,

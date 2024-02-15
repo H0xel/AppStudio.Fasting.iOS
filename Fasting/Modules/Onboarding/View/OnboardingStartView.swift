@@ -33,7 +33,7 @@ struct OnboardingStartView: View {
                         .font(.poppins(.headerL))
                         .padding(.bottom, Layout.textVerticalPadding)
                         .background()
-                    AccentButton(title: Localization.buttonTitle, action: onTap)
+                    AccentButton(title: .localizedString(Localization.buttonTitle), action: onTap)
                 }
                 .padding(.horizontal, Layout.horizontalPadding)
                 .padding(.bottom, Layout.buttonBottomPadding)

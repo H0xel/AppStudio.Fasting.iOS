@@ -41,7 +41,7 @@ struct SuccessScreen: View {
                                 onStartEdit: viewModel.editStartDate,
                                 onEndEdit: viewModel.editEndDate)
             .padding(.bottom, Layout.intervalBottomPadding)
-            AccentButton(title: Localization.submit, action: viewModel.submit)
+            AccentButton(title: .localizedString(Localization.submit), action: viewModel.submit)
                 .padding(.bottom, Layout.bottomPadding)
         }
         .multilineTextAlignment(.center)

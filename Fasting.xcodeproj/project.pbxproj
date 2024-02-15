@@ -348,6 +348,9 @@
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
 		A75956F02B172EBF00ECCAB0 /* SubscriptionPreviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75956EF2B172EBF00ECCAB0 /* SubscriptionPreviewService.swift */; };
+		A76148EE2B74C8A6002A7F95 /* DiscountPaywallTimerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76148EB2B74C8A6002A7F95 /* DiscountPaywallTimerServiceImpl.swift */; };
+		A76148EF2B74C8A6002A7F95 /* DiscountPaywallTimerDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76148EC2B74C8A6002A7F95 /* DiscountPaywallTimerDependencies.swift */; };
+		A76148F02B74C8A6002A7F95 /* DiscountPaywallTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76148ED2B74C8A6002A7F95 /* DiscountPaywallTimerService.swift */; };
 		A7622F502AEBC9AA00D12632 /* Font+Poppins.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7622F4F2AEBC9AA00D12632 /* Font+Poppins.swift */; };
 		A76294302B219E0B00DAF93B /* PersonalizedTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762942F2B219E0B00DAF93B /* PersonalizedTitleView.swift */; };
 		A76294322B219E2100DAF93B /* PersonalizedChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76294312B219E2100DAF93B /* PersonalizedChart.swift */; };
@@ -366,8 +369,21 @@
 		A78535E52AF1481900437F5E /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78535E42AF1481900437F5E /* SnapCarousel.swift */; };
 		A78535E82AF21F0900437F5E /* FastingBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */; };
 		A7A1AEA42AFE2C0A00B6211E /* Contexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1AEA32AFE2C0A00B6211E /* Contexts.swift */; };
+		A7A397342B71F6A6003330C3 /* DiscountPaywallInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3972E2B71F6A6003330C3 /* DiscountPaywallInput.swift */; };
+		A7A397352B71F6A6003330C3 /* DiscountPaywallRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3972F2B71F6A6003330C3 /* DiscountPaywallRouter.swift */; };
+		A7A397362B71F6A6003330C3 /* DiscountPaywallRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A397302B71F6A6003330C3 /* DiscountPaywallRoute.swift */; };
+		A7A397372B71F6A6003330C3 /* DiscountPaywallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A397312B71F6A6003330C3 /* DiscountPaywallScreen.swift */; };
+		A7A397382B71F6A6003330C3 /* DiscountPaywallOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A397322B71F6A6003330C3 /* DiscountPaywallOutput.swift */; };
+		A7A397392B71F6A6003330C3 /* DiscountPaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A397332B71F6A6003330C3 /* DiscountPaywallViewModel.swift */; };
+		A7A3973D2B71FEFE003330C3 /* DiscountPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3973C2B71FEFE003330C3 /* DiscountPaywallView.swift */; };
+		A7A3973F2B720225003330C3 /* DiscountTimerElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3973E2B720225003330C3 /* DiscountTimerElementView.swift */; };
+		A7A397412B720412003330C3 /* DiscountTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A397402B720412003330C3 /* DiscountTimerView.swift */; };
+		A7A397432B720565003330C3 /* DiscountDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A397422B720565003330C3 /* DiscountDescriptionView.swift */; };
+		A7A3974C2B7345D0003330C3 /* DiscountPaywallInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3974B2B7345D0003330C3 /* DiscountPaywallInfo.swift */; };
+		A7A3974E2B7345D9003330C3 /* DiscountPaywallExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3974D2B7345D9003330C3 /* DiscountPaywallExperiment.swift */; };
 		A7A3CE6D2AEBB32D00308201 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */; };
 		A7AD9C362B17359B006AE1C5 /* AppSyncServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AD9C352B17359B006AE1C5 /* AppSyncServicePreview.swift */; };
+		A7BD1CDB2B79B531009C1259 /* DiscountPaywallPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */; };
 		A7D01B5D2AF0C82100C50C1F /* OnboardingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B572AF0C82100C50C1F /* OnboardingInput.swift */; };
 		A7D01B5E2AF0C82100C50C1F /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B582AF0C82100C50C1F /* OnboardingRouter.swift */; };
 		A7D01B5F2AF0C82100C50C1F /* OnboardingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B592AF0C82100C50C1F /* OnboardingRoute.swift */; };
@@ -743,6 +759,9 @@
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
 		A75956EF2B172EBF00ECCAB0 /* SubscriptionPreviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPreviewService.swift; sourceTree = "<group>"; };
+		A76148EB2B74C8A6002A7F95 /* DiscountPaywallTimerServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallTimerServiceImpl.swift; sourceTree = "<group>"; };
+		A76148EC2B74C8A6002A7F95 /* DiscountPaywallTimerDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallTimerDependencies.swift; sourceTree = "<group>"; };
+		A76148ED2B74C8A6002A7F95 /* DiscountPaywallTimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallTimerService.swift; sourceTree = "<group>"; };
 		A7622F4F2AEBC9AA00D12632 /* Font+Poppins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Poppins.swift"; sourceTree = "<group>"; };
 		A762942F2B219E0B00DAF93B /* PersonalizedTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedTitleView.swift; sourceTree = "<group>"; };
 		A76294312B219E2100DAF93B /* PersonalizedChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedChart.swift; sourceTree = "<group>"; };
@@ -761,9 +780,22 @@
 		A78535E42AF1481900437F5E /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 		A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingBackgroundModifier.swift; sourceTree = "<group>"; };
 		A7A1AEA32AFE2C0A00B6211E /* Contexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contexts.swift; sourceTree = "<group>"; };
+		A7A3972E2B71F6A6003330C3 /* DiscountPaywallInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallInput.swift; sourceTree = "<group>"; };
+		A7A3972F2B71F6A6003330C3 /* DiscountPaywallRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallRouter.swift; sourceTree = "<group>"; };
+		A7A397302B71F6A6003330C3 /* DiscountPaywallRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallRoute.swift; sourceTree = "<group>"; };
+		A7A397312B71F6A6003330C3 /* DiscountPaywallScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallScreen.swift; sourceTree = "<group>"; };
+		A7A397322B71F6A6003330C3 /* DiscountPaywallOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallOutput.swift; sourceTree = "<group>"; };
+		A7A397332B71F6A6003330C3 /* DiscountPaywallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallViewModel.swift; sourceTree = "<group>"; };
+		A7A3973C2B71FEFE003330C3 /* DiscountPaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallView.swift; sourceTree = "<group>"; };
+		A7A3973E2B720225003330C3 /* DiscountTimerElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountTimerElementView.swift; sourceTree = "<group>"; };
+		A7A397402B720412003330C3 /* DiscountTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountTimerView.swift; sourceTree = "<group>"; };
+		A7A397422B720565003330C3 /* DiscountDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountDescriptionView.swift; sourceTree = "<group>"; };
+		A7A3974B2B7345D0003330C3 /* DiscountPaywallInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallInfo.swift; sourceTree = "<group>"; };
+		A7A3974D2B7345D9003330C3 /* DiscountPaywallExperiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallExperiment.swift; sourceTree = "<group>"; };
 		A7A3CE4C2AEBB30700308201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		A7AD9C352B17359B006AE1C5 /* AppSyncServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSyncServicePreview.swift; sourceTree = "<group>"; };
+		A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallPinView.swift; sourceTree = "<group>"; };
 		A7D01B572AF0C82100C50C1F /* OnboardingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInput.swift; sourceTree = "<group>"; };
 		A7D01B582AF0C82100C50C1F /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		A7D01B592AF0C82100C50C1F /* OnboardingRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoute.swift; sourceTree = "<group>"; };
@@ -1429,6 +1461,7 @@
 		5675FFD12ADE8358009331CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A76148E42B74C876002A7F95 /* DiscountPaywallTimerService */,
 				A00B4DC42B7382170067A872 /* FacebookInitializer */,
 				A7DBD08E2B3AB1B7003DCD10 /* QuickActionService */,
 				56E223EB2B2079A200096664 /* OnboardingService */,
@@ -1533,6 +1566,7 @@
 		56C28D682AE0FBFC0007E48D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A7A3972D2B71F683003330C3 /* DiscountPaywall */,
 				A777D1432B209AC300B48F41 /* PersonalizedPaywall */,
 				56E223F32B21971200096664 /* OnboardingLoadingView */,
 				A08449672B1A866000D30E04 /* FastingPhase */,
@@ -1924,6 +1958,8 @@
 			children = (
 				5675005C2ADFA97F009331CB /* PricingOngoingExperiment.swift */,
 				5675005D2ADFA97F009331CB /* SubscriptionInfo.swift */,
+				A7A3974B2B7345D0003330C3 /* DiscountPaywallInfo.swift */,
+				A7A3974D2B7345D9003330C3 /* DiscountPaywallExperiment.swift */,
 			);
 			path = PricingExperiment;
 			sourceTree = "<group>";
@@ -2132,6 +2168,16 @@
 			path = SubcriptionService;
 			sourceTree = "<group>";
 		};
+		A76148E42B74C876002A7F95 /* DiscountPaywallTimerService */ = {
+			isa = PBXGroup;
+			children = (
+				A76148EB2B74C8A6002A7F95 /* DiscountPaywallTimerServiceImpl.swift */,
+				A76148EC2B74C8A6002A7F95 /* DiscountPaywallTimerDependencies.swift */,
+				A76148ED2B74C8A6002A7F95 /* DiscountPaywallTimerService.swift */,
+			);
+			path = DiscountPaywallTimerService;
+			sourceTree = "<group>";
+		};
 		A76294332B21A3E600DAF93B /* PersonalizedChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -2184,6 +2230,40 @@
 				A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */,
 			);
 			path = Modifier;
+			sourceTree = "<group>";
+		};
+		A7A3972D2B71F683003330C3 /* DiscountPaywall */ = {
+			isa = PBXGroup;
+			children = (
+				A7A3973B2B71F6CB003330C3 /* View */,
+				A7A3973A2B71F6B0003330C3 /* Routing */,
+				A7A397312B71F6A6003330C3 /* DiscountPaywallScreen.swift */,
+				A7A397332B71F6A6003330C3 /* DiscountPaywallViewModel.swift */,
+			);
+			path = DiscountPaywall;
+			sourceTree = "<group>";
+		};
+		A7A3973A2B71F6B0003330C3 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A7A3972E2B71F6A6003330C3 /* DiscountPaywallInput.swift */,
+				A7A3972F2B71F6A6003330C3 /* DiscountPaywallRouter.swift */,
+				A7A397302B71F6A6003330C3 /* DiscountPaywallRoute.swift */,
+				A7A397322B71F6A6003330C3 /* DiscountPaywallOutput.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		A7A3973B2B71F6CB003330C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A7A3973C2B71FEFE003330C3 /* DiscountPaywallView.swift */,
+				A7A3973E2B720225003330C3 /* DiscountTimerElementView.swift */,
+				A7A397402B720412003330C3 /* DiscountTimerView.swift */,
+				A7A397422B720565003330C3 /* DiscountDescriptionView.swift */,
+				A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A7A3CE4D2AEBB31500308201 /* Fonts */ = {
@@ -2528,6 +2608,7 @@
 				56C7E96A2B107CE7007B5937 /* FastingLimitService.swift in Sources */,
 				A084496F2B1A86AC00D30E04 /* FastingPhaseRouter.swift in Sources */,
 				A0881E672AEAC32500E38FF5 /* FastingRouter.swift in Sources */,
+				A7A397352B71F6A6003330C3 /* DiscountPaywallRouter.swift in Sources */,
 				56E223E22B20787400096664 /* WeightMeasure.swift in Sources */,
 				A07EAB382AFA56A200A46D7E /* EndFastingEarlyOutput.swift in Sources */,
 				5675FFF02ADE84B4009331CB /* AppInitializedMessage.swift in Sources */,
@@ -2542,6 +2623,7 @@
 				A0C8C1A82B1DD58500EB371C /* Article.swift in Sources */,
 				A08449722B1A86AC00D30E04 /* FastingPhaseOutput.swift in Sources */,
 				A0382D3D2AF4F03A009CC579 /* SuccessRouter.swift in Sources */,
+				A7A397342B71F6A6003330C3 /* DiscountPaywallInput.swift in Sources */,
 				567500E72ADFD59B009331CB /* BackendEnvironmentService.swift in Sources */,
 				A7D01B7D2AF10A6D00C50C1F /* SetupFastingRouter.swift in Sources */,
 				A044263C2AF240F4005400AE /* ProfileRoute.swift in Sources */,
@@ -2578,6 +2660,7 @@
 				56E223DC2B20784D00096664 /* SpecialEvent.swift in Sources */,
 				567500D82ADFCDAC009331CB /* AppStudioApiSettingsProvider.swift in Sources */,
 				56E223D82B206BCE00096664 /* OnboardingData.swift in Sources */,
+				A7BD1CDB2B79B531009C1259 /* DiscountPaywallPinView.swift in Sources */,
 				5675FFA82ADE7FF8009331CB /* AppDelegate.swift in Sources */,
 				567500752ADFA97F009331CB /* SubscriptionInfo.swift in Sources */,
 				567500742ADFA97F009331CB /* PricingOngoingExperiment.swift in Sources */,
@@ -2590,6 +2673,7 @@
 				5662DECA2B1614E300C1637C /* FastingRingActiveStateView.swift in Sources */,
 				A76294302B219E0B00DAF93B /* PersonalizedTitleView.swift in Sources */,
 				A0CEE61C2AEFE2E50082B27F /* FastingStatus.swift in Sources */,
+				A7A397392B71F6A6003330C3 /* DiscountPaywallViewModel.swift in Sources */,
 				566C24922AE8F80B00AEDB3C /* PaywallViewModel.swift in Sources */,
 				A0CEE61E2AEFE2F20082B27F /* FastingActiveState.swift in Sources */,
 				56728A6C2B7207CE00652341 /* RemoteExperimentPlans.swift in Sources */,
@@ -2629,6 +2713,7 @@
 				A70743632B21D0B400572A98 /* PersonalizedBulletPointsView.swift in Sources */,
 				564BE2C72B26E54E00FE35C2 /* OnboardingCalculationProccessPhases.swift in Sources */,
 				A08449712B1A86AC00D30E04 /* FastingPhaseScreen.swift in Sources */,
+				A7A3973F2B720225003330C3 /* DiscountTimerElementView.swift in Sources */,
 				A0C8C1B22B1F01D800EB371C /* FastingPhaseTitleView.swift in Sources */,
 				56F64D812AE10EF20067FE05 /* RootViewModel.swift in Sources */,
 				A7D01B622AF0C82100C50C1F /* OnboardingViewModel.swift in Sources */,
@@ -2640,6 +2725,7 @@
 				A7D01B6A2AF0CCF900C50C1F /* ChooseFastingPlanInput.swift in Sources */,
 				A76294352B21A42500DAF93B /* PersonalizedSeparatorView.swift in Sources */,
 				A063B1FC2AEBD77000084696 /* BorderedButton.swift in Sources */,
+				A76148EF2B74C8A6002A7F95 /* DiscountPaywallTimerDependencies.swift in Sources */,
 				5675FFFB2ADE84B4009331CB /* FinishTransactionMessage.swift in Sources */,
 				A05004752B20A60700820E45 /* OnboardingPickerOption.swift in Sources */,
 				A0CEE6142AEFD0B40082B27F /* FastingStage.swift in Sources */,
@@ -2660,12 +2746,14 @@
 				A0382D342AF4EAF2009CC579 /* AppTab.swift in Sources */,
 				5675001F2ADE86C3009331CB /* FirstLaunchService.swift in Sources */,
 				A0CEE6202AEFE2FD0082B27F /* InActiveFastingStage.swift in Sources */,
+				A7A397382B71F6A6003330C3 /* DiscountPaywallOutput.swift in Sources */,
 				A04272CC2AE28DF600754326 /* DebugMenuInfoView.swift in Sources */,
 				A762943B2B21A58C00DAF93B /* PersonalizedSpecialEventView.swift in Sources */,
 				56C28DCC2AE109580007E48D /* Initializers.swift in Sources */,
 				5675FFFF2ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift in Sources */,
 				A04272C92AE28D3D00754326 /* DebugMenuScreen.swift in Sources */,
 				567500CB2ADFCC54009331CB /* AccountSyncService.swift in Sources */,
+				A7A397432B720565003330C3 /* DiscountDescriptionView.swift in Sources */,
 				56E223FF2B21973400096664 /* OnboardingLoadingViewViewModel.swift in Sources */,
 				5675008C2ADFAA4A009331CB /* RestoreResult.swift in Sources */,
 				56B10ABB2AF0DFF9008FC07E /* Model.xcdatamodeld in Sources */,
@@ -2679,6 +2767,7 @@
 				A063B1F82AEBD0E800084696 /* StartFastingScreen.swift in Sources */,
 				A777D14A2B209ADB00B48F41 /* PersonalizedPaywallInput.swift in Sources */,
 				563B8ACF2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift in Sources */,
+				A7A397362B71F6A6003330C3 /* DiscountPaywallRoute.swift in Sources */,
 				567500CD2ADFCC54009331CB /* AppSyncService.swift in Sources */,
 				A0C8C1AE2B1DDB9D00EB371C /* FastingPhaseArticleParagraphView.swift in Sources */,
 				A0382D3C2AF4F03A009CC579 /* SuccessInput.swift in Sources */,
@@ -2693,6 +2782,8 @@
 				A0C8C1AC2B1DD66000EB371C /* FastingPhaseArticleView.swift in Sources */,
 				56C28DC72AE109580007E48D /* LateTimeInitializers.swift in Sources */,
 				564BE0C12AF0F31600CE7F38 /* FastingParameters+Mappable.swift in Sources */,
+				A7A3974C2B7345D0003330C3 /* DiscountPaywallInfo.swift in Sources */,
+				A7A3973D2B71FEFE003330C3 /* DiscountPaywallView.swift in Sources */,
 				566C24942AE8F80B00AEDB3C /* PaywallScreenOutput.swift in Sources */,
 				563B8AC72B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift in Sources */,
 				A08449792B1A9A3800D30E04 /* FastingPhaseStartDescriptionView.swift in Sources */,
@@ -2717,6 +2808,7 @@
 				5675001E2ADE86C3009331CB /* FirstLaunchServiceImpl.swift in Sources */,
 				A063B1F92AEBD0E800084696 /* StartFastingOutput.swift in Sources */,
 				567500B72ADFC031009331CB /* IDFARequestService.swift in Sources */,
+				A7A397412B720412003330C3 /* DiscountTimerView.swift in Sources */,
 				567500052ADE84B4009331CB /* MigrationService.swift in Sources */,
 				56E223FC2B21973400096664 /* OnboardingLoadingViewRoute.swift in Sources */,
 				566C24952AE8F80B00AEDB3C /* SubscriptionProduct.swift in Sources */,
@@ -2724,6 +2816,7 @@
 				564BE2C52B26E50E00FE35C2 /* OnboardingCalculationProccessData.swift in Sources */,
 				5675009E2ADFAB69009331CB /* ProductIdsService.swift in Sources */,
 				56E223FB2B21973400096664 /* OnboardingLoadingViewRouter.swift in Sources */,
+				A76148F02B74C8A6002A7F95 /* DiscountPaywallTimerService.swift in Sources */,
 				A71CEB772B7DF40A0056C99A /* AppInitializerServicePreview.swift in Sources */,
 				A00B4DC92B7382170067A872 /* FacebookInitializerDependencies.swift in Sources */,
 				A7DBD0962B3AB243003DCD10 /* QuickAction.swift in Sources */,
@@ -2737,6 +2830,7 @@
 				A063B1F62AEBD0E800084696 /* StartFastingRouter.swift in Sources */,
 				A050046E2B2074F800820E45 /* OnboardingPreviousPageButton.swift in Sources */,
 				567500272ADE86C3009331CB /* ExecutionDispatchQueue.swift in Sources */,
+				A7A397372B71F6A6003330C3 /* DiscountPaywallScreen.swift in Sources */,
 				567500502ADFA81D009331CB /* DataDependencies.swift in Sources */,
 				A0255E732AFBD02F00221EC6 /* PutAccountRequest.swift in Sources */,
 				A07D95902AE9202500D2C2E2 /* AppCustomization.swift in Sources */,
@@ -2753,6 +2847,7 @@
 				567500E12ADFD298009331CB /* AppSyncServiceDependencies.swift in Sources */,
 				A7D01B7C2AF10A6D00C50C1F /* SetupFastingInput.swift in Sources */,
 				563B8AC92B03AF8400AF6BB7 /* LocalNotificationDependencies.swift in Sources */,
+				A7A3974E2B7345D9003330C3 /* DiscountPaywallExperiment.swift in Sources */,
 				5675009D2ADFAB69009331CB /* PaywallServiceImpl.swift in Sources */,
 				A7DBD09A2B3AB415003DCD10 /* QuickTypeInitializer.swift in Sources */,
 				A70DBE222B0B9F230067D7BD /* DebugFontView.swift in Sources */,
@@ -2785,6 +2880,7 @@
 				A70DBE242B0C83520067D7BD /* MonoSpacedView.swift in Sources */,
 				A0382D402AF4F03A009CC579 /* SuccessOutput.swift in Sources */,
 				567500ED2ADFD6A0009331CB /* AppSettingsProvider.swift in Sources */,
+				A76148EE2B74C8A6002A7F95 /* DiscountPaywallTimerServiceImpl.swift in Sources */,
 				56655B662AFCB09100508ED4 /* FastingIntervalHistory.swift in Sources */,
 				56E223ED2B2079B400096664 /* OnboardingService.swift in Sources */,
 				A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */,
@@ -3056,7 +3152,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 1.0.14;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -3097,7 +3193,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 1.0.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -3235,7 +3331,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.1;
+				version = 1.0.2;
 			};
 		};
 		A0255E882AFBD3C000221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Common" */ = {
@@ -3251,7 +3347,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.8;
+				version = 1.0.9;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

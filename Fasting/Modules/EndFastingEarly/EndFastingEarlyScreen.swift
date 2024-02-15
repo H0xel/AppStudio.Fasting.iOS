@@ -25,7 +25,7 @@ struct EndFastingEarlyScreen: View {
 
             HStack(spacing: Layout.buttonsSpacing) {
                 BorderedButton(title: Localization.cancel, action: viewModel.cancel)
-                AccentButton(title: Localization.endFasting, action: viewModel.endFasting)
+                AccentButton(title: .localizedString(Localization.endFasting), action: viewModel.endFasting)
             }
             .padding(.top, Layout.buttonsTopPadding)
         }

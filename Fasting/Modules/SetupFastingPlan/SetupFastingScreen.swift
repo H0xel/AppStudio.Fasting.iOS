@@ -36,7 +36,7 @@ struct SetupFastingScreen: View {
                 .aligned(.centerVerticaly)
 
 
-            AccentButton(title: Localization.buttonTitle) {
+            AccentButton(title: .localizedString(Localization.buttonTitle)) {
                 viewModel.saveTapped()
             }
             .padding(.bottom, Layout.bottomPadding)

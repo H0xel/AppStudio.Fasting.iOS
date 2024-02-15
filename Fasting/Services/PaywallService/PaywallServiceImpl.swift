@@ -46,7 +46,7 @@ class PaywallServiceImpl: PaywallService {
         return await withCheckedContinuation { continuation in
             let route = PaywallRoute(navigator: router.navigator, input: .onboarding) { output in
                 switch output {
-                case .close:
+                case .close, .showDiscountPaywall:
                     continuation.resume(returning: false)
                 case .subscribed:
                     continuation.resume(returning: true)

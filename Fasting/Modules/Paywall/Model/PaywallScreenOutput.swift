@@ -8,4 +8,5 @@
 enum PaywallScreenOutput {
     case close
     case subscribed
+    case showDiscountPaywall(DiscountPaywallInput)
 }

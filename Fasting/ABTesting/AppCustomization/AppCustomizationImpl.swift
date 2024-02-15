@@ -55,6 +55,7 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
         await register(experiment: PricingOngoingExperiment(experimentName: experimentName))
         await register(experiment: TrialExperiment())
+        await register(experiment: DiscountPaywallExperiment(experimentName: "exp_discount_offer_1"))
     }
 
     var productIds: Observable<[String]> {
@@ -68,6 +69,15 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
     var onboardingPaywallProductIds: Observable<[String]> {
         experimentValueObservable(forType: TrialExperiment.self, defaultValue: .control)
             .map { [$0.onboardingPaywallSubscriptionIdentifier] }
+    }
+
+    var discountPaywallExperiment: Observable<DiscountPaywallInfo> {
+        experimentValueObservable(forType: DiscountPaywallExperiment.self, defaultValue: .empty)
+            .filter { $0.name != DiscountPaywallInfo.empty.name }
+    }
+
+    func requiredAppVersion() async throws -> String {
+        try await remoteConfigValue(forKey: requiredAppVersionKey, defaultValue: Bundle.appVersion)
     }
 
     func closePaywallButtonDelay() async throws -> Int {

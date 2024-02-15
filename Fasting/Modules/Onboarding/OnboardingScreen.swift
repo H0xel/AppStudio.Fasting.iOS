@@ -26,7 +26,7 @@ struct OnboardingScreen: View {
                         OnboardingPreviousPageButton(onTap: viewModel.prevStep)
                     }
                     if viewModel.canShowNextButton {
-                        AccentButton(title: Localization.next, action: viewModel.nextStep)
+                        AccentButton(title: .localizedString(Localization.next), action: viewModel.nextStep)
                             .disabled(!viewModel.isNextButtonEnabled)
                     }
                 }

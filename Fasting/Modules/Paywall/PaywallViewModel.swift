@@ -19,6 +19,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     @Published var canDisplayCloseButton = false
     @Published private var highestPriceSubscription: SubscriptionProduct?
     @Published private var input: PaywallScreenInput
+    @Published private var discountPaywallInfo: DiscountPaywallInfo?
 
     var router: PaywallRouter!
 
@@ -31,6 +32,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.analyticKeyStore) private var analyticKeyStore
     @Dependency(\.appCustomization) private var appCustomization
+    @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
 
     init(input: PaywallScreenInput, output: @escaping ViewOutput<PaywallScreenOutput>) {
         self.input = input
@@ -90,6 +92,12 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
 
     func close() {
         trackerService.track(.tapClosePaywall)
+
+        if let discountPaywallInfo {
+            output(.showDiscountPaywall(.init(context: .discountOnboarding, paywallInfo: discountPaywallInfo)))
+            return
+        }
+
         output(.close)
     }
 
@@ -104,13 +112,23 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
         trackPaywallShown()
     }
 
-    private func handle(paywallScreenOutput event: PaywallScreenOutput) {
-        switch event {
-        case .close:
-            router.dismiss()
-        case .subscribed:
-            break
-        }
+    private func subscribeForAvailableDiscountPaywall() {
+        discountPaywallTimerService.discountAvailable
+            .assign(to: &$discountPaywallInfo)
+    }
+
+    private func subscribeToDiscountPaywallState() {
+        subscriptionService.hasSubscriptionObservable
+            .distinctUntilChanged()
+            .flatMap(with: self, { this, hasSubscription -> Observable<(hasSubscription: Bool, discountPaywallInfo: DiscountPaywallInfo)> in
+                this.appCustomization.discountPaywallExperiment
+                    .map { (hasSubscription, $0) }
+            })
+            .asDriver()
+            .drive(with: self) { this, args in
+                this.discountPaywallTimerService.registerPaywall(info: args.discountPaywallInfo)
+            }
+            .disposed(by: disposeBag)
     }
 
     private func subscribeToLoadingState() {

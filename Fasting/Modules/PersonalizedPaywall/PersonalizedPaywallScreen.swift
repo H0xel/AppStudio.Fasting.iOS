@@ -31,7 +31,7 @@ struct PersonalizedPaywallScreen: View {
                     .frame(height: Layout.bottomSpacing)
             }
             VStack(spacing: .zero) {
-                AccentButton(title: Localization.continueTitle) {
+                AccentButton(title: .localizedString(Localization.continueTitle)) {
                     viewModel.subscribe()
                 }
                 .padding(.horizontal, Layout.bottomButtonHorizontalPadding)

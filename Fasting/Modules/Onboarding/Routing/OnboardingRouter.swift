@@ -20,15 +20,34 @@ class OnboardingRouter: BaseRouter {
     }
 
     func presentPersonalizedPaywall(input: PersonalizedPaywallInput, output: @escaping ChooseFastingPlanOutputBlock) {
-        let route = PersonalizedPaywallRoute(navigator: navigator, input: input) { [weak self] _ in
-            self?.pushChooseFastingScreen(output: output)
+        let route = PersonalizedPaywallRoute(navigator: navigator, input: input) { [weak self] paywallOutput in
+
+            switch paywallOutput {
+            case .close , .subscribed:
+                self?.pushChooseFastingScreen(output: output)
+            case let .showDiscountPaywall(input):
+                self?.presentDiscountPaywall(input: input, output: output)
+            }
         }
 
         present(route: route)
     }
 
     func presentPaywall(output: @escaping ChooseFastingPlanOutputBlock) {
-        let route = PaywallRoute(navigator: navigator, input: .onboarding) { [weak self] _ in
+        let route = PaywallRoute(navigator: navigator, input: .onboarding) { [weak self] paywallOutput in
+
+            switch paywallOutput {
+            case .close , .subscribed:
+                self?.pushChooseFastingScreen(output: output)
+            case let .showDiscountPaywall(input):
+                self?.presentDiscountPaywall(input: input, output: output)
+            }
+        }
+        present(route: route)
+    }
+
+    func presentDiscountPaywall(input: DiscountPaywallInput, output: @escaping ChooseFastingPlanOutputBlock) {
+        let route = DiscountPaywallRoute(navigator: navigator, input: input) { [weak self] paywallOutput in
             self?.pushChooseFastingScreen(output: output)
         }
         present(route: route)

@@ -11,4 +11,5 @@ typealias PersonalizedPaywallOutputBlock = ViewOutput<PersonalizedPaywallOutput>
 enum PersonalizedPaywallOutput {
     case close
     case subscribed
+    case showDiscountPaywall(DiscountPaywallInput)
 }

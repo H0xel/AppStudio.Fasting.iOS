@@ -35,6 +35,22 @@ extension TimeInterval {
         return hours.withLeadingZeroIfOneNumber
     }
 
+    var toHoursLeft: String {
+        let left = Int(self)
+        let minutes = left / 60
+        let hours = minutes / 60
+        let hoursLeft = hours % 24
+        return hoursLeft.withLeadingZeroIfOneNumber
+    }
+
+    var toDays: String {
+        let left = Int(self)
+        let minutes = left / 60
+        let hours = minutes / 60
+        let days = hours / 24
+        return days.withLeadingZeroIfOneNumber
+    }
+
     var toMinutes: String {
         let left = Int(self)
         let minutes = left / 60

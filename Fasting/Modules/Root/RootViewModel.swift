@@ -10,6 +10,7 @@ import AppStudioUI
 import SwiftUI
 import Dependencies
 import RxSwift
+import AppStudioSubscriptions
 
 class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.storageService) private var storageService
@@ -21,6 +22,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.fastingService) private var fastingService
     @Dependency(\.firstLaunchService) private var firstLaunchService
     @Dependency(\.quickActionTypeServiceService) private var quickActionTypeServiceService
+    @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
 
     @Published var currentTab: AppTab = .fasting {
         willSet {
@@ -29,6 +31,8 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
     @Published var rootScreen: RootScreen = .launchScreen
     @Published var hasSubscription = false
+
+    @Published var discountPaywallInfo: DiscountPaywallInfo?
 
 
     var router: RootRouter!
@@ -40,6 +44,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         initialize()
         initializePaywallTab()
         subscribeToActionTypeEvent()
+        subscribeForAvailableDiscountPaywall()
     }
 
     func initialize() {
@@ -56,6 +61,11 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     var fastingScreen: some View {
         router.fastingScreen
+    }
+
+    @ViewBuilder
+    func discountPaywall(input: DiscountPaywallInput) -> some View {
+        DiscountPaywallRoute(navigator: router.navigator, input: input) { _ in }.view
     }
 
     var onboardingScreen: some View {
@@ -100,13 +110,23 @@ class RootViewModel: BaseViewModel<RootOutput> {
             .disposed(by: disposeBag)
     }
 
+    private func subscribeForAvailableDiscountPaywall() {
+        discountPaywallTimerService.discountAvailable
+            .assign(to: &$discountPaywallInfo)
+    }
+
     private func initializePaywallTab() {
         subscriptionService.hasSubscriptionObservable
             .distinctUntilChanged()
+            .flatMap(with: self, { this, hasSubscription -> Observable<(hasSubscription: Bool, discountPaywallInfo: DiscountPaywallInfo)> in
+                this.appCustomization.discountPaywallExperiment
+                    .map { (hasSubscription, $0) }
+            })
             .asDriver()
-            .drive(with: self) { this, hasSubscription in
-                this.changeCurrentTabOnLaunch(hasSubsctiption: hasSubscription)
-                this.hasSubscription = hasSubscription
+            .drive(with: self) { this, args in
+                this.changeCurrentTabOnLaunch(hasSubsctiption: args.hasSubscription)
+                this.hasSubscription = args.hasSubscription
+                this.discountPaywallTimerService.registerPaywall(info: args.discountPaywallInfo)
             }
             .disposed(by: disposeBag)
     }

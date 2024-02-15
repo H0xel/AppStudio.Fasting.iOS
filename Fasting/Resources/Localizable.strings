@@ -160,6 +160,8 @@
 "ProductCatalog.duration.day" = "day";
 "ProductCatalog.duration.week" = "week";
 "ProductCatalog.duration.month" = "month";
+"ProductCatalog.duration.threeMonth" = "3 months";
+"ProductCatalog.duration.sixMonth" = "6 months";
 "ProductCatalog.duration.quater" = "quater";
 "ProductCatalog.duration.year" = "year";
 "ProductCatalog.duration.day.form1" = "day";
@@ -358,3 +360,17 @@
 // MARK: Quick action
 "Review.title" = "Need assistance?";
 "Review.subTitle" = "Contact support or share your feedback with us";
+
+// MARK: Discount Paywall
+"DiscountPaywall.limitedTimeOffer" = "Limited Time Offer";
+"DiscountPaywall.specialOffer" = "Special Offer";
+"DiscountPaywall.discountOff" = "%@ OFF";
+"DiscountPaywall.days" = "days";
+"DiscountPaywall.hr" = "hr";
+"DiscountPaywall.min" = "min";
+"DiscountPaywall.sec" = "sec";
+"DiscountPaywall.only" = "Only";
+"DiscountPaywall.week" = "/ week";
+"DiscountPaywall.saveNow" = "Save %@ now";
+"DiscountPaywall.unlimitedAccess" = "Unlimited access to all features";
+

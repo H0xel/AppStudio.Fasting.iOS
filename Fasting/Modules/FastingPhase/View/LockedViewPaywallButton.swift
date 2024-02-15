@@ -21,7 +21,7 @@ struct LockedViewPaywallButton: View {
             Text(Localization.description)
                 .font(.poppins(.body))
             Spacer()
-            AccentButton(title: Localization.buttonTitle, action: onTap)
+            AccentButton(title: .localizedString(Localization.buttonTitle), action: onTap)
             Spacer()
         }
         .multilineTextAlignment(.center)

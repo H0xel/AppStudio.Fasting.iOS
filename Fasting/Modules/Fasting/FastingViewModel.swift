@@ -22,12 +22,14 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     @Dependency(\.fastingFinishedCyclesLimitService) private var fastingFinishedCyclesLimitService
     @Dependency(\.subscriptionService) private var subscriptionService
     @Dependency(\.requestReviewService) private var requestReviewService
+    @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
 
     var router: FastingRouter!
     @Published var fastingStatus: FastingStatus = .unknown
     @Published var fastingInterval: FastingInterval = .empty
     @Published var fastingStages: [FastingStage] = []
     @Published var hasSubscription = false
+    @Published var discountPaywallInfo: DiscountPaywallInfo?
     private let fastingStatusUpdateTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let disposeBag = DisposeBag()
 
@@ -37,6 +39,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
         configureFastingStatus()
         configureFastingInterval()
         observeSubscription()
+        subscribeToDiscountAvailable()
     }
 
     var isFastingActive: Bool {
@@ -99,6 +102,11 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
         trackTapSchedule()
     }
 
+    func subscribeToDiscountAvailable() {
+        discountPaywallTimerService.discountAvailable
+            .assign(to: &$discountPaywallInfo)
+    }
+
     private func startFastingIfPossible(from date: Date) {
         if fastingFinishedCyclesLimitService.isLimited {
             Task {
@@ -117,7 +125,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     @MainActor
     private func presentPaywallAndStartFasting(from date: Date) async {
         router.presentPaywall { [weak self] paywallOutput in
-            if paywallOutput == .subscribed {
+            if case .subscribed = paywallOutput {
                 self?.fastingService.startFasting(from: date)
             }
             self?.router.dismiss()
