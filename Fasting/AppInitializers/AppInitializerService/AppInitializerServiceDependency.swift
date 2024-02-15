@@ -26,11 +26,13 @@ extension DependencyValues {
 private enum EarlyTimeInitializersKey: DependencyKey {
     public static var liveValue: Initializers = EarlyTimeInitializers()
     public static let testValue: Initializers = EarlyTimeInitializers()
+    public static let previewValue: Initializers = AppInitializerServicePreview()
 }
 
 private enum LateTimeInitializersKey: DependencyKey {
     public static var liveValue: Initializers = LateTimeInitializers()
     public static let testValue: Initializers = LateTimeInitializers()
+    public static let previewValue: Initializers = AppInitializerServicePreview()
 }
 
 private enum AppInitializerServiceKey: DependencyKey {

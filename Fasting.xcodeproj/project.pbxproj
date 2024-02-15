@@ -342,6 +342,7 @@
 		A70DBE242B0C83520067D7BD /* MonoSpacedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70DBE232B0C83520067D7BD /* MonoSpacedView.swift */; };
 		A70DBE262B0C85550067D7BD /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70DBE252B0C85550067D7BD /* String+subscript.swift */; };
 		A70DBE492B0DD5A00067D7BD /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70DBE482B0DD5A00067D7BD /* LaunchScreen.swift */; };
+		A71CEB772B7DF40A0056C99A /* AppInitializerServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71CEB762B7DF40A0056C99A /* AppInitializerServicePreview.swift */; };
 		A72230372AFB624300303D5D /* Date+LocaleTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72230362AFB624300303D5D /* Date+LocaleTime.swift */; };
 		A722FEA72B15B201001CD1A3 /* UIScreen+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
@@ -361,6 +362,7 @@
 		A777D14E2B209ADB00B48F41 /* PersonalizedPaywallOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A777D1482B209ADB00B48F41 /* PersonalizedPaywallOutput.swift */; };
 		A777D14F2B209ADB00B48F41 /* PersonalizedPaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A777D1492B209ADB00B48F41 /* PersonalizedPaywallViewModel.swift */; };
 		A77A57A62AEB857D001294E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A77A57A52AEB857D001294E4 /* GoogleService-Info.plist */; };
+		A78085082B7DEAFE002BF67E /* AppCustomizationPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78085072B7DEAFE002BF67E /* AppCustomizationPreview.swift */; };
 		A78535E52AF1481900437F5E /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78535E42AF1481900437F5E /* SnapCarousel.swift */; };
 		A78535E82AF21F0900437F5E /* FastingBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */; };
 		A7A1AEA42AFE2C0A00B6211E /* Contexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1AEA32AFE2C0A00B6211E /* Contexts.swift */; };
@@ -735,6 +737,7 @@
 		A70DBE232B0C83520067D7BD /* MonoSpacedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoSpacedView.swift; sourceTree = "<group>"; };
 		A70DBE252B0C85550067D7BD /* String+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+subscript.swift"; sourceTree = "<group>"; };
 		A70DBE482B0DD5A00067D7BD /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		A71CEB762B7DF40A0056C99A /* AppInitializerServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializerServicePreview.swift; sourceTree = "<group>"; };
 		A72230362AFB624300303D5D /* Date+LocaleTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+LocaleTime.swift"; sourceTree = "<group>"; };
 		A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+extensions.swift"; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
@@ -754,6 +757,7 @@
 		A777D1482B209ADB00B48F41 /* PersonalizedPaywallOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedPaywallOutput.swift; sourceTree = "<group>"; };
 		A777D1492B209ADB00B48F41 /* PersonalizedPaywallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedPaywallViewModel.swift; sourceTree = "<group>"; };
 		A77A57A52AEB857D001294E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "Fasting/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A78085072B7DEAFE002BF67E /* AppCustomizationPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationPreview.swift; sourceTree = "<group>"; };
 		A78535E42AF1481900437F5E /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 		A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingBackgroundModifier.swift; sourceTree = "<group>"; };
 		A7A1AEA32AFE2C0A00B6211E /* Contexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contexts.swift; sourceTree = "<group>"; };
@@ -1598,6 +1602,7 @@
 				56C28DB62AE109580007E48D /* AppInitializerServiceDependency.swift */,
 				56C28DB72AE109580007E48D /* AppInitializerServiceImpl.swift */,
 				56C28DB82AE109580007E48D /* AppInitializerService.swift */,
+				A71CEB762B7DF40A0056C99A /* AppInitializerServicePreview.swift */,
 			);
 			path = AppInitializerService;
 			sourceTree = "<group>";
@@ -1902,6 +1907,7 @@
 				A07D95982AE9270600D2C2E2 /* AppCustomizationDependency.swift */,
 				A07D95A82AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift */,
 				562654C22B6A7E2F006FC4AB /* AppCustomizationImpl+Pricing.swift */,
+				A78085072B7DEAFE002BF67E /* AppCustomizationPreview.swift */,
 			);
 			path = AppCustomization;
 			sourceTree = "<group>";
@@ -2540,6 +2546,7 @@
 				A7D01B7D2AF10A6D00C50C1F /* SetupFastingRouter.swift in Sources */,
 				A044263C2AF240F4005400AE /* ProfileRoute.swift in Sources */,
 				56C28DCB2AE109580007E48D /* AppInitializerService.swift in Sources */,
+				A78085082B7DEAFE002BF67E /* AppCustomizationPreview.swift in Sources */,
 				A0382D3E2AF4F03A009CC579 /* SuccessRoute.swift in Sources */,
 				A7D01B732AF0D01E00C50C1F /* FastingPlanView.swift in Sources */,
 				56655B712AFCB6AB00508ED4 /* FastingHistoryServiceServiceImpl.swift in Sources */,
@@ -2717,6 +2724,7 @@
 				564BE2C52B26E50E00FE35C2 /* OnboardingCalculationProccessData.swift in Sources */,
 				5675009E2ADFAB69009331CB /* ProductIdsService.swift in Sources */,
 				56E223FB2B21973400096664 /* OnboardingLoadingViewRouter.swift in Sources */,
+				A71CEB772B7DF40A0056C99A /* AppInitializerServicePreview.swift in Sources */,
 				A00B4DC92B7382170067A872 /* FacebookInitializerDependencies.swift in Sources */,
 				A7DBD0962B3AB243003DCD10 /* QuickAction.swift in Sources */,
 				564BE0C32AF0F32900CE7F38 /* FastingParametersRepositoryImpl.swift in Sources */,
@@ -3089,7 +3097,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-
 				MARKETING_VERSION = 1.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
