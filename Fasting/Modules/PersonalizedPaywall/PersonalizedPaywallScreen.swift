@@ -16,11 +16,19 @@ struct PersonalizedPaywallScreen: View {
             ScrollView(showsIndicators: false) {
                 PersonalizedTitleView(viewData: viewModel.headerViewData)
 
+                if let promoProduct = viewModel.promoProduct {
+                    PersonalizedPromotionalOfferView(viewData: .init(
+                        duration: promoProduct.duration,
+                        price: promoProduct.price)
+                    )
+                    .padding(.bottom, Layout.promotOfferBottomPadding)
+                }
+
                 PersonalizedChart(viewData: viewModel.input.chart)
                     .padding(.bottom, Layout.chartBottomPadding)
 
                 PersonalizedBulletPointsView(viewData: viewModel.input.bulletPoints)
-                .padding(.bottom, Layout.bulletBottomPadding)
+                    .padding(.bottom, Layout.bulletBottomPadding)
 
                 PersonalizedTabView(sex: viewModel.input.sex, weightUnit: viewModel.input.weightUnit)
                     .padding(.bottom, Layout.tabBottomPadding)
@@ -70,6 +78,7 @@ private extension PersonalizedPaywallScreen {
         static let bulletBottomPadding: CGFloat = 20
         static let buttonBottomPadding: CGFloat = UIScreen.isSmallDevice ? 10 : 0
         static let topButtonPadding: CGFloat = 10
+        static var promotOfferBottomPadding: CGFloat = 8
     }
 }
 

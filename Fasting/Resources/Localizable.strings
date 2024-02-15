@@ -25,6 +25,7 @@
 // MARK: Personalized Paywall
 "PersonalizedPaywall.headerTitle" = "Reach your dream weight of %@ by %@";
 "PersonalizedPaywall.getPlus" = "Get Plus for %@";
+"PersonalizedPaywall.renewsAt" = "Renews at %@";
 "PersonalizedPaywall.now" = "Now";
 "PersonalizedPaywall.realTransformation" = "Real transformations";
 "PersonalizedPaywall.whatYoullGet" = "What you’ll get";

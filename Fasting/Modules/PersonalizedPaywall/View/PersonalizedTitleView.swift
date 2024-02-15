@@ -19,7 +19,8 @@ struct PersonalizedTitleView: View {
             Text(viewData.description)
                 .font(.poppins(.body))
                 .foregroundColor(.fastingGrayText)
-                .padding(.vertical, Layout.verticalPadding)
+                .padding(.top, Layout.textTopPadding)
+                .padding(.bottom, Layout.bottomPadding)
         }
         .multilineTextAlignment(.center)
         .padding(.horizontal, Layout.horizontalPadding)
@@ -35,7 +36,8 @@ extension PersonalizedTitleView {
     private enum Layout {
         static let topPadding: CGFloat = 8
         static let horizontalPadding: CGFloat = 32
-        static let verticalPadding: CGFloat = 24
+        static let textTopPadding: CGFloat = 24
+        static let bottomPadding: CGFloat = 16
     }
 }
 

@@ -65,6 +65,18 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
         isTrialAvailable ? "Paywall.noPaymentNow" : "Paywall.cancelAnyTime"
     }
 
+    func subscribe() {
+        guard let subscription = subscriptions.first(where: { $0.productIdentifier == selectedProduct?.id }) else {
+            return
+        }
+        subscriptionService.purchase(subscription: subscription, context: input.paywallContext.rawValue)
+        trackerService.track(.tapSubscribe(context: input.paywallContext,
+                                           productId: subscription.productIdentifier,
+                                           type: .main,
+                                           afId: analyticKeyStore.currentAppsFlyerId))
+        router.presentProgressView()
+    }
+
     func selectProduct(_ product: SubscriptionProduct) {
         selectedProduct = product
     }
@@ -76,18 +88,6 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
         }
         selectedProduct = product
         subscribe()
-    }
-
-    func subscribe() {
-        guard let subscription = subscriptions.first(where: { $0.productIdentifier == selectedProduct?.id }) else {
-            return
-        }
-        subscriptionService.purchase(subscription: subscription, context: input.paywallContext.rawValue)
-        trackerService.track(.tapSubscribe(context: input.paywallContext,
-                                           productId: subscription.productIdentifier,
-                                           type: .main,
-                                           afId: analyticKeyStore.currentAppsFlyerId))
-        router.presentProgressView()
     }
 
     func close() {

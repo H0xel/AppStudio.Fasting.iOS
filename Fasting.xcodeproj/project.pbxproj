@@ -383,6 +383,10 @@
 		A7A3974E2B7345D9003330C3 /* DiscountPaywallExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3974D2B7345D9003330C3 /* DiscountPaywallExperiment.swift */; };
 		A7A3CE6D2AEBB32D00308201 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */; };
 		A7AD9C362B17359B006AE1C5 /* AppSyncServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AD9C352B17359B006AE1C5 /* AppSyncServicePreview.swift */; };
+		A7BD1CE12B7B2632009C1259 /* PromoPaywallServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */; };
+		A7BD1CE22B7B2632009C1259 /* PromoPaywallDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */; };
+		A7BD1CE32B7B2632009C1259 /* PromoPaywallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CE02B7B2632009C1259 /* PromoPaywallService.swift */; };
+		A7BD1CE52B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CE42B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift */; };
 		A7BD1CDB2B79B531009C1259 /* DiscountPaywallPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */; };
 		A7D01B5D2AF0C82100C50C1F /* OnboardingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B572AF0C82100C50C1F /* OnboardingInput.swift */; };
 		A7D01B5E2AF0C82100C50C1F /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B582AF0C82100C50C1F /* OnboardingRouter.swift */; };
@@ -795,6 +799,10 @@
 		A7A3CE4C2AEBB30700308201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		A7AD9C352B17359B006AE1C5 /* AppSyncServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSyncServicePreview.swift; sourceTree = "<group>"; };
+		A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallServiceImpl.swift; sourceTree = "<group>"; };
+		A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallDependencies.swift; sourceTree = "<group>"; };
+		A7BD1CE02B7B2632009C1259 /* PromoPaywallService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallService.swift; sourceTree = "<group>"; };
+		A7BD1CE42B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedPromotionalOfferView.swift; sourceTree = "<group>"; };
 		A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallPinView.swift; sourceTree = "<group>"; };
 		A7D01B572AF0C82100C50C1F /* OnboardingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInput.swift; sourceTree = "<group>"; };
 		A7D01B582AF0C82100C50C1F /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
@@ -1461,6 +1469,7 @@
 		5675FFD12ADE8358009331CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A7BD1CDD2B7B261B009C1259 /* PromoPaywallService */,
 				A76148E42B74C876002A7F95 /* DiscountPaywallTimerService */,
 				A00B4DC42B7382170067A872 /* FacebookInitializer */,
 				A7DBD08E2B3AB1B7003DCD10 /* QuickActionService */,
@@ -2209,6 +2218,7 @@
 			children = (
 				A76294332B21A3E600DAF93B /* PersonalizedChart */,
 				A762942F2B219E0B00DAF93B /* PersonalizedTitleView.swift */,
+				A7BD1CE42B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2282,6 +2292,16 @@
 				A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */,
 			);
 			path = Poppins;
+			sourceTree = "<group>";
+		};
+		A7BD1CDD2B7B261B009C1259 /* PromoPaywallService */ = {
+			isa = PBXGroup;
+			children = (
+				A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */,
+				A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */,
+				A7BD1CE02B7B2632009C1259 /* PromoPaywallService.swift */,
+			);
+			path = PromoPaywallService;
 			sourceTree = "<group>";
 		};
 		A7D01B562AF0C81200C50C1F /* Onboarding */ = {
@@ -2657,6 +2677,7 @@
 				567500EF2ADFD6BC009331CB /* AppSettingsProviderImpl.swift in Sources */,
 				A777D14B2B209ADB00B48F41 /* PersonalizedPaywallRouter.swift in Sources */,
 				567500442ADFA67E009331CB /* AccountProviderPreview.swift in Sources */,
+				A7BD1CE32B7B2632009C1259 /* PromoPaywallService.swift in Sources */,
 				56E223DC2B20784D00096664 /* SpecialEvent.swift in Sources */,
 				567500D82ADFCDAC009331CB /* AppStudioApiSettingsProvider.swift in Sources */,
 				56E223D82B206BCE00096664 /* OnboardingData.swift in Sources */,
@@ -2795,6 +2816,7 @@
 				567500B62ADFC031009331CB /* IDFARequestServiceImpl.swift in Sources */,
 				A036CBE02B18CE28001B8AC7 /* AppearanceInitializer.swift in Sources */,
 				566C24932AE8F80B00AEDB3C /* PaywallScreenInput.swift in Sources */,
+				A7BD1CE52B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift in Sources */,
 				567500B82ADFC031009331CB /* MailSenderService.swift in Sources */,
 				56B10AC02AF0E1CC008FC07E /* FastingParametersRepository.swift in Sources */,
 				A7DBD0982B3AB3C7003DCD10 /* SceneDelegate.swift in Sources */,
@@ -2922,6 +2944,7 @@
 				56E223FE2B21973400096664 /* OnboardingLoadingViewOutput.swift in Sources */,
 				A063B1F72AEBD0E800084696 /* StartFastingRoute.swift in Sources */,
 				A07D95A92AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift in Sources */,
+				A7BD1CE12B7B2632009C1259 /* PromoPaywallServiceImpl.swift in Sources */,
 				A707435F2B21B91D00572A98 /* PersonalizedTabView.swift in Sources */,
 				5662DECC2B1615DA00C1637C /* CGFloat+Extensions.swift in Sources */,
 				53D900742AE652DD00FFEB7A /* PreferencesInitializer.swift in Sources */,
@@ -2974,6 +2997,7 @@
 				A07EAB362AFA56A200A46D7E /* EndFastingEarlyRoute.swift in Sources */,
 				567501082ADFD955009331CB /* IntercomDependencies.swift in Sources */,
 				A08449772B1A87DF00D30E04 /* FastingPhaseImageView.swift in Sources */,
+				A7BD1CE22B7B2632009C1259 /* PromoPaywallDependencies.swift in Sources */,
 				A044263B2AF240F4005400AE /* ProfileRouter.swift in Sources */,
 				567500252ADE86C3009331CB /* Atomic.swift in Sources */,
 				A7D01B8F2AF115F200C50C1F /* NotificationOnboardingInput.swift in Sources */,

@@ -27,7 +27,7 @@ struct PersonalizedDescriptionView: View {
                             Rectangle()
                                 .frame(width: Layout.rectangleSize, height: Layout.rectangleSize)
                                 .continiousCornerRadius(Layout.rectangleCornerRadius)
-                                .foregroundStyle(.fastingBlue)
+                                .foregroundStyle(.fastingGreen)
 
                             switch content.type {
                             case let .image(image):

@@ -13,8 +13,8 @@ struct DebugMenuActionsView: View {
     @Dependency(\.backendEnvironmentService) private var backendEnvironmentService
     @Dependency(\.accountIdProvider) private var accountIdProvider
     @Dependency(\.cloudStorage) private var cloudStorage
-    @Dependency(\.storageService) private var storageService
     @Dependency(\.appCustomization) private var appCustomization
+    @Dependency(\.storageService) private var storageService
     @Dependency(\.subscriptionService) private var subscriptionService
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
 
@@ -49,6 +49,10 @@ struct DebugMenuActionsView: View {
         }
         .foregroundColor(.red)
 
+        Button("Reset pricing experiment") {
+            appCustomization.resetPricingExp()
+        }
+        .foregroundColor(.blue)
         Button("Reset onboarding") {
             storageService.onboardingIsFinished = false
         }

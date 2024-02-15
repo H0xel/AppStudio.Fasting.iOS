@@ -15,6 +15,7 @@ import AppStudioSubscriptions
 class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
     @Published var products: [SubscriptionProduct] = []
     @Published var selectedProduct: SubscriptionProduct?
+    @Published var promoProduct: PromotionalOffer?
     @Published var isTrialAvailable = false
     @Published var canDisplayCloseButton = false
     @Published private var highestPriceSubscription: SubscriptionProduct?
@@ -32,6 +33,7 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.analyticKeyStore) private var analyticKeyStore
     @Dependency(\.appCustomization) private var appCustomization
+    @Dependency(\.promoPaywallService) private var promoPaywallService
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
 
     private let context = "personalizedPaywall"
@@ -45,13 +47,19 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
         subscribeToFinishTransactionState()
         subscribeToRestoreChange()
         loadAvailableProducts()
+        subscribeToPromoOffer()
         subscribeForAvailableDiscountPaywall()
     }
 
     private var headerDescription: String {
-        let title = isTrialAvailable
-        ? NSLocalizedString("Paywall.tryForFree", comment: "")
-        : NSLocalizedString("PersonalizedPaywall.getPlus", comment: "")
+        var title: String {
+            if promoProduct != nil {
+                return NSLocalizedString("PersonalizedPaywall.renewsAt", comment: "")
+            }
+            return isTrialAvailable  
+            ? NSLocalizedString("Paywall.tryForFree", comment: "")
+            : NSLocalizedString("PersonalizedPaywall.getPlus", comment: "")
+        }
         return String(format: title, selectedProduct?.titleDetails ?? "")
     }
 
@@ -212,6 +220,17 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
             .disposed(by: disposeBag)
     }
 
+    private func subscribeToPromoOffer() {
+        promoPaywallService.promoSubscription
+            .distinctUntilChanged()
+            .asDriver()
+            .drive(with: self) { this, promoProduct in
+                this.promoProduct = promoProduct
+            }
+            .disposed(by: disposeBag)
+
+    }
+
     private func assignProducts() {
         let products = subscriptions.map {
             SubscriptionProduct(id: $0.productIdentifier,
@@ -221,6 +240,16 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
                                 promotion: promotionText(for: $0))
         }
         self.products = products
+
+        if let promoProduct = subscriptions.first(where: { $0.productIdentifier == promoProduct?.id }) {
+            self.selectedProduct = .init(id: promoProduct.productIdentifier,
+                                         title: promoProduct.localizedTitle,
+                                         titleDetails: promoProduct.formattedPrice ?? "",
+                                         durationTitle: promoProduct.duration.title,
+                                         promotion: promotionText(for: promoProduct))
+            return
+        }
+
         if let product = products.last {
             highestPriceSubscription = product
         }

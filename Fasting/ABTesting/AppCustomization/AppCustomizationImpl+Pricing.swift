@@ -90,6 +90,12 @@ extension AppCustomizationImpl {
             .bind(to: productIdsRelay)
             .disposed(by: disposeBag)
     }
+
+    func resetPricingExp() {
+        @Dependency(\.cloudStorage) var cloudStorage
+        cloudStorage.pricingExperimentName = nil
+        cloudStorage.pricingExperimentProductIds = nil
+    }
 }
 
 private let pricingExperimentNameKey = "AppStudio.pricingExperimentNameKey"
