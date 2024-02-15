@@ -108,7 +108,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     }
 
     private func startFastingIfPossible(from date: Date) {
-        if fastingFinishedCyclesLimitService.isLimited {
+        if fastingFinishedCyclesLimitService.isLimited, !hasSubscription {
             Task {
                 await presentPaywallAndStartFasting(from: date)
             }
