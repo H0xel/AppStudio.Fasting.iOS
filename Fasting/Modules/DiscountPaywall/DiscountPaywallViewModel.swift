@@ -42,6 +42,7 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
         discountPersent = "\(input.paywallInfo.discount)%"
         context = input.context
         super.init(output: output)
+        subscribeToMayUseAppStatus()
         loadAvailableProducts()
         subscribeToLoadingState()
         subscribeToRestoreChange()
@@ -119,10 +120,21 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
                     this.router.dismissBanner()
                 case .success:
                     this.discountPaywallTimerService.setAvailableDiscount(data: nil)
-                    this.router.dismissBanner()
                 default:
                     break
                 }
+            }
+            .disposed(by: disposeBag)
+    }
+
+    private func subscribeToMayUseAppStatus() {
+        subscriptionService.actualSubscription
+            .filter { $0.isUnlimited }
+            .take(1)
+            .asDriver()
+            .drive(with: self) { this, _ in
+                this.output(.subscribe)
+                this.router.dismissBanner()
             }
             .disposed(by: disposeBag)
     }

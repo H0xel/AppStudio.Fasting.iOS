@@ -383,11 +383,11 @@
 		A7A3974E2B7345D9003330C3 /* DiscountPaywallExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3974D2B7345D9003330C3 /* DiscountPaywallExperiment.swift */; };
 		A7A3CE6D2AEBB32D00308201 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */; };
 		A7AD9C362B17359B006AE1C5 /* AppSyncServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AD9C352B17359B006AE1C5 /* AppSyncServicePreview.swift */; };
+		A7BD1CDB2B79B531009C1259 /* DiscountPaywallPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */; };
 		A7BD1CE12B7B2632009C1259 /* PromoPaywallServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */; };
 		A7BD1CE22B7B2632009C1259 /* PromoPaywallDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */; };
 		A7BD1CE32B7B2632009C1259 /* PromoPaywallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CE02B7B2632009C1259 /* PromoPaywallService.swift */; };
 		A7BD1CE52B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CE42B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift */; };
-		A7BD1CDB2B79B531009C1259 /* DiscountPaywallPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */; };
 		A7D01B5D2AF0C82100C50C1F /* OnboardingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B572AF0C82100C50C1F /* OnboardingInput.swift */; };
 		A7D01B5E2AF0C82100C50C1F /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B582AF0C82100C50C1F /* OnboardingRouter.swift */; };
 		A7D01B5F2AF0C82100C50C1F /* OnboardingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B592AF0C82100C50C1F /* OnboardingRoute.swift */; };
@@ -799,11 +799,11 @@
 		A7A3CE4C2AEBB30700308201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		A7AD9C352B17359B006AE1C5 /* AppSyncServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSyncServicePreview.swift; sourceTree = "<group>"; };
+		A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallPinView.swift; sourceTree = "<group>"; };
 		A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallServiceImpl.swift; sourceTree = "<group>"; };
 		A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallDependencies.swift; sourceTree = "<group>"; };
 		A7BD1CE02B7B2632009C1259 /* PromoPaywallService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallService.swift; sourceTree = "<group>"; };
 		A7BD1CE42B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedPromotionalOfferView.swift; sourceTree = "<group>"; };
-		A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallPinView.swift; sourceTree = "<group>"; };
 		A7D01B572AF0C82100C50C1F /* OnboardingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInput.swift; sourceTree = "<group>"; };
 		A7D01B582AF0C82100C50C1F /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		A7D01B592AF0C82100C50C1F /* OnboardingRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoute.swift; sourceTree = "<group>"; };
@@ -3176,7 +3176,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.14;
+				MARKETING_VERSION = 1.0.15;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -3217,7 +3217,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.14;
+				MARKETING_VERSION = 1.0.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

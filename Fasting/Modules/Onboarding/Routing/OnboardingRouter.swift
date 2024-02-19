@@ -23,13 +23,12 @@ class OnboardingRouter: BaseRouter {
         let route = PersonalizedPaywallRoute(navigator: navigator, input: input) { [weak self] paywallOutput in
 
             switch paywallOutput {
-            case .close , .subscribed:
+            case .close, .subscribed:
                 self?.pushChooseFastingScreen(output: output)
             case let .showDiscountPaywall(input):
                 self?.presentDiscountPaywall(input: input, output: output)
             }
         }
-
         present(route: route)
     }
 
@@ -37,7 +36,7 @@ class OnboardingRouter: BaseRouter {
         let route = PaywallRoute(navigator: navigator, input: .onboarding) { [weak self] paywallOutput in
 
             switch paywallOutput {
-            case .close , .subscribed:
+            case .close, .subscribed:
                 self?.pushChooseFastingScreen(output: output)
             case let .showDiscountPaywall(input):
                 self?.presentDiscountPaywall(input: input, output: output)

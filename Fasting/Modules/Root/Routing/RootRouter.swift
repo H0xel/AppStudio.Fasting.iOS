@@ -77,5 +77,4 @@ class RootRouter: BaseRouter {
             await openURL(url)
         }
     }
-
 }

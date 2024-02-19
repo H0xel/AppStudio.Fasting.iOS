@@ -143,8 +143,6 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
                 switch state {
                 case .error:
                     this.router.dismissBanner()
-                case .success:
-                    this.router.dismissBanner()
                 default:
                     break
                 }
@@ -176,6 +174,7 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
             .asDriver()
             .drive(with: self) { this, _ in
                 this.output(.subscribed)
+                this.router.dismissBanner()
             }
             .disposed(by: disposeBag)
     }

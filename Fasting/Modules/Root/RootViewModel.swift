@@ -34,7 +34,6 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     @Published var discountPaywallInfo: DiscountPaywallInfo?
 
-
     var router: RootRouter!
 
     private let disposeBag = DisposeBag()
