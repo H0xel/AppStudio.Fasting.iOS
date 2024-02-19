@@ -23,12 +23,12 @@ class RootRouter: BaseRouter {
         super.init(navigator: navigator)
     }
 
-    lazy var fastingScreen: some View = {
+    func fastingScreen(output: @escaping FastingOutputBlock) -> some View  {
         let route = FastingRoute(navigator: fastingNavigator,
                                  input: .init(),
-                                 output: { _ in })
+                                 output: output)
         return fastingNavigator.initialize(route: route)
-    }()
+    }
 
     lazy var profileScreen: some View = {
         let route = ProfileRoute(

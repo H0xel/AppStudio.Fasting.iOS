@@ -36,8 +36,8 @@ extension PersonalizedTitleView {
     private enum Layout {
         static let topPadding: CGFloat = 8
         static let horizontalPadding: CGFloat = 32
-        static let textTopPadding: CGFloat = 24
-        static let bottomPadding: CGFloat = 16
+        static let textTopPadding: CGFloat = 12
+        static let bottomPadding: CGFloat = 12
     }
 }
 

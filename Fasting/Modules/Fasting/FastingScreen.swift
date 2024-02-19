@@ -45,9 +45,12 @@ struct FastingScreen: View {
             .animation(.fastingStageChage, value: viewModel.fastingStatus)
 
             if let discountPercent = viewModel.discountPaywallInfo?.discount, !viewModel.hasSubscription {
-                DiscountPaywallPinView(discountPercent: discountPercent)
+                DiscountPaywallPinView(discountPercent: 50)
                     .aligned(.topLeft)
                     .padding(.top, Layout.discountPinTopPadding)
+                    .onTapGesture {
+                        viewModel.pinTapped()
+                    }
             }
         }
     }

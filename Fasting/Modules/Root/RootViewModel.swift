@@ -60,7 +60,12 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
 
     var fastingScreen: some View {
-        router.fastingScreen
+        router.fastingScreen { [weak self] output in
+            switch output {
+            case .pinTapped:
+                self?.currentTab = .paywall
+            }
+        }
     }
 
     @ViewBuilder

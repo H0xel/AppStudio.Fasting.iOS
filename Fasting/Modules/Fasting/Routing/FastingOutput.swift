@@ -9,4 +9,5 @@ import AppStudioUI
 typealias FastingOutputBlock = ViewOutput<FastingOutput>
 
 enum FastingOutput {
+    case pinTapped
 }

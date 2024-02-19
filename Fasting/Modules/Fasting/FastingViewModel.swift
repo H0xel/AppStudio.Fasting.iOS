@@ -107,6 +107,10 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
             .assign(to: &$discountPaywallInfo)
     }
 
+    func pinTapped() {
+        output(.pinTapped)
+    }
+
     private func startFastingIfPossible(from date: Date) {
         if fastingFinishedCyclesLimitService.isLimited, !hasSubscription {
             Task {
