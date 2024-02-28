@@ -20,6 +20,9 @@ struct DebugMenuScreen: View {
                 Section("Actions") {
                     DebugMenuActionsView()
                 }
+
+                DebugMenuExperimentsView()
+
                 Section("Fonts") {
                     NavigationLink("Fonts") {
                         DebugFontView()

@@ -49,10 +49,6 @@ struct DebugMenuActionsView: View {
         }
         .foregroundColor(.red)
 
-        Button("Reset pricing experiment") {
-            appCustomization.resetPricingExp()
-        }
-        .foregroundColor(.blue)
         Button("Reset onboarding") {
             storageService.onboardingIsFinished = false
         }

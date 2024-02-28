@@ -68,7 +68,7 @@ struct DiscountPaywallScreen: View {
     }
 
     private var isSettings: Bool {
-        viewModel.context == .paywallTab
+        viewModel.context == .discountPaywallTab
     }
 }
 

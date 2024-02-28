@@ -18,6 +18,7 @@ protocol AppCustomization {
     func closePaywallButtonDelay() async throws -> Int
     func isLongOnboardingEnabled() async throws -> Bool
     func resetPricingExp()
+    func resetDiscountExp()
     // TODO: Протестить на то чтобы в кэше не сохранялось
 //    func shouldForceUpdate() async throws -> Bool
 }

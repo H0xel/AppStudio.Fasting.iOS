@@ -30,7 +30,7 @@ struct DiscountPaywallInfo: Named, Equatable {
 
     static var mock: DiscountPaywallInfo = {
         DiscountPaywallInfo(name: "mock",
-                            productId: "com.municorn.Fasting.yearly_exp_1",
+                            productId: "com.municorn.Fasting.weekly_exp_1",
                             paywallType: "discount_timer",
                             renewOfferTime: 1000,
                             discount: 50,

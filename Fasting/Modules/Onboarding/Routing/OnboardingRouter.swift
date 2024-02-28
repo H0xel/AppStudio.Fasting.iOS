@@ -26,6 +26,7 @@ class OnboardingRouter: BaseRouter {
             case .close, .subscribed:
                 self?.pushChooseFastingScreen(output: output)
             case let .showDiscountPaywall(input):
+                self?.navigator.dismiss()
                 self?.presentDiscountPaywall(input: input, output: output)
             }
         }
@@ -39,6 +40,7 @@ class OnboardingRouter: BaseRouter {
             case .close, .subscribed:
                 self?.pushChooseFastingScreen(output: output)
             case let .showDiscountPaywall(input):
+                self?.navigator.dismiss()
                 self?.presentDiscountPaywall(input: input, output: output)
             }
         }

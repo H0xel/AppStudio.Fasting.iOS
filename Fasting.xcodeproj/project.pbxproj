@@ -345,6 +345,8 @@
 		A71CEB772B7DF40A0056C99A /* AppInitializerServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71CEB762B7DF40A0056C99A /* AppInitializerServicePreview.swift */; };
 		A72230372AFB624300303D5D /* Date+LocaleTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72230362AFB624300303D5D /* Date+LocaleTime.swift */; };
 		A722FEA72B15B201001CD1A3 /* UIScreen+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */; };
+		A72D45272B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D45262B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift */; };
+		A72D45292B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D45282B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
 		A75956F02B172EBF00ECCAB0 /* SubscriptionPreviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75956EF2B172EBF00ECCAB0 /* SubscriptionPreviewService.swift */; };
@@ -760,6 +762,8 @@
 		A71CEB762B7DF40A0056C99A /* AppInitializerServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializerServicePreview.swift; sourceTree = "<group>"; };
 		A72230362AFB624300303D5D /* Date+LocaleTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+LocaleTime.swift"; sourceTree = "<group>"; };
 		A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+extensions.swift"; sourceTree = "<group>"; };
+		A72D45262B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCustomizationImpl+Discount.swift"; sourceTree = "<group>"; };
+		A72D45282B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuExperimentsView.swift; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
 		A75956EF2B172EBF00ECCAB0 /* SubscriptionPreviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPreviewService.swift; sourceTree = "<group>"; };
@@ -1232,6 +1236,7 @@
 		5675005A2ADFA97F009331CB /* Experiments */ = {
 			isa = PBXGroup;
 			children = (
+				A72D45232B84D81000BC2E41 /* DiscountExperiment */,
 				A0497E8F2B28C35700F21FB0 /* TrialExperiment */,
 				A07D95A62AE946BF00D2C2E2 /* PricingExperiment */,
 			);
@@ -1852,6 +1857,7 @@
 				A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */,
 				A04272CD2AE28F2C00754326 /* DebugMenuActionsView.swift */,
 				A70DBE212B0B9F230067D7BD /* DebugFontView.swift */,
+				A72D45282B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2156,6 +2162,14 @@
 				A70DBE482B0DD5A00067D7BD /* LaunchScreen.swift */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		A72D45232B84D81000BC2E41 /* DiscountExperiment */ = {
+			isa = PBXGroup;
+			children = (
+				A72D45262B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift */,
+			);
+			path = DiscountExperiment;
 			sourceTree = "<group>";
 		};
 		A749A0832AE67E8F0093C377 /* TrackerService */ = {
@@ -2804,6 +2818,7 @@
 				56C28DC72AE109580007E48D /* LateTimeInitializers.swift in Sources */,
 				564BE0C12AF0F31600CE7F38 /* FastingParameters+Mappable.swift in Sources */,
 				A7A3974C2B7345D0003330C3 /* DiscountPaywallInfo.swift in Sources */,
+				A72D45272B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift in Sources */,
 				A7A3973D2B71FEFE003330C3 /* DiscountPaywallView.swift in Sources */,
 				566C24942AE8F80B00AEDB3C /* PaywallScreenOutput.swift in Sources */,
 				563B8AC72B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift in Sources */,
@@ -2827,6 +2842,7 @@
 				A0255E842AFBD29400221EC6 /* TelecomTargetType.swift in Sources */,
 				567500DA2ADFCDAC009331CB /* ApiSettingsProviderImpl.swift in Sources */,
 				A0255E7E2AFBD23700221EC6 /* EmptyResult.swift in Sources */,
+				A72D45292B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift in Sources */,
 				5675001E2ADE86C3009331CB /* FirstLaunchServiceImpl.swift in Sources */,
 				A063B1F92AEBD0E800084696 /* StartFastingOutput.swift in Sources */,
 				567500B72ADFC031009331CB /* IDFARequestService.swift in Sources */,
@@ -3176,7 +3192,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.15;
+				MARKETING_VERSION = 1.1;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -3217,7 +3233,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -17,7 +17,7 @@ enum AnalyticEvent: MirrorEnum {
     case startedExperiment(expName: String, variantId: String)
     case appliedForcedVariant(expName: String, variantId: String)
 
-    case tapClosePaywall
+    case tapClosePaywall(context: PaywallContext)
     case tapSubscribe(context: PaywallContext,
                       productId: String,
                       type: AnalyticEventType,

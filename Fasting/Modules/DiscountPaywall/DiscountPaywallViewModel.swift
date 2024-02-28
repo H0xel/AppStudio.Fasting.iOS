@@ -46,6 +46,7 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
         loadAvailableProducts()
         subscribeToLoadingState()
         subscribeToRestoreChange()
+        subscribeToFinishTransactionState()
         updateTimer()
         startTimer()
     }
@@ -62,11 +63,14 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
 
     func close() {
         output(.close)
+        trackerService.track(.tapClosePaywall(context: .discountOnboarding))
     }
 
     func restore() {
         router.presentProgressView()
         subscriptionService.restore()
+        trackerService.track(.tapRestorePurchases(context: .onboarding,
+                                                  afId: analyticKeyStore.currentAppsFlyerId))
     }
 
     func appeared() {
@@ -118,8 +122,6 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
                 switch state {
                 case .error:
                     this.router.dismissBanner()
-                case .success:
-                    this.discountPaywallTimerService.setAvailableDiscount(data: nil)
                 default:
                     break
                 }
@@ -133,8 +135,9 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
             .take(1)
             .asDriver()
             .drive(with: self) { this, _ in
-                this.output(.subscribe)
                 this.router.dismissBanner()
+                this.output(.subscribe)
+                this.discountPaywallTimerService.setAvailableDiscount(data: nil)
             }
             .disposed(by: disposeBag)
     }
@@ -152,6 +155,15 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
                     this.trackRestoreFinishedEvent(result: .success, context: this.context)
                 }
                 this.router.dismissBanner()
+            }
+            .disposed(by: disposeBag)
+    }
+
+    private func subscribeToFinishTransactionState() {
+        messenger.onMessage(FinishTransactionMessage.self)
+            .distinctUntilChanged()
+            .subscribe(with: self) { this, transaction in
+                this.trackPurchaseFinished(transaction: transaction)
             }
             .disposed(by: disposeBag)
     }

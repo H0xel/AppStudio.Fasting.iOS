@@ -91,7 +91,7 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
 
     func close() {
         guard canDisplayCloseButton else { return }
-        trackerService.track(.tapClosePaywall)
+        trackerService.track(.tapClosePaywall(context: .onboarding))
 
         if let discountPaywallInfo {
             output(.showDiscountPaywall(.init(context: .discountOnboarding, paywallInfo: discountPaywallInfo)))

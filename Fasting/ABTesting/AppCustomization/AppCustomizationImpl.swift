@@ -55,7 +55,9 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
         await register(experiment: PricingOngoingExperiment(experimentName: experimentName))
         await register(experiment: TrialExperiment())
-        await register(experiment: DiscountPaywallExperiment(experimentName: "exp_discount_offer_1"))
+
+        let discountExperimentName = await discountExperimentName()
+        await register(experiment: DiscountPaywallExperiment(experimentName: discountExperimentName))
     }
 
     var productIds: Observable<[String]> {
@@ -73,7 +75,15 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     var discountPaywallExperiment: Observable<DiscountPaywallInfo> {
         experimentValueObservable(forType: DiscountPaywallExperiment.self, defaultValue: .empty)
-            .filter { $0.name != DiscountPaywallInfo.empty.name }
+            .map { info in
+                if info.name == DiscountPaywallInfo.empty.name {
+                    throw DiscountError.error
+                }
+                return info
+            }
+            .observe(on: MainScheduler.asyncInstance)
+            .retry(times: 3, withDelay: .seconds(1))
+            .catchAndReturn(.empty)
     }
 
     func requiredAppVersion() async throws -> String {

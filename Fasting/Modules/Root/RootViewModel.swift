@@ -120,19 +120,18 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
 
     private func initializePaywallTab() {
-        subscriptionService.hasSubscriptionObservable
-            .distinctUntilChanged()
-            .flatMap(with: self, { this, hasSubscription -> Observable<(hasSubscription: Bool, discountPaywallInfo: DiscountPaywallInfo)> in
-                this.appCustomization.discountPaywallExperiment
-                    .map { (hasSubscription, $0) }
-            })
-            .asDriver()
-            .drive(with: self) { this, args in
-                this.changeCurrentTabOnLaunch(hasSubsctiption: args.hasSubscription)
-                this.hasSubscription = args.hasSubscription
-                this.discountPaywallTimerService.registerPaywall(info: args.discountPaywallInfo)
-            }
-            .disposed(by: disposeBag)
+        Observable.combineLatest(
+            subscriptionService.hasSubscriptionObservable.distinctUntilChanged(),
+            appCustomization.discountPaywallExperiment.distinctUntilChanged()
+        )
+        .asDriver()
+        .drive(with: self) { this, args in
+            let (hasSubscription, discountPaywallInfo) = args
+            this.changeCurrentTabOnLaunch(hasSubsctiption: hasSubscription)
+            this.hasSubscription = hasSubscription
+            this.discountPaywallTimerService.registerPaywall(info: discountPaywallInfo)
+        }
+        .disposed(by: disposeBag)
     }
 
     private func changeCurrentTabOnLaunch(hasSubsctiption: Bool) {
@@ -189,3 +188,5 @@ private extension RootViewModel {
         trackerService.track(.tapNeedAssistance)
     }
 }
+
+
