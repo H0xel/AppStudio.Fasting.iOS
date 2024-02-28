@@ -74,7 +74,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
                                            productId: subscription.productIdentifier,
                                            type: .main,
                                            afId: analyticKeyStore.currentAppsFlyerId))
-        router.presentProgressView()
+        output(.switchProgressView(isPresented: true))
     }
 
     func selectProduct(_ product: SubscriptionProduct) {
@@ -102,7 +102,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     }
 
     func restore() {
-        router.presentProgressView()
+        output(.switchProgressView(isPresented: true))
         subscriptionService.restore()
         trackerService.track(.tapRestorePurchases(context: input.paywallContext,
                                                   afId: analyticKeyStore.currentAppsFlyerId))
@@ -139,6 +139,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
             .drive(with: self) { this, state in
                 switch state {
                 case .error:
+                    this.output(.switchProgressView(isPresented: false))
                     this.router.dismissBanner()
                 default:
                     break
@@ -159,6 +160,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
                 case .restored:
                     this.trackRestoreFinishedEvent(result: .success, context: this.input.paywallContext)
                 }
+                this.output(.switchProgressView(isPresented: true))
                 this.router.dismissBanner()
             }
             .disposed(by: disposeBag)
@@ -171,6 +173,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
             .asDriver()
             .drive(with: self) { this, _ in
                 this.output(.subscribed)
+                this.output(.switchProgressView(isPresented: true))
                 this.router.dismissBanner()
             }
             .disposed(by: disposeBag)

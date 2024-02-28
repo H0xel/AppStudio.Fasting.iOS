@@ -14,7 +14,6 @@ struct ProfileScreen: View {
 
     var body: some View {
         VStack(spacing: .zero) {
-
             SetupFastingBanner(plan: viewModel.plan) {
                 viewModel.changePlan()
             }
@@ -39,6 +38,11 @@ struct ProfileScreen: View {
             Spacer()
         }
         .padding(.horizontal, Layout.horizontalPadding)
+        .navBarButton(placement: .principal,
+                      isVisible: true,
+                      content: Text(Localization.navigationTitle).font(.poppins(.buttonText)),
+                      action: {})
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -58,6 +62,7 @@ private extension ProfileScreen {
         static let support: LocalizedStringKey = "ProfileScreen.support"
         static let termsOfUse: LocalizedStringKey = "ProfileScreen.termsOfUse"
         static let privacyPolicy: LocalizedStringKey = "ProfileScreen.privacyPolicy"
+        static let navigationTitle = NSLocalizedString("ProfileScreen.navigationTitle", comment: "Profile")
     }
 }
 

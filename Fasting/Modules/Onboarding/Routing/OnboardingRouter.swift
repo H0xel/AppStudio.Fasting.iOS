@@ -42,6 +42,12 @@ class OnboardingRouter: BaseRouter {
             case let .showDiscountPaywall(input):
                 self?.navigator.dismiss()
                 self?.presentDiscountPaywall(input: input, output: output)
+            case .switchProgressView(let isPresented):
+                if isPresented {
+                    self?.present(banner: DimmedProgressBanner())
+                } else {
+                    self?.dismissBanner()
+                }
             }
         }
         present(route: route)

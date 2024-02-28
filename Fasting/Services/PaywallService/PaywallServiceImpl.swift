@@ -50,6 +50,12 @@ class PaywallServiceImpl: PaywallService {
                     continuation.resume(returning: false)
                 case .subscribed:
                     continuation.resume(returning: true)
+                case .switchProgressView(let isPresented):
+                    if isPresented {
+                        router.present(banner: DimmedProgressBanner())
+                    } else {
+                        router.dismissBanner()
+                    }
                 }
             }
             router.present(route: route)

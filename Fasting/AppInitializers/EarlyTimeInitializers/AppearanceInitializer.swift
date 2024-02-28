@@ -11,5 +11,6 @@ import SwiftUI
 class AppearanceInitializer: AppInitializer {
     func initialize() {
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color.fastingGreyStrokeFill)
+        UITabBar.appearance().backgroundColor = UIColor.white
     }
 }

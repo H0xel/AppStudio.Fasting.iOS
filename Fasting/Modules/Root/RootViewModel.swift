@@ -31,6 +31,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
     @Published var rootScreen: RootScreen = .launchScreen
     @Published var hasSubscription = false
+    @Published var isProcessingSubcription = false
 
     @Published var discountPaywallInfo: DiscountPaywallInfo?
 
@@ -67,13 +68,17 @@ class RootViewModel: BaseViewModel<RootOutput> {
         }
     }
 
+    var coachScreen: some View {
+        router.coachScreen
+    }
+
     @ViewBuilder
     func discountPaywall(input: DiscountPaywallInput) -> some View {
         DiscountPaywallRoute(navigator: router.navigator, input: input) { _ in }.view
     }
 
-    var onboardingScreen: some View {
-        OnboardingRoute(navigator: router.navigator, input: .init(), output: { [weak self] event in
+    lazy var onboardingScreen: some View = {
+        router.onboardingScreen { [weak self] event in
             switch event {
             case .onboardingIsFinished:
                 self?.storageService.onboardingIsFinished = true
@@ -83,17 +88,18 @@ class RootViewModel: BaseViewModel<RootOutput> {
                     self?.rootScreen = .fasting
                 }
             }
-        })
-        .view
-    }
+        }
+    }()
 
     var profileScreen: some View {
         router.profileScreen
     }
 
-    var paywallScreen: some View {
-        router.paywallScreen
-    }
+    lazy var paywallScreen: some View = {
+        router.paywallScreen { [weak self] isProcessing in
+            self?.isProcessingSubcription = isProcessing
+        }
+    }()
 
     private func initializeForceUpdateIfNeeded() {
         appCustomization.forceUpdateAppVersion
@@ -188,5 +194,3 @@ private extension RootViewModel {
         trackerService.track(.tapNeedAssistance)
     }
 }
-
-

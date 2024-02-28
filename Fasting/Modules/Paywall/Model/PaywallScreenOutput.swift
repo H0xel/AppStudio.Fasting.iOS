@@ -9,4 +9,5 @@ enum PaywallScreenOutput {
     case close
     case subscribed
     case showDiscountPaywall(DiscountPaywallInput)
+    case switchProgressView(isPresented: Bool)
 }

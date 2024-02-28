@@ -29,39 +29,44 @@ struct RootScreen: View {
         case .onboarding:
             viewModel.onboardingScreen
         case .fasting:
-            TabView(selection: $viewModel.currentTab) {
-                viewModel.fastingScreen
-                    .tag(AppTab.fasting)
-                    .tabItem {
-                        fastingTabImage
-                            .foregroundStyle(.fastingGreyStrokeFill)
-                    }
-                viewModel.profileScreen
-                    .tag(AppTab.profile)
-                    .tabItem {
-                        Image.personFill
-                    }
-                if !viewModel.hasSubscription {
-                    if let info = viewModel.discountPaywallInfo {
-                        viewModel.discountPaywall(input: .init(context: .discountPaywallTab, paywallInfo: info))
-                            .tag(AppTab.paywall)
-                            .tabItem {
-                                Image.crownFill
-                            }
-                    } else {
-                        viewModel.paywallScreen
-                            .tag(AppTab.paywall)
-                            .tabItem {
-                                Image.crownFill
-                            }
+            ZStack {
+                TabView(selection: $viewModel.currentTab) {
+                    viewModel.fastingScreen
+                        .tag(AppTab.fasting)
+                        .tabItem {
+                            fastingTabImage
+                                .foregroundStyle(.fastingGreyStrokeFill)
+                        }
+                    viewModel.coachScreen
+                        .tag(AppTab.coach)
+                        .tabItem {
+                            coachTabImage
+                        }
+                    viewModel.profileScreen
+                        .tag(AppTab.profile)
+                        .tabItem {
+                            Image.personFill
+                        }
+                    if !viewModel.hasSubscription {
+                        if let info = viewModel.discountPaywallInfo {
+                            viewModel.discountPaywall(input: .init(context: .discountPaywallTab, paywallInfo: info))
+                                .tag(AppTab.paywall)
+                                .tabItem {
+                                    Image.crownFill
+                                }
+                        } else {
+                            viewModel.paywallScreen
+                                .tag(AppTab.paywall)
+                                .tabItem {
+                                    Image.crownFill
+                                }
+                        }
                     }
                 }
+                if viewModel.isProcessingSubcription {
+                    DimmedProgressBanner().view
+                }
             }
-            .navBarButton(placement: .principal,
-                          isVisible: viewModel.currentTab.navigationTitle != nil,
-                          content: navigationTitleView,
-                          action: {})
-            .navigationBarTitleDisplayMode(.inline)
         case let .forceUpdate(link):
             ForceUpdateScreen(theme: .init()) {
                 viewModel.openAppStore(link)
@@ -69,16 +74,12 @@ struct RootScreen: View {
         }
     }
 
-    @ViewBuilder
-    private var navigationTitleView: some View {
-        if let title = viewModel.currentTab.navigationTitle {
-            Text(title)
-                .font(.poppins(.buttonText))
-        }
-    }
-
     private var fastingTabImage: Image {
         viewModel.currentTab == .fasting ? .fastingTabBarItemActive : .fastingTabBarItemInactive
+    }
+
+    private var coachTabImage: Image {
+        viewModel.currentTab == .coach ? .init(.aiCoachActive) : .init(.aiCoachDisabled)
     }
 }
 

@@ -9,6 +9,7 @@ import Foundation
 
 enum AppTab: String {
     case fasting
+    case coach
     case profile
     case paywall
 
@@ -16,7 +17,7 @@ enum AppTab: String {
         switch self {
         case .profile:
             return NSLocalizedString("ProfileScreen.navigationTitle", comment: "Profile")
-        case .fasting, .paywall:
+        case .fasting, .paywall, .coach:
             return nil
         }
     }

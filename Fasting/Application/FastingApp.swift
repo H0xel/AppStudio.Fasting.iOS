@@ -16,7 +16,7 @@ struct FastingApp: App {
 
     var body: some Scene {
         WindowGroup {
-            navigator.initialize(route: RootRoute(navigator: navigator, input: RootInput(), output: { _ in }))
+            RootRoute(navigator: navigator, input: RootInput(), output: { _ in }).view
                 .preferredColorScheme(.light)
         }
     }

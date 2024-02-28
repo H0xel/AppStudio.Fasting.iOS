@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioNavigation
 import Dependencies
+import AICoach
 
 class RootRouter: BaseRouter {
     @Dependency(\.paywallService) private var paywallService
@@ -18,12 +19,14 @@ class RootRouter: BaseRouter {
     private let fastingNavigator = Navigator()
     private let profileNavigator = Navigator()
     private let paywallNavigator = Navigator()
+    private let coachNavigator = Navigator()
+    private let onboardingNavigator = Navigator()
 
     override init(navigator: Navigator) {
         super.init(navigator: navigator)
     }
 
-    func fastingScreen(output: @escaping FastingOutputBlock) -> some View  {
+    func fastingScreen(output: @escaping FastingOutputBlock) -> some View {
         let route = FastingRoute(navigator: fastingNavigator,
                                  input: .init(),
                                  output: output)
@@ -39,15 +42,34 @@ class RootRouter: BaseRouter {
         return profileNavigator.initialize(route: route)
     }()
 
-    lazy var paywallScreen: some View = {
-        let route = PaywallRoute(navigator: paywallNavigator, input: .fromSettings) { _ in }
+    func paywallScreen(onProgress: @escaping (Bool) -> Void) -> some View {
+        let route = PaywallRoute(navigator: paywallNavigator, input: .fromSettings) { output in
+            switch output {
+            case .close, .subscribed, .showDiscountPaywall:
+                break
+            case .switchProgressView(let isPresented):
+                onProgress(isPresented)
+            }
+        }
         return paywallNavigator.initialize(route: route)
+    }
+
+    lazy var coachScreen: some View = {
+        let route = CoachRoute(navigator: coachNavigator,
+                               input: .init(constants: .fastingConstants),
+                               output: { _ in })
+        return coachNavigator.initialize(route: route)
     }()
 
     func presentPaywall() {
         Task {
             await paywallService.presentPaywallIfNeeded(paywallContext: .onboarding, router: self)
         }
+    }
+
+    func onboardingScreen(output: @escaping OnboardingOutputBlock) -> some View {
+        let route = OnboardingRoute(navigator: onboardingNavigator, input: .init(), output: output)
+        return onboardingNavigator.initialize(route: route)
     }
 
     func presentAppStore(_ appLink: String) {

@@ -9,12 +9,14 @@ import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
 import Dependencies
+import AICoach
 
 class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.userPropertyService) private var userPropertyService
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.onboardingService) private var onboardingService
+    @Dependency(\.coachService) private var coachService
 
     var router: OnboardingRouter!
     @Published var step: OnboardingFlowStep = .none
@@ -183,6 +185,7 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
             specialEventDate: specialEventDate
         )
         onboardingService.save(data: onboardingData)
+        coachService.updateUserData(onboardingData.aiCoachUserData)
 
         router.presentLoadingView { [weak self] in
             self?.presentPaywall()
@@ -228,5 +231,15 @@ private extension OnboardingViewModel {
                                            mentalClarity: goals.contains(.improveMentalClarity),
                                            liveLonger: goals.contains(.liveLonger),
                                            healthierLifestyle: goals.contains(.healthierLifestyle)))
+    }
+}
+
+private extension OnboardingData {
+    var aiCoachUserData: AICoachUserData {
+        .init(currentWeight: weight.valueWithUnits,
+              goalWeight: desiredWeight.valueWithUnits,
+              height: height.valueWithUnits,
+              dateOfBirth: birthdayDate,
+              sex: sex.rawValue)
     }
 }

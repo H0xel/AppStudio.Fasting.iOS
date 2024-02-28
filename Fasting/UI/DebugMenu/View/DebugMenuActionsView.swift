@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Dependencies
+import AICoach
 
 struct DebugMenuActionsView: View {
 
@@ -17,6 +18,9 @@ struct DebugMenuActionsView: View {
     @Dependency(\.storageService) private var storageService
     @Dependency(\.subscriptionService) private var subscriptionService
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
+    @Dependency(\.coachService) private var coachService
+
+    @State private var isDeletingMessages = false
 
     @State private var currentEnvironment: BackendEnvironment
 
@@ -55,6 +59,21 @@ struct DebugMenuActionsView: View {
 
         Button("Reset discount paywall timer") {
             discountPaywallTimerService.reset()
+        }
+
+        HStack {
+            Button("Delete all messages from AI Coach") {
+                isDeletingMessages = true
+                Task {
+                    try await coachService.deleteAllMessages()
+                    coachService.reset()
+                    isDeletingMessages = false
+                }
+            }
+            Spacer()
+            if isDeletingMessages {
+                ProgressView()
+            }
         }
     }
 }

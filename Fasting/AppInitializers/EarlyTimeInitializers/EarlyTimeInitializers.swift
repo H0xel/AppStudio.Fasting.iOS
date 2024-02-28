@@ -6,6 +6,7 @@
 //
 
 import Dependencies
+import AICoach
 
 final class EarlyTimeInitializers: Initializers {
 
@@ -27,7 +28,9 @@ final class EarlyTimeInitializers: Initializers {
             paywallServiceInitializer,
             fastingParametersInitializer,
             AppearanceInitializer(),
-            QuickActionInitializer()
+            QuickActionInitializer(),
+            AICoachInitializer(),
+            AICoachDatabaseInitializer()
         ]
     }
 }

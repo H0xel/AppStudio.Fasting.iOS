@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Common.git",
       "state" : {
-        "revision" : "d194d31fdd760227048df26abd95be034152cabb",
-        "version" : "1.0.13"
+        "revision" : "4021ea78f75c0028acf7fdf00e0e9938dafc6c1c",
+        "version" : "1.0.17"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git",
       "state" : {
-        "revision" : "51c62c9372831cfe7fcc21239aa7a79dd501c26c",
-        "version" : "1.0.9"
+        "revision" : "2ae96ed73293b546eaaff8cc1e2f1c8d54b6eede",
+        "version" : "1.0.11"
       }
     },
     {
@@ -185,8 +185,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/iOS.MunicornFoundation",
       "state" : {
-        "revision" : "1223b7c02cd869248450dcfd2f46204b7dd5b122",
-        "version" : "1.2.5"
+        "revision" : "124aab594d3313f2239e2c339f13b30aeecffcbf",
+        "version" : "1.2.11"
       }
     },
     {
