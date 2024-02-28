@@ -14,7 +14,7 @@ enum TrialExperimentVariant: String, Codable {
 }
 
 class TrialExperiment: AppStudioExperimentWithRemoteConfig<TrialExperimentVariant> {
-    
+
     init() {
         super.init(experimentName: "week_5_99_trial_no_trial", defaultValue: .control)
     }

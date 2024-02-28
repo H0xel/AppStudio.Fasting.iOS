@@ -41,7 +41,7 @@ class ProductProviderImpl: ProductProvider, AppInitializer {
 
     // TODO: SETUP default product list
     var defaultProductIds: [String] {
-        [weeklyProductId, weeklyProductIdWithoutTrial]
+        [weeklyProductIdWithoutTrial]
     }
 
     // TODO: SETUP add all product items here
