@@ -45,7 +45,7 @@ extension Image {
     }
 
     /// 􀆄
-    static var xmark: Image {
+    static var xmarkUnfilled: Image {
         Image(systemName: "xmark")
     }
 

@@ -377,6 +377,8 @@
 		A78085082B7DEAFE002BF67E /* AppCustomizationPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78085072B7DEAFE002BF67E /* AppCustomizationPreview.swift */; };
 		A78535E52AF1481900437F5E /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78535E42AF1481900437F5E /* SnapCarousel.swift */; };
 		A78535E82AF21F0900437F5E /* FastingBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */; };
+		A78676EF2B1DA61B002C2202 /* FastingInactiveStagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78676EE2B1DA61B002C2202 /* FastingInactiveStagesView.swift */; };
+		A78676F12B1DA68A002C2202 /* FastingInactiveStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78676F02B1DA68A002C2202 /* FastingInactiveStage.swift */; };
 		A7A1AEA42AFE2C0A00B6211E /* Contexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1AEA32AFE2C0A00B6211E /* Contexts.swift */; };
 		A7A397342B71F6A6003330C3 /* DiscountPaywallInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3972E2B71F6A6003330C3 /* DiscountPaywallInput.swift */; };
 		A7A397352B71F6A6003330C3 /* DiscountPaywallRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3972F2B71F6A6003330C3 /* DiscountPaywallRouter.swift */; };
@@ -392,6 +394,12 @@
 		A7A3974E2B7345D9003330C3 /* DiscountPaywallExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3974D2B7345D9003330C3 /* DiscountPaywallExperiment.swift */; };
 		A7A3CE6D2AEBB32D00308201 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */; };
 		A7AD9C362B17359B006AE1C5 /* AppSyncServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AD9C352B17359B006AE1C5 /* AppSyncServicePreview.swift */; };
+		A7C026CB2B1DB235004C3D63 /* InActiveFastingArticleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C026C52B1DB235004C3D63 /* InActiveFastingArticleInput.swift */; };
+		A7C026CC2B1DB235004C3D63 /* InActiveFastingArticleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C026C62B1DB235004C3D63 /* InActiveFastingArticleRouter.swift */; };
+		A7C026CD2B1DB235004C3D63 /* InActiveFastingArticleRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C026C72B1DB235004C3D63 /* InActiveFastingArticleRoute.swift */; };
+		A7C026CE2B1DB235004C3D63 /* InActiveFastingArticleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C026C82B1DB235004C3D63 /* InActiveFastingArticleScreen.swift */; };
+		A7C026CF2B1DB235004C3D63 /* InActiveFastingArticleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C026C92B1DB235004C3D63 /* InActiveFastingArticleOutput.swift */; };
+		A7C026D02B1DB235004C3D63 /* InActiveFastingArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C026CA2B1DB235004C3D63 /* InActiveFastingArticleViewModel.swift */; };
 		A7BD1CDB2B79B531009C1259 /* DiscountPaywallPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */; };
 		A7BD1CE12B7B2632009C1259 /* PromoPaywallServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */; };
 		A7BD1CE22B7B2632009C1259 /* PromoPaywallDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */; };
@@ -424,6 +432,8 @@
 		A7D01B922AF115F200C50C1F /* NotificationOnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8C2AF115F200C50C1F /* NotificationOnboardingScreen.swift */; };
 		A7D01B932AF115F200C50C1F /* NotificationOnboardingOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8D2AF115F200C50C1F /* NotificationOnboardingOutput.swift */; };
 		A7D01B942AF115F200C50C1F /* NotificationOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8E2AF115F200C50C1F /* NotificationOnboardingViewModel.swift */; };
+		A7DF36832B1DE0FD009080C9 /* InActiveFastingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */; };
+		A7DF36852B1DE195009080C9 /* InActiveFastingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */; };
 		A7DBD0902B3AB1C7003DCD10 /* QuickActionServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD08F2B3AB1C7003DCD10 /* QuickActionServiceImpl.swift */; };
 		A7DBD0922B3AB1DB003DCD10 /* QuickActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0912B3AB1DB003DCD10 /* QuickActionService.swift */; };
 		A7DBD0942B3AB20A003DCD10 /* QuickActionDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0932B3AB20A003DCD10 /* QuickActionDependencies.swift */; };
@@ -801,6 +811,8 @@
 		A78085072B7DEAFE002BF67E /* AppCustomizationPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationPreview.swift; sourceTree = "<group>"; };
 		A78535E42AF1481900437F5E /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 		A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingBackgroundModifier.swift; sourceTree = "<group>"; };
+		A78676EE2B1DA61B002C2202 /* FastingInactiveStagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInactiveStagesView.swift; sourceTree = "<group>"; };
+		A78676F02B1DA68A002C2202 /* FastingInactiveStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInactiveStage.swift; sourceTree = "<group>"; };
 		A7A1AEA32AFE2C0A00B6211E /* Contexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contexts.swift; sourceTree = "<group>"; };
 		A7A3972E2B71F6A6003330C3 /* DiscountPaywallInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallInput.swift; sourceTree = "<group>"; };
 		A7A3972F2B71F6A6003330C3 /* DiscountPaywallRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallRouter.swift; sourceTree = "<group>"; };
@@ -817,6 +829,12 @@
 		A7A3CE4C2AEBB30700308201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		A7AD9C352B17359B006AE1C5 /* AppSyncServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSyncServicePreview.swift; sourceTree = "<group>"; };
+		A7C026C52B1DB235004C3D63 /* InActiveFastingArticleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingArticleInput.swift; sourceTree = "<group>"; };
+		A7C026C62B1DB235004C3D63 /* InActiveFastingArticleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingArticleRouter.swift; sourceTree = "<group>"; };
+		A7C026C72B1DB235004C3D63 /* InActiveFastingArticleRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingArticleRoute.swift; sourceTree = "<group>"; };
+		A7C026C82B1DB235004C3D63 /* InActiveFastingArticleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingArticleScreen.swift; sourceTree = "<group>"; };
+		A7C026C92B1DB235004C3D63 /* InActiveFastingArticleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingArticleOutput.swift; sourceTree = "<group>"; };
+		A7C026CA2B1DB235004C3D63 /* InActiveFastingArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingArticleViewModel.swift; sourceTree = "<group>"; };
 		A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallPinView.swift; sourceTree = "<group>"; };
 		A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallServiceImpl.swift; sourceTree = "<group>"; };
 		A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallDependencies.swift; sourceTree = "<group>"; };
@@ -849,6 +867,8 @@
 		A7D01B8C2AF115F200C50C1F /* NotificationOnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingScreen.swift; sourceTree = "<group>"; };
 		A7D01B8D2AF115F200C50C1F /* NotificationOnboardingOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingOutput.swift; sourceTree = "<group>"; };
 		A7D01B8E2AF115F200C50C1F /* NotificationOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingViewModel.swift; sourceTree = "<group>"; };
+		A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingHeader.swift; sourceTree = "<group>"; };
+		A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingListView.swift; sourceTree = "<group>"; };
 		A7DBD08F2B3AB1C7003DCD10 /* QuickActionServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionServiceImpl.swift; sourceTree = "<group>"; };
 		A7DBD0912B3AB1DB003DCD10 /* QuickActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionService.swift; sourceTree = "<group>"; };
 		A7DBD0932B3AB20A003DCD10 /* QuickActionDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionDependencies.swift; sourceTree = "<group>"; };
@@ -1597,6 +1617,7 @@
 		56C28D682AE0FBFC0007E48D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A7C026D12B1DB24E004C3D63 /* InActiveFastingArticle */,
 				A7A3972D2B71F683003330C3 /* DiscountPaywall */,
 				A777D1432B209AC300B48F41 /* PersonalizedPaywall */,
 				56E223F32B21971200096664 /* OnboardingLoadingView */,
@@ -2107,6 +2128,7 @@
 				A008A82E2AF117540011A261 /* FastingProgressLabelView.swift */,
 				A70DBE1D2B0B529F0067D7BD /* FastingTimeIntervalView.swift */,
 				A70DBE232B0C83520067D7BD /* MonoSpacedView.swift */,
+				A78676EE2B1DA61B002C2202 /* FastingInactiveStagesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2170,6 +2192,7 @@
 				A0CEE61B2AEFE2E50082B27F /* FastingStatus.swift */,
 				A0CEE61D2AEFE2F20082B27F /* FastingActiveState.swift */,
 				A0CEE61F2AEFE2FD0082B27F /* InActiveFastingStage.swift */,
+				A78676F02B1DA68A002C2202 /* FastingInactiveStage.swift */,
 			);
 			path = Fasting;
 			sourceTree = "<group>";
@@ -2354,6 +2377,37 @@
 			path = Poppins;
 			sourceTree = "<group>";
 		};
+		A7C026D12B1DB24E004C3D63 /* InActiveFastingArticle */ = {
+			isa = PBXGroup;
+			children = (
+				A7C026D32B1DB268004C3D63 /* Routing */,
+				A7C026D22B1DB264004C3D63 /* View */,
+				A7C026C82B1DB235004C3D63 /* InActiveFastingArticleScreen.swift */,
+				A7C026CA2B1DB235004C3D63 /* InActiveFastingArticleViewModel.swift */,
+			);
+			path = InActiveFastingArticle;
+			sourceTree = "<group>";
+		};
+		A7C026D22B1DB264004C3D63 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */,
+				A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A7C026D32B1DB268004C3D63 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A7C026C52B1DB235004C3D63 /* InActiveFastingArticleInput.swift */,
+				A7C026C62B1DB235004C3D63 /* InActiveFastingArticleRouter.swift */,
+				A7C026C72B1DB235004C3D63 /* InActiveFastingArticleRoute.swift */,
+				A7C026C92B1DB235004C3D63 /* InActiveFastingArticleOutput.swift */,
+			);
+			path = Routing;
+            sourceTree = "<group>";
+        };
 		A7BD1CDD2B7B261B009C1259 /* PromoPaywallService */ = {
 			isa = PBXGroup;
 			children = (
@@ -2786,10 +2840,12 @@
 				A0CEE6292AEFE3FB0082B27F /* FastingDependencies.swift in Sources */,
 				A7D01B6E2AF0CCF900C50C1F /* ChooseFastingPlanOutput.swift in Sources */,
 				53D900772AE67EE700FFEB7A /* PreferencesService.swift in Sources */,
+				A7C026CF2B1DB235004C3D63 /* InActiveFastingArticleOutput.swift in Sources */,
 				5662DEC12B16144700C1637C /* FastingStagePoint.swift in Sources */,
 				A70DBE492B0DD5A00067D7BD /* LaunchScreen.swift in Sources */,
 				56F64D7C2AE10EF20067FE05 /* RootInput.swift in Sources */,
 				A0255E782AFBD1D700221EC6 /* SubscriptionTarget.swift in Sources */,
+				A78676F12B1DA68A002C2202 /* FastingInactiveStage.swift in Sources */,
 				A777D14F2B209ADB00B48F41 /* PersonalizedPaywallViewModel.swift in Sources */,
 				A7D01B872AF1102400C50C1F /* SetupFastingButton.swift in Sources */,
 				A70743632B21D0B400572A98 /* PersonalizedBulletPointsView.swift in Sources */,
@@ -2821,6 +2877,7 @@
 				563B8ACB2B04AA4000AF6BB7 /* NotificationCenterDelegate.swift in Sources */,
 				5675010A2ADFD955009331CB /* IntercomUpdaterImpl.swift in Sources */,
 				567500432ADFA67E009331CB /* AccountProvider.swift in Sources */,
+				A7C026CD2B1DB235004C3D63 /* InActiveFastingArticleRoute.swift in Sources */,
 				56655B732AFCB6AB00508ED4 /* FastingHistoryServiceService.swift in Sources */,
 				56F64D802AE10EF20067FE05 /* RootOutput.swift in Sources */,
 				A07EAB342AFA56A200A46D7E /* EndFastingEarlyInput.swift in Sources */,
@@ -2857,6 +2914,7 @@
 				A0382D3C2AF4F03A009CC579 /* SuccessInput.swift in Sources */,
 				A0C8C1B62B1F789A00EB371C /* FastingStagesContext.swift in Sources */,
 				56C7E96E2B107F58007B5937 /* FastingLimitServiceDependencies.swift in Sources */,
+				A7C026CB2B1DB235004C3D63 /* InActiveFastingArticleInput.swift in Sources */,
 				A0CEE62E2AEFE4280082B27F /* FastingParametersServiceImpl.swift in Sources */,
 				567500B92ADFC031009331CB /* MailSenderServiceImpl.swift in Sources */,
 				56E223EA2B2078A700096664 /* FastingGoal.swift in Sources */,
@@ -2893,6 +2951,7 @@
 				A0255E7E2AFBD23700221EC6 /* EmptyResult.swift in Sources */,
 				A72D45292B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift in Sources */,
 				5675001E2ADE86C3009331CB /* FirstLaunchServiceImpl.swift in Sources */,
+				A7DF36852B1DE195009080C9 /* InActiveFastingListView.swift in Sources */,
 				A063B1F92AEBD0E800084696 /* StartFastingOutput.swift in Sources */,
 				567500B72ADFC031009331CB /* IDFARequestService.swift in Sources */,
 				A7A397412B720412003330C3 /* DiscountTimerView.swift in Sources */,
@@ -2924,7 +2983,9 @@
 				A07D95902AE9202500D2C2E2 /* AppCustomization.swift in Sources */,
 				563B8AC32B03AEDE00AF6BB7 /* FastingNotifications.swift in Sources */,
 				A044263E2AF240F4005400AE /* ProfileOutput.swift in Sources */,
+				A7C026CE2B1DB235004C3D63 /* InActiveFastingArticleScreen.swift in Sources */,
 				566C249B2AE8F80B00AEDB3C /* PaywallRoute.swift in Sources */,
+				A78676EF2B1DA61B002C2202 /* FastingInactiveStagesView.swift in Sources */,
 				A7622F502AEBC9AA00D12632 /* Font+Poppins.swift in Sources */,
 				A70DBE262B0C85550067D7BD /* String+subscript.swift in Sources */,
 				567500A62ADFAE8D009331CB /* PaywallServiceContext.swift in Sources */,
@@ -2967,6 +3028,7 @@
 				A70743612B21CA2500572A98 /* PersonalizedDescriptionView.swift in Sources */,
 				5662DEC32B16146800C1637C /* FastingRingSettings.swift in Sources */,
 				A70DBE242B0C83520067D7BD /* MonoSpacedView.swift in Sources */,
+				A7C026D02B1DB235004C3D63 /* InActiveFastingArticleViewModel.swift in Sources */,
 				A0382D402AF4F03A009CC579 /* SuccessOutput.swift in Sources */,
 				567500ED2ADFD6A0009331CB /* AppSettingsProvider.swift in Sources */,
 				A76148EE2B74C8A6002A7F95 /* DiscountPaywallTimerServiceImpl.swift in Sources */,
@@ -2987,6 +3049,7 @@
 				567500452ADFA67E009331CB /* AppStudioMobileDeviceDataProvider.swift in Sources */,
 				566C24972AE8F80B00AEDB3C /* ShadingImageView.swift in Sources */,
 				56F64D7D2AE10EF20067FE05 /* RootRouter.swift in Sources */,
+				A7C026CC2B1DB235004C3D63 /* InActiveFastingArticleRouter.swift in Sources */,
 				A0881E5C2AEAB7A800E38FF5 /* Image+icons.swift in Sources */,
 				A0255E7A2AFBD1F200221EC6 /* SubscriptionsApiImpl.swift in Sources */,
 				A00B4DC82B7382170067A872 /* FacebookInitializerService.swift in Sources */,
@@ -3038,6 +3101,7 @@
 				A76294322B219E2100DAF93B /* PersonalizedChart.swift in Sources */,
 				56C28DD42AE109580007E48D /* FirebaseInitializer.swift in Sources */,
 				A7D01B6D2AF0CCF900C50C1F /* ChooseFastingPlanScreen.swift in Sources */,
+				A7DF36832B1DE0FD009080C9 /* InActiveFastingHeader.swift in Sources */,
 				56B92DB72B0CB0F700B5F67C /* Locale+Extensions.swift in Sources */,
 				A034F1372B88B9640066F724 /* CoachApiImpl.swift in Sources */,
 				56E223E42B20788000096664 /* HeightUnit.swift in Sources */,

@@ -59,6 +59,13 @@ class FastingRouter: BaseRouter {
         present(route: route)
     }
 
+    func presentInActiveFastingArticle(_ stage: FastingInActiveArticle) {
+        let route = InActiveFastingArticleRoute(navigator: navigator, input: .init(fastingInActiveStage: stage)) { _ in
+
+        }
+        present(route: route)
+    }
+
     func presentArticle(for stage: FastingStage) {
         let route = FastingPhaseRoute(navigator: navigator, input: .init(stage: stage), output: { _ in })
         present(route: route)

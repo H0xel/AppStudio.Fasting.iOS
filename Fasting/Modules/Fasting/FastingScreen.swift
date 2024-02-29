@@ -15,10 +15,16 @@ struct FastingScreen: View {
     var body: some View {
         ZStack {
             VStack {
-                FastingStagesView(stages: viewModel.fastingStages,
-                                  currentStage: viewModel.currentStage,
-                                  hasSubscription: viewModel.hasSubscription,
-                                  onTap: viewModel.presentArticle)
+                if case .inActive = viewModel.fastingStatus {
+                    FastingInActiveStagesView(action: viewModel.inActiveStageTapped)
+                }
+
+                if case .active = viewModel.fastingStatus {
+                    FastingStagesView(stages: viewModel.fastingStages,
+                                      currentStage: viewModel.currentStage,
+                                      hasSubscription: viewModel.hasSubscription,
+                                      onTap: viewModel.presentArticle)
+                }
                 Spacer()
                 FastingProgressView(status: viewModel.fastingStatus,
                                     plan: viewModel.fastingInterval.plan,
@@ -40,9 +46,6 @@ struct FastingScreen: View {
                              action: viewModel.toggleFasting)
                 .padding(.horizontal, Layout.horizontalPadding)
             }
-            .padding(.bottom, Layout.bottomPadding)
-            .padding(.top, Layout.topPadding)
-            .animation(.fastingStageChage, value: viewModel.fastingStatus)
 
             if let discountPercent = viewModel.discountPaywallInfo?.discount, !viewModel.hasSubscription {
                 DiscountPaywallPinView(discountPercent: discountPercent)
@@ -53,6 +56,9 @@ struct FastingScreen: View {
                     }
             }
         }
+        .padding(.bottom, Layout.bottomPadding)
+        .padding(.top, Layout.topPadding)
+        .animation(.fastingStageChage, value: viewModel.fastingStatus)
     }
 }
 

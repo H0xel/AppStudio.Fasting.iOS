@@ -102,6 +102,15 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
         trackTapSchedule()
     }
 
+    func inActiveStageTapped(_ article: FastingInActiveArticle) {
+        if article != .fastingPhases {
+            router.presentInActiveFastingArticle(article)
+            trackTapArticle(article: article.buttonTitle.lowercased())
+            return
+        }
+        presentArticle(for: .sugarRises)
+    }
+
     func subscribeToDiscountAvailable() {
         discountPaywallTimerService.discountAvailable
             .assign(to: &$discountPaywallInfo)
@@ -320,5 +329,11 @@ private extension FastingViewModel {
 
     func trackDontGiveUpScreenShown() {
         trackerService.track(.dontGiveUpScreenShown)
+    }
+}
+
+private extension FastingViewModel {
+    func trackTapArticle(article: String) {
+        trackerService.track(.tapFastingArticles(article: article))
     }
 }
