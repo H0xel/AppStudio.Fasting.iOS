@@ -55,7 +55,12 @@ class OnboardingRouter: BaseRouter {
 
     func presentDiscountPaywall(input: DiscountPaywallInput, output: @escaping ChooseFastingPlanOutputBlock) {
         let route = DiscountPaywallRoute(navigator: navigator, input: input) { [weak self] paywallOutput in
-            self?.pushChooseFastingScreen(output: output)
+            switch paywallOutput {
+            case .close, .subscribe:
+                self?.pushChooseFastingScreen(output: output)
+            case .switchProgress:
+                break
+            }
         }
         present(route: route)
     }

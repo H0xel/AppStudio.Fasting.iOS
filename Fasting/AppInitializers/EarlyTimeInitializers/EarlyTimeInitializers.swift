@@ -16,6 +16,7 @@ final class EarlyTimeInitializers: Initializers {
     func initializers() -> [AppInitializer] {
         [
             DatabaseInitializer(),
+            AICoachDatabaseInitializer(),
             PreferencesInitializer(),
             FirebaseInitializer(),
             CrashlyticsInitializer(),
@@ -29,8 +30,7 @@ final class EarlyTimeInitializers: Initializers {
             fastingParametersInitializer,
             AppearanceInitializer(),
             QuickActionInitializer(),
-            AICoachInitializer(),
-            AICoachDatabaseInitializer()
+            AICoachInitializer()
         ]
     }
 }

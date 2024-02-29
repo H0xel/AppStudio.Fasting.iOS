@@ -58,7 +58,11 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
                                            productId: subscription.productIdentifier,
                                            type: .main,
                                            afId: analyticKeyStore.currentAppsFlyerId))
-        router.presentProgressView()
+        if context == .paywallTab || context == .discountPaywallTab {
+            output(.switchProgress(isProcessing: true))
+        } else {
+            router.presentProgressView()
+        }
     }
 
     func close() {
@@ -67,7 +71,11 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
     }
 
     func restore() {
-        router.presentProgressView()
+        if context == .paywallTab || context == .discountPaywallTab {
+            output(.switchProgress(isProcessing: true))
+        } else {
+            router.presentProgressView()
+        }
         subscriptionService.restore()
         trackerService.track(.tapRestorePurchases(context: .onboarding,
                                                   afId: analyticKeyStore.currentAppsFlyerId))
@@ -121,6 +129,7 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
             .drive(with: self) { this, state in
                 switch state {
                 case .error:
+                    this.output(.switchProgress(isProcessing: false))
                     this.router.dismissBanner()
                 default:
                     break
@@ -135,6 +144,7 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
             .take(1)
             .asDriver()
             .drive(with: self) { this, _ in
+                this.output(.switchProgress(isProcessing: false))
                 this.router.dismissBanner()
                 this.output(.subscribe)
                 this.discountPaywallTimerService.setAvailableDiscount(data: nil)
@@ -154,6 +164,7 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
                 case .restored:
                     this.trackRestoreFinishedEvent(result: .success, context: this.context)
                 }
+                this.output(.switchProgress(isProcessing: false))
                 this.router.dismissBanner()
             }
             .disposed(by: disposeBag)

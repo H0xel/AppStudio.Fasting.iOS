@@ -11,4 +11,5 @@ typealias DiscountPaywallOutputBlock = ViewOutput<DiscountPaywallOutput>
 enum DiscountPaywallOutput {
     case close
     case subscribe
+    case switchProgress(isProcessing: Bool)
 }

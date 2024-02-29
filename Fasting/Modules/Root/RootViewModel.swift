@@ -74,7 +74,14 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     @ViewBuilder
     func discountPaywall(input: DiscountPaywallInput) -> some View {
-        DiscountPaywallRoute(navigator: router.navigator, input: input) { _ in }.view
+        DiscountPaywallRoute(navigator: router.navigator, input: input) { [weak self] output in
+            switch output {
+            case .close, .subscribe:
+                break
+            case .switchProgress(let isProcessing):
+                self?.isProcessingSubcription = isProcessing
+            }
+        }.view
     }
 
     lazy var onboardingScreen: some View = {
