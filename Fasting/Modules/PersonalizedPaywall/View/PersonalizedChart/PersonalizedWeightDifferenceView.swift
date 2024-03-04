@@ -14,7 +14,7 @@ struct PersonalizedWeightDifferenceView: View {
     var body: some View {
         VStack(alignment: .trailing, spacing: Layout.weightDifferenceSpacing) {
             Text(weightDifference)
-                .foregroundStyle(.fastingRed)
+                .foregroundStyle(Color.studioRed)
             Text(endWeight)
         }
         .font(.poppins(.headerS))

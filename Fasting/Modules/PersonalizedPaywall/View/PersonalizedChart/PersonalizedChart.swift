@@ -37,7 +37,7 @@ struct PersonalizedChart: View {
             }
         }
         .frame(width: Layout.width, height: Layout.height)
-        .background(Color.fastingGrayFillCard)
+        .background(Color.studioGrayFillCard)
         .continiousCornerRadius(Layout.cornerRadius)
     }
 }

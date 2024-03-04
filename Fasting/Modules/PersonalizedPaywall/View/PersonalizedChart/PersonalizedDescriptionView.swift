@@ -27,7 +27,7 @@ struct PersonalizedDescriptionView: View {
                             Rectangle()
                                 .frame(width: Layout.rectangleSize, height: Layout.rectangleSize)
                                 .continiousCornerRadius(Layout.rectangleCornerRadius)
-                                .foregroundStyle(.fastingGreen)
+                                .foregroundStyle(Color.studioGreen)
 
                             switch content.type {
                             case let .image(image):
@@ -53,7 +53,7 @@ struct PersonalizedDescriptionView: View {
             .padding(.top, Layout.topPadding)
             .padding(.bottom, Layout.bottomPadding)
             .padding(.horizontal, Layout.contentHorizontalPAdding)
-            .background(Color.fastingGrayFillCard)
+            .background(Color.studioGrayFillCard)
             .continiousCornerRadius(Layout.cornerRadius)
         }
         .padding(.horizontal, Layout.horizontalPadding)

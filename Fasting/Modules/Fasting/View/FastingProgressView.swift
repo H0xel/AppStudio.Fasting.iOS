@@ -35,7 +35,7 @@ struct FastingProgressView: View {
                 .background(.white)
                 .continiousCornerRadius(Layout.planCornerRadius)
                 .border(configuration: .init(cornerRadius: Layout.planCornerRadius,
-                                             color: .fastingGreyStrokeFill,
+                                             color: .studioGreyStrokeFill,
                                              lineWidth: Layout.planBorderWidth))
                 .offset(y: Layout.planOffset)
                 .onTapGesture {
@@ -49,9 +49,9 @@ struct FastingProgressView: View {
         case .active(let state):
             return state.stage.backgroundColor
         case .inActive:
-            return .fastingGrayFillProgress
+            return .studioGrayFillProgress
         case .unknown:
-            return .fastingGrayFillProgress
+            return .studioGrayFillProgress
         }
     }
 

@@ -37,7 +37,7 @@ struct PaywallScreen: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navBarButton(isVisible: viewModel.context != .paywallTab && viewModel.canDisplayCloseButton,
-                      content: Image.close.foregroundStyle(.fastingGreyStrokeFill),
+                      content: Image.close.foregroundStyle(Color.studioGreyStrokeFill),
                       action: viewModel.close)
         .navBarButton(placement: .navigationBarTrailing,
                       isVisible: !isSettings,
@@ -48,7 +48,7 @@ struct PaywallScreen: View {
 
     private var restoreButton: some View {
         Text(Localization.restore)
-            .foregroundColor(.fastingGrayPlaceholder)
+            .foregroundColor(.studioGrayPlaceholder)
             .font(.poppins(.buttonText))
     }
 

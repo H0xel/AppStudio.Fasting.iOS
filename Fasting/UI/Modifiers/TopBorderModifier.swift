@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TopBorderModifier: ViewModifier {
 
-    var color: Color = .fastingGreyStrokeFill
+    var color: Color = .studioGreyStrokeFill
     var cornerRadius: CGFloat = 20
 
     @State private var textFieldHeight: CGFloat = 0

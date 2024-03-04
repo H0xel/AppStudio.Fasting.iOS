@@ -35,7 +35,7 @@ struct RootScreen: View {
                         .tag(AppTab.fasting)
                         .tabItem {
                             fastingTabImage
-                                .foregroundStyle(.fastingGreyStrokeFill)
+                                .foregroundStyle(Color.studioGreyStrokeFill)
                         }
                     viewModel.coachScreen
                         .tag(AppTab.coach)

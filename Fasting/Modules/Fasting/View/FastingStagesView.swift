@@ -95,7 +95,7 @@ struct FastingStagesView: View {
     }
 
     private func borderConfiguration(for stage: FastingStage) -> BorderConfiguration {
-        stage == currentStage ? .empty : .init(cornerRadius: Layout.cornerRadius, color: .fastingGreyStrokeFill)
+        stage == currentStage ? .empty : .init(cornerRadius: Layout.cornerRadius, color: .studioGreyStrokeFill)
     }
 
     @ViewBuilder

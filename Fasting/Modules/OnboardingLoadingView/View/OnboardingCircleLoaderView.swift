@@ -13,7 +13,7 @@ struct OnboardingCircleLoaderView: View {
     var body: some View {
         ZStack {
             Circle()
-                .stroke(Color.fastingGrayFillProgress,
+                .stroke(Color.studioGrayFillProgress,
                         style: StrokeStyle(lineWidth: Layout.circleBorderWidth,
                                            lineCap: .square))
 

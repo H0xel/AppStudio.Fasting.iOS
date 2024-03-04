@@ -18,7 +18,7 @@ struct SuccessIntervalButtonView: View {
         VStack(alignment: .leading, spacing: Layout.verticalSpacing) {
             Text(title)
                 .font(.poppins(.description))
-                .foregroundStyle(.fastingGrayText)
+                .foregroundStyle(Color.studioGrayText)
             HStack {
                 Text(date)
                     .font(.poppins(.buttonText))
@@ -31,7 +31,7 @@ struct SuccessIntervalButtonView: View {
         }
         .padding(.horizontal, Layout.horizontalPadding)
         .padding(.vertical, Layout.verticalPadding)
-        .background(.fastingGrayFillCard)
+        .background(Color.studioGrayFillCard)
         .corners(roundedCorners, with: Layout.cornerRadius)
     }
 }

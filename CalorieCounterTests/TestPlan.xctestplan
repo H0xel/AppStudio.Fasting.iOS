@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "B45148E1-B2AE-455F-80E2-59246AA7EEBA",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CalorieCounter.xcodeproj",
+        "identifier" : "563257202ADE57DA0000F33C",
+        "name" : "CalorieCounterTests"
+      }
+    }
+  ],
+  "version" : 1
+}

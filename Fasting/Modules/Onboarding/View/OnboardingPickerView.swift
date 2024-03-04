@@ -27,7 +27,7 @@ struct OnboardingPickerView<Option: OnboardingPickerOption>: View {
 
                     if let description {
                         Text(description)
-                            .foregroundStyle(.fastingGrayText)
+                            .foregroundStyle(Color.studioGrayText)
                             .font(.poppins(.body))
                             .padding(.top, Layout.descriptionTopPadding)
                             .multilineTextAlignment(.center)

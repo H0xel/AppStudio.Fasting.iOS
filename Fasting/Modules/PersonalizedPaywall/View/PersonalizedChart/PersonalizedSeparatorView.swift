@@ -14,7 +14,7 @@ struct PersonalizedSeparatorView: View {
         VStack(spacing: Layout.spacing) {
             Divider()
                 .frame(height: Layout.dividerHeight)
-                .foregroundStyle(.fastingGreyStrokeFill)
+                .foregroundStyle(Color.studioGreyStrokeFill)
 
             HStack(spacing: .zero) {
                 Text(Localization.now)

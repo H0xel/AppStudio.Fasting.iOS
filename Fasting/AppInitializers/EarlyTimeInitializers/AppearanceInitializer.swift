@@ -7,10 +7,11 @@
 
 import Foundation
 import SwiftUI
+import AppStudioStyles
 
 class AppearanceInitializer: AppInitializer {
     func initialize() {
-        UITabBar.appearance().unselectedItemTintColor = UIColor(Color.fastingGreyStrokeFill)
+        UITabBar.appearance().unselectedItemTintColor = UIColor(Color.studioGreyStrokeFill)
         UITabBar.appearance().backgroundColor = UIColor.white
     }
 }

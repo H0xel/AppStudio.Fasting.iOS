@@ -26,22 +26,22 @@ enum FastingPlan: Int, CaseIterable {
     var backgroundColor: Color {
         switch self {
         case .regular:
-            return .fastingBlue
+            return .studioBlue
         case .beginner:
-            return .fastingGreen
+            return .studioGreen
         case .expert:
-            return .fastingPurple
+            return .studioPurple
         }
     }
 
     var descriptionBackgroundColor: Color {
         switch self {
         case .regular:
-            return .fastingBlueDark
+            return .studioBlueDark
         case .beginner:
-            return .fastingGreenDark
+            return .studioGreenDark
         case .expert:
-            return .fastingPurpleDark
+            return .studioPurpleDark
         }
     }
 

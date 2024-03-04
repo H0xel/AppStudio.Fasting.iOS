@@ -49,7 +49,7 @@ struct DiscountPaywallScreen: View {
         }
         .navBarButton(placement: .navigationBarTrailing,
                       isVisible: true,
-                      content: Image.close.foregroundStyle(.fastingGreyStrokeFill),
+                      content: Image.close.foregroundStyle(Color.studioGreyStrokeFill),
                       action: viewModel.close)
         .navBarButton(content: restoreButton,
                       action: viewModel.restore)
@@ -63,7 +63,7 @@ struct DiscountPaywallScreen: View {
 
     private var restoreButton: some View {
         Text("Paywall.restore")
-            .foregroundColor(.fastingGrayPlaceholder)
+            .foregroundColor(.studioGrayPlaceholder)
             .font(.poppins(.buttonText))
     }
 

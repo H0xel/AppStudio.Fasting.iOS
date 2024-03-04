@@ -25,12 +25,12 @@ struct ProfileButtonView: View {
                     .foregroundStyle(.accent)
                 Spacer()
                 Image.chevronRight
-                    .foregroundStyle(.fastingGreyStrokeFill)
+                    .foregroundStyle(Color.studioGreyStrokeFill)
             }
             .font(.poppins(.buttonText))
             .padding(.horizontal, Layout.horizontalPadding)
             .padding(.vertical, Layout.verticalPadding)
-            .background(.fastingGrayFillCard)
+            .background(Color.studioGrayFillCard)
             .corners(roundedCorners, with: Layout.cornerRadius)
         }
     }

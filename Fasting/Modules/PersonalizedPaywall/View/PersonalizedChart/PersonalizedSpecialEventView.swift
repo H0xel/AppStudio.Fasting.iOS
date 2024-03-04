@@ -20,7 +20,7 @@ struct PersonalizedSpecialEventView: View {
                     .padding(.vertical, Layout.specialEventVerticalPadding)
                     .foregroundStyle(.white)
                     .font(.poppins(.description))
-                    .background(Color.fastingRed)
+                    .background(Color.studioRed)
                     .continiousCornerRadius(Layout.specialEventCornerRadius)
 
                 if specialEventDateLaterThenEndDate{

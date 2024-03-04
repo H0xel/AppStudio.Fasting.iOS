@@ -13,7 +13,7 @@ struct InActiveFastingListView: View {
     var body: some View {
         HStack(spacing: .zero) {
             Image.diamondFill
-                .foregroundStyle(.fastingSky)
+                .foregroundStyle(Color.studioSky)
                 .font(.system(size: Layout.imageSize))
                 .padding(.vertical, Layout.verticalImagePadding)
                 .padding(.trailing, Layout.imageTrailingPadding)

@@ -39,7 +39,7 @@ struct FastingRingPointCircleView: View {
     }
 
     private var lockImageView: some View {
-        Image.lockFill.foregroundStyle(point.isSelected ? .white : .fastingGrayFillProgress)
+        Image.lockFill.foregroundStyle(point.isSelected ? .white : .studioGrayFillProgress)
     }
 
     private var fillColor: Color {
@@ -47,7 +47,7 @@ struct FastingRingPointCircleView: View {
     }
 
     private var strokeColor: Color {
-        point.isSelected ? .white : .fastingGrayFillProgress
+        point.isSelected ? .white : .studioGrayFillProgress
     }
 
     private var strokeWidth: CGFloat {

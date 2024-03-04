@@ -12,7 +12,7 @@ struct PersonalizedPromotionalOfferView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.fastingOrange, .fastingRed],
+            LinearGradient(colors: [.studioOrange, .studioRed],
                            startPoint: .leading,
                            endPoint: .trailing)
             HStack {

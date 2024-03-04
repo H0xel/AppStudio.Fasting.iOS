@@ -39,7 +39,7 @@ struct PersonalizedTabView: View {
                                 .foregroundStyle(.white)
                                 .padding(.horizontal, Layout.textWeightHorizontalPadding)
                                 .padding(.vertical, Layout.textWeightVerticalPadding)
-                                .background(Color.fastingSky)
+                                .background(Color.studioSky)
                                 .continiousCornerRadius(Layout.textWeightCornerRadius)
                                 .aligned(.bottom)
                         }
@@ -64,7 +64,7 @@ struct PersonalizedTabView: View {
             HStack(spacing: Layout.circleSpacing) {
                 ForEach(sex.content(weightUnit: weightUnit), id: \.self) { content in
                     Circle()
-                        .foregroundStyle(content == selected ? .black : .fastingGreyStrokeFill)
+                        .foregroundStyle(content == selected ? .black : .studioGreyStrokeFill)
                         .frame(width: content == selected ? Layout.selectedCircle : Layout.deselectedCircle)
                 }
             }

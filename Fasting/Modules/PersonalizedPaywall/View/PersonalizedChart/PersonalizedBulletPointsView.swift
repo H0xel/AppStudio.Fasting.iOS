@@ -16,7 +16,7 @@ struct PersonalizedBulletPointsView: View {
                 HStack(spacing: .zero) {
                     Image.checkmarkCircleFill
                         .font(.subheadline)
-                        .foregroundStyle(.fastingGreen)
+                        .foregroundStyle(Color.studioGreen)
                         .padding(.trailing, Layout.trailingPadding)
                     Text(data)
                         .font(.poppins(.body))

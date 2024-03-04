@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>NSAdvertisingAttributionReportEndpoint</key>
+	<string>https://appsflyer-skadnetwork.com/</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Poppins-SemiBold.ttf</string>
+		<string>Poppins-Regular.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb1056281552251947</string>
+      </array>
+      </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>1056281552251947</string>
+    <key>FacebookClientToken</key>
+    <string>3daf59735c13d782da37540fa7741fbd</string>
+    <key>FacebookDisplayName</key>
+    <string>Calorie Counter</string>
+    <key>FacebookAutoLogAppEventsEnabled</key>
+    <true/>
+    <key>FacebookAdvertiserIDCollectionEnabled</key>
+    <true/>
+</dict>
+</plist>

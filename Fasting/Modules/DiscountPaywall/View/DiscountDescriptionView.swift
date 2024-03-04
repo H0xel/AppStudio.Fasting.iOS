@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppStudioStyles
 
 struct DiscountDescriptionView: View {
     let viewData: ViewData
@@ -31,12 +32,12 @@ struct DiscountDescriptionView: View {
                 HStack(spacing: .yearDiscountSpacing) {
                     Text(pricePerYear)
                         .font(.poppins(.body))
-                        .foregroundStyle(.fastingGrayText)
+                        .foregroundStyle(Color.studioGrayText)
                         .strikethrough(true)
 
                     Text(discountPricePerYear)
                         .font(.poppins(.body))
-                        .foregroundStyle(.fastingGrayText)
+                        .foregroundStyle(Color.studioGrayText)
                 }
 
             case let .oldNew(price, discountPrice, duration, color):
@@ -51,7 +52,7 @@ struct DiscountDescriptionView: View {
                         Text(price)
                             .strikethrough(true)
                             .padding(.top, .topPadding)
-                            .foregroundStyle(Color.fastingGreyStrokeFill)
+                            .foregroundStyle(Color.studioGreyStrokeFill)
                             .font(viewData.font)
                     }
 
@@ -101,7 +102,7 @@ extension DiscountDescriptionView.ViewData {
         .perWeek(weekPrice: "$2.99",
                  pricePerYear: "$199.99",
                  discountPricePerYear: "$39.99 per year",
-                 color: .fastingRed)
+                 color: .studioRed)
     }
 }
 

@@ -29,7 +29,7 @@ struct SetupFastingButton: View {
 }
 
 #Preview {
-    SetupFastingButton(title: "Change", color: .fastingBlue) {}
+    SetupFastingButton(title: "Change", color: .studioBlue) {}
 }
 
 private extension SetupFastingButton {

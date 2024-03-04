@@ -18,7 +18,7 @@ struct OnboardingFlowIndicatorView: View {
             HStack(spacing: .zero) {
                 ForEach(OnboardingFlowStep.flowSteps, id: \.rawValue) { step in
                     Rectangle()
-                        .fill(.fastingGreyStrokeFill)
+                        .fill(Color.studioGreyStrokeFill)
                         .frame(height: Layout.stepIndicatorHeight)
                         .opacity(currentStep.rawValue < step.rawValue ? 1 : 0)
                     Color.white
@@ -38,12 +38,12 @@ struct OnboardingFlowIndicatorView: View {
     private var gradient: some View {
         LinearGradient(
             colors: [
-                .fastingBlue,
-                .fastingPurple,
-                .fastingRed,
-                .fastingOrange,
-                .fastingGreen,
-                .fastingSky
+                .studioBlue,
+                .studioPurple,
+                .studioRed,
+                .studioOrange,
+                .studioGreen,
+                .studioSky
             ],
             startPoint: .leading,
             endPoint: .trailing

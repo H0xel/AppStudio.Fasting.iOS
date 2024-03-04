@@ -53,7 +53,7 @@ struct PersonalizedPaywallScreen: View {
         .navBarButton(placement: .navigationBarTrailing,
                       isVisible: true,
                       content: Image.close
-            .foregroundStyle(.fastingGreyStrokeFill)
+            .foregroundStyle(Color.studioGreyStrokeFill)
             .opacity(viewModel.canDisplayCloseButton ? 1 : 0),
                       action: viewModel.close)
         .navBarButton(content: restoreButton,
@@ -62,7 +62,7 @@ struct PersonalizedPaywallScreen: View {
 
     private var restoreButton: some View {
         Text(Localization.restore)
-            .foregroundColor(.fastingGrayPlaceholder)
+            .foregroundColor(.studioGrayPlaceholder)
             .font(.poppins(.buttonText))
             .opacity(viewModel.canDisplayCloseButton ? 1 : 0)
     }

@@ -7,6 +7,7 @@
 
 import Foundation
 import AICoach
+import AppStudioStyles
 
 extension CoachStyles {
     static var fastingStyles: CoachStyles {
@@ -14,13 +15,13 @@ extension CoachStyles {
                            buttonText: .poppins(.buttonText),
                            description: .poppins(.description)),
               colors: .init(accent: .accent,
-                            coachGreyStrokeFill: .fastingGreyStrokeFill,
-                            coachGrayFillProgress: .fastingGrayFillProgress,
-                            userMessage: .userMessage,
-                            coachGrayFillCard: .fastingGrayFillCard,
-                            coachGrayPlaceholder: .fastingGrayPlaceholder,
-                            coachGrayText: .fastingGrayText, 
-                            coachSky: .fastingSky),
+                            coachGreyStrokeFill: .studioGreyStrokeFill,
+                            coachGrayFillProgress: .studioGrayFillProgress,
+                            userMessage: .studioUserMessage,
+                            coachGrayFillCard: .studioGrayFillCard,
+                            coachGrayPlaceholder: .studioGrayPlaceholder,
+                            coachGrayText: .studioGrayText,
+                            coachSky: .studioSky),
               images: .init(coachIcon: .init(.coachIcon)))
     }
 }

@@ -21,7 +21,7 @@ struct OnboardingPreviousPageButton: View {
                 .background(.white)
                 .continiousCornerRadius(Layout.cornerRadius)
                 .border(configuration: .init(cornerRadius: Layout.cornerRadius,
-                                             color: .fastingGreyStrokeFill))
+                                             color: .studioGreyStrokeFill))
         }
     }
 }

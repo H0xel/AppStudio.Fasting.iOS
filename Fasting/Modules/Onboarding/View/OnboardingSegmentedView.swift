@@ -30,7 +30,7 @@ struct OnboardingSegmentedView<Segment: OnboardingPickerOption>: View {
 
             if let description {
                 Text(description)
-                    .foregroundStyle(.fastingGrayText)
+                    .foregroundStyle(Color.studioGrayText)
                     .font(.poppins(.body))
                     .padding(.top, Layout.descriptionTopPadding)
                     .multilineTextAlignment(.center)
@@ -57,14 +57,14 @@ struct OnboardingSegmentedView<Segment: OnboardingPickerOption>: View {
                             .font(.poppins(.body))
                             .padding(.horizontal, Layout.segmentHorizontalPadding)
                             .padding(.vertical, Layout.segmentVerticalPadding)
-                            .background(segment == currentSegment ? Color.fastingGrayFillProgress : nil)
+                            .background(segment == currentSegment ? Color.studioGrayFillProgress : nil)
                             .continiousCornerRadius(Layout.segmentCornerRadius)
                             .padding(Layout.segmentInnerPadding)
                     })
                 }
             }
             .border(configuration: .init(cornerRadius: Layout.cornerRadius,
-                                         color: .fastingGreyStrokeFill))
+                                         color: .studioGreyStrokeFill))
             .padding(.top, Layout.segmentedControlTopPadding)
             Spacer()
             Spacer()

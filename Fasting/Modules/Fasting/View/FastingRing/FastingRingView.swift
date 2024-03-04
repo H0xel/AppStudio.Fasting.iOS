@@ -19,7 +19,7 @@ struct FastingRingView: View {
             Circle()
                 .trim(from: settings.trimRange.lowerBound,
                       to: settings.trimRange.upperBound)
-                .stroke(Color.fastingGrayFillProgress,
+                .stroke(Color.studioGrayFillProgress,
                         style: StrokeStyle(lineWidth: settings.borderWidth,
                                            lineCap: .round))
 
@@ -42,9 +42,9 @@ struct FastingRingView: View {
         case .active(let state):
             return state.stage.backgroundColor
         case .inActive:
-            return .fastingGrayFillProgress
+            return .studioGrayFillProgress
         case .unknown:
-            return .fastingGrayFillProgress
+            return .studioGrayFillProgress
         }
     }
 }

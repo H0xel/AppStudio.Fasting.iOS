@@ -225,6 +225,8 @@
 		A00B4DC82B7382170067A872 /* FacebookInitializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC52B7382170067A872 /* FacebookInitializerService.swift */; };
 		A00B4DC92B7382170067A872 /* FacebookInitializerDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC62B7382170067A872 /* FacebookInitializerDependencies.swift */; };
 		A00B4DCA2B7382170067A872 /* FacebookInitializerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC72B7382170067A872 /* FacebookInitializerServiceImpl.swift */; };
+		A0178F502B91CB8C00069BEA /* AppStudioStyles in Frameworks */ = {isa = PBXBuildFile; productRef = A0178F4F2B91CB8C00069BEA /* AppStudioStyles */; };
+		A0178F522B91CBC800069BEA /* AICoach in Frameworks */ = {isa = PBXBuildFile; productRef = A0178F512B91CBC800069BEA /* AICoach */; };
 		A0255E6C2AFBAA9A00221EC6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A0255E6B2AFBAA9A00221EC6 /* Moya */; };
 		A0255E6E2AFBCE9D00221EC6 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E6D2AFBCE9D00221EC6 /* Account.swift */; };
 		A0255E702AFBD00200221EC6 /* AccountTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E6F2AFBD00200221EC6 /* AccountTarget.swift */; };
@@ -289,7 +291,6 @@
 		A063B1FA2AEBD0E800084696 /* StartFastingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F42AEBD0E800084696 /* StartFastingViewModel.swift */; };
 		A063B1FC2AEBD77000084696 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1FB2AEBD77000084696 /* BorderedButton.swift */; };
 		A063B1FE2AEC1E2E00084696 /* FastingStagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1FD2AEC1E2E00084696 /* FastingStagesView.swift */; };
-		A075912B2B7F99DB00F3EEA7 /* AICoach in Frameworks */ = {isa = PBXBuildFile; productRef = A075912A2B7F99DB00F3EEA7 /* AICoach */; };
 		A07D95902AE9202500D2C2E2 /* AppCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D958F2AE9202500D2C2E2 /* AppCustomization.swift */; };
 		A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95942AE920A100D2C2E2 /* AppCustomizationImpl.swift */; };
 		A07D95992AE9270600D2C2E2 /* AppCustomizationDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95982AE9270600D2C2E2 /* AppCustomizationDependency.swift */; };
@@ -394,17 +395,17 @@
 		A7A3974E2B7345D9003330C3 /* DiscountPaywallExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3974D2B7345D9003330C3 /* DiscountPaywallExperiment.swift */; };
 		A7A3CE6D2AEBB32D00308201 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */; };
 		A7AD9C362B17359B006AE1C5 /* AppSyncServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AD9C352B17359B006AE1C5 /* AppSyncServicePreview.swift */; };
+		A7BD1CDB2B79B531009C1259 /* DiscountPaywallPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */; };
+		A7BD1CE12B7B2632009C1259 /* PromoPaywallServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */; };
+		A7BD1CE22B7B2632009C1259 /* PromoPaywallDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */; };
+		A7BD1CE32B7B2632009C1259 /* PromoPaywallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CE02B7B2632009C1259 /* PromoPaywallService.swift */; };
+		A7BD1CE52B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CE42B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift */; };
 		A7C026CB2B1DB235004C3D63 /* InActiveFastingArticleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C026C52B1DB235004C3D63 /* InActiveFastingArticleInput.swift */; };
 		A7C026CC2B1DB235004C3D63 /* InActiveFastingArticleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C026C62B1DB235004C3D63 /* InActiveFastingArticleRouter.swift */; };
 		A7C026CD2B1DB235004C3D63 /* InActiveFastingArticleRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C026C72B1DB235004C3D63 /* InActiveFastingArticleRoute.swift */; };
 		A7C026CE2B1DB235004C3D63 /* InActiveFastingArticleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C026C82B1DB235004C3D63 /* InActiveFastingArticleScreen.swift */; };
 		A7C026CF2B1DB235004C3D63 /* InActiveFastingArticleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C026C92B1DB235004C3D63 /* InActiveFastingArticleOutput.swift */; };
 		A7C026D02B1DB235004C3D63 /* InActiveFastingArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C026CA2B1DB235004C3D63 /* InActiveFastingArticleViewModel.swift */; };
-		A7BD1CDB2B79B531009C1259 /* DiscountPaywallPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */; };
-		A7BD1CE12B7B2632009C1259 /* PromoPaywallServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */; };
-		A7BD1CE22B7B2632009C1259 /* PromoPaywallDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */; };
-		A7BD1CE32B7B2632009C1259 /* PromoPaywallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CE02B7B2632009C1259 /* PromoPaywallService.swift */; };
-		A7BD1CE52B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD1CE42B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift */; };
 		A7D01B5D2AF0C82100C50C1F /* OnboardingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B572AF0C82100C50C1F /* OnboardingInput.swift */; };
 		A7D01B5E2AF0C82100C50C1F /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B582AF0C82100C50C1F /* OnboardingRouter.swift */; };
 		A7D01B5F2AF0C82100C50C1F /* OnboardingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B592AF0C82100C50C1F /* OnboardingRoute.swift */; };
@@ -432,14 +433,14 @@
 		A7D01B922AF115F200C50C1F /* NotificationOnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8C2AF115F200C50C1F /* NotificationOnboardingScreen.swift */; };
 		A7D01B932AF115F200C50C1F /* NotificationOnboardingOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8D2AF115F200C50C1F /* NotificationOnboardingOutput.swift */; };
 		A7D01B942AF115F200C50C1F /* NotificationOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8E2AF115F200C50C1F /* NotificationOnboardingViewModel.swift */; };
-		A7DF36832B1DE0FD009080C9 /* InActiveFastingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */; };
-		A7DF36852B1DE195009080C9 /* InActiveFastingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */; };
 		A7DBD0902B3AB1C7003DCD10 /* QuickActionServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD08F2B3AB1C7003DCD10 /* QuickActionServiceImpl.swift */; };
 		A7DBD0922B3AB1DB003DCD10 /* QuickActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0912B3AB1DB003DCD10 /* QuickActionService.swift */; };
 		A7DBD0942B3AB20A003DCD10 /* QuickActionDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0932B3AB20A003DCD10 /* QuickActionDependencies.swift */; };
 		A7DBD0962B3AB243003DCD10 /* QuickAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0952B3AB243003DCD10 /* QuickAction.swift */; };
 		A7DBD0982B3AB3C7003DCD10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0972B3AB3C7003DCD10 /* SceneDelegate.swift */; };
 		A7DBD09A2B3AB415003DCD10 /* QuickTypeInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0992B3AB415003DCD10 /* QuickTypeInitializer.swift */; };
+		A7DF36832B1DE0FD009080C9 /* InActiveFastingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */; };
+		A7DF36852B1DE195009080C9 /* InActiveFastingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */; };
 		A7E0A1CA2B07418F005DA180 /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */; };
 		A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
@@ -723,7 +724,6 @@
 		A063B1F42AEBD0E800084696 /* StartFastingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingViewModel.swift; sourceTree = "<group>"; };
 		A063B1FB2AEBD77000084696 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		A063B1FD2AEC1E2E00084696 /* FastingStagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingStagesView.swift; sourceTree = "<group>"; };
-		A07719452B7F987E00910C7C /* AICoach */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AICoach; sourceTree = "<group>"; };
 		A07D958F2AE9202500D2C2E2 /* AppCustomization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomization.swift; sourceTree = "<group>"; };
 		A07D95942AE920A100D2C2E2 /* AppCustomizationImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationImpl.swift; sourceTree = "<group>"; };
 		A07D95982AE9270600D2C2E2 /* AppCustomizationDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationDependency.swift; sourceTree = "<group>"; };
@@ -829,17 +829,17 @@
 		A7A3CE4C2AEBB30700308201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		A7AD9C352B17359B006AE1C5 /* AppSyncServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSyncServicePreview.swift; sourceTree = "<group>"; };
+		A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallPinView.swift; sourceTree = "<group>"; };
+		A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallServiceImpl.swift; sourceTree = "<group>"; };
+		A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallDependencies.swift; sourceTree = "<group>"; };
+		A7BD1CE02B7B2632009C1259 /* PromoPaywallService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallService.swift; sourceTree = "<group>"; };
+		A7BD1CE42B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedPromotionalOfferView.swift; sourceTree = "<group>"; };
 		A7C026C52B1DB235004C3D63 /* InActiveFastingArticleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingArticleInput.swift; sourceTree = "<group>"; };
 		A7C026C62B1DB235004C3D63 /* InActiveFastingArticleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingArticleRouter.swift; sourceTree = "<group>"; };
 		A7C026C72B1DB235004C3D63 /* InActiveFastingArticleRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingArticleRoute.swift; sourceTree = "<group>"; };
 		A7C026C82B1DB235004C3D63 /* InActiveFastingArticleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingArticleScreen.swift; sourceTree = "<group>"; };
 		A7C026C92B1DB235004C3D63 /* InActiveFastingArticleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingArticleOutput.swift; sourceTree = "<group>"; };
 		A7C026CA2B1DB235004C3D63 /* InActiveFastingArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingArticleViewModel.swift; sourceTree = "<group>"; };
-		A7BD1CDA2B79B531009C1259 /* DiscountPaywallPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallPinView.swift; sourceTree = "<group>"; };
-		A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallServiceImpl.swift; sourceTree = "<group>"; };
-		A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallDependencies.swift; sourceTree = "<group>"; };
-		A7BD1CE02B7B2632009C1259 /* PromoPaywallService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoPaywallService.swift; sourceTree = "<group>"; };
-		A7BD1CE42B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedPromotionalOfferView.swift; sourceTree = "<group>"; };
 		A7D01B572AF0C82100C50C1F /* OnboardingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInput.swift; sourceTree = "<group>"; };
 		A7D01B582AF0C82100C50C1F /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		A7D01B592AF0C82100C50C1F /* OnboardingRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoute.swift; sourceTree = "<group>"; };
@@ -867,14 +867,14 @@
 		A7D01B8C2AF115F200C50C1F /* NotificationOnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingScreen.swift; sourceTree = "<group>"; };
 		A7D01B8D2AF115F200C50C1F /* NotificationOnboardingOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingOutput.swift; sourceTree = "<group>"; };
 		A7D01B8E2AF115F200C50C1F /* NotificationOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingViewModel.swift; sourceTree = "<group>"; };
-		A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingHeader.swift; sourceTree = "<group>"; };
-		A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingListView.swift; sourceTree = "<group>"; };
 		A7DBD08F2B3AB1C7003DCD10 /* QuickActionServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionServiceImpl.swift; sourceTree = "<group>"; };
 		A7DBD0912B3AB1DB003DCD10 /* QuickActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionService.swift; sourceTree = "<group>"; };
 		A7DBD0932B3AB20A003DCD10 /* QuickActionDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionDependencies.swift; sourceTree = "<group>"; };
 		A7DBD0952B3AB243003DCD10 /* QuickAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAction.swift; sourceTree = "<group>"; };
 		A7DBD0972B3AB3C7003DCD10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A7DBD0992B3AB415003DCD10 /* QuickTypeInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTypeInitializer.swift; sourceTree = "<group>"; };
+		A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingHeader.swift; sourceTree = "<group>"; };
+		A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingListView.swift; sourceTree = "<group>"; };
 		A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
 		A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerServiceDependencies.swift; sourceTree = "<group>"; };
 		AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountIdProviderImpl.swift; sourceTree = "<group>"; };
@@ -895,6 +895,7 @@
 				A00B4DC12B73817F0067A872 /* FacebookCore in Frameworks */,
 				A0255E872AFBD38300221EC6 /* AppStudioSubscriptions in Frameworks */,
 				564BE0B82AF0E99F00CE7F38 /* MunicornFoundation in Frameworks */,
+				A0178F502B91CB8C00069BEA /* AppStudioStyles in Frameworks */,
 				564BE0B42AF0E99F00CE7F38 /* MunicornAPI in Frameworks */,
 				564BE0B62AF0E99F00CE7F38 /* MunicornCoreData in Frameworks */,
 				5675000D2ADE85FD009331CB /* FirebaseCrashlytics in Frameworks */,
@@ -902,8 +903,8 @@
 				A00B4DC32B73817F0067A872 /* FacebookLogin in Frameworks */,
 				A00B4DBF2B73817F0067A872 /* FacebookBasics in Frameworks */,
 				5675000F2ADE85FD009331CB /* FirebaseRemoteConfig in Frameworks */,
-				A075912B2B7F99DB00F3EEA7 /* AICoach in Frameworks */,
 				5675000B2ADE85FD009331CB /* FirebaseAnalytics in Frameworks */,
+				A0178F522B91CBC800069BEA /* AICoach in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,7 +950,6 @@
 		563257132ADE57D80000F33C /* Fasting */ = {
 			isa = PBXGroup;
 			children = (
-				A07719452B7F987E00910C7C /* AICoach */,
 				564BE0C62AF10FC500CE7F38 /* Fasting.entitlements */,
 				A7A3CE4D2AEBB31500308201 /* Fonts */,
 				A7A3CE4C2AEBB30700308201 /* Info.plist */,
@@ -2377,6 +2377,16 @@
 			path = Poppins;
 			sourceTree = "<group>";
 		};
+		A7BD1CDD2B7B261B009C1259 /* PromoPaywallService */ = {
+			isa = PBXGroup;
+			children = (
+				A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */,
+				A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */,
+				A7BD1CE02B7B2632009C1259 /* PromoPaywallService.swift */,
+			);
+			path = PromoPaywallService;
+			sourceTree = "<group>";
+		};
 		A7C026D12B1DB24E004C3D63 /* InActiveFastingArticle */ = {
 			isa = PBXGroup;
 			children = (
@@ -2406,16 +2416,6 @@
 				A7C026C92B1DB235004C3D63 /* InActiveFastingArticleOutput.swift */,
 			);
 			path = Routing;
-            sourceTree = "<group>";
-        };
-		A7BD1CDD2B7B261B009C1259 /* PromoPaywallService */ = {
-			isa = PBXGroup;
-			children = (
-				A7BD1CDE2B7B2632009C1259 /* PromoPaywallServiceImpl.swift */,
-				A7BD1CDF2B7B2632009C1259 /* PromoPaywallDependencies.swift */,
-				A7BD1CE02B7B2632009C1259 /* PromoPaywallService.swift */,
-			);
-			path = PromoPaywallService;
 			sourceTree = "<group>";
 		};
 		A7D01B562AF0C81200C50C1F /* Onboarding */ = {
@@ -2582,7 +2582,8 @@
 				A00B4DBE2B73817F0067A872 /* FacebookBasics */,
 				A00B4DC02B73817F0067A872 /* FacebookCore */,
 				A00B4DC22B73817F0067A872 /* FacebookLogin */,
-				A075912A2B7F99DB00F3EEA7 /* AICoach */,
+				A0178F4F2B91CB8C00069BEA /* AppStudioStyles */,
+				A0178F512B91CBC800069BEA /* AICoach */,
 			);
 			productName = AppStudioTemplate;
 			productReference = 563257112ADE57D80000F33C /* Fasting.app */;
@@ -3309,7 +3310,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -3350,7 +3351,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -3440,7 +3441,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Analytics";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.4;
+				version = 1.0.5;
 			};
 		};
 		564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */ = {
@@ -3464,7 +3465,7 @@
 			repositoryURL = "https://github.com/m-unicorn/iOS.ABTesting.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.5;
+				version = 1.0.6;
 			};
 		};
 		A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
@@ -3570,6 +3571,14 @@
 			package = A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookLogin;
 		};
+		A0178F4F2B91CB8C00069BEA /* AppStudioStyles */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppStudioStyles;
+		};
+		A0178F512B91CBC800069BEA /* AICoach */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AICoach;
+		};
 		A0255E6B2AFBAA9A00221EC6 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A0255E6A2AFBAA9A00221EC6 /* XCRemoteSwiftPackageReference "Moya" */;
@@ -3599,10 +3608,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A0255E8F2AFBD3ED00221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */;
 			productName = AppStudioNavigation;
-		};
-		A075912A2B7F99DB00F3EEA7 /* AICoach */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AICoach;
 		};
 /* End XCSwiftPackageProductDependency section */
 

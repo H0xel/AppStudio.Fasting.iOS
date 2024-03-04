@@ -25,14 +25,14 @@ struct OnboardingPickerOptionView: View {
                 if let description {
                     Text(description)
                         .font(.poppins(.body))
-                        .foregroundStyle(.fastingGrayText)
+                        .foregroundStyle(Color.studioGrayText)
                         .aligned(.left)
                 }
             }
             .multilineTextAlignment(.leading)
             .padding(.horizontal, Layout.horizontalPadding)
             .padding(.vertical, Layout.verticalPadding)
-            .background(isSelected ? .white : Color(.fastingOnboardingPicker))
+            .background(isSelected ? .white : Color.studioOnboardingPicker)
             .continiousCornerRadius(Layout.cornerRadius)
             .border(configuration: .init(
                 cornerRadius: Layout.cornerRadius,

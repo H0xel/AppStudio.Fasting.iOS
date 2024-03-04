@@ -84,9 +84,9 @@ extension FastingInActiveArticle {
     static let linearGradient: LinearGradient = {
         LinearGradient(
             gradient: Gradient(colors: [
-                .init(.inactiveBlue),
-                .init(.inactiveSky),
-                .init(.inactiveGreen)
+                .studioBlue,
+                .studioSky,
+                .studioGreen
             ]),
             startPoint: .leading, endPoint: .trailing)
     }()

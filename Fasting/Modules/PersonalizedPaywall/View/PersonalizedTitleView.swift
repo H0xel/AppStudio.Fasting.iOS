@@ -18,7 +18,7 @@ struct PersonalizedTitleView: View {
                 .foregroundStyle(.accent)
             Text(viewData.description)
                 .font(.poppins(.body))
-                .foregroundColor(.fastingGrayText)
+                .foregroundColor(.studioGrayText)
                 .padding(.top, Layout.textTopPadding)
                 .padding(.bottom, Layout.bottomPadding)
         }
