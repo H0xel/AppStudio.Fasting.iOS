@@ -124,13 +124,13 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
             clearSelection()
             return
         }
-        let difference = newWeight / meal.mealItem.weight
+        let difference = meal.mealItem.weight == 0 ? 0 : newWeight / meal.mealItem.weight
 
         let ingredients = meal.mealItem.ingredients
         let newIngredients = ingredients.map {
             Ingredient(name: $0.name,
                        brandTitle: $0.brandTitle,
-                       weight: $0.weight * difference,
+                       weight: difference != 0 ? $0.weight * difference : newWeight / Double(ingredients.count),
                        normalizedProfile: $0.normalizedProfile)
         }
         let changedMeal = meal.copyWith(ingredients: newIngredients)

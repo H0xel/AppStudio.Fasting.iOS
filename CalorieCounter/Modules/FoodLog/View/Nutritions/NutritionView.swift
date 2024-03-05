@@ -32,11 +32,15 @@ struct NutritionView: View {
                     .foregroundStyle(Color.studioGreyStrokeFill)
                     .font(configuration.crownFont)
             } else {
-                Text("\(Int(amount))")
+                Text("\(intAmount)")
                     .foregroundStyle(configuration.amountColor)
             }
         }
         .font(configuration.font)
+    }
+
+    var intAmount: Int {
+        amount.isNaN ? 0 : Int(amount)
     }
 
     @ViewBuilder
