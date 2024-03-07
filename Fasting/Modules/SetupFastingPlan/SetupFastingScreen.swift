@@ -46,7 +46,7 @@ struct SetupFastingScreen: View {
             isVisible: true,
             content: viewModel.context == .onboarding
             ? Image.chevronLeft.foregroundColor(.accent)
-            : Image.xmark.foregroundColor(.black)) {
+            : Image.xmarkUnfilled.foregroundColor(.black)) {
                 viewModel.backButtonTapped()
         }
     }

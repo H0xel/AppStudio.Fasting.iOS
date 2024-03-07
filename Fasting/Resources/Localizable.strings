@@ -243,20 +243,35 @@
 
 // MARK: InActive Fasting Article
 
-"InActiveFastingArticle.list.howToPrepareForFasting.1" = "**Prioritize Protein:** Include adequate amounts of protein in your diet, such as meat, fish, tofu, and nuts, to support muscle maintenance and satiety.";
-"InActiveFastingArticle.list.howToPrepareForFasting.2" = "**Focus on Fiber:** High-fiber foods like beans, fruits, and vegetables can help regulate digestion and keep you feeling full longer.";
-"InActiveFastingArticle.list.howToPrepareForFasting.3" = "**Include Healthy Fats:** Incorporate healthy fats, like avocado and nuts, which can help stabilize blood sugar and support a smoother transition into fasting.";
-"InActiveFastingArticle.list.howToPrepareForFasting.4" = "**Hydrate:** Increase your water intake before starting your fast. Drinking plenty of water is crucial for maintaining hydration and helping manage hunger.";
-"InActiveFastingArticle.list.howToPrepareForFasting.5" = "**Avoid Highly Processed Foods:** Limit consumption of processed foods, which can increase cravings. Instead, opt for whole, minimally processed foods to support a healthier metabolic state and reduce the temptation to overeat.";
-"InActiveFastingArticle.list.howToPrepareForFasting.6" = "**Minimize Added Sugars:** Reduce the intake of foods and beverages high in added sugars to stabilize blood sugar levels.";
-"InActiveFastingArticle.list.howToPrepareForFasting.7" = "**Reduce Caffeine and Alcohol:** Cutting down on caffeine and alcohol prior to fasting can prevent withdrawal symptoms and dehydration.";
-"InActiveFastingArticle.list.howToPrepareForFasting.8" = "**Prepare Mentally:** Cultivate a positive mindset about fasting, focusing on the benefits and how it aligns with your health goals.";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.1" = "Prioritize Protein:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.2" = "Focus on Fiber:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.3" = "Include Healthy Fats:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.4" = "Hydrate:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.5" = "Avoid Highly Processed Foods:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.6" = "Minimize Added Sugars:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.7" = "Reduce Caffeine and Alcohol:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.8" = "Prepare Mentally:";
 
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.1" = "**Water:** Essential for hydration, water does not break a fast. Feel free to drink still, sparkling, or mineral water.";
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.2" = "**Tea and Coffee:** Black coffee and tea are acceptable, provided they are consumed without added sugar or milk.";
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.3" = "**Lemon Water:** A glass of lemon water, being low in calories, can provide vitamin C and potentially help reduce hunger.";
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.4" = "**Apple Cider Vinegar:** Diluted apple cider vinegar can aid in feeling full and may offer health benefits without breaking your fast.";
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.5" = "**Diet Sodas:** Consuming diet sodas is permissible and can be a viable option to satisfy sweet cravings without breaking your fast. They offer a sweet taste without the caloric intake, helping you stick to your fasting regimen.";
+"InActiveFastingArticle.list.howToPrepareForFasting.1" = "Include adequate amounts of protein in your diet, such as meat, fish, tofu, and nuts, to support muscle maintenance and satiety.";
+"InActiveFastingArticle.list.howToPrepareForFasting.2" = "High-fiber foods like beans, fruits, and vegetables can help regulate digestion and keep you feeling full longer.";
+"InActiveFastingArticle.list.howToPrepareForFasting.3" = "Incorporate healthy fats, like avocado and nuts, which can help stabilize blood sugar and support a smoother transition into fasting.";
+"InActiveFastingArticle.list.howToPrepareForFasting.4" = "Increase your water intake before starting your fast. Drinking plenty of water is crucial for maintaining hydration and helping manage hunger.";
+"InActiveFastingArticle.list.howToPrepareForFasting.5" = "Limit consumption of processed foods, which can increase cravings. Instead, opt for whole, minimally processed foods to support a healthier metabolic state and reduce the temptation to overeat.";
+"InActiveFastingArticle.list.howToPrepareForFasting.6" = "Reduce the intake of foods and beverages high in added sugars to stabilize blood sugar levels.";
+"InActiveFastingArticle.list.howToPrepareForFasting.7" = "Cutting down on caffeine and alcohol prior to fasting can prevent withdrawal symptoms and dehydration.";
+"InActiveFastingArticle.list.howToPrepareForFasting.8" = "Cultivate a positive mindset about fasting, focusing on the benefits and how it aligns with your health goals.";
+
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.1" = "Water:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.2" = "Tea and Coffee:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.3" = "Lemon Water:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.4" = "Apple Cider Vinegar:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.5" = "Diet Sodas.";
+
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.1" = "Essential for hydration, water does not break a fast. Feel free to drink still, sparkling, or mineral water.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.2" = "Black coffee and tea are acceptable, provided they are consumed without added sugar or milk.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.3" = "A glass of lemon water, being low in calories, can provide vitamin C and potentially help reduce hunger.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.4" = "Diluted apple cider vinegar can aid in feeling full and may offer health benefits without breaking your fast.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.5" = "Consuming diet sodas is permissible and can be a viable option to satisfy sweet cravings without breaking your fast. They offer a sweet taste without the caloric intake, helping you stick to your fasting regimen.";
 
 // MARK: - Fasting Goal
 "FastingGoal.loseWeight" = "Lose  weight";

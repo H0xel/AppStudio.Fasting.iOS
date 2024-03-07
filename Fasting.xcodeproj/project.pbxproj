@@ -353,6 +353,7 @@
 		A71CEB772B7DF40A0056C99A /* AppInitializerServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71CEB762B7DF40A0056C99A /* AppInitializerServicePreview.swift */; };
 		A72230372AFB624300303D5D /* Date+LocaleTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72230362AFB624300303D5D /* Date+LocaleTime.swift */; };
 		A722FEA72B15B201001CD1A3 /* UIScreen+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */; };
+		A72C91AA2B95D28B007E2D3C /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A72C91A92B95D28B007E2D3C /* Poppins-Medium.ttf */; };
 		A72D45272B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D45262B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift */; };
 		A72D45292B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D45282B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
@@ -786,6 +787,7 @@
 		A71CEB762B7DF40A0056C99A /* AppInitializerServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializerServicePreview.swift; sourceTree = "<group>"; };
 		A72230362AFB624300303D5D /* Date+LocaleTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+LocaleTime.swift"; sourceTree = "<group>"; };
 		A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+extensions.swift"; sourceTree = "<group>"; };
+		A72C91A92B95D28B007E2D3C /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		A72D45262B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCustomizationImpl+Discount.swift"; sourceTree = "<group>"; };
 		A72D45282B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuExperimentsView.swift; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
@@ -2371,6 +2373,7 @@
 		A7A3CE4E2AEBB32D00308201 /* Poppins */ = {
 			isa = PBXGroup;
 			children = (
+				A72C91A92B95D28B007E2D3C /* Poppins-Medium.ttf */,
 				A7088D612AEFC1FF00436465 /* Poppins-SemiBold.ttf */,
 				A7A3CE5A2AEBB32D00308201 /* Poppins-Regular.ttf */,
 			);
@@ -2663,6 +2666,7 @@
 			files = (
 				56F64D752AE10AD90067FE05 /* Localizable.strings in Resources */,
 				A7E0A1CA2B07418F005DA180 /* WhatToTest.en-US.txt in Resources */,
+				A72C91AA2B95D28B007E2D3C /* Poppins-Medium.ttf in Resources */,
 				A7A3CE6D2AEBB32D00308201 /* Poppins-Regular.ttf in Resources */,
 				56C28D862AE106A60007E48D /* .swiftlint.yml in Resources */,
 				5632571C2ADE57D90000F33C /* Preview Assets.xcassets in Resources */,
@@ -3497,7 +3501,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Common.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.17;
+				version = 1.0.20;
 			};
 		};
 		A0255E8F2AFBD3ED00221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */ = {

@@ -27,6 +27,10 @@ extension Font {
     static func poppinsBold(_ font: Poppins) -> Font {
         .custom("Poppins-SemiBold", size: font.rawValue)
     }
+
+    static func poppins500(_ font: Poppins) -> Font {
+        .custom("Poppins-Medium", size: font.rawValue)
+    }
 }
 
 extension Font {

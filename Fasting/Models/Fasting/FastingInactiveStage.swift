@@ -55,26 +55,52 @@ extension FastingInActiveArticle {
         }
     }
 
-    var list: [LocalizedStringKey] {
+    var viewData: [InActiveFastingListView.ViewData] {
         switch self {
         case .howToPrepareForFasting:
             return [
-                "InActiveFastingArticle.list.howToPrepareForFasting.1",
-                "InActiveFastingArticle.list.howToPrepareForFasting.2",
-                "InActiveFastingArticle.list.howToPrepareForFasting.3",
-                "InActiveFastingArticle.list.howToPrepareForFasting.4",
-                "InActiveFastingArticle.list.howToPrepareForFasting.5",
-                "InActiveFastingArticle.list.howToPrepareForFasting.6",
-                "InActiveFastingArticle.list.howToPrepareForFasting.7",
-                "InActiveFastingArticle.list.howToPrepareForFasting.8"
+                .init(type: .number(1),
+                      title: "InActiveFastingArticle.list.howToPrepareForFasting.title.1",
+                      subtitle: "InActiveFastingArticle.list.howToPrepareForFasting.1"),
+                .init(type: .number(2),
+                      title: "InActiveFastingArticle.list.howToPrepareForFasting.title.2",
+                      subtitle: "InActiveFastingArticle.list.howToPrepareForFasting.2"),
+                .init(type: .number(3),
+                      title: "InActiveFastingArticle.list.howToPrepareForFasting.title.3",
+                      subtitle: "InActiveFastingArticle.list.howToPrepareForFasting.3"),
+                .init(type: .number(4),
+                      title: "InActiveFastingArticle.list.howToPrepareForFasting.title.4",
+                      subtitle: "InActiveFastingArticle.list.howToPrepareForFasting.4"),
+                .init(type: .number(5),
+                      title: "InActiveFastingArticle.list.howToPrepareForFasting.title.5",
+                      subtitle: "InActiveFastingArticle.list.howToPrepareForFasting.5"),
+                .init(type: .number(6),
+                      title: "InActiveFastingArticle.list.howToPrepareForFasting.title.6",
+                      subtitle: "InActiveFastingArticle.list.howToPrepareForFasting.6"),
+                .init(type: .number(7),
+                      title: "InActiveFastingArticle.list.howToPrepareForFasting.title.7",
+                      subtitle: "InActiveFastingArticle.list.howToPrepareForFasting.7"),
+                .init(type: .number(8),
+                      title: "InActiveFastingArticle.list.howToPrepareForFasting.title.8",
+                      subtitle: "InActiveFastingArticle.list.howToPrepareForFasting.8")
             ]
         case .whatCanYouEatWhileFasting:
             return [
-                "InActiveFastingArticle.list.whatCanYouEatWhileFasting.1",
-                "InActiveFastingArticle.list.whatCanYouEatWhileFasting.2",
-                "InActiveFastingArticle.list.whatCanYouEatWhileFasting.3",
-                "InActiveFastingArticle.list.whatCanYouEatWhileFasting.4",
-                "InActiveFastingArticle.list.whatCanYouEatWhileFasting.5"
+                .init(type: .bullet,
+                      title: "InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.1",
+                      subtitle: "InActiveFastingArticle.list.whatCanYouEatWhileFasting.1"),
+                .init(type: .bullet,
+                      title: "InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.2",
+                      subtitle: "InActiveFastingArticle.list.whatCanYouEatWhileFasting.2"),
+                .init(type: .bullet,
+                      title: "InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.3",
+                      subtitle: "InActiveFastingArticle.list.whatCanYouEatWhileFasting.3"),
+                .init(type: .bullet,
+                      title: "InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.4",
+                      subtitle: "InActiveFastingArticle.list.whatCanYouEatWhileFasting.4"),
+                .init(type: .bullet,
+                      title: "InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.5",
+                      subtitle: "InActiveFastingArticle.list.whatCanYouEatWhileFasting.5")
             ]
         case .fastingPhases:
             return []

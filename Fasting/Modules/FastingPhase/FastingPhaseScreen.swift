@@ -64,7 +64,7 @@ struct FastingPhaseScreen: View {
     }
 
     private var closeButton: some View {
-        Image.xmark
+        Image.xmarkUnfilled
             .foregroundStyle(.white)
             .fontWeight(.semibold)
     }

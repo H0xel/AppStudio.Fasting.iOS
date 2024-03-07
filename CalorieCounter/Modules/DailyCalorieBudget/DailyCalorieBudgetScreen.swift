@@ -49,7 +49,7 @@ struct DailyCalorieBudgetScreen: View {
             }
         }
         .navBarButton(isVisible: viewModel.mode == .profileInfo,
-                      content: Image.xmark.foregroundStyle(.accent),
+                      content: Image.xmarkUnfilled.foregroundStyle(.accent),
                       action: viewModel.startTapped)
         .navBarButton(placement: .principal,
                       isVisible: viewModel.mode == .profileInfo,

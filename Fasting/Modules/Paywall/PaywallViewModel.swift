@@ -141,6 +141,8 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
                 case .error:
                     this.output(.switchProgressView(isPresented: false))
                     this.router.dismissBanner()
+                case .success:
+                    this.output(.switchProgressView(isPresented: false))
                 default:
                     break
                 }
@@ -160,7 +162,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
                 case .restored:
                     this.trackRestoreFinishedEvent(result: .success, context: this.input.paywallContext)
                 }
-                this.output(.switchProgressView(isPresented: true))
+                this.output(.switchProgressView(isPresented: false))
                 this.router.dismissBanner()
             }
             .disposed(by: disposeBag)
@@ -172,9 +174,9 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
             .take(1)
             .asDriver()
             .drive(with: self) { this, _ in
-                this.output(.subscribed)
-                this.output(.switchProgressView(isPresented: true))
+                this.output(.switchProgressView(isPresented: false))
                 this.router.dismissBanner()
+                this.output(.subscribed)
             }
             .disposed(by: disposeBag)
     }

@@ -44,11 +44,6 @@ extension Image {
         Image(systemName: "chevron.backward")
     }
 
-    /// 􀆄
-    static var xmarkUnfilled: Image {
-        Image(systemName: "xmark")
-    }
-
     /// 􀁣
     static var checkmarkCircleFill: Image {
         Image(systemName: "checkmark.circle.fill")

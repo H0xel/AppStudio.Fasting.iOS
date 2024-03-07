@@ -40,8 +40,8 @@ struct InActiveFastingArticleScreen: View {
                         .font(.poppins(.buttonText))
                         .padding(.bottom, Layout.descriptionBottomPadding)
 
-                    ForEach(viewModel.fastingInActiveStage.list, id: \.localized) { text in
-                        InActiveFastingListView(text: text)
+                    ForEach(Array(viewModel.fastingInActiveStage.viewData), id: \.title.localized) { viewData in
+                        InActiveFastingListView(viewData: viewData)
                     }
                 }
                 .padding(.all, Layout.contentPadding)
@@ -63,7 +63,7 @@ private extension InActiveFastingArticleScreen {
         static let descriptionBottomPadding: CGFloat = 28
         static let descriptionLineSpacing: CGFloat = 2
         static let titleBottomPadding: CGFloat = 16
-        static let titleHorizontalPadding: CGFloat = 53
+        static let titleHorizontalPadding: CGFloat = 32
         static let imageHeight: CGFloat = 212
         static let imageBottomPadding: CGFloat = 32
     }

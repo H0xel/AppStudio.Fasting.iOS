@@ -37,7 +37,7 @@ struct ChooseFastingPlanScreen: View {
         }
         .multilineTextAlignment(.center)
         .navBarButton(isVisible: viewModel.context != .onboarding,
-                      content: Image.xmark.foregroundColor(.accent),
+                      content: Image.xmarkUnfilled.foregroundColor(.accent),
                       action: viewModel.backButtonTapped)
         .navigationBarHidden(false)
     }
@@ -64,11 +64,13 @@ private extension ChooseFastingPlanScreen {
 
 struct ChooseFastingPlanScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ChooseFastingPlanScreen(
-            viewModel: ChooseFastingPlanViewModel(
-                input: ChooseFastingPlanInput(context: .onboarding),
-                output: { _ in }
+        NavigationView {
+            ChooseFastingPlanScreen(
+                viewModel: ChooseFastingPlanViewModel(
+                    input: ChooseFastingPlanInput(context: .onboarding),
+                    output: { _ in }
+                )
             )
-        )
+        }
     }
 }

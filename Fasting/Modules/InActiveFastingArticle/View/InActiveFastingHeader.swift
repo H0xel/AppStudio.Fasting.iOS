@@ -12,7 +12,7 @@ struct InActiveFastingHeader: View {
     let action: () -> Void
 
     var body: some View {
-        VStack(spacing: .zero) {
+        HStack(spacing: .zero) {
             Button {
                 action()
             } label: {
@@ -20,10 +20,10 @@ struct InActiveFastingHeader: View {
                     .font(.headline)
                     .foregroundStyle(.white)
             }
-            .aligned(.bottomLeft)
+            .aligned(.centerVerticaly)
             .padding(.leading, Layout.leadingPadding)
-            .padding(.bottom, Layout.bottomPadding)
             .frame(height: Layout.height)
+            Spacer()
         }
         .background(FastingInActiveArticle.linearGradient)
     }
@@ -31,7 +31,7 @@ struct InActiveFastingHeader: View {
 
 private extension InActiveFastingHeader {
     enum Layout {
-        static let height: CGFloat = 68
+        static let height: CGFloat = 44
         static let leadingPadding: CGFloat = 32
         static let bottomPadding: CGFloat = 12
     }

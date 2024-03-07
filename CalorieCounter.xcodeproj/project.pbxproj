@@ -3782,7 +3782,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Common";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.17;
+				version = 1.0.20;
 			};
 		};
 		ADC784F72AFA86CC005F16A6 /* XCRemoteSwiftPackageReference "Moya" */ = {
