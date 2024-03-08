@@ -9,6 +9,7 @@ import Foundation
 import AppStudioNavigation
 import AppStudioUI
 import Dependencies
+import Combine
 
 class CoachViewModel: BaseViewModel<CoachOutput> {
 
@@ -29,9 +30,11 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
     @Published var isSuggestionsPresented = true
     let constants: CoachConstants
     private var messagesObserver: CoachMessageObserver?
+    private var nextMessagePublisher: AnyPublisher<String, Never>
 
     init(input: CoachInput, output: @escaping CoachOutputBlock) {
         constants = input.constants
+        nextMessagePublisher = input.nextMessagePublisher
         super.init(output: output)
         isSuggestionsPresented = suggestedQuestionsService.shouldShowSuggestions
         isCoachEnable = coachService.isCoachEnable
@@ -39,6 +42,7 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
         observeKeywords()
         observeMessages()
         observeIsWaitingForResponse()
+        observeNextMessages()
     }
 
     var groupedMessages: [CoachMessagesGroup] {
@@ -176,6 +180,15 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
                                       sender: .user,
                                       date: .now)
         messages.append(newMessage)
+    }
+
+    private func observeNextMessages() {
+        nextMessagePublisher
+            .filter { !$0.isEmpty }
+            .sink(with: self, receiveValue: { this, nextMessage in
+                this.sendMessage(with: nextMessage)
+            })
+            .store(in: &cancellables)
     }
 }
 

@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 04.03.2024.
+  
+*/
+
+// MARK: - FastingHealthProgressScreen
+"FastingHealthProgressScreen.title" = "Progress";
+"FastingHealthProgressScreen.fastingTitle" = "Fasting";
+"FastingHealthProgressScreen.fastingSubtitle" = "Last 7 days";
+
+// MARK: - BodyMassIndex
+"BodyMassIndex.normal" = "Normal";
+"BodyMassIndex.underweight" = "Underweight";
+"BodyMassIndex.overweight" = "Overweight";
+"BodyMassIndex.obese" = "Obese";
+
+// MARK: - BodyMassIndexView
+"BodyMassIndexView.title" = "Body Mass Index";
+"BodyMassIndexView.kgForSquareMetter" = "kg/m";
+
+// MARK: - HealthProgressHint
+"HealthProgressHint.learnMore" = "Learn more";
+"HealthProgressHint.bodyMass.title" = "Body Mass Index (BMI)";
+"HealthProgressHint.bodyMass.description" = "is a simple method for determining weight category, based on your height and weight";
+
+// MARK: - HintScreen
+"HintTopic.bmi.title" = "Body Mass Index (BMI)";
+"HintTopic.bmi.questionsContent.title" = "What is BMI?";
+"HintTopic.bmi.questionsContent.answer1" = "BMI is a tool that estimates whether your weight is in a healthy range for your height. It calculates a score by dividing your weight in kilograms by the square of your height in meters.";
+"HintTopic.bmi.questionsContent.answer2" = "Most adults fall into one of four BMI categories: underweight (under 18 kg/m2), normal weight (18 to 24.9), overweight (25 to 29.9), and obese (30 or more).";
+
+"HintTopic.bmi.bodyMassContent.title" = "Interpreting Your BMI";
+"HintTopic.bmi.bodyMassContent.underweight.topic1" = "Your BMI falls into the underweight range. This alone doesn't guarantee health concerns, but it can be associated with increased risks of muscle loss, weakened immunity, and nutritional deficiencies.";
+"HintTopic.bmi.bodyMassContent.underweight.topic2" = "Consult a doctor or dietitian to discuss if your weight is healthy for you.  Remember, your individual health is more than just a number.";
+"HintTopic.bmi.bodyMassContent.normal.topic1" = "A BMI in the normal range generally indicates a lower risk of developing certain health problems like heart disease, diabetes, and high blood pressure.";
+"HintTopic.bmi.bodyMassContent.normal.topic2" = "But remember, BMI is just one piece of the puzzle. Your overall health also depends on factors like your diet, activity level, and family history.";
+"HintTopic.bmi.bodyMassContent.overweight.topic1" = "An overweight BMI indicates a potential for increased risk of developing certain health problems like heart disease, diabetes, and high blood pressure. However, it's important to remember that BMI doesn't tell the whole story.";
+"HintTopic.bmi.bodyMassContent.overweight.topic2" = "Consult a doctor or dietitian if you're concerned about your weight or health. They can help you assess your individual situation, considering factors beyond just a number.";
+"HintTopic.bmi.bodyMassContent.obese.topic1" = "Your BMI falls into the obese range. Obesity is linked to a higher risk of developing heart disease, type 2 diabetes, and some cancers.";
+"HintTopic.bmi.bodyMassContent.obese.topic2" = "While BMI can be a helpful starting point, it doesn't tell the whole story about your health.  We recommend consulting a doctor or  dietitian to discuss personalized strategies for improving your health and well-being.";
+
+"HintTopic.bmi.novaQustionsContent.title" = "Want to learn more about BMI? Ask Nova!";
+"HintTopic.bmi.novaQustionsContent.question1" = "How can I improve my BMI healthily?";
+"HintTopic.bmi.novaQustionsContent.question2" = "Does BMI vary with age and gender?";
+"HintTopic.bmi.novaQustionsContent.question3" = "Is BMI accurate for all body types?";
+
+"HintTopic.fasting.title" = "Fasting";
+"HintTopic.fasting.fastingPhasesContent.title" = "The bar's color represents the final phase reached in each fasting session:";
+"FastingPhases.BloodSugarSlowlyRises" = "Blood sugar slowly rises";
+"FastingPhases.BloodSugarIsGoingDown" = "Blood sugar is going down";
+"FastingPhases.BloodSugarReturnsToNormal" = "Blood sugar returns to normal";
+"FastingPhases.FatBurning" = "Fat burning";
+"FastingPhases.Ketosis" = "Ketosis";
+"FastingPhases.Autophagy" = "Autophagy";
+"HintTopic.fasting.paragraphContent.title" = "Average Fasting Time";
+"HintTopic.fasting.paragraphContent.topic1" = "Calculated as the total hours of fasting within the selected timeframe, divided by the number of completed fasting sessions.";

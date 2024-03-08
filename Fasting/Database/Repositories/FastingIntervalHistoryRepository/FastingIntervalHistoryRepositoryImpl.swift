@@ -28,4 +28,16 @@ extension FastingIntervalHistoryRepositoryImpl: FastingIntervalHistoryRepository
 
         return try await select(request: request)
     }
+
+    func select(from date: Date) async throws -> [FastingIntervalHistory] {
+        let request = FastingIntervalHistory.request()
+        let startDate = date.startOfTheDay
+        let endDate = date.endOfDay
+        request.predicate = .init(
+            format: "startedDate >= %@ AND startedDate <= %@",
+            startDate as NSDate,
+            endDate as NSDate
+        )
+        return try await select(request: request)
+    }
 }

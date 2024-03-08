@@ -11,6 +11,8 @@ import SwiftUI
 import Dependencies
 import RxSwift
 import AppStudioSubscriptions
+import HealthProgress
+import Combine
 
 class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.storageService) private var storageService
@@ -23,6 +25,9 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.firstLaunchService) private var firstLaunchService
     @Dependency(\.quickActionTypeServiceService) private var quickActionTypeServiceService
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
+    @Dependency(\.onboardingService) private var onboardingService
+    @Dependency(\.fastingHistoryService) private var fastingHistoryService
+    @Dependency(\.fastingParametersService) private var fastingParametersService
 
     @Published var currentTab: AppTab = .fasting {
         willSet {
@@ -36,8 +41,9 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Published var discountPaywallInfo: DiscountPaywallInfo?
 
     var router: RootRouter!
-
     private let disposeBag = DisposeBag()
+    private let progressInputSubject = CurrentValueSubject<FastingHealthProgressInput, Never>(.empty)
+    private let coachNextMessageSubject = CurrentValueSubject<String, Never>("")
 
     init(input: RootInput, output: @escaping RootOutputBlock) {
         super.init(output: output)
@@ -45,6 +51,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         initializePaywallTab()
         subscribeToActionTypeEvent()
         subscribeForAvailableDiscountPaywall()
+        observeCurrentTab()
     }
 
     func initialize() {
@@ -68,8 +75,18 @@ class RootViewModel: BaseViewModel<RootOutput> {
         }
     }
 
-    var coachScreen: some View {
-        router.coachScreen
+    lazy var coachScreen: some View = {
+        router.coachScreen(nextMessagePublisher: coachNextMessageSubject.eraseToAnyPublisher())
+    }()
+
+    var healthProgressScreen: some View {
+        router.healthProgressScreen(inputPublisher: progressInputSubject.eraseToAnyPublisher()) { [weak self] output in
+            switch output {
+            case .novaQuestion(let question):
+                self?.currentTab = .coach
+                self?.coachNextMessageSubject.send(question)
+            }
+        }
     }
 
     @ViewBuilder
@@ -172,6 +189,54 @@ class RootViewModel: BaseViewModel<RootOutput> {
                 }
             }
             .store(in: &cancellables)
+    }
+
+    private func observeCurrentTab() {
+        $currentTab
+            .filter { $0 == .healthProgress }
+            .sink { [weak self] _ in
+                self?.updateHealthProgressInput()
+            }
+            .store(in: &cancellables)
+    }
+
+    private func updateHealthProgressInput() {
+        Task {
+            let input = try await fastingHealthProgressInput()
+            progressInputSubject.send(input)
+        }
+    }
+
+    private func fastingHealthProgressInput() async throws -> FastingHealthProgressInput {
+        let dates = (0...6).map { Date().adding(.day, value: -$0) }
+        let historyWithDates = try await fastingHistoryService.history(for: dates)
+        var orderedHistory: [FastingIntervalHistory] = []
+
+        for date in dates {
+            if let history = historyWithDates[date] {
+                orderedHistory.append(history)
+            } else {
+                let parameters = try await fastingParametersService.parameters(for: date)
+                orderedHistory.append(.empty(statedDate: date, plan: parameters.plan))
+            }
+        }
+
+        let chartItems = orderedHistory.map {
+            HealthProgressBarChartItem(value: $0.timeFasted,
+                                       lineValue: Double($0.plan.duration / .hour),
+                                       color: $0.stage.backgroundColor,
+                                       label: $0.startedDate.currentLocaleFormatted(with: "EEE"))
+        }
+        return .init(bodyMassIndex: bodyMassIndex, fastingChartItems: chartItems.reversed())
+    }
+
+    private var bodyMassIndex: Double {
+        guard let data = onboardingService.data else {
+            return 0
+        }
+        let heightMetters = data.height.centimeters / 100
+        let bodyMassIndex = data.weight.normalizeValue / (heightMetters * heightMetters)
+        return bodyMassIndex
     }
 }
 

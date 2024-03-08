@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Common.git",
       "state" : {
-        "revision" : "4021ea78f75c0028acf7fdf00e0e9938dafc6c1c",
-        "version" : "1.0.17"
+        "revision" : "be0ba8b7340d8f7bba65e8f5ba22085b929f93ea",
+        "version" : "1.0.20"
       }
     },
     {

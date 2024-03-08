@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
+import HealthProgress
 
 struct RootScreen: View {
 
@@ -34,31 +35,36 @@ struct RootScreen: View {
                     viewModel.fastingScreen
                         .tag(AppTab.fasting)
                         .tabItem {
-                            fastingTabImage
+                            tabBarLabelView(title: .fasting, image: fastingTabImage)
                                 .foregroundStyle(Color.studioGreyStrokeFill)
                         }
                     viewModel.coachScreen
                         .tag(AppTab.coach)
                         .tabItem {
-                            coachTabImage
+                            tabBarLabelView(title: .nova, image: coachTabImage)
+                        }
+                    viewModel.healthProgressScreen
+                        .tag(AppTab.healthProgress)
+                        .tabItem {
+                            tabBarLabelView(title: .progress, image: progressTabImage)
                         }
                     viewModel.profileScreen
                         .tag(AppTab.profile)
                         .tabItem {
-                            Image.personFill
+                            tabBarLabelView(title: .profile, image: .personFill)
                         }
                     if !viewModel.hasSubscription {
                         if let info = viewModel.discountPaywallInfo {
                             viewModel.discountPaywall(input: .init(context: .discountPaywallTab, paywallInfo: info))
                                 .tag(AppTab.paywall)
                                 .tabItem {
-                                    Image.crownFill
+                                    tabBarLabelView(title: .plus, image: .crownFill)
                                 }
                         } else {
                             viewModel.paywallScreen
                                 .tag(AppTab.paywall)
                                 .tabItem {
-                                    Image.crownFill
+                                    tabBarLabelView(title: .plus, image: .crownFill)
                                 }
                         }
                     }
@@ -74,6 +80,17 @@ struct RootScreen: View {
         }
     }
 
+    private func tabBarLabelView(title: LocalizedStringKey, image: Image) -> some View {
+        Label(
+            title: {
+                Text(title)
+                    .font(.poppins(9))
+                    .foregroundStyle(.accent)
+            },
+            icon: { image }
+        )
+    }
+
     private var fastingTabImage: Image {
         viewModel.currentTab == .fasting ? .fastingTabBarItemActive : .fastingTabBarItemInactive
     }
@@ -81,19 +98,19 @@ struct RootScreen: View {
     private var coachTabImage: Image {
         viewModel.currentTab == .coach ? .init(.aiCoachActive) : .init(.aiCoachDisabled)
     }
-}
 
-// MARK: - Layout properties
-private extension RootScreen {
-    enum Layout {
+    private var progressTabImage: Image {
+        viewModel.currentTab == .healthProgress ? .progressTabActive : .progressTabInActive
     }
 }
 
-// MARK: - Localization
-private extension RootScreen {
-    enum Localization {
-        static let title: LocalizedStringKey = "RootScreen"
-    }
+private extension LocalizedStringKey {
+    static let daily: LocalizedStringKey = "RootScreen.TabBar.daily"
+    static let fasting: LocalizedStringKey = "RootScreen.TabBar.fasting"
+    static let nova: LocalizedStringKey = "RootScreen.TabBar.nova"
+    static let progress: LocalizedStringKey = "RootScreen.TabBar.progress"
+    static let profile: LocalizedStringKey = "RootScreen.TabBar.profile"
+    static let plus: LocalizedStringKey = "RootScreen.TabBar.plus"
 }
 
 struct RootScreen_Previews: PreviewProvider {

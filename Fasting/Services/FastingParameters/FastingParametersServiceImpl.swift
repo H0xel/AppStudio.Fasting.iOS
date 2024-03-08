@@ -65,6 +65,10 @@ class FastingParametersServiceImpl: FastingParametersService {
         userPropertyService.set(userProperties: ["global_start_time": interval.startDate.description])
         await update(interval: parameters.asInterval)
     }
+
+    func parameters(for date: Date) async throws -> FastingParameters {
+        try await fastingParametersRepository.parameters(for: date)
+    }
 }
 
 extension FastingParametersServiceImpl: AppInitializer {

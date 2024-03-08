@@ -216,8 +216,10 @@
 		56F64D7F2AE10EF20067FE05 /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D792AE10EF20067FE05 /* RootScreen.swift */; };
 		56F64D802AE10EF20067FE05 /* RootOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D7A2AE10EF20067FE05 /* RootOutput.swift */; };
 		56F64D812AE10EF20067FE05 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */; };
+		A0006CD62B98BFE40091EB3B /* HealthOverview in Frameworks */ = {isa = PBXBuildFile; productRef = A0006CD52B98BFE40091EB3B /* HealthOverview */; };
 		A008A82F2AF117540011A261 /* FastingProgressLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008A82E2AF117540011A261 /* FastingProgressLabelView.swift */; };
 		A008A8312AF14C0B0011A261 /* Animation+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008A8302AF14C0B0011A261 /* Animation+extensions.swift */; };
+		A00A73482B9631790038A001 /* HealthProgress in Frameworks */ = {isa = PBXBuildFile; productRef = A00A73472B9631790038A001 /* HealthProgress */; };
 		A00B4DBD2B73817F0067A872 /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = A00B4DBC2B73817F0067A872 /* FacebookAEM */; };
 		A00B4DBF2B73817F0067A872 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = A00B4DBE2B73817F0067A872 /* FacebookBasics */; };
 		A00B4DC12B73817F0067A872 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = A00B4DC02B73817F0067A872 /* FacebookCore */; };
@@ -283,6 +285,7 @@
 		A05004752B20A60700820E45 /* OnboardingPickerOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05004742B20A60700820E45 /* OnboardingPickerOption.swift */; };
 		A05004772B20D94100820E45 /* OnboardingDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05004762B20D94100820E45 /* OnboardingDatePickerView.swift */; };
 		A05004792B20FCEA00820E45 /* OnboardingSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05004782B20FCEA00820E45 /* OnboardingSegmentedView.swift */; };
+		A05CE23F2B9795D000BC45FB /* Date+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05CE23E2B9795D000BC45FB /* Date+extensions.swift */; };
 		A063B1F52AEBD0E800084696 /* StartFastingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */; };
 		A063B1F62AEBD0E800084696 /* StartFastingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F02AEBD0E800084696 /* StartFastingRouter.swift */; };
 		A063B1F72AEBD0E800084696 /* StartFastingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F12AEBD0E800084696 /* StartFastingRoute.swift */; };
@@ -362,7 +365,6 @@
 		A76148EE2B74C8A6002A7F95 /* DiscountPaywallTimerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76148EB2B74C8A6002A7F95 /* DiscountPaywallTimerServiceImpl.swift */; };
 		A76148EF2B74C8A6002A7F95 /* DiscountPaywallTimerDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76148EC2B74C8A6002A7F95 /* DiscountPaywallTimerDependencies.swift */; };
 		A76148F02B74C8A6002A7F95 /* DiscountPaywallTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76148ED2B74C8A6002A7F95 /* DiscountPaywallTimerService.swift */; };
-		A7622F502AEBC9AA00D12632 /* Font+Poppins.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7622F4F2AEBC9AA00D12632 /* Font+Poppins.swift */; };
 		A76294302B219E0B00DAF93B /* PersonalizedTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762942F2B219E0B00DAF93B /* PersonalizedTitleView.swift */; };
 		A76294322B219E2100DAF93B /* PersonalizedChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76294312B219E2100DAF93B /* PersonalizedChart.swift */; };
 		A76294352B21A42500DAF93B /* PersonalizedSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76294342B21A42500DAF93B /* PersonalizedSeparatorView.swift */; };
@@ -717,6 +719,7 @@
 		A05004742B20A60700820E45 /* OnboardingPickerOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPickerOption.swift; sourceTree = "<group>"; };
 		A05004762B20D94100820E45 /* OnboardingDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDatePickerView.swift; sourceTree = "<group>"; };
 		A05004782B20FCEA00820E45 /* OnboardingSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSegmentedView.swift; sourceTree = "<group>"; };
+		A05CE23E2B9795D000BC45FB /* Date+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+extensions.swift"; sourceTree = "<group>"; };
 		A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingInput.swift; sourceTree = "<group>"; };
 		A063B1F02AEBD0E800084696 /* StartFastingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingRouter.swift; sourceTree = "<group>"; };
 		A063B1F12AEBD0E800084696 /* StartFastingRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingRoute.swift; sourceTree = "<group>"; };
@@ -796,7 +799,6 @@
 		A76148EB2B74C8A6002A7F95 /* DiscountPaywallTimerServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallTimerServiceImpl.swift; sourceTree = "<group>"; };
 		A76148EC2B74C8A6002A7F95 /* DiscountPaywallTimerDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallTimerDependencies.swift; sourceTree = "<group>"; };
 		A76148ED2B74C8A6002A7F95 /* DiscountPaywallTimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPaywallTimerService.swift; sourceTree = "<group>"; };
-		A7622F4F2AEBC9AA00D12632 /* Font+Poppins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Poppins.swift"; sourceTree = "<group>"; };
 		A762942F2B219E0B00DAF93B /* PersonalizedTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedTitleView.swift; sourceTree = "<group>"; };
 		A76294312B219E2100DAF93B /* PersonalizedChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedChart.swift; sourceTree = "<group>"; };
 		A76294342B21A42500DAF93B /* PersonalizedSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedSeparatorView.swift; sourceTree = "<group>"; };
@@ -898,8 +900,10 @@
 				A0255E872AFBD38300221EC6 /* AppStudioSubscriptions in Frameworks */,
 				564BE0B82AF0E99F00CE7F38 /* MunicornFoundation in Frameworks */,
 				A0178F502B91CB8C00069BEA /* AppStudioStyles in Frameworks */,
+				A0006CD62B98BFE40091EB3B /* HealthOverview in Frameworks */,
 				564BE0B42AF0E99F00CE7F38 /* MunicornAPI in Frameworks */,
 				564BE0B62AF0E99F00CE7F38 /* MunicornCoreData in Frameworks */,
+				A00A73482B9631790038A001 /* HealthProgress in Frameworks */,
 				5675000D2ADE85FD009331CB /* FirebaseCrashlytics in Frameworks */,
 				A0255E8C2AFBD3C000221EC6 /* AppStudioFoundation in Frameworks */,
 				A00B4DC32B73817F0067A872 /* FacebookLogin in Frameworks */,
@@ -2104,6 +2108,7 @@
 				5662DECB2B1615DA00C1637C /* CGFloat+Extensions.swift */,
 				5662DECD2B1615F200C1637C /* Double+Extensions.swift */,
 				A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */,
+				A05CE23E2B9795D000BC45FB /* Date+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2365,7 +2370,6 @@
 			isa = PBXGroup;
 			children = (
 				A7A3CE4E2AEBB32D00308201 /* Poppins */,
-				A7622F4F2AEBC9AA00D12632 /* Font+Poppins.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -2587,6 +2591,8 @@
 				A00B4DC22B73817F0067A872 /* FacebookLogin */,
 				A0178F4F2B91CB8C00069BEA /* AppStudioStyles */,
 				A0178F512B91CBC800069BEA /* AICoach */,
+				A0006CD52B98BFE40091EB3B /* HealthOverview */,
+				A00A73472B9631790038A001 /* HealthProgress */,
 			);
 			productName = AppStudioTemplate;
 			productReference = 563257112ADE57D80000F33C /* Fasting.app */;
@@ -2824,6 +2830,7 @@
 				A02787542AEADC5200844246 /* AccentButton.swift in Sources */,
 				567500AF2ADFBF52009331CB /* ServicesDependencies.swift in Sources */,
 				A063B1FE2AEC1E2E00084696 /* FastingStagesView.swift in Sources */,
+				A05CE23F2B9795D000BC45FB /* Date+extensions.swift in Sources */,
 				A02787592AEAE4FB00844246 /* FastingTimeView.swift in Sources */,
 				567500082ADE84B4009331CB /* MigrationServiceImpl.swift in Sources */,
 				567500A42ADFAE0C009331CB /* PaywallService.swift in Sources */,
@@ -2991,7 +2998,6 @@
 				A7C026CE2B1DB235004C3D63 /* InActiveFastingArticleScreen.swift in Sources */,
 				566C249B2AE8F80B00AEDB3C /* PaywallRoute.swift in Sources */,
 				A78676EF2B1DA61B002C2202 /* FastingInactiveStagesView.swift in Sources */,
-				A7622F502AEBC9AA00D12632 /* Font+Poppins.swift in Sources */,
 				A70DBE262B0C85550067D7BD /* String+subscript.swift in Sources */,
 				567500A62ADFAE8D009331CB /* PaywallServiceContext.swift in Sources */,
 				A05004702B20A0BF00820E45 /* OnboardingFlowStep.swift in Sources */,
@@ -3554,6 +3560,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */;
 			productName = ABTesting;
+		};
+		A0006CD52B98BFE40091EB3B /* HealthOverview */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HealthOverview;
+        };
+		A00A73472B9631790038A001 /* HealthProgress */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HealthProgress;
 		};
 		A00B4DBC2B73817F0067A872 /* FacebookAEM */ = {
 			isa = XCSwiftPackageProductDependency;

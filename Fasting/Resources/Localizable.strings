@@ -6,6 +6,14 @@
 "TodayTitle" = "Today";
 "NextTitle" = "Next";
 
+// MARK: - RootScreen
+"RootScreen.TabBar.daily" = "Daily";
+"RootScreen.TabBar.fasting" = "Fasting";
+"RootScreen.TabBar.nova" = "Nova";
+"RootScreen.TabBar.progress" = "Progress";
+"RootScreen.TabBar.profile" = "Profile";
+"RootScreen.TabBar.plus" = "Plus+";
+
 // MARK: - Paywall Screen
 "Paywall.title" = "Paywall Title";
 "Paywall.noPaymentNow" = "No payment now!";

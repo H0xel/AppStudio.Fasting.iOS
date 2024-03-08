@@ -12,12 +12,13 @@ enum AppTab: String {
     case coach
     case profile
     case paywall
+    case healthProgress
 
     var navigationTitle: String? {
         switch self {
         case .profile:
             return NSLocalizedString("ProfileScreen.navigationTitle", comment: "Profile")
-        case .fasting, .paywall, .coach:
+        case .fasting, .paywall, .coach, .healthProgress:
             return nil
         }
     }

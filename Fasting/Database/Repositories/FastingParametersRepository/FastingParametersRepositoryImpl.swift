@@ -54,6 +54,17 @@ class FastingParametersRepositoryImpl: CoreDataBaseRepository<FastingParameters>
         return try await save(newParameters)
     }
 
+    func parameters(for date: Date) async throws -> FastingParameters {
+        let request = FastingParameters.request()
+        request.predicate = .init(format: "creationDate <= %@", date as NSDate)
+        request.sortDescriptors = [.init(key: "creationDate", ascending: false)]
+        request.fetchLimit = 1
+        if let parameter = try await select(request: request).first {
+            return parameter
+        }
+        return try await current()
+    }
+
     private func getCurrentParameters() async throws -> FastingParameters? {
         let request = FastingParameters.request()
         request.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]

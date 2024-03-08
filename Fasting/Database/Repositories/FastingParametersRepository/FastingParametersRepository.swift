@@ -13,4 +13,5 @@ protocol FastingParametersRepository {
     func update(currentDate: Date) async throws -> FastingParameters
     func clearCurrentDate() async throws -> FastingParameters
     func save(interval: FastingInterval) async throws -> FastingParameters
+    func parameters(for date: Date) async throws -> FastingParameters
 }

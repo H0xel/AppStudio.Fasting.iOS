@@ -33,7 +33,7 @@ struct InActiveFastingListView: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(viewData.title)
-                    .font(.poppins500(.body))
+                    .font(.poppinsMedium(.body))
 
                 Text(viewData.subtitle)
                     .padding(.bottom, Layout.textBottomPadding)

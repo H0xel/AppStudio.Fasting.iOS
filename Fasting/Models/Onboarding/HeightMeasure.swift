@@ -14,4 +14,15 @@ struct HeightMeasure: Codable {
     var valueWithUnits: String {
         "\(Int(value)) \(units.title)"
     }
+
+    var centimeters: Double {
+        switch units {
+        case .ft:
+            let centimetersPerFoot = 30.48
+            let centimetersPerInch = 2.54
+            return value * centimetersPerFoot
+        case .cm:
+            return value
+        }
+    }
 }

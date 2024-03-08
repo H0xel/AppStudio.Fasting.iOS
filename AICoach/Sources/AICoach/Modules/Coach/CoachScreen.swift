@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AppStudioNavigation
+import Combine
 
 struct CoachScreen: View {
     @StateObject var viewModel: CoachViewModel
@@ -73,7 +74,8 @@ struct CoachScreen_Previews: PreviewProvider {
             viewModel: CoachViewModel(
                 input: CoachInput(constants: .init(privacyPolicy: "",
                                                    termsOfUse: "",
-                                                   appName: "Fasting")),
+                                                   appName: "Fasting"),
+                                  nextMessagePublisher: CurrentValueSubject<String, Never>("").eraseToAnyPublisher()),
                 output: { _ in }
             )
         )

@@ -12,4 +12,5 @@ protocol FastingIntervalHistoryRepository {
     @discardableResult
     func save(history: FastingIntervalHistory) async throws -> FastingIntervalHistory
     func selectLast(count: Int) async throws -> [FastingIntervalHistory]
+    func select(from date: Date) async throws -> [FastingIntervalHistory]
 }

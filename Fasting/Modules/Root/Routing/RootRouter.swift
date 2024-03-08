@@ -9,18 +9,19 @@ import SwiftUI
 import AppStudioNavigation
 import Dependencies
 import AICoach
+import HealthProgress
+import Combine
 
 class RootRouter: BaseRouter {
     @Dependency(\.paywallService) private var paywallService
     @Dependency(\.openURL) private var openURL
-    @Dependency(\.fastingService) private var fastingService
-    @Dependency(\.fastingParametersService) private var fastingParametersService
 
     private let fastingNavigator = Navigator()
     private let profileNavigator = Navigator()
     private let paywallNavigator = Navigator()
     private let coachNavigator = Navigator()
     private let onboardingNavigator = Navigator()
+    private let healthProgressNavigator = Navigator()
 
     override init(navigator: Navigator) {
         super.init(navigator: navigator)
@@ -42,6 +43,16 @@ class RootRouter: BaseRouter {
         return profileNavigator.initialize(route: route)
     }()
 
+    func healthProgressScreen(
+        inputPublisher: AnyPublisher<FastingHealthProgressInput, Never>,
+        output: @escaping HealthProgressOutputBlock
+    ) -> some View {
+        let route = FastingHealthProgressRoute(navigator: healthProgressNavigator,
+                                               inputPublisher: inputPublisher,
+                                               output: output)
+        return healthProgressNavigator.initialize(route: route)
+    }
+
     func paywallScreen(onProgress: @escaping (Bool) -> Void) -> some View {
         let route = PaywallRoute(navigator: paywallNavigator, input: .fromSettings) { output in
             switch output {
@@ -54,12 +65,12 @@ class RootRouter: BaseRouter {
         return paywallNavigator.initialize(route: route)
     }
 
-    lazy var coachScreen: some View = {
+    func coachScreen(nextMessagePublisher: AnyPublisher<String, Never>) -> some View {
         let route = CoachRoute(navigator: coachNavigator,
-                               input: .init(constants: .fastingConstants),
+                               input: .init(constants: .fastingConstants, nextMessagePublisher: nextMessagePublisher),
                                output: { _ in })
         return coachNavigator.initialize(route: route)
-    }()
+    }
 
     func presentPaywall() {
         Task {

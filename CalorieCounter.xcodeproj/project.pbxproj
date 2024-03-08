@@ -279,9 +279,6 @@
 		A05E68E22B30B10C00282F9C /* FoodLogScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E68DC2B30B10C00282F9C /* FoodLogScreen.swift */; };
 		A05E68E32B30B10C00282F9C /* FoodLogOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E68DD2B30B10C00282F9C /* FoodLogOutput.swift */; };
 		A05E68E42B30B10C00282F9C /* FoodLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E68DE2B30B10C00282F9C /* FoodLogViewModel.swift */; };
-		A05E68E92B30B46B00282F9C /* Font+Poppins.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E68E82B30B46B00282F9C /* Font+Poppins.swift */; };
-		A05E68EC2B30B49800282F9C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A05E68EA2B30B49800282F9C /* Poppins-Regular.ttf */; };
-		A05E68ED2B30B49800282F9C /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A05E68EB2B30B49800282F9C /* Poppins-SemiBold.ttf */; };
 		A05E68F02B30B4CC00282F9C /* UIScreen+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E68EF2B30B4CC00282F9C /* UIScreen+extensions.swift */; };
 		A05E68F32B30DF1F00282F9C /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E68F22B30DF1F00282F9C /* MealType.swift */; };
 		A05E68F52B30E24700282F9C /* Image+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E68F42B30E24700282F9C /* Image+extensions.swift */; };
@@ -717,6 +714,8 @@
 		56F64D7A2AE10EF20067FE05 /* RootOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootOutput.swift; sourceTree = "<group>"; };
 		56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		A00081D92B4FF05B00CDB9ED /* FoodLogTextFieldBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogTextFieldBanner.swift; sourceTree = "<group>"; };
+		A00A735B2B963AAD0038A001 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "CalorieCounter/Fonts/Poppins/Poppins-SemiBold.ttf"; sourceTree = SOURCE_ROOT; };
+		A00A735C2B963AAD0038A001 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "CalorieCounter/Fonts/Poppins/Poppins-Regular.ttf"; sourceTree = SOURCE_ROOT; };
 		A00B4DB52B737A2A0067A872 /* FacebookInitializerServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookInitializerServiceImpl.swift; sourceTree = "<group>"; };
 		A00B4DB62B737A2A0067A872 /* FacebookInitializerDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookInitializerDependencies.swift; sourceTree = "<group>"; };
 		A00B4DB72B737A2A0067A872 /* FacebookInitializerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookInitializerService.swift; sourceTree = "<group>"; };
@@ -775,9 +774,6 @@
 		A05E68DC2B30B10C00282F9C /* FoodLogScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogScreen.swift; sourceTree = "<group>"; };
 		A05E68DD2B30B10C00282F9C /* FoodLogOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogOutput.swift; sourceTree = "<group>"; };
 		A05E68DE2B30B10C00282F9C /* FoodLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogViewModel.swift; sourceTree = "<group>"; };
-		A05E68E82B30B46B00282F9C /* Font+Poppins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Poppins.swift"; sourceTree = "<group>"; };
-		A05E68EA2B30B49800282F9C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		A05E68EB2B30B49800282F9C /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		A05E68EF2B30B4CC00282F9C /* UIScreen+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+extensions.swift"; sourceTree = "<group>"; };
 		A05E68F22B30DF1F00282F9C /* MealType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealType.swift; sourceTree = "<group>"; };
 		A05E68F42B30E24700282F9C /* Image+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extensions.swift"; sourceTree = "<group>"; };
@@ -1865,6 +1861,16 @@
 			path = CalorieBudgetView;
 			sourceTree = "<group>";
 		};
+		A00A73562B963A7C0038A001 /* Poppins */ = {
+			isa = PBXGroup;
+			children = (
+				A00A735C2B963AAD0038A001 /* Poppins-Regular.ttf */,
+				A00A735B2B963AAD0038A001 /* Poppins-SemiBold.ttf */,
+			);
+			name = Poppins;
+			path = AppStudio.Styles/Sources/AppStudioStyles/Resources/Poppins;
+			sourceTree = SOURCE_ROOT;
+		};
 		A00B4DB42B737A1F0067A872 /* FacebookInitializer */ = {
 			isa = PBXGroup;
 			children = (
@@ -2097,19 +2103,9 @@
 		A05E68E62B30B45700282F9C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				A05E68E72B30B45F00282F9C /* Poppins */,
-				A05E68E82B30B46B00282F9C /* Font+Poppins.swift */,
+				A00A73562B963A7C0038A001 /* Poppins */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		A05E68E72B30B45F00282F9C /* Poppins */ = {
-			isa = PBXGroup;
-			children = (
-				A05E68EA2B30B49800282F9C /* Poppins-Regular.ttf */,
-				A05E68EB2B30B49800282F9C /* Poppins-SemiBold.ttf */,
-			);
-			path = Poppins;
 			sourceTree = "<group>";
 		};
 		A05E68EE2B30B4B700282F9C /* Extensions */ = {
@@ -2892,10 +2888,8 @@
 				A79789312B2AF5E200205170 /* WhatToTest.en-US.txt in Resources */,
 				53D900722AE63D5400FFEB7A /* Settings.bundle in Resources */,
 				563257192ADE57D90000F33C /* Assets.xcassets in Resources */,
-				A05E68ED2B30B49800282F9C /* Poppins-SemiBold.ttf in Resources */,
 				5624BEAC2B63A81C00B94D54 /* GoogleService-Info.plist in Resources */,
 				A70B6E112B3573C90035EF96 /* Color.xcassets in Resources */,
-				A05E68EC2B30B49800282F9C /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3005,7 +2999,6 @@
 				5675FFF42ADE84B4009331CB /* MayUseStateChangedMessage.swift in Sources */,
 				A72A7D812B31B031000677A2 /* PersonalizedDescriptionView.swift in Sources */,
 				567500EF2ADFD6BC009331CB /* AppSettingsProviderImpl.swift in Sources */,
-				A05E68E92B30B46B00282F9C /* Font+Poppins.swift in Sources */,
 				5692C6902B5A517C007A9E3A /* CodableCache.swift in Sources */,
 				A05E68FC2B30EEFE00282F9C /* FoodLogTextField.swift in Sources */,
 				567500442ADFA67E009331CB /* AccountProviderPreview.swift in Sources */,

@@ -27,4 +27,25 @@ struct FastingIntervalHistory {
         self.finishedDate = finishedDate
         self.plan = plan
     }
+
+    var timeFasted: Double {
+        let diffrence = finishedDate.timeIntervalSince1970 - startedDate.timeIntervalSince1970
+        let hours = diffrence.toHour
+        let minutes = diffrence.toMinutesInt
+        return Double(hours) + Double(minutes) / 60.0
+    }
+
+    var stage: FastingStage {
+        let diffrence = finishedDate.timeIntervalSince1970 - startedDate.timeIntervalSince1970
+        return diffrence.fastingStage
+    }
+}
+
+extension FastingIntervalHistory {
+    static func empty(statedDate: Date, plan: FastingPlan) -> FastingIntervalHistory {
+        .init(currentDate: statedDate,
+              startedDate: statedDate,
+              finishedDate: statedDate,
+              plan: plan)
+    }
 }

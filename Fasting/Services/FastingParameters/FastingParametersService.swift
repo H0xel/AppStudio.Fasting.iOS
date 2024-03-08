@@ -16,4 +16,5 @@ protocol FastingParametersService {
     func set(fastingInterval interval: FastingInterval) async throws
     func startFastingProcess() async throws
     func endFastingProcess() async throws
+    func parameters(for date: Date) async throws -> FastingParameters
 }

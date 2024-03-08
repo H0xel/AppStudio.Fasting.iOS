@@ -14,5 +14,13 @@ enum WeightUnit: String, Codable, CaseIterable {
     var title: String {
         NSLocalizedString("WeightUnit.\(rawValue)", comment: "")
     }
+
+    static func convertToKg(lbsValue: CGFloat) -> CGFloat {
+        lbsValue / 2.205
+    }
+
+    static func convertToLbs(kgValue: CGFloat) -> CGFloat {
+        kgValue * 2.205
+    }
 }
 // swiftlint:enable identifier_name
