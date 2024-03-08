@@ -46,7 +46,7 @@ class OnboardingServiceImpl: OnboardingService {
             calculatedData.specialEventWeight?.valueWithUnits ?? ""
         )
 
-        var status: PersonalizedChart.ViewData.SpecialEventStatus {
+        var status: PersonalizedChart.SpecialEventStatus {
             if data.specialEvent == .noSpecialEvent {
                 return .unavailable
             }

@@ -66,6 +66,21 @@ extension AppCustomizationImpl {
         }
     }
 
+    func configureDiscountExperiment() {
+        experimentValueObservable(forType: DiscountPaywallExperiment.self, defaultValue: .empty)
+            .map { info in
+                if info.name == DiscountPaywallInfo.empty.name {
+                    throw DiscountError.error
+                }
+                return info
+            }
+            .observe(on: MainScheduler.asyncInstance)
+            .retry(times: 3, withDelay: .seconds(1))
+            .catchAndReturn(.empty)
+            .bind(to: discountRelay)
+            .disposed(by: disposeBag)
+    }
+
     func resetDiscountExp() {
         @Dependency(\.cloudStorage) var cloudStorage
         cloudStorage.discountExperimentName = nil

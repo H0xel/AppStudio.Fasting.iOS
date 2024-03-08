@@ -93,7 +93,7 @@ extension DiscountBannerView.ViewData? {
         }
 
         var bannerData: DiscountBannerView.ViewData {
-            .init(discount: "\(discountPaywallInfo.discount)%",
+            .init(discount: "\(discountPaywallInfo.discount ?? 0)%",
                   timerInterval: timerInterval,
                   type: discountPaywallInfo.paywallType == "discount_timer" ? .timer : .promotion
             )

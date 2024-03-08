@@ -16,4 +16,3 @@ extension DependencyValues {
 private enum QuickActionTypeServiceKey: DependencyKey {
     static var liveValue: QuickActionService = QuickActionServiceImpl()
 }
-

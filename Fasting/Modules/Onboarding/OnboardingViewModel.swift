@@ -194,6 +194,7 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
 }
 
 private extension OnboardingViewModel {
+    // swiftlint:disable cyclomatic_complexity
     func trackNextStep() {
         switch step {
         case .start:

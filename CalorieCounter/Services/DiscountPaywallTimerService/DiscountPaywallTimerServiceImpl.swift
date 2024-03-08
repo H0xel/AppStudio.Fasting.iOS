@@ -28,7 +28,7 @@ class DiscountPaywallTimerServiceImpl: DiscountPaywallTimerService {
         if storageService.startTimerTime == nil {
 
             storageService.startTimerTime = .now
-            storageService.endPaywallTime = .now.addingTimeInterval(.init(seconds: Int(info.timerDurationInSeconds)))
+            storageService.endPaywallTime = .now.addingTimeInterval(.init(seconds: info.timerDurationInSeconds ?? 0))
 
             if let reloadTime = info.renewOfferTime {
 
@@ -83,7 +83,7 @@ class DiscountPaywallTimerServiceImpl: DiscountPaywallTimerService {
                 storageService.reloadTimerTime = reloadTimeDate
                 storageService.startTimerTime = .now
                 storageService.endPaywallTime = .now.addingTimeInterval(
-                    .init(seconds: Int(info.timerDurationInSeconds))
+                    .init(seconds: info.timerDurationInSeconds ?? 0)
                 )
                 storageService.timerIsFinished = false
                 return true

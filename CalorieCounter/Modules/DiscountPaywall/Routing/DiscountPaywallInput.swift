@@ -15,7 +15,7 @@ struct DiscountPaywallInput {
 
 extension DiscountPaywallType {
     init(paywallInfo: DiscountPaywallInfo, subscription: Subscription) {
-        let multiplier: Double = 1 - (Double(paywallInfo.discount) / 100)
+        let multiplier: Double = 1 - (Double(paywallInfo.discount ?? 0) / 100)
 
         var descriptionViewData: DiscountDescriptionView.ViewData {
             if paywallInfo.priceDisplay == "old_new" {
@@ -37,14 +37,14 @@ extension DiscountPaywallType {
 
 
         if paywallInfo.paywallType == "discount_timer" {
-            self = .timer(.init(timerInterval: .init(seconds: Int(paywallInfo.timerDurationInSeconds)),
-                                discount: "\(paywallInfo.discount)%",
+            self = .timer(.init(timerInterval: .init(seconds: paywallInfo.timerDurationInSeconds ?? 0),
+                                discount: "\(paywallInfo.discount ?? 0)%",
                                 descriptionViewData: descriptionViewData))
             return
         }
 
         self = .discount(.init(
-            discountAmount: "\(paywallInfo.discount)%",
+            discountAmount: "\(paywallInfo.discount ?? 0)%",
             descriptionViewData: descriptionViewData)
         )
     }

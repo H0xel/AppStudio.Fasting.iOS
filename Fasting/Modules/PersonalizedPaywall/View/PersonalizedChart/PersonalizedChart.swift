@@ -51,12 +51,12 @@ extension PersonalizedChart {
         let specialEventWithWeightTitle: String
         let specialEventDate: String
         let specialEventStatus: SpecialEventStatus
+    }
 
-        enum SpecialEventStatus {
-            case unavailable
-            case isLaterThenEndDate
-            case isEarlierThenEndDate
-        }
+    enum SpecialEventStatus {
+        case unavailable
+        case isLaterThenEndDate
+        case isEarlierThenEndDate
     }
 
     private enum Layout {

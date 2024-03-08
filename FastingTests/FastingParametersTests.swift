@@ -16,9 +16,10 @@ final class FastingParametersTests: XCTestCase {
     override func setUp() async throws {
         DatabaseInitializer().initialize()
         try await (fastingParametersRepository as? FastingParametersRepositoryImpl)?.deleteAll()
+        try await super.setUp()
     }
 
-    override func tearDown() async throws {}
+    override func tearDown() async throws { try await super.tearDown() }
 
     func testIntervalDataShouldBeEqualAfterCreatingNewCurrentParametersFromInterval() async throws {
         // arrange

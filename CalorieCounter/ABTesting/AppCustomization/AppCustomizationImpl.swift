@@ -22,6 +22,7 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     let productIdsRelay = BehaviorRelay<[String]>(value: [])
     let disposeBag = DisposeBag()
+    let discountRelay = PublishRelay<DiscountPaywallInfo>()
 
     func initialize() {
         @Dependency(\.lifeCycleDelegate) var lifeCycleDelegate
@@ -29,6 +30,7 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
         // Uncoment to start pricing experiment
         configurePricingExperiment()
+        configureDiscountExperiment()
 
 //         load product ids for the first time
         paywallProductIds
@@ -87,16 +89,8 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
     }
 
     var discountPaywallExperiment: Observable<DiscountPaywallInfo> {
-        experimentValueObservable(forType: DiscountPaywallExperiment.self, defaultValue: .empty)
-            .map { info in
-                if info.name == DiscountPaywallInfo.empty.name {
-                    throw DiscountError.error
-                }
-                return info
-            }
-            .observe(on: MainScheduler.asyncInstance)
-            .retry(times: 3, withDelay: .seconds(1))
-            .catchAndReturn(.empty)
+        discountRelay.asObservable()
+            .filter { $0.paywallType != nil }
     }
 
     func shouldForceUpdate() async throws -> Bool {

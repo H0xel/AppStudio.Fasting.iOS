@@ -22,12 +22,14 @@ private let isLongOnboardingEnabledKey = "long_onboarding_enabled"
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
 
     let productIdsRelay = BehaviorRelay<[String]>(value: [])
+    let discountRelay = PublishRelay<DiscountPaywallInfo>()
     let disposeBag = DisposeBag()
 
     func initialize() {
         @Dependency(\.lifeCycleDelegate) var lifeCycleDelegate
         super.initialize(lifecycleDelegate: lifeCycleDelegate)
         configurePricingExperiment()
+        configureDiscountExperiment()
     }
 
     var forceUpdateAppVersion: Observable<String> {
@@ -74,16 +76,8 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
     }
 
     var discountPaywallExperiment: Observable<DiscountPaywallInfo> {
-        experimentValueObservable(forType: DiscountPaywallExperiment.self, defaultValue: .empty)
-            .map { info in
-                if info.name == DiscountPaywallInfo.empty.name {
-                    throw DiscountError.error
-                }
-                return info
-            }
-            .observe(on: MainScheduler.asyncInstance)
-            .retry(times: 3, withDelay: .seconds(1))
-            .catchAndReturn(.empty)
+        discountRelay.asObservable()
+            .filter { $0.paywallType != nil }
     }
 
     func requiredAppVersion() async throws -> String {

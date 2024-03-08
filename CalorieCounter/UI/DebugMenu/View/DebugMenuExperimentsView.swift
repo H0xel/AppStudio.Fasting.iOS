@@ -45,9 +45,12 @@ struct DebugMenuExperimentsView: View {
                 )
                 experiments.append(.init(experimentName: "discount_active", value: discountExperimentValue))
 
-                let discountExperiment = try await appCustomization.discountPaywallExperiment.first().value
+                let discExp = try await baseAppCustomization.remoteConfigValue(
+                    forKey: String(discountExperimentValue.dropFirst()),
+                    defaultValue: "non in experiment"
+                )
                 experiments.append(.init(experimentName: discountExperimentValue,
-                                         value: discountExperiment?.name ?? "non in experiment"))
+                                         value: discExp))
             }
         }
     }

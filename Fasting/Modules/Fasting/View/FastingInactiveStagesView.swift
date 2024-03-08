@@ -57,6 +57,6 @@ private extension FastingInActiveStagesView {
 
 #Preview {
     VStack {
-        FastingInActiveStagesView() { _ in }
+        FastingInActiveStagesView { _ in }
     }
 }

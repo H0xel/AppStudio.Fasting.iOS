@@ -46,7 +46,7 @@ private extension FastingPhaseTitleView {
 
 #Preview {
     FastingPhaseTitleView(title: "Blood sugar slowly rises",
-                          backgroundColor: .blue, 
-                          image: .init(.sugarDownArticle), 
+                          backgroundColor: .blue,
+                          image: .init(.sugarDownArticle),
                           isLocked: false)
 }

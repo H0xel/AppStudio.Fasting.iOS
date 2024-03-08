@@ -52,11 +52,11 @@ extension InActiveFastingListView {
         let type: BulletType
         let title: LocalizedStringKey
         let subtitle: LocalizedStringKey
+    }
 
-        enum BulletType {
-            case number(Int)
-            case bullet
-        }
+    enum BulletType {
+        case number(Int)
+        case bullet
     }
 
     private enum Layout {

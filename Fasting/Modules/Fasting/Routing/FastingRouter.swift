@@ -60,9 +60,8 @@ class FastingRouter: BaseRouter {
     }
 
     func presentInActiveFastingArticle(_ stage: FastingInActiveArticle) {
-        let route = InActiveFastingArticleRoute(navigator: navigator, input: .init(fastingInActiveStage: stage)) { _ in
-
-        }
+        let route = InActiveFastingArticleRoute(navigator: navigator,
+                                                input: .init(fastingInActiveStage: stage)) { _ in }
         present(route: route)
     }
 

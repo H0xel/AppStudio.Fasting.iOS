@@ -14,7 +14,7 @@ class PreviewSubscriptionService: SubscriptionService {
 
     var canMakePayments: Bool { false }
 
-    var firstPurchaseDate: Date? = nil
+    var firstPurchaseDate: Date?
 
     var actualSubscription: RxSwift.Observable<AppStudioSubscriptions.ActualSubscriptionType> {
         .just(.free)

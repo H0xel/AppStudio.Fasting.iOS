@@ -30,4 +30,3 @@ private extension OnboardingLoadingHeaderView {
         static let paddingBetweenTextAndCircle: CGFloat = 32
     }
 }
-

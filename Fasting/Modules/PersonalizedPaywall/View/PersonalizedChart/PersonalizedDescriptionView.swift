@@ -65,11 +65,11 @@ extension PersonalizedDescriptionView {
         let id = UUID().uuidString
         let type: ContentType
         let description: String
+    }
 
-        enum ContentType {
-            case image(Image)
-            case text(String)
-        }
+    enum ContentType {
+        case image(Image)
+        case text(String)
     }
 }
 

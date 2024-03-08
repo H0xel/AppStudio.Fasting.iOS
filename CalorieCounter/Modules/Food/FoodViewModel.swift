@@ -338,7 +338,7 @@ extension FoodViewModel {
 
     func updateTimer() {
         guard let discountPaywallInfo, let interval = discountPaywallTimerService.getCurrentTimer(
-            durationInSeconds: discountPaywallInfo.timerDurationInSeconds
+            durationInSeconds: discountPaywallInfo.timerDurationInSeconds ?? 0
         ) else {
             return
         }

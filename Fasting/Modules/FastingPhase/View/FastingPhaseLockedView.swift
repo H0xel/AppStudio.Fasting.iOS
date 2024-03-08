@@ -68,6 +68,8 @@ private extension FastingPhaseLockedView {
 #Preview {
     NavigationStack {
         FastingPhaseLockedView(stage: .sugarRises,
-                               image: .init(.sugarDownArticle)) { _ in } onPaywallTap: {}
+                               image: .init(.sugarDownArticle),
+                               onStageTap: { _ in },
+                               onPaywallTap: {})
     }
 }

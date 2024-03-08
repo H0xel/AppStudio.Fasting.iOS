@@ -23,7 +23,7 @@ struct PersonalizedSpecialEventView: View {
                     .background(Color.studioRed)
                     .continiousCornerRadius(Layout.specialEventCornerRadius)
 
-                if specialEventDateLaterThenEndDate{
+                if specialEventDateLaterThenEndDate {
                     Image(.arrow)
                 }
             }

@@ -55,11 +55,11 @@ private extension OnboardingPickerOptionView {
 
 #Preview {
     VStack {
-        OnboardingPickerOptionView(text: "Lose  weight", 
+        OnboardingPickerOptionView(text: "Lose  weight",
                                    description: "I work on my feet and move around throughout the day",
                                    isSelected: false,
                                    onTap: {})
-        OnboardingPickerOptionView(text: "Feel more energetic", 
+        OnboardingPickerOptionView(text: "Feel more energetic",
                                    description: nil,
                                    isSelected: true,
                                    onTap: {})

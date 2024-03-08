@@ -12,9 +12,9 @@ import Dependencies
 final class OnboardingServiceTests: XCTestCase {
     @Dependency(\.onboardingService) var onboardingService
 
-    override func setUp() async throws {}
+    override func setUp() async throws { try await super.setUp() }
 
-    override func tearDown() async throws {}
+    override func tearDown() async throws { try await super.tearDown() }
 
     func testSaveData() async throws {
         onboardingService.save(
@@ -24,7 +24,6 @@ final class OnboardingServiceTests: XCTestCase {
                 birthdayDate: Date(dateString: "1979-12-12", timeString: "00:00:00") ?? .now,
                 height: .init(value: 80, units: .cm),
                 weight: .init(value: 90, units: .kg),
-                desiredHeight: .init(value: 80, units: .cm),
                 desiredWeight: .init(value: 75, units: .kg),
                 activityLevel: .lightlyActive,
                 specialEvent: .birthday,

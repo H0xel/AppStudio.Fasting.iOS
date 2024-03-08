@@ -45,7 +45,7 @@ private extension OnboardingDatePickerView {
 }
 
 #Preview {
-    OnboardingDatePickerView(title: "When is your birthday?", 
+    OnboardingDatePickerView(title: "When is your birthday?",
                              canChoosePast: true,
                              date: .constant(.now))
 }

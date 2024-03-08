@@ -11,17 +11,17 @@ import AppStudioABTesting
 struct DiscountPaywallInfo: Named, Equatable {
 
     var name: String
-    let productId: String
-    let paywallType: String
+    let productId: String?
+    let paywallType: String?
     let renewOfferTime: Int?
-    let discount: Int
-    let timerDurationInSeconds: Int
-    let priceDisplay: String
+    let discount: Int?
+    let timerDurationInSeconds: Int?
+    let priceDisplay: String?
 
     static var empty: DiscountPaywallInfo = {
         DiscountPaywallInfo(name: "empty",
                             productId: "",
-                            paywallType: "",
+                            paywallType: nil,
                             renewOfferTime: nil,
                             discount: 0,
                             timerDurationInSeconds: 0,
@@ -62,11 +62,11 @@ extension DiscountPaywallInfo: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
-        productId = try container.decode(String.self, forKey: .productId)
-        paywallType = try container.decode(String.self, forKey: .paywallType)
+        productId = try container.decode(String?.self, forKey: .productId)
+        paywallType = try container.decode(String?.self, forKey: .paywallType)
         renewOfferTime = try container.decode(Int?.self, forKey: .renewOfferTime)
-        discount = try container.decode(Int.self, forKey: .discount)
-        timerDurationInSeconds = try container.decode(Int.self, forKey: .timerDurationInSeconds)
-        priceDisplay = try container.decode(String.self, forKey: .priceDisplay)
+        discount = try container.decode(Int?.self, forKey: .discount)
+        timerDurationInSeconds = try container.decode(Int?.self, forKey: .timerDurationInSeconds)
+        priceDisplay = try container.decode(String?.self, forKey: .priceDisplay)
     }
 }

@@ -56,7 +56,7 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
             if promoProduct != nil {
                 return NSLocalizedString("PersonalizedPaywall.renewsAt", comment: "")
             }
-            return isTrialAvailable  
+            return isTrialAvailable
             ? NSLocalizedString("Paywall.tryForFree", comment: "")
             : NSLocalizedString("PersonalizedPaywall.getPlus", comment: "")
         }
@@ -124,7 +124,8 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
     private func subscribeToDiscountPaywallState() {
         subscriptionService.hasSubscriptionObservable
             .distinctUntilChanged()
-            .flatMap(with: self, { this, hasSubscription -> Observable<(hasSubscription: Bool, discountPaywallInfo: DiscountPaywallInfo)> in
+            .flatMap(with: self, { this, hasSubscription -> Observable<(hasSubscription: Bool,
+                                                                        discountPaywallInfo: DiscountPaywallInfo)> in
                 this.appCustomization.discountPaywallExperiment
                     .map { (hasSubscription, $0) }
             })
@@ -227,7 +228,6 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
                 this.promoProduct = promoProduct
             }
             .disposed(by: disposeBag)
-
     }
 
     private func assignProducts() {

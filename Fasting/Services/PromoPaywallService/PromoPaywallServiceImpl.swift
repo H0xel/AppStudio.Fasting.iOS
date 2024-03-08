@@ -18,7 +18,9 @@ class PromoPaywallServiceImpl: PromoPaywallService {
     var promoSubscription: Observable<PromotionalOffer?> {
         Observable.combineLatest(promotionExperimentPlan, subscriptionService.subscriptionProducts)
             .map { experimentPromotion, subscriptions in
-                if let promoSubscription = subscriptions.first(where: { $0.productIdentifier == experimentPromotion?.productId })?.product {
+                if let promoSubscription = subscriptions
+                    .first(where: { $0.productIdentifier == experimentPromotion?.productId })?
+                    .product {
                     return .init(
                         id: promoSubscription.productIdentifier,
                         duration: promoSubscription.promoDuration ?? "",

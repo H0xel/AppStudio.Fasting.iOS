@@ -53,7 +53,7 @@ class ProductProviderImpl: ProductProvider, AppInitializer {
             ProductCatalogItem(productId: weeklyExp3ProductId, duration: .week, isTrial: false),
             ProductCatalogItem(productId: weeklyExp4ProductId, duration: .week, isTrial: false),
             ProductCatalogItem(productId: weeklyExp5ProductId, duration: .week, isTrial: false),
-            ProductCatalogItem(productId: "com.municorn.Fasting.yearly_exp_6", duration: .year, isTrial: false),
+            ProductCatalogItem(productId: "com.municorn.Fasting.yearly_exp_6", duration: .year, isTrial: false)
         ]
     }()
 }

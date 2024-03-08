@@ -23,8 +23,4 @@ class DiscountPaywallExperiment: AppStudioExperimentWithConfig<DiscountPaywallIn
     override var shouldCheckForOrganic: Bool {
         false
     }
-
-    override var canStart: Bool {
-        true
-    }
 }

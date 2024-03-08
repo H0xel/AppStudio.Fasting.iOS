@@ -14,9 +14,9 @@ final class FastingNotificationTests: XCTestCase {
     @Dependency(\.fastingParametersService) private var fastingParametersService
     @Dependency(\.fastingService) private var fastingService
 
-    override func setUp() async throws {}
+    override func setUp() async throws { try await super.setUp() }
 
-    override func tearDown() async throws {}
+    override func tearDown() async throws { try await super.tearDown() }
 
     func testCalculateDatesBeforeFastingStart() async throws {}
 }

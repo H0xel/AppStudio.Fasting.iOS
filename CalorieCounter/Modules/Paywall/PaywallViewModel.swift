@@ -258,7 +258,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
         if let product = products.last {
             highestPriceSubscription = product
         }
-        guard let selectedProduct else {
+        guard selectedProduct != nil else {
             self.selectedProduct = products.first
             return
         }

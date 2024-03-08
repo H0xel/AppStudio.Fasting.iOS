@@ -39,7 +39,7 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
 
     init(input: DiscountPaywallInput, output: @escaping DiscountPaywallOutputBlock) {
         paywallInfo = input.paywallInfo
-        discountPersent = "\(input.paywallInfo.discount)%"
+        discountPersent = "\(input.paywallInfo.discount ?? 0)%"
         context = input.context
         super.init(output: output)
         subscribeToMayUseAppStatus()
@@ -78,7 +78,7 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
 
     func updateTimer() {
         guard let interval = discountPaywallTimerService.getCurrentTimer(
-            durationInSeconds: paywallInfo.timerDurationInSeconds
+            durationInSeconds: paywallInfo.timerDurationInSeconds ?? 0
         ) else {
             return
         }

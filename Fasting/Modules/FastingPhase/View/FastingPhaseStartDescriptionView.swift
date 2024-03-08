@@ -34,6 +34,6 @@ private extension FastingPhaseStartDescriptionView {
 }
 
 #Preview {
-    FastingPhaseStartDescriptionView(title: "Begins right after your last meal", 
+    FastingPhaseStartDescriptionView(title: "Begins right after your last meal",
                                      backgroundColor: .blue)
 }
