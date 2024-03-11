@@ -1,1 +1,1 @@
-- Calorie counter release candidate 1.0.4 
+- Fasting release candidate 1.1.1
