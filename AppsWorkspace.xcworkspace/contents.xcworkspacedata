@@ -8,9 +8,15 @@
       location = "group:Fasting.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Fasting/../AICoach">
+   </FileRef>
+   <FileRef
+      location = "group:AppStudio.Services">
+   </FileRef>
+   <FileRef
       location = "group:AppStudio.Styles">
    </FileRef>
    <FileRef
-      location = "group:Fasting/../AICoach">
+      location = "group:AppStudio.Models">
    </FileRef>
 </Workspace>
