@@ -1,4 +1,4 @@
-//  
+//
 //  HealthProgressScreen.swift
 //  Fasting
 //
@@ -21,12 +21,16 @@ struct FastingHealthProgressScreen: View {
                 VStack(spacing: .zero) {
                     if viewModel.isBodyMassHintPresented {
                         HealthProgressHintView(
-                            hint: .bodyMass(onLearnMore: viewModel.presentBodyMassIndexInfo),
+                            hint: .bodyMass(onLearnMore: {
+                                viewModel.presentBodyMassIndexInfo(context: "learn_more")
+                            }),
                             onHide: viewModel.closeBodyMassIndexHint
                         )
                     }
-                    BodyMassIndexView(index: viewModel.bodyMassIndex, 
-                                      infoTap: viewModel.presentBodyMassIndexInfo)
+                    BodyMassIndexView(index: viewModel.bodyMassIndex,
+                                      infoTap: {
+                        viewModel.presentBodyMassIndexInfo(context: "info")
+                    })
                 }
                 HealthProgressBarChartView(
                     title: .fastingChartTitle,

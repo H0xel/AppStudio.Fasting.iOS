@@ -75,9 +75,9 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
             .map { [$0.onboardingPaywallSubscriptionIdentifier] }
     }
 
-    var discountPaywallExperiment: Observable<DiscountPaywallInfo> {
+    var discountPaywallExperiment: Observable<DiscountPaywallInfo?> {
         discountRelay.asObservable()
-            .filter { $0.paywallType != nil }
+            .map { return $0.paywallType != nil ? $0 : nil }
     }
 
     func requiredAppVersion() async throws -> String {

@@ -11,12 +11,14 @@ import Foundation
 import Combine
 import Dependencies
 import MunicornFoundation
+import AppStudioAnalytics
 
 private let isBodyMassIndexHintPresentedKey = "isBodyMassIndexHintPresented"
 
 class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
 
     @Dependency(\.storageService) private var storageService
+    @Dependency(\.trackerService) private var trackerService
 
     var router: HealthProgressRouter!
     @Published var isBodyMassHintPresented = true
@@ -37,12 +39,14 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
     }
 
     func presentFastingInfo() {
+        trackTapInfo(context: "info")
         router.presentFastingHint { [weak self] question in
             self?.output(.novaQuestion(question))
         }
     }
 
-    func presentBodyMassIndexInfo() {
+    func presentBodyMassIndexInfo(context: String) {
+        trackTapInfo(context: context)
         router.presentBodyMassIndexHint(bodyMassIndex: bodyMassIndex.bodyMassIndex) { [weak self] question in
             self?.output(.novaQuestion(question))
         }
@@ -62,5 +66,11 @@ private extension StorageService {
     var isBodyMassIndexHintPresented: Bool {
         get { get(key: isBodyMassIndexHintPresentedKey, defaultValue: true) }
         set { set(key: isBodyMassIndexHintPresentedKey, value: newValue) }
+    }
+}
+
+private extension HealthProgressViewModel {
+    func trackTapInfo(context: String) {
+        trackerService.track(.tapInfo(context: context))
     }
 }

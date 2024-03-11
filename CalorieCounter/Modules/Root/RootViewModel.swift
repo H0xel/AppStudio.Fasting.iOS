@@ -71,6 +71,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
             }
             .distinctUntilChanged(at: \.shouldShowForceUpdate)
             .asDriver()
+            .delay(.seconds(3))
             .drive(with: self) { this, args in
                 if args.shouldShowForceUpdate {
                     this.rootScreen = .forceUpdate(args.appLink)

@@ -198,13 +198,16 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     private func subscribeToDiscountPaywallState() {
         subscriptionService.hasSubscriptionObservable
             .distinctUntilChanged()
-            .flatMap(with: self, { this, hasSubscription -> Observable<(hasSubscription: Bool, discountPaywallInfo: DiscountPaywallInfo)> in
+            .flatMap(with: self, { this, hasSubscription -> Observable<(hasSubscription: Bool,
+                                                                        discountPaywallInfo: DiscountPaywallInfo?)> in
                 this.appCustomization.discountPaywallExperiment
                     .map { (hasSubscription, $0) }
             })
             .asDriver()
             .drive(with: self) { this, args in
-                this.discountPaywallTimerService.registerPaywall(info: args.discountPaywallInfo)
+                if let discountPaywallInfo = args.discountPaywallInfo {
+                    this.discountPaywallTimerService.registerPaywall(info: discountPaywallInfo)
+                }
                 this.hasSubscription = args.hasSubscription
             }
             .disposed(by: disposeBag)

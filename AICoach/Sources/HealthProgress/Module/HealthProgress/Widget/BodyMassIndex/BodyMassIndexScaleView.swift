@@ -14,38 +14,40 @@ struct BodyMassIndexScaleView: View {
     @State private var viewWidth: CGFloat = 0
 
     var body: some View {
-        HStack(alignment: .bottom, spacing: .zero) {
-            ForEach(BodyMassIndex.allCases, id: \.self) { index in
-                VStack(alignment: .leading, spacing: .zero) {
-                    if isInRange(index: index) {
-                        Image(.bmiIndex)
-                            .padding(.bottom, .indexBottomPadding)
-                            .offset(x: .indexLeadingPadding)
-                            .offset(x: leadingPadding(index: index))
-                    }
-                    index.color
-                        .frame(height: .height)
-                        .corners(
-                            [.topLeft, .bottomLeft],
-                            with: index == BodyMassIndex.allCases.first ? .cornerRadius : 0
-                        )
-                        .corners(
-                            [.topRight, .bottomRight],
-                            with: index == BodyMassIndex.allCases.last ? .cornerRadius : 0
-                        )
-                    HStack {
-                        numberView(for: index.minValue)
-                        if index == BodyMassIndex.allCases.last {
-                            Spacer()
-                            numberView(for: index.maxValue)
+        VStack(spacing: .zero) {
+            Image(.bmiIndex)
+                .padding(.bottom, .indexBottomPadding)
+                .aligned(.left)
+                .offset(x: .indexLeadingPadding)
+                .offset(x: arrowOffset)
+
+            HStack(alignment: .bottom, spacing: .zero) {
+                ForEach(BodyMassIndex.allCases, id: \.self) { index in
+                    VStack(alignment: .leading, spacing: .zero) {
+                        index.color
+                            .frame(height: .height)
+                            .corners(
+                                [.topLeft, .bottomLeft],
+                                with: index == BodyMassIndex.allCases.first ? .cornerRadius : 0
+                            )
+                            .corners(
+                                [.topRight, .bottomRight],
+                                with: index == BodyMassIndex.allCases.last ? .cornerRadius : 0
+                            )
+                        HStack {
+                            numberView(for: index.minValue)
+                            if index == BodyMassIndex.allCases.last {
+                                Spacer()
+                                numberView(for: index.maxValue)
+                            }
                         }
                     }
+                    .frame(width: width(for: index))
                 }
-                .frame(width: width(for: index))
             }
         }
         .frame(maxWidth: .infinity)
-        .animation(.bouncy, value: self.index)
+        .animation(.bouncy, value: index)
         .withViewWidthPreferenceKey
         .onViewWidthPreferenceKeyChange { newWidth in
             viewWidth = newWidth
@@ -63,19 +65,12 @@ struct BodyMassIndexScaleView: View {
         viewWidth / 50 * (index.maxValue - index.minValue)
     }
 
-    private func isInRange(index: BodyMassIndex) -> Bool {
-        (index.minValue ..< index.maxValue).contains(normalizedIndex)
-    }
-
-    private func leadingPadding(index: BodyMassIndex) -> CGFloat {
-        let indexWidth = width(for: index)
-        let leftInset = normalizedIndex - index.minValue
-        let indexLength = index.maxValue - index.minValue
-        return (indexWidth / indexLength) * leftInset
+    private var arrowOffset: CGFloat {
+        viewWidth / 50 * (normalizedIndex - 10)
     }
 
     private var normalizedIndex: Double {
-        min(59.9, max(10, self.index))
+        min(59.9, max(10, index))
     }
 }
 

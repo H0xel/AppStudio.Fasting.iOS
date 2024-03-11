@@ -496,13 +496,16 @@ extension FoodLogViewModel {
     }
 
     func barcodeScan() {
+        isBarcodeScanFinishedSuccess = true
         guard hasSubscription else {
             presentPaywall { [weak self] in
                 self?.barcodeScan()
             }
             return
         }
-        router.presentBarcodeScanner(output: onBarcode(output:))
+        router.presentBarcodeScanner { [weak self] output in
+            self?.onBarcode(output: output)
+        }
     }
 
     private func searchMeal(barcode: String) async throws {

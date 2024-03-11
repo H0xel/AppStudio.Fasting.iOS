@@ -141,7 +141,11 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
             if case .subscribed = paywallOutput {
                 self?.fastingService.startFasting(from: date)
             }
-            self?.router.dismiss()
+            switch paywallOutput {
+            case .close, .subscribed:
+                self?.router.dismiss()
+            default: break
+            }
         }
     }
 

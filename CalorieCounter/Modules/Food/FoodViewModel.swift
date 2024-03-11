@@ -360,10 +360,12 @@ extension FoodViewModel {
             .take(1)
             .asDriver()
             .drive(with: self) { this, paywallIInfo in
-                this.discountPaywallTimerService.registerPaywall(info: paywallIInfo)
+                if let paywallIInfo {
+                    this.discountPaywallTimerService.registerPaywall(info: paywallIInfo)
 
-                this.updateTimer()
-                this.startTimer()
+                    this.updateTimer()
+                    this.startTimer()
+                }
             }
             .disposed(by: disposeBag)
     }

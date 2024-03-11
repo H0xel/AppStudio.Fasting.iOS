@@ -7,6 +7,7 @@
 
 import Dependencies
 import AICoach
+import HealthProgress
 
 final class EarlyTimeInitializers: Initializers {
 
@@ -30,7 +31,8 @@ final class EarlyTimeInitializers: Initializers {
             fastingParametersInitializer,
             AppearanceInitializer(),
             QuickActionInitializer(),
-            AICoachInitializer()
+            AICoachInitializer(),
+            HealthProgressInitializer()
         ]
     }
 }

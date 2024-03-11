@@ -1,1 +1,1 @@
-- Discount paywall experiment fixes
+- Calorie counter release candidate 1.0.4 

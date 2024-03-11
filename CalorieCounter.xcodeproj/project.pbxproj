@@ -447,6 +447,8 @@
 		A740810D2B4BFD860041C0E4 /* OnboardingEstimatedExpenditureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740810C2B4BFD860041C0E4 /* OnboardingEstimatedExpenditureView.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
+		A75DA72A2B9B31D300F6D796 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A75DA7282B9B31D300F6D796 /* Poppins-Regular.ttf */; };
+		A75DA72B2B9B31D300F6D796 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A75DA7292B9B31D300F6D796 /* Poppins-SemiBold.ttf */; };
 		A77982122B3D64DD0015B37D /* BarcodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779820C2B3D64DD0015B37D /* BarcodeInput.swift */; };
 		A77982132B3D64DD0015B37D /* BarcodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779820D2B3D64DD0015B37D /* BarcodeRouter.swift */; };
 		A77982142B3D64DD0015B37D /* BarcodeRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779820E2B3D64DD0015B37D /* BarcodeRoute.swift */; };
@@ -714,8 +716,6 @@
 		56F64D7A2AE10EF20067FE05 /* RootOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootOutput.swift; sourceTree = "<group>"; };
 		56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		A00081D92B4FF05B00CDB9ED /* FoodLogTextFieldBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogTextFieldBanner.swift; sourceTree = "<group>"; };
-		A00A735B2B963AAD0038A001 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "CalorieCounter/Fonts/Poppins/Poppins-SemiBold.ttf"; sourceTree = SOURCE_ROOT; };
-		A00A735C2B963AAD0038A001 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "CalorieCounter/Fonts/Poppins/Poppins-Regular.ttf"; sourceTree = SOURCE_ROOT; };
 		A00B4DB52B737A2A0067A872 /* FacebookInitializerServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookInitializerServiceImpl.swift; sourceTree = "<group>"; };
 		A00B4DB62B737A2A0067A872 /* FacebookInitializerDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookInitializerDependencies.swift; sourceTree = "<group>"; };
 		A00B4DB72B737A2A0067A872 /* FacebookInitializerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookInitializerService.swift; sourceTree = "<group>"; };
@@ -942,6 +942,8 @@
 		A740810C2B4BFD860041C0E4 /* OnboardingEstimatedExpenditureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingEstimatedExpenditureView.swift; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
+		A75DA7282B9B31D300F6D796 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		A75DA7292B9B31D300F6D796 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		A779820C2B3D64DD0015B37D /* BarcodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeInput.swift; sourceTree = "<group>"; };
 		A779820D2B3D64DD0015B37D /* BarcodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeRouter.swift; sourceTree = "<group>"; };
 		A779820E2B3D64DD0015B37D /* BarcodeRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeRoute.swift; sourceTree = "<group>"; };
@@ -1861,16 +1863,6 @@
 			path = CalorieBudgetView;
 			sourceTree = "<group>";
 		};
-		A00A73562B963A7C0038A001 /* Poppins */ = {
-			isa = PBXGroup;
-			children = (
-				A00A735C2B963AAD0038A001 /* Poppins-Regular.ttf */,
-				A00A735B2B963AAD0038A001 /* Poppins-SemiBold.ttf */,
-			);
-			name = Poppins;
-			path = AppStudio.Styles/Sources/AppStudioStyles/Resources/Poppins;
-			sourceTree = SOURCE_ROOT;
-		};
 		A00B4DB42B737A1F0067A872 /* FacebookInitializer */ = {
 			isa = PBXGroup;
 			children = (
@@ -2103,7 +2095,7 @@
 		A05E68E62B30B45700282F9C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				A00A73562B963A7C0038A001 /* Poppins */,
+				A75DA7272B9B31D300F6D796 /* Poppins */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -2635,6 +2627,15 @@
 			path = TrackerService;
 			sourceTree = "<group>";
 		};
+		A75DA7272B9B31D300F6D796 /* Poppins */ = {
+			isa = PBXGroup;
+			children = (
+				A75DA7282B9B31D300F6D796 /* Poppins-Regular.ttf */,
+				A75DA7292B9B31D300F6D796 /* Poppins-SemiBold.ttf */,
+			);
+			path = Poppins;
+			sourceTree = "<group>";
+		};
 		A779820B2B3D64B60015B37D /* Barcode */ = {
 			isa = PBXGroup;
 			children = (
@@ -2885,7 +2886,9 @@
 				56F64D752AE10AD90067FE05 /* Localizable.strings in Resources */,
 				56C28D862AE106A60007E48D /* .swiftlint.yml in Resources */,
 				5632571C2ADE57D90000F33C /* Preview Assets.xcassets in Resources */,
+				A75DA72A2B9B31D300F6D796 /* Poppins-Regular.ttf in Resources */,
 				A79789312B2AF5E200205170 /* WhatToTest.en-US.txt in Resources */,
+				A75DA72B2B9B31D300F6D796 /* Poppins-SemiBold.ttf in Resources */,
 				53D900722AE63D5400FFEB7A /* Settings.bundle in Resources */,
 				563257192ADE57D90000F33C /* Assets.xcassets in Resources */,
 				5624BEAC2B63A81C00B94D54 /* GoogleService-Info.plist in Resources */,

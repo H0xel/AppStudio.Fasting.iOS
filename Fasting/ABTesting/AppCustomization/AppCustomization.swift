@@ -12,7 +12,7 @@ import RxSwift
 protocol AppCustomization {
     var forceUpdateAppVersion: Observable<String> { get }
     var appStoreLink: Observable<String> { get }
-    var discountPaywallExperiment: Observable<DiscountPaywallInfo> { get }
+    var discountPaywallExperiment: Observable<DiscountPaywallInfo?> { get }
     var allProductsObservable: Observable<AvailableProducts> { get }
     func initialize()
     func closePaywallButtonDelay() async throws -> Int

@@ -16,7 +16,7 @@ class FastingFinishedCyclesLimitServiceImpl: FastingLimitService {
     var isLimited: Bool {
 #if DEBUG
         // MARK: - disable fasting limits in Debug version
-        false
+        true
 #else
         fastingFinishedCyclesLimitCount <= cyclesCount
 #endif

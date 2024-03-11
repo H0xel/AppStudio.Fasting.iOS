@@ -28,6 +28,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.onboardingService) private var onboardingService
     @Dependency(\.fastingHistoryService) private var fastingHistoryService
     @Dependency(\.fastingParametersService) private var fastingParametersService
+    @Dependency(\.userPropertyService) private var userPropertyService
 
     @Published var currentTab: AppTab = .fasting {
         willSet {
@@ -52,6 +53,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         subscribeToActionTypeEvent()
         subscribeForAvailableDiscountPaywall()
         observeCurrentTab()
+        updateHealthProgressInput()
     }
 
     func initialize() {
@@ -134,6 +136,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
             }
             .distinctUntilChanged(at: \.shouldShowForceUpdate)
             .asDriver()
+            .delay(.seconds(3))
             .drive(with: self) { this, args in
                 if args.shouldShowForceUpdate {
                     this.rootScreen = .forceUpdate(args.appLink)
@@ -159,7 +162,9 @@ class RootViewModel: BaseViewModel<RootOutput> {
             let (hasSubscription, discountPaywallInfo) = args
             this.changeCurrentTabOnLaunch(hasSubsctiption: hasSubscription)
             this.hasSubscription = hasSubscription
-            this.discountPaywallTimerService.registerPaywall(info: discountPaywallInfo)
+            if let discountPaywallInfo {
+                this.discountPaywallTimerService.registerPaywall(info: discountPaywallInfo)
+            }
         }
         .disposed(by: disposeBag)
     }
@@ -204,6 +209,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         Task {
             let input = try await fastingHealthProgressInput()
             progressInputSubject.send(input)
+            userPropertyService.set(userProperties: ["bmi": input.bodyMassIndex])
         }
     }
 

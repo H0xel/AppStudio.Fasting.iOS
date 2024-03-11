@@ -12,7 +12,7 @@ import RxSwift
 class AppCustomizationPreview: AppCustomization, ProductIdsService {
     func resetDiscountExp() {}
 
-    var discountPaywallExperiment: RxSwift.Observable<DiscountPaywallInfo> { .just(.empty) }
+    var discountPaywallExperiment: RxSwift.Observable<DiscountPaywallInfo?> { .just(.empty) }
 
     func resetPricingExp() {}
 

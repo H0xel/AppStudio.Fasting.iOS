@@ -17,6 +17,7 @@ enum AnalyticEvent: MirrorEnum {
     case messageSent
     case messageReceived
     case tapScrollToBottom
+    case tapAskNova(context: String, question: String)
 }
 
 extension AnalyticEvent {
@@ -30,6 +31,7 @@ extension AnalyticEvent {
         case .messageSent: "Message sent"
         case .messageReceived: "Message received"
         case .tapScrollToBottom: "Tap scroll to bottom"
+        case .tapAskNova: "Tap ask Nova"
         }
     }
 

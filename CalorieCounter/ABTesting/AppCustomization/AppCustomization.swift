@@ -13,7 +13,7 @@ protocol AppCustomization {
     var forceUpdateAppVersion: Observable<String> { get }
     var appStoreLink: Observable<String> { get }
     var allProductsObservable: Observable<AvailableProducts> { get }
-    var discountPaywallExperiment: Observable<DiscountPaywallInfo> { get }
+    var discountPaywallExperiment: Observable<DiscountPaywallInfo?> { get }
     func initialize()
     func shouldForceUpdate() async throws -> Bool
     func closePaywallButtonDelay() async throws -> Int

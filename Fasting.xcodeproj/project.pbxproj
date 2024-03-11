@@ -167,6 +167,7 @@
 		5675FFFD2ADE84B4009331CB /* SubscriptionStateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE22ADE84B4009331CB /* SubscriptionStateMessage.swift */; };
 		5675FFFE2ADE84B4009331CB /* WillTerminateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE32ADE84B4009331CB /* WillTerminateMessage.swift */; };
 		5675FFFF2ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE42ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift */; };
+		5687BF972B9B3D3C00BC341B /* HealthProgressInitializer+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687BF962B9B3D3C00BC341B /* HealthProgressInitializer+extensions.swift */; };
 		56B10ABB2AF0DFF9008FC07E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56B10AB92AF0DFF9008FC07E /* Model.xcdatamodeld */; };
 		56B10ABE2AF0E0AC008FC07E /* DatabaseInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B10ABD2AF0E0AC008FC07E /* DatabaseInitializer.swift */; };
 		56B10AC02AF0E1CC008FC07E /* FastingParametersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B10ABF2AF0E1CC008FC07E /* FastingParametersRepository.swift */; };
@@ -615,6 +616,7 @@
 		5675FFEC2ADE84B4009331CB /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		5675FFED2ADE84B4009331CB /* MigrationLaunchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationLaunchService.swift; sourceTree = "<group>"; };
 		5675FFEE2ADE84B4009331CB /* MigrationServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationServiceImpl.swift; sourceTree = "<group>"; };
+		5687BF962B9B3D3C00BC341B /* HealthProgressInitializer+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthProgressInitializer+extensions.swift"; sourceTree = "<group>"; };
 		56B10ABA2AF0DFF9008FC07E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		56B10ABD2AF0E0AC008FC07E /* DatabaseInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInitializer.swift; sourceTree = "<group>"; };
 		56B10ABF2AF0E1CC008FC07E /* FastingParametersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersRepository.swift; sourceTree = "<group>"; };
@@ -1713,6 +1715,7 @@
 				A036CBDF2B18CE28001B8AC7 /* AppearanceInitializer.swift */,
 				A7DBD0992B3AB415003DCD10 /* QuickTypeInitializer.swift */,
 				A0489DF22B875D6A00258AD0 /* AICoachInitializer+extensions.swift */,
+				5687BF962B9B3D3C00BC341B /* HealthProgressInitializer+extensions.swift */,
 			);
 			path = EarlyTimeInitializers;
 			sourceTree = "<group>";
@@ -3033,6 +3036,7 @@
 				A07EAB392AFA56A200A46D7E /* EndFastingEarlyViewModel.swift in Sources */,
 				564BE2C92B26E58B00FE35C2 /* OnboardingCircleLoaderView.swift in Sources */,
 				A70DBE1E2B0B529F0067D7BD /* FastingTimeIntervalView.swift in Sources */,
+				5687BF972B9B3D3C00BC341B /* HealthProgressInitializer+extensions.swift in Sources */,
 				A0CEE6162AEFE2B10082B27F /* FastingPlan.swift in Sources */,
 				5675FFEF2ADE84B4009331CB /* MessengerService.swift in Sources */,
 				567500412ADFA67E009331CB /* ProvidersDependencies.swift in Sources */,
@@ -3564,7 +3568,7 @@
 		A0006CD52B98BFE40091EB3B /* HealthOverview */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = HealthOverview;
-        };
+		};
 		A00A73472B9631790038A001 /* HealthProgress */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = HealthProgress;

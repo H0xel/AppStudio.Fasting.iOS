@@ -6,7 +6,7 @@
 //
 
 public struct FastingHealthProgressInput {
-    let bodyMassIndex: Double
+    public let bodyMassIndex: Double
     let fastingChartItems: [HealthProgressBarChartItem]
 
     public init(bodyMassIndex: Double, fastingChartItems: [HealthProgressBarChartItem]) {

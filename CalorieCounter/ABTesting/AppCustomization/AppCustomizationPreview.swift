@@ -18,7 +18,7 @@ class AppCustomizationPreview: AppCustomization, ProductIdsService {
         ""
     }
     
-    var discountPaywallExperiment: RxSwift.Observable<DiscountPaywallInfo> {
+    var discountPaywallExperiment: RxSwift.Observable<DiscountPaywallInfo?> {
         .just(.empty)
     }
 

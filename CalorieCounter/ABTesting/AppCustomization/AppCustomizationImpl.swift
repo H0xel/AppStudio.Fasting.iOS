@@ -88,9 +88,9 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
         .catchAndReturn(.empty)
     }
 
-    var discountPaywallExperiment: Observable<DiscountPaywallInfo> {
+    var discountPaywallExperiment: Observable<DiscountPaywallInfo?> {
         discountRelay.asObservable()
-            .filter { $0.paywallType != nil }
+            .map { return $0.paywallType != nil ? $0 : nil }
     }
 
     func shouldForceUpdate() async throws -> Bool {

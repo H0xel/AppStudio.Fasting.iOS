@@ -186,6 +186,7 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
         nextMessagePublisher
             .filter { !$0.isEmpty }
             .sink(with: self, receiveValue: { this, nextMessage in
+                this.trackTapAskNova(question: nextMessage)
                 this.sendMessage(with: nextMessage)
             })
             .store(in: &cancellables)
@@ -217,5 +218,9 @@ extension CoachViewModel {
 
     func trackScrollToBottom() {
         trackerService.track(.tapScrollToBottom)
+    }
+
+    func trackTapAskNova(question: String) {
+        trackerService.track(.tapAskNova(context: "bmi_info", question: question))
     }
 }

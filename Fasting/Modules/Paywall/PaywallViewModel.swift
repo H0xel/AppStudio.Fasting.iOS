@@ -74,7 +74,11 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
                                            productId: subscription.productIdentifier,
                                            type: .main,
                                            afId: analyticKeyStore.currentAppsFlyerId))
-        output(.switchProgressView(isPresented: true))
+        if context == .paywallTab || context == .discountPaywallTab {
+            output(.switchProgressView(isPresented: true))
+        } else {
+            router.presentProgressView()
+        }
     }
 
     func selectProduct(_ product: SubscriptionProduct) {
@@ -121,13 +125,15 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
         subscriptionService.hasSubscriptionObservable
             .distinctUntilChanged()
             .flatMap(with: self) { this, hasSubscription -> Observable<(hasSubscription: Bool,
-                                                                        discountPaywallInfo: DiscountPaywallInfo)> in
+                                                                        discountPaywallInfo: DiscountPaywallInfo?)> in
                 this.appCustomization.discountPaywallExperiment
                     .map { (hasSubscription, $0) }
             }
             .asDriver()
             .drive(with: self) { this, args in
-                this.discountPaywallTimerService.registerPaywall(info: args.discountPaywallInfo)
+                if let discountPaywallInfo = args.discountPaywallInfo {
+                    this.discountPaywallTimerService.registerPaywall(info: discountPaywallInfo)
+                }
             }
             .disposed(by: disposeBag)
     }
@@ -263,6 +269,10 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     }
 
     private func configureCloseButton() {
+        if context == .freeUsageLimit {
+            canDisplayCloseButton = true
+            return
+        }
         Task {
             let delay = try? await appCustomization.closePaywallButtonDelay()
             try await Task.sleep(seconds: Double(delay ?? 3))
