@@ -105,7 +105,6 @@
 		567500462ADFA67E009331CB /* AppStudioMobileDeviceDataProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500392ADFA67E009331CB /* AppStudioMobileDeviceDataProviderImpl.swift */; };
 		567500472ADFA67E009331CB /* AppStudioMobileDeviceDataProviderPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675003A2ADFA67E009331CB /* AppStudioMobileDeviceDataProviderPreview.swift */; };
 		567500502ADFA81D009331CB /* DataDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675004F2ADFA81D009331CB /* DataDependencies.swift */; };
-		567500532ADFA8C1009331CB /* KeyValueStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500522ADFA8C1009331CB /* KeyValueStorageImpl.swift */; };
 		567500742ADFA97F009331CB /* PricingOngoingExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675005C2ADFA97F009331CB /* PricingOngoingExperiment.swift */; };
 		567500752ADFA97F009331CB /* SubscriptionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675005D2ADFA97F009331CB /* SubscriptionInfo.swift */; };
 		5675008C2ADFAA4A009331CB /* RestoreResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500832ADFAA4A009331CB /* RestoreResult.swift */; };
@@ -447,6 +446,7 @@
 		A7DF36852B1DE195009080C9 /* InActiveFastingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */; };
 		A7E0A1CA2B07418F005DA180 /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */; };
 		A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */; };
+		A7FFA7002B9F1A1100FED655 /* AppStudioServices in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFA6FF2B9F1A1100FED655 /* AppStudioServices */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 /* End PBXBuildFile section */
 
@@ -545,7 +545,6 @@
 		567500392ADFA67E009331CB /* AppStudioMobileDeviceDataProviderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStudioMobileDeviceDataProviderImpl.swift; sourceTree = "<group>"; };
 		5675003A2ADFA67E009331CB /* AppStudioMobileDeviceDataProviderPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStudioMobileDeviceDataProviderPreview.swift; sourceTree = "<group>"; };
 		5675004F2ADFA81D009331CB /* DataDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDependencies.swift; sourceTree = "<group>"; };
-		567500522ADFA8C1009331CB /* KeyValueStorageImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueStorageImpl.swift; sourceTree = "<group>"; };
 		5675005C2ADFA97F009331CB /* PricingOngoingExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PricingOngoingExperiment.swift; sourceTree = "<group>"; };
 		5675005D2ADFA97F009331CB /* SubscriptionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionInfo.swift; sourceTree = "<group>"; };
 		567500832ADFAA4A009331CB /* RestoreResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreResult.swift; sourceTree = "<group>"; };
@@ -896,6 +895,7 @@
 				A0255E8A2AFBD3C000221EC6 /* AppStudioABTesting in Frameworks */,
 				A0255E6C2AFBAA9A00221EC6 /* Moya in Frameworks */,
 				A0255E8E2AFBD3C000221EC6 /* AppStudioUI in Frameworks */,
+				A7FFA7002B9F1A1100FED655 /* AppStudioServices in Frameworks */,
 				A0255E912AFBD3ED00221EC6 /* AppStudioNavigation in Frameworks */,
 				A00B4DBD2B73817F0067A872 /* FacebookAEM in Frameworks */,
 				A00B4DC12B73817F0067A872 /* FacebookCore in Frameworks */,
@@ -1246,7 +1246,6 @@
 			isa = PBXGroup;
 			children = (
 				567500E22ADFD4E8009331CB /* StorageService */,
-				567500512ADFA8C1009331CB /* KeyValueStorage */,
 				5675004E2ADFA81D009331CB /* Dependencies */,
 			);
 			path = Data;
@@ -1258,14 +1257,6 @@
 				5675004F2ADFA81D009331CB /* DataDependencies.swift */,
 			);
 			path = Dependencies;
-			sourceTree = "<group>";
-		};
-		567500512ADFA8C1009331CB /* KeyValueStorage */ = {
-			isa = PBXGroup;
-			children = (
-				567500522ADFA8C1009331CB /* KeyValueStorageImpl.swift */,
-			);
-			path = KeyValueStorage;
 			sourceTree = "<group>";
 		};
 		567500542ADFA91A009331CB /* ABTesting */ = {
@@ -2596,6 +2587,7 @@
 				A0178F512B91CBC800069BEA /* AICoach */,
 				A0006CD52B98BFE40091EB3B /* HealthOverview */,
 				A00A73472B9631790038A001 /* HealthProgress */,
+				A7FFA6FF2B9F1A1100FED655 /* AppStudioServices */,
 			);
 			productName = AppStudioTemplate;
 			productReference = 563257112ADE57D80000F33C /* Fasting.app */;
@@ -3053,7 +3045,6 @@
 				5662DECE2B1615F200C1637C /* Double+Extensions.swift in Sources */,
 				A0255E702AFBD00200221EC6 /* AccountTarget.swift in Sources */,
 				A04426302AF23DAE005400AE /* TimeInterval+extensions.swift in Sources */,
-				567500532ADFA8C1009331CB /* KeyValueStorageImpl.swift in Sources */,
 				567500062ADE84B4009331CB /* Migration.swift in Sources */,
 				A7D01B932AF115F200C50C1F /* NotificationOnboardingOutput.swift in Sources */,
 				A050046C2B20724500820E45 /* OnboardingPickerOptionView.swift in Sources */,
@@ -3630,6 +3621,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A0255E8F2AFBD3ED00221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */;
 			productName = AppStudioNavigation;
+		};
+		A7FFA6FF2B9F1A1100FED655 /* AppStudioServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppStudioServices;
 		};
 /* End XCSwiftPackageProductDependency section */
 

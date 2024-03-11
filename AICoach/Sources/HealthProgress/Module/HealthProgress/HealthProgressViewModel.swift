@@ -12,6 +12,7 @@ import Combine
 import Dependencies
 import MunicornFoundation
 import AppStudioAnalytics
+import AppStudioServices
 
 private let isBodyMassIndexHintPresentedKey = "isBodyMassIndexHintPresented"
 

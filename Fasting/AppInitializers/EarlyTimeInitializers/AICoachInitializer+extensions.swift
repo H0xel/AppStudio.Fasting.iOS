@@ -15,8 +15,6 @@ extension AICoachInitializer: AppInitializer {
         @Dependency(\.userPropertyService) var userPropertyService
         initialize(styles: .fastingStyles,
                    trackerService: trackerService,
-                   storageService: storageService,
-                   userPropertyService: userPropertyService,
                    coachApi: CoachApiImpl())
     }
 }

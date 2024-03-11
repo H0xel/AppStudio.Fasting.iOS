@@ -29,7 +29,8 @@ let package = Package(
         .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Common.git", exact: "1.0.20"),
         .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Analytics.git", exact: "1.0.5"),
         .package(url: "https://github.com/m-unicorn/iOS.MunicornFoundation.git", exact: "1.2.11"),
-        .package(path: "AppStudio.Styles")
+        .package(path: "AppStudio.Styles"),
+        .package(path: "AppStudio.Services")
     ],
     targets: [
         .target(
@@ -43,7 +44,8 @@ let package = Package(
                 .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation"),
                 .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
                 .product(name: "AppStudioFoundation", package: "AppStudio.iOS.Common"),
-                .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics")
+                .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics"),
+                .product(name: "AppStudioServices", package: "AppStudio.Services")
             ],
             resources: [
                 .process("Resources/en.lproj/Localizable.strings")
@@ -58,7 +60,8 @@ let package = Package(
                 .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation"),
                 .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
                 .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics"),
-                .product(name: "AppStudioStyles", package: "AppStudio.Styles")
+                .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
+                .product(name: "AppStudioServices", package: "AppStudio.Services")
             ]
         ),
         .target(
@@ -69,7 +72,8 @@ let package = Package(
                 .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation"),
                 .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
                 .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics"),
-                .product(name: "AppStudioStyles", package: "AppStudio.Styles")
+                .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
+                .product(name: "AppStudioServices", package: "AppStudio.Services")
             ]
         )
     ],

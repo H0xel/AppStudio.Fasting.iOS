@@ -7,6 +7,7 @@
 
 import Dependencies
 import MunicornFoundation
+import AppStudioServices
 
 private let didAgreeToTermsKey = "didAgreeToTermsKey"
 private let isInitializedKey = "isInitializedKey"

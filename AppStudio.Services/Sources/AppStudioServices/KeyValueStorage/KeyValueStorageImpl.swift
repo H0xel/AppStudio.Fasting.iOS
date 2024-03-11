@@ -1,8 +1,8 @@
 //
-//  KeyValueStorage.swift
-//  AppStudio
+//  KeyValueStorageImpl.swift
 //
-//  Created by Konstantin Golenkov on 22.05.2023.
+//
+//  Created by Amakhin Ivan on 11.03.2024.
 //
 
 import ABTesting
@@ -23,3 +23,4 @@ class KeyValueStorageImpl: KeyValueStorage {
         }
         return value
     }}
+

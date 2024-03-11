@@ -9,6 +9,7 @@ import Foundation
 import MunicornFoundation
 import Dependencies
 import Combine
+import AppStudioServices
 
 class DiscountPaywallTimerServiceImpl: DiscountPaywallTimerService {
     @Dependency(\.storageService) private var storageService

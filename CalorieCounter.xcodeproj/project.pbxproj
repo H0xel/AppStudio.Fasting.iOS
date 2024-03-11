@@ -90,7 +90,6 @@
 		567500462ADFA67E009331CB /* AppStudioMobileDeviceDataProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500392ADFA67E009331CB /* AppStudioMobileDeviceDataProviderImpl.swift */; };
 		567500472ADFA67E009331CB /* AppStudioMobileDeviceDataProviderPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675003A2ADFA67E009331CB /* AppStudioMobileDeviceDataProviderPreview.swift */; };
 		567500502ADFA81D009331CB /* DataDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675004F2ADFA81D009331CB /* DataDependencies.swift */; };
-		567500532ADFA8C1009331CB /* KeyValueStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500522ADFA8C1009331CB /* KeyValueStorageImpl.swift */; };
 		567500742ADFA97F009331CB /* PricingOngoingExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675005C2ADFA97F009331CB /* PricingOngoingExperiment.swift */; };
 		567500752ADFA97F009331CB /* SubscriptionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675005D2ADFA97F009331CB /* SubscriptionInfo.swift */; };
 		5675008C2ADFAA4A009331CB /* RestoreResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500832ADFAA4A009331CB /* RestoreResult.swift */; };
@@ -480,6 +479,7 @@
 		A7E45C9E2B4FCC7B00935488 /* DailyCalorieBudgetDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E45C9D2B4FCC7B00935488 /* DailyCalorieBudgetDescriptionView.swift */; };
 		A7E45CA02B4FE56900935488 /* DailyCalorieLocalizationConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E45C9F2B4FE56900935488 /* DailyCalorieLocalizationConstructor.swift */; };
 		A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */; };
+		A7FFA6FE2B9F1A0B00FED655 /* AppStudioServices in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFA6FD2B9F1A0B00FED655 /* AppStudioServices */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 		ADC784EC2AFA83BD005F16A6 /* AppStudioNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784EB2AFA83BD005F16A6 /* AppStudioNavigation */; };
 		ADC784EF2AFA8559005F16A6 /* AppStudioSubscriptions in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784EE2AFA8559005F16A6 /* AppStudioSubscriptions */; };
@@ -579,7 +579,6 @@
 		567500392ADFA67E009331CB /* AppStudioMobileDeviceDataProviderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStudioMobileDeviceDataProviderImpl.swift; sourceTree = "<group>"; };
 		5675003A2ADFA67E009331CB /* AppStudioMobileDeviceDataProviderPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStudioMobileDeviceDataProviderPreview.swift; sourceTree = "<group>"; };
 		5675004F2ADFA81D009331CB /* DataDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDependencies.swift; sourceTree = "<group>"; };
-		567500522ADFA8C1009331CB /* KeyValueStorageImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueStorageImpl.swift; sourceTree = "<group>"; };
 		5675005C2ADFA97F009331CB /* PricingOngoingExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PricingOngoingExperiment.swift; sourceTree = "<group>"; };
 		5675005D2ADFA97F009331CB /* SubscriptionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionInfo.swift; sourceTree = "<group>"; };
 		567500832ADFAA4A009331CB /* RestoreResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreResult.swift; sourceTree = "<group>"; };
@@ -999,6 +998,7 @@
 				ADC784F42AFA859C005F16A6 /* AppStudioFoundation in Frameworks */,
 				5675002A2ADE8763009331CB /* ABTesting in Frameworks */,
 				563257FD2ADE61E30000F33C /* AppStudioAnalytics in Frameworks */,
+				A7FFA6FE2B9F1A0B00FED655 /* AppStudioServices in Frameworks */,
 				ADC784F92AFA86CC005F16A6 /* Moya in Frameworks */,
 				5658F8C12B34009700E010E9 /* MunicornCoreData in Frameworks */,
 				A00B4DAB2B7377980067A872 /* FacebookAEM in Frameworks */,
@@ -1308,7 +1308,6 @@
 			isa = PBXGroup;
 			children = (
 				567500E22ADFD4E8009331CB /* StorageService */,
-				567500512ADFA8C1009331CB /* KeyValueStorage */,
 				5675004E2ADFA81D009331CB /* Dependencies */,
 			);
 			path = Data;
@@ -1320,14 +1319,6 @@
 				5675004F2ADFA81D009331CB /* DataDependencies.swift */,
 			);
 			path = Dependencies;
-			sourceTree = "<group>";
-		};
-		567500512ADFA8C1009331CB /* KeyValueStorage */ = {
-			isa = PBXGroup;
-			children = (
-				567500522ADFA8C1009331CB /* KeyValueStorageImpl.swift */,
-			);
-			path = KeyValueStorage;
 			sourceTree = "<group>";
 		};
 		567500542ADFA91A009331CB /* ABTesting */ = {
@@ -2806,6 +2797,7 @@
 				A00B4DAE2B7377980067A872 /* FacebookCore */,
 				A00B4DB02B7377980067A872 /* FacebookLogin */,
 				A07F5D532B91EDF5006E7062 /* AppStudioStyles */,
+				A7FFA6FD2B9F1A0B00FED655 /* AppStudioServices */,
 			);
 			productName = AppStudioTemplate;
 			productReference = 563257112ADE57D80000F33C /* CalorieCounter.app */;
@@ -3290,7 +3282,6 @@
 				ADC785032AFA922B005F16A6 /* SubscriptionsApiImpl.swift in Sources */,
 				A0D23BAA2B4C302D007C4654 /* FoodCalendarView.swift in Sources */,
 				A72A7D7C2B31B031000677A2 /* PersonalizedStartWeightView.swift in Sources */,
-				567500532ADFA8C1009331CB /* KeyValueStorageImpl.swift in Sources */,
 				567500062ADE84B4009331CB /* Migration.swift in Sources */,
 				567500452ADFA67E009331CB /* AppStudioMobileDeviceDataProvider.swift in Sources */,
 				A0FE90612B4EFCC90069AC4C /* TabBarScreen.swift in Sources */,
@@ -3850,6 +3841,10 @@
 		A07F5D532B91EDF5006E7062 /* AppStudioStyles */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppStudioStyles;
+		};
+		A7FFA6FD2B9F1A0B00FED655 /* AppStudioServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppStudioServices;
 		};
 		ADC784EB2AFA83BD005F16A6 /* AppStudioNavigation */ = {
 			isa = XCSwiftPackageProductDependency;

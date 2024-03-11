@@ -20,13 +20,9 @@ public class AICoachInitializer {
 
     public func initialize(styles: CoachStyles,
                            trackerService: TrackerService,
-                           storageService: StorageService,
-                           userPropertyService: UserPropertyService,
                            coachApi: CoachApi) {
         CoachStylesKey.liveValue = styles
         TrackerServiceKey.liveValue = trackerService
-        StorageServiceKey.liveValue = storageService
-        UserPropertyServiceKey.liveValue = userPropertyService
         CoachApiKey.liveValue = coachApi
         messageRunService.observeDraftMessage()
         configureInitialMessages()
