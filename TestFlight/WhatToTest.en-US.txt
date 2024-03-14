@@ -1,1 +1,1 @@
-- Fix discount experiment
+- Release Fasting 1.1.2
