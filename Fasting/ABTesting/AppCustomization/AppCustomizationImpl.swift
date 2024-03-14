@@ -22,7 +22,7 @@ private let isLongOnboardingEnabledKey = "long_onboarding_enabled"
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
 
     let productIdsRelay = BehaviorRelay<[String]>(value: [])
-    let discountRelay = PublishRelay<DiscountPaywallInfo>()
+    let discountRelay = BehaviorRelay<DiscountPaywallInfo>(value: .empty)
     let disposeBag = DisposeBag()
 
     func initialize() {

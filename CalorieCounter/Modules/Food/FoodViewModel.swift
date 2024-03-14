@@ -336,8 +336,8 @@ extension FoodViewModel {
         }
     }
 
-    func updateTimer() {
-        guard let discountPaywallInfo, let interval = discountPaywallTimerService.getCurrentTimer(
+    func updateTimer(discountPaywallInfo: DiscountPaywallInfo) {
+        guard let interval = discountPaywallTimerService.getCurrentTimer(
             durationInSeconds: discountPaywallInfo.timerDurationInSeconds ?? 0
         ) else {
             return
@@ -362,8 +362,7 @@ extension FoodViewModel {
             .drive(with: self) { this, paywallIInfo in
                 if let paywallIInfo {
                     this.discountPaywallTimerService.registerPaywall(info: paywallIInfo)
-
-                    this.updateTimer()
+                    this.updateTimer(discountPaywallInfo: paywallIInfo)
                     this.startTimer()
                 }
             }

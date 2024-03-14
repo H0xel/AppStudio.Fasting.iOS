@@ -3713,7 +3713,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Analytics";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.5;
+				version = 1.0.7;
 			};
 		};
 		5658F8BF2B34009700E010E9 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */ = {

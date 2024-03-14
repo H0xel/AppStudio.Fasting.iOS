@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AppsFlyerSDK/AppsFlyerFramework.git",
       "state" : {
-        "revision" : "0d8359239a349db4ac2aba8efe2ad8835fc799b5",
-        "version" : "6.12.2"
+        "revision" : "4591cd113ea1af6fa950479fadbce2f13bab8895",
+        "version" : "6.13.1"
       }
     },
     {
@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Analytics",
       "state" : {
-        "revision" : "532a57589766ceb0e3f0a7046ad9c6c556f16b8a",
-        "version" : "1.0.5"
+        "revision" : "7079c1fa488f8bdfb2a920b1122de52dad61d1e2",
+        "version" : "1.0.7"
       }
     },
     {
@@ -66,7 +66,7 @@
     {
       "identity" : "appstudio.ios.navigation",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/m-unicorn/AppStudio.iOS.Navigation",
+      "location" : "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git",
       "state" : {
         "revision" : "2ae96ed73293b546eaaff8cc1e2f1c8d54b6eede",
         "version" : "1.0.11"

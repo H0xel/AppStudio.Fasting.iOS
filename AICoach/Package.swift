@@ -27,7 +27,7 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/swift-dependencies.git", exact: "1.0.0"),
         .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git", exact: "1.0.11"),
         .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Common.git", exact: "1.0.20"),
-        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Analytics.git", exact: "1.0.5"),
+        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Analytics.git", exact: "1.0.7"),
         .package(url: "https://github.com/m-unicorn/iOS.MunicornFoundation.git", exact: "1.2.11"),
         .package(path: "AppStudio.Styles"),
         .package(path: "AppStudio.Services")

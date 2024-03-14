@@ -22,7 +22,7 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     let productIdsRelay = BehaviorRelay<[String]>(value: [])
     let disposeBag = DisposeBag()
-    let discountRelay = PublishRelay<DiscountPaywallInfo>()
+    let discountRelay = BehaviorRelay<DiscountPaywallInfo>(value: .empty)
 
     func initialize() {
         @Dependency(\.lifeCycleDelegate) var lifeCycleDelegate

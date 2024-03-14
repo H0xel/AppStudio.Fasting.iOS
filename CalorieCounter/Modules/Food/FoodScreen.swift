@@ -109,7 +109,9 @@ struct FoodScreen: View {
         }
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .active {
-                viewModel.updateTimer()
+                if let paywallInfo = viewModel.discountPaywallInfo {
+                    viewModel.updateTimer(discountPaywallInfo: paywallInfo)
+                }
             }
         }
     }

@@ -12,6 +12,7 @@ import Dependencies
 private let weeklyProductId = "com.municorn.CalorieCounter.weekly_exp_1"
 private let threeMonthsProductId = "com.municorn.CalorieCounter.3monthly_exp_1"
 private let yearProductId = "com.municorn.CalorieCounter.yearly_exp_1"
+private let weeklyProductIdSecondExp = "com.municorn.CalorieCounter.weekly_exp_2"
 
 class ProductProviderImpl: ProductProvider, AppInitializer {
     @Dependency(\.productsLoaderService) private var productsLoaderService
@@ -42,7 +43,8 @@ class ProductProviderImpl: ProductProvider, AppInitializer {
         [
             ProductCatalogItem(productId: weeklyProductId, duration: .week, isTrial: false),
             ProductCatalogItem(productId: threeMonthsProductId, duration: .threeMonth, isTrial: false),
-            ProductCatalogItem(productId: yearProductId, duration: .year, isTrial: false)
+            ProductCatalogItem(productId: yearProductId, duration: .year, isTrial: false),
+            ProductCatalogItem(productId: weeklyProductIdSecondExp, duration: .week, isTrial: false),
         ]
     }()
 }

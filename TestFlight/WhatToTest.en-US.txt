@@ -1,1 +1,1 @@
-- Fasting release candidate 1.1.1
+- Fix discount experiment
