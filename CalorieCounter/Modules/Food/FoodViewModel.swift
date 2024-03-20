@@ -11,6 +11,7 @@ import AppStudioUI
 import Dependencies
 import Combine
 import RxSwift
+import AppStudioServices
 
 class FoodViewModel: BaseViewModel<FoodOutput> {
     var router: FoodRouter!

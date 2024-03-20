@@ -6,63 +6,64 @@
 //
 
 import Dependencies
-import RxSwift
 import StoreKit
 
 class PromoPaywallServiceImpl: PromoPaywallService {
-    @Dependency(\.appCustomization) private var appCustomization
-    @Dependency(\.subscriptionService) private var subscriptionService
-    @Dependency(\.productIdsService) private var productIdsService
+    @Dependency(\.subscriptionsLoaderService) private var subscriptionsLoaderService
+    @Dependency(\.cloudStorage) private var cloudStorage
 
-
-    var promoSubscription: Observable<PromotionalOffer?> {
-        Observable.combineLatest(promotionExperimentPlan, subscriptionService.subscriptionProducts)
-            .map { experimentPromotion, subscriptions in
-                if let promoSubscription = subscriptions
-                    .first(where: { $0.productIdentifier == experimentPromotion?.productId })?
-                    .product {
-                    return .init(
-                        id: promoSubscription.productIdentifier,
-                        duration: promoSubscription.promoDuration ?? "",
-                        price: promoSubscription.promoPriceLocale ?? "",
-                        product: promoSubscription
-                    )
-                }
-                return nil
-            }
+    var pricingExperimentSKProduct: SKProduct? {
+        skProducts.first(where: { $0.productIdentifier == firstRemoteSubscriptionId })
     }
 
-    private var promotionExperimentPlan: Observable<RemoteExperimentPlans?> {
-        Observable.combineLatest(productIdsService.productIds, remoteProducts)
-            .map { productIds, remoteProducts in (productIds.first, remoteProducts) }
-            .map { productId, remoteProducts in remoteProducts.first(where: { $0.productId == productId }) }
-            .filter { $0?.introOffer == .payUpFront }
+    private var skProducts: [SKProduct] {
+        subscriptionsLoaderService.subscriptions
     }
 
-    private var remoteProducts: Observable<[RemoteExperimentPlans]> {
-        appCustomization.allProductsObservable
-            .map { $0.products.subscriptionGroups.flatMap { $0.value } }
+    private var firstRemoteSubscriptionId: String? {
+        cloudStorage.pricingExperimentProductIds?.first
     }
 }
 
-struct PromotionalOffer: Equatable {
-    let id: String
-    let duration: String
-    let price: String
-    let product: SKProduct
+extension SKProduct {
+    func paywallDescription(isTrialAvailable: Bool) -> String? {
+        guard let promotion = self.introductoryPrice else {
+            return String(
+                format: NSLocalizedString("PersonalizedPaywall.getPlus", comment: ""),
+                self.formattedPrice ?? ""
+            )
+        }
+        switch promotion.paymentMode {
+        case .payAsYouGo, .payUpFront:
+            return String(
+                format: NSLocalizedString("PersonalizedPaywall.renewsAt", comment: ""),
+                self.formattedPrice ?? ""
+            )
+        case .freeTrial:
+            return isTrialAvailable
+            ? String(format: NSLocalizedString("Paywall.tryForFree", comment: ""),
+                     self.formattedPrice ?? "")
+            : String(format: NSLocalizedString("PersonalizedPaywall.getPlus", comment: ""),
+                     self.formattedPrice ?? "")
+        @unknown default:
+            return nil
+        }
+    }
 }
 
-private extension SKProduct {
+extension SKProduct {
     var promoPriceLocale: String? {
+        guard let promo = self.introductoryPrice, promo.paymentMode != .freeTrial else { return nil }
+
         let numberFormatter = NumberFormatter()
         numberFormatter.formatterBehavior = .behavior10_4
         numberFormatter.numberStyle = .currency
-        numberFormatter.locale = self.introductoryPrice?.priceLocale
-        return numberFormatter.string(from: self.introductoryPrice?.price ?? 0)
+        numberFormatter.locale = promo.priceLocale
+        return numberFormatter.string(from: promo.price)
     }
 
     var promoDuration: String? {
-        guard let promo = self.introductoryPrice else { return nil }
+        guard let promo = self.introductoryPrice, promo.paymentMode != .freeTrial else { return nil }
 
         let unit = promo.subscriptionPeriod.numberOfUnits
 
@@ -82,5 +83,34 @@ private extension SKProduct {
         }
 
         return "\(unit)" + " " + NSLocalizedString("ProductCatalog.duration.\(period).\(form)", comment: "")
+    }
+
+    var formattedPrice: String? {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.formatterBehavior = .behavior10_4
+        numberFormatter.numberStyle = .currency
+        numberFormatter.locale = priceLocale
+
+        guard let priceStr = numberFormatter.string(from: price) else {
+            return nil
+        }
+
+        var period: String {
+            switch subscriptionPeriod?.unit {
+            case .day: return subscriptionPeriod?.numberOfUnits == 7 ? "week" : "day"
+            case .week: return "week"
+            case .month: return "month"
+            case .year: return "year"
+            case .none: return ""
+            @unknown default:
+                return ""
+            }
+        }
+
+        let durationString = NSLocalizedString("ProductCatalog.duration.\(period)",
+                                               comment: "duration")
+        let result = String(format: NSLocalizedString("ProductCatalog.priceTitle", comment: "per"),
+                            priceStr, durationString)
+        return result
     }
 }

@@ -10,6 +10,7 @@ import FirebaseCrashlytics
 import MunicornFoundation
 import Dependencies
 import RxSwift
+import AppStudioServices
 
 final class CrashlyticsInitializer: AppInitializer {
 

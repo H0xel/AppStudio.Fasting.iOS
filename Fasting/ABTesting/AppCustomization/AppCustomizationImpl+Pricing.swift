@@ -101,8 +101,8 @@ extension AppCustomizationImpl {
 private let pricingExperimentNameKey = "AppStudio.pricingExperimentNameKey"
 private let pricingExperimentProductIdsKey = "AppStudio.pricingExperimentProductIdsKey"
 
-private extension CloudStorage {
-    var pricingExperimentName: String? {
+extension CloudStorage {
+    fileprivate var pricingExperimentName: String? {
         get { get(key: pricingExperimentNameKey, defaultValue: nil)}
         set { set(key: pricingExperimentNameKey, value: newValue)}
     }

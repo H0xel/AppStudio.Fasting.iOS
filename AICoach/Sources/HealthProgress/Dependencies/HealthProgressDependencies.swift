@@ -10,12 +10,4 @@ import MunicornFoundation
 import AppStudioAnalytics
 import MunicornCoreData
 
-extension DependencyValues {
-    var trackerService: TrackerService {
-        self[TrackerServiceKey.self]!
-    }
-}
-
-enum TrackerServiceKey: DependencyKey {
-    static var liveValue: TrackerService?
-}
+extension DependencyValues {}

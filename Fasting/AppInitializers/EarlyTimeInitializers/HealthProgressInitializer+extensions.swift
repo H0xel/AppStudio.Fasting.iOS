@@ -10,7 +10,6 @@ import HealthProgress
 
 extension HealthProgressInitializer: AppInitializer {
     func initialize() {
-        @Dependency(\.trackerService) var trackerService
-        initialize(trackerService: trackerService)
+        initializeHelathProgress()
     }
 }

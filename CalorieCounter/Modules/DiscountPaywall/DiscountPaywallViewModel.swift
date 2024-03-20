@@ -12,6 +12,7 @@ import Combine
 import Dependencies
 import RxSwift
 import AppStudioSubscriptions
+import AppStudioServices
 
 enum DiscountPaywallType {
     case timer(DiscountTimerView.ViewData)

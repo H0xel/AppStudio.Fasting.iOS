@@ -20,7 +20,8 @@ let package = Package(
         .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Common.git", exact: "1.0.20"),
         .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Analytics.git", exact: "1.0.7"),
         .package(url: "https://github.com/m-unicorn/iOS.MunicornFoundation.git", exact: "1.2.11"),
-        .package(url: "https://github.com/m-unicorn/iOS.ABTesting.git", exact: "1.0.6")
+        .package(url: "https://github.com/m-unicorn/iOS.ABTesting.git", exact: "1.0.6"),
+        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git", exact: "1.0.2")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -33,8 +34,10 @@ let package = Package(
                 .product(name: "MunicornFoundation", package: "iOS.MunicornFoundation"),
                 .product(name: "Dependencies", package: "swift-dependencies"),
                 .product(name: "AppStudioFoundation", package: "AppStudio.iOS.Common"),
+                .product(name: "AppStudioABTesting", package: "AppStudio.iOS.Common"),
                 .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics"),
-                .product(name: "ABTesting", package: "iOS.ABTesting")
+                .product(name: "ABTesting", package: "iOS.ABTesting"),
+                .product(name: "AppStudioSubscriptions", package: "AppStudio.iOS.Subscriptions")
             ]
         )
     ]

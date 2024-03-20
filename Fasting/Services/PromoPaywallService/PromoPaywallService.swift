@@ -9,5 +9,5 @@ import RxSwift
 import StoreKit
 
 protocol PromoPaywallService {
-    var promoSubscription: Observable<PromotionalOffer?> { get }
+    var pricingExperimentSKProduct: SKProduct? { get }
 }

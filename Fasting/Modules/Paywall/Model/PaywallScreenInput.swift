@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppStudioServices
 
 struct PaywallTitle: Equatable {
     let title: String

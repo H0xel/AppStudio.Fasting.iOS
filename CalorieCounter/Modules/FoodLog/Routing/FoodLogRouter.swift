@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
+import AppStudioServices
 
 class FoodLogRouter: BaseRouter {
     func presentMealTypePicker(currentMealType: MealType, onPick: @escaping (MealType) -> Void) {

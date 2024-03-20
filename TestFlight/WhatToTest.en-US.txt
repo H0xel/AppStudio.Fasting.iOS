@@ -1,1 +1,2 @@
-- Release build 1.0.5
+- Personalized paywall for Fasting service
+- Move services to common library

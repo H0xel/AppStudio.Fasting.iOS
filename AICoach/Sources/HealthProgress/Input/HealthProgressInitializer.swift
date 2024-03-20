@@ -14,7 +14,6 @@ public class HealthProgressInitializer {
 
     public init() {}
 
-    public func initialize(trackerService: TrackerService) {
-        TrackerServiceKey.liveValue = trackerService
+    public func initializeHelathProgress() {
     }
 }

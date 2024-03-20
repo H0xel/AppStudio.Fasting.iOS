@@ -7,6 +7,7 @@
 
 import RxSwift
 import Dependencies
+import AppStudioServices
 
 final class AppInitializerServiceImpl: AppInitializerService {
     @Dependency(\.messengerService) private var messengerService

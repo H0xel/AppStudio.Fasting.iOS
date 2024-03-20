@@ -9,6 +9,7 @@ import Dependencies
 import AppStudioSubscriptions
 import AppStudioFoundation
 import StoreKit
+import AppStudioServices
 
 class SubscriptionDelegateImpl: AppStudioSubscriptionDelegate {
     @Dependency(\.messengerService) private var messenger

@@ -11,6 +11,7 @@ import Dependencies
 import AppStudioUI
 import AppStudioNavigation
 import AppStudioSubscriptions
+import AppStudioServices
 
 class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     @Published var products: [SubscriptionProduct] = []

@@ -11,11 +11,9 @@ import Dependencies
 import AppStudioUI
 import AppStudioNavigation
 import AppStudioSubscriptions
+import AppStudioServices
 
 class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
-    @Published var products: [SubscriptionProduct] = []
-    @Published var selectedProduct: SubscriptionProduct?
-    @Published var promoProduct: PromotionalOffer?
     @Published var isTrialAvailable = false
     @Published var canDisplayCloseButton = false
     @Published private var highestPriceSubscription: SubscriptionProduct?
@@ -25,7 +23,6 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
     var router: PersonalizedPaywallRouter!
 
     private let disposeBag = DisposeBag()
-    private var chipestSubscription: Subscription?
     private var subscriptions: [Subscription] = []
     @Dependency(\.subscriptionService) private var subscriptionService
     @Dependency(\.messengerService) private var messenger
@@ -47,20 +44,20 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
         subscribeToFinishTransactionState()
         subscribeToRestoreChange()
         loadAvailableProducts()
-        subscribeToPromoOffer()
         subscribeForAvailableDiscountPaywall()
     }
 
     private var headerDescription: String {
-        var title: String {
-            if promoProduct != nil {
-                return NSLocalizedString("PersonalizedPaywall.renewsAt", comment: "")
-            }
-            return isTrialAvailable
-            ? NSLocalizedString("Paywall.tryForFree", comment: "")
-            : NSLocalizedString("PersonalizedPaywall.getPlus", comment: "")
+        promoPaywallService.pricingExperimentSKProduct?.paywallDescription(isTrialAvailable: isTrialAvailable) ?? ""
+    }
+
+    var promoViewData: PersonalizedPromotionalOfferView.ViewData? {
+        guard let skProduct = promoPaywallService.pricingExperimentSKProduct,
+              let promoPrice = skProduct.promoPriceLocale,
+              let promoDuration = skProduct.promoDuration else {
+            return nil
         }
-        return String(format: title, selectedProduct?.titleDetails ?? "")
+        return .init(duration: promoDuration, price: promoPrice)
     }
 
     var headerViewData: PersonalizedTitleView.ViewData {
@@ -68,17 +65,10 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
               description: headerDescription)
     }
 
-    func subscribe(duration: SubscriptionDuration) {
-        guard let subscription = subscriptions.first(where: { $0.duration == duration }),
-              let product = products.first(where: { $0.id == subscription.productIdentifier }) else {
-            return
-        }
-        selectedProduct = product
-        subscribe()
-    }
-
     func subscribe() {
-        guard let subscription = subscriptions.first(where: { $0.productIdentifier == selectedProduct?.id }) else {
+        guard let subscription = subscriptions.first(
+            where: { $0.productIdentifier == promoPaywallService.pricingExperimentSKProduct?.productIdentifier }
+        ) else {
             return
         }
         subscriptionService.purchase(subscription: subscription, context: context)
@@ -192,89 +182,27 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
     }
 
     private func loadAvailableProducts() {
-        Observable.combineLatest(subscriptionService.subscriptionProducts,
-                                 productIdsService.paywallProductIds)
-            .map { subscriptions, availableIds in
-                subscriptions
-                    .filter { availableIds.contains($0.productIdentifier) }
-                    .sorted { (($0.price?.value ?? 0) as Decimal) < (($1.price?.value ?? 0) as Decimal) }
-            }
+        subscriptionService.subscriptionProducts
             .asDriver()
             .drive(with: self) { this, subscriptions in
                 this.subscriptions = subscriptions
-                this.chipestSubscription = subscriptions.first
                 this.checkIsTrialAvailable()
             }
             .disposed(by: disposeBag)
     }
 
     private func checkIsTrialAvailable() {
-        guard let trial = subscriptions.first(where: { $0.isTrial }) else {
-            assignProducts()
+        guard let trial = subscriptions.first(
+            where: { $0.productIdentifier == promoPaywallService.pricingExperimentSKProduct?.productIdentifier }
+        ) else {
             return
         }
         subscriptionService.isTrialAvailable(for: trial)
             .asDriver()
             .drive(with: self) { this, isAvailable in
                 this.isTrialAvailable = isAvailable
-                this.assignProducts()
             }
             .disposed(by: disposeBag)
-    }
-
-    private func subscribeToPromoOffer() {
-        promoPaywallService.promoSubscription
-            .distinctUntilChanged()
-            .asDriver()
-            .drive(with: self) { this, promoProduct in
-                this.promoProduct = promoProduct
-            }
-            .disposed(by: disposeBag)
-    }
-
-    private func assignProducts() {
-        let products = subscriptions.map {
-            SubscriptionProduct(id: $0.productIdentifier,
-                                title: $0.localizedTitle,
-                                titleDetails: $0.formattedPrice ?? "",
-                                durationTitle: $0.duration.title,
-                                promotion: promotionText(for: $0))
-        }
-        self.products = products
-
-        if let promoProduct = subscriptions.first(where: { $0.productIdentifier == promoProduct?.id }) {
-            self.selectedProduct = .init(id: promoProduct.productIdentifier,
-                                         title: promoProduct.localizedTitle,
-                                         titleDetails: promoProduct.formattedPrice ?? "",
-                                         durationTitle: promoProduct.duration.title,
-                                         promotion: promotionText(for: promoProduct))
-            return
-        }
-
-        if let product = products.last {
-            highestPriceSubscription = product
-        }
-        guard let selectedProduct else {
-            self.selectedProduct = products.first
-            return
-        }
-        if !products.contains(selectedProduct) {
-            self.selectedProduct = products.first
-        }
-    }
-
-    private func promotionText(for subscription: Subscription) -> String? {
-        guard subscription.duration == .year,
-              let price = subscription.price,
-              let chipestSubscriptionPrice = chipestSubscription?.priceByMonth?.value as? Decimal,
-              chipestSubscriptionPrice > 0 else {
-            return nil
-        }
-        let priceForYear = chipestSubscriptionPrice * 12
-        let yearSubscriptionPercent = (price.value as Decimal) / priceForYear
-        let number = Int(Double(truncating: NSDecimalNumber(decimal: yearSubscriptionPercent)) * 100)
-        let saveText = NSLocalizedString("Paywall.savePercent", comment: "Save precent")
-        return "\(String(format: saveText, 100 - number))%"
     }
 
     private func showRestoreErrorAlert() {
@@ -311,13 +239,13 @@ private extension PersonalizedPaywallViewModel {
     }
 
     func trackPurchaseFinished(transaction: FinishTransactionMessage) {
-        guard let selectedProduct = selectedProduct else {
+        guard let productID = promoPaywallService.pricingExperimentSKProduct?.productIdentifier  else {
             return
         }
         trackerService.track(.purchaseFinished(context: .onboarding,
                                                result: transaction.result,
                                                message: transaction.error?.localizedDescription ?? "",
-                                               productId: selectedProduct.id,
+                                               productId: productID,
                                                type: .main,
                                                afId: analyticKeyStore.currentAppsFlyerId))
     }

@@ -16,12 +16,9 @@ struct PersonalizedPaywallScreen: View {
             ScrollView(showsIndicators: false) {
                 PersonalizedTitleView(viewData: viewModel.headerViewData)
 
-                if let promoProduct = viewModel.promoProduct {
-                    PersonalizedPromotionalOfferView(viewData: .init(
-                        duration: promoProduct.duration,
-                        price: promoProduct.price)
-                    )
-                    .padding(.bottom, Layout.promotOfferBottomPadding)
+                if let promoViewData = viewModel.promoViewData {
+                    PersonalizedPromotionalOfferView(viewData: promoViewData)
+                        .padding(.bottom, Layout.promotOfferBottomPadding)
                 }
 
                 PersonalizedChart(viewData: viewModel.input.chart)

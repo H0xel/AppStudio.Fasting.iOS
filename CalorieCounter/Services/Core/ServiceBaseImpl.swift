@@ -7,6 +7,7 @@
 
 import RxSwift
 import Dependencies
+import AppStudioServices
 
 public class ServiceBaseImpl {
     @Dependency(\.serialQueue) var serialQueue

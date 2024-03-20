@@ -10,4 +10,5 @@ import AppStudioSubscriptions
 protocol ProductProvider {
     var defaultProductIds: [String] { get }
     var productItems: [ProductCatalogItem] { get }
+    var remoteExperimentsPlans: [RemoteExperimentPlans] { get }
 }

@@ -10,13 +10,6 @@ import AppStudioFoundation
 import AppStudioSubscriptions
 
 extension DependencyValues {
-    var subscriptionService: SubscriptionService {
-        guard let subscriptionService = self[SubscriptionServiceKey.self] else {
-            fatalError("subscriptionService dependency is not registred!")
-        }
-        return subscriptionService
-    }
-
     var appStudioSubscriptionDelegate: AppStudioSubscriptionDelegate {
         self[AppStudioSubscriptionDelegateKey.self]
     }
@@ -40,11 +33,6 @@ extension DependencyValues {
 
 private enum PaywallServiceAndInitializerKey: DependencyKey {
     static var liveValue = PaywallServiceImpl()
-}
-
-enum SubscriptionServiceKey: DependencyKey {
-    static var liveValue: SubscriptionService?
-    static var previewValue: SubscriptionService? = PreviewSubscriptionService()
 }
 
 private enum AppStudioSubscriptionDelegateKey: DependencyKey {

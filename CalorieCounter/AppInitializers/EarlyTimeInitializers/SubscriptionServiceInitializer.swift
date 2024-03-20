@@ -7,6 +7,7 @@
 import AppStudioSubscriptions
 import Dependencies
 import RxSwift
+import AppStudioServices
 
 final class SubscriptionServiceInitializer: AppInitializer {
     @Dependency(\.appStudioSubscription) private var appStudioSubscription

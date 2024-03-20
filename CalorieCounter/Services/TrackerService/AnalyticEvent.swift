@@ -6,11 +6,10 @@
 //
 
 import AppStudioAnalytics
+import AppStudioServices
 
 enum AnalyticEvent: MirrorEnum {
     case launch(firstTime: Bool, afId: String?)
-    case idfaShown(afId: String?)
-    case idfaAnswered(isGranted: Bool, afId: String?)
 
     case startedExperiment(expName: String, variantId: String)
     case appliedForcedVariant(expName: String, variantId: String)
@@ -129,8 +128,6 @@ extension AnalyticEvent {
     var name: String {
         switch self {
         case .launch: return "App launched"
-        case .idfaShown: return "Idfa access dialog shown"
-        case .idfaAnswered: return "Idfa access answered"
         case .startedExperiment: return "Experiment started"
         case .appliedForcedVariant: return "Forced variant applied"
         case .tapSubscribe: return "Tap subscribe"

@@ -8,6 +8,7 @@
 import Foundation
 import Dependencies
 import RxSwift
+import AppStudioServices
 
 final class AppSyncServiceImpl: ServiceBaseImpl, AppSyncService {
     @Dependency(\.storageService) private var storageService

@@ -11,10 +11,6 @@ import AppStudioAnalytics
 import MunicornCoreData
 
 extension DependencyValues {
-    var trackerService: TrackerService {
-        self[TrackerServiceKey.self]!
-    }
-
     var coreDataService: CoreDataService {
         self[CoreDataServiceKey.self]
     }
@@ -26,10 +22,6 @@ extension DependencyValues {
 
 enum CoachApiKey: DependencyKey {
     static var liveValue: CoachApi?
-}
-
-enum TrackerServiceKey: DependencyKey {
-    static var liveValue: TrackerService?
 }
 
 private enum CoreDataServiceKey: DependencyKey {

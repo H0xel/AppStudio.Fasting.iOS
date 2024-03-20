@@ -77,9 +77,6 @@
 		56728A682B7203FC00652341 /* AvailableProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56728A672B7203FC00652341 /* AvailableProducts.swift */; };
 		56728A6A2B7207C500652341 /* RemoteProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56728A692B7207C500652341 /* RemoteProducts.swift */; };
 		56728A6C2B7207CE00652341 /* RemoteExperimentPlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56728A6B2B7207CE00652341 /* RemoteExperimentPlans.swift */; };
-		567500002ADE84B4009331CB /* MessageSubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE52ADE84B4009331CB /* MessageSubjectService.swift */; };
-		567500012ADE84B4009331CB /* MessagePublisherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE62ADE84B4009331CB /* MessagePublisherService.swift */; };
-		567500022ADE84B4009331CB /* MessengerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE72ADE84B4009331CB /* MessengerServiceImpl.swift */; };
 		567500032ADE84B4009331CB /* MigrationLaunchServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE92ADE84B4009331CB /* MigrationLaunchServiceImpl.swift */; };
 		567500042ADE84B4009331CB /* AppMigrationsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFEA2ADE84B4009331CB /* AppMigrationsProvider.swift */; };
 		567500052ADE84B4009331CB /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFEB2ADE84B4009331CB /* MigrationService.swift */; };
@@ -89,8 +86,6 @@
 		5675000B2ADE85FD009331CB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5675000A2ADE85FD009331CB /* FirebaseAnalytics */; };
 		5675000D2ADE85FD009331CB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5675000C2ADE85FD009331CB /* FirebaseCrashlytics */; };
 		5675000F2ADE85FD009331CB /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 5675000E2ADE85FD009331CB /* FirebaseRemoteConfig */; };
-		5675001E2ADE86C3009331CB /* FirstLaunchServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500112ADE86C3009331CB /* FirstLaunchServiceImpl.swift */; };
-		5675001F2ADE86C3009331CB /* FirstLaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500122ADE86C3009331CB /* FirstLaunchService.swift */; };
 		567500232ADE86C3009331CB /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500182ADE86C3009331CB /* Synchronized.swift */; };
 		567500242ADE86C3009331CB /* ServiceBaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500192ADE86C3009331CB /* ServiceBaseImpl.swift */; };
 		567500252ADE86C3009331CB /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675001A2ADE86C3009331CB /* Atomic.swift */; };
@@ -110,7 +105,6 @@
 		5675008C2ADFAA4A009331CB /* RestoreResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500832ADFAA4A009331CB /* RestoreResult.swift */; };
 		5675008F2ADFAA4A009331CB /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500872ADFAA4A009331CB /* Contacts.swift */; };
 		567500912ADFAA4A009331CB /* IntercomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500892ADFAA4A009331CB /* IntercomData.swift */; };
-		567500922ADFAA4A009331CB /* PaywallContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675008A2ADFAA4A009331CB /* PaywallContext.swift */; };
 		5675009C2ADFAB69009331CB /* SubscriptionDelegateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500942ADFAB69009331CB /* SubscriptionDelegateImpl.swift */; };
 		5675009D2ADFAB69009331CB /* PaywallServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500962ADFAB69009331CB /* PaywallServiceImpl.swift */; };
 		5675009E2ADFAB69009331CB /* ProductIdsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500972ADFAB69009331CB /* ProductIdsService.swift */; };
@@ -120,10 +114,6 @@
 		567500A42ADFAE0C009331CB /* PaywallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500A32ADFAE0C009331CB /* PaywallService.swift */; };
 		567500A62ADFAE8D009331CB /* PaywallServiceContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500A52ADFAE8D009331CB /* PaywallServiceContext.swift */; };
 		567500AF2ADFBF52009331CB /* ServicesDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500AE2ADFBF52009331CB /* ServicesDependencies.swift */; };
-		567500B62ADFC031009331CB /* IDFARequestServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500B12ADFC031009331CB /* IDFARequestServiceImpl.swift */; };
-		567500B72ADFC031009331CB /* IDFARequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500B22ADFC031009331CB /* IDFARequestService.swift */; };
-		567500B82ADFC031009331CB /* MailSenderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500B42ADFC031009331CB /* MailSenderService.swift */; };
-		567500B92ADFC031009331CB /* MailSenderServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500B52ADFC031009331CB /* MailSenderServiceImpl.swift */; };
 		567500BB2ADFC9F2009331CB /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500BA2ADFC9F2009331CB /* GlobalConstants.swift */; };
 		567500C72ADFCC54009331CB /* SyncServiceBaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500BE2ADFCC54009331CB /* SyncServiceBaseImpl.swift */; };
 		567500CA2ADFCC54009331CB /* AccountSyncServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500C32ADFCC54009331CB /* AccountSyncServiceImpl.swift */; };
@@ -151,21 +141,6 @@
 		5675010B2ADFD955009331CB /* IntercomDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567501042ADFD955009331CB /* IntercomDataStorage.swift */; };
 		5675010C2ADFD955009331CB /* IntercomDataStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567501052ADFD955009331CB /* IntercomDataStorageImpl.swift */; };
 		5675FFA82ADE7FF8009331CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFA72ADE7FF8009331CB /* AppDelegate.swift */; };
-		5675FFEF2ADE84B4009331CB /* MessengerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFD32ADE84B4009331CB /* MessengerService.swift */; };
-		5675FFF02ADE84B4009331CB /* AppInitializedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFD52ADE84B4009331CB /* AppInitializedMessage.swift */; };
-		5675FFF12ADE84B4009331CB /* MigrationFinishedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFD62ADE84B4009331CB /* MigrationFinishedMessage.swift */; };
-		5675FFF22ADE84B4009331CB /* UpdateSubscriptionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFD72ADE84B4009331CB /* UpdateSubscriptionMessage.swift */; };
-		5675FFF42ADE84B4009331CB /* MayUseStateChangedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFD92ADE84B4009331CB /* MayUseStateChangedMessage.swift */; };
-		5675FFF52ADE84B4009331CB /* UpdateIdentifiersMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFDA2ADE84B4009331CB /* UpdateIdentifiersMessage.swift */; };
-		5675FFF72ADE84B4009331CB /* AppActivationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFDC2ADE84B4009331CB /* AppActivationMessage.swift */; };
-		5675FFF82ADE84B4009331CB /* PurchaseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFDD2ADE84B4009331CB /* PurchaseMessage.swift */; };
-		5675FFF92ADE84B4009331CB /* AppStudioMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFDE2ADE84B4009331CB /* AppStudioMessage.swift */; };
-		5675FFFA2ADE84B4009331CB /* AppWillEnterForegroundMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFDF2ADE84B4009331CB /* AppWillEnterForegroundMessage.swift */; };
-		5675FFFB2ADE84B4009331CB /* FinishTransactionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE02ADE84B4009331CB /* FinishTransactionMessage.swift */; };
-		5675FFFC2ADE84B4009331CB /* RestoreSubscriptionStateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE12ADE84B4009331CB /* RestoreSubscriptionStateMessage.swift */; };
-		5675FFFD2ADE84B4009331CB /* SubscriptionStateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE22ADE84B4009331CB /* SubscriptionStateMessage.swift */; };
-		5675FFFE2ADE84B4009331CB /* WillTerminateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE32ADE84B4009331CB /* WillTerminateMessage.swift */; };
-		5675FFFF2ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFE42ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift */; };
 		5687BF972B9B3D3C00BC341B /* HealthProgressInitializer+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687BF962B9B3D3C00BC341B /* HealthProgressInitializer+extensions.swift */; };
 		56B10ABB2AF0DFF9008FC07E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56B10AB92AF0DFF9008FC07E /* Model.xcdatamodeld */; };
 		56B10ABE2AF0E0AC008FC07E /* DatabaseInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B10ABD2AF0E0AC008FC07E /* DatabaseInitializer.swift */; };
@@ -445,7 +420,6 @@
 		A7DF36832B1DE0FD009080C9 /* InActiveFastingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */; };
 		A7DF36852B1DE195009080C9 /* InActiveFastingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */; };
 		A7E0A1CA2B07418F005DA180 /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */; };
-		A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */; };
 		A7FFA7002B9F1A1100FED655 /* AppStudioServices in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFA6FF2B9F1A1100FED655 /* AppStudioServices */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 /* End PBXBuildFile section */
@@ -530,8 +504,6 @@
 		56728A672B7203FC00652341 /* AvailableProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProducts.swift; sourceTree = "<group>"; };
 		56728A692B7207C500652341 /* RemoteProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProducts.swift; sourceTree = "<group>"; };
 		56728A6B2B7207CE00652341 /* RemoteExperimentPlans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteExperimentPlans.swift; sourceTree = "<group>"; };
-		567500112ADE86C3009331CB /* FirstLaunchServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLaunchServiceImpl.swift; sourceTree = "<group>"; };
-		567500122ADE86C3009331CB /* FirstLaunchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLaunchService.swift; sourceTree = "<group>"; };
 		567500182ADE86C3009331CB /* Synchronized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronized.swift; sourceTree = "<group>"; };
 		567500192ADE86C3009331CB /* ServiceBaseImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceBaseImpl.swift; sourceTree = "<group>"; };
 		5675001A2ADE86C3009331CB /* Atomic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
@@ -550,7 +522,6 @@
 		567500832ADFAA4A009331CB /* RestoreResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreResult.swift; sourceTree = "<group>"; };
 		567500872ADFAA4A009331CB /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		567500892ADFAA4A009331CB /* IntercomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntercomData.swift; sourceTree = "<group>"; };
-		5675008A2ADFAA4A009331CB /* PaywallContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallContext.swift; sourceTree = "<group>"; };
 		567500942ADFAB69009331CB /* SubscriptionDelegateImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionDelegateImpl.swift; sourceTree = "<group>"; };
 		567500962ADFAB69009331CB /* PaywallServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallServiceImpl.swift; sourceTree = "<group>"; };
 		567500972ADFAB69009331CB /* ProductIdsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductIdsService.swift; sourceTree = "<group>"; };
@@ -560,10 +531,6 @@
 		567500A32ADFAE0C009331CB /* PaywallService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallService.swift; sourceTree = "<group>"; };
 		567500A52ADFAE8D009331CB /* PaywallServiceContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallServiceContext.swift; sourceTree = "<group>"; };
 		567500AE2ADFBF52009331CB /* ServicesDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesDependencies.swift; sourceTree = "<group>"; };
-		567500B12ADFC031009331CB /* IDFARequestServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDFARequestServiceImpl.swift; sourceTree = "<group>"; };
-		567500B22ADFC031009331CB /* IDFARequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDFARequestService.swift; sourceTree = "<group>"; };
-		567500B42ADFC031009331CB /* MailSenderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailSenderService.swift; sourceTree = "<group>"; };
-		567500B52ADFC031009331CB /* MailSenderServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailSenderServiceImpl.swift; sourceTree = "<group>"; };
 		567500BA2ADFC9F2009331CB /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		567500BE2ADFCC54009331CB /* SyncServiceBaseImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncServiceBaseImpl.swift; sourceTree = "<group>"; };
 		567500C32ADFCC54009331CB /* AccountSyncServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSyncServiceImpl.swift; sourceTree = "<group>"; };
@@ -591,24 +558,6 @@
 		567501042ADFD955009331CB /* IntercomDataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntercomDataStorage.swift; sourceTree = "<group>"; };
 		567501052ADFD955009331CB /* IntercomDataStorageImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntercomDataStorageImpl.swift; sourceTree = "<group>"; };
 		5675FFA72ADE7FF8009331CB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5675FFD32ADE84B4009331CB /* MessengerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessengerService.swift; sourceTree = "<group>"; };
-		5675FFD52ADE84B4009331CB /* AppInitializedMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInitializedMessage.swift; sourceTree = "<group>"; };
-		5675FFD62ADE84B4009331CB /* MigrationFinishedMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationFinishedMessage.swift; sourceTree = "<group>"; };
-		5675FFD72ADE84B4009331CB /* UpdateSubscriptionMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateSubscriptionMessage.swift; sourceTree = "<group>"; };
-		5675FFD92ADE84B4009331CB /* MayUseStateChangedMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MayUseStateChangedMessage.swift; sourceTree = "<group>"; };
-		5675FFDA2ADE84B4009331CB /* UpdateIdentifiersMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateIdentifiersMessage.swift; sourceTree = "<group>"; };
-		5675FFDC2ADE84B4009331CB /* AppActivationMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppActivationMessage.swift; sourceTree = "<group>"; };
-		5675FFDD2ADE84B4009331CB /* PurchaseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseMessage.swift; sourceTree = "<group>"; };
-		5675FFDE2ADE84B4009331CB /* AppStudioMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStudioMessage.swift; sourceTree = "<group>"; };
-		5675FFDF2ADE84B4009331CB /* AppWillEnterForegroundMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWillEnterForegroundMessage.swift; sourceTree = "<group>"; };
-		5675FFE02ADE84B4009331CB /* FinishTransactionMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishTransactionMessage.swift; sourceTree = "<group>"; };
-		5675FFE12ADE84B4009331CB /* RestoreSubscriptionStateMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreSubscriptionStateMessage.swift; sourceTree = "<group>"; };
-		5675FFE22ADE84B4009331CB /* SubscriptionStateMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionStateMessage.swift; sourceTree = "<group>"; };
-		5675FFE32ADE84B4009331CB /* WillTerminateMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WillTerminateMessage.swift; sourceTree = "<group>"; };
-		5675FFE42ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudStoragesUpdateRequestMessage.swift; sourceTree = "<group>"; };
-		5675FFE52ADE84B4009331CB /* MessageSubjectService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSubjectService.swift; sourceTree = "<group>"; };
-		5675FFE62ADE84B4009331CB /* MessagePublisherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePublisherService.swift; sourceTree = "<group>"; };
-		5675FFE72ADE84B4009331CB /* MessengerServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessengerServiceImpl.swift; sourceTree = "<group>"; };
 		5675FFE92ADE84B4009331CB /* MigrationLaunchServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationLaunchServiceImpl.swift; sourceTree = "<group>"; };
 		5675FFEA2ADE84B4009331CB /* AppMigrationsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMigrationsProvider.swift; sourceTree = "<group>"; };
 		5675FFEB2ADE84B4009331CB /* MigrationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
@@ -881,7 +830,6 @@
 		A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingHeader.swift; sourceTree = "<group>"; };
 		A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingListView.swift; sourceTree = "<group>"; };
 		A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
-		A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerServiceDependencies.swift; sourceTree = "<group>"; };
 		AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountIdProviderImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1173,15 +1121,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		567500102ADE86C3009331CB /* FirstLaunchService */ = {
-			isa = PBXGroup;
-			children = (
-				567500112ADE86C3009331CB /* FirstLaunchServiceImpl.swift */,
-				567500122ADE86C3009331CB /* FirstLaunchService.swift */,
-			);
-			path = FirstLaunchService;
-			sourceTree = "<group>";
-		};
 		567500172ADE86C3009331CB /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -1329,24 +1268,6 @@
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
-		567500B02ADFC031009331CB /* IDFARequestService */ = {
-			isa = PBXGroup;
-			children = (
-				567500B12ADFC031009331CB /* IDFARequestServiceImpl.swift */,
-				567500B22ADFC031009331CB /* IDFARequestService.swift */,
-			);
-			path = IDFARequestService;
-			sourceTree = "<group>";
-		};
-		567500B32ADFC031009331CB /* MailSenderService */ = {
-			isa = PBXGroup;
-			children = (
-				567500B42ADFC031009331CB /* MailSenderService.swift */,
-				567500B52ADFC031009331CB /* MailSenderServiceImpl.swift */,
-			);
-			path = MailSenderService;
-			sourceTree = "<group>";
-		};
 		567500BC2ADFCC54009331CB /* UpdaterService */ = {
 			isa = PBXGroup;
 			children = (
@@ -1439,7 +1360,6 @@
 			children = (
 				567500872ADFAA4A009331CB /* Contacts.swift */,
 				567500892ADFAA4A009331CB /* IntercomData.swift */,
-				5675008A2ADFAA4A009331CB /* PaywallContext.swift */,
 				567500832ADFAA4A009331CB /* RestoreResult.swift */,
 				567500F92ADFD8FB009331CB /* InstallationType.swift */,
 				A0255E6D2AFBCE9D00221EC6 /* Account.swift */,
@@ -1526,50 +1446,13 @@
 				567500FB2ADFD955009331CB /* Intercom */,
 				567500E52ADFD583009331CB /* BackendEnvironmentService */,
 				567500BC2ADFCC54009331CB /* UpdaterService */,
-				567500B02ADFC031009331CB /* IDFARequestService */,
-				567500B32ADFC031009331CB /* MailSenderService */,
 				567500AD2ADFBF1F009331CB /* Dependencies */,
 				567500A22ADFADFB009331CB /* PaywallService */,
 				567500932ADFAAF4009331CB /* Subscription */,
-				567500102ADE86C3009331CB /* FirstLaunchService */,
-				5675FFD22ADE84B4009331CB /* MessengerService */,
 				5675FFE82ADE84B4009331CB /* MigrationService */,
 				567500172ADE86C3009331CB /* Core */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		5675FFD22ADE84B4009331CB /* MessengerService */ = {
-			isa = PBXGroup;
-			children = (
-				5675FFD32ADE84B4009331CB /* MessengerService.swift */,
-				5675FFD42ADE84B4009331CB /* Messages */,
-				5675FFE52ADE84B4009331CB /* MessageSubjectService.swift */,
-				5675FFE62ADE84B4009331CB /* MessagePublisherService.swift */,
-				5675FFE72ADE84B4009331CB /* MessengerServiceImpl.swift */,
-			);
-			path = MessengerService;
-			sourceTree = "<group>";
-		};
-		5675FFD42ADE84B4009331CB /* Messages */ = {
-			isa = PBXGroup;
-			children = (
-				5675FFD52ADE84B4009331CB /* AppInitializedMessage.swift */,
-				5675FFD62ADE84B4009331CB /* MigrationFinishedMessage.swift */,
-				5675FFD72ADE84B4009331CB /* UpdateSubscriptionMessage.swift */,
-				5675FFD92ADE84B4009331CB /* MayUseStateChangedMessage.swift */,
-				5675FFDA2ADE84B4009331CB /* UpdateIdentifiersMessage.swift */,
-				5675FFDC2ADE84B4009331CB /* AppActivationMessage.swift */,
-				5675FFDD2ADE84B4009331CB /* PurchaseMessage.swift */,
-				5675FFDE2ADE84B4009331CB /* AppStudioMessage.swift */,
-				5675FFDF2ADE84B4009331CB /* AppWillEnterForegroundMessage.swift */,
-				5675FFE02ADE84B4009331CB /* FinishTransactionMessage.swift */,
-				5675FFE12ADE84B4009331CB /* RestoreSubscriptionStateMessage.swift */,
-				5675FFE22ADE84B4009331CB /* SubscriptionStateMessage.swift */,
-				5675FFE32ADE84B4009331CB /* WillTerminateMessage.swift */,
-				5675FFE42ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift */,
-			);
-			path = Messages;
 			sourceTree = "<group>";
 		};
 		5675FFE82ADE84B4009331CB /* MigrationService */ = {
@@ -2245,7 +2128,6 @@
 		A749A0832AE67E8F0093C377 /* TrackerService */ = {
 			isa = PBXGroup;
 			children = (
-				A7EE7D922AE923AC008F0FE7 /* TrackerServiceDependencies.swift */,
 				A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */,
 				A749A0892AE6B6430093C377 /* TrackerService+track.swift */,
 				A7A1AEA32AFE2C0A00B6211E /* Contexts.swift */,
@@ -2743,8 +2625,6 @@
 				563B8AC52B03AEFC00AF6BB7 /* FastingNotificationInfo.swift in Sources */,
 				A7DBD0922B3AB1DB003DCD10 /* QuickActionService.swift in Sources */,
 				56C28DC82AE109580007E48D /* AppCustomizationInitializer.swift in Sources */,
-				5675FFF12ADE84B4009331CB /* MigrationFinishedMessage.swift in Sources */,
-				5675FFF72ADE84B4009331CB /* AppActivationMessage.swift in Sources */,
 				567500DB2ADFCDAC009331CB /* AccountApiImpl.swift in Sources */,
 				56C7E96A2B107CE7007B5937 /* FastingLimitService.swift in Sources */,
 				A084496F2B1A86AC00D30E04 /* FastingPhaseRouter.swift in Sources */,
@@ -2752,7 +2632,6 @@
 				A7A397352B71F6A6003330C3 /* DiscountPaywallRouter.swift in Sources */,
 				56E223E22B20787400096664 /* WeightMeasure.swift in Sources */,
 				A07EAB382AFA56A200A46D7E /* EndFastingEarlyOutput.swift in Sources */,
-				5675FFF02ADE84B4009331CB /* AppInitializedMessage.swift in Sources */,
 				564BE2CB2B26E7DE00FE35C2 /* OnboardingLoadingHeaderView.swift in Sources */,
 				56E223E82B20789800096664 /* Sex.swift in Sources */,
 				A0497E912B28C36E00F21FB0 /* TrialExperiment.swift in Sources */,
@@ -2781,7 +2660,6 @@
 				56B10ABE2AF0E0AC008FC07E /* DatabaseInitializer.swift in Sources */,
 				A0CEE6282AEFE3FB0082B27F /* FastingServiceImpl.swift in Sources */,
 				56E223EF2B207E0500096664 /* OnboardingServiceImpl.swift in Sources */,
-				567500922ADFAA4A009331CB /* PaywallContext.swift in Sources */,
 				A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */,
 				A05004772B20D94100820E45 /* OnboardingDatePickerView.swift in Sources */,
 				56655B682AFCB10900508ED4 /* FastingIntervalHistoryRepository.swift in Sources */,
@@ -2792,7 +2670,6 @@
 				56E223E02B20786400096664 /* HeightMeasure.swift in Sources */,
 				A0382D472AF544D9009CC579 /* SuccessIntervalButtonView.swift in Sources */,
 				56C7E96C2B107F30007B5937 /* FastingFinishedCyclesLimitServiceImpl.swift in Sources */,
-				5675FFF42ADE84B4009331CB /* MayUseStateChangedMessage.swift in Sources */,
 				56655B6C2AFCB46000508ED4 /* FastingIntervalHistoryRepositoryImpl.swift in Sources */,
 				A7D01B5D2AF0C82100C50C1F /* OnboardingInput.swift in Sources */,
 				567500EF2ADFD6BC009331CB /* AppSettingsProviderImpl.swift in Sources */,
@@ -2838,7 +2715,6 @@
 				A0881E682AEAC32500E38FF5 /* FastingRoute.swift in Sources */,
 				A00B4DCA2B7382170067A872 /* FacebookInitializerServiceImpl.swift in Sources */,
 				5662DEC82B1614BE00C1637C /* FastingRingPointCircleView.swift in Sources */,
-				5675FFFD2ADE84B4009331CB /* SubscriptionStateMessage.swift in Sources */,
 				567500D92ADFCDAC009331CB /* SandboxApiSettingsProviderImpl.swift in Sources */,
 				567500422ADFA67E009331CB /* AccountProviderImpl.swift in Sources */,
 				A04426322AF23DC0005400AE /* Int+extensions.swift in Sources */,
@@ -2863,7 +2739,6 @@
 				56F64D812AE10EF20067FE05 /* RootViewModel.swift in Sources */,
 				A7D01B622AF0C82100C50C1F /* OnboardingViewModel.swift in Sources */,
 				56728A652B7203CE00652341 /* ProductsLoaderService.swift in Sources */,
-				5675FFF82ADE84B4009331CB /* PurchaseMessage.swift in Sources */,
 				567500032ADE84B4009331CB /* MigrationLaunchServiceImpl.swift in Sources */,
 				A78535E52AF1481900437F5E /* SnapCarousel.swift in Sources */,
 				A04272D02AE29E6F00754326 /* WithDebugMenuModifier.swift in Sources */,
@@ -2871,12 +2746,10 @@
 				A76294352B21A42500DAF93B /* PersonalizedSeparatorView.swift in Sources */,
 				A063B1FC2AEBD77000084696 /* BorderedButton.swift in Sources */,
 				A76148EF2B74C8A6002A7F95 /* DiscountPaywallTimerDependencies.swift in Sources */,
-				5675FFFB2ADE84B4009331CB /* FinishTransactionMessage.swift in Sources */,
 				A05004752B20A60700820E45 /* OnboardingPickerOption.swift in Sources */,
 				A0CEE6142AEFD0B40082B27F /* FastingStage.swift in Sources */,
 				A0382D3F2AF4F03A009CC579 /* SuccessScreen.swift in Sources */,
 				A07D95992AE9270600D2C2E2 /* AppCustomizationDependency.swift in Sources */,
-				5675FFFC2ADE84B4009331CB /* RestoreSubscriptionStateMessage.swift in Sources */,
 				A04272CE2AE28F2C00754326 /* DebugMenuActionsView.swift in Sources */,
 				56C28DC52AE109580007E48D /* SubscriptionServiceInitializer.swift in Sources */,
 				A008A8312AF14C0B0011A261 /* Animation+extensions.swift in Sources */,
@@ -2890,13 +2763,11 @@
 				A07EAB342AFA56A200A46D7E /* EndFastingEarlyInput.swift in Sources */,
 				563B8ABC2B01F6E300AF6BB7 /* FastingLocalNotificationService.swift in Sources */,
 				A0382D342AF4EAF2009CC579 /* AppTab.swift in Sources */,
-				5675001F2ADE86C3009331CB /* FirstLaunchService.swift in Sources */,
 				A0CEE6202AEFE2FD0082B27F /* InActiveFastingStage.swift in Sources */,
 				A7A397382B71F6A6003330C3 /* DiscountPaywallOutput.swift in Sources */,
 				A04272CC2AE28DF600754326 /* DebugMenuInfoView.swift in Sources */,
 				A762943B2B21A58C00DAF93B /* PersonalizedSpecialEventView.swift in Sources */,
 				56C28DCC2AE109580007E48D /* Initializers.swift in Sources */,
-				5675FFFF2ADE84B4009331CB /* CloudStoragesUpdateRequestMessage.swift in Sources */,
 				A04272C92AE28D3D00754326 /* DebugMenuScreen.swift in Sources */,
 				567500CB2ADFCC54009331CB /* AccountSyncService.swift in Sources */,
 				A7A397432B720565003330C3 /* DiscountDescriptionView.swift in Sources */,
@@ -2906,12 +2777,10 @@
 				56655B722AFCB6AB00508ED4 /* FastingHistoryServiceDependencies.swift in Sources */,
 				A095E3632B835E4C00E35B82 /* CoachStyles+extensions.swift in Sources */,
 				A7DBD0902B3AB1C7003DCD10 /* QuickActionServiceImpl.swift in Sources */,
-				A7EE7D932AE923AC008F0FE7 /* TrackerServiceDependencies.swift in Sources */,
 				A095E3672B83764900E35B82 /* CoachConstants+extensions.swift in Sources */,
 				567500912ADFAA4A009331CB /* IntercomData.swift in Sources */,
 				567500A02ADFAB69009331CB /* ProductProvider.swift in Sources */,
 				A044263A2AF240F4005400AE /* ProfileInput.swift in Sources */,
-				5675FFF52ADE84B4009331CB /* UpdateIdentifiersMessage.swift in Sources */,
 				A063B1F82AEBD0E800084696 /* StartFastingScreen.swift in Sources */,
 				A777D14A2B209ADB00B48F41 /* PersonalizedPaywallInput.swift in Sources */,
 				563B8ACF2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift in Sources */,
@@ -2923,7 +2792,6 @@
 				56C7E96E2B107F58007B5937 /* FastingLimitServiceDependencies.swift in Sources */,
 				A7C026CB2B1DB235004C3D63 /* InActiveFastingArticleInput.swift in Sources */,
 				A0CEE62E2AEFE4280082B27F /* FastingParametersServiceImpl.swift in Sources */,
-				567500B92ADFC031009331CB /* MailSenderServiceImpl.swift in Sources */,
 				56E223EA2B2078A700096664 /* FastingGoal.swift in Sources */,
 				A0CEE62F2AEFE4280082B27F /* FastingParametersDependencies.swift in Sources */,
 				A7D01B602AF0C82100C50C1F /* OnboardingScreen.swift in Sources */,
@@ -2941,12 +2809,9 @@
 				5675010B2ADFD955009331CB /* IntercomDataStorage.swift in Sources */,
 				567500DF2ADFD0AB009331CB /* ObfuscatorDepenendencies.swift in Sources */,
 				A04DBFB02AF3D2780045980F /* ForceUpdateBanner.swift in Sources */,
-				5675FFF92ADE84B4009331CB /* AppStudioMessage.swift in Sources */,
-				567500B62ADFC031009331CB /* IDFARequestServiceImpl.swift in Sources */,
 				A036CBE02B18CE28001B8AC7 /* AppearanceInitializer.swift in Sources */,
 				566C24932AE8F80B00AEDB3C /* PaywallScreenInput.swift in Sources */,
 				A7BD1CE52B7B6844009C1259 /* PersonalizedPromotionalOfferView.swift in Sources */,
-				567500B82ADFC031009331CB /* MailSenderService.swift in Sources */,
 				56B10AC02AF0E1CC008FC07E /* FastingParametersRepository.swift in Sources */,
 				A7DBD0982B3AB3C7003DCD10 /* SceneDelegate.swift in Sources */,
 				566C24992AE8F80B00AEDB3C /* PaywallCancelView.swift in Sources */,
@@ -2957,10 +2822,8 @@
 				567500DA2ADFCDAC009331CB /* ApiSettingsProviderImpl.swift in Sources */,
 				A0255E7E2AFBD23700221EC6 /* EmptyResult.swift in Sources */,
 				A72D45292B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift in Sources */,
-				5675001E2ADE86C3009331CB /* FirstLaunchServiceImpl.swift in Sources */,
 				A7DF36852B1DE195009080C9 /* InActiveFastingListView.swift in Sources */,
 				A063B1F92AEBD0E800084696 /* StartFastingOutput.swift in Sources */,
-				567500B72ADFC031009331CB /* IDFARequestService.swift in Sources */,
 				A7A397412B720412003330C3 /* DiscountTimerView.swift in Sources */,
 				567500052ADE84B4009331CB /* MigrationService.swift in Sources */,
 				56E223FC2B21973400096664 /* OnboardingLoadingViewRoute.swift in Sources */,
@@ -2979,7 +2842,6 @@
 				56728A632B7203CE00652341 /* ProductsLoaderServiceImpl.swift in Sources */,
 				A08449732B1A86AC00D30E04 /* FastingPhaseViewModel.swift in Sources */,
 				56C28DD22AE109580007E48D /* MobileDeviceDataProviderInitializer.swift in Sources */,
-				567500012ADE84B4009331CB /* MessagePublisherService.swift in Sources */,
 				A063B1F62AEBD0E800084696 /* StartFastingRouter.swift in Sources */,
 				A050046E2B2074F800820E45 /* OnboardingPreviousPageButton.swift in Sources */,
 				567500272ADE86C3009331CB /* ExecutionDispatchQueue.swift in Sources */,
@@ -3030,7 +2892,6 @@
 				A70DBE1E2B0B529F0067D7BD /* FastingTimeIntervalView.swift in Sources */,
 				5687BF972B9B3D3C00BC341B /* HealthProgressInitializer+extensions.swift in Sources */,
 				A0CEE6162AEFE2B10082B27F /* FastingPlan.swift in Sources */,
-				5675FFEF2ADE84B4009331CB /* MessengerService.swift in Sources */,
 				567500412ADFA67E009331CB /* ProvidersDependencies.swift in Sources */,
 				A70743612B21CA2500572A98 /* PersonalizedDescriptionView.swift in Sources */,
 				5662DEC32B16146800C1637C /* FastingRingSettings.swift in Sources */,
@@ -3084,11 +2945,8 @@
 				A707435F2B21B91D00572A98 /* PersonalizedTabView.swift in Sources */,
 				5662DECC2B1615DA00C1637C /* CGFloat+Extensions.swift in Sources */,
 				53D900742AE652DD00FFEB7A /* PreferencesInitializer.swift in Sources */,
-				5675FFF22ADE84B4009331CB /* UpdateSubscriptionMessage.swift in Sources */,
 				A0C8C1B02B1E0E6A00EB371C /* FastingPhaseLockedView.swift in Sources */,
-				567500022ADE84B4009331CB /* MessengerServiceImpl.swift in Sources */,
 				A008A82F2AF117540011A261 /* FastingProgressLabelView.swift in Sources */,
-				567500002ADE84B4009331CB /* MessageSubjectService.swift in Sources */,
 				564BE2C32B26E4F700FE35C2 /* OnboardingCalculationProccessParameters.swift in Sources */,
 				A78535E82AF21F0900437F5E /* FastingBackgroundModifier.swift in Sources */,
 				56C28DC92AE109580007E48D /* AppInitializerServiceDependency.swift in Sources */,
@@ -3129,10 +2987,8 @@
 				56655B622AFB693E00508ED4 /* ClosedRange+extentions.swift in Sources */,
 				5675010C2ADFD955009331CB /* IntercomDataStorageImpl.swift in Sources */,
 				566C24982AE8F80B00AEDB3C /* PaywallScreen.swift in Sources */,
-				5675FFFA2ADE84B4009331CB /* AppWillEnterForegroundMessage.swift in Sources */,
 				564BE2CF2B26E81D00FE35C2 /* OnboardingLoadingAnimationBackgroundView.swift in Sources */,
 				A04426532AF3BEDA005400AE /* ProfileButtonView.swift in Sources */,
-				5675FFFE2ADE84B4009331CB /* WillTerminateMessage.swift in Sources */,
 				A07EAB362AFA56A200A46D7E /* EndFastingEarlyRoute.swift in Sources */,
 				567501082ADFD955009331CB /* IntercomDependencies.swift in Sources */,
 				A08449772B1A87DF00D30E04 /* FastingPhaseImageView.swift in Sources */,
