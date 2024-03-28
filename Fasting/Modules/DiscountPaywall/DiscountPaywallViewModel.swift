@@ -32,6 +32,7 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
     @Dependency(\.analyticKeyStore) private var analyticKeyStore
     @Dependency(\.messengerService) private var messenger
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
+    @Dependency(\.cloudStorage) private var cloudStorage
 
     private let paywallInfo: DiscountPaywallInfo
     private let disposeBag = DisposeBag()
@@ -213,5 +214,10 @@ private extension DiscountPaywallViewModel {
                                                productId: subscription.productIdentifier,
                                                type: .main,
                                                afId: analyticKeyStore.currentAppsFlyerId))
+
+        if transaction.state == .purchased && !cloudStorage.afFirstSubscribeTracked {
+            trackerService.track(.afFirstSubscribe)
+            cloudStorage.afFirstSubscribeTracked = true
+        }
     }
 }

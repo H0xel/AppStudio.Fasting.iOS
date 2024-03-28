@@ -119,6 +119,8 @@ enum AnalyticEvent: MirrorEnum {
     // swiftlint:enable enum_case_associated_values_count
     // Quick action
     case tapNeedAssistance
+
+    case afFirstSubscribe
 }
 
 extension AnalyticEvent {
@@ -173,6 +175,7 @@ extension AnalyticEvent {
         case .specialEventAnswered: return "Special event answered"
         case .eventDateAnswered: return "Event date answered"
         case .tapNeedAssistance: return "Tap need assistance"
+        case .afFirstSubscribe: return "af_first_subscribe"
         case .tapLogPreviousFast: return "Tap log previous fast"
         case .tapUpdatePreviousFast: return "Tap update previous fast"
         case .fastingLogged: return "Fasting loged"
@@ -181,7 +184,10 @@ extension AnalyticEvent {
     }
 
     var forAppsFlyer: Bool {
-        false
+        switch self {
+        case .afFirstSubscribe: true
+        default: false
+        }
     }
 }
 

@@ -122,6 +122,8 @@ enum AnalyticEvent: MirrorEnum {
     case weightChanged(currentWeight: Double, previousWeight: Double, context: WeightChangeContext)
     case elementChosen(context: WeightChangeContext)
     case elementDeleted(context: WeightChangeContext)
+
+    case afFirstSubscribe
 }
 
 extension AnalyticEvent {
@@ -186,11 +188,15 @@ extension AnalyticEvent {
         case .weightChanged: return "Weight changed"
         case .elementChosen: return "Element chosen"
         case .elementDeleted: return "Element deleted"
+        case .afFirstSubscribe: return "af_first_subscribe"
         }
     }
 
     var forAppsFlyer: Bool {
-        false
+        switch self {
+        case .afFirstSubscribe: true
+        default: false
+        }
     }
 }
 

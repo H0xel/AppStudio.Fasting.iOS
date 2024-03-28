@@ -32,6 +32,7 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.analyticKeyStore) private var analyticKeyStore
     @Dependency(\.appCustomization) private var appCustomization
+    @Dependency(\.cloudStorage) private var cloudStorage
 
     private let context = "personalizedPaywall"
 
@@ -270,5 +271,10 @@ private extension PersonalizedPaywallViewModel {
                                                message: transaction.error?.localizedDescription ?? "",
                                                productId: selectedProduct.id,
                                                afId: analyticKeyStore.currentAppsFlyerId))
+
+        if transaction.state == .purchased && !cloudStorage.afFirstSubscribeTracked {
+            trackerService.track(.afFirstSubscribe)
+            cloudStorage.afFirstSubscribeTracked = true
+        }
     }
 }

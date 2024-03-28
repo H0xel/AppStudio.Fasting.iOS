@@ -32,6 +32,7 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.promoPaywallService) private var promoPaywallService
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
+    @Dependency(\.cloudStorage) private var cloudStorage
 
     private let context = "personalizedPaywall"
 
@@ -248,5 +249,10 @@ private extension PersonalizedPaywallViewModel {
                                                productId: productID,
                                                type: .main,
                                                afId: analyticKeyStore.currentAppsFlyerId))
+
+        if transaction.state == .purchased && !cloudStorage.afFirstSubscribeTracked {
+            trackerService.track(.afFirstSubscribe)
+            cloudStorage.afFirstSubscribeTracked = true
+        }
     }
 }

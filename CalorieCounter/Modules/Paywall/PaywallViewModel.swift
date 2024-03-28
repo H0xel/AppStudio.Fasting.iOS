@@ -12,6 +12,9 @@ import AppStudioUI
 import AppStudioNavigation
 import AppStudioSubscriptions
 import AppStudioServices
+import MunicornFoundation
+
+private let afFirstSubscribeKey = "CalorieCounter.iCloud.afFirstSubscribeKey"
 
 class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     @Published var products: [SubscriptionProduct] = []
@@ -35,6 +38,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
     @Dependency(\.analyticKeyStore) private var analyticKeyStore
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
+    @Dependency(\.cloudStorage) private var cloudStorage
 
     init(input: PaywallScreenInput, output: @escaping ViewOutput<PaywallScreenOutput>) {
         self.input = input
@@ -321,6 +325,11 @@ private extension PaywallViewModel {
                                                message: transaction.error?.localizedDescription ?? "",
                                                productId: selectedProduct.id,
                                                afId: analyticKeyStore.currentAppsFlyerId))
+
+        if transaction.state == .purchased && !cloudStorage.afFirstSubscribeTracked {
+            trackerService.track(.afFirstSubscribe)
+            cloudStorage.afFirstSubscribeTracked = true
+        }
     }
 }
 
@@ -333,5 +342,12 @@ private extension Subscription {
               pricePerWeek: localedPrice(for: .week) ?? "", 
               price: localedPrice(for: duration) ?? "",
               promotion: promotion)
+    }
+}
+
+extension CloudStorage {
+    var afFirstSubscribeTracked: Bool {
+        get { get(key: afFirstSubscribeKey, defaultValue: false) }
+        set { set(key: afFirstSubscribeKey, value: newValue) }
     }
 }
