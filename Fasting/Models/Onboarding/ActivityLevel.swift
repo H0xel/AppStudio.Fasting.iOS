@@ -24,4 +24,17 @@ enum ActivityLevel: String, CaseIterable, Identifiable, Codable {
     var descriptionTitle: String {
         NSLocalizedString("ActivityLevel.\(rawValue).description", comment: "")
     }
+
+    var waterLevel: Double {
+        switch self {
+        case .sedentary:
+            0
+        case .lightlyActive:
+            360
+        case .moderatelyActive:
+            600
+        case .veryActive:
+            720
+        }
+    }
 }

@@ -5,9 +5,10 @@
 //  Created by Руслан Сафаргалеев on 06.03.2024.
 //
 import AppStudioUI
+import Foundation
 
-typealias HealthOverviewOutputBlock = ViewOutput<HealthOverviewOutput>
+public typealias HealthOverviewOutputBlock = ViewOutput<HealthOverviewOutput>
 
-enum HealthOverviewOutput {
-    // add Output parameters here
+public enum HealthOverviewOutput {
+    case profileTapped
 }

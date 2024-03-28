@@ -9,6 +9,7 @@ import SwiftUI
 import AppStudioNavigation
 import AppStudioStyles
 import Combine
+import AppStudioModels
 
 struct FastingHealthProgressScreen: View {
 
@@ -18,38 +19,52 @@ struct FastingHealthProgressScreen: View {
         ScrollView {
             Spacer(minLength: .topSpacing)
             VStack(spacing: .spacing) {
-                VStack(spacing: .zero) {
-                    if viewModel.isBodyMassHintPresented {
-                        HealthProgressHintView(
-                            hint: .bodyMass(onLearnMore: {
-                                viewModel.presentBodyMassIndexInfo(context: "learn_more")
-                            }),
-                            onHide: viewModel.closeBodyMassIndexHint
-                        )
-                    }
-                    BodyMassIndexView(index: viewModel.bodyMassIndex,
-                                      infoTap: {
-                        viewModel.presentBodyMassIndexInfo(context: "info")
-                    })
-                }
+                viewModel.weightGoalRoute
+
                 HealthProgressBarChartView(
-                    title: .fastingChartTitle,
-                    subtitle: .fastingChartSubtitle,
-                    icon: .init(.circleInfo),
+                    widgetInput: .fasting,
                     items: viewModel.fastingChartItems,
-                    onIconTap: viewModel.presentFastingInfo
+                    output: viewModel.handleFastingWidgetOutput
+                )
+
+                HealthLinesChartView(input: .weight(with: viewModel.weightChartItems),
+                                     output: viewModel.handleWeightWidgetOutput)
+                .modifier(BottomHealthWidgetHintModifier(isHintPresented: viewModel.isWeightHintPresented,
+                                                         hint: .weight,
+                                                         onClose: viewModel.closeWeightHint,
+                                                         onLearnMore: viewModel.presentWeightInfo))
+                BodyMassIndexView(index: viewModel.bodyMassIndex) {
+                    viewModel.presentBodyMassIndexInfo(source: "info")
+                }
+                .modifier(BottomHealthWidgetHintModifier(isHintPresented: viewModel.isBodyMassHintPresented,
+                                                         hint: .bodyMass,
+                                                         onClose: viewModel.closeBodyMassIndexHint,
+                                                         onLearnMore: {
+                    viewModel.presentBodyMassIndexInfo(source: "learn_more")
+                }))
+
+                HealthProgressBarChartView(
+                    widgetInput: .water,
+                    items: viewModel.waterChartItems,
+                    output: viewModel.handleWaterWidgetOutput
                 )
             }
             .padding(.horizontal, .horizontalPadding)
+            Spacer(minLength: .bottomSpacing)
         }
         .scrollIndicators(.hidden)
         .background(Color.studioGrayFillProgress)
+        .onAppear {
+            viewModel.updateWeight()
+            viewModel.updateWater()
+        }
         .navBarButton(placement: .principal,
                       content: navigationTitle,
                       action: {})
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
         .animation(.bouncy, value: viewModel.isBodyMassHintPresented)
+        .animation(.bouncy, value: viewModel.isWeightHintPresented)
     }
 
     private var navigationTitle: some View {
@@ -63,12 +78,11 @@ private extension CGFloat {
     static let topSpacing: CGFloat = 16
     static let horizontalPadding: CGFloat = 16
     static let spacing: CGFloat = 8
+    static let bottomSpacing: CGFloat = 48
 }
 
 private extension String {
     static let navigationTitle = "FastingHealthProgressScreen.title".localized(bundle: .module)
-    static let fastingChartTitle = "FastingHealthProgressScreen.fastingTitle".localized(bundle: .module)
-    static let fastingChartSubtitle = "FastingHealthProgressScreen.fastingSubtitle".localized(bundle: .module)
 }
 
 // MARK: - Localization
@@ -83,7 +97,8 @@ struct HealthProgressScreen_Previews: PreviewProvider {
         FastingHealthProgressScreen(
             viewModel: HealthProgressViewModel(
                 inputPublisher: Just(FastingHealthProgressInput(
-                    bodyMassIndex: 22.3,
+                    bodyMassIndex: 22.3, 
+                    weightUnits: .kg,
                     fastingChartItems: HealthProgressBarChartItem.mock
                 )).eraseToAnyPublisher(),
                 output: { _ in }

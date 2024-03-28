@@ -77,6 +77,11 @@ struct ProfileScreen: View {
                       content: Text(Localization.navBarTitle).font(.poppins(.buttonText)),
                       action: {})
     }
+
+    private var closeButton: some View {
+        Image.close
+            .foregroundStyle(Color.studioBlackLight)
+    }
 }
 
 private extension CGFloat {

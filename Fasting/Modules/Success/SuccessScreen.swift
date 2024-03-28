@@ -78,7 +78,8 @@ struct SuccessScreen_Previews: PreviewProvider {
                 viewModel: SuccessViewModel(
                     input: SuccessInput(plan: .beginner,
                                         startDate: .now.adding(.hour, value: -3),
-                                        endDate: .now),
+                                        endDate: .now,
+                                        isEmpty: false),
                     output: { _ in }
                 )
             )

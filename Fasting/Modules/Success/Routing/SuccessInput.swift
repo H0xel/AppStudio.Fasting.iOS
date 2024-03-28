@@ -11,4 +11,5 @@ struct SuccessInput {
     let plan: FastingPlan
     let startDate: Date
     let endDate: Date
+    let isEmpty: Bool
 }

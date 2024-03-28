@@ -8,6 +8,5 @@
 import Dependencies
 import MunicornFoundation
 import AppStudioAnalytics
-import MunicornCoreData
 
 extension DependencyValues {}

@@ -46,6 +46,10 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
         trackTapSupport()
     }
 
+    func close() {
+        router.dismiss()
+    }
+
     private func subscribeToFastingPlan() {
         fastingParametersService.fastingIntervalPublisher
             .map(\.plan)

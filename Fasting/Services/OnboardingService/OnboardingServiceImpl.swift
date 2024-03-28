@@ -7,13 +7,45 @@
 
 import Foundation
 import Dependencies
+import AICoach
+import WeightWidget
+import WeightGoalWidget
+import WaterCounter
 
 private let onboardingDataKey = "Fasting.OnboardingDataKey"
 private let onboardingCalculatedDataKey = "Fasting.OnboardingCalculatedDataKey"
 
-class OnboardingServiceImpl: OnboardingService {
+class OnboardingServiceImpl: OnboardingService, WaterIntakeService {
+    var waterUnits: WaterCounter.WaterUnits? {
+        guard let data else {
+            return nil
+        }
+
+        switch data.weight.units {
+        case .kg:
+            return .liters
+        case .lb:
+            return .ounces
+        }
+    }
+
+    var waterIntake: Double? {
+        guard let data = calculatedData else {
+            return nil
+        }
+
+        if data.waterIntake == nil {
+            // calculate WaterIntake again for old users
+            calculate()
+            return calculatedData?.waterIntake
+        }
+        return data.waterIntake
+    }
 
     @Dependency(\.cloudStorage) private var cloudStorage
+    @Dependency(\.coachService) private var coachService
+    @Dependency(\.weightService) private var weightService
+    @Dependency(\.weightGoalService) private var weightGoalService
 
     var data: OnboardingData? {
         get {
@@ -84,7 +116,24 @@ class OnboardingServiceImpl: OnboardingService {
 
     func save(data: OnboardingData) {
         self.data = data
+        saveDataInWidgets(data: data)
         calculate()
+    }
+
+    private func saveDataInWidgets(data: OnboardingData) {
+        coachService.updateUserData(data.aiCoachUserData)
+        Task {
+            let weightHistory = WeightHistory(scaleWeightValue: data.weight.value,
+                                              trueWeightValue: 0,
+                                              weightUnits: data.weight.units,
+                                              historyDate: .now)
+            let savedHistory = try await weightService.save(history: weightHistory)
+
+            let weightGoal = WeightGoal(goal: data.desiredWeight.value,
+                                        start: savedHistory.trueWeightValue,
+                                        weightUnit: data.desiredWeight.units)
+            _ = try await weightGoalService.save(weightGoal)
+        }
     }
 
     private func calculate() {
@@ -108,12 +157,16 @@ class OnboardingServiceImpl: OnboardingService {
         let bullets = paywallBullets(dropWeight: eventDropWeightMeasure)
         let fromAges = fromAgesTitle(birthday: data.birthdayDate)
 
+        let baseWaterIntake = data.weight.normalizeValue / 0.03
+        let waterIntake = baseWaterIntake + data.activityLevel.waterLevel
+
         calculatedData = OnboardingCalculatedData(
             specialEventWeight: specialEventWeight,
             desiredWeightDate: dropWeightDate,
             paywallTitle: paywallTitle,
             paywallBullets: bullets,
-            fromAgesTitle: fromAges
+            fromAgesTitle: fromAges,
+            waterIntake: waterIntake
         )
     }
 
@@ -160,5 +213,15 @@ class OnboardingServiceImpl: OnboardingService {
                                       comment: "Reach your dream weight of 52 kg by February 14")
 
         return String(format: title, data.desiredWeight.valueWithUnits, desiredWeightDate.localeShortDateString)
+    }
+}
+
+private extension OnboardingData {
+    var aiCoachUserData: AICoachUserData {
+        .init(currentWeight: weight.valueWithUnits,
+              goalWeight: desiredWeight.valueWithUnits,
+              height: height.valueWithUnits,
+              dateOfBirth: birthdayDate,
+              sex: sex.rawValue)
     }
 }

@@ -17,13 +17,14 @@ class SuccessViewModel: BaseViewModel<SuccessOutput> {
     @Published private var plan: FastingPlan
     @Published private var startDate: Date
     @Published private var endDate: Date
-
+    private let isEmpty: Bool
     var router: SuccessRouter!
 
     init(input: SuccessInput, output: @escaping SuccessOutputBlock) {
         plan = input.plan
         startDate = input.startDate
         endDate = input.endDate
+        isEmpty = input.isEmpty
         super.init(output: output)
     }
 
@@ -41,6 +42,9 @@ class SuccessViewModel: BaseViewModel<SuccessOutput> {
     }
 
     var resultTitle: String {
+        if isEmpty {
+            return "SuccessScreen.logFast".localized()
+        }
         if fastingInterval < plan.duration {
             return NSLocalizedString("SuccessScreen.striveForProgress", comment: "")
         }
@@ -83,7 +87,7 @@ class SuccessViewModel: BaseViewModel<SuccessOutput> {
         let input = StartFastingInput.startFasting(context: .endFasting,
                                                    isActiveState: true,
                                                    initialDate: startDate,
-                                                   minDate: .now.adding(.day, value: -2),
+                                                   minDate: startDate.adding(.day, value: -2),
                                                    maxDate: endDate,
                                                    components: [.date, .hourAndMinute])
         router.presentEditFastingTime(input: input) { [weak self] event in

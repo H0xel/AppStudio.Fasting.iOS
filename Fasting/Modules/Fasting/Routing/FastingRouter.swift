@@ -10,6 +10,23 @@ import AppStudioNavigation
 import AppStudioUI
 
 class FastingRouter: BaseRouter {
+
+    var isWidgetPresented = true
+    private let fastingWidgetNavigator: Navigator
+
+    init(navigator: Navigator, fastingWidgetNavigator: Navigator) {
+        self.fastingWidgetNavigator = fastingWidgetNavigator
+        super.init(navigator: navigator)
+    }
+
+    func dismiss() {
+        currentNavigator.dismiss()
+    }
+
+    func dismiss() async {
+        await currentNavigator.dismiss()
+    }
+
     func presentStartFastingDialog(isActiveState: Bool,
                                    initialDate: Date,
                                    minDate: Date,
@@ -22,51 +39,60 @@ class FastingRouter: BaseRouter {
                                                    maxDate: maxDate,
                                                    components: [.hourAndMinute, .date])
 
-        let route = StartFastingRoute(navigator: navigator, input: input) { event in
+        let route = StartFastingRoute(navigator: currentNavigator, input: input) { event in
             switch event {
             case .save(let date):
                 onSave(date)
             }
         }
-        present(sheet: route, detents: [.height(484)])
+        currentNavigator.present(sheet: route, detents: [.height(484)], showIndicator: false)
     }
 
     func presentSuccess(plan: FastingPlan, startDate: Date, endDate: Date, output: @escaping SuccessOutputBlock) {
-        let route = SuccessRoute(navigator: navigator,
-                                 input: .init(plan: plan, startDate: startDate, endDate: endDate),
+        let route = SuccessRoute(navigator: currentNavigator,
+                                 input: .init(plan: plan, startDate: startDate, endDate: endDate, isEmpty: false),
                                  output: output)
-        present(route: route)
+        currentNavigator.present(route: route)
     }
 
     func presentEndFastingEarly(output: @escaping EndFastingEarlyOutputBlock) {
-        let route = EndFastingEarlyRoute(navigator: navigator, input: .init(), output: output)
-        present(sheet: route, detents: [.height(549)])
+        let route = EndFastingEarlyRoute(navigator: currentNavigator, input: .init(), output: output)
+        currentNavigator.present(sheet: route, detents: [.height(549)], showIndicator: false)
     }
 
     func presentPaywall(output: @escaping ViewOutput<PaywallScreenOutput>) {
-        let route = PaywallRoute(navigator: navigator,
+        let route = PaywallRoute(navigator: currentNavigator,
                                  input: .freeUsageLimit,
                                  output: output)
-        present(route: route)
+        currentNavigator.present(route: route)
     }
 
-    func presentSetupFasting(plan: FastingPlan) {
-        let route = SetupFastingRoute(navigator: navigator, input: .init(plan: plan, context: .mainScreen)) { event in
+    func presentSetupFasting(plan: FastingPlan, context: SetupFastingInput.Context) {
+        let route = SetupFastingRoute(
+            navigator: currentNavigator,
+            input: .init(plan: plan, context: context)
+        ) { event in
             switch event {
             case .onboardingIsFinished: break
             }
         }
-        present(route: route)
+        currentNavigator.present(route: route)
     }
 
     func presentInActiveFastingArticle(_ stage: FastingInActiveArticle) {
-        let route = InActiveFastingArticleRoute(navigator: navigator,
-                                                input: .init(fastingInActiveStage: stage)) { _ in }
-        present(route: route)
+        let route = InActiveFastingArticleRoute(
+            navigator: currentNavigator,
+            input: .init(fastingInActiveStage: stage)
+        ) { _ in }
+        currentNavigator.present(route: route)
     }
 
     func presentArticle(for stage: FastingStage) {
-        let route = FastingPhaseRoute(navigator: navigator, input: .init(stage: stage), output: { _ in })
-        present(route: route)
+        let route = FastingPhaseRoute(navigator: currentNavigator, input: .init(stage: stage), output: { _ in })
+        currentNavigator.present(route: route)
+    }
+
+    private var currentNavigator: Navigator {
+        isWidgetPresented ? fastingWidgetNavigator : navigator
     }
 }

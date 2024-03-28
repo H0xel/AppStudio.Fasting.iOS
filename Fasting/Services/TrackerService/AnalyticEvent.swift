@@ -76,7 +76,11 @@ enum AnalyticEvent: MirrorEnum {
     case tapSupport
 
     // Fasting cycle
-    case tapStartFasting(currentTime: String, startTime: String, timeUntilFast: String, schedule: String)
+    case tapStartFasting(currentTime: String,
+                         startTime: String,
+                         timeUntilFast: String,
+                         schedule: String,
+                         context: String)
     case tapSaveStartFasting(currentTime: String, startTime: String)
     case tapCancelStartFasting
     case fastingStarted(currentTime: String, startTime: String, schedule: String)
@@ -88,13 +92,31 @@ enum AnalyticEvent: MirrorEnum {
                                  context: StartFastingInput.Context)
     case tapChangeFastingEndTime
     case fastingEndTimeChanged(oldEndTime: String, newStartTime: String)
-    case tapSchedule(currentSchedule: String)
-    case tapEndFasting(timeFasted: String, startTime: String, currentTime: String, schedule: String)
+    case tapSchedule(currentSchedule: String, context: String)
+    case tapEndFasting(timeFasted: String,
+                       startTime: String,
+                       currentTime: String,
+                       schedule: String,
+                       context: String)
     case fastingFinished(timeFasted: String, startTime: String, currentTime: String, schedule: String)
     case dontGiveUpScreenShown
     case tapCancelFasting(context: CancelFastingContext)
     case tapEndFastingEarly
 
+    case tapLogPreviousFast(date: String)
+    case tapUpdatePreviousFast(date: String)
+    case fastingLogged(timeFasted: String, startTime: String, endTime: String, schedule: String)
+    // swiftlint:disable enum_case_associated_values_count
+    case fastingUpdated(
+        newTimeFasted: String,
+        newStartTime: String,
+        newEndTime: String,
+        oldTimeFasted: String,
+        oldStartTime: String,
+        oldEndTime: String,
+        schedule: String
+    )
+    // swiftlint:enable enum_case_associated_values_count
     // Quick action
     case tapNeedAssistance
 }
@@ -151,6 +173,10 @@ extension AnalyticEvent {
         case .specialEventAnswered: return "Special event answered"
         case .eventDateAnswered: return "Event date answered"
         case .tapNeedAssistance: return "Tap need assistance"
+        case .tapLogPreviousFast: return "Tap log previous fast"
+        case .tapUpdatePreviousFast: return "Tap update previous fast"
+        case .fastingLogged: return "Fasting loged"
+        case .fastingUpdated: return "Fasting updated"
         }
     }
 

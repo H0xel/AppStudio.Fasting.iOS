@@ -7,7 +7,12 @@
 
 import Dependencies
 import AICoach
+import HealthOverview
 import HealthProgress
+import WaterCounter
+import FastingWidget
+import WeightWidget
+import WeightGoalWidget
 
 final class EarlyTimeInitializers: Initializers {
 
@@ -18,6 +23,9 @@ final class EarlyTimeInitializers: Initializers {
         [
             DatabaseInitializer(),
             AICoachDatabaseInitializer(),
+            WaterCounterDatabaseInitializer(),
+            WeightWidgetDatabaseInitializer(),
+            WeightGoalWidgetDatabaseInitializer(),
             PreferencesInitializer(),
             FirebaseInitializer(),
             CrashlyticsInitializer(),
@@ -32,7 +40,10 @@ final class EarlyTimeInitializers: Initializers {
             AppearanceInitializer(),
             QuickActionInitializer(),
             AICoachInitializer(),
-            HealthProgressInitializer()
+            HealthOveviewInitializer(),
+            HealthProgressInitializer(),
+            FastingWidgetInitializer(),
+            WaterCounterInitializer()
         ]
     }
 }

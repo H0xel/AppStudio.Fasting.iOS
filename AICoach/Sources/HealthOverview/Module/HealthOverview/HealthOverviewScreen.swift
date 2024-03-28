@@ -8,32 +8,82 @@
 import SwiftUI
 import AppStudioNavigation
 import AppStudioStyles
+import Combine
+import WaterCounter
+import FastingWidget
+import WeightWidget
+
+private let scrollTriggerId = "scrollTriggerId"
 
 struct HealthOverviewScreen: View {
+
     @StateObject var viewModel: HealthOverviewViewModel
 
     var body: some View {
-        ScrollView {
-            Spacer(minLength: .verticalSpacing)
-            FastingWidgetView(state: .mockInActive)
-            Spacer(minLength: .verticalSpacing)
+        VStack(spacing: .zero) {
+            CalendarProgressView(viewModel: viewModel.calendarViewModel,
+                                 style: .fastingHealthOverview)
+            .padding(.top, .calendarTopPadding)
+            .padding(.bottom, .calendarBottomPadding)
+            .background(.white)
+            SwipeDaysView(viewModel: viewModel.swipeDaysViewModel) { day in
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        Spacer(minLength: .verticalSpacing)
+                            .id(scrollTriggerId)
+                        VStack(spacing: .spacing) {
+                            FastingWidgetView(day: day,
+                                              viewModel: viewModel.fastingWidgetViewModel)
+                            WaterCounterWidget(date: day,
+                                               viewModel: viewModel.waterCounterViewModel)
+
+                            WeightWidgetRoute(date: day,
+                                              viewModel: viewModel.weightWidgetViewModel)
+                        }
+                        Spacer(minLength: .verticalSpacing)
+                    }
+                    .scrollIndicators(.hidden)
+                    .padding(.horizontal, .horizontalPadding)
+                    .onChange(of: viewModel.currentDay) { value in
+                        proxy.scrollTo(scrollTriggerId)
+                    }
+                }
+            }
         }
-        .scrollIndicators(.hidden)
-        .padding(.horizontal, .horizontalPadding)
         .background(Color.studioGreyFillProgress)
+        .navBarButton(placement: .principal,
+                      content: DateNavigationView(date: $viewModel.currentDay,
+                                                  dateFormat: "MMMdd",
+                                                  onPrevDayTap: viewModel.trackPrevDay,
+                                                  onNextDayTap: viewModel.trackNextDay),
+                      action: viewModel.scrollToToday)
+        .navBarButton(content: Image.personFill.foregroundStyle(Color.studioBlackLight),
+                      action: viewModel.presentProfile)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 private extension CGFloat {
     static let horizontalPadding: CGFloat = 16
     static let verticalSpacing: CGFloat = 16
+    static let calendarTopPadding: CGFloat = 8
+    static let calendarBottomPadding: CGFloat = 16
+    static let spacing: CGFloat = 8
 }
 
 struct HealthOverviewScreen_Previews: PreviewProvider {
     static var previews: some View {
         HealthOverviewScreen(
             viewModel: HealthOverviewViewModel(
-                input: HealthOverviewInput(),
+                router: .init(navigator: .init()),
+                input: .init(
+                    fastingWidget: .init(
+                        input: .init(fastingStatePublisher: Just(.mockActive).eraseToAnyPublisher()
+                                    ),
+                        output: { _ in }
+                    ), 
+                    weightUnits: .kg
+                ),
                 output: { _ in }
             )
         )

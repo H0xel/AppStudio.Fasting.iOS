@@ -11,13 +11,14 @@ import Dependencies
 import AICoach
 import HealthProgress
 import Combine
+import HealthOverview
 
 class RootRouter: BaseRouter {
     @Dependency(\.paywallService) private var paywallService
     @Dependency(\.openURL) private var openURL
 
-    private let fastingNavigator = Navigator()
-    private let profileNavigator = Navigator()
+    let fastingNavigator = Navigator()
+    let healthOverviewNavigator = Navigator()
     private let paywallNavigator = Navigator()
     private let coachNavigator = Navigator()
     private let onboardingNavigator = Navigator()
@@ -27,21 +28,9 @@ class RootRouter: BaseRouter {
         super.init(navigator: navigator)
     }
 
-    func fastingScreen(output: @escaping FastingOutputBlock) -> some View {
-        let route = FastingRoute(navigator: fastingNavigator,
-                                 input: .init(),
-                                 output: output)
-        return fastingNavigator.initialize(route: route)
+    var fastingScreen: some View {
+        fastingNavigator.rootRoute?.view
     }
-
-    lazy var profileScreen: some View = {
-        let route = ProfileRoute(
-            navigator: profileNavigator,
-            input: .init(),
-            output: { _ in }
-        )
-        return profileNavigator.initialize(route: route)
-    }()
 
     func healthProgressScreen(
         inputPublisher: AnyPublisher<FastingHealthProgressInput, Never>,
@@ -63,6 +52,14 @@ class RootRouter: BaseRouter {
             }
         }
         return paywallNavigator.initialize(route: route)
+    }
+
+    func healthOverviewScreen(input: HealthOverviewInput,
+                              output: @escaping HealthOverviewOutputBlock) -> some View {
+        let route = HealthOverviewRoute(navigator: healthOverviewNavigator,
+                                        input: input,
+                                        output: output)
+        return healthOverviewNavigator.initialize(route: route)
     }
 
     func coachScreen(nextMessagePublisher: AnyPublisher<String, Never>) -> some View {
@@ -102,6 +99,20 @@ class RootRouter: BaseRouter {
             self?.dismiss()
         }
         present(route: route)
+    }
+
+    func presentProfile() {
+        let route = ProfileRoute(navigator: healthOverviewNavigator,
+                                 input: .init(),
+                                 output: { _ in })
+        healthOverviewNavigator.present(route: route)
+    }
+
+    func presentSuccess(input: SuccessInput, output: @escaping SuccessOutputBlock) {
+        let route = SuccessRoute(navigator: healthOverviewNavigator,
+                                 input: input,
+                                 output: output)
+        healthOverviewNavigator.present(route: route)
     }
 
     private func sendEmailWithOpenUrl() {

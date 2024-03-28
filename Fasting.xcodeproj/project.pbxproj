@@ -142,6 +142,8 @@
 		5675010C2ADFD955009331CB /* IntercomDataStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567501052ADFD955009331CB /* IntercomDataStorageImpl.swift */; };
 		5675FFA82ADE7FF8009331CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFA72ADE7FF8009331CB /* AppDelegate.swift */; };
 		5687BF972B9B3D3C00BC341B /* HealthProgressInitializer+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687BF962B9B3D3C00BC341B /* HealthProgressInitializer+extensions.swift */; };
+		568E69762BA1973C003DECAF /* WaterCounter in Frameworks */ = {isa = PBXBuildFile; productRef = 568E69752BA1973C003DECAF /* WaterCounter */; };
+		568E69782BA19799003DECAF /* WaterCounterInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E69772BA19799003DECAF /* WaterCounterInitializer.swift */; };
 		56B10ABB2AF0DFF9008FC07E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56B10AB92AF0DFF9008FC07E /* Model.xcdatamodeld */; };
 		56B10ABE2AF0E0AC008FC07E /* DatabaseInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B10ABD2AF0E0AC008FC07E /* DatabaseInitializer.swift */; };
 		56B10AC02AF0E1CC008FC07E /* FastingParametersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B10ABF2AF0E1CC008FC07E /* FastingParametersRepository.swift */; };
@@ -173,7 +175,6 @@
 		56E223E02B20786400096664 /* HeightMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E223DF2B20786400096664 /* HeightMeasure.swift */; };
 		56E223E22B20787400096664 /* WeightMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E223E12B20787400096664 /* WeightMeasure.swift */; };
 		56E223E42B20788000096664 /* HeightUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E223E32B20788000096664 /* HeightUnit.swift */; };
-		56E223E62B20788C00096664 /* WeightUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E223E52B20788C00096664 /* WeightUnit.swift */; };
 		56E223E82B20789800096664 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E223E72B20789800096664 /* Sex.swift */; };
 		56E223EA2B2078A700096664 /* FastingGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E223E92B2078A700096664 /* FastingGoal.swift */; };
 		56E223ED2B2079B400096664 /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E223EC2B2079B400096664 /* OnboardingService.swift */; };
@@ -192,6 +193,8 @@
 		56F64D802AE10EF20067FE05 /* RootOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D7A2AE10EF20067FE05 /* RootOutput.swift */; };
 		56F64D812AE10EF20067FE05 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */; };
 		A0006CD62B98BFE40091EB3B /* HealthOverview in Frameworks */ = {isa = PBXBuildFile; productRef = A0006CD52B98BFE40091EB3B /* HealthOverview */; };
+		A00603192BA30F0B0011FF75 /* FastingWidgetInitializer+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00603182BA30F0B0011FF75 /* FastingWidgetInitializer+extensions.swift */; };
+		A006031B2BA3159C0011FF75 /* FastingWidget in Frameworks */ = {isa = PBXBuildFile; productRef = A006031A2BA3159C0011FF75 /* FastingWidget */; };
 		A008A82F2AF117540011A261 /* FastingProgressLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008A82E2AF117540011A261 /* FastingProgressLabelView.swift */; };
 		A008A8312AF14C0B0011A261 /* Animation+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008A8302AF14C0B0011A261 /* Animation+extensions.swift */; };
 		A00A73482B9631790038A001 /* HealthProgress in Frameworks */ = {isa = PBXBuildFile; productRef = A00A73472B9631790038A001 /* HealthProgress */; };
@@ -202,8 +205,10 @@
 		A00B4DC82B7382170067A872 /* FacebookInitializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC52B7382170067A872 /* FacebookInitializerService.swift */; };
 		A00B4DC92B7382170067A872 /* FacebookInitializerDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC62B7382170067A872 /* FacebookInitializerDependencies.swift */; };
 		A00B4DCA2B7382170067A872 /* FacebookInitializerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC72B7382170067A872 /* FacebookInitializerServiceImpl.swift */; };
-		A0178F502B91CB8C00069BEA /* AppStudioStyles in Frameworks */ = {isa = PBXBuildFile; productRef = A0178F4F2B91CB8C00069BEA /* AppStudioStyles */; };
+		A0159BE72BA32C4000CEB32E /* WeightWidget in Frameworks */ = {isa = PBXBuildFile; productRef = A0159BE62BA32C4000CEB32E /* WeightWidget */; };
 		A0178F522B91CBC800069BEA /* AICoach in Frameworks */ = {isa = PBXBuildFile; productRef = A0178F512B91CBC800069BEA /* AICoach */; };
+		A02156002BA05450004DF16C /* CalendarProgressServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02155FF2BA05450004DF16C /* CalendarProgressServiceImpl.swift */; };
+		A02156022BA054C2004DF16C /* CalendarProgressServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02156012BA054C2004DF16C /* CalendarProgressServiceDependencies.swift */; };
 		A0255E6C2AFBAA9A00221EC6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A0255E6B2AFBAA9A00221EC6 /* Moya */; };
 		A0255E6E2AFBCE9D00221EC6 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E6D2AFBCE9D00221EC6 /* Account.swift */; };
 		A0255E702AFBD00200221EC6 /* AccountTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E6F2AFBD00200221EC6 /* AccountTarget.swift */; };
@@ -223,6 +228,8 @@
 		A02787542AEADC5200844246 /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02787532AEADC5200844246 /* AccentButton.swift */; };
 		A02787572AEAE4E700844246 /* FastingIntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02787562AEAE4E700844246 /* FastingIntervalView.swift */; };
 		A02787592AEAE4FB00844246 /* FastingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02787582AEAE4FB00844246 /* FastingTimeView.swift */; };
+		A02FC4752B9F381B00019039 /* HealthOverviewInitializer+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FC4742B9F381B00019039 /* HealthOverviewInitializer+extensions.swift */; };
+		A02FC4772B9F386800019039 /* FastingProgressServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FC4762B9F386800019039 /* FastingProgressServiceDependencies.swift */; };
 		A034F1372B88B9640066F724 /* CoachApiImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A034F1362B88B9640066F724 /* CoachApiImpl.swift */; };
 		A034F1392B88B9AC0066F724 /* CoachApiTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A034F1382B88B9AC0066F724 /* CoachApiTarget.swift */; };
 		A036CBE02B18CE28001B8AC7 /* AppearanceInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CBDF2B18CE28001B8AC7 /* AppearanceInitializer.swift */; };
@@ -235,6 +242,7 @@
 		A0382D412AF4F03A009CC579 /* SuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0382D3B2AF4F03A009CC579 /* SuccessViewModel.swift */; };
 		A0382D452AF544AA009CC579 /* SuccessIntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0382D442AF544AA009CC579 /* SuccessIntervalView.swift */; };
 		A0382D472AF544D9009CC579 /* SuccessIntervalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0382D462AF544D9009CC579 /* SuccessIntervalButtonView.swift */; };
+		A04253DC2BA1EBAE00F1007A /* AppStudioModels in Frameworks */ = {isa = PBXBuildFile; productRef = A04253DB2BA1EBAE00F1007A /* AppStudioModels */; };
 		A04272C92AE28D3D00754326 /* DebugMenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272C82AE28D3D00754326 /* DebugMenuScreen.swift */; };
 		A04272CC2AE28DF600754326 /* DebugMenuInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */; };
 		A04272CE2AE28F2C00754326 /* DebugMenuActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CD2AE28F2C00754326 /* DebugMenuActionsView.swift */; };
@@ -260,7 +268,6 @@
 		A05004752B20A60700820E45 /* OnboardingPickerOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05004742B20A60700820E45 /* OnboardingPickerOption.swift */; };
 		A05004772B20D94100820E45 /* OnboardingDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05004762B20D94100820E45 /* OnboardingDatePickerView.swift */; };
 		A05004792B20FCEA00820E45 /* OnboardingSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05004782B20FCEA00820E45 /* OnboardingSegmentedView.swift */; };
-		A05CE23F2B9795D000BC45FB /* Date+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05CE23E2B9795D000BC45FB /* Date+extensions.swift */; };
 		A063B1F52AEBD0E800084696 /* StartFastingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */; };
 		A063B1F62AEBD0E800084696 /* StartFastingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F02AEBD0E800084696 /* StartFastingRouter.swift */; };
 		A063B1F72AEBD0E800084696 /* StartFastingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F12AEBD0E800084696 /* StartFastingRoute.swift */; };
@@ -269,6 +276,7 @@
 		A063B1FA2AEBD0E800084696 /* StartFastingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F42AEBD0E800084696 /* StartFastingViewModel.swift */; };
 		A063B1FC2AEBD77000084696 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1FB2AEBD77000084696 /* BorderedButton.swift */; };
 		A063B1FE2AEC1E2E00084696 /* FastingStagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1FD2AEC1E2E00084696 /* FastingStagesView.swift */; };
+		A063F0F32BADD58F005B50D3 /* WeightGoalWidget in Frameworks */ = {isa = PBXBuildFile; productRef = A063F0F22BADD58F005B50D3 /* WeightGoalWidget */; };
 		A07D95902AE9202500D2C2E2 /* AppCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D958F2AE9202500D2C2E2 /* AppCustomization.swift */; };
 		A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95942AE920A100D2C2E2 /* AppCustomizationImpl.swift */; };
 		A07D95992AE9270600D2C2E2 /* AppCustomizationDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D95982AE9270600D2C2E2 /* AppCustomizationDependency.swift */; };
@@ -299,6 +307,7 @@
 		A0881E722AEAD19000E38FF5 /* Font+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0881E712AEAD19000E38FF5 /* Font+extensions.swift */; };
 		A095E3632B835E4C00E35B82 /* CoachStyles+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A095E3622B835E4C00E35B82 /* CoachStyles+extensions.swift */; };
 		A095E3672B83764900E35B82 /* CoachConstants+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A095E3662B83764900E35B82 /* CoachConstants+extensions.swift */; };
+		A0C16DE92BB2DD3200D64B4C /* AppStudioServices in Frameworks */ = {isa = PBXBuildFile; productRef = A0C16DE82BB2DD3200D64B4C /* AppStudioServices */; };
 		A0C8C1A82B1DD58500EB371C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8C1A72B1DD58500EB371C /* Article.swift */; };
 		A0C8C1AC2B1DD66000EB371C /* FastingPhaseArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8C1AB2B1DD66000EB371C /* FastingPhaseArticleView.swift */; };
 		A0C8C1AE2B1DDB9D00EB371C /* FastingPhaseArticleParagraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8C1AD2B1DDB9D00EB371C /* FastingPhaseArticleParagraphView.swift */; };
@@ -318,7 +327,11 @@
 		A0CEE62E2AEFE4280082B27F /* FastingParametersServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE62B2AEFE4280082B27F /* FastingParametersServiceImpl.swift */; };
 		A0CEE62F2AEFE4280082B27F /* FastingParametersDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE62C2AEFE4280082B27F /* FastingParametersDependencies.swift */; };
 		A0CEE6302AEFE4280082B27F /* FastingParametersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */; };
+		A0CFE9E12BADE67B00DC1819 /* WeightGoalWidgetDatabaseInitializer+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFE9E02BADE67B00DC1819 /* WeightGoalWidgetDatabaseInitializer+extensions.swift */; };
+		A0DAAF762BA320F500BDE42D /* AppStudioStyles in Frameworks */ = {isa = PBXBuildFile; productRef = A0DAAF752BA320F500BDE42D /* AppStudioStyles */; };
 		A0DCCE452B7E7135001265BC /* TopBorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DCCE442B7E7135001265BC /* TopBorderModifier.swift */; };
+		A0F093B62B9B531800A91EFB /* FastingWidgetServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F093B52B9B531800A91EFB /* FastingWidgetServiceImpl.swift */; };
+		A0F90D712BA4AF760019C5D7 /* WeightWidgetDatabaseInitializer+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F90D702BA4AF760019C5D7 /* WeightWidgetDatabaseInitializer+extensions.swift */; };
 		A707435F2B21B91D00572A98 /* PersonalizedTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A707435E2B21B91D00572A98 /* PersonalizedTabView.swift */; };
 		A70743612B21CA2500572A98 /* PersonalizedDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70743602B21CA2500572A98 /* PersonalizedDescriptionView.swift */; };
 		A70743632B21D0B400572A98 /* PersonalizedBulletPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70743622B21D0B400572A98 /* PersonalizedBulletPointsView.swift */; };
@@ -420,7 +433,6 @@
 		A7DF36832B1DE0FD009080C9 /* InActiveFastingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */; };
 		A7DF36852B1DE195009080C9 /* InActiveFastingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */; };
 		A7E0A1CA2B07418F005DA180 /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */; };
-		A7FFA7002B9F1A1100FED655 /* AppStudioServices in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFA6FF2B9F1A1100FED655 /* AppStudioServices */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 /* End PBXBuildFile section */
 
@@ -565,6 +577,7 @@
 		5675FFED2ADE84B4009331CB /* MigrationLaunchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationLaunchService.swift; sourceTree = "<group>"; };
 		5675FFEE2ADE84B4009331CB /* MigrationServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationServiceImpl.swift; sourceTree = "<group>"; };
 		5687BF962B9B3D3C00BC341B /* HealthProgressInitializer+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthProgressInitializer+extensions.swift"; sourceTree = "<group>"; };
+		568E69772BA19799003DECAF /* WaterCounterInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterCounterInitializer.swift; sourceTree = "<group>"; };
 		56B10ABA2AF0DFF9008FC07E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		56B10ABD2AF0E0AC008FC07E /* DatabaseInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInitializer.swift; sourceTree = "<group>"; };
 		56B10ABF2AF0E1CC008FC07E /* FastingParametersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersRepository.swift; sourceTree = "<group>"; };
@@ -596,7 +609,6 @@
 		56E223DF2B20786400096664 /* HeightMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightMeasure.swift; sourceTree = "<group>"; };
 		56E223E12B20787400096664 /* WeightMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightMeasure.swift; sourceTree = "<group>"; };
 		56E223E32B20788000096664 /* HeightUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightUnit.swift; sourceTree = "<group>"; };
-		56E223E52B20788C00096664 /* WeightUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUnit.swift; sourceTree = "<group>"; };
 		56E223E72B20789800096664 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 		56E223E92B2078A700096664 /* FastingGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingGoal.swift; sourceTree = "<group>"; };
 		56E223EC2B2079B400096664 /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
@@ -614,11 +626,14 @@
 		56F64D792AE10EF20067FE05 /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
 		56F64D7A2AE10EF20067FE05 /* RootOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootOutput.swift; sourceTree = "<group>"; };
 		56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		A00603182BA30F0B0011FF75 /* FastingWidgetInitializer+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FastingWidgetInitializer+extensions.swift"; sourceTree = "<group>"; };
 		A008A82E2AF117540011A261 /* FastingProgressLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingProgressLabelView.swift; sourceTree = "<group>"; };
 		A008A8302AF14C0B0011A261 /* Animation+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation+extensions.swift"; sourceTree = "<group>"; };
 		A00B4DC52B7382170067A872 /* FacebookInitializerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInitializerService.swift; sourceTree = "<group>"; };
 		A00B4DC62B7382170067A872 /* FacebookInitializerDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInitializerDependencies.swift; sourceTree = "<group>"; };
 		A00B4DC72B7382170067A872 /* FacebookInitializerServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInitializerServiceImpl.swift; sourceTree = "<group>"; };
+		A02155FF2BA05450004DF16C /* CalendarProgressServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarProgressServiceImpl.swift; sourceTree = "<group>"; };
+		A02156012BA054C2004DF16C /* CalendarProgressServiceDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarProgressServiceDependencies.swift; sourceTree = "<group>"; };
 		A0255E6D2AFBCE9D00221EC6 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A0255E6F2AFBD00200221EC6 /* AccountTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTarget.swift; sourceTree = "<group>"; };
 		A0255E722AFBD02F00221EC6 /* PutAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutAccountRequest.swift; sourceTree = "<group>"; };
@@ -632,6 +647,8 @@
 		A02787532AEADC5200844246 /* AccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentButton.swift; sourceTree = "<group>"; };
 		A02787562AEAE4E700844246 /* FastingIntervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingIntervalView.swift; sourceTree = "<group>"; };
 		A02787582AEAE4FB00844246 /* FastingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingTimeView.swift; sourceTree = "<group>"; };
+		A02FC4742B9F381B00019039 /* HealthOverviewInitializer+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthOverviewInitializer+extensions.swift"; sourceTree = "<group>"; };
+		A02FC4762B9F386800019039 /* FastingProgressServiceDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingProgressServiceDependencies.swift; sourceTree = "<group>"; };
 		A034F1362B88B9640066F724 /* CoachApiImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachApiImpl.swift; sourceTree = "<group>"; };
 		A034F1382B88B9AC0066F724 /* CoachApiTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachApiTarget.swift; sourceTree = "<group>"; };
 		A036CBDF2B18CE28001B8AC7 /* AppearanceInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceInitializer.swift; sourceTree = "<group>"; };
@@ -669,7 +686,6 @@
 		A05004742B20A60700820E45 /* OnboardingPickerOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPickerOption.swift; sourceTree = "<group>"; };
 		A05004762B20D94100820E45 /* OnboardingDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDatePickerView.swift; sourceTree = "<group>"; };
 		A05004782B20FCEA00820E45 /* OnboardingSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSegmentedView.swift; sourceTree = "<group>"; };
-		A05CE23E2B9795D000BC45FB /* Date+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+extensions.swift"; sourceTree = "<group>"; };
 		A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingInput.swift; sourceTree = "<group>"; };
 		A063B1F02AEBD0E800084696 /* StartFastingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingRouter.swift; sourceTree = "<group>"; };
 		A063B1F12AEBD0E800084696 /* StartFastingRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingRoute.swift; sourceTree = "<group>"; };
@@ -727,7 +743,10 @@
 		A0CEE62B2AEFE4280082B27F /* FastingParametersServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersServiceImpl.swift; sourceTree = "<group>"; };
 		A0CEE62C2AEFE4280082B27F /* FastingParametersDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersDependencies.swift; sourceTree = "<group>"; };
 		A0CEE62D2AEFE4280082B27F /* FastingParametersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParametersService.swift; sourceTree = "<group>"; };
+		A0CFE9E02BADE67B00DC1819 /* WeightGoalWidgetDatabaseInitializer+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeightGoalWidgetDatabaseInitializer+extensions.swift"; sourceTree = "<group>"; };
 		A0DCCE442B7E7135001265BC /* TopBorderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBorderModifier.swift; sourceTree = "<group>"; };
+		A0F093B52B9B531800A91EFB /* FastingWidgetServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingWidgetServiceImpl.swift; sourceTree = "<group>"; };
+		A0F90D702BA4AF760019C5D7 /* WeightWidgetDatabaseInitializer+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeightWidgetDatabaseInitializer+extensions.swift"; sourceTree = "<group>"; };
 		A707435E2B21B91D00572A98 /* PersonalizedTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedTabView.swift; sourceTree = "<group>"; };
 		A70743602B21CA2500572A98 /* PersonalizedDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedDescriptionView.swift; sourceTree = "<group>"; };
 		A70743622B21D0B400572A98 /* PersonalizedBulletPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedBulletPointsView.swift; sourceTree = "<group>"; };
@@ -843,16 +862,21 @@
 				A0255E8A2AFBD3C000221EC6 /* AppStudioABTesting in Frameworks */,
 				A0255E6C2AFBAA9A00221EC6 /* Moya in Frameworks */,
 				A0255E8E2AFBD3C000221EC6 /* AppStudioUI in Frameworks */,
-				A7FFA7002B9F1A1100FED655 /* AppStudioServices in Frameworks */,
+				A006031B2BA3159C0011FF75 /* FastingWidget in Frameworks */,
 				A0255E912AFBD3ED00221EC6 /* AppStudioNavigation in Frameworks */,
+				568E69762BA1973C003DECAF /* WaterCounter in Frameworks */,
+				A0DAAF762BA320F500BDE42D /* AppStudioStyles in Frameworks */,
 				A00B4DBD2B73817F0067A872 /* FacebookAEM in Frameworks */,
 				A00B4DC12B73817F0067A872 /* FacebookCore in Frameworks */,
 				A0255E872AFBD38300221EC6 /* AppStudioSubscriptions in Frameworks */,
+				A0159BE72BA32C4000CEB32E /* WeightWidget in Frameworks */,
 				564BE0B82AF0E99F00CE7F38 /* MunicornFoundation in Frameworks */,
-				A0178F502B91CB8C00069BEA /* AppStudioStyles in Frameworks */,
+				A0C16DE92BB2DD3200D64B4C /* AppStudioServices in Frameworks */,
 				A0006CD62B98BFE40091EB3B /* HealthOverview in Frameworks */,
+				A04253DC2BA1EBAE00F1007A /* AppStudioModels in Frameworks */,
 				564BE0B42AF0E99F00CE7F38 /* MunicornAPI in Frameworks */,
 				564BE0B62AF0E99F00CE7F38 /* MunicornCoreData in Frameworks */,
+				A063F0F32BADD58F005B50D3 /* WeightGoalWidget in Frameworks */,
 				A00A73482B9631790038A001 /* HealthProgress in Frameworks */,
 				5675000D2ADE85FD009331CB /* FirebaseCrashlytics in Frameworks */,
 				A0255E8C2AFBD3C000221EC6 /* AppStudioFoundation in Frameworks */,
@@ -1430,6 +1454,8 @@
 		5675FFD12ADE8358009331CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A02155FE2BA0542C004DF16C /* CalendarProgressService */,
+				A0F093B42B9B530B00A91EFB /* FastingProgressService */,
 				A7BD1CDD2B7B261B009C1259 /* PromoPaywallService */,
 				A76148E42B74C876002A7F95 /* DiscountPaywallTimerService */,
 				A00B4DC42B7382170067A872 /* FacebookInitializer */,
@@ -1589,7 +1615,12 @@
 				A036CBDF2B18CE28001B8AC7 /* AppearanceInitializer.swift */,
 				A7DBD0992B3AB415003DCD10 /* QuickTypeInitializer.swift */,
 				A0489DF22B875D6A00258AD0 /* AICoachInitializer+extensions.swift */,
+				A02FC4742B9F381B00019039 /* HealthOverviewInitializer+extensions.swift */,
 				5687BF962B9B3D3C00BC341B /* HealthProgressInitializer+extensions.swift */,
+				568E69772BA19799003DECAF /* WaterCounterInitializer.swift */,
+				A00603182BA30F0B0011FF75 /* FastingWidgetInitializer+extensions.swift */,
+				A0F90D702BA4AF760019C5D7 /* WeightWidgetDatabaseInitializer+extensions.swift */,
+				A0CFE9E02BADE67B00DC1819 /* WeightGoalWidgetDatabaseInitializer+extensions.swift */,
 			);
 			path = EarlyTimeInitializers;
 			sourceTree = "<group>";
@@ -1625,7 +1656,6 @@
 				56E223DF2B20786400096664 /* HeightMeasure.swift */,
 				56E223E12B20787400096664 /* WeightMeasure.swift */,
 				56E223E32B20788000096664 /* HeightUnit.swift */,
-				56E223E52B20788C00096664 /* WeightUnit.swift */,
 				56E223E72B20789800096664 /* Sex.swift */,
 				56E223E92B2078A700096664 /* FastingGoal.swift */,
 			);
@@ -1682,6 +1712,15 @@
 				A00B4DC72B7382170067A872 /* FacebookInitializerServiceImpl.swift */,
 			);
 			path = FacebookInitializer;
+			sourceTree = "<group>";
+		};
+		A02155FE2BA0542C004DF16C /* CalendarProgressService */ = {
+			isa = PBXGroup;
+			children = (
+				A02155FF2BA05450004DF16C /* CalendarProgressServiceImpl.swift */,
+				A02156012BA054C2004DF16C /* CalendarProgressServiceDependencies.swift */,
+			);
+			path = CalendarProgressService;
 			sourceTree = "<group>";
 		};
 		A0255E712AFBD02500221EC6 /* Models */ = {
@@ -1985,7 +2024,6 @@
 				5662DECB2B1615DA00C1637C /* CGFloat+Extensions.swift */,
 				5662DECD2B1615F200C1637C /* Double+Extensions.swift */,
 				A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */,
-				A05CE23E2B9795D000BC45FB /* Date+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2107,6 +2145,15 @@
 				A0DCCE442B7E7135001265BC /* TopBorderModifier.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		A0F093B42B9B530B00A91EFB /* FastingProgressService */ = {
+			isa = PBXGroup;
+			children = (
+				A0F093B52B9B531800A91EFB /* FastingWidgetServiceImpl.swift */,
+				A02FC4762B9F386800019039 /* FastingProgressServiceDependencies.swift */,
+			);
+			path = FastingProgressService;
 			sourceTree = "<group>";
 		};
 		A70DBE472B0DD58A0067D7BD /* Launch */ = {
@@ -2465,11 +2512,16 @@
 				A00B4DBE2B73817F0067A872 /* FacebookBasics */,
 				A00B4DC02B73817F0067A872 /* FacebookCore */,
 				A00B4DC22B73817F0067A872 /* FacebookLogin */,
-				A0178F4F2B91CB8C00069BEA /* AppStudioStyles */,
 				A0178F512B91CBC800069BEA /* AICoach */,
 				A0006CD52B98BFE40091EB3B /* HealthOverview */,
 				A00A73472B9631790038A001 /* HealthProgress */,
-				A7FFA6FF2B9F1A1100FED655 /* AppStudioServices */,
+				568E69752BA1973C003DECAF /* WaterCounter */,
+				A04253DB2BA1EBAE00F1007A /* AppStudioModels */,
+				A006031A2BA3159C0011FF75 /* FastingWidget */,
+				A0DAAF752BA320F500BDE42D /* AppStudioStyles */,
+				A0159BE62BA32C4000CEB32E /* WeightWidget */,
+				A063F0F22BADD58F005B50D3 /* WeightGoalWidget */,
+				A0C16DE82BB2DD3200D64B4C /* AppStudioServices */,
 			);
 			productName = AppStudioTemplate;
 			productReference = 563257112ADE57D80000F33C /* Fasting.app */;
@@ -2644,6 +2696,7 @@
 				A08449722B1A86AC00D30E04 /* FastingPhaseOutput.swift in Sources */,
 				A0382D3D2AF4F03A009CC579 /* SuccessRouter.swift in Sources */,
 				A7A397342B71F6A6003330C3 /* DiscountPaywallInput.swift in Sources */,
+				A0F093B62B9B531800A91EFB /* FastingWidgetServiceImpl.swift in Sources */,
 				567500E72ADFD59B009331CB /* BackendEnvironmentService.swift in Sources */,
 				A7D01B7D2AF10A6D00C50C1F /* SetupFastingRouter.swift in Sources */,
 				A044263C2AF240F4005400AE /* ProfileRoute.swift in Sources */,
@@ -2653,7 +2706,6 @@
 				A7D01B732AF0D01E00C50C1F /* FastingPlanView.swift in Sources */,
 				56655B712AFCB6AB00508ED4 /* FastingHistoryServiceServiceImpl.swift in Sources */,
 				A75956F02B172EBF00ECCAB0 /* SubscriptionPreviewService.swift in Sources */,
-				56E223E62B20788C00096664 /* WeightUnit.swift in Sources */,
 				A0881E662AEAC32500E38FF5 /* FastingInput.swift in Sources */,
 				A07EAB372AFA56A200A46D7E /* EndFastingEarlyScreen.swift in Sources */,
 				566C24912AE8F80B00AEDB3C /* PaywallRouter.swift in Sources */,
@@ -2702,9 +2754,9 @@
 				A02787542AEADC5200844246 /* AccentButton.swift in Sources */,
 				567500AF2ADFBF52009331CB /* ServicesDependencies.swift in Sources */,
 				A063B1FE2AEC1E2E00084696 /* FastingStagesView.swift in Sources */,
-				A05CE23F2B9795D000BC45FB /* Date+extensions.swift in Sources */,
 				A02787592AEAE4FB00844246 /* FastingTimeView.swift in Sources */,
 				567500082ADE84B4009331CB /* MigrationServiceImpl.swift in Sources */,
+				A02FC4752B9F381B00019039 /* HealthOverviewInitializer+extensions.swift in Sources */,
 				567500A42ADFAE0C009331CB /* PaywallService.swift in Sources */,
 				567500242ADE86C3009331CB /* ServiceBaseImpl.swift in Sources */,
 				A777D14C2B209ADB00B48F41 /* PersonalizedPaywallRoute.swift in Sources */,
@@ -2712,6 +2764,7 @@
 				A02787572AEAE4E700844246 /* FastingIntervalView.swift in Sources */,
 				567500DC2ADFCDAC009331CB /* AccountApi.swift in Sources */,
 				A0255E6E2AFBCE9D00221EC6 /* Account.swift in Sources */,
+				A0CFE9E12BADE67B00DC1819 /* WeightGoalWidgetDatabaseInitializer+extensions.swift in Sources */,
 				A0881E682AEAC32500E38FF5 /* FastingRoute.swift in Sources */,
 				A00B4DCA2B7382170067A872 /* FacebookInitializerServiceImpl.swift in Sources */,
 				5662DEC82B1614BE00C1637C /* FastingRingPointCircleView.swift in Sources */,
@@ -2733,6 +2786,7 @@
 				A7D01B872AF1102400C50C1F /* SetupFastingButton.swift in Sources */,
 				A70743632B21D0B400572A98 /* PersonalizedBulletPointsView.swift in Sources */,
 				564BE2C72B26E54E00FE35C2 /* OnboardingCalculationProccessPhases.swift in Sources */,
+				A02FC4772B9F386800019039 /* FastingProgressServiceDependencies.swift in Sources */,
 				A08449712B1A86AC00D30E04 /* FastingPhaseScreen.swift in Sources */,
 				A7A3973F2B720225003330C3 /* DiscountTimerElementView.swift in Sources */,
 				A0C8C1B22B1F01D800EB371C /* FastingPhaseTitleView.swift in Sources */,
@@ -2781,6 +2835,7 @@
 				567500912ADFAA4A009331CB /* IntercomData.swift in Sources */,
 				567500A02ADFAB69009331CB /* ProductProvider.swift in Sources */,
 				A044263A2AF240F4005400AE /* ProfileInput.swift in Sources */,
+				A02156002BA05450004DF16C /* CalendarProgressServiceImpl.swift in Sources */,
 				A063B1F82AEBD0E800084696 /* StartFastingScreen.swift in Sources */,
 				A777D14A2B209ADB00B48F41 /* PersonalizedPaywallInput.swift in Sources */,
 				563B8ACF2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift in Sources */,
@@ -2939,6 +2994,7 @@
 				A044263D2AF240F4005400AE /* ProfileScreen.swift in Sources */,
 				567500A12ADFAB69009331CB /* SubscriptionDependencies.swift in Sources */,
 				56E223FE2B21973400096664 /* OnboardingLoadingViewOutput.swift in Sources */,
+				568E69782BA19799003DECAF /* WaterCounterInitializer.swift in Sources */,
 				A063B1F72AEBD0E800084696 /* StartFastingRoute.swift in Sources */,
 				A07D95A92AE986EF00D2C2E2 /* ExperimentLifeCycleDelegateImpl.swift in Sources */,
 				A7BD1CE12B7B2632009C1259 /* PromoPaywallServiceImpl.swift in Sources */,
@@ -2954,6 +3010,7 @@
 				563B8AC12B03AE9600AF6BB7 /* FastingLocalNotificationType.swift in Sources */,
 				56F64D7F2AE10EF20067FE05 /* RootScreen.swift in Sources */,
 				567500262ADE86C3009331CB /* ConcurrentDispatchQueue.swift in Sources */,
+				A0F90D712BA4AF760019C5D7 /* WeightWidgetDatabaseInitializer+extensions.swift in Sources */,
 				A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */,
 				564BE0BA2AF0F18300CE7F38 /* DatabaseDependencies.swift in Sources */,
 				A0CEE6252AEFE3E30082B27F /* FastingService.swift in Sources */,
@@ -2964,6 +3021,7 @@
 				A7D01B922AF115F200C50C1F /* NotificationOnboardingScreen.swift in Sources */,
 				A76294322B219E2100DAF93B /* PersonalizedChart.swift in Sources */,
 				56C28DD42AE109580007E48D /* FirebaseInitializer.swift in Sources */,
+				A02156022BA054C2004DF16C /* CalendarProgressServiceDependencies.swift in Sources */,
 				A7D01B6D2AF0CCF900C50C1F /* ChooseFastingPlanScreen.swift in Sources */,
 				A7DF36832B1DE0FD009080C9 /* InActiveFastingHeader.swift in Sources */,
 				56B92DB72B0CB0F700B5F67C /* Locale+Extensions.swift in Sources */,
@@ -2994,6 +3052,7 @@
 				A08449772B1A87DF00D30E04 /* FastingPhaseImageView.swift in Sources */,
 				A7BD1CE22B7B2632009C1259 /* PromoPaywallDependencies.swift in Sources */,
 				A044263B2AF240F4005400AE /* ProfileRouter.swift in Sources */,
+				A00603192BA30F0B0011FF75 /* FastingWidgetInitializer+extensions.swift in Sources */,
 				567500252ADE86C3009331CB /* Atomic.swift in Sources */,
 				A7D01B8F2AF115F200C50C1F /* NotificationOnboardingInput.swift in Sources */,
 				567500C72ADFCC54009331CB /* SyncServiceBaseImpl.swift in Sources */,
@@ -3365,8 +3424,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git";
 			requirement = {
-				kind = exactVersion;
-				version = 1.0.11;
+				branch = "feature/ST2-640_initializer_without_view";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -3412,9 +3471,17 @@
 			package = 567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */;
 			productName = ABTesting;
 		};
+		568E69752BA1973C003DECAF /* WaterCounter */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WaterCounter;
+		};
 		A0006CD52B98BFE40091EB3B /* HealthOverview */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = HealthOverview;
+		};
+		A006031A2BA3159C0011FF75 /* FastingWidget */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FastingWidget;
 		};
 		A00A73472B9631790038A001 /* HealthProgress */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -3440,9 +3507,9 @@
 			package = A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookLogin;
 		};
-		A0178F4F2B91CB8C00069BEA /* AppStudioStyles */ = {
+		A0159BE62BA32C4000CEB32E /* WeightWidget */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AppStudioStyles;
+			productName = WeightWidget;
 		};
 		A0178F512B91CBC800069BEA /* AICoach */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -3478,9 +3545,21 @@
 			package = A0255E8F2AFBD3ED00221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */;
 			productName = AppStudioNavigation;
 		};
-		A7FFA6FF2B9F1A1100FED655 /* AppStudioServices */ = {
+		A04253DB2BA1EBAE00F1007A /* AppStudioModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppStudioModels;
+		};
+		A063F0F22BADD58F005B50D3 /* WeightGoalWidget */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WeightGoalWidget;
+		};
+		A0C16DE82BB2DD3200D64B4C /* AppStudioServices */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppStudioServices;
+		};
+		A0DAAF752BA320F500BDE42D /* AppStudioStyles */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppStudioStyles;
 		};
 /* End XCSwiftPackageProductDependency section */
 

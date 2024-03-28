@@ -6,10 +6,11 @@
 //
 
 struct SetupFastingInput {
-    enum Context {
+    enum Context: String {
         case onboarding
-        case mainScreen
+        case fasting
         case profile
+        case daily
     }
 
     let plan: FastingPlan
@@ -20,8 +21,9 @@ extension SetupFastingInput.Context {
     init(_ context: ChooseFastingPlanInput.Context) {
         switch context {
         case .onboarding: self = .onboarding
-        case .mainScreen: self = .mainScreen
+        case .fasting: self = .fasting
         case .profile: self = .profile
+        case .daily: self = .daily
         }
     }
 }
@@ -30,8 +32,9 @@ extension ChooseFastingPlanInput.Context {
     init(_ context: SetupFastingInput.Context) {
         switch context {
         case .onboarding: self = .onboarding
-        case .mainScreen: self = .mainScreen
+        case .fasting: self = .fasting
         case .profile: self = .profile
+        case .daily: self = .daily
         }
     }
 }

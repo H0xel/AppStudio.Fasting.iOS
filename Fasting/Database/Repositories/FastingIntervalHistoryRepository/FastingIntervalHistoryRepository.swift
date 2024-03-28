@@ -9,8 +9,11 @@ import MunicornCoreData
 import Foundation
 
 protocol FastingIntervalHistoryRepository {
+    var historyObserver: FastingIntervalHistoryObserver { get }
     @discardableResult
     func save(history: FastingIntervalHistory) async throws -> FastingIntervalHistory
     func selectLast(count: Int) async throws -> [FastingIntervalHistory]
     func select(from date: Date) async throws -> [FastingIntervalHistory]
+    func history(byId id: String) async throws -> FastingIntervalHistory?
+    func deleteAll() async throws
 }

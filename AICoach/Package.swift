@@ -15,12 +15,28 @@ let package = Package(
             targets: ["AICoach"]
         ),
         .library(
+            name: "WeightWidget",
+            targets: ["WeightWidget"]
+        ),
+        .library(
+            name: "FastingWidget",
+            targets: ["FastingWidget"]
+        ),
+        .library(
             name: "HealthOverview",
             targets: ["HealthOverview"]
         ),
         .library(
             name: "HealthProgress",
             targets: ["HealthProgress"]
+        ),
+        .library(
+            name: "WaterCounter",
+            targets: ["WaterCounter"]
+        ),
+        .library(
+            name: "WeightGoalWidget",
+            targets: ["WeightGoalWidget"]
         )
     ],
     dependencies: [
@@ -30,7 +46,8 @@ let package = Package(
         .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Analytics.git", exact: "1.0.7"),
         .package(url: "https://github.com/m-unicorn/iOS.MunicornFoundation.git", exact: "1.2.11"),
         .package(path: "AppStudio.Styles"),
-        .package(path: "AppStudio.Services")
+        .package(path: "AppStudio.Services"),
+        .package(path: "AppStudio.Models")
     ],
     targets: [
         .target(
@@ -45,14 +62,78 @@ let package = Package(
                 .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
                 .product(name: "AppStudioFoundation", package: "AppStudio.iOS.Common"),
                 .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics"),
-                .product(name: "AppStudioServices", package: "AppStudio.Services")
+                .product(name: "AppStudioServices", package: "AppStudio.Services"),
+                .product(name: "AppStudioModels", package: "AppStudio.Models"),
+                .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
             ],
             resources: [
                 .process("Resources/en.lproj/Localizable.strings")
             ]
         ),
         .target(
+            name: "WeightWidget",
+            dependencies: [
+                .product(name: "MunicornFoundation", package: "iOS.MunicornFoundation"),
+                .product(name: "MunicornCoreData", package: "iOS.MunicornFoundation"),
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation"),
+                .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics"),
+                .product(name: "AppStudioFoundation", package: "AppStudio.iOS.Common"),
+                .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
+                .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
+                .product(name: "AppStudioServices", package: "AppStudio.Services"),
+                .product(name: "AppStudioModels", package: "AppStudio.Models"),
+            ]
+        ),
+        .target(
+            name: "FastingWidget",
+            dependencies: [
+                .product(name: "MunicornFoundation", package: "iOS.MunicornFoundation"),
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation"),
+                .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics"),
+                .product(name: "AppStudioFoundation", package: "AppStudio.iOS.Common"),
+                .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
+                .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
+                .product(name: "AppStudioServices", package: "AppStudio.Services"),
+                .product(name: "AppStudioModels", package: "AppStudio.Models"),
+            ]
+        ),
+        .target(
             name: "HealthOverview",
+            dependencies: [
+                .product(name: "MunicornFoundation", package: "iOS.MunicornFoundation"),
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation"),
+                .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics"),
+                .product(name: "AppStudioFoundation", package: "AppStudio.iOS.Common"),
+                .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
+                .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
+                .product(name: "AppStudioServices", package: "AppStudio.Services"),
+                .product(name: "AppStudioModels", package: "AppStudio.Models"),
+                "WeightWidget",
+                "FastingWidget",
+                "WaterCounter"
+            ]
+        ),
+        .target(
+            name: "HealthProgress",
+            dependencies: [
+                .product(name: "MunicornFoundation", package: "iOS.MunicornFoundation"),
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation"),
+                .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
+                .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics"),
+                .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
+                .product(name: "AppStudioServices", package: "AppStudio.Services"),
+                .product(name: "AppStudioModels", package: "AppStudio.Models"),
+                "WeightWidget",
+                "WeightGoalWidget",
+                "WaterCounter"
+            ]
+        ),
+        .target(
+            name: "WaterCounter",
             dependencies: [
                 .product(name: "MunicornFoundation", package: "iOS.MunicornFoundation"),
                 .product(name: "MunicornCoreData", package: "iOS.MunicornFoundation"),
@@ -65,17 +146,21 @@ let package = Package(
             ]
         ),
         .target(
-            name: "HealthProgress",
+            name: "WeightGoalWidget",
             dependencies: [
                 .product(name: "MunicornFoundation", package: "iOS.MunicornFoundation"),
+                .product(name: "MunicornCoreData", package: "iOS.MunicornFoundation"),
                 .product(name: "Dependencies", package: "swift-dependencies"),
                 .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation"),
-                .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
                 .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics"),
+                .product(name: "AppStudioFoundation", package: "AppStudio.iOS.Common"),
+                .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
                 .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
-                .product(name: "AppStudioServices", package: "AppStudio.Services")
+                .product(name: "AppStudioServices", package: "AppStudio.Services"),
+                .product(name: "AppStudioModels", package: "AppStudio.Models"),
             ]
-        )
+        ),
+        .testTarget(name: "WaterCounterTest", dependencies: ["WaterCounter"])
     ],
     swiftLanguageVersions: [
         .v5

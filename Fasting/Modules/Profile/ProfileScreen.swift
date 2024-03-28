@@ -43,6 +43,13 @@ struct ProfileScreen: View {
                       content: Text(Localization.navigationTitle).font(.poppins(.buttonText)),
                       action: {})
         .navigationBarTitleDisplayMode(.inline)
+        .navBarButton(content: closeButton,
+                      action: viewModel.close)
+    }
+
+    private var closeButton: some View {
+        Image.close
+            .foregroundStyle(Color.studioBlackLight)
     }
 }
 

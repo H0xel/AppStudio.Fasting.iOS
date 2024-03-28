@@ -8,8 +8,9 @@
 struct ChooseFastingPlanInput {
     enum Context: String {
         case onboarding
-        case mainScreen
+        case fasting
         case profile
+        case daily
     }
     let context: Context
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppStudioModels
 
 struct PersonalizedTabView: View {
     let sex: Sex

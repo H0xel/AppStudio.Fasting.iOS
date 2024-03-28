@@ -13,6 +13,10 @@ import RxSwift
 import AppStudioSubscriptions
 import HealthProgress
 import Combine
+import HealthOverview
+import FastingWidget
+import WeightWidget
+import AppStudioModels
 
 class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.storageService) private var storageService
@@ -29,8 +33,9 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.fastingHistoryService) private var fastingHistoryService
     @Dependency(\.fastingParametersService) private var fastingParametersService
     @Dependency(\.userPropertyService) private var userPropertyService
+    @Dependency(\.weightService) private var weightService
 
-    @Published var currentTab: AppTab = .fasting {
+    @Published var currentTab: AppTab = .daily {
         willSet {
             trackTabSwitched(currentTab: newValue.rawValue, previousTab: currentTab.rawValue)
         }
@@ -41,13 +46,17 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     @Published var discountPaywallInfo: DiscountPaywallInfo?
 
-    var router: RootRouter!
+    let router: RootRouter
     private let disposeBag = DisposeBag()
-    private let progressInputSubject = CurrentValueSubject<FastingHealthProgressInput, Never>(.empty)
     private let coachNextMessageSubject = CurrentValueSubject<String, Never>("")
+    private let progressInputSubject = CurrentValueSubject<FastingHealthProgressInput, Never>(.empty)
+    private let fastingWidgetStateSubject = CurrentValueSubject<FastingWidgetState, Never>(.mockInActive)
+    private var fastingViewModel: FastingViewModel!
 
-    init(input: RootInput, output: @escaping RootOutputBlock) {
+    init(router: RootRouter, input: RootInput, output: @escaping RootOutputBlock) {
+        self.router = router
         super.init(output: output)
+        initilizeFastingViewModel()
         initialize()
         initializePaywallTab()
         subscribeToActionTypeEvent()
@@ -68,14 +77,18 @@ class RootViewModel: BaseViewModel<RootOutput> {
         router.presentAppStore(applink)
     }
 
-    var fastingScreen: some View {
-        router.fastingScreen { [weak self] output in
-            switch output {
-            case .pinTapped:
-                self?.currentTab = .paywall
-            }
+    lazy var healthOverviewScreen: some View = {
+        router.healthOverviewScreen(input: .init(
+            fastingWidget: fastingWidget, 
+            weightUnits: onboardingService.data?.weight.units ?? .kg
+        )) { [weak self] output in
+            self?.handle(healthOverviewOutput: output)
         }
-    }
+    }()
+
+    lazy var fastingScreen: some View = {
+        router.fastingScreen
+    }()
 
     lazy var coachScreen: some View = {
         router.coachScreen(nextMessagePublisher: coachNextMessageSubject.eraseToAnyPublisher())
@@ -117,15 +130,108 @@ class RootViewModel: BaseViewModel<RootOutput> {
         }
     }()
 
-    var profileScreen: some View {
-        router.profileScreen
-    }
-
     lazy var paywallScreen: some View = {
         router.paywallScreen { [weak self] isProcessing in
             self?.isProcessingSubcription = isProcessing
         }
     }()
+
+    private func handle(healthOverviewOutput output: HealthOverviewOutput) {
+        switch output {
+        case .profileTapped:
+            router.presentProfile()
+        }
+    }
+
+    private var fastingWidget: FastingWidget {
+        FastingWidget(
+            input: .init(fastingStatePublisher: fastingWidgetStateSubject.eraseToAnyPublisher())
+        ) { [weak self] output in
+            self?.handle(fastingWidgetOutput: output)
+        }
+    }
+
+    private func handle(fastingWidgetOutput output: FastingWidgetOutput) {
+        switch output {
+        case .logFasting(let date):
+            logFast(for: date)
+        case .updateFasting(let fastingId):
+            updateFasting(fastingId: fastingId)
+        }
+    }
+
+    private func logFast(for date: Date) {
+        trackerService.track(.tapLogPreviousFast(date: date.description))
+        Task { [weak self] in
+            guard let self else { return }
+            let parameters = try await self.fastingParametersService.parameters(for: date)
+            let interval = parameters.asInterval
+            let startDateComponents = DateComponents(calendar: .current,
+                                                     timeZone: .current,
+                                                     year: date.year,
+                                                     month: date.month,
+                                                     day: date.day,
+                                                     hour: interval.startDate.hour,
+                                                     minute: interval.startDate.minute,
+                                                     second: interval.startDate.second)
+            guard let startDate = startDateComponents.date else {
+                return
+            }
+            let endDate = startDate.addingTimeInterval(parameters.plan.duration)
+            let input = SuccessInput(plan: parameters.plan,
+                                     startDate: startDate,
+                                     endDate: endDate,
+                                     isEmpty: true)
+            let fasting = FastingIntervalHistory(currentDate: .now,
+                                                 startedDate: startDate,
+                                                 finishedDate: endDate,
+                                                 plan: parameters.plan)
+            presentSuccessScreen(input: input, fasting: fasting, isNew: true)
+        }
+    }
+
+    private func updateFasting(fastingId: String) {
+        Task { [weak self] in
+            guard let self,
+                  let fasting = try await self.fastingHistoryService.history(byId: fastingId) else {
+                return
+            }
+            self.trackerService.track(.tapUpdatePreviousFast(date: fasting.startedDate.description))
+            let input = SuccessInput(plan: fasting.plan,
+                                     startDate: fasting.startedDate,
+                                     endDate: fasting.finishedDate,
+                                     isEmpty: false)
+            self.presentSuccessScreen(input: input, fasting: fasting, isNew: false)
+        }
+    }
+
+    private func presentSuccessScreen(input: SuccessInput, fasting: FastingIntervalHistory, isNew: Bool) {
+        router.presentSuccess(input: input) { [weak self] output in
+            switch output {
+            case let .submit(startDate, endDate):
+                self?.saveHistory(fasting: fasting, startDate: startDate, endDate: endDate, isNew: isNew)
+            }
+        }
+    }
+
+    private func saveHistory(fasting: FastingIntervalHistory,
+                             startDate: Date,
+                             endDate: Date,
+                             isNew: Bool) {
+        Task {
+            let history = FastingIntervalHistory(id: fasting.id,
+                                                 currentDate: fasting.currentDate,
+                                                 startedDate: startDate,
+                                                 finishedDate: endDate,
+                                                 plan: fasting.plan)
+            try await fastingHistoryService.save(history: history)
+            if isNew {
+                trackFastingLogged(fasting: history)
+            } else {
+                trackFastingUpdated(newFasting: history, oldFasting: fasting)
+            }
+        }
+    }
 
     private func initializeForceUpdateIfNeeded() {
         appCustomization.forceUpdateAppVersion
@@ -171,7 +277,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     private func changeCurrentTabOnLaunch(hasSubsctiption: Bool) {
         if hasSubsctiption {
-            currentTab = .fasting
+            currentTab = .daily
             return
         }
         if !firstLaunchService.isFirstTimeLaunch {
@@ -198,11 +304,34 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     private func observeCurrentTab() {
         $currentTab
-            .filter { $0 == .healthProgress }
-            .sink { [weak self] _ in
+            .sink { [weak self] tab in
+                if tab == .healthProgress {
+                    self?.updateHealthProgressInput()
+                }
+                if tab == .fasting {
+                    self?.fastingViewModel.router.isWidgetPresented = false
+                }
+                if tab == .daily {
+                    self?.fastingViewModel.router.isWidgetPresented = true
+                }
                 self?.updateHealthProgressInput()
             }
             .store(in: &cancellables)
+    }
+
+    private func initilizeFastingViewModel() {
+        fastingViewModel = .init(input: .init()) { [weak self] output in
+            switch output {
+            case .pinTapped:
+                self?.currentTab = .paywall
+            case .updateWidget(let state):
+                self?.fastingWidgetStateSubject.send(state)
+            }
+        }
+        let route = FastingRoute(viewModel: fastingViewModel)
+        router.fastingNavigator.initialize(with: route)
+        fastingViewModel.router = .init(navigator: router.fastingNavigator,
+                                        fastingWidgetNavigator: router.healthOverviewNavigator)
     }
 
     private func updateHealthProgressInput() {
@@ -233,15 +362,19 @@ class RootViewModel: BaseViewModel<RootOutput> {
                                        color: $0.stage.backgroundColor,
                                        label: $0.startedDate.currentLocaleFormatted(with: "EEE"))
         }
-        return .init(bodyMassIndex: bodyMassIndex, fastingChartItems: chartItems.reversed())
+        return try await .init(bodyMassIndex: bodyMassIndex(),
+                               weightUnits: onboardingService.data?.weight.units ?? .kg,
+                               fastingChartItems: chartItems.reversed())
     }
 
-    private var bodyMassIndex: Double {
+    func bodyMassIndex() async throws -> Double {
         guard let data = onboardingService.data else {
             return 0
         }
+        let currentWeight = try await weightService.history(byDate: .now)?.trueWeight.normalizeValue ??
+        data.weight.normalizeValue
         let heightMetters = data.height.centimeters / 100
-        let bodyMassIndex = data.weight.normalizeValue / (heightMetters * heightMetters)
+        let bodyMassIndex = currentWeight / (heightMetters * heightMetters)
         return bodyMassIndex
     }
 }
@@ -270,5 +403,24 @@ private extension RootViewModel {
 
     func trackQuickActionReviewTapped() {
         trackerService.track(.tapNeedAssistance)
+    }
+
+    func trackFastingLogged(fasting: FastingIntervalHistory) {
+        trackerService.track(.fastingLogged(timeFasted: "\(fasting.timeFasted)",
+                                            startTime: fasting.startedDate.description,
+                                            endTime: fasting.finishedDate.description,
+                                            schedule: fasting.plan.description))
+    }
+
+    func trackFastingUpdated(newFasting: FastingIntervalHistory, oldFasting: FastingIntervalHistory) {
+        trackerService.track(.fastingUpdated(
+            newTimeFasted: "\(newFasting.timeFasted)",
+            newStartTime: newFasting.startedDate.description,
+            newEndTime: newFasting.finishedDate.description,
+            oldTimeFasted: "\(oldFasting.timeFasted)",
+            oldStartTime: oldFasting.startedDate.description,
+            oldEndTime: oldFasting.finishedDate.description,
+            schedule: newFasting.plan.description)
+        )
     }
 }

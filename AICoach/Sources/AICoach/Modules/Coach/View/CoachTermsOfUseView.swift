@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioUI
 import Dependencies
+import AppStudioStyles
 
 enum CoachTermsOfUseViewOutput {
     case agree

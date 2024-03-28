@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 13.03.2024.
+  
+*/
+
+// MARK: - WeightUnit
+"WeightUnit.lb" = "lb";
+"WeightUnit.kg" = "kg";
+
+// MARK: - HealthWidgetHint
+"HealthWidgetHint.bodyMass.title" = "Body Mass Index (BMI)";
+"HealthWidgetHint.bodyMass.description" = "is a simple method for determining weight category, based on your height and weight";
+"HealthWidgetHint.weight.title" = "Understanding Weight";
+"HealthWidgetHint.weight.description" = "Scale Weight fluctuates naturally each day. We smooth out these variations to identify your True Weight, enabling you to see meaningful changes.";

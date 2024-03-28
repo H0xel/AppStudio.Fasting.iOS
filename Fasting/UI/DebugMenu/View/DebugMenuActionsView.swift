@@ -8,6 +8,7 @@
 import SwiftUI
 import Dependencies
 import AICoach
+import WeightWidget
 
 struct DebugMenuActionsView: View {
 
@@ -19,6 +20,8 @@ struct DebugMenuActionsView: View {
     @Dependency(\.subscriptionService) private var subscriptionService
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
     @Dependency(\.coachService) private var coachService
+    @Dependency(\.weightService) private var weightService
+    @Dependency(\.fastingHistoryService) private var fastingHistoryService
 
     @State private var isDeletingMessages = false
 
@@ -73,6 +76,16 @@ struct DebugMenuActionsView: View {
             Spacer()
             if isDeletingMessages {
                 ProgressView()
+            }
+        }
+        Button("Delete all weights", role: .destructive) {
+            Task {
+                try await weightService.deleteAll()
+            }
+        }
+        Button("Delete all fasting history", role: .destructive) {
+            Task {
+                try await fastingHistoryService.deleteAll()
             }
         }
     }

@@ -20,8 +20,8 @@ class SetupFastingRouter: BaseRouter {
         push(route: route)
     }
 
-    func presentChooseFasting() {
-        let route = ChooseFastingPlanRoute(navigator: navigator, input: .init(context: .mainScreen)) { event in
+    func presentChooseFasting(context: ChooseFastingPlanInput.Context) {
+        let route = ChooseFastingPlanRoute(navigator: navigator, input: .init(context: context)) { event in
             switch event {
             case .onboardingIsFinished: break
             }

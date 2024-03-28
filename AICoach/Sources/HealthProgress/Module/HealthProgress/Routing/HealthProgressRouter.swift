@@ -7,6 +7,10 @@
 
 import SwiftUI
 import AppStudioNavigation
+import AppStudioStyles
+import WeightWidget
+import AppStudioModels
+import WaterCounter
 
 class HealthProgressRouter: BaseRouter {
     func presentBodyMassIndexHint(bodyMassIndex: BodyMassIndex,  onQuestion: @escaping (String) -> Void) {
@@ -35,4 +39,22 @@ class HealthProgressRouter: BaseRouter {
         navigator.present(sheet: route, detents: [.large, .fraction(2.0/3.0)], showIndicator: true)
     }
 
+    func presentWeightHint() {
+        let route = HintRoute(navigator: navigator,
+                              input: .init(topic: .weight),
+                              output: { _ in })
+        navigator.present(sheet: route, detents: [.large, .fraction(2.0/3.0)], showIndicator: true)
+    }
+
+    func presentUpdateWeight(units: WeightUnit, output: @escaping UpdateWeightOutputBlock) {
+        let route = UpdateWeightRoute(navigator: navigator,
+                                      input: .init(date: .now, units: units),
+                                      output: output)
+        present(sheet: route, detents: [.height(371)], showIndicator: true)
+    }
+
+    func presentWaterSettings(output: @escaping WaterCounterSettingsOutputBlock) {
+        let route = WaterCounterSettingsRoute(navigator: navigator, output: output)
+        navigator.present(sheet: route, detents: [.height(415)], showIndicator: true)
+    }
 }

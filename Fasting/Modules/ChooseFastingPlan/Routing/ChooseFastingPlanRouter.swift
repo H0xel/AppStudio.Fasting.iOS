@@ -30,7 +30,7 @@ class ChooseFastingPlanRouter: BaseRouter {
                 push(route: route)
             }
 
-            if context == .profile || context == .mainScreen {
+            if context == .profile || context == .fasting || context == .daily {
                 present(route: route)
             }
     }

@@ -7,11 +7,7 @@
 
 import SwiftUI
 import AppStudioNavigation
+import WeightWidget
 
 class HealthOverviewRouter: BaseRouter {
-    static func route(navigator: Navigator,
-                      input: HealthOverviewInput,
-                      output: @escaping HealthOverviewOutputBlock) -> Route {
-        HealthOverviewRoute(navigator: navigator, input: input, output: output)
-    }
 }

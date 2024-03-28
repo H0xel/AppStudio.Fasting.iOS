@@ -32,6 +32,11 @@ struct RootScreen: View {
         case .fasting:
             ZStack {
                 TabView(selection: $viewModel.currentTab) {
+                    viewModel.healthOverviewScreen
+                        .tag(AppTab.daily)
+                        .tabItem {
+                            tabBarLabelView(title: .daily, image: healthOverviewTabImage)
+                        }
                     viewModel.fastingScreen
                         .tag(AppTab.fasting)
                         .tabItem {
@@ -48,11 +53,7 @@ struct RootScreen: View {
                         .tabItem {
                             tabBarLabelView(title: .progress, image: progressTabImage)
                         }
-                    viewModel.profileScreen
-                        .tag(AppTab.profile)
-                        .tabItem {
-                            tabBarLabelView(title: .profile, image: .personFill)
-                        }
+
                     if !viewModel.hasSubscription {
                         if let info = viewModel.discountPaywallInfo {
                             viewModel.discountPaywall(input: .init(context: .discountPaywallTab, paywallInfo: info))
@@ -91,6 +92,10 @@ struct RootScreen: View {
         )
     }
 
+    private var healthOverviewTabImage: Image {
+        viewModel.currentTab == .daily ? .init(.dailyTabActive) : .init(.dailyTabInActive)
+    }
+
     private var fastingTabImage: Image {
         viewModel.currentTab == .fasting ? .fastingTabBarItemActive : .fastingTabBarItemInactive
     }
@@ -109,14 +114,12 @@ private extension LocalizedStringKey {
     static let fasting: LocalizedStringKey = "RootScreen.TabBar.fasting"
     static let nova: LocalizedStringKey = "RootScreen.TabBar.nova"
     static let progress: LocalizedStringKey = "RootScreen.TabBar.progress"
-    static let profile: LocalizedStringKey = "RootScreen.TabBar.profile"
     static let plus: LocalizedStringKey = "RootScreen.TabBar.plus"
 }
 
 struct RootScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = RootViewModel(input: .init(), output: { _ in })
-        viewModel.router = .init(navigator: .init())
+        let viewModel = RootViewModel(router: .init(navigator: .init()), input: .init(), output: { _ in })
         return RootScreen(viewModel: viewModel)
     }
 }

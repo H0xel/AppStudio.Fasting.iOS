@@ -8,30 +8,18 @@
 import SwiftUI
 import Charts
 import AppStudioStyles
+import AppStudioModels
 
 struct HealthProgressBarChartView: View {
 
-    let title: String
-    let subtitle: String
-    let icon: Image
+    let widgetInput: HealthWidgetInput
     let items: [HealthProgressBarChartItem]
-    let onIconTap: () -> Void
+    let output: (HealthChartOutput) -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: .spacing) {
-            HStack {
-                Text(title)
-                    .font(.poppinsBold(.buttonText))
-                    .foregroundStyle(Color.studioBlackLight)
-                Spacer()
-                Button(action: onIconTap) {
-                    icon
-                        .padding(.trailing, .titleTrailingPadding)
-                }
-            }
-            Text(subtitle)
-                .font(.poppins(.description))
-                .foregroundStyle(Color.studioBlackLight)
+        HealthProgressWidgetView(input: widgetInput,
+                                 isEmptyState: isEmptyState,
+                                 output: output) {
             Chart {
                 ForEach(items) { barItem in
                     Plot {
@@ -45,7 +33,6 @@ struct HealthProgressBarChartView: View {
                             cornerRadius: .barCornerRadius,
                             style: .continuous)
                         )
-
                         LineMark(
                             x: .value("", barItem.label),
                             y: .value("", barItem.lineValue)
@@ -56,6 +43,7 @@ struct HealthProgressBarChartView: View {
                     }
                 }
             }
+            .chartYScale(domain: scaleDomain())
             .chartXAxis {
                 AxisMarks(position: .bottom) { _ in
                     AxisValueLabel()
@@ -63,20 +51,32 @@ struct HealthProgressBarChartView: View {
                 }
             }
             .chartYAxis {
-                AxisMarks(values: .stride(by: 4)) { _ in
+                AxisMarks(values: .automatic(desiredCount: 6)) { _ in
                     AxisGridLine()
                         .foregroundStyle(Color.studioGreyStrokeFill)
                     AxisValueLabel()
                         .foregroundStyle(Color.studioBlackLight)
                 }
             }
+            .padding(.leading, .leadingPadding)
+            .padding(.trailing, .trailingPadding)
         }
-        .padding(.vertical, .verticalPadding)
-        .padding(.leading, .leadingPadding)
-        .padding(.trailing, .trailingPadding)
-        .background(.white)
-        .continiousCornerRadius(.cornerRadius)
         .frame(height: .chartHeight)
+    }
+
+    private var isEmptyState: Bool {
+        items.reduce(0) { $0 + $1.value } == 0
+    }
+
+    func scaleDomain() -> ClosedRange<Double> {
+        let maxValue = items.max(by: { $0.value < $1.value })
+        let maxLineValue = items.max(by: { $0.lineValue < $1.lineValue })
+        if let maxValue = maxValue?.value, let maxLineValue = maxLineValue?.lineValue {
+            let max = max(maxValue, maxLineValue)
+            let upperBound = max > 0 ? max : 20
+            return 0 ... upperBound
+        }
+        return 0 ... 20
     }
 }
 
@@ -85,16 +85,10 @@ private extension CGFloat {
     static let barCornerRadius: CGFloat = 48
     static let trailingPadding: CGFloat = 12
     static let leadingPadding: CGFloat = 20
-    static let spacing: CGFloat = 16
-    static let verticalPadding: CGFloat = 20
-    static let titleTrailingPadding: CGFloat = 8
-    static let cornerRadius: CGFloat = 20
     static let chartHeight: CGFloat = 302
 }
 
 #Preview {
-    HealthProgressBarChartView(title: "Fasting",
-                               subtitle: "Last 7 days", 
-                               icon: .init(.circleInfo),
-                               items: HealthProgressBarChartItem.mock) {}
+    HealthProgressBarChartView(widgetInput: .weight,
+                               items: HealthProgressBarChartItem.mock) { _ in }
 }

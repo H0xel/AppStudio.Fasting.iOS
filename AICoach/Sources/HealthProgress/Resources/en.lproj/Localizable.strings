@@ -9,7 +9,9 @@
 // MARK: - FastingHealthProgressScreen
 "FastingHealthProgressScreen.title" = "Progress";
 "FastingHealthProgressScreen.fastingTitle" = "Fasting";
-"FastingHealthProgressScreen.fastingSubtitle" = "Last 7 days";
+"FastingHealthProgressScreen.lastSevenDays" = "Last 7 days";
+"FastingHealthProgressScreen.weightTitle" = "Weight";
+"FastingHealthProgressScreen.waterTitle" = "Water";
 
 // MARK: - BodyMassIndex
 "BodyMassIndex.normal" = "Normal";
@@ -20,11 +22,6 @@
 // MARK: - BodyMassIndexView
 "BodyMassIndexView.title" = "Body Mass Index";
 "BodyMassIndexView.kgForSquareMetter" = "kg/m";
-
-// MARK: - HealthProgressHint
-"HealthProgressHint.learnMore" = "Learn more";
-"HealthProgressHint.bodyMass.title" = "Body Mass Index (BMI)";
-"HealthProgressHint.bodyMass.description" = "is a simple method for determining weight category, based on your height and weight";
 
 // MARK: - HintScreen
 "HintTopic.bmi.title" = "Body Mass Index (BMI)";
@@ -57,3 +54,18 @@
 "FastingPhases.Autophagy" = "Autophagy";
 "HintTopic.fasting.paragraphContent.title" = "Average Fasting Time";
 "HintTopic.fasting.paragraphContent.topic1" = "Calculated as the total hours of fasting within the selected timeframe, divided by the number of completed fasting sessions.";
+
+"HealthProgressWidget.exploreMore" = "Explore More";
+
+"LineChartItem.trueWeight" = "True Weight";
+"LineChartItem.scaleWeight" = "Scale Weight";
+
+"WeightWidgetEmptyView.title" = "No weight logged in the past 7 days";
+"WeightWidgetEmptyView.subtitle" = "Weigh in at least one more time";
+"WeightWidgetEmptyView.buttonTitle" = "Log Weight";
+
+"WaterWidgetEmptyView.title" = "No water logged in the past 7 days";
+"WaterWidgetEmptyView.subtitle" = "Log water at least one more time";
+
+"FastingWidgetEmptyView.title" = "No fasts logged in the past 7 days";
+"FastingWidgetEmptyView.subtitle" = "Finish fasting at least one more time";

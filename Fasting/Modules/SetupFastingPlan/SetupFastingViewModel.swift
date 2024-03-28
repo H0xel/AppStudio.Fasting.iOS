@@ -57,7 +57,7 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
             }
         }
 
-        if context == .profile || context == .mainScreen {
+        if context == .profile || context == .fasting || context == .daily {
             Task { [weak self] in
                 guard let self else { return }
                 try await self.fastingParametersService.set(
@@ -73,8 +73,8 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
             router.dismiss()
         }
 
-        if context == .mainScreen {
-            router.presentChooseFasting()
+        if context == .fasting || context == .daily {
+            router.presentChooseFasting(context: .init(context))
         }
 
         trackChangeTapped(currentSchedule: plan.description, context: .init(context))

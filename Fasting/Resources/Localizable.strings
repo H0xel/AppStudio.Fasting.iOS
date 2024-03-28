@@ -194,6 +194,7 @@
 "SuccessScreen.yourFastingTime" = "Your fasting time";
 "SuccessScreen.fastingEnded" = "Fasting ended";
 "SuccessScreen.submit" = "Submit";
+"SuccessScreen.logFast" = "Log Fast";
 
 // MARK: - End Fasting Early Screen
 "EndFastingEarlyScreen.title" = "Don't give up!\nYou can do it.";
@@ -424,3 +425,7 @@
 "DiscountPaywall.unlimitedAccess" = "Unlimited access to all features";
 
 "CoachConstants.appName" = "Intermittent Fasting Tracker";
+
+// MARK: - HalthOverviewScreen
+"HalthOverviewScreen.readyToFast" = "Ready to fast?";
+"HalthOverviewScreen.nextFastIn" = "Next fast in";

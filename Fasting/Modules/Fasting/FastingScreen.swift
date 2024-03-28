@@ -30,7 +30,7 @@ struct FastingScreen: View {
                                     plan: viewModel.fastingInterval.plan,
                                     hasSubscription: viewModel.hasSubscription,
                                     onTapStage: viewModel.presentArticle) {
-                    viewModel.onChangeFastingTapped()
+                    viewModel.onChangeFastingTapped(context: .fasting)
                 }
                                     .padding(.horizontal, Layout.horizontalPadding)
                 Spacer()
@@ -84,7 +84,7 @@ private extension FastingScreen {
 struct FastingScreen_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = FastingViewModel(input: .init(), output: { _ in })
-        viewModel.router = .init(navigator: .init())
+        viewModel.router = .init(navigator: .init(), fastingWidgetNavigator: .init())
         return ModernNavigationView {
             FastingScreen(viewModel: viewModel)
         }

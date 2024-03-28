@@ -6,9 +6,18 @@
 //
 import Foundation
 import Dependencies
+import Combine
 
 class FastingHistoryServiceImpl: FastingHistoryService {
     @Dependency(\.fastingIntervalHistoryRepository) private var fastingIntervalHistoryRepository
+
+    var historyObserver: FastingIntervalHistoryObserver {
+        fastingIntervalHistoryRepository.historyObserver
+    }
+
+    func save(history: FastingIntervalHistory) async throws {
+        try await fastingIntervalHistoryRepository.save(history: history)
+    }
 
     func saveHistory(interval: FastingInterval,
                      startedAt startedDate: Date,
@@ -30,6 +39,10 @@ class FastingHistoryServiceImpl: FastingHistoryService {
         try await fastingIntervalHistoryRepository.select(from: date)
     }
 
+    func history(byId id: String) async throws -> FastingIntervalHistory? {
+        try await fastingIntervalHistoryRepository.history(byId: id)
+    }
+
     func history(for dates: [Date]) async throws -> [Date: FastingIntervalHistory] {
         try await withThrowingTaskGroup(
             of: (Date, [FastingIntervalHistory]).self,
@@ -43,7 +56,6 @@ class FastingHistoryServiceImpl: FastingHistoryService {
                 }
             }
             var result: [Date: FastingIntervalHistory] = [:]
-
             for try await history in group {
                 if let longestFasting = history.1.sorted(by: { $0.timeFasted < $1.timeFasted }).last {
                     result[history.0] = longestFasting
@@ -51,5 +63,9 @@ class FastingHistoryServiceImpl: FastingHistoryService {
             }
             return result
         }
+    }
+
+    func deleteAll() async throws {
+        try await fastingIntervalHistoryRepository.deleteAll()
     }
 }

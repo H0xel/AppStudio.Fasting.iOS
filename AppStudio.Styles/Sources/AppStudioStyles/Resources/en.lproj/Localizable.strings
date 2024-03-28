@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 14.03.2024.
+  
+*/
+
+// MARK: - HealthWidgetHint
+"HealthWidgetHint.learnMore" = "Learn more";
+"UpdateWeightTodayButton.today" = "Today";

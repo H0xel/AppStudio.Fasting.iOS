@@ -11,10 +11,10 @@
       location = "group:Fasting/../AICoach">
    </FileRef>
    <FileRef
-      location = "group:AppStudio.Services">
+      location = "group:AppStudio.Styles">
    </FileRef>
    <FileRef
-      location = "group:AppStudio.Styles">
+      location = "group:AppStudio.Services">
    </FileRef>
    <FileRef
       location = "group:AppStudio.Models">

@@ -14,4 +14,5 @@ struct OnboardingCalculatedData: Codable {
     let paywallTitle: String
     let paywallBullets: [String]
     let fromAgesTitle: String
+    let waterIntake: Double?
 }

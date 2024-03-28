@@ -12,6 +12,8 @@ import SwiftUI
 import Dependencies
 import Combine
 import RxSwift
+import HealthOverview
+import FastingWidget
 
 class FastingViewModel: BaseViewModel<FastingOutput> {
 
@@ -89,17 +91,17 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
 
     func toggleFasting() {
         if isFastingActive {
-            trackTapEndFasting()
-            endFasting()
+            trackTapEndFasting(context: "fasting")
+            endFasting(context: "fasting")
             return
         }
         startFasting()
-        trackTapStartFasting()
+        trackTapStartFasting(context: "fasting")
     }
 
-    func onChangeFastingTapped() {
-        router.presentSetupFasting(plan: fastingInterval.plan)
-        trackTapSchedule()
+    func onChangeFastingTapped(context: SetupFastingInput.Context) {
+        router.presentSetupFasting(plan: fastingInterval.plan, context: context)
+        trackTapSchedule(context: context.rawValue)
     }
 
     func inActiveStageTapped(_ article: FastingInActiveArticle) {
@@ -149,14 +151,13 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
         }
     }
 
-    private func endFasting() {
+    private func endFasting(context: String) {
         if fastingStatus.isFinished {
-            trackFastingFinished()
-            fastingService.endFasting()
+            trackFastingFinished(context: context)
             presentSuccesScreen()
             return
         }
-        presentEndFastingEarlyScreen()
+        presentEndFastingEarlyScreen(context: context)
     }
 
     private func startFasting() {
@@ -176,6 +177,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
                 this.fastingStages = this.updateFastingStages(fastingInterval: this.fastingInterval,
                                                               fastingStatus: status)
                 this.fastingStatus = status
+                this.updateFastingWidget(status: status)
             }
             .store(in: &cancellables)
     }
@@ -212,6 +214,70 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
                 this.hasSubscription = hasSubscription
             }
             .disposed(by: disposeBag)
+    }
+}
+
+// MARK: - Fasting Widget
+extension FastingViewModel {
+    private func updateFastingWidget(status: FastingStatus) {
+        switch status {
+        case .unknown:
+            updateFastingWidgetWithInactiveStatus(stage: .expired)
+        case .active(let stage):
+            updateFastingWidgetWithActiveStatus(stage: stage)
+        case .inActive(let stage):
+            updateFastingWidgetWithInactiveStatus(stage: stage)
+        }
+    }
+
+    private func updateFastingWidgetWithActiveStatus(stage: FastingActiveState) {
+        let state = ActiveFastingWidgetState(
+            startDate: fastingInterval.startDate,
+            finishDate: fastingInterval.endDate,
+            phases: fastingStages,
+            onEndFastingTap: { [weak self] in
+                self?.endFasting(context: "daily")
+            },
+            onSettingsTap: { [weak self] in
+                self?.onChangeFastingTapped(context: .daily)
+            },
+            onCircleTap: { [weak self] in
+                if let currentStage = self?.currentStage {
+                    self?.presentArticle(for: currentStage)
+                }
+            }
+        )
+        output(.updateWidget(.active(state)))
+    }
+
+    private func updateFastingWidgetWithInactiveStatus(stage: InActiveFastingStage) {
+        switch stage {
+        case .left(let timeInterval):
+            let state = InActiveFastingWidgetState(
+                title: "HalthOverviewScreen.nextFastIn".localized(),
+                subtitle: timeInterval.toTime,
+                onButtonTap: { [weak self] in
+                    self?.trackTapStartFasting(context: "daily")
+                    self?.startFasting()
+                },
+                onSettingsTap: { [weak self] in
+                    self?.onChangeFastingTapped(context: .daily)
+                }
+            )
+            output(.updateWidget(.inactive(state)))
+        case .expired:
+            let state = InActiveFastingWidgetState(
+                title: "",
+                subtitle: "HalthOverviewScreen.readyToFast".localized(),
+                onButtonTap: { [weak self] in
+                    self?.trackTapStartFasting(context: "daily")
+                    self?.startFasting()
+                },
+                onSettingsTap: { [weak self] in
+                    self?.onChangeFastingTapped(context: .daily)
+                })
+            output(.updateWidget(.inactive(state)))
+        }
     }
 }
 
@@ -258,12 +324,13 @@ extension FastingViewModel {
         }
     }
 
-    private func presentEndFastingEarlyScreen() {
+    private func presentEndFastingEarlyScreen(context: String) {
         router.presentEndFastingEarly { event in
             switch event {
             case .end:
                 Task { [weak self] in
                     await self?.router.dismiss()
+                    self?.trackFastingFinished(context: context)
                     self?.presentSuccesScreen()
                 }
             }
@@ -273,8 +340,7 @@ extension FastingViewModel {
 }
 
 private extension FastingViewModel {
-    func trackTapStartFasting() {
-
+    func trackTapStartFasting(context: String) {
         if case let .inActive(stage) = fastingStatus {
             switch stage {
             case .expired:
@@ -282,14 +348,16 @@ private extension FastingViewModel {
                     currentTime: Date.now.description,
                     startTime: fastingInterval.startDate.description,
                     timeUntilFast: "",
-                    schedule: fastingInterval.plan.description
+                    schedule: fastingInterval.plan.description,
+                    context: context
                 ))
             case let .left(interval):
                 trackerService.track(.tapStartFasting(
                     currentTime: Date.now.description,
                     startTime: fastingInterval.startDate.description,
                     timeUntilFast: interval.toTime,
-                    schedule: fastingInterval.plan.description
+                    schedule: fastingInterval.plan.description,
+                    context: context
                 ))
             }
         }
@@ -307,27 +375,29 @@ private extension FastingViewModel {
         trackerService.track(.tapChangeFastingStartTime(context: .fastingScreen))
     }
 
-    func trackTapSchedule() {
-        trackerService.track(.tapSchedule(currentSchedule: fastingInterval.plan.description))
+    func trackTapSchedule(context: String) {
+        trackerService.track(.tapSchedule(currentSchedule: fastingInterval.plan.description, context: context))
     }
 
-    func trackTapEndFasting() {
+    func trackTapEndFasting(context: String) {
         if case let .active(stage) = fastingStatus {
             trackerService.track(.tapEndFasting(
                 timeFasted: stage.interval.toTime,
                 startTime: fastingInterval.startDate.description,
                 currentTime: Date.now.description,
-                schedule: fastingInterval.plan.description))
+                schedule: fastingInterval.plan.description, 
+                context: context))
         }
     }
 
-    func trackFastingFinished() {
+    func trackFastingFinished(context: String) {
         if case let .active(stage) = fastingStatus {
             trackerService.track(.tapEndFasting(
                 timeFasted: stage.interval.toTime,
                 startTime: fastingInterval.startDate.description,
                 currentTime: Date.now.description,
-                schedule: fastingInterval.plan.description))
+                schedule: fastingInterval.plan.description,
+                context: context))
         }
     }
 

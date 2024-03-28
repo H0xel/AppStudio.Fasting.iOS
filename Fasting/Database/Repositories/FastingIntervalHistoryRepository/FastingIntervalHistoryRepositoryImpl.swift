@@ -9,6 +9,8 @@ import Foundation
 import MunicornCoreData
 import Dependencies
 
+typealias FastingIntervalHistoryObserver = CoreDataObserver<FastingIntervalHistory>
+
 class FastingIntervalHistoryRepositoryImpl: CoreDataBaseRepository<FastingIntervalHistory> {
     init() {
         @Dependency(\.coreDataService) var coreDataService
@@ -17,6 +19,16 @@ class FastingIntervalHistoryRepositoryImpl: CoreDataBaseRepository<FastingInterv
 }
 
 extension FastingIntervalHistoryRepositoryImpl: FastingIntervalHistoryRepository {
+
+    var historyObserver: FastingIntervalHistoryObserver {
+        @Dependency(\.coreDataService) var coreDataService
+        let observer = FastingIntervalHistoryObserver(coreDataService: coreDataService)
+        let request = FastingIntervalHistory.request()
+        request.sortDescriptors = [.init(key: "startedDate", ascending: false)]
+        observer.fetch(request: request)
+        return observer
+    }
+
     func save(history: FastingIntervalHistory) async throws -> FastingIntervalHistory {
         try await save(history)
     }
@@ -27,6 +39,10 @@ extension FastingIntervalHistoryRepositoryImpl: FastingIntervalHistoryRepository
         request.sortDescriptors = [.init(key: "currentDate", ascending: true)]
 
         return try await select(request: request)
+    }
+
+    func history(byId id: String) async throws -> FastingIntervalHistory? {
+        try await object(byId: id)
     }
 
     func select(from date: Date) async throws -> [FastingIntervalHistory] {

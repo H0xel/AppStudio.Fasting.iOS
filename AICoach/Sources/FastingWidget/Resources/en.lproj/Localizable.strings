@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 14.03.2024.
+  
+*/
+
+"FastingWidgetView.startFasting" = "Start fasting";
+"FastingWidgetView.endFasting" = "End fasting";
+"FastingWidgetView.youFastedFor" = "You've fasted for";
+"FastingWidgetView.fastTime" = "%ih fast";
+"FastingWidgetView.until" = "until";
+"FastingWidgetView.zeroHours" = "0 h";
+"FastingWidgetView.logFast" = "Log Fast";
+"FastingWidgetView.update" = "Update";

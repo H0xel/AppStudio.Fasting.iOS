@@ -21,8 +21,7 @@ struct RootRoute: Route {
 
     private var viewModel: RootViewModel {
         let router = RootRouter(navigator: navigator)
-        let viewModel = RootViewModel(input: input, output: output)
-        viewModel.router = router
+        let viewModel = RootViewModel(router: router, input: input, output: output)
         return viewModel
     }
 }

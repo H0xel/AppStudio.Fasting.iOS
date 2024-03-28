@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppStudioModels
 
 protocol OnboardingPickerOption: Identifiable, Hashable {
     var title: String { get }
@@ -47,7 +48,7 @@ extension HeightUnit: OnboardingPickerOption {
 }
 
 extension WeightUnit: OnboardingPickerOption {
-    var id: String {
+    public var id: String {
         rawValue
     }
 

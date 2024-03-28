@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import FastingWidget
 
-enum FastingStage: String, CaseIterable, Equatable {
+enum FastingStage: String, CaseIterable, Equatable, FastingWidgetPhase {
     case sugarRises
     case sugarDrop
     case sugarNormal
