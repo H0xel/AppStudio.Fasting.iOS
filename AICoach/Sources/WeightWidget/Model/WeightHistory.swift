@@ -44,6 +44,16 @@ public struct WeightHistory {
 }
 
 public extension WeightHistory {
+
+    static var mock: WeightHistory {
+        .init(id: UUID().uuidString,
+              dateCreated: .now,
+              historyDate: .now.beginningOfDay,
+              scaleWeightValue: .random(in: 60...70),
+              trueWeightValue: .random(in: 60...70),
+              weightUnits: .kg)
+    }
+
     var scaleWeight: WeightMeasure {
         .init(value: scaleWeightValue, units: weightUnits)
     }
@@ -66,6 +76,15 @@ public extension WeightHistory {
               dateCreated: dateCreated,
               historyDate: historyDate,
               scaleWeightValue: scaleWeight,
+              trueWeightValue: trueWeightValue,
+              weightUnits: weightUnits)
+    }
+
+    func updated(historyDate: Date) -> WeightHistory {
+        .init(id: UUID().uuidString,
+              dateCreated: .now,
+              historyDate: historyDate,
+              scaleWeightValue: scaleWeightValue,
               trueWeightValue: trueWeightValue,
               weightUnits: weightUnits)
     }

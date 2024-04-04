@@ -19,6 +19,7 @@ struct SwipeActionsModifier: ViewModifier {
     private let id = UUID().uuidString
     @State private var feedbackGenerator: UIImpactFeedbackGenerator?
     @State private var impactOccurred = false
+    @State private var contentHeight: CGFloat = 0
 
     func body(content: Content) -> some View {
         ZStack {
@@ -28,10 +29,11 @@ struct SwipeActionsModifier: ViewModifier {
                 .opacity(totalOffset >= 0 ? 0 : 1)
 
             content
+                .withViewHeightPreferenceKey
                 .frame(maxWidth: .infinity)
                 .offset(x: gestureOffset + swipeOffset)
                 .gesture(
-                    DragGesture(minimumDistance: 0)
+                    DragGesture(minimumDistance: 10)
                         .updating($gestureOffset) { value, state, _ in
                             let translation = value.translation.width
                             if translation < 0 && !rightActions.isEmpty ||
@@ -85,6 +87,9 @@ struct SwipeActionsModifier: ViewModifier {
         .onDisappear {
             reset()
         }
+        .onViewHeightPreferenceKeyChange { newHeight in
+            contentHeight = newHeight
+        }
     }
 
     var leftButtonsWidth: CGFloat {
@@ -129,10 +134,12 @@ struct SwipeActionsModifier: ViewModifier {
                             .fixedSize()
                             .frame(width: action.buttonWidth)
                     }
+                    .frame(height: contentHeight)
+                    .continiousCornerRadius(action.cornerRadius)
+                    .font(action.font)
                 }
             }
             .frame(maxWidth: buttonWidth)
-            .continiousCornerRadius(20)
             .aligned(position)
         }
     }

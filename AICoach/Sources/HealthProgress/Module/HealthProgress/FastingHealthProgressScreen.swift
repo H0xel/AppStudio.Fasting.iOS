@@ -31,8 +31,9 @@ struct FastingHealthProgressScreen: View {
                                      output: viewModel.handleWeightWidgetOutput)
                 .modifier(BottomHealthWidgetHintModifier(isHintPresented: viewModel.isWeightHintPresented,
                                                          hint: .weight,
-                                                         onClose: viewModel.closeWeightHint,
-                                                         onLearnMore: viewModel.presentWeightInfo))
+                                                         onClose: viewModel.closeWeightHint) {
+                    viewModel.presentWeightInfo(source: "learn_more")
+                })
                 BodyMassIndexView(index: viewModel.bodyMassIndex) {
                     viewModel.presentBodyMassIndexInfo(source: "info")
                 }

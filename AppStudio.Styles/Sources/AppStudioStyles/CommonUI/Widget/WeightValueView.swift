@@ -14,19 +14,25 @@ public struct WeightValueView: View {
     private let weight: WeightMeasure?
     private let isBig: Bool
     private let colorForNegativeNumbers: Color?
+    private let alignment: HorizontalAlignment
+    private let usePlusSign: Bool
 
     public init(title: String,
                 weight: WeightMeasure?,
                 isBig: Bool,
+                alignment: HorizontalAlignment = .leading,
+                usePlusSign: Bool = false,
                 colorForNegativeNumbers: Color? = nil) {
         self.title = title
         self.weight = weight
         self.isBig = isBig
         self.colorForNegativeNumbers = colorForNegativeNumbers
+        self.alignment = alignment
+        self.usePlusSign = usePlusSign
     }
 
     public var body: some View {
-        VStack(alignment: .leading, spacing: .verticalSpacing) {
+        VStack(alignment: alignment, spacing: .verticalSpacing) {
             Text(title)
                 .font(.poppins(.description))
                 .foregroundStyle(Color.studioGreyText)
@@ -58,7 +64,8 @@ public struct WeightValueView: View {
 
     private var value: String {
         if let value = weight?.value {
-            return String(format: "%.1f", value)
+            let sign = value > 0 && usePlusSign ? "+" : ""
+            return "\(sign)\(String(format: "%.1f", value))"
         }
         return "--"
     }

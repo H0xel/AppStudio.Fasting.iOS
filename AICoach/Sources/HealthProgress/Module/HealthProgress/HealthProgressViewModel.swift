@@ -80,7 +80,7 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
     func handleWeightWidgetOutput(output: HealthChartOutput) {
         switch output {
         case .infoTap:
-            presentWeightInfo()
+            presentWeightInfo(source: "info")
         case .learnMoreTap:
             exploreWeight()
         case .emptyStateButtonTap:
@@ -134,8 +134,8 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
             }
     }
 
-    func presentWeightInfo() {
-        trackTapInfo(source: "info", target: "weight")
+    func presentWeightInfo(source: String) {
+        trackTapInfo(source: source, target: "weight")
         router.presentWeightHint()
     }
 
@@ -167,8 +167,13 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
         }
     }
 
-    // TODO: - Реализовать
     private func exploreWeight() {
+        router.presentWeightProgress(weightUnits: defaultWeightUnits) { [weak self] output in
+            switch output {
+            case .weightUpdated:
+                self?.updateWeight()
+            }
+        }
         trackTapInfo(source: "learn_more", target: "weight")
     }
 

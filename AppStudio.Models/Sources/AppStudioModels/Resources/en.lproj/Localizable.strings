@@ -15,3 +15,13 @@
 "HealthWidgetHint.bodyMass.description" = "is a simple method for determining weight category, based on your height and weight";
 "HealthWidgetHint.weight.title" = "Understanding Weight";
 "HealthWidgetHint.weight.description" = "Scale Weight fluctuates naturally each day. We smooth out these variations to identify your True Weight, enabling you to see meaningful changes.";
+
+// MARK: - DateChartScale
+"DateChartScale.week" = "Week";
+"DateChartScale.month" = "Month";
+"DateChartScale.threeMonth" = "3 months";
+
+// MARK: - LineChartItem
+"LineChartItem.trueWeight" = "True Weight";
+"LineChartItem.scaleWeight" = "Scale Weight";
+"LineChartItem.goalWeight" = "Goal Weight";

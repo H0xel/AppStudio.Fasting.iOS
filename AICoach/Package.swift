@@ -83,6 +83,7 @@ let package = Package(
                 .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
                 .product(name: "AppStudioServices", package: "AppStudio.Services"),
                 .product(name: "AppStudioModels", package: "AppStudio.Models"),
+                "WeightGoalWidget"
             ]
         ),
         .target(

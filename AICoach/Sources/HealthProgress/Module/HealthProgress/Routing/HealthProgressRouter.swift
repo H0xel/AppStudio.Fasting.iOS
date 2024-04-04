@@ -57,4 +57,13 @@ class HealthProgressRouter: BaseRouter {
         let route = WaterCounterSettingsRoute(navigator: navigator, output: output)
         navigator.present(sheet: route, detents: [.height(415)], showIndicator: true)
     }
+
+    func presentWeightProgress(weightUnits: WeightUnit, output: @escaping WeightProgressOutputBlock) {
+        if #available(iOS 17.0, *) {
+            let route = WeightProgressRoute(navigator: navigator,
+                                            input: .init(weightUnits: weightUnits),
+                                            output: output)
+            present(route: route)
+        }
+    }
 }

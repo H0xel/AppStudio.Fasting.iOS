@@ -19,11 +19,12 @@ struct HealthWidgetInput {
 
 extension HealthWidgetInput {
     static var weight: HealthWidgetInput {
-        .init(title: "FastingHealthProgressScreen.weightTitle".localized(bundle: .module),
-              subtitle: "FastingHealthProgressScreen.lastSevenDays".localized(bundle: .module),
-              isExploreButtonPresented: false,
-              emptyStateInput: .weight, 
-              icon: .widgetInfo)
+        let canExplore = if #available(iOS 17.0, *) { true } else { false }
+        return .init(title: "FastingHealthProgressScreen.weightTitle".localized(bundle: .module),
+                     subtitle: "FastingHealthProgressScreen.lastSevenDays".localized(bundle: .module),
+                     isExploreButtonPresented: canExplore,
+                     emptyStateInput: .weight,
+                     icon: .widgetInfo)
     }
 
     static var fasting: HealthWidgetInput {

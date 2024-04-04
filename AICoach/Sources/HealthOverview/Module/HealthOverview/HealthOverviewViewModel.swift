@@ -91,7 +91,6 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
     private func updateWeeks(weeks: [Week]) {
         swipeDaysViewModel.insertDays(of: weeks)
         fastingWidgetViewModel.loadData(weeks: weeks)
-        weightWidgetViewModel.loadData(for: weeks)
     }
 }
 

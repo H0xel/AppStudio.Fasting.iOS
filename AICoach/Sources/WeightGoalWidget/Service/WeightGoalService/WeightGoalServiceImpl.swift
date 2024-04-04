@@ -19,4 +19,8 @@ class WeightGoalServiceImpl: WeightGoalService {
     func save(_ goal: WeightGoal) async throws -> WeightGoal {
         try await weightGoalRepository.save(goal)
     }
+
+    func goals() async throws -> [WeightGoal] {
+        try await weightGoalRepository.goals()
+    }
 }

@@ -54,8 +54,8 @@ struct HealthProgressWidgetView<Content: View>: View {
                     }
                     .foregroundStyle(Color.studioBlackLight)
                 })
+                .aligned(.left)
                 .padding(.horizontal, .horizontalPadding)
-                .padding(.top, .exploreTopPadding)
             }
         }
         .padding(.vertical, .verticalPadding)

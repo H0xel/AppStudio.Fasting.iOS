@@ -57,9 +57,6 @@
 
 "HealthProgressWidget.exploreMore" = "Explore More";
 
-"LineChartItem.trueWeight" = "True Weight";
-"LineChartItem.scaleWeight" = "Scale Weight";
-
 "WeightWidgetEmptyView.title" = "No weight logged in the past 7 days";
 "WeightWidgetEmptyView.subtitle" = "Weigh in at least one more time";
 "WeightWidgetEmptyView.buttonTitle" = "Log Weight";

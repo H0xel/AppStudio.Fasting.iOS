@@ -28,6 +28,7 @@ public class WeightWidgetViewModel: BaseViewModel<WeightWidgetOutput> {
     @Published private var currentDate: Date = .now.beginningOfDay
     private var router: WeightWidgetRouter!
     private var units: WeightUnit = .kg
+    private var weightObserver: WeightHistoryObserver?
 
     public override init() {
         super.init()
@@ -51,17 +52,21 @@ public class WeightWidgetViewModel: BaseViewModel<WeightWidgetOutput> {
         super.initialize(output: output)
         currentDatePublisher
             .assign(to: &$currentDate)
+        observeHistory()
     }
 
-    public func loadData(for weeks: [Week]) {
-        Task {
-            let history = try await weightService.history(for: weeks)
-            var currentHistory = weightHistory
-            for (day, history) in history {
-                currentHistory[day] = history
+    private func observeHistory() {
+        weightObserver = weightService.weightHistoryObserver()
+        weightObserver?.results
+            .map { history in
+                var result: [Date: WeightHistory] = [:]
+                for history in history {
+                    result[history.historyDate] = history
+                }
+                return result
             }
-            await updateHistory(currentHistory)
-        }
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$weightHistory)
     }
 
     func presentHint(source: String) {
@@ -76,7 +81,6 @@ public class WeightWidgetViewModel: BaseViewModel<WeightWidgetOutput> {
             guard let self else { return }
             switch output {
             case .weightUpdated(let history):
-                self.loadData(for: [.init(ofDay: self.currentDate)])
                 self.updateTrueWeightIfNeeded(history: history)
                 self.trackerService.track(.weightUpdated(date: history.historyDate.description))
             }
@@ -99,7 +103,6 @@ public class WeightWidgetViewModel: BaseViewModel<WeightWidgetOutput> {
         }
         Task {
             try await weightService.updateTrueWeight(after: history.historyDate.add(days: 1))
-            loadData(for: [.init(ofDay: self.currentDate)])
         }
     }
 }

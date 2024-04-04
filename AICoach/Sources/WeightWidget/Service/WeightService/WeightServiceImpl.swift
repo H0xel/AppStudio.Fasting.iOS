@@ -15,6 +15,15 @@ class WeightServiceImpl: WeightService {
     @Dependency(\.trueWeightCalculationService) private var trueWeightCalculationService
     @Dependency(\.weightInterpolationService) private var weightInterpolationService
 
+    func weightHistoryObserver() -> WeightHistoryObserver {
+        @Dependency(\.coreDataService) var coreDataService
+        let observer = WeightHistoryObserver(coreDataService: coreDataService)
+        let request = WeightHistory.request()
+        request.sortDescriptors = [.init(key: "historyDate", ascending: true)]
+        observer.fetch(request: request)
+        return observer
+    }
+
     func history(from startDate: Date, until endDate: Date) async throws -> [Date: WeightHistory] {
         var result: [Date: WeightHistory] = [:]
         var currentDay = startDate
@@ -80,6 +89,10 @@ class WeightServiceImpl: WeightService {
 
     func deleteAll() async throws {
         try await weightHistoryRepository.deleteAll()
+    }
+
+    func delete(byId id: String) async throws {
+        try await weightHistoryRepository.delete(byId: id)
     }
 
     private func history(from date: Date) async throws -> [WeightHistory] {

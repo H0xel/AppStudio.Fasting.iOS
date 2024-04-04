@@ -6,6 +6,8 @@
   
 */
 
+"SwipeAction.delete" = "Delete";
+
 // MARK: - HealthWidgetHint
 "HealthWidgetHint.learnMore" = "Learn more";
 "UpdateWeightTodayButton.today" = "Today";

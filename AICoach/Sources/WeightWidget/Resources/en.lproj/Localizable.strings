@@ -31,3 +31,29 @@
 
 "WeightWidgetHint.howOftenWeight.title" = "How Often Should I Weigh In?";
 "WeightWidgetHint.howOftenWeight.answer1" = "True Weight is resilient to missing weight entries. However, for the best results, weigh in daily or at least three times per week.";
+
+// MARK: - WeightProgressScreen
+"WeightProgressScreen.title" = "Weight";
+"WeightProgressScreen.averageTrueWeight" = "Average True Weight";
+"WeightProgressScreen.chageOverPeriod" = "Change Over Period";
+
+// MARK: - WeightProgressAnalyticsView
+"WeightProgressAnalyticsView.currentTrueWeight" = "Current True Weight";
+"WeightProgressAnalyticsView.weeklyWeightChange" = "Weekly Weight Change";
+"WeightProgressAnalyticsView.projection" = "30-Day Projection";
+
+"WeightProgressAnalyticsView.currentTrueWeight.description" = "Our estimate of your current weight after smoothing out day-to-day fluctuations.";
+"WeightProgressAnalyticsView.weeklyWeightChange.description.weightLoss" = "Your typical weekly rate of weight loss over the past three weeks.";
+"WeightProgressAnalyticsView.weeklyWeightChange.description.weightGain" = "Your typical weekly rate of weight gain over the past three weeks.";
+"WeightProgressAnalyticsView.projection.description.weightLoss" = "Your projected weight in 30 days if your current rate of weight loss continues. Changes in energy intake or expenditure can significantly alter this projection.";
+"WeightProgressAnalyticsView.projection.description.weightGain" = "Your projected weight in 30 days if your current rate of weight gain continues. Changes in energy intake or expenditure can significantly alter this projection.";
+
+"WeightProgressAnalyticsView.perWeek" = "per week";
+
+"WeightProgressAnalyticsView.gatheringData" = "Gathering Data";
+"WeightProgressAnalyticsView.gatheringDataDescription" = "A complete analysis will be available after three weeks of weight tracking.";
+"WeightProgressAnalyticsView.projectionPending" = "Projection Pending";
+"WeightProgressAnalyticsView.projectionPendingDescription" = "Accurate forecasting requires three weeks of weight tracking.";
+
+// MARK: - ScaleWeightHistoryScreen
+"ScaleWeightHistoryScreen.title" = "Scale Weight Log";

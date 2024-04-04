@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct WeightMeasure: Codable {
+public struct WeightMeasure: Codable, Equatable {
     public let value: CGFloat
     public let units: WeightUnit
 

@@ -22,4 +22,10 @@ class WeightGoalRepositoryImpl: CoreDataBaseRepository<WeightGoal>, WeightGoalRe
         request.sortDescriptors = [.init(key: "dateCreated", ascending: false)]
         return try await select(request: request).first
     }
+
+    func goals() async throws -> [WeightGoal] {
+        let request = WeightGoal.request()
+        request.sortDescriptors = [.init(key: "dateCreated", ascending: true)]
+        return try await select(request: request)
+    }
 }

@@ -15,4 +15,5 @@ protocol WeightHistoryRepository {
     func history(from date: Date) async throws -> [WeightHistory]
     func history(exactDate date: Date) async throws -> WeightHistory?
     func deleteAll() async throws
+    func delete(byId id: String) async throws
 }

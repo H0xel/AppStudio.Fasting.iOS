@@ -17,4 +17,6 @@ public protocol WeightService {
     func history(from startDate: Date, until endDate: Date) async throws -> [WeightHistory] 
     func updateTrueWeight(after date: Date) async throws
     func deleteAll() async throws
+    func weightHistoryObserver() -> WeightHistoryObserver
+    func delete(byId id: String) async throws
 }
