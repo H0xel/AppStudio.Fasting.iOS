@@ -1,15 +1,17 @@
 //
 //  ChangeSexView.swift
-//  CalorieCounter
+//  
 //
-//  Created by Руслан Сафаргалеев on 18.01.2024.
+//  Created by Руслан Сафаргалеев on 04.04.2024.
 //
 
 import SwiftUI
+import AppStudioModels
 
 struct ChangeSexView: View {
 
     let initialSex: Sex
+    let showDescription: Bool
     let onBackTap: () -> Void
     let onSaveTap: (Sex) -> Void
     @State private var currentSex: Sex = .female
@@ -25,14 +27,15 @@ struct ChangeSexView: View {
             }
             .scrollDisabled(true)
             .padding(.horizontal, .horizontalPadding)
-            ProfileChangeView(isSaveButtonEnabled: currentSex != initialSex) {
+            ProfileChangeView(showDescription: showDescription,
+                              isSaveButtonEnabled: currentSex != initialSex) {
                 onSaveTap(currentSex)
             }
         }
         .onAppear {
             currentSex = initialSex
         }
-        .navBarButton(content: Image.chevronLeft.foregroundStyle(.accent),
+        .navBarButton(content: Image.chevronLeft.foregroundStyle(Color.studioBlackLight),
                       action: onBackTap)
     }
 }
@@ -43,10 +46,14 @@ private extension CGFloat {
 }
 
 private extension String {
-    static let sexTitle = NSLocalizedString("Onboarding.sex.title", comment: "")
-    static let sexDescription = NSLocalizedString("Onboarding.sex.description", comment: "")
+    static let sexTitle = "Onboarding.sex.title".localized(bundle: .module)
+    static let sexDescription = "Onboarding.sex.description".localized(bundle: .module)
 }
 
 #Preview {
-    ChangeSexView(initialSex: .male, onBackTap: {}, onSaveTap: { _ in })
+    ChangeSexView(initialSex: .male,
+                  showDescription: true,
+                  onBackTap: {},
+                  onSaveTap: { _ in })
 }
+

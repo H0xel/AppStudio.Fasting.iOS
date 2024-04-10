@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppStudioModels
 
 struct DailyCalorieBudgetInput {
     let dietData: ProfileCalculationDietData

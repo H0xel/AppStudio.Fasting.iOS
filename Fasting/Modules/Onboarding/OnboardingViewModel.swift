@@ -29,6 +29,7 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
     @Published var birthdayDate: Date = .dateWith(day: 1, month: 1, year: 2000)
     @Published var specialEventDate: Date = .now
     @Published var height: CGFloat = 0
+    @Published var inchHeight: CGFloat = 0
     @Published var currentWeight: CGFloat = 0
     @Published var desiredWeight: CGFloat = 0
     @Published var heightUnit: HeightUnit = .ft
@@ -179,7 +180,9 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
             goals: Set(fastingGoals),
             sex: sex,
             birthdayDate: birthdayDate,
-            height: HeightMeasure(value: height, units: heightUnit),
+            height: heightUnit == .cm ?
+                .init(centimeters: height) :
+                .init(feet: height, inches: inchHeight),
             weight: WeightMeasure(value: currentWeight, units: weightUnit),
             desiredWeight: WeightMeasure(value: desiredWeight, units: weightUnit),
             activityLevel: activityLevel,

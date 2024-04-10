@@ -74,6 +74,12 @@ enum AnalyticEvent: MirrorEnum {
 
     // Profile
     case tapSupport
+    case tapChangeSex
+    case sexChanged
+    case tapChangeBirthdayDate
+    case birthdayChanged
+    case tapChangeHeight
+    case heightChanged
 
     // Fasting cycle
     case tapStartFasting(currentTime: String,
@@ -180,6 +186,12 @@ extension AnalyticEvent {
         case .tapUpdatePreviousFast: return "Tap update previous fast"
         case .fastingLogged: return "Fasting loged"
         case .fastingUpdated: return "Fasting updated"
+        case .tapChangeSex: return "Tap change sex"
+        case .sexChanged: return "Sex changed"
+        case .tapChangeBirthdayDate: return "Tap change birthday date"
+        case .birthdayChanged: return "Birthday changed"
+        case .tapChangeHeight: return "Tap change height"
+        case .heightChanged: return "Height changed"
         }
     }
 

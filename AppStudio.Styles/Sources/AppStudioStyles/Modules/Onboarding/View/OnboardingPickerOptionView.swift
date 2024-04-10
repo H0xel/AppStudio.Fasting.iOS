@@ -1,8 +1,8 @@
 //
 //  OnboardingPickerOptionView.swift
-//  CalorieCounter
+//  
 //
-//  Created by Руслан Сафаргалеев on 06.12.2023.
+//  Created by Руслан Сафаргалеев on 04.04.2024.
 //
 
 import SwiftUI
@@ -18,7 +18,7 @@ struct OnboardingPickerOptionView: View {
         Button(action: onTap) {
             VStack(alignment: .leading, spacing: Layout.spacing) {
                 Text(text)
-                    .foregroundStyle(.accent)
+                    .foregroundStyle(Color.studioBlackLight)
                     .font(.poppins(.body))
                     .aligned(.left)
                 if let description {
@@ -34,7 +34,7 @@ struct OnboardingPickerOptionView: View {
             .continiousCornerRadius(Layout.cornerRadius)
             .border(configuration: .init(
                 cornerRadius: Layout.cornerRadius,
-                color: isSelected ? .accent : .studioGreyStrokeFill,
+                color: isSelected ? .studioBlackLight : .studioGreyStrokeFill,
                 lineWidth: isSelected ? Layout.borderWidthSelected : Layout.borderWidthUnSelected)
             )
         }
@@ -64,3 +64,4 @@ private extension OnboardingPickerOptionView {
                                    onTap: {})
     }
 }
+

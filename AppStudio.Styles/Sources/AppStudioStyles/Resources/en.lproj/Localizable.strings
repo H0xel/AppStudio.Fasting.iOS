@@ -11,3 +11,21 @@
 // MARK: - HealthWidgetHint
 "HealthWidgetHint.learnMore" = "Learn more";
 "UpdateWeightTodayButton.today" = "Today";
+
+"HeightUnit.ft" = "ft";
+"HeightUnit.in" = "in";
+
+"ProfileScreen.changeInfoDescription" = "Changing your info might lead to a recalculation of your current plan";
+"ProfileScreen.saveChanges" = "Save changes";
+"ProfileScreen.sex" = "Sex";
+"ProfileScreen.birthday" = "Birthday";
+"ProfileScreen.height" = "Height";
+"ProfileScreen.support" = "Support";
+"ProfileScreen.termsOfUse" = "Terms of use";
+"ProfileScreen.privacyPolicy" = "Privacy policy";
+
+"Onboarding.height.title" = "How tall are you?";
+"Onboarding.birthdayTitle" = "When is your birthday?";
+"Onboarding.sex.description" = "Biological sex can affect many physical elements lIke our metabolism, muscle mass, or hormones, so we use it in our calculations";
+"Onboarding.sex.title" = "What’s your sex?";
+

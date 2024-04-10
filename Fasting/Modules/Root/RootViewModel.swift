@@ -373,7 +373,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         }
         let currentWeight = try await weightService.history(byDate: .now)?.trueWeight.normalizeValue ??
         data.weight.normalizeValue
-        let heightMetters = data.height.centimeters / 100
+        let heightMetters = data.height.normalizeValue / 100
         let bodyMassIndex = currentWeight / (heightMetters * heightMetters)
         return bodyMassIndex
     }

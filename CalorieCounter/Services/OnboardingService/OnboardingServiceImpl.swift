@@ -7,6 +7,7 @@
 
 import Foundation
 import Dependencies
+import AppStudioModels
 
 private let onboardingDataKey = "CalorieCounter.OnboardingDataKey"
 private let onboardingCalculatedDataKey = "CalorieCounter.OnboardingCalculatedDataKey"

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppStudioModels
 
 struct OnboardingData: Codable {
     let goals: Set<FastingGoal>

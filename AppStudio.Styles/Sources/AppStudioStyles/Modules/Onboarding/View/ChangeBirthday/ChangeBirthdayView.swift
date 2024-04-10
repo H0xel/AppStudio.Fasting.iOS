@@ -1,8 +1,8 @@
 //
 //  ChangeBirthdayView.swift
-//  CalorieCounter
+//  
 //
-//  Created by Руслан Сафаргалеев on 18.01.2024.
+//  Created by Руслан Сафаргалеев on 04.04.2024.
 //
 
 import SwiftUI
@@ -10,6 +10,7 @@ import SwiftUI
 struct ChangeBirthdayView: View {
 
     let initialBirthday: Date
+    let showDescription: Bool
     let onBackTap: () -> Void
     let onSave: (Date) -> Void
 
@@ -20,7 +21,8 @@ struct ChangeBirthdayView: View {
             OnboardingDatePickerView(title: .birthdayTitle,
                                      canChoosePast: true,
                                      date: $currentBirthday)
-            ProfileChangeView(isSaveButtonEnabled: initialBirthday != currentBirthday) {
+            ProfileChangeView(showDescription: showDescription,
+                              isSaveButtonEnabled: initialBirthday != currentBirthday) {
                 onSave(currentBirthday)
             }
             .aligned(.bottom)
@@ -28,17 +30,19 @@ struct ChangeBirthdayView: View {
         .onAppear {
             currentBirthday = initialBirthday
         }
-        .navBarButton(content: Image.chevronLeft.foregroundStyle(.accent),
+        .navBarButton(content: Image.chevronLeft.foregroundStyle(Color.studioBlackLight),
                       action: onBackTap)
     }
 }
 
 private extension String {
-    static let birthdayTitle = NSLocalizedString("Onboarding.birthdayTitle", comment: "")
+    static let birthdayTitle = "Onboarding.birthdayTitle".localized(bundle: .module)
 }
 
 #Preview {
     ChangeBirthdayView(initialBirthday: .now,
+                       showDescription: true,
                        onBackTap: {},
                        onSave: { _ in })
 }
+

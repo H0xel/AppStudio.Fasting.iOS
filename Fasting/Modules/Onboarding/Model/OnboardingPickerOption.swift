@@ -8,20 +8,13 @@
 import Foundation
 import AppStudioModels
 
-protocol OnboardingPickerOption: Identifiable, Hashable {
-    var title: String { get }
-    var description: String? { get }
-}
-
 extension FastingGoal: OnboardingPickerOption {
     var description: String? {
         nil
     }
-}
 
-extension Sex: OnboardingPickerOption {
-    var description: String? {
-        nil
+    var isFt: Bool {
+        false
     }
 }
 
@@ -29,30 +22,18 @@ extension ActivityLevel: OnboardingPickerOption {
     var description: String? {
         descriptionTitle
     }
+
+    var isFt: Bool {
+        false
+    }
 }
 
 extension SpecialEvent: OnboardingPickerOption {
     var description: String? {
         nil
     }
-}
 
-extension HeightUnit: OnboardingPickerOption {
-    var id: String {
-        rawValue
-    }
-
-    var description: String? {
-        nil
-    }
-}
-
-extension WeightUnit: OnboardingPickerOption {
-    public var id: String {
-        rawValue
-    }
-
-    var description: String? {
-        nil
+    var isFt: Bool {
+        false
     }
 }

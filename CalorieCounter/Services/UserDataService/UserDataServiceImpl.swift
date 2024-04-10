@@ -8,6 +8,7 @@
 import Dependencies
 import MunicornFoundation
 import Foundation
+import AppStudioModels
 
 private let profileCalculationInitialDataKey = "profileCalculationInitialDataKey"
 private let profileCalculationGoalDataKey = "profileCalculationGoalDataKey"

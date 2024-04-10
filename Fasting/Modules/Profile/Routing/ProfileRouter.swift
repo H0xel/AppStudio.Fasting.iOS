@@ -8,6 +8,8 @@
 import SwiftUI
 import AppStudioNavigation
 import Dependencies
+import AppStudioStyles
+import AppStudioModels
 
 class ProfileRouter: BaseRouter {
 
@@ -40,6 +42,39 @@ class ProfileRouter: BaseRouter {
         }
 
         present(route: route)
+    }
+
+    func presentChangeSex(currentSex: Sex,
+                          onSave: @escaping (Sex) -> Void) {
+        let route = ChangeSexRoute(sex: currentSex, showDescription: false) { [weak self] in
+            self?.dismiss()
+        } onSave: { [weak self] sex in
+            self?.dismiss()
+            onSave(sex)
+        }
+        push(route: route)
+    }
+
+    func presentChangeBirthday(currentBirthday: Date,
+                               onSave: @escaping (Date) -> Void) {
+        let route = ChangeBirthdayRoute(birthday: currentBirthday, showDescription: false) { [weak self] in
+            self?.dismiss()
+        } onSave: { [weak self] date in
+            self?.dismiss()
+            onSave(date)
+        }
+        push(route: route)
+    }
+
+    func presentChangeHeight(currentHeight: HeightMeasure,
+                             onSave: @escaping (HeightMeasure) -> Void) {
+        let route = ChangeHeightRoute(height: currentHeight, showDescription: false) { [weak self] in
+            self?.dismiss()
+        } onSave: { [weak self] height in
+            self?.dismiss()
+            onSave(height)
+        }
+        push(route: route)
     }
 
     private func sendEmailWithOpenUrl() {

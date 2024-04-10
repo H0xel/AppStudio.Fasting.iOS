@@ -8,36 +8,49 @@
 import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
+import AppStudioStyles
 
 struct ProfileScreen: View {
     @StateObject var viewModel: ProfileViewModel
 
     var body: some View {
-        VStack(spacing: .zero) {
-            SetupFastingBanner(plan: viewModel.plan) {
-                viewModel.changePlan()
+        ScrollView {
+            Spacer(minLength: .spacing)
+            VStack(spacing: .spacing) {
+                SetupFastingBanner(plan: viewModel.plan) {
+                    viewModel.changePlan()
+                }
+
+                VStack(spacing: .zero) {
+                    ProfileButtonView(input: .sex(sex: viewModel.sex),
+                                      action: viewModel.changeSex)
+                    Divider()
+                    ProfileButtonView(input: .birthday(birthday: viewModel.birthday),
+                                      action: viewModel.changeBirthday)
+                    Divider()
+                    ProfileButtonView(input: .height(height: viewModel.height),
+                                      action: viewModel.changeHeight)
+                }
+                .continiousCornerRadius(.cornerRadius)
+
+                ProfileButtonView(input: .support,
+                                  action: viewModel.contactSupport)
+                .continiousCornerRadius(.cornerRadius)
+
+                VStack(spacing: .zero) {
+                    ProfileButtonView(input: .termsOfUse,
+                                      action: viewModel.presentTermsOfUse)
+                    Divider()
+                    ProfileButtonView(input: .privacyPolicy,
+                                      action: viewModel.preesentPrivacyPolicy)
+                }
+                .continiousCornerRadius(.cornerRadius)
             }
-
-            ProfileButtonView(title: Localization.support,
-                              image: .heart,
-                              roundedCorners: .allCorners,
-                              action: viewModel.contactSupport)
-            .padding(.top, Layout.supportTopPadding)
-
-            ProfileButtonView(title: Localization.termsOfUse,
-                              image: nil,
-                              roundedCorners: [.topLeft, .topRight],
-                              action: viewModel.presentTermsOfUse)
-            .padding(.top, Layout.termsOfUseTopPadding)
-
-            ProfileButtonView(title: Localization.privacyPolicy,
-                              image: nil,
-                              roundedCorners: [.bottomLeft, .bottomRight],
-                              action: viewModel.preesentPrivacyPolicy)
-            .padding(.top, Layout.privacyPolicyTopPadding)
-            Spacer()
+            .padding(.horizontal, .horizontalPadding)
+            Spacer(minLength: .spacing)
         }
-        .padding(.horizontal, Layout.horizontalPadding)
+        .scrollIndicators(.hidden)
+        .background(Color.studioGreyFillProgress)
         .navBarButton(placement: .principal,
                       isVisible: true,
                       content: Text(Localization.navigationTitle).font(.poppins(.buttonText)),
@@ -53,22 +66,15 @@ struct ProfileScreen: View {
     }
 }
 
-// MARK: - Layout properties
-private extension ProfileScreen {
-    enum Layout {
-        static let horizontalPadding: CGFloat = 32
-        static let termsOfUseTopPadding: CGFloat = 32
-        static let privacyPolicyTopPadding: CGFloat = 2
-        static let supportTopPadding: CGFloat = 64
-    }
+private extension CGFloat {
+    static let spacing: CGFloat = 16
+    static let horizontalPadding: CGFloat = 20
+    static let cornerRadius: CGFloat = 20
 }
 
 // MARK: - Localization
 private extension ProfileScreen {
     enum Localization {
-        static let support: LocalizedStringKey = "ProfileScreen.support"
-        static let termsOfUse: LocalizedStringKey = "ProfileScreen.termsOfUse"
-        static let privacyPolicy: LocalizedStringKey = "ProfileScreen.privacyPolicy"
         static let navigationTitle = NSLocalizedString("ProfileScreen.navigationTitle", comment: "Profile")
     }
 }

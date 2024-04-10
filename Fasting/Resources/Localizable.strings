@@ -156,9 +156,6 @@
 
 // MARK: - Profile
 "ProfileScreen.navigationTitle" = "Profile";
-"ProfileScreen.support" = "Support";
-"ProfileScreen.termsOfUse" = "Terms of use";
-"ProfileScreen.privacyPolicy" = "Privacy policy";
 "ProfileScreen.supportEmailSubject" = "Fasting App Support";
 
 // MARK: - Subscription
@@ -328,14 +325,6 @@
 
 "SpecialEvent.somethingElse.title" = "Big event";
 "SpecialEvent.sportsCompetition.title" = "Competition";
-
-// MARK: - Height Unit
-"HeightUnit.cm" = "cm";
-"HeightUnit.ft" = "ft";
-
-// MARK: - Weight Unit
-"WeightUnit.lb" = "lb";
-"WeightUnit.kg" = "kg";
 
 // MARK: - Fasting Phase
 "FastingPhase.sugarRises" = "Blood sugar slowly rises";

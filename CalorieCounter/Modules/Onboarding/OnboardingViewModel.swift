@@ -9,6 +9,7 @@ import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
 import Dependencies
+import AppStudioModels
 
 enum OnboardingContext: String {
     case onboarding

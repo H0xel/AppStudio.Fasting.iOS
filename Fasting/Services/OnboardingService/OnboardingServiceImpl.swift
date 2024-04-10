@@ -11,6 +11,7 @@ import AICoach
 import WeightWidget
 import WeightGoalWidget
 import WaterCounter
+import AppStudioModels
 
 private let onboardingDataKey = "Fasting.OnboardingDataKey"
 private let onboardingCalculatedDataKey = "Fasting.OnboardingCalculatedDataKey"

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppStudioModels
 
 struct ProfileCalculationInitialData: Codable {
     let sex: Sex

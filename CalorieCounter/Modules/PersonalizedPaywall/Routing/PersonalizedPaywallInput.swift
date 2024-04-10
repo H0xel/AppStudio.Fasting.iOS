@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppStudioModels
 
 struct PersonalizedPaywallInput {
     let title: String

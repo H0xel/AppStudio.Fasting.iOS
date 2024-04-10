@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppStudioModels
 
 struct OnboardingPickerView<Option: OnboardingPickerOption>: View {
 

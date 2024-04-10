@@ -1,15 +1,17 @@
 //
 //  ChangeHeightView.swift
-//  CalorieCounter
+//  
 //
-//  Created by Руслан Сафаргалеев on 18.01.2024.
+//  Created by Руслан Сафаргалеев on 04.04.2024.
 //
 
 import SwiftUI
+import AppStudioModels
 
 struct ChangeHeightView: View {
 
     let initialHeight: HeightMeasure
+    let showDescription: Bool
     let onBackTap: () -> Void
     let onSaveTap: (HeightMeasure) -> Void
     @State private var currentHeight: CGFloat = 0
@@ -24,7 +26,8 @@ struct ChangeHeightView: View {
                                     inchValue: $inchValue,
                                     currentSegment: $heightUnit,
                                     segments: HeightUnit.allCases)
-            ProfileChangeView(isSaveButtonEnabled: isSaveButtonEnable) {
+            ProfileChangeView(showDescription: showDescription,
+                              isSaveButtonEnabled: isSaveButtonEnable) {
                 onSaveTap(currentHeightMeasure)
             }
             .aligned(.bottom)
@@ -32,7 +35,7 @@ struct ChangeHeightView: View {
         .onAppear {
             configure()
         }
-        .navBarButton(content: Image.chevronLeft.foregroundStyle(.accent),
+        .navBarButton(content: Image.chevronLeft.foregroundStyle(Color.studioBlackLight),
                       action: onBackTap)
     }
 
@@ -60,9 +63,13 @@ struct ChangeHeightView: View {
 }
 
 private extension String {
-    static let heightTitle = NSLocalizedString("Onboarding.height.title", comment: "")
+    static let heightTitle = "Onboarding.height.title".localized(bundle: .module)
 }
 
 #Preview {
-    ChangeHeightView(initialHeight: .init(centimeters: 184), onBackTap: {}, onSaveTap: { _ in })
+    ChangeHeightView(initialHeight: .init(centimeters: 184),
+                     showDescription: true,
+                     onBackTap: {},
+                     onSaveTap: { _ in })
 }
+

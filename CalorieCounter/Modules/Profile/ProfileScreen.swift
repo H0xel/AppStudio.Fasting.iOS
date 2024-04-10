@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
+import AppStudioStyles
 
 struct ProfileScreen: View {
     @StateObject var viewModel: ProfileViewModel
@@ -25,47 +26,35 @@ struct ProfileScreen: View {
                         viewModel.presentInfo()
                     }
                     Divider()
-                    ProfileButtonView(title: Localization.changeGoal,
-                                      roundedCorners: [.bottomLeft, .bottomRight],
+                    ProfileButtonView(input: .changeGoal,
                                       action: viewModel.changeGoal)
                 }
+                .continiousCornerRadius(.cornerRadius)
 
                 VStack(spacing: .zero) {
-                    ProfileButtonView(title: Localization.sex,
-                                      description: viewModel.sex.title,
-                                      image: .init(viewModel.sex == .male ? .sexMale : .sexFemale),
-                                      roundedCorners: [.topLeft, .topRight],
+                    ProfileButtonView(input: .sex(sex: viewModel.sex),
                                       action: viewModel.changeSex)
                     Divider()
-                    ProfileButtonView(title: Localization.birthday,
-                                      description: viewModel.birthday,
-                                      image: .init(.birthday),
-                                      roundedCorners: [],
+                    ProfileButtonView(input: .birthday(birthday: viewModel.birthday),
                                       action: viewModel.changeBirthday)
                     Divider()
-                    ProfileButtonView(title: Localization.height,
-                                      description: viewModel.height,
-                                      image: .init(.height),
-                                      roundedCorners: [.bottomLeft, .bottomRight],
+                    ProfileButtonView(input: .height(height: viewModel.height),
                                       action: viewModel.changeHeight)
                 }
+                .continiousCornerRadius(.cornerRadius)
 
-                ProfileButtonView(title: Localization.support,
-                                  image: .heart,
-                                  roundedCorners: .allCorners,
+                ProfileButtonView(input: .support,
                                   action: viewModel.contactSupport)
+                .continiousCornerRadius(.cornerRadius)
 
                 VStack(spacing: .zero) {
-                    ProfileButtonView(title: Localization.termsOfUse,
-                                      image: nil,
-                                      roundedCorners: [.topLeft, .topRight],
+                    ProfileButtonView(input: .termsOfUse,
                                       action: viewModel.presentTermsOfUse)
                     Divider()
-                    ProfileButtonView(title: Localization.privacyPolicy,
-                                      image: nil,
-                                      roundedCorners: [.bottomLeft, .bottomRight],
+                    ProfileButtonView(input: .privacyPolicy,
                                       action: viewModel.preesentPrivacyPolicy)
                 }
+                .continiousCornerRadius(.cornerRadius)
             }
             Spacer(minLength: .bottomSpacing)
         }
@@ -88,19 +77,21 @@ private extension CGFloat {
     static let horizontalPadding: CGFloat = 16
     static let spacing: CGFloat = 16
     static let bottomSpacing: CGFloat = 32
+    static let cornerRadius: CGFloat = 20
 }
 
 // MARK: - Localization
 private extension ProfileScreen {
     enum Localization {
         static let navBarTitle: LocalizedStringKey = "ProfileScreen.navTitle"
-        static let support: LocalizedStringKey = "ProfileScreen.support"
-        static let termsOfUse: LocalizedStringKey = "ProfileScreen.termsOfUse"
-        static let privacyPolicy: LocalizedStringKey = "ProfileScreen.privacyPolicy"
-        static let sex: LocalizedStringKey = "ProfileScreen.sex"
-        static let birthday: LocalizedStringKey = "ProfileScreen.birthday"
-        static let height: LocalizedStringKey = "ProfileScreen.height"
-        static let changeGoal: LocalizedStringKey = "ProfileScreen.changeGoal"
+    }
+}
+
+extension ProfileButtonInput {
+    static var changeGoal: ProfileButtonInput {
+        .init(title: "ProfileScreen.changeGoal".localized(),
+              description: nil,
+              image: nil)
     }
 }
 

@@ -8,6 +8,8 @@
 import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
+import AppStudioStyles
+import AppStudioModels
 
 struct OnboardingScreen: View {
     @StateObject var viewModel: OnboardingViewModel

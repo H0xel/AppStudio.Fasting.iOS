@@ -9,6 +9,7 @@ import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
 import AppStudioModels
+import AppStudioStyles
 
 struct OnboardingScreen: View {
     @StateObject var viewModel: OnboardingViewModel
@@ -86,9 +87,9 @@ struct OnboardingScreen: View {
             OnboardingSegmentedView(title: Localization.heightTitle,
                                     description: nil,
                                     value: $viewModel.height,
+                                    inchValue: $viewModel.inchHeight,
                                     currentSegment: $viewModel.heightUnit,
                                     segments: HeightUnit.allCases)
-
         case .currentWeight:
             OnboardingSegmentedView(title: Localization.currentWeightTitle,
                                     description: nil,

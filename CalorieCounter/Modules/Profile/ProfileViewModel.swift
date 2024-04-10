@@ -9,6 +9,7 @@ import AppStudioNavigation
 import AppStudioUI
 import Foundation
 import Dependencies
+import AppStudioModels
 
 class ProfileViewModel: BaseViewModel<ProfileOutput> {
 
@@ -32,12 +33,12 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
         userData?.sex ?? .female
     }
 
-    var birthday: String {
-        userData?.birthday.currentLocaleFormatted(with: "MMdyyyy") ?? ""
+    var birthday: Date {
+        userData?.birthday ?? .now
     }
 
-    var height: String {
-        userData?.height.valueWithUnits ?? ""
+    var height: HeightMeasure {
+        userData?.height ?? .init(centimeters: 0)
     }
 
     var weeklyWeightChange: String {

@@ -145,15 +145,6 @@
 "SpecialEvent.somethingElse.title" = "Big event";
 "SpecialEvent.sportsCompetition.title" = "Competition";
 
-// MARK: - Height Unit
-"HeightUnit.cm" = "cm";
-"HeightUnit.ft" = "ft";
-"HeightUnit.in" = "in";
-
-// MARK: - Weight Unit
-"WeightUnit.lb" = "lb";
-"WeightUnit.kg" = "kg";
-
 // MARK: Notification onboarding
 
 "NotificationOnboarding.title" = "Stay Motivated with Notifications";
@@ -355,16 +346,11 @@
 "ProfileScreen.support" = "Support";
 "ProfileScreen.termsOfUse" = "Terms of use";
 "ProfileScreen.privacyPolicy" = "Privacy policy";
-"ProfileScreen.sex" = "Sex";
-"ProfileScreen.birthday" = "Birthday";
-"ProfileScreen.height" = "Height";
 "ProfileScreen.changeGoal" = "Change goal";
 "ProfileScreen.targetWeight" = "Target weight";
 "ProfileScreen.calorieGoal" = "Daily calorie goal";
 "ProfileScreen.weeklyWeightLoss" = "Weekly weight loss";
 "ProfileScreen.weeklyWeightGain" = "Weekly weight gain";
-"ProfileScreen.changeInfoDescription" = "Changing your info might lead to a recalculation of your current plan";
-"ProfileScreen.saveChanges" = "Save changes";
 
 // MARK: - Food Screen
 "FoodScreen.getPlus" = "Get Plus";

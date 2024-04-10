@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppStudioModels
 
 struct PersonalizedTabView: View {
     let sex: Sex
@@ -131,7 +132,7 @@ private extension Sex {
                       description: NSLocalizedString("PersonalizedPaywall.male.description3", comment: ""),
                       weight: weightUnit == .kg ? 4 : 8)
             ]
-        case .female:
+        case .female, .other:
             return [
                 .init(image: .init(.dianaC),
                       name: NSLocalizedString("PersonalizedPaywall.female.name1", comment: ""),

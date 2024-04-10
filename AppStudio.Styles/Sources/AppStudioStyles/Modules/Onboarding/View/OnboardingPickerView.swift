@@ -1,28 +1,43 @@
 //
 //  OnboardingPickerView.swift
-//  CalorieCounter
+//  
 //
-//  Created by Руслан Сафаргалеев on 06.12.2023.
+//  Created by Руслан Сафаргалеев on 04.04.2024.
 //
 
 import SwiftUI
+import AppStudioModels
 
-struct OnboardingPickerView<Option: OnboardingPickerOption>: View {
+public struct OnboardingPickerView<Option: OnboardingPickerOption>: View {
 
-    let title: String
-    let description: String?
-    let options: [Option]
-    let selectedOptions: [Option]
-    var bottomPadding: CGFloat = Layout.bottomPadding
-    let onTap: (Option) -> Void
+    private let title: String
+    private let description: String?
+    private let options: [Option]
+    private let selectedOptions: [Option]
+    private let bottomPadding: CGFloat
+    private let onTap: (Option) -> Void
 
-    var body: some View {
+    public init(title: String,
+                description: String?,
+                options: [Option],
+                selectedOptions: [Option],
+                bottomPadding: CGFloat = 120,
+                onTap: @escaping (Option) -> Void) {
+        self.title = title
+        self.description = description
+        self.options = options
+        self.selectedOptions = selectedOptions
+        self.bottomPadding = bottomPadding
+        self.onTap = onTap
+    }
+
+    public var body: some View {
         GeometryReader { geometry in
             ScrollView {
                 VStack(spacing: .zero) {
                     Text(title)
                         .font(.poppins(.headerM))
-                        .foregroundStyle(.accent)
+                        .foregroundStyle(Color.studioBlackLight)
                         .padding(.top, Layout.topPadding)
                         .multilineTextAlignment(.center)
 
@@ -68,7 +83,8 @@ private extension OnboardingPickerView {
     NavigationStack {
         OnboardingPickerView(title: "What do you want to achieve?",
                              description: "Pick as many as you like",
-                             options: FastingGoal.allCases,
+                             options: [HeightUnit.ft, .cm],
                              selectedOptions: []) { _ in }
     }
 }
+

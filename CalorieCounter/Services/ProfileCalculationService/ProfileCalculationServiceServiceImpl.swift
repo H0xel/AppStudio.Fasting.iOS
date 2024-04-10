@@ -6,6 +6,7 @@
 //
 import AppStudioFoundation
 import Foundation
+import AppStudioModels
 
 class ProfileCalculationServiceServiceImpl: ProfileCalculationServiceService {
 
@@ -130,7 +131,7 @@ class ProfileCalculationServiceServiceImpl: ProfileCalculationServiceService {
         switch initialData.sex {
         case .male:
             (0.407 * initialData.weight.normalizeValue) + (0.267 * initialData.height.normalizeValue) - 19.2
-        case .female:
+        case .female, .other:
             (0.252 * initialData.weight.normalizeValue) + (0.473 * initialData.height.normalizeValue) - 48.3
         }
     }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppStudioModels
 
 struct ProfileTargetWeightView: View {
 
@@ -62,7 +63,6 @@ struct ProfileTargetWeightView: View {
             }
             .aligned(.topRight)
         )
-        .corners([.topLeft, .topRight], with: .cornerRadius)
     }
 
     private func infoLabel(title: LocalizedStringKey,
@@ -95,7 +95,6 @@ private extension CGFloat {
     static let bottomPadding: CGFloat = 32
     static let infoLabelTopPadding: CGFloat = 40
     static let topPadding: CGFloat = 16
-    static let cornerRadius: CGFloat = 20
     static let imageTopPadding: CGFloat = 16
     static let lineHeight: CGFloat = 80
     static let lineWidth: CGFloat = 2

@@ -6,9 +6,22 @@
   
 */
 
+// MARK: - Sex
+"Sex.male" = "Male";
+"Sex.female" = "Female";
+"Sex.other" = "Other";
+
+"Sex.women" = "women";
+"Sex.men" = "men";
+
 // MARK: - WeightUnit
 "WeightUnit.lb" = "lb";
 "WeightUnit.kg" = "kg";
+
+// MARK: Height Unit
+"HeightUnit.ft" = "ft";
+"HeightUnit.cm" = "cm";
+"HeightUnit.in" = "in";
 
 // MARK: - HealthWidgetHint
 "HealthWidgetHint.bodyMass.title" = "Body Mass Index (BMI)";

@@ -1,14 +1,15 @@
 //
 //  OnboardingSegmentedView.swift
-//  CalorieCounter
 //
-//  Created by Руслан Сафаргалеев on 06.12.2023.
+//
+//  Created by Руслан Сафаргалеев on 04.04.2024.
 //
 
 import SwiftUI
 import AppStudioUI
+import AppStudioModels
 
-struct OnboardingSegmentedView<Segment: OnboardingPickerOption>: View {
+public struct OnboardingSegmentedView<Segment: OnboardingPickerOption>: View {
 
     let title: String
     let description: String?
@@ -24,12 +25,12 @@ struct OnboardingSegmentedView<Segment: OnboardingPickerOption>: View {
     @FocusState private var isFocused: Bool
     @FocusState private var isInchFocused: Bool
 
-    init(title: String,
-         description: String?,
-         value: Binding<CGFloat>,
-         inchValue: Binding<CGFloat> = .constant(0),
-         currentSegment: Binding<Segment>,
-         segments: [Segment]) {
+    public init(title: String,
+                description: String?,
+                value: Binding<CGFloat>,
+                inchValue: Binding<CGFloat> = .constant(0),
+                currentSegment: Binding<Segment>,
+                segments: [Segment]) {
         self.title = title
         self.description = description
         self._value = value
@@ -38,11 +39,11 @@ struct OnboardingSegmentedView<Segment: OnboardingPickerOption>: View {
         self.segments = segments
     }
 
-    var body: some View {
+    public var body: some View {
         VStack(spacing: .zero) {
             Text(title)
                 .font(.poppins(.headerM))
-                .foregroundStyle(.accent)
+                .foregroundStyle(Color.studioBlackLight)
                 .multilineTextAlignment(.center)
                 .padding(.top, Layout.topPadding)
 
@@ -79,7 +80,7 @@ struct OnboardingSegmentedView<Segment: OnboardingPickerOption>: View {
                         }
 
                     if currentSegment.isFt {
-                        Text("HeightUnit.ft")
+                        Text(String.feets)
                             .font(.poppins(.headerM))
 
                         TextField("0", text: $inchString)
@@ -101,14 +102,14 @@ struct OnboardingSegmentedView<Segment: OnboardingPickerOption>: View {
                                 inchValue = CGFloat(number)
                             }
 
-                        Text("HeightUnit.in")
+                        Text(String.inches)
                             .font(.poppins(.headerM))
                     }
                     Spacer()
                 }
             }
             .font(.poppins(.accentS))
-            .foregroundStyle(.accent)
+            .foregroundStyle(Color.studioBlackLight)
 
             HStack(spacing: -Layout.segmentInnerPadding * 2) {
                 ForEach(segments) { segment in
@@ -192,6 +193,11 @@ struct OnboardingSegmentedView<Segment: OnboardingPickerOption>: View {
     }
 }
 
+private extension String {
+    static let feets = "HeightUnit.ft".localized(bundle: .module)
+    static let inches = "HeightUnit.in" .localized(bundle: .module)
+}
+
 private extension OnboardingSegmentedView {
     enum Layout {
         static var topPadding: CGFloat { 24 }
@@ -237,3 +243,4 @@ private struct ViewFtWidthPreferenceKey: PreferenceKey {
         value += nextValue()
     }
 }
+

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppStudioModels
 
 class UserDataServicePreview: UserDataService {
 

@@ -1,23 +1,29 @@
 //
 //  OnboardingDatePickerView.swift
-//  CalorieCounter
+//  
 //
-//  Created by Руслан Сафаргалеев on 06.12.2023.
+//  Created by Руслан Сафаргалеев on 04.04.2024.
 //
 
 import SwiftUI
 
-struct OnboardingDatePickerView: View {
+public struct OnboardingDatePickerView: View {
 
-    let title: String
-    let canChoosePast: Bool
-    @Binding var date: Date
+    private let title: String
+    private let canChoosePast: Bool
+    @Binding private var date: Date
 
-    var body: some View {
+    public init(title: String, canChoosePast: Bool, date: Binding<Date>) {
+        self.title = title
+        self.canChoosePast = canChoosePast
+        self._date = date
+    }
+
+    public var body: some View {
         VStack(spacing: .zero) {
             Text(title)
                 .font(.poppins(.headerM))
-                .foregroundStyle(.accent)
+                .foregroundStyle(Color.studioBlackLight)
                 .padding(.top, Layout.topPadding)
                 .multilineTextAlignment(.center)
 
@@ -49,3 +55,4 @@ private extension OnboardingDatePickerView {
                              canChoosePast: true,
                              date: .constant(.now))
 }
+
