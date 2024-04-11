@@ -16,12 +16,12 @@ public struct Week: Hashable {
         guard let startOfWeek = calendar.date(
             from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear],
                                           from: day)
-        )?.shiftedToUTC(fromTimeZone: .current) else {
+        ) else {
             fatalError("Can't get start of Week")
         }
         var daysOfWeek: [Date] = []
         for dayNumber in 0 ... 6 {
-            if let day = calendar.date(byAdding: .day, value: dayNumber, to: startOfWeek)?.beginningOfDay {
+            if let day = calendar.date(byAdding: .day, value: dayNumber, to: startOfWeek)?.startOfTheDay {
                 daysOfWeek.append(day)
             }
         }

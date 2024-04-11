@@ -152,7 +152,7 @@ struct SwipeActionsModifier: ViewModifier {
                 }
                 if let text = action.title {
                     Text(text)
-                        .font(.footnote)
+                        .font(action.font)
                 }
             }
             .padding(4)

@@ -15,7 +15,7 @@ public struct VerticalDashedGridModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .chartXAxis {
-                AxisMarks(preset: .aligned,
+                AxisMarks(preset: .inset,
                           position: .bottom,
                           values: .stride(by: .day)) { value in
                     AxisGridLine(stroke: .init(lineWidth: .lineWidth,

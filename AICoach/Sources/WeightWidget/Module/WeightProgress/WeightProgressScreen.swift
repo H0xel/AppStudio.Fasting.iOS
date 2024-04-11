@@ -55,7 +55,8 @@ struct WeightProgressScreen: View {
                                     chartScale: viewModel.chartScale,
                                     currentItem: $viewModel.startDate,
                                     selectedDate: $viewModel.selectedDate)
-                WeightProgressChartAnnotationView(items: viewModel.annotationItems)
+                WeightProgressChartAnnotationView(items: viewModel.annotationItems,
+                                                  onTap: viewModel.toggleVisibility)
                     .padding(.horizontal, .horizontalPadding)
                     .padding(.top, .annotationTopPadding)
                 WeightProgressAnalyticsView(trueWeight: viewModel.currentTrueWeight,
@@ -72,7 +73,7 @@ struct WeightProgressScreen: View {
             Spacer(minLength: .bottomSpacing)
         }
         .animation(.easeInOut, value: viewModel.chartScale)
-        .animation(animationEnabled ? .bouncy(duration: 0.35) : nil, value: viewModel.selectedDate?.beginningOfDay)
+        .animation(animationEnabled ? .bouncy(duration: 0.35) : nil, value: viewModel.selectedDate?.startOfTheDay)
         .navigationBarTitleDisplayMode(.inline)
         .navBarButton(placement: .principal,
                       content: navigationTitle,

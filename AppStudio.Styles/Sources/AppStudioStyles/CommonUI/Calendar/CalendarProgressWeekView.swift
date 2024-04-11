@@ -38,7 +38,7 @@ struct CalendarProgressWeekView: View {
                             Circle()
                                 .fill(styles.dotColor)
                                 .frame(width: styles.dotWidth)
-                                .opacity(progress.day == .now.beginningOfDay ? 1 : 0)
+                                .opacity(progress.day == .now.startOfTheDay ? 1 : 0)
                                 .aligned(.bottom)
                                 .offset(y: styles.dotWidth + .dayBottomPadding)
                         }
@@ -46,7 +46,7 @@ struct CalendarProgressWeekView: View {
                 }
                 .frame(width: .dayWidth)
                 .background {
-                    if progress.day == selectedDate.beginningOfDay {
+                    if progress.day == selectedDate.startOfTheDay {
                         styles.selectedDayColor
                     }
                 }
@@ -91,7 +91,7 @@ struct CalendarProgressWeekView: View {
         if isFutereAllowed {
             return defaultColor
         }
-        return date <= .now.beginningOfDay ? defaultColor : .studioGreyPlaceholder
+        return date <= .now.startOfTheDay ? defaultColor : .studioGreyPlaceholder
     }
 }
 

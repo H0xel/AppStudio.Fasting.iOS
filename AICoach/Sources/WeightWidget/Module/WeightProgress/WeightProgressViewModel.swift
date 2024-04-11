@@ -19,7 +19,7 @@ class WeightProgressViewModel: BaseViewModel<WeightProgressOutput> {
 
     var router: WeightProgressRouter!
     @Published var chartScale: DateChartScale = .week
-    @Published var startDate: Date = .now.beginningOfDay.add(days: -6)
+    @Published var startDate: Date = .now.startOfTheDay.add(days: -6)
     @Published var selectedDate: Date?
     private var weightHistoryObserver: WeightHistoryObserver?
     let weightUnits: WeightUnit
@@ -55,7 +55,7 @@ class WeightProgressViewModel: BaseViewModel<WeightProgressOutput> {
         if let item = charts[.trueWeight]?.values.first {
             return item.label
         }
-        return .now.beginningOfDay
+        return .now.startOfTheDay
     }
 
     var currentTrueWeight: WeightMeasure {
@@ -111,7 +111,7 @@ class WeightProgressViewModel: BaseViewModel<WeightProgressOutput> {
         }
         let item = charts[.scaleWeight]
         guard let selectedItem = item?.values.first(where: {
-            $0.label.beginningOfDay == selectedDate.beginningOfDay
+            $0.label.startOfTheDay == selectedDate.startOfTheDay
         }) else {
             return nil
         }
@@ -124,7 +124,7 @@ class WeightProgressViewModel: BaseViewModel<WeightProgressOutput> {
         }
         let item = charts[.trueWeight]
         guard let selectedItem = item?.values.first(where: {
-            $0.label.beginningOfDay == selectedDate.beginningOfDay
+            $0.label.startOfTheDay == selectedDate.startOfTheDay
         }) else {
             return nil
         }
@@ -146,8 +146,15 @@ class WeightProgressViewModel: BaseViewModel<WeightProgressOutput> {
         }
     }
 
+    func toggleVisibility(of item: LineChartItem) {
+        guard let key = charts.first(where: { $0.value.id == item.id })?.key else {
+            return
+        }
+        charts[key] = item.currentLineWidth == 0 ? item.visible : item.invisible
+    }
+
     private func resetStartDate(for scale: DateChartScale) {
-        startDate = .now.beginningOfDay.add(days: -(scale.numberOfDays-1))
+        startDate = .now.startOfTheDay.add(days: -(scale.numberOfDays - 1))
     }
 
     private func showPrevPeriod() {
@@ -159,12 +166,12 @@ class WeightProgressViewModel: BaseViewModel<WeightProgressOutput> {
     }
 
     private func showNextPeriod() {
-        guard endDate.beginningOfDay < .now.beginningOfDay else {
+        guard endDate.startOfTheDay < .now.startOfTheDay else {
             return
         }
         startDate = min(
-            endDate.add(days: 1).beginningOfDay,
-            .now.beginningOfDay.add(days: -(chartScale.numberOfDays - 1))
+            endDate.add(days: 1).startOfTheDay,
+            .now.startOfTheDay.add(days: -(chartScale.numberOfDays - 1))
         )
     }
 
@@ -172,7 +179,7 @@ class WeightProgressViewModel: BaseViewModel<WeightProgressOutput> {
         guard let chartItems = charts[type]?.values else {
             return []
         }
-        return chartItems.filter { $0.label >= startDate.beginningOfDay && $0.label <= endDate.beginningOfDay  }
+        return chartItems.filter { $0.label >= startDate.startOfTheDay && $0.label <= endDate.startOfTheDay  }
     }
 
     private func observeChartScale() {
@@ -196,7 +203,6 @@ class WeightProgressViewModel: BaseViewModel<WeightProgressOutput> {
         weightHistoryObserver = weightService.weightHistoryObserver()
 
         weightHistoryObserver?.results
-            .receive(on: DispatchQueue.main)
             .sink { [weak self] history in
                 self?.output(.weightUpdated)
                 self?.weightHistorySubject.send(history)
@@ -206,11 +212,15 @@ class WeightProgressViewModel: BaseViewModel<WeightProgressOutput> {
     }
 
     private func configureChartItems(from history: [WeightHistory]) {
-        let items = weightProgressChartService.configureChartItems(from: history, chartScale: chartScale)
-        charts = items
         Task {
-            let chartGoalItem = try await weightProgressChartService.configureWeightGoalItems(for: history,
-                                                                                              chartScale: chartScale)
+            let items = weightProgressChartService.configureChartItems(from: history, chartScale: chartScale)
+            await MainActor.run {
+                charts = items
+            }
+            let chartGoalItem = try await weightProgressChartService.configureWeightGoalItems(
+                for: history,
+                chartScale: chartScale
+            )
             await MainActor.run {
                 charts[.weightGoal] = chartGoalItem
             }

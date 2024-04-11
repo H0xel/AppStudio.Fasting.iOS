@@ -23,28 +23,28 @@ public struct LineChart: View {
     }
 
     public var body: some View {
+
         Chart {
-            Plot {
-                ForEach(items) { item in
-                    ForEach(item.values) { value in
-                        if value.value > 0 {
-                            LineMark(x: .value("", value.label),
-                                     y: .value("", value.value),
-                                     series: .value("", item.title))
-                            .foregroundStyle(item.lineColor)
-                            .lineStyle(.init(lineWidth: item.lineWidth,
-                                             dash: item.dashed ? [4, 4] : []))
-                            .interpolationMethod(interpolationMethod(for: item))
-                        }
+            ForEach(items) { item in
+                ForEach(item.values) { value in
+                    if value.value > 0 {
+                        LineMark(x: .value("", value.label),
+                                 y: .value("", value.value),
+                                 series: .value("", item.title))
+                        .foregroundStyle(item.lineColor)
+                        .lineStyle(.init(lineWidth: item.currentLineWidth,
+                                         dash: item.dashed ? [4, 4] : []))
+                        .interpolationMethod(interpolationMethod(for: item))
                     }
                 }
-                if let selectedDate {
-                    RuleMark(x: .value("", selectedDate))
-                }
+            }
+            if let selectedDate {
+                RuleMark(x: .value("", selectedDate.startOfTheDay))
             }
         }
+        .chartSymbolSizeScale(type: .linear)
         .chartXSelectionIfAvailable(value: $currentSelectedDate)
-        .onChange(of: currentSelectedDate) { newValue in
+        .onChange(of: currentSelectedDate?.startOfTheDay) { newValue in
             if let newValue {
                 selectedDate = newValue
             }
@@ -53,7 +53,7 @@ public struct LineChart: View {
 
     private func interpolationMethod(for item: LineChartItem) -> InterpolationMethod {
         if item.dashed {
-            return .stepCenter
+            return .stepEnd
         }
         return rounded ? .cardinal : .linear
     }

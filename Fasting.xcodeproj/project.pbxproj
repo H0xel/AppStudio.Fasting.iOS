@@ -254,6 +254,7 @@
 		A0489DF32B875D6A00258AD0 /* AICoachInitializer+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0489DF22B875D6A00258AD0 /* AICoachInitializer+extensions.swift */; };
 		A0497E912B28C36E00F21FB0 /* TrialExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0497E902B28C36E00F21FB0 /* TrialExperiment.swift */; };
 		A04DBFB02AF3D2780045980F /* ForceUpdateBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04DBFAF2AF3D2780045980F /* ForceUpdateBanner.swift */; };
+		A04E933D2BC67CC900696462 /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E933C2BC67CC900696462 /* CloseButtonView.swift */; };
 		A04F51E32B23092400CBDADE /* OnboardingFlowIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F51E22B23092400CBDADE /* OnboardingFlowIndicatorView.swift */; };
 		A050046A2B20705B00820E45 /* OnboardingPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05004692B20705B00820E45 /* OnboardingPickerView.swift */; };
 		A050046C2B20724500820E45 /* OnboardingPickerOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A050046B2B20724500820E45 /* OnboardingPickerOptionView.swift */; };
@@ -666,6 +667,7 @@
 		A0489DF22B875D6A00258AD0 /* AICoachInitializer+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AICoachInitializer+extensions.swift"; sourceTree = "<group>"; };
 		A0497E902B28C36E00F21FB0 /* TrialExperiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialExperiment.swift; sourceTree = "<group>"; };
 		A04DBFAF2AF3D2780045980F /* ForceUpdateBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateBanner.swift; sourceTree = "<group>"; };
+		A04E933C2BC67CC900696462 /* CloseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonView.swift; sourceTree = "<group>"; };
 		A04F51E22B23092400CBDADE /* OnboardingFlowIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowIndicatorView.swift; sourceTree = "<group>"; };
 		A05004692B20705B00820E45 /* OnboardingPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPickerView.swift; sourceTree = "<group>"; };
 		A050046B2B20724500820E45 /* OnboardingPickerOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPickerOptionView.swift; sourceTree = "<group>"; };
@@ -1792,6 +1794,7 @@
 				A02787532AEADC5200844246 /* AccentButton.swift */,
 				A04272CA2AE28DCB00754326 /* DebugMenu */,
 				A063B1FB2AEBD77000084696 /* BorderedButton.swift */,
+				A04E933C2BC67CC900696462 /* CloseButtonView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -2950,6 +2953,7 @@
 				56655B6A2AFCB12A00508ED4 /* FastingIntervalHistory+Mappable.swift in Sources */,
 				A7AD9C362B17359B006AE1C5 /* AppSyncServicePreview.swift in Sources */,
 				567500CC2ADFCC54009331CB /* AppSyncServiceImpl.swift in Sources */,
+				A04E933D2BC67CC900696462 /* CloseButtonView.swift in Sources */,
 				A76294372B21A4B300DAF93B /* PersonalizedStartWeightView.swift in Sources */,
 				A050046A2B20705B00820E45 /* OnboardingPickerView.swift in Sources */,
 				A0382D412AF4F03A009CC579 /* SuccessViewModel.swift in Sources */,

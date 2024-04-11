@@ -35,12 +35,6 @@ struct FastingPhaseLockedView: View {
         }
     }
 
-    private var closeButton: some View {
-        Image.close
-            .foregroundStyle(.white)
-            .fontWeight(.semibold)
-    }
-
     private var overlay: some View {
         LinearGradient(colors: [.white.opacity(0), .white],
                        startPoint: .top,

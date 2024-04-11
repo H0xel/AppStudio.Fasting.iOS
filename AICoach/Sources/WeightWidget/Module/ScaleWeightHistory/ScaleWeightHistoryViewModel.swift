@@ -54,7 +54,7 @@ class ScaleWeightHistoryViewModel: BaseViewModel<Void> {
     }
 
     func addWeight() {
-        router.presentWeightUpdate(date: .now.beginningOfDay, weightUnits: weightUnits) { [weak self] output in
+        router.presentWeightUpdate(date: .now.startOfTheDay, weightUnits: weightUnits) { [weak self] output in
             switch output {
             case .weightUpdated(let history):
                 self?.updateTrueWeightIfNeeded(historyDate: history.historyDate)
@@ -63,7 +63,7 @@ class ScaleWeightHistoryViewModel: BaseViewModel<Void> {
     }
 
     private func updateTrueWeightIfNeeded(historyDate: Date) {
-        guard historyDate < .now.beginningOfDay else {
+        guard historyDate < .now.startOfTheDay else {
             return
         }
         Task {

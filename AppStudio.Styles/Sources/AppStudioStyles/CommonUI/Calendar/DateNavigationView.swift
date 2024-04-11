@@ -52,7 +52,7 @@ public struct DateNavigationView: View {
     }
 
     private var isToday: Bool {
-        date == .now.beginningOfDay
+        date == .now.startOfTheDay
     }
 }
 
@@ -61,7 +61,7 @@ private extension CGFloat {
 }
 
 #Preview {
-    DateNavigationView(date: .constant(.now.beginningOfDay),
+    DateNavigationView(date: .constant(.now.startOfTheDay),
                        dateFormat: "MMMdd",
                        onPrevDayTap: { _ in },
                        onNextDayTap: { _ in })

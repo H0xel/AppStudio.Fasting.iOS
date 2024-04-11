@@ -16,6 +16,13 @@ class WeightHistoryRepositoryImpl: CoreDataBaseRepository<WeightHistory>, Weight
         super.init(coreDataService: coreDataService)
     }
 
+    func history() async throws -> [WeightHistory] {
+        let request = WeightHistory.request()
+        request.sortDescriptors = [.init(key: "historyDate", ascending: false),
+                                   .init(key: "dateCreated", ascending: false)]
+        return try await select(request: request)
+    }
+
     func history(from startDate: Date, until endDate: Date) async throws -> [WeightHistory] {
         let request = WeightHistory.request()
         request.predicate = .dateRangePredicate(from: startDate.startOfTheDay,

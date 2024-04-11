@@ -22,6 +22,7 @@ struct DebugMenuActionsView: View {
     @Dependency(\.coachService) private var coachService
     @Dependency(\.weightService) private var weightService
     @Dependency(\.fastingHistoryService) private var fastingHistoryService
+    @Dependency(\.weightGoalService) private var weightGoalService
 
     @State private var isDeletingMessages = false
 
@@ -86,6 +87,11 @@ struct DebugMenuActionsView: View {
         Button("Delete all fasting history", role: .destructive) {
             Task {
                 try await fastingHistoryService.deleteAll()
+            }
+        }
+        Button("Delete all weight goals", role: .destructive) {
+            Task {
+                try await weightGoalService.deleteAll()
             }
         }
     }

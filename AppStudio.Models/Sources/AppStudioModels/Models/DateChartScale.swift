@@ -13,7 +13,7 @@ public enum DateChartScale: String, CaseIterable {
     case threeMonth
 
     public var visibleDomain: Int {
-        (86400 * numberOfDays) - 86400
+        86400 * numberOfDays + 18000
     }
 
     public var numberOfDays: Int {

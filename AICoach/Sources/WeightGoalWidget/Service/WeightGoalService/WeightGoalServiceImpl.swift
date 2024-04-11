@@ -23,4 +23,8 @@ class WeightGoalServiceImpl: WeightGoalService {
     func goals() async throws -> [WeightGoal] {
         try await weightGoalRepository.goals()
     }
+
+    func deleteAll() async throws {
+        try await weightGoalRepository.deleteAll()
+    }
 }

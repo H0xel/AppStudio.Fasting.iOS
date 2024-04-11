@@ -18,7 +18,7 @@ struct LinesChartInput {
               let max = items.max(by: { $0.value < $1.value }) else {
             return 0 ... 0
         }
-        return min.value - 2 ... max.value + 2
+        return min.value - 10 ... max.value + 10
     }
 
     var isEmpty: Bool {

@@ -21,7 +21,7 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
     @Dependency(\.calendarProgressService) private var calendarProgressService
     @Dependency(\.trackerService) private var trackerService
 
-    @Published var currentDay: Date = .now.beginningOfDay
+    @Published var currentDay: Date = .now.startOfTheDay
     let calendarViewModel = CalendarProgressViewModel(isFutureAllowed: false, withFullProgress: false)
     let swipeDaysViewModel = SwipeDaysViewModel(isFutureAllowed: false)
     let waterCounterViewModel = WaterCounterWidgetViewModel { _ in }
@@ -46,7 +46,7 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
 
     func scrollToToday() {
         trackerService.track(.tapBackToToday)
-        updateDate(date: .now.beginningOfDay)
+        updateDate(date: .now.startOfTheDay)
     }
 
     func presentProfile() {

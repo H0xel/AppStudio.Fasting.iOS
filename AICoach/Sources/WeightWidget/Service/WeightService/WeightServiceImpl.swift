@@ -24,6 +24,10 @@ class WeightServiceImpl: WeightService {
         return observer
     }
 
+    func history() async throws -> [WeightHistory] {
+        try await weightHistoryRepository.history()
+    }
+
     func history(from startDate: Date, until endDate: Date) async throws -> [Date: WeightHistory] {
         var result: [Date: WeightHistory] = [:]
         var currentDay = startDate

@@ -22,7 +22,7 @@ class WeightChartServiceImpl: WeightChartService {
 
     func lastDaysItems(daysCount: Int) async throws -> [LineChartItem] {
 
-        let dates = (0 ..< daysCount).map { Date.now.adding(.day, value: -$0).beginningOfDay }.reversed()
+        var dates = Array((0 ..< daysCount).map { Date.now.adding(.day, value: -$0).startOfTheDay }.reversed())
         guard let startDate = dates.first, let endDate = dates.last else {
             return []
         }
@@ -34,9 +34,20 @@ class WeightChartServiceImpl: WeightChartService {
             until: endDate
         )
 
-        let interpolatedHistory = weightInterpolationService.interpolate(
+        var interpolatedHistory = Array(weightInterpolationService.interpolate(
             weightHistory: ([firstHistory] + weightHistory).compactMap { $0 }
-        ).suffix(daysCount)
+        ).suffix(daysCount))
+
+        if let last = interpolatedHistory.last {
+            interpolatedHistory.append(last.updated(historyDate: .now.endOfDay))
+            dates.append(.now.endOfDay)
+        }
+
+        if let first = interpolatedHistory.first {
+            let date = Date().add(days: -(daysCount - 1)).startOfTheDay.adding(.hour, value: -5)
+            interpolatedHistory.insert(first.updated(historyDate: date), at: 0)
+            dates.insert(date, at: 0)
+        }
 
         for history in interpolatedHistory {
             result[history.historyDate] = history
@@ -66,9 +77,8 @@ class WeightChartServiceImpl: WeightChartService {
                 )
             }, color: .studioGreyStrokeFill
         )
-
         if weightHistory.isEmpty, firstHistory?.historyDate != startDate {
-            return [trueWeightItem.empty, scaleWeightItem.empty]
+            return [trueWeightItem.invisible, scaleWeightItem.invisible]
         }
         return [scaleWeightItem, trueWeightItem]
     }

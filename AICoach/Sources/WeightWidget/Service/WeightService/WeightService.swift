@@ -9,6 +9,7 @@ import Foundation
 import AppStudioModels
 
 public protocol WeightService {
+    func history() async throws -> [WeightHistory]
     func history(from startDate: Date, until endDate: Date) async throws -> [Date: WeightHistory]
     func history(byDate date: Date) async throws -> WeightHistory?
     func history(exactDate date: Date) async throws -> WeightHistory?

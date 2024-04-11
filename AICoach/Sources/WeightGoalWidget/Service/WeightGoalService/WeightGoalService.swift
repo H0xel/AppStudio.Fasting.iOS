@@ -11,4 +11,5 @@ public protocol WeightGoalService {
     func currentGoal() async throws -> WeightGoal
     func save(_ goal: WeightGoal) async throws -> WeightGoal
     func goals() async throws -> [WeightGoal]
+    func deleteAll() async throws
 }

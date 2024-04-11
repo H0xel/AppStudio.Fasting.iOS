@@ -27,7 +27,7 @@ class UpdateWeightViewModel: BaseViewModel<UpdateWeightOutput> {
     var router: UpdateWeightRouter!
 
     init(input: UpdateWeightInput, output: @escaping UpdateWeightOutputBlock) {
-        currentDate = input.date.beginningOfDay
+        currentDate = input.date.startOfTheDay
         units = input.units
         super.init(output: output)
         initializeCalendar()
@@ -52,7 +52,7 @@ class UpdateWeightViewModel: BaseViewModel<UpdateWeightOutput> {
     }
 
     func onTodayTap() {
-        currentDate = .now.beginningOfDay
+        currentDate = .now.startOfTheDay
         calendarViewModel.currentWeek = .current
     }
 

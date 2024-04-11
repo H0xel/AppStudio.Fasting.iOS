@@ -24,7 +24,7 @@ public class FastingWidgetViewModel: BaseViewModel<FastingWidgetOutput> {
     }
 
     func fastingState(for date: Date) -> FastingWidgetState {
-        date == .now.beginningOfDay ? currentFastingState : fastingStateStore[date] ?? currentFastingState
+        date == .now.startOfTheDay ? currentFastingState : fastingStateStore[date] ?? currentFastingState
     }
 
     public func loadData(weeks: [Week]) {

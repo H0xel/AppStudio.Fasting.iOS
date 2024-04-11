@@ -12,8 +12,11 @@ struct FastingPhaseScreen: View {
     @StateObject var viewModel: FastingPhaseViewModel
 
     var body: some View {
-        view
-            .navBarButton(content: closeButton, action: viewModel.close)
+        VStack(spacing: .zero) {
+            CloseButtonView(action: viewModel.close)
+                .background(backgroundColor)
+            view
+        }
     }
 
     @ViewBuilder

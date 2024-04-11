@@ -20,16 +20,21 @@ struct WeightProgressChart: View {
 
     var body: some View {
         LineChart(selectedDate: $selectedDate, items: chartItems, rounded: rounded)
+            .frame(height: .chartHeight)
             .chartScrollableAxes(.horizontal)
             .chartXVisibleDomain(length: chartScale.visibleDomain)
             .chartYScale(domain: yScaleDomain)
-            .chartScrollPosition(x: $currentItem)
+            .chartScrollPosition(x: .init(
+                get: { currentItem.startOfTheDay.adding(.hour, value: -6) },
+                set: { currentItem = $0.adding(.hour, value: 6).startOfTheDay }
+            ))
+            .modifier(AutomaticYAxisGridModifier(desiredCount: 5))
             .modifier(DateChartScaleModifier(chartScale: chartScale))
-            .frame(height: .chartHeight)
             .padding(.trailing, .trailingPadding)
             .onTapGesture {
                 selectedDate = nil
             }
+            .animation(.linear(duration: 0.2), value: yScaleDomain)
     }
 
     private var rounded: Bool {
@@ -40,12 +45,19 @@ struct WeightProgressChart: View {
     }
 
     private var yScaleDomain: ClosedRange<Double> {
-        let items = chartItems.flatMap { $0.values }
+        let items = chartItems
+            .filter { $0.currentLineWidth > 0 }
+            .flatMap { $0.values }
+            .filter {
+                $0.label >= currentItem && 
+                $0.label <= currentItem.add(days: chartScale.numberOfDays - 1)
+            }
+
         guard let min = items.min(by: { $0.value < $1.value }),
               let max = items.max(by: { $0.value < $1.value }) else {
             return 0 ... 0
         }
-        return min.value - 10 ... max.value + 10
+        return min.value - 5 ... max.value + 5
     }
 }
 

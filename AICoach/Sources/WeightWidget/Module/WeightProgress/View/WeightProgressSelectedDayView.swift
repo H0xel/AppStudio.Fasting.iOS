@@ -19,7 +19,7 @@ struct WeightProgressSelectedDayView: View {
 
     var body: some View {
         VStack(spacing: .spacing) {
-            Text(selectedDate.beginningOfDay.currentLocaleFormatted(with: "MMMMdd"))
+            Text(selectedDate.startOfTheDay.currentLocaleFormatted(with: "MMMMdd"))
                 .font(.poppinsMedium(.body))
                 .foregroundStyle(Color.studioBlackLight)
                 .frame(maxWidth: .infinity)

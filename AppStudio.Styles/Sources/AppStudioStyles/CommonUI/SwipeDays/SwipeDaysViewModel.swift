@@ -19,7 +19,7 @@ public class SwipeDaysViewModel: BaseViewModel<SwipeDaysOutput> {
     private let isFutureAllowed: Bool
 
     public init(isFutureAllowed: Bool) {
-        currentDay = .now.beginningOfDay
+        currentDay = .now.startOfTheDay
         self.isFutureAllowed = isFutureAllowed
         super.init()
         insertDays(of: [.init(ofDay: currentDay)])
@@ -42,7 +42,7 @@ public class SwipeDaysViewModel: BaseViewModel<SwipeDaysOutput> {
     public func insertDays(of weeks: [Week]) {
         var newDays = days
         let days = weeks.flatMap { $0.days }
-        let filteredDays = isFutureAllowed ? days : days.filter { $0 <= .now.beginningOfDay }
+        let filteredDays = isFutureAllowed ? days : days.filter { $0 <= .now.startOfTheDay }
         filteredDays.forEach { day in
             newDays.insert(day)
         }

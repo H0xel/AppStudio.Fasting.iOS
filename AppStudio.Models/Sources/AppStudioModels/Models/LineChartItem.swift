@@ -12,17 +12,20 @@ public struct LineChartItem: Identifiable, Equatable {
     public let title: String
     public let lineColor: Color
     public let lineWidth: CGFloat
+    public let currentLineWidth: CGFloat
     public let values: [LineChartValue]
     public let dashed: Bool
 
     public init(title: String,
                 lineWidth: CGFloat,
+                currentLineWidth: CGFloat,
                 lineColor: Color,
                 values: [LineChartValue],
                 dashed: Bool = false) {
         self.title = title
         self.lineColor = lineColor
         self.lineWidth = lineWidth
+        self.currentLineWidth = currentLineWidth
         self.values = values
         self.dashed = dashed
     }
@@ -44,6 +47,7 @@ public extension LineChartItem {
     static func trueWeight(values: [LineChartValue], color: Color) -> LineChartItem {
         .init(title: "LineChartItem.trueWeight".localized(bundle: .module),
               lineWidth: 4,
+              currentLineWidth: 4,
               lineColor: color,
               values: values)
     }
@@ -51,6 +55,7 @@ public extension LineChartItem {
     static func scaleWeight(values: [LineChartValue], color: Color) -> LineChartItem {
         .init(title: "LineChartItem.scaleWeight".localized(bundle: .module),
               lineWidth: 2,
+              currentLineWidth: 2,
               lineColor: color,
               values: values)
     }
@@ -58,21 +63,42 @@ public extension LineChartItem {
     static func weightGoal(values: [LineChartValue], color: Color) -> LineChartItem {
         .init(title: "LineChartItem.goalWeight".localized(bundle: .module),
               lineWidth: 1,
+              currentLineWidth: 1,
               lineColor: color,
               values: values,
               dashed: true)
     }
 
-    var empty: LineChartItem {
+    func updated(values: [LineChartValue]) -> LineChartItem {
         .init(title: title,
-              lineWidth: 0,
+              lineWidth: lineWidth,
+              currentLineWidth: currentLineWidth,
               lineColor: lineColor,
               values: values)
+    }
+
+    var invisible: LineChartItem {
+        .init(title: title,
+              lineWidth: lineWidth,
+              currentLineWidth: 0,
+              lineColor: lineColor,
+              values: values,
+              dashed: dashed)
+    }
+
+    var visible: LineChartItem {
+        .init(title: title,
+              lineWidth: lineWidth,
+              currentLineWidth: lineWidth,
+              lineColor: lineColor,
+              values: values,
+              dashed: dashed)
     }
 
     static func hidden(values: [LineChartValue]) -> LineChartItem {
         .init(title: "",
               lineWidth: 0,
+              currentLineWidth: 0,
               lineColor: .clear,
               values: values)
     }
@@ -81,6 +107,7 @@ public extension LineChartItem {
         .init(
             title: "Scale weight",
             lineWidth: 4,
+            currentLineWidth: 4,
             lineColor: .blue,
             values: [
                 .init(value: 55, label: Date().add(days: -6)),
@@ -98,6 +125,7 @@ public extension LineChartItem {
         .init(
             title: "True weight",
             lineWidth: 2,
+            currentLineWidth: 2,
             lineColor: .green,
             values: [
                 .init(value: 58, label: Date().add(days: -6)),
@@ -111,10 +139,28 @@ public extension LineChartItem {
         )
     }
 
+    static var weightGoalMock: LineChartItem {
+        .init(title: "LineChartItem.goalWeight".localized(bundle: .module),
+              lineWidth: 1,
+              currentLineWidth: 1,
+              lineColor: .black,
+              values: [
+                .init(value: 58, label: .now.add(days: -6)),
+                .init(value: 58, label: .now.add(days: -5)),
+                .init(value: 58, label: .now.add(days: -4)),
+                .init(value: 58, label: .now.add(days: -3)),
+                .init(value: 58, label: .now.add(days: -2)),
+                .init(value: 58, label: .now.add(days: -1)),
+                .init(value: 58, label: .now)
+              ],
+              dashed: true)
+    }
+
     static var trueWeightMockLong: LineChartItem {
         .init(
             title: "True weight",
             lineWidth: 2,
+            currentLineWidth: 2,
             lineColor: .green,
             values: (0...360).map {
                 .init(
@@ -129,6 +175,7 @@ public extension LineChartItem {
         .init(
             title: "Scale weight",
             lineWidth: 4,
+            currentLineWidth: 4,
             lineColor: .blue,
             values: (0...360).map {
                 .init(

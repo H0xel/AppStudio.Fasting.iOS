@@ -22,7 +22,7 @@ struct CalendarProgress {
 }
 
 public class CalendarProgressViewModel: BaseViewModel<CalendarProgressOutput> {
-    @Published public var currentDay: Date = .now.beginningOfDay
+    @Published public var currentDay: Date = .now.startOfTheDay
     @Published public var currentWeek: Week = .current
     @Published private var progress: [Date: DayProgress] = [:]
     @Published private var weeks: Set<Week> = []

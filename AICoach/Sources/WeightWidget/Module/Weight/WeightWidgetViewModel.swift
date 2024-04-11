@@ -25,7 +25,7 @@ public class WeightWidgetViewModel: BaseViewModel<WeightWidgetOutput> {
 
     @Published var isHintPresented = true
     @Published private var weightHistory: [Date: WeightHistory] = [:]
-    @Published private var currentDate: Date = .now.beginningOfDay
+    @Published private var currentDate: Date = .now.startOfTheDay
     private var router: WeightWidgetRouter!
     private var units: WeightUnit = .kg
     private var weightObserver: WeightHistoryObserver?
@@ -76,7 +76,7 @@ public class WeightWidgetViewModel: BaseViewModel<WeightWidgetOutput> {
 
     func updateWeight() {
         trackerService.track(.tapUpdateWeight(date: currentDate.description,
-                                              today: currentDate.beginningOfDay == .now.beginningOfDay))
+                                              today: currentDate.startOfTheDay == .now.startOfTheDay))
         router.presentWeightUpdate(input: .init(date: currentDate, units: units)) { [weak self] output in
             guard let self else { return }
             switch output {
@@ -98,7 +98,7 @@ public class WeightWidgetViewModel: BaseViewModel<WeightWidgetOutput> {
     }
 
     private func updateTrueWeightIfNeeded(history: WeightHistory) {
-        guard history.historyDate < .now.beginningOfDay else {
+        guard history.historyDate < .now.startOfTheDay else {
             return
         }
         Task {

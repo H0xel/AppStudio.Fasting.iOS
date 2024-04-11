@@ -29,7 +29,7 @@ class CalendarProgressServiceImpl: CalendarProgressService {
                         goal: history.plan.duration,
                         result: history.finishedDate.timeIntervalSince(history.startedDate)
                     )
-                    result[history.startedDate.shiftedToUTC(fromTimeZone: .current).beginningOfDay] = progress
+                    result[history.startedDate.startOfTheDay] = progress
                     return result
                 }
             }

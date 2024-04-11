@@ -16,7 +16,7 @@ struct WaterSettings {
 
     init(id: String? = nil, date: Date, prefferedValue: Double, units: WaterUnits) {
         self.id = id ?? UUID().uuidString
-        self.date = date.beginningOfDay
+        self.date = date.startOfTheDay
         self.prefferedValue = prefferedValue
         self.units = units
     }

@@ -20,14 +20,18 @@ public struct DateChartScaleModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .chartXAxis {
-                AxisMarks(preset: .aligned, values: values) { value in
+                AxisMarks(preset: .inset, position: .bottom, values: values) { value in
                     if let date = value.as(Date.self) {
-                        AxisValueLabel(date.currentLocaleFormatted(with: chartScale.dateFormat),
-                                       collisionResolution: chartScale == .week ? .disabled : .greedy)
-                            .foregroundStyle(Color.studioBlackLight)
-                        AxisGridLine(stroke: .init(lineWidth: .lineWidth,
-                                                   lineCap: .square,
-                                                   dash: [4, 4]))
+                        AxisValueLabel(
+                            date.currentLocaleFormatted(with: chartScale.dateFormat),
+                            collisionResolution: .greedy
+                        )
+                        .foregroundStyle(Color.studioBlackLight)
+                        AxisGridLine(
+                            stroke: .init(lineWidth: .lineWidth,
+                                          lineCap: .square,
+                                          dash: [4, 4])
+                        )
                         .foregroundStyle(Color.studioGreyStrokeFill)
                     }
                 }
@@ -36,9 +40,9 @@ public struct DateChartScaleModifier: ViewModifier {
 
     private var values: AxisMarkValues {
         switch chartScale {
-        case .week: return .stride(by: .day)
-        case .month: return .automatic(desiredCount: 10)
-        case .threeMonth: return .stride(by: .weekOfYear)
+        case .week: .automatic(desiredCount: 7)
+        case .month: .automatic(desiredCount: 10)
+        case .threeMonth: .stride(by: .weekOfYear)
         }
     }
 }

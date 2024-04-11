@@ -39,7 +39,7 @@ public struct WeightHistory {
         self.scaleWeightValue = scaleWeightValue
         self.trueWeightValue = trueWeightValue
         self.weightUnits = weightUnits
-        self.historyDate = historyDate.beginningOfDay
+        self.historyDate = historyDate.startOfTheDay
     }
 }
 
@@ -48,7 +48,7 @@ public extension WeightHistory {
     static var mock: WeightHistory {
         .init(id: UUID().uuidString,
               dateCreated: .now,
-              historyDate: .now.beginningOfDay,
+              historyDate: .now.startOfTheDay,
               scaleWeightValue: .random(in: 60...70),
               trueWeightValue: .random(in: 60...70),
               weightUnits: .kg)

@@ -116,7 +116,7 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
 
     func updateWater() {
         Task {
-            let dates = (0 ..< 7).map { Date.now.beginningOfDay.adding(.day, value: -$0) }.reversed()
+            let dates = (0 ..< 7).map { Date.now.startOfTheDay.adding(.day, value: -$0) }.reversed()
             let items = try await waterChartService.waterChartItems(for: Array(dates))
             await MainActor.run {
                 waterChartItems = items
