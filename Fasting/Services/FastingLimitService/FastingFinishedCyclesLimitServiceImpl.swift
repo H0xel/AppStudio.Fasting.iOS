@@ -8,17 +8,17 @@
 import Dependencies
 
 private let fastingFinishedCyclesLimitKey = "Fasting.fastingFinishedCyclesLimitKey"
-private let fastingFinishedCyclesLimitCount = 2
 
 class FastingFinishedCyclesLimitServiceImpl: FastingLimitService {
     @Dependency(\.cloudStorage) private var cloudStorage
+    @Dependency(\.appCustomization) private var appCustomization
 
     var isLimited: Bool {
 #if DEBUG
         // MARK: - disable fasting limits in Debug version
-        true
+        false
 #else
-        fastingFinishedCyclesLimitCount <= cyclesCount
+        appCustomization.fastingLimitCycles <= cyclesCount
 #endif
     }
 

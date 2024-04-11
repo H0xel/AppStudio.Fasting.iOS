@@ -13,7 +13,7 @@ public enum WaterUnits: String {
 
     static let allUnits: [WaterUnits] = [.liters, .ounces]
 
-    func formatGlobal(value: Double) -> String {
+    public func formatGlobal(value: Double) -> String {
         switch self {
         case .liters:
             valueToGlobal(value: value).formatRounded(to: 2).cutTrailingZeros()
@@ -22,7 +22,7 @@ public enum WaterUnits: String {
         }
     }
 
-    func format(value: Double) -> String {
+    public func format(value: Double) -> String {
         switch self {
         case .liters:
             valueToLocal(value: value).formatRounded(to: 0)
@@ -67,11 +67,11 @@ public enum WaterUnits: String {
         }
     }
 
-    var unitsGlobalFullTitle: String {
+    public var unitsGlobalFullTitle: String {
         "WaterUnits.unitsGlobalFullTitle.\(rawValue)".localized(bundle: .module)
     }
 
-    var unitsGlobalTitle: String {
+    public var unitsGlobalTitle: String {
         "WaterUnits.unitsGlobalTitle.\(rawValue)".localized(bundle: .module)
     }
 

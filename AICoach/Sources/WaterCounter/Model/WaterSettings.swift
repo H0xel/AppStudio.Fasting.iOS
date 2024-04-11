@@ -8,13 +8,13 @@
 import Foundation
 import AppStudioFoundation
 
-struct WaterSettings {
-    let id: String
-    let date: Date
-    var prefferedValue: Double
-    var units: WaterUnits
+public struct WaterSettings {
+    public let id: String
+    public let date: Date
+    public var prefferedValue: Double
+    public var units: WaterUnits
 
-    init(id: String? = nil, date: Date, prefferedValue: Double, units: WaterUnits) {
+    public init(id: String? = nil, date: Date, prefferedValue: Double, units: WaterUnits) {
         self.id = id ?? UUID().uuidString
         self.date = date.startOfTheDay
         self.prefferedValue = prefferedValue

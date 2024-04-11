@@ -9,14 +9,12 @@
 import Foundation
 import RxRelay
 import RxSwift
+import AppStudioServices
 
 class AppCustomizationPreview: AppCustomization, ProductIdsService {
-    func resetDiscountExp() {
-    }
-    
-    func exp() async throws -> String {
-        ""
-    }
+    var dayLogLimit: Int { 3 }
+
+    func resetDiscountExp() {}
     
     var discountPaywallExperiment: RxSwift.Observable<DiscountPaywallInfo?> {
         .just(.empty)

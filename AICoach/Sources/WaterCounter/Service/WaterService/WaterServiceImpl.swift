@@ -24,7 +24,7 @@ class WaterServiceImpl: WaterService {
         }
 
         if let units = waterIntakeService.waterUnits {
-            let prefferedValue = units == .ounces ? units.localToValue(value: 8) : units.localToValue(value: 250)
+            let prefferedValue = units == .ounces ? units.localToValue(value: 8.5) : units.localToValue(value: 250)
             return WaterSettings(date: .now, prefferedValue: prefferedValue, units: units)
         }
 
@@ -78,9 +78,39 @@ class WaterServiceImpl: WaterService {
         drinkingWaterRepository.waterObserver(for: date)
     }
 
+    func waterObserverAll() -> DrinkingWaterObserver {
+        drinkingWaterRepository.waterObserverAll()
+    }
+
     func water(for date: Date) async throws -> Double {
         try await drinkingWaterRepository.water(from: date.startOfTheDay, to: date.endOfDay)
             .reduce(into: 0.0) { $0 += $1.quantity }
+    }
+
+    func water() async throws -> [Date: DrinkingWater] {
+        let allWater = try await drinkingWaterRepository.selectAll()
+
+        return allWater.reduce(into: [:]) { result, water in
+            var record = result[water.date] ?? DrinkingWater(date: water.date, quantity: 0.0)
+            record.quantity += water.quantity
+            result[water.date] = record
+        }
+    }
+
+    func deleteWater(at date: Date) async throws {
+        try await drinkingWaterRepository.remove(from: date.startOfTheDay, to: date.endOfDay)
+    }
+
+    func updateWater(for date: Date, quantity: Double) async throws -> Double {
+        if quantity < 0 {
+            return 0
+        }
+        let currentQuantity = try await water(for: date)
+        if currentQuantity != quantity {
+            try await deleteWater(at: date)
+            return try await add(water: DrinkingWater(date: date, quantity: quantity))
+        }
+        return currentQuantity
     }
 
     private func trackWater(date: Date) {

@@ -108,17 +108,32 @@ class RootRouter: BaseRouter {
         healthOverviewNavigator.present(route: route)
     }
 
-    func presentSuccess(input: SuccessInput, output: @escaping SuccessOutputBlock) {
-        let route = SuccessRoute(navigator: healthOverviewNavigator,
+    func presentSuccess(on tab: AppTab, input: SuccessInput, output: @escaping SuccessOutputBlock) {
+        let route = SuccessRoute(navigator: navigator(for: tab),
                                  input: input,
                                  output: output)
-        healthOverviewNavigator.present(route: route)
+        navigator(for: tab).present(route: route)
     }
 
     private func sendEmailWithOpenUrl() {
         Task {
             guard let url = URL(string: GlobalConstants.contactEmail) else { return }
             await openURL(url)
+        }
+    }
+
+    private func navigator(for tab: AppTab) -> Navigator {
+        switch tab {
+        case .fasting:
+            fastingNavigator
+        case .coach:
+            coachNavigator
+        case .paywall:
+            paywallNavigator
+        case .healthProgress:
+            healthProgressNavigator
+        case .daily:
+            healthOverviewNavigator
         }
     }
 }

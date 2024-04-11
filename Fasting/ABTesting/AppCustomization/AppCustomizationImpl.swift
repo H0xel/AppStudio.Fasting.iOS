@@ -13,11 +13,13 @@ import RxRelay
 import RxSwift
 import Dependencies
 import ABTesting
+import AppStudioServices
 
 private let requiredAppVersionKey = "force_update_version"
 private let closePaywallButtonDelayKey = "close_paywall_button_delay"
 private let forceUpdateLink = "force_update_link"
 private let isLongOnboardingEnabledKey = "long_onboarding_enabled"
+private let fastingCyclesLimitKey = "fasting_cycles_limit"
 
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
 
@@ -38,6 +40,12 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     var appStoreLink: Observable<String> {
         remoteConfigValueObservable(forKey: forceUpdateLink, defaultValue: "")
+    }
+
+    var fastingLimitCycles: Int {
+        let remoteValueLimit = value(forKey: fastingCyclesLimitKey) ?? ""
+        let defaultLimitCycles = 3
+        return Int(remoteValueLimit) ?? defaultLimitCycles
     }
 
     override func registerExperiments() async {

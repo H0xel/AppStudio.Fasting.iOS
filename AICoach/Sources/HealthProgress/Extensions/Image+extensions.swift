@@ -23,4 +23,29 @@ public extension Image {
     static var coachIcon: Image {
         Image(.coachIcon)
     }
+
+    static var sugarRises: Image {
+        Image(.sugarRises)
+    }
+
+    static var sugarDrop: Image {
+        Image(.sugarDrop)
+    }
+
+    static var sugarNormal: Image {
+        Image(.sugarNormal)
+    }
+
+    static var burning: Image {
+        Image(.burning)
+    }
+
+    static var ketosis: Image {
+        Image(.ketosis)
+    }
+
+    static var autophagy: Image {
+        Image(.autophagy)
+    }
+
 }

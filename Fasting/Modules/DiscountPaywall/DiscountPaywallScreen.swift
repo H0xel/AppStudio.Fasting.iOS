@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioNavigation
 import MunicornFoundation
+import AppStudioServices
 
 struct DiscountPaywallScreen: View {
     @StateObject var viewModel: DiscountPaywallViewModel
@@ -95,7 +96,8 @@ struct DiscountPaywallScreen_Previews: PreviewProvider {
             viewModel: DiscountPaywallViewModel(
                 input: .init(context: .paywallTab, paywallInfo: .init(
                     name: "",
-                    productId: "",
+                    productId: "", 
+                    delayTimeInHours: nil,
                     paywallType: "",
                     renewOfferTime: nil,
                     discount: 50,

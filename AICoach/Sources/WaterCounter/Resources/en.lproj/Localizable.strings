@@ -30,3 +30,5 @@
 
 "WaterUnits.unitsGlobalFullTitle.liters" = "Liters";
 "WaterUnits.unitsGlobalFullTitle.ounces" = "Ounces";
+
+"UpdateWaterScreen.save" = "Save";

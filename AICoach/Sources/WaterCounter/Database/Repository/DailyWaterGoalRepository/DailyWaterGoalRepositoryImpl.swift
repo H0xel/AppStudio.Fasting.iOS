@@ -40,7 +40,18 @@ class DailyWaterGoalRepositoryImpl: CoreDataBaseRepository<DailyWaterGoal>,  Dai
 
         return try await select(request: request).first
     }
-    
+
+    private func exactGoal(at date: Date) async throws -> DailyWaterGoal? {
+        let date = date.startOfTheDay
+
+        let request = DailyWaterGoal.request()
+        request.predicate = NSPredicate(format: "date == %@", date as NSDate)
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        request.fetchLimit = 1
+
+        return try await select(request: request).first
+    }
+
     func goals(from: Date, to: Date) async throws -> [DailyWaterGoal] {
         let request = DailyWaterGoal.request()
         request.sortDescriptors = [.init(key: "date", ascending: false)]
@@ -50,7 +61,7 @@ class DailyWaterGoalRepositoryImpl: CoreDataBaseRepository<DailyWaterGoal>,  Dai
     }
     
     func set(goal: DailyWaterGoal) async throws -> DailyWaterGoal {
-        if var existedGoal = try await self.goal(at: goal.date) {
+        if var existedGoal = try await self.exactGoal(at: goal.date) {
             existedGoal.quantity = goal.quantity
             return try await save(existedGoal)
         }

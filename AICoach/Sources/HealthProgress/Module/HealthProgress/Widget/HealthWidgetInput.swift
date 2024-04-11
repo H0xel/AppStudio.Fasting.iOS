@@ -19,18 +19,17 @@ struct HealthWidgetInput {
 
 extension HealthWidgetInput {
     static var weight: HealthWidgetInput {
-        let canExplore = if #available(iOS 17.0, *) { true } else { false }
-        return .init(title: "FastingHealthProgressScreen.weightTitle".localized(bundle: .module),
-                     subtitle: "FastingHealthProgressScreen.lastSevenDays".localized(bundle: .module),
-                     isExploreButtonPresented: canExplore,
-                     emptyStateInput: .weight,
-                     icon: .widgetInfo)
+        .init(title: "FastingHealthProgressScreen.weightTitle".localized(bundle: .module),
+              subtitle: "FastingHealthProgressScreen.lastSevenDays".localized(bundle: .module),
+              isExploreButtonPresented: .isExploreButtonAvailable,
+              emptyStateInput: .weight,
+              icon: .widgetInfo)
     }
 
     static var fasting: HealthWidgetInput {
         .init(title: "FastingHealthProgressScreen.fastingTitle".localized(bundle: .module),
               subtitle: "FastingHealthProgressScreen.lastSevenDays".localized(bundle: .module),
-              isExploreButtonPresented: false,
+              isExploreButtonPresented: .isExploreButtonAvailable,
               emptyStateInput: .fasting,
               icon: .widgetInfo)
     }
@@ -38,8 +37,17 @@ extension HealthWidgetInput {
     static var water: HealthWidgetInput {
         .init(title: "FastingHealthProgressScreen.waterTitle".localized(bundle: .module),
               subtitle: "FastingHealthProgressScreen.lastSevenDays".localized(bundle: .module),
-              isExploreButtonPresented: false,
+              isExploreButtonPresented: .isExploreButtonAvailable,
               emptyStateInput: .water,
               icon: .widgetSettings)
+    }
+}
+
+private extension Bool {
+    static var isExploreButtonAvailable: Bool {
+        if #available(iOS 17.0, *) {
+            return true
+        }
+        return false
     }
 }

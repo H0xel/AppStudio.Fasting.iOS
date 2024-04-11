@@ -1,1 +1,1 @@
-- Calorie Counter release build 1.0.6
+- Discount exp

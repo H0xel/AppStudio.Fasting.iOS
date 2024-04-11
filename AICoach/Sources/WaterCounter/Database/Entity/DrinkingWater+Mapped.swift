@@ -10,7 +10,7 @@ import MunicornCoreData
 
 extension DrinkingWater: EntityMappable {
 
-    init(entity: DrinkingWaterEntity) throws {
+    public init(entity: DrinkingWaterEntity) throws {
         guard let id = entity.id,
               let date = entity.date else {
             throw CoreDataError.databaseWrongEntity
@@ -20,13 +20,13 @@ extension DrinkingWater: EntityMappable {
         self.quantity = entity.quantity
     }
 
-    func map(to entity: DrinkingWaterEntity) {
+    public func map(to entity: DrinkingWaterEntity) {
         entity.id = id
         entity.date = date
         entity.quantity = quantity
     }
 
-    static var identifierName: String {
+    public static var identifierName: String {
         "id"
     }
 }

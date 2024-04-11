@@ -11,4 +11,8 @@ public typealias HealthProgressOutputBlock = ViewOutput<HealthProgressOutput>
 public enum HealthProgressOutput {
     // add Output parameters here
     case novaQuestion(String)
+    case delete(historyId: String)
+    case edit(historyId: String)
+    case addHistory
+    case updateInput
 }

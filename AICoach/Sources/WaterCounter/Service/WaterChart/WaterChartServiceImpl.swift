@@ -34,4 +34,35 @@ class WaterChartServiceImpl: WaterChartService {
         }
         return result
     }
+
+    func waterHistoryChartItems(for days: [Date]) async throws -> [FastingHistoryChartItem] {
+        let settings = try await waterService.settings()
+        let units = settings.units
+
+        var result: [FastingHistoryChartItem] = []
+
+        
+
+        for day in days {
+            async let water = waterService.water(for: day)
+            async let goal = waterService.dailyGoal(for: day)
+
+            print("DAY:", day, try await goal)
+
+            let item = try await FastingHistoryChartItem(
+                value: units.valueToGlobal(value: water),
+                lineValue: units.valueToGlobal(value: goal.quantity),
+                date: day,
+                stage: .water
+            )
+            result.append(item)
+            await Task.yield()
+        }
+        return result
+    }
+
+    func waterUnits() async throws -> WaterUnits {
+        let settings = try await waterService.settings()
+        return settings.units
+    }
 }

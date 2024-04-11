@@ -13,6 +13,7 @@ struct SwipeActionsModifier: ViewModifier {
 
     var leftActions: [SwipeAction] = []
     var rightActions: [SwipeAction] = []
+    var cornerRadius: CGFloat = 0
     @GestureState private var gestureOffset: CGFloat = 0
     @State private var buttonWidth: CGFloat = 0
     @State private var swipeOffset: CGFloat = 0
@@ -76,7 +77,7 @@ struct SwipeActionsModifier: ViewModifier {
                                 reset()
                             }
                         }
-                    )
+                )
         }
         .animation(.easeInOut(duration: 0.2), value: gestureOffset)
         .onReceive(SwipeActionsState.shared.swipePublisher) { swipeId in
@@ -140,6 +141,7 @@ struct SwipeActionsModifier: ViewModifier {
                 }
             }
             .frame(maxWidth: buttonWidth)
+            .continiousCornerRadius(cornerRadius)
             .aligned(position)
         }
     }

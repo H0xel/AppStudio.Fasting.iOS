@@ -10,7 +10,7 @@ import MunicornCoreData
 
 extension WaterSettings: EntityMappable {
 
-    init(entity: WaterSettingsEntity) throws {
+    public init(entity: WaterSettingsEntity) throws {
         guard let id = entity.id,
               let date = entity.date,
               let unitsRawValue = entity.units else {
@@ -22,14 +22,14 @@ extension WaterSettings: EntityMappable {
         self.units = WaterUnits(rawValue: unitsRawValue) ?? .liters
     }
 
-    func map(to entity: WaterSettingsEntity) {
+    public func map(to entity: WaterSettingsEntity) {
         entity.id = id
         entity.date = date
         entity.prefferedValue = prefferedValue
         entity.units = units.rawValue
     }
 
-    static var identifierName: String {
+    public static var identifierName: String {
         "id"
     }
 }

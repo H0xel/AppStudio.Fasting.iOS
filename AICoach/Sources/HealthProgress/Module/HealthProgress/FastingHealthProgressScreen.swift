@@ -98,9 +98,11 @@ struct HealthProgressScreen_Previews: PreviewProvider {
         FastingHealthProgressScreen(
             viewModel: HealthProgressViewModel(
                 inputPublisher: Just(FastingHealthProgressInput(
-                    bodyMassIndex: 22.3, 
+                    bodyMassIndex: 22.3,
                     weightUnits: .kg,
-                    fastingChartItems: HealthProgressBarChartItem.mock
+                    fastingChartItems: HealthProgressBarChartItem.mock,
+                    fastingHistoryChartItems: .mock,
+                    fastingHistoryData: .mock
                 )).eraseToAnyPublisher(),
                 output: { _ in }
             )

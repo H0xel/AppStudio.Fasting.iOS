@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct DrinkingWater {
-    let id: String
-    let date: Date
-    var quantity: Double
+public struct DrinkingWater {
+    public let id: String
+    public let date: Date
+    public var quantity: Double
 
-    init(id: String? = nil, date: Date, quantity: Double) {
+    public init(id: String? = nil, date: Date, quantity: Double) {
         self.id = id ?? UUID().uuidString
         self.date = date
         self.quantity = quantity

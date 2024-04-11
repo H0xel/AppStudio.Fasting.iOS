@@ -17,6 +17,5 @@ extension WaterCounterInitializer: AppInitializer {
         if let waterIntakeService = onboardingService as? WaterIntakeService {
             initialize(waterIntakeService: waterIntakeService)
         }
-
     }
 }

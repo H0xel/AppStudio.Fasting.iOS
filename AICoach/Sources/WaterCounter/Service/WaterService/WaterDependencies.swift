@@ -7,7 +7,7 @@
 
 import Dependencies
 
-extension DependencyValues {
+public extension DependencyValues {
     var waterService: WaterService {
         self[WaterServiceKey.self]
     }

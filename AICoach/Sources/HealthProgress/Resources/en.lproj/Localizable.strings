@@ -9,6 +9,8 @@
 // MARK: - FastingHealthProgressScreen
 "FastingHealthProgressScreen.title" = "Progress";
 "FastingHealthProgressScreen.fastingTitle" = "Fasting";
+"FastingHealthProgressScreen.fastingSubtitle" = "Last 7 days";
+"FastingHealthProgressScreen.exploreMore" = "Explore more";
 "FastingHealthProgressScreen.lastSevenDays" = "Last 7 days";
 "FastingHealthProgressScreen.weightTitle" = "Weight";
 "FastingHealthProgressScreen.waterTitle" = "Water";
@@ -55,6 +57,35 @@
 "HintTopic.fasting.paragraphContent.title" = "Average Fasting Time";
 "HintTopic.fasting.paragraphContent.topic1" = "Calculated as the total hours of fasting within the selected timeframe, divided by the number of completed fasting sessions.";
 
+"FastingHistoryRecord.duration.title" = "%@ h %@ min";
+"FastingHistoryScreen.title" = "Fasting History";
+"FastingHistoryScreen.fasting.title" = "Fasting";
+"FastingHistoryScreen.water.title" = "Water";
+
+"FastingHistoryScreen.period.week" = "Week";
+"FastingHistoryScreen.period.month" = "Month";
+"FastingHistoryScreen.period.threeMonths" = "3 months";
+"FastingHistoryScreen.fasting.goal" = "Fasting Goal";
+"FastingHistoryScreen.water.goal" = "Water Goal";
+
+// MARK: - Fasting History Stage
+"FastingHistoryScreen.bloodSugarRises" = "Blood sugar rises";
+"FastingHistoryScreen.bloodSugarFalls" = "Blood sugar falls";
+"FastingHistoryScreen.bloodSugarNormal" = "Blood sugar normal";
+"FastingHistoryScreen.burningFat" = "Fat burning";
+"FastingHistoryScreen.ketosis" = "Ketosis";
+"FastingHistoryScreen.autophagy" = "Autophagy";
+"FastingHistoryScreen.averageTime" = "Average Time";
+"FastingHistoryScreen.averageIntake" = "Average Intake";
+"FastingHistoryScreen.waterConsumed" = "Water Consumed";
+"FastingHistoryScreen.fastingTime" = "Fasting Time";
+"FastingHistoryScreen.weeklyTime" = "Weekly Average";
+"FastingHistoryScreen.averageTime.h" = "h";
+"FastingHistoryScreen.averageTime.m" = "min";
+"FastingHistoryScreen.averageLiters" = "liters";
+"FastingHistoryScreen.goalReached" = "Goal Reached";
+"FastingHistoryScreen.striveForProgress" = "Strive for progress, \nnot perfection 🌱";
+"FastingHistoryScreen.times" = "times";
 "HealthProgressWidget.exploreMore" = "Explore More";
 
 "WeightWidgetEmptyView.title" = "No weight logged in the past 7 days";

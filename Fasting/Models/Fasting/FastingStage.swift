@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import HealthProgress
 import FastingWidget
+import AppStudioModels
 
 enum FastingStage: String, CaseIterable, Equatable, FastingWidgetPhase {
     case sugarRises
@@ -99,5 +101,24 @@ extension FastingStage: Comparable {
                   return true
               }
         return leftIndex < rightIndex
+    }
+}
+
+extension FastingHistoryStage {
+    init(fastingStage: FastingStage) {
+        switch fastingStage {
+        case .sugarRises:
+            self = .sugarRises
+        case .sugarDrop:
+            self = .sugarDrop
+        case .sugarNormal:
+            self = .sugarNormal
+        case .burning:
+            self = .burning
+        case .ketosis:
+            self = .ketosis
+        case .autophagy:
+            self = .autophagy
+        }
     }
 }

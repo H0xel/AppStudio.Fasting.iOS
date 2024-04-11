@@ -8,13 +8,13 @@
 import MunicornCoreData
 
 extension DailyWaterGoal: EntityMappable {
-    func map(to entity: DailyWaterGoalEntity) {
+    public func map(to entity: DailyWaterGoalEntity) {
         entity.id = id
         entity.date = date
         entity.quantity = quantity
     }
     
-    init(entity: DailyWaterGoalEntity) throws {
+    public init(entity: DailyWaterGoalEntity) throws {
         guard let id = entity.id,
               let date = entity.date else {
             throw CoreDataError.databaseWrongEntity
@@ -24,7 +24,7 @@ extension DailyWaterGoal: EntityMappable {
         self.quantity = entity.quantity
     }
     
-    static var identifierName: String {
+    public static var identifierName: String {
         "id"
     }
 }

@@ -6,7 +6,7 @@
 //
 import Foundation
 
-protocol WaterService {
+public protocol WaterService {
     func settings() async throws -> WaterSettings
     func save(settings: WaterSettings) async throws -> WaterSettings
 
@@ -15,11 +15,29 @@ protocol WaterService {
 
     func add(water: DrinkingWater) async throws -> Double
     func waterObserver(for date: Date) -> DrinkingWaterObserver
+    func waterObserverAll() -> DrinkingWaterObserver
     func water(for date: Date) async throws -> Double
+    func water() async throws -> [Date: DrinkingWater]
+    func deleteWater(at date: Date) async throws
+    func updateWater(for date: Date, quantity: Double) async throws -> Double
 }
 
 
 class WaterServiceMock: WaterService {
+    func deleteWater(at date: Date) async throws {}
+    
+    func updateWater(for date: Date, quantity: Double) async throws -> Double {
+        0
+    }
+    
+    func waterObserverAll() -> DrinkingWaterObserver {
+        .init()
+    }
+    
+    func water() async throws -> [Date : DrinkingWater] {
+        [:]
+    }
+    
     func settings() async throws -> WaterSettings {
         .default
     }

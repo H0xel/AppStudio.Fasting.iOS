@@ -68,4 +68,12 @@ class FastingHistoryServiceImpl: FastingHistoryService {
     func deleteAll() async throws {
         try await fastingIntervalHistoryRepository.deleteAll()
     }
+
+    func delete(byId: String) async throws {
+        try await fastingIntervalHistoryRepository.delete(byId: byId)
+    }
+
+    func history() async throws -> [FastingIntervalHistory] {
+        try await fastingIntervalHistoryRepository.selectAll()
+    }
 }

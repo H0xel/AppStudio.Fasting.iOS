@@ -61,7 +61,7 @@ struct HealthProgressBarChartView: View {
             .padding(.leading, .leadingPadding)
             .padding(.trailing, .trailingPadding)
         }
-        .frame(height: .chartHeight)
+        .frame(height: isEmptyState ? .chartHeightEmptySetate : .chartHeight)
     }
 
     private var isEmptyState: Bool {
@@ -86,9 +86,11 @@ private extension CGFloat {
     static let trailingPadding: CGFloat = 12
     static let leadingPadding: CGFloat = 20
     static let chartHeight: CGFloat = 302
+    static let chartHeightEmptySetate: CGFloat = 402
+    static let exploreButtonSpacing: CGFloat = 12
 }
 
 #Preview {
     HealthProgressBarChartView(widgetInput: .weight,
-                               items: HealthProgressBarChartItem.mock) { _ in }
+                               items: []) { _ in }
 }

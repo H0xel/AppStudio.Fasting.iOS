@@ -7,6 +7,7 @@
 
 import AppStudioABTesting
 import Dependencies
+import AppStudioServices
 
 typealias DiscountPaywallExperimentValueCoder = JsonExperimentVariantCoder<DiscountPaywallInfo>
 

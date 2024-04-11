@@ -39,6 +39,23 @@ class HealthProgressRouter: BaseRouter {
         navigator.present(sheet: route, detents: [.large, .fraction(2.0/3.0)], showIndicator: true)
     }
 
+
+    func pushFastingHistory(input: FastingHistoryInput, outputBlock: @escaping FastingHistoryOutputBlock) {
+        if #available(iOS 17.0, *) {
+            let route = FastingHistoryRoute(navigator: navigator,
+                                            input: input,
+                                            output: { [weak self] output in
+                switch output {
+                case .close:
+                    self?.dismiss()
+                default:
+                    outputBlock(output)
+                }
+            })
+            navigator.push(route: route)
+        }
+    }
+
     func presentWeightHint() {
         let route = HintRoute(navigator: navigator,
                               input: .init(topic: .weight),

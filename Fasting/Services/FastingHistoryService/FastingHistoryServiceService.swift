@@ -18,4 +18,6 @@ protocol FastingHistoryService {
     func history(for dates: [Date]) async throws -> [Date: FastingIntervalHistory]
     func history(byId id: String) async throws -> FastingIntervalHistory?
     func deleteAll() async throws
+    func delete(byId: String) async throws
+    func history() async throws -> [FastingIntervalHistory]
 }

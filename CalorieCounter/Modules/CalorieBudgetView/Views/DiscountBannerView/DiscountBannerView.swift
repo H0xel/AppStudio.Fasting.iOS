@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppStudioServices
 
 struct DiscountBannerView: View {
     let viewData: ViewData

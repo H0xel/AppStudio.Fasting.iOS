@@ -12,11 +12,13 @@ import AppStudioNavigation
 import RxRelay
 import RxSwift
 import Dependencies
+import AppStudioServices
 
 private let requiredAppVersionKey = "force_update_version"
 private let closePaywallButtonDelayKey = "close_paywall_button_delay"
 private let forceUpdateLink = "force_update_link"
 private let isLongOnboardingEnabledKey = "long_onboarding_enabled"
+private let dayLogLimitKey = "log_limit"
 
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
 
@@ -74,6 +76,12 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     var appStoreLink: Observable<String> {
         remoteConfigValueObservable(forKey: forceUpdateLink, defaultValue: "")
+    }
+
+    var dayLogLimit: Int {
+        let remoteValueLimit = value(forKey: dayLogLimitKey) ?? ""
+        let defaultValue = 3
+        return Int(remoteValueLimit) ?? defaultValue
     }
 
     var allProductsObservable: Observable<AvailableProducts> {

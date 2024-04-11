@@ -16,4 +16,6 @@ protocol FastingIntervalHistoryRepository {
     func select(from date: Date) async throws -> [FastingIntervalHistory]
     func history(byId id: String) async throws -> FastingIntervalHistory?
     func deleteAll() async throws
+    func delete(byId id: String) async throws
+    func selectAll() async throws -> [FastingIntervalHistory]
 }

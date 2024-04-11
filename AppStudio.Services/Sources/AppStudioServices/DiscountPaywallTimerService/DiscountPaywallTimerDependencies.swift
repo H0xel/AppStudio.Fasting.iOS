@@ -7,7 +7,7 @@
 
 import Dependencies
 
-extension DependencyValues {
+public extension DependencyValues {
     var discountPaywallTimerService: DiscountPaywallTimerService {
         self[DiscountPaywallTimerServiceKey.self]
     }

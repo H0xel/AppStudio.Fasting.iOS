@@ -10,4 +10,6 @@ import Foundation
 
 public protocol WaterChartService {
     func waterChartItems(for days: [Date]) async throws -> [HealthProgressBarChartItem]
+    func waterHistoryChartItems(for days: [Date]) async throws -> [FastingHistoryChartItem]
+    func waterUnits() async throws -> WaterUnits
 }

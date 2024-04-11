@@ -34,14 +34,21 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
     @Published var isWeightHintPresented = true
     @Published var bodyMassIndex: Double = 0
     @Published var fastingChartItems: [HealthProgressBarChartItem] = []
+    @Published var fastingHistoryData: FastingHistoryData = .init(records: [])
     @Published var waterChartItems: [HealthProgressBarChartItem] = []
     @Published var weightChartItems: [LineChartItem] = []
+
+    @Published private var fastingChartHistoryItems: [FastingHistoryChartItem] = []
+    @Published private var waterChartHistoryItems: [FastingHistoryChartItem] = []
+    @Published private var waterUnits: WaterUnits = .ounces
     private let currentWeightSubject = CurrentValueSubject<WeightMeasure, Never>(.init(value: 0))
     private var inputCancellable: AnyCancellable?
     private var defaultWeightUnits: WeightUnit = .lb
+    private let inputHistoryPublisher: AnyPublisher<FastingHealthProgressInput, Never>
 
     init(inputPublisher: AnyPublisher<FastingHealthProgressInput, Never>,
          output: @escaping HealthProgressOutputBlock) {
+        inputHistoryPublisher = inputPublisher
         super.init(output: output)
         observeInput(inputPublisher: inputPublisher)
         isBodyMassHintPresented = storageService.isBodyMassIndexHintPresented
@@ -72,6 +79,13 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
             presentFastingInfo()
         case .learnMoreTap:
             trackTapInfo(source: "learn_more", target: "fasting")
+            presentFastingHistory(
+                input: .init(context: .fasting,
+                             historyData: fastingHistoryData,
+                             chartItems: fastingChartHistoryItems,
+                             inputHistoryPublisher: inputHistoryPublisher)
+            )
+
         case .emptyStateButtonTap:
             break
         }
@@ -93,7 +107,10 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
         case .infoTap:
             presentWaterSettings()
         case .learnMoreTap:
-            break
+            presentFastingHistory(input: .init(context: .water(waterUnits), 
+                                               historyData: .mock,
+                                               chartItems: waterChartHistoryItems,
+                                               inputHistoryPublisher: Empty().eraseToAnyPublisher()))
         case .emptyStateButtonTap:
             break
         }
@@ -106,6 +123,7 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
         }
     }
 
+
     func updateWeight() {
         Task {
             async let items = weightChartService.lastDaysItems(daysCount: 7)
@@ -116,10 +134,28 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
 
     func updateWater() {
         Task {
+            let calendar = Calendar.current
+            var components = DateComponents()
+
+            components.year = 2023
+            components.month = 12
+            components.day = 1
+
+            let startingWaterTrackingDay = calendar.date(from: components) ?? .now
+            let daysAfterStartingWaterTrackingDay = calendar.dateComponents([.day],
+                                                                           from: startingWaterTrackingDay,
+                                                                           to: .now).day ?? 0
+
+            let fastingHistoryDates = (0...daysAfterStartingWaterTrackingDay).map { Date.now.startOfTheDay.adding(.day, value: -$0) }.reversed()
             let dates = (0 ..< 7).map { Date.now.startOfTheDay.adding(.day, value: -$0) }.reversed()
             let items = try await waterChartService.waterChartItems(for: Array(dates))
+            let historyItems = try await waterChartService.waterHistoryChartItems(for: Array(fastingHistoryDates))
+            let waterUnits = try await waterChartService.waterUnits()
+
             await MainActor.run {
                 waterChartItems = items
+                waterChartHistoryItems = historyItems
+                self.waterUnits = waterUnits
             }
         }
     }
@@ -130,7 +166,9 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
             .sink { [weak self] input in
                 self?.bodyMassIndex = input.bodyMassIndex
                 self?.fastingChartItems = input.fastingChartItems
+                self?.fastingChartHistoryItems = input.fastingHistoryChartItems
                 self?.defaultWeightUnits = input.weightUnits
+                self?.fastingHistoryData = input.fastingHistoryData
             }
     }
 
@@ -183,6 +221,23 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
             self.currentWeightSubject.send(currentWeight.trueWeight)
         }
         weightChartItems = chartItems
+    }
+
+    private func presentFastingHistory(input: FastingHistoryInput) {
+        router.pushFastingHistory(input: input) { [weak self] result in
+                switch result {
+                case .close:
+                    break
+                case .delete(let historyId):
+                    self?.output(.delete(historyId: historyId))
+                case .edit(let historyId):
+                    self?.output(.edit(historyId: historyId))
+                case .addHistory:
+                    self?.output(.addHistory)
+                case .updateWater:
+                    self?.updateWater()
+                }
+            }
     }
 }
 

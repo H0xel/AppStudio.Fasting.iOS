@@ -27,12 +27,16 @@ class DiscountPaywallTimerServiceImpl: DiscountPaywallTimerService {
 
         if storageService.startTimerTime == nil {
 
-            storageService.startTimerTime = .now
-            storageService.endPaywallTime = .now.addingTimeInterval(.init(seconds: info.timerDurationInSeconds ?? 0))
+            let startedDelayTimeInSeconds = Int((info.delayTimeInHours ?? 0) * 60 * 60)
+            let endPaywallTimeInSeconds = Int(info.timerDurationInSeconds ?? 0) + startedDelayTimeInSeconds
+
+            storageService.startTimerTime = .now.addingTimeInterval(.init(seconds: startedDelayTimeInSeconds))
+            storageService.endPaywallTime = .now.addingTimeInterval(.init(seconds: endPaywallTimeInSeconds))
 
             if let reloadTime = info.renewOfferTime {
 
-                let reloadTimeDate = Date.init(timeInterval: .init(hours: reloadTime), since: .now)
+                let reloadTimeInSeconds = reloadTime * 60 * 60 + startedDelayTimeInSeconds
+                let reloadTimeDate = Date.init(timeInterval: .init(seconds: reloadTimeInSeconds), since: .now)
 
                 if storageService.reloadTimerTime == nil {
                     storageService.reloadTimerTime = reloadTimeDate
@@ -43,18 +47,10 @@ class DiscountPaywallTimerServiceImpl: DiscountPaywallTimerService {
         checkPaywallAvailable(info: info)
     }
 
-    private func checkPaywallAvailable(info: DiscountPaywallInfo) {
-        let paywallIsEnded = paywallTimerEnded(info: info)
-        let needToReloadPaywall = needToReloadPaywall(info: info)
-
-        if paywallIsEnded {
-            setAvailableDiscount(data: needToReloadPaywall ? info : nil)
-            return
-        }
-
-        setAvailableDiscount(data: info)
+    func stopTimer() {
+        discountAvailableTrigger.send(nil)
+        storageService.endPaywallTime = .now
     }
-
 
     func getCurrentTimer(durationInSeconds: Int) -> TimeInterval? {
         guard let startTimerDate = storageService.startTimerTime else {
@@ -69,6 +65,19 @@ class DiscountPaywallTimerServiceImpl: DiscountPaywallTimerService {
         storageService.reloadTimerTime = nil
         storageService.endPaywallTime = nil
         storageService.timerIsFinished = false
+    }
+
+    private func checkPaywallAvailable(info: DiscountPaywallInfo) {
+        let paywallIsEnded = paywallTimerEnded(info: info)
+        let needToReloadPaywall = needToReloadPaywall(info: info)
+        let paywallIsStarted = paywallIsStarted(info: info)
+
+        if paywallIsEnded {
+            setAvailableDiscount(data: needToReloadPaywall ? info : nil)
+            return
+        }
+
+        setAvailableDiscount(data: paywallIsStarted ? info : nil)
     }
 
     private func needToReloadPaywall(info: DiscountPaywallInfo) -> Bool {
@@ -97,6 +106,14 @@ class DiscountPaywallTimerServiceImpl: DiscountPaywallTimerService {
                 return true
             }
         }
+        return false
+    }
+
+    private func paywallIsStarted(info: DiscountPaywallInfo) -> Bool {
+        if let startedTime = storageService.startTimerTime {
+            return Date.now > startedTime
+        }
+
         return false
     }
 }

@@ -8,19 +8,40 @@
 import Dependencies
 import AppStudioABTesting
 
-struct DiscountPaywallInfo: Named, Equatable {
+public struct DiscountPaywallInfo: Named, Equatable {
 
-    var name: String
-    let productId: String?
-    let paywallType: String?
-    let renewOfferTime: Int?
-    let discount: Int?
-    let timerDurationInSeconds: Int?
-    let priceDisplay: String?
+    public var name: String
+    public let productId: String?
+    public let delayTimeInHours: Double?
+    public let paywallType: String?
+    public let renewOfferTime: Int?
+    public let discount: Int?
+    public let timerDurationInSeconds: Int?
+    public let priceDisplay: String?
 
-    static var empty: DiscountPaywallInfo = {
+    public init(name: String, 
+                productId: String?,
+                delayTimeInHours: Double?,
+                paywallType: String?,
+                renewOfferTime: Int?,
+                discount: Int?,
+                timerDurationInSeconds: Int?,
+                priceDisplay: String?
+    ) {
+        self.name = name
+        self.productId = productId
+        self.delayTimeInHours = delayTimeInHours
+        self.paywallType = paywallType
+        self.renewOfferTime = renewOfferTime
+        self.discount = discount
+        self.timerDurationInSeconds = timerDurationInSeconds
+        self.priceDisplay = priceDisplay
+    }
+
+    public static var empty: DiscountPaywallInfo = {
         DiscountPaywallInfo(name: "empty",
                             productId: "",
+                            delayTimeInHours: nil,
                             paywallType: nil,
                             renewOfferTime: nil,
                             discount: 0,
@@ -28,9 +49,10 @@ struct DiscountPaywallInfo: Named, Equatable {
                             priceDisplay: "")
     }()
 
-    static var mock: DiscountPaywallInfo = {
+    public static var mock: DiscountPaywallInfo = {
         DiscountPaywallInfo(name: "mock",
                             productId: "com.municorn.Fasting.yearly_exp_1",
+                            delayTimeInHours: 0.5,
                             paywallType: "discount_timer",
                             renewOfferTime: 1,
                             discount: 50,
@@ -40,18 +62,19 @@ struct DiscountPaywallInfo: Named, Equatable {
 }
 
 extension DiscountPaywallInfo: RawRepresentable {
-    typealias RawValue = String
+    public typealias RawValue = String
 
-    init?(rawValue: RawValue) {
+    public init?(rawValue: RawValue) {
         try? self.init(json: rawValue)
     }
-    var rawValue: RawValue { name }
+    public var rawValue: RawValue { name }
 }
 
 extension DiscountPaywallInfo: Codable {
     enum CodingKeys: String, CodingKey {
         case name
         case productId = "product_id"
+        case delayTimeInHours = "delay_time_h"
         case paywallType = "paywall_type"
         case renewOfferTime = "renew_offer_time"
         case discount
@@ -59,10 +82,11 @@ extension DiscountPaywallInfo: Codable {
         case priceDisplay = "price_display"
     }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
         productId = try container.decode(String?.self, forKey: .productId)
+        delayTimeInHours = try container.decode(Double?.self, forKey: .delayTimeInHours)
         paywallType = try container.decode(String?.self, forKey: .paywallType)
         renewOfferTime = try container.decode(Int?.self, forKey: .renewOfferTime)
         discount = try container.decode(Int?.self, forKey: .discount)

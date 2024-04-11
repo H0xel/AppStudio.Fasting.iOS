@@ -8,8 +8,10 @@
 import Foundation
 import AppStudioABTesting
 import RxSwift
+import AppStudioServices
 
 protocol AppCustomization {
+    var dayLogLimit: Int { get }
     var forceUpdateAppVersion: Observable<String> { get }
     var appStoreLink: Observable<String> { get }
     var allProductsObservable: Observable<AvailableProducts> { get }

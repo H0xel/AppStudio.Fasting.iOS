@@ -34,10 +34,25 @@ class DrinkingWaterRepositoryImpl: CoreDataBaseRepository<DrinkingWater>, Drinki
         try await delete(byId: water.id)
     }
 
+    func remove(from: Date, to: Date) async throws {
+        let request = requestWater(from: from, to: to)
+        let deleteRequest = DrinkingWater.batchDeleteRequest(fetchRequest: request)
+        try await delete(batchDeleteRequest: deleteRequest)
+    }
+
     func waterObserver(for date: Date) -> DrinkingWaterObserver {
         @Dependency(\.coreDataService) var coreDataService
         let observer = DrinkingWaterObserver(coreDataService: coreDataService)
         let request = requestWater(from: date.startOfTheDay, to: date.endOfDay)
+        observer.fetch(request: request)
+        return observer
+    }
+
+    func waterObserverAll() -> DrinkingWaterObserver {
+        @Dependency(\.coreDataService) var coreDataService
+        let observer = DrinkingWaterObserver(coreDataService: coreDataService)
+        let request = DrinkingWater.request()
+        request.sortDescriptors = [.init(key: "date", ascending: true)]
         observer.fetch(request: request)
         return observer
     }

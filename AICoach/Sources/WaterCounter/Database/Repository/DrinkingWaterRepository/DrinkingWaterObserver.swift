@@ -11,7 +11,7 @@ import Foundation
 import MunicornCoreData
 import Dependencies
 
-typealias DrinkingWaterObserver = CoreDataObserver<DrinkingWater>
+public typealias DrinkingWaterObserver = CoreDataObserver<DrinkingWater>
 
 extension DrinkingWaterObserver {
     convenience init() {

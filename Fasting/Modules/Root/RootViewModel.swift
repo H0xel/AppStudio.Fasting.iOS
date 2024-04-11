@@ -17,6 +17,7 @@ import HealthOverview
 import FastingWidget
 import WeightWidget
 import AppStudioModels
+import AppStudioServices
 
 class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.storageService) private var storageService
@@ -79,7 +80,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     lazy var healthOverviewScreen: some View = {
         router.healthOverviewScreen(input: .init(
-            fastingWidget: fastingWidget, 
+            fastingWidget: fastingWidget,
             weightUnits: onboardingService.data?.weight.units ?? .kg
         )) { [weak self] output in
             self?.handle(healthOverviewOutput: output)
@@ -95,13 +96,10 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }()
 
     var healthProgressScreen: some View {
-        router.healthProgressScreen(inputPublisher: progressInputSubject.eraseToAnyPublisher()) { [weak self] output in
-            switch output {
-            case .novaQuestion(let question):
-                self?.currentTab = .coach
-                self?.coachNextMessageSubject.send(question)
-            }
-        }
+
+        return router.healthProgressScreen(
+            inputPublisher: progressInputSubject.eraseToAnyPublisher()
+        ) { [weak self] output in self?.handle(healthProgressScreenOutput: output) }
     }
 
     @ViewBuilder
@@ -135,6 +133,26 @@ class RootViewModel: BaseViewModel<RootOutput> {
             self?.isProcessingSubcription = isProcessing
         }
     }()
+
+    private func handle(healthProgressScreenOutput: HealthProgressOutput) {
+        switch healthProgressScreenOutput {
+        case .novaQuestion(let question):
+            currentTab = .coach
+            coachNextMessageSubject.send(question)
+        case .delete(let historyId):
+            let fastingHistoryService = fastingHistoryService
+            Task { [weak self] in
+                try await fastingHistoryService.delete(byId: historyId)
+                self?.updateHealthProgressInput()
+            }
+        case .edit(let historyId):
+            updateFasting(fastingId: historyId)
+        case .addHistory:
+            logFast(for: .now)
+        case .updateInput:
+            updateHealthProgressInput()
+        }
+    }
 
     private func handle(healthOverviewOutput output: HealthOverviewOutput) {
         switch output {
@@ -205,11 +223,20 @@ class RootViewModel: BaseViewModel<RootOutput> {
         }
     }
 
-    private func presentSuccessScreen(input: SuccessInput, fasting: FastingIntervalHistory, isNew: Bool) {
-        router.presentSuccess(input: input) { [weak self] output in
+    private func presentSuccessScreen(
+        on tab: AppTab? = nil,
+        input: SuccessInput,
+        fasting: FastingIntervalHistory,
+        isNew: Bool
+    ) {
+        let tab = tab ?? currentTab
+        router.presentSuccess(on: tab, input: input) { [weak self] output in
             switch output {
             case let .submit(startDate, endDate):
                 self?.saveHistory(fasting: fasting, startDate: startDate, endDate: endDate, isNew: isNew)
+                if tab == .healthProgress {
+                    self?.updateHealthProgressInput()
+                }
             }
         }
     }
@@ -343,28 +370,59 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
 
     private func fastingHealthProgressInput() async throws -> FastingHealthProgressInput {
-        let dates = (0...6).map { Date().adding(.day, value: -$0) }
-        let historyWithDates = try await fastingHistoryService.history(for: dates)
-        var orderedHistory: [FastingIntervalHistory] = []
+        let calendar = Calendar.current
+        var components = DateComponents()
 
-        for date in dates {
-            if let history = historyWithDates[date] {
-                orderedHistory.append(history)
+        components.year = 2023
+        components.month = 11
+        components.day = 20
+
+        let releaseApplicationDate = calendar.date(from: components) ?? .now
+        let daysAfterReleaseDate = calendar.dateComponents([.day], from: releaseApplicationDate, to: .now).day ?? 0
+
+        let fastingHistoryDates = (0...daysAfterReleaseDate).map { Date().adding(.day, value: -$0) }
+        let fastingHistoryWithDates = try await fastingHistoryService.history(for: fastingHistoryDates)
+        var fastingHistoryAfterReleaseDate: [FastingIntervalHistory] = []
+
+        for date in fastingHistoryDates {
+            if let history = fastingHistoryWithDates[date] {
+                fastingHistoryAfterReleaseDate.append(history)
             } else {
                 let parameters = try await fastingParametersService.parameters(for: date)
-                orderedHistory.append(.empty(statedDate: date, plan: parameters.plan))
+                fastingHistoryAfterReleaseDate.append(.empty(statedDate: date, plan: parameters.plan))
             }
         }
 
-        let chartItems = orderedHistory.map {
+        let lastSevenDays = Array(fastingHistoryAfterReleaseDate.prefix(7))
+
+        let chartItems = lastSevenDays.map {
             HealthProgressBarChartItem(value: $0.timeFasted,
                                        lineValue: Double($0.plan.duration / .hour),
                                        color: $0.stage.backgroundColor,
                                        label: $0.startedDate.currentLocaleFormatted(with: "EEE"))
         }
+
+        let chartHistoryItems = fastingHistoryAfterReleaseDate.map {
+            return FastingHistoryChartItem(value: $0.timeFasted,
+                                           lineValue: Double($0.plan.duration / .hour),
+                                           date: $0.startedDate,
+                                           stage: .init(fastingStage: $0.stage))
+        }
+        let allHistory = try await fastingHistoryService.history()
+        let fastingHistoryRecords = allHistory.reduce(into: [FastingHistoryRecord]()) { records, history in
+            records.append(
+                FastingHistoryRecord(id: history.id, 
+                                     startDate: history.startedDate,
+                                     endDate: history.finishedDate )
+            )
+        }
+        let fastingHistoryData = FastingHistoryData(records: fastingHistoryRecords)
+
         return try await .init(bodyMassIndex: bodyMassIndex(),
                                weightUnits: onboardingService.data?.weight.units ?? .kg,
-                               fastingChartItems: chartItems.reversed())
+                               fastingChartItems: chartItems.reversed(),
+                               fastingHistoryChartItems: chartHistoryItems.reversed(), 
+                               fastingHistoryData: fastingHistoryData)
     }
 
     func bodyMassIndex() async throws -> Double {

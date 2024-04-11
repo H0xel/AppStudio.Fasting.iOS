@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol DiscountPaywallTimerService {
+public protocol DiscountPaywallTimerService {
     var discountAvailable: AnyPublisher<DiscountPaywallInfo?, Never> { get }
 
     func setAvailableDiscount(data: DiscountPaywallInfo?)
@@ -18,4 +18,6 @@ protocol DiscountPaywallTimerService {
     func registerPaywall(info: DiscountPaywallInfo)
 
     func reset()
+
+    func stopTimer()
 }

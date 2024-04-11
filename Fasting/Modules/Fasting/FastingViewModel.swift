@@ -14,6 +14,7 @@ import Combine
 import RxSwift
 import HealthOverview
 import FastingWidget
+import AppStudioServices
 
 class FastingViewModel: BaseViewModel<FastingOutput> {
 

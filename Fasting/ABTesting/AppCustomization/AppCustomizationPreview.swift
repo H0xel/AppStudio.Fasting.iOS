@@ -8,8 +8,11 @@
 import Foundation
 import RxRelay
 import RxSwift
+import AppStudioServices
 
 class AppCustomizationPreview: AppCustomization, ProductIdsService {
+    var fastingLimitCycles: Int { 3 }
+    
     func resetDiscountExp() {}
 
     var discountPaywallExperiment: RxSwift.Observable<DiscountPaywallInfo?> { .just(.empty) }
