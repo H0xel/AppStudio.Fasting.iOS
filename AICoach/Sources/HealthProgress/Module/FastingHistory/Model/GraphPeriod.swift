@@ -54,7 +54,7 @@ enum GraphPeriod: String, CaseIterable {
         case .week:
             return ((UIScreen.main.bounds.width - chartTrailingPadding) / CGFloat(fastingHistoryVisibleBarsAreaAmount)) / 4 - selectedLinWidth
         case .month:
-            return -((UIScreen.main.bounds.width - chartTrailingPadding) / CGFloat(fastingHistoryVisibleBarsAreaAmount)) / 10 - selectedLinWidth
+            return -((UIScreen.main.bounds.width - chartTrailingPadding) / CGFloat(fastingHistoryVisibleBarsAreaAmount)) / 8 - selectedLinWidth
         case .threeMonths:
             return ((UIScreen.main.bounds.width - chartTrailingPadding) / CGFloat(fastingHistoryVisibleBarsAreaAmount)) / 6 - selectedLinWidth
         }

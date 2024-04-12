@@ -22,7 +22,7 @@ extension WeightHistory: EntityMappable {
         self.weightUnits = .init(rawValue: units) ?? .kg
         self.scaleWeightValue = entity.scaleWeightValue
         self.trueWeightValue = entity.trueWeightValue
-        self.historyDate = historyDate
+        self.historyDate = historyDate.startOfTheDay
     }
 
     public func map(to entity: WeightHistoryEntity) {
@@ -31,7 +31,7 @@ extension WeightHistory: EntityMappable {
         entity.unit = weightUnits.rawValue
         entity.scaleWeightValue = scaleWeightValue
         entity.trueWeightValue = trueWeightValue
-        entity.historyDate = historyDate
+        entity.historyDate = historyDate.startOfTheDay
     }
 
     public static var identifierName: String {

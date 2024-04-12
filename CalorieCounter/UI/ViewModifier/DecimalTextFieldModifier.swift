@@ -33,7 +33,7 @@ struct DecimalTextFieldModifier: ViewModifier {
                     _ = text.popLast()
                     return
                 }
-                let newValue = newValue.isEmpty ? "0" : newValue
+                let newValue = newValue.isEmpty ? "0" : newValue.replacingOccurrences(of: ",", with: ".")
                 if let doubleValue = Double(newValue) {
                     decimalValue = doubleValue
                 }

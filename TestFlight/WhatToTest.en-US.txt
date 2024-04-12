@@ -1,1 +1,1 @@
-- Discount exp
+- Release candidate Fasting 1.2.0

@@ -91,9 +91,10 @@ class WaterServiceImpl: WaterService {
         let allWater = try await drinkingWaterRepository.selectAll()
 
         return allWater.reduce(into: [:]) { result, water in
-            var record = result[water.date] ?? DrinkingWater(date: water.date, quantity: 0.0)
+            let date = water.date.startOfTheDay
+            var record = result[date] ?? DrinkingWater(date: date, quantity: 0.0)
             record.quantity += water.quantity
-            result[water.date] = record
+            result[date] = record
         }
     }
 

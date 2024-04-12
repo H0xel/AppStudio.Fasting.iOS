@@ -39,9 +39,21 @@ public struct HeightMeasure: Codable {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.units = try container.decode(HeightUnit.self, forKey: .units)
-        self.cmValue = try container.decodeIfPresent(CGFloat.self, forKey: .cmValue) ??
-        container.decode(CGFloat.self, forKey: .value)
+        let units: HeightUnit = try container.decode(HeightUnit.self, forKey: .units)
+        self.units = units
+        switch units {
+        case .ft:
+            if let value = try container.decodeIfPresent(CGFloat.self, forKey: .value) {
+                let centimetersPerFoot = 30.48
+                self.cmValue = centimetersPerFoot * value
+            } else {
+                let value = try container.decode(CGFloat.self, forKey: .cmValue)
+                cmValue = value
+            }
+        case .cm:
+            self.cmValue = try container.decodeIfPresent(CGFloat.self, forKey: .cmValue) ??
+            container.decode(CGFloat.self, forKey: .value)
+        }
     }
 
     public func encode(to encoder: any Encoder) throws {

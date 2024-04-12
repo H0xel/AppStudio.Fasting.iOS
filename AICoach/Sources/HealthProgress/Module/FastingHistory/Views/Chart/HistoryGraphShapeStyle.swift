@@ -19,6 +19,10 @@ struct HistoryGraphShapeStyle: ShapeStyle {
         case .week, .month:
             return barItem.stage.backgroundColor
         case .threeMonths:
+            if barItem.stage == .water {
+                return barItem.stage.backgroundColor
+            }
+
             let filteredItems = self.items.filter {
                 $0.date.year == barItem.date.year
                 && $0.date.month == barItem.date.month
