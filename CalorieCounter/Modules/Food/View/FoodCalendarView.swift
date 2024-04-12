@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppStudioModels
 
 struct FoodCalendarDayProgress: Equatable {
     let day: Date
@@ -23,7 +24,7 @@ struct FoodCalendarView: View {
         LazyHStack {
             ForEach(dayProgress, id: \.day) { progress in
                 VStack(spacing: .zero) {
-                    Text(progress.day.weekdayLetter.uppercased())
+                    Text(progress.day.currentLocaleFormatted(with: "EEEEE"))
                         .font(.poppins(.description))
                         .foregroundStyle(.white)
                         .opacity(progress.day == selectedDate ? 1 : 0.7)
@@ -36,7 +37,7 @@ struct FoodCalendarView: View {
                         .fill(.white)
                         .frame(width: .circleWidth)
                         .padding(.bottom, .circleBottomPadding)
-                        .opacity(progress.day == .now.beginningOfDay ? 1 : 0)
+                        .opacity(progress.day == .now.startOfTheDay ? 1 : 0)
                 }
                 .frame(width: .dayWidth)
                 .padding(.top, .dayVerticalPadding)
@@ -78,8 +79,8 @@ private extension CGFloat {
 #Preview {
     ZStack {
         Color.green
-        FoodCalendarView(selectedDate: .now.beginningOfDay,
-                         dayProgress: Date().daysOfWeek.map { .init(day: $0, goal: 1600, result: 450) },
+        FoodCalendarView(selectedDate: .now.startOfTheDay,
+                         dayProgress: Week.current.days.map { .init(day: $0, goal: 1600, result: 450) },
                          onTap: { _ in })
         .padding(.horizontal, 16)
     }

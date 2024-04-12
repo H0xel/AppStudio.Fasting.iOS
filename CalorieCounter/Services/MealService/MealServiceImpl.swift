@@ -29,10 +29,6 @@ class MealServiceImpl: MealService {
         try await mealRepository.delete(byId: id)
     }
 
-    func meals(for dates: [Date]) async throws -> [Meal] {
-        try await mealRepository.meals(for: dates)
-    }
-
     func mealObserver(dayDate: Date) -> MealObserver {
         mealRepository.mealObserver(dayDate: dayDate)
     }

@@ -12,6 +12,7 @@ import Dependencies
 import Combine
 import RxSwift
 import AppStudioServices
+import AppStudioModels
 
 class FoodViewModel: BaseViewModel<FoodOutput> {
     var router: FoodRouter!
@@ -39,11 +40,11 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
 
     init(input: FoodInput, output: @escaping FoodOutputBlock) {
-        currentDay = .now.beginningOfDay
-        let currentWeek = Date().daysOfWeek
-        self.currentWeek = .init(days: currentWeek)
-        days = Set(currentWeek)
-        weeks = [Week(days: currentWeek)]
+        currentDay = .now.startOfTheDay
+        let currentWeek = Week.current
+        self.currentWeek = currentWeek
+        days = Set(currentWeek.days)
+        weeks = [currentWeek]
         super.init(output: output)
         observeCurrentDateChange()
         observeCurrentWeekChange()
@@ -133,8 +134,8 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
             .sink(with: self) { this, date in
                 this.configureObserver(for: date)
                 this.updateProfile(date: date)
-                if !this.currentWeek.days.contains(date) {
-                    this.currentWeek = .init(days: date.daysOfWeek)
+                if !this.currentWeek.contains(date) {
+                    this.currentWeek = .init(ofDay: date)
                 }
             }
             .store(in: &cancellables)

@@ -24,7 +24,9 @@ extension MealRepositoryImpl: MealRepository {
         @Dependency(\.coreDataService) var coreDataService
         let observer = MealObserver(coreDataService: coreDataService)
         let request = Meal.request()
-        request.predicate = .init(format: "dayDate == %@", dayDate.beginningOfDay as NSDate)
+        request.predicate = .dateRangePredicate(from: dayDate.startOfTheDay,
+                                                to: dayDate.endOfDay,
+                                                dateKey: "dayDate")
         request.sortDescriptors = [.init(key: "creationDate", ascending: false)]
         observer.fetch(request: request)
         return observer
@@ -35,10 +37,10 @@ extension MealRepositoryImpl: MealRepository {
     }
 
     func meals(forDay dayDate: Date, type: MealType?) async throws -> [Meal] {
-        let dayDate = dayDate.beginningOfDay
+        let dayDate = dayDate.startOfTheDay
         let request = Meal.request()
         var predicates: [NSPredicate] = [
-            NSPredicate(format: "dayDate == %@", dayDate as NSDate)
+            .dateRangePredicate(from: dayDate.startOfTheDay, to: dayDate.endOfDay, dateKey: "dayDate")
         ]
         if let type {
             predicates.append(NSPredicate(format: "type == %@", type.rawValue))
@@ -46,13 +48,6 @@ extension MealRepositoryImpl: MealRepository {
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
         request.sortDescriptors = [.init(key: "creationDate", ascending: false)]
 
-        return try await select(request: request)
-    }
-
-    func meals(for dates: [Date]) async throws -> [Meal] {
-        let request = Meal.request()
-        let predicate = NSPredicate(format: "dayDate IN %@", dates.map { $0 as NSDate })
-        request.predicate = predicate
         return try await select(request: request)
     }
 }

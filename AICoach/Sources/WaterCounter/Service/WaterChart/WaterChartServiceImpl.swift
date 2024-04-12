@@ -41,13 +41,9 @@ class WaterChartServiceImpl: WaterChartService {
 
         var result: [FastingHistoryChartItem] = []
 
-        
-
         for day in days {
             async let water = waterService.water(for: day)
             async let goal = waterService.dailyGoal(for: day)
-
-            print("DAY:", day, try await goal)
 
             let item = try await FastingHistoryChartItem(
                 value: units.valueToGlobal(value: water),

@@ -38,7 +38,7 @@ extension NutritionProfileRepositoryImpl: NutritionProfileRepository {
     func deleteFromSelectedDay(day: Date) async throws {
         let request = DatedNutritionProfile.request()
         request.predicate = .init(format: "startDate >= %@ AND startDate <= %@",
-                                  day.beginningOfDay as NSDate,
+                                  day.startOfTheDay as NSDate,
                                   day.endOfDay as NSDate)
         let deleteRequest = DatedNutritionProfile.batchDeleteRequest(fetchRequest: request)
         try await delete(batchDeleteRequest: deleteRequest)

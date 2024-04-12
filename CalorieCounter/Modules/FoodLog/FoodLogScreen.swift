@@ -109,7 +109,7 @@ struct FoodLogScreen_Previews: PreviewProvider {
             FoodLogScreen(
                 viewModel: FoodLogViewModel(
                     input: FoodLogInput(mealType: .breakfast,
-                                        dayDate: .now.beginningOfDay,
+                                        dayDate: .now.startOfTheDay,
                                         context: .input,
                                         initialMeal: [],
                                         hasSubscription: false,

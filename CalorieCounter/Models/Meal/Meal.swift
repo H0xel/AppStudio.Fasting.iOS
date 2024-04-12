@@ -17,7 +17,7 @@ struct Meal: Hashable, Identifiable {
     init(type: MealType, dayDate: Date, mealItem: MealItem) {
         self.id = UUID().uuidString
         self.type = type
-        self.dayDate = dayDate.beginningOfDay
+        self.dayDate = dayDate.startOfTheDay
         self.creationDate = .now
         self.mealItem = mealItem
     }

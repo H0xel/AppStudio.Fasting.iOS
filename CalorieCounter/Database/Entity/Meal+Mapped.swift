@@ -19,7 +19,7 @@ extension Meal: EntityMappable {
         }
 
         self.id = id
-        self.dayDate = dayDate
+        self.dayDate = dayDate.startOfTheDay
         self.type = type
         self.mealItem = mealItem
         self.creationDate = creationDate
@@ -31,7 +31,7 @@ extension Meal: EntityMappable {
 
     func map(to entity: MealEntity) {
         entity.id = id
-        entity.dayDate = dayDate
+        entity.dayDate = dayDate.startOfTheDay
         entity.creationDate = creationDate
         entity.type = type.rawValue
         entity.mealItemJson = mealItem.json()

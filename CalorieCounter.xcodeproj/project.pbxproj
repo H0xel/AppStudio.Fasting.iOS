@@ -275,6 +275,7 @@
 		A091B4A22B31EAD900140B36 /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091B4A12B31EAD900140B36 /* NutritionView.swift */; };
 		A091B4A42B31FC2C00140B36 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091B4A32B31FC2C00140B36 /* MealView.swift */; };
 		A091B4A62B32102000140B36 /* FoodLogScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091B4A52B32102000140B36 /* FoodLogScrollView.swift */; };
+		A0A439822BC7FBA500139D15 /* AppStudioModels in Frameworks */ = {isa = PBXBuildFile; productRef = A0A439812BC7FBA500139D15 /* AppStudioModels */; };
 		A0D23B9C2B4BF0E2007C4654 /* FoodInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D23B962B4BF0E2007C4654 /* FoodInput.swift */; };
 		A0D23B9D2B4BF0E2007C4654 /* FoodRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D23B972B4BF0E2007C4654 /* FoodRouter.swift */; };
 		A0D23B9E2B4BF0E2007C4654 /* FoodRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D23B982B4BF0E2007C4654 /* FoodRoute.swift */; };
@@ -282,11 +283,9 @@
 		A0D23BA02B4BF0E2007C4654 /* FoodOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D23B9A2B4BF0E2007C4654 /* FoodOutput.swift */; };
 		A0D23BA12B4BF0E2007C4654 /* FoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D23B9B2B4BF0E2007C4654 /* FoodViewModel.swift */; };
 		A0D23BAA2B4C302D007C4654 /* FoodCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D23BA92B4C302D007C4654 /* FoodCalendarView.swift */; };
-		A0D23BAC2B4C3074007C4654 /* Date+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D23BAB2B4C3074007C4654 /* Date+extensions.swift */; };
 		A0D245AF2B3CA7A500B2048C /* ChangeWeightTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D245AE2B3CA7A500B2048C /* ChangeWeightTextField.swift */; };
 		A0D245B12B3CC35100B2048C /* MealPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D245B02B3CC35100B2048C /* MealPlaceholder.swift */; };
 		A0E57B882B591766000865ED /* DailyCalorieBudgetButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E57B872B591766000865ED /* DailyCalorieBudgetButtonsView.swift */; };
-		A0E7D1412B615A3E001ED31F /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E7D1402B615A3E001ED31F /* Week.swift */; };
 		A0E7D1432B615A93001ED31F /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E7D1422B615A93001ED31F /* SwipeDirection.swift */; };
 		A0E7D1452B615B6C001ED31F /* ContainerOpenContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E7D1442B615B6C001ED31F /* ContainerOpenContext.swift */; };
 		A0E7D1472B615FBC001ED31F /* BarcodeScannerOpenContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E7D1462B615FBC001ED31F /* BarcodeScannerOpenContext.swift */; };
@@ -729,11 +728,9 @@
 		A0D23B9A2B4BF0E2007C4654 /* FoodOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodOutput.swift; sourceTree = "<group>"; };
 		A0D23B9B2B4BF0E2007C4654 /* FoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewModel.swift; sourceTree = "<group>"; };
 		A0D23BA92B4C302D007C4654 /* FoodCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCalendarView.swift; sourceTree = "<group>"; };
-		A0D23BAB2B4C3074007C4654 /* Date+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+extensions.swift"; sourceTree = "<group>"; };
 		A0D245AE2B3CA7A500B2048C /* ChangeWeightTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeWeightTextField.swift; sourceTree = "<group>"; };
 		A0D245B02B3CC35100B2048C /* MealPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlaceholder.swift; sourceTree = "<group>"; };
 		A0E57B872B591766000865ED /* DailyCalorieBudgetButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCalorieBudgetButtonsView.swift; sourceTree = "<group>"; };
-		A0E7D1402B615A3E001ED31F /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
 		A0E7D1422B615A93001ED31F /* SwipeDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDirection.swift; sourceTree = "<group>"; };
 		A0E7D1442B615B6C001ED31F /* ContainerOpenContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerOpenContext.swift; sourceTree = "<group>"; };
 		A0E7D1462B615FBC001ED31F /* BarcodeScannerOpenContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerOpenContext.swift; sourceTree = "<group>"; };
@@ -897,6 +894,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A439822BC7FBA500139D15 /* AppStudioModels in Frameworks */,
 				ADC784F62AFA859C005F16A6 /* AppStudioUI in Frameworks */,
 				A00B4DB12B7377980067A872 /* FacebookLogin in Frameworks */,
 				ADC784EC2AFA83BD005F16A6 /* AppStudioNavigation in Frameworks */,
@@ -1935,7 +1933,6 @@
 				A70B6DF42B31B86E0035EF96 /* Date+LocaleTime.swift */,
 				A70B6DF62B31B8810035EF96 /* Locale+extensions.swift */,
 				A05E68F42B30E24700282F9C /* Image+extensions.swift */,
-				A0D23BAB2B4C3074007C4654 /* Date+extensions.swift */,
 				560A91892B4D5AC900CE6D96 /* Numeric+Extensions.swift */,
 				A01EC94E2B552411001C866A /* View+extensions.swift */,
 				A02E20B32B681D8400E3F259 /* EnvironmentValues+extensions.swift */,
@@ -1985,7 +1982,6 @@
 			isa = PBXGroup;
 			children = (
 				A0729A882B4D6DB3002336CF /* MealTypeRecord.swift */,
-				A0E7D1402B615A3E001ED31F /* Week.swift */,
 				A0E7D1422B615A93001ED31F /* SwipeDirection.swift */,
 				A0E7D1442B615B6C001ED31F /* ContainerOpenContext.swift */,
 				A0E7D1462B615FBC001ED31F /* BarcodeScannerOpenContext.swift */,
@@ -2585,6 +2581,7 @@
 				A00B4DB02B7377980067A872 /* FacebookLogin */,
 				A07F5D532B91EDF5006E7062 /* AppStudioStyles */,
 				A7FFA6FD2B9F1A0B00FED655 /* AppStudioServices */,
+				A0A439812BC7FBA500139D15 /* AppStudioModels */,
 			);
 			productName = AppStudioTemplate;
 			productReference = 563257112ADE57D80000F33C /* CalorieCounter.app */;
@@ -2953,7 +2950,6 @@
 				A0FE90602B4EFCC90069AC4C /* TabBarRoute.swift in Sources */,
 				A01505272B3197C100EC34B5 /* MealItem.swift in Sources */,
 				A05E68F02B30B4CC00282F9C /* UIScreen+extensions.swift in Sources */,
-				A0D23BAC2B4C3074007C4654 /* Date+extensions.swift in Sources */,
 				A72A7D882B31B031000677A2 /* PersonalizedPaywallRouter.swift in Sources */,
 				567500CA2ADFCC54009331CB /* AccountSyncServiceImpl.swift in Sources */,
 				56C28DD22AE109580007E48D /* MobileDeviceDataProviderInitializer.swift in Sources */,
@@ -3112,7 +3108,6 @@
 				A712BEAB2B834CF6005504B1 /* PromoPaywallService.swift in Sources */,
 				A70B6DB52B31B5390035EF96 /* OnboardingService.swift in Sources */,
 				A0729A842B4D5E19002336CF /* AddMealButton.swift in Sources */,
-				A0E7D1412B615A3E001ED31F /* Week.swift in Sources */,
 				56F64D7E2AE10EF20067FE05 /* RootRoute.swift in Sources */,
 				56C28DD52AE109580007E48D /* EarlyTimeInitializers.swift in Sources */,
 				A05E68E02B30B10C00282F9C /* FoodLogRouter.swift in Sources */,
@@ -3125,8 +3120,6 @@
 				5675010C2ADFD955009331CB /* IntercomDataStorageImpl.swift in Sources */,
 				566C24982AE8F80B00AEDB3C /* PaywallScreen.swift in Sources */,
 				A05E68E22B30B10C00282F9C /* FoodLogScreen.swift in Sources */,
-				A0E57B942B5947F2000865ED /* ChangeBirthdayRoute.swift in Sources */,
-				A712BEA52B834CE9005504B1 /* DiscountPaywallTimerServiceImpl.swift in Sources */,
 				A712BEAD2B834CF6005504B1 /* PromoPaywallDependencies.swift in Sources */,
 				A05E68DF2B30B10C00282F9C /* FoodLogInput.swift in Sources */,
 				A7E45C992B4EB50300935488 /* DailyCalorieBudgetTitleView.swift in Sources */,
@@ -3583,6 +3576,10 @@
 		A07F5D532B91EDF5006E7062 /* AppStudioStyles */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppStudioStyles;
+		};
+		A0A439812BC7FBA500139D15 /* AppStudioModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppStudioModels;
 		};
 		A7FFA6FD2B9F1A0B00FED655 /* AppStudioServices */ = {
 			isa = XCSwiftPackageProductDependency;
