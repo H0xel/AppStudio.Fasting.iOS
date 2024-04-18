@@ -43,7 +43,9 @@ struct RateAppScreen: View {
                 ZStack {
                     HStack(spacing: .zero) {
                         VStack(spacing: .zero) {
-                            ContentWidthTextField(text: $viewModel.comment, placeholder: viewModel.placeholder)
+                            ContentWidthTextField(text: $viewModel.comment, 
+                                                  placeholder: viewModel.placeholder,
+                                                  axis: .vertical)
                             Spacer()
                         }
                         Spacer()
@@ -64,6 +66,9 @@ struct RateAppScreen: View {
             .padding(.horizontal, .bottomVerticalPadding)
         }
         .padding(.vertical, .spacing)
+        .onDisappear {
+            viewModel.output(.close)
+        }
     }
 
     private func starImage(count: Int) -> Image {

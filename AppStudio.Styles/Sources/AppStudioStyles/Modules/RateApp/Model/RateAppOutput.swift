@@ -9,6 +9,6 @@ import AppStudioUI
 public typealias RateAppOutputBlock = ViewOutput<RateAppOutput>
 
 public enum RateAppOutput {
-    case cancel
+    case close
     case rate(stars: Int, comment: String)
 }

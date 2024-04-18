@@ -99,12 +99,11 @@ class DayFoodViewModel: BaseViewModel<DayFoodOutput> {
     @MainActor
     private func presentRateApp() {
         router.presentRateApp { [weak self] output in
-            self?.rateAppService.rateAppWindowShown()
             switch output {
             case .rate(let stars, let comment):
                 self?.trackFeedback(stars: stars, feedback: comment)
-            case .cancel:
-                break
+            case .close:
+                self?.rateAppService.rateAppWindowShown()
             }
         }
     }

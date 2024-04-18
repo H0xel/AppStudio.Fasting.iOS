@@ -11,12 +11,14 @@ public struct ContentWidthTextField: View {
 
     @Binding var text: String
     let placeholder: String
+    let axis: Axis?
     @State private var textWidth: CGFloat = 0
 
     public init(text: Binding<String>,
-                placeholder: String) {
+                placeholder: String, axis: Axis? = nil) {
         self._text = text
         self.placeholder = placeholder
+        self.axis = axis
     }
 
     public var body: some View {
@@ -24,8 +26,14 @@ public struct ContentWidthTextField: View {
             Text(text.isEmpty ? placeholder : text)
                 .withViewWidthPreferenceKey
                 .opacity(0)
-            TextField(placeholder, text: $text)
-                .frame(width: textWidth)
+            if let axis {
+                TextField(placeholder, text: $text, axis: axis)
+                    .frame(width: textWidth)
+
+            } else {
+                TextField(placeholder, text: $text)
+                    .frame(width: textWidth)
+            }
         }
         .onViewWidthPreferenceKeyChange { newWidth in
             textWidth = newWidth
