@@ -28,7 +28,6 @@ extension BasePaywallViewModel {
 
 class BasePaywallViewModel<OutputEventType>: BaseViewModel<OutputEventType> {
 
-//    @Published var selectedProduct: SubscriptionProduct = .mock
     @Published var status: Status = .initial
     @Published var hasSubscription = false
     @Published var isTrialAvailable = false
@@ -57,7 +56,7 @@ class BasePaywallViewModel<OutputEventType>: BaseViewModel<OutputEventType> {
         loadAvailableProducts()
         subscribeToHasSubscription()
     }
-    
+
     func subscribe(id: String) {
         guard let subscription = subscriptions.first(where: { $0.productIdentifier == id }), let paywallContext else {
             return
@@ -93,7 +92,6 @@ class BasePaywallViewModel<OutputEventType>: BaseViewModel<OutputEventType> {
             .drive(with: self) { this, state in
                 switch state {
                 case .failed:
-//                    this.showRestoreErrorAlert()
                     this.status = .showAlert
                     if let paywallContext = this.paywallContext {
                         this.trackRestoreFinishedEvent(result: .fail, context: paywallContext)
@@ -115,8 +113,6 @@ class BasePaywallViewModel<OutputEventType>: BaseViewModel<OutputEventType> {
             .asDriver()
             .drive(with: self) { this, _ in
                 this.status = .subscribed
-//                this.output(.subscribed)
-//                this.isLoading = false
             }
             .disposed(by: disposeBag)
     }
@@ -167,30 +163,15 @@ class BasePaywallViewModel<OutputEventType>: BaseViewModel<OutputEventType> {
 
     private func checkIsTrialAvailable() {
         guard let trial = subscriptions.first(where: { $0.isTrial }) else {
-//            assignProducts()
             return
         }
         subscriptionService.isTrialAvailable(for: trial)
             .asDriver()
             .drive(with: self) { this, isAvailable in
                 this.isTrialAvailable = isAvailable
-//                this.assignProducts()
             }
             .disposed(by: disposeBag)
     }
-
-//    private func assignProducts() {
-//        let products = subscriptions.map {
-//            $0.asSubscriptionProduct(promotion: promotionText(for: $0))
-//        }
-//        self.products = products
-//
-//        if let bestValueProduct = subscriptions.first(where: { $0.duration == .year }) {
-//            selectedProduct = bestValueProduct.asSubscriptionProduct(
-//                for: .year,
-//                promotion: promotionText(for: bestValueProduct))
-//        }
-//    }
 }
 
 // MARK: - Track analytics events

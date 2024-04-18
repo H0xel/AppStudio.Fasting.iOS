@@ -37,6 +37,10 @@ let package = Package(
         .library(
             name: "WeightGoalWidget",
             targets: ["WeightGoalWidget"]
+        ),
+        .library(
+            name: "Explore",
+            targets: ["Explore"]
         )
     ],
     dependencies: [
@@ -148,6 +152,21 @@ let package = Package(
         ),
         .target(
             name: "WeightGoalWidget",
+            dependencies: [
+                .product(name: "MunicornFoundation", package: "iOS.MunicornFoundation"),
+                .product(name: "MunicornCoreData", package: "iOS.MunicornFoundation"),
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation"),
+                .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics"),
+                .product(name: "AppStudioFoundation", package: "AppStudio.iOS.Common"),
+                .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
+                .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
+                .product(name: "AppStudioServices", package: "AppStudio.Services"),
+                .product(name: "AppStudioModels", package: "AppStudio.Models"),
+            ]
+        ),
+        .target(
+            name: "Explore",
             dependencies: [
                 .product(name: "MunicornFoundation", package: "iOS.MunicornFoundation"),
                 .product(name: "MunicornCoreData", package: "iOS.MunicornFoundation"),

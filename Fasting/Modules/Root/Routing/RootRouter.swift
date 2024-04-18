@@ -67,15 +67,16 @@ class RootRouter: BaseRouter {
 
     func coachScreen(isMonetizationExpAvailable: AnyPublisher<Bool, Never>,
                      nextMessagePublisher: AnyPublisher<String, Never>) -> some View {
-        let route = CoachRoute(navigator: coachNavigator,
+        var route = CoachRoute(navigator: coachNavigator,
                                input: .init(constants: .fastingConstants,
                                             suggestionTypes: [.general, .fasting],
-                                            nextMessagePublisher: nextMessagePublisher),
+                                            nextMessagePublisher: nextMessagePublisher,
                                             isMonetizationExpAvailable: isMonetizationExpAvailable),
                                output: { [weak self] output in
             switch output {
             case .presentMultiplePaywall:
                 self?.presentMultipleProductPaywall(context: .nova)
+            case .focusChanged: break
             }
         })
         return coachNavigator.initialize(route: route)
