@@ -8,11 +8,12 @@
 import SwiftUI
 import AppStudioNavigation
 import Combine
+import AICoach
 
 class TabBarRouter: BaseRouter {
 
     private let foodNavigator = Navigator()
-    private let profileNavigator = Navigator()
+    private let coachNavigator = Navigator()
 
     func foodScreen(input: FoodInput,
                     output: @escaping FoodOutputBlock) -> some View {
@@ -22,13 +23,19 @@ class TabBarRouter: BaseRouter {
         return foodNavigator.initialize(route: route)
     }
 
-    func settingsScreen(output: @escaping ProfileOutputBlock) -> some View {
-        let route = ProfileRoute(navigator: profileNavigator, input: .init(), output: output)
-        return profileNavigator.initialize(route: route)
+    func coachScreen(nextMessagePublisher: AnyPublisher<String, Never>,
+                     output: @escaping CoachOutputBlock) -> some View {
+        let route = CoachRoute(navigator: coachNavigator,
+                               input: .init(constants: .counterConstants,
+                                            suggestionTypes: [.general],
+                                            nextMessagePublisher: nextMessagePublisher,
+                                            isMonetizationExpAvailable: Just(false).eraseToAnyPublisher()),
+                               output: output)
+        return coachNavigator.initialize(route: route)
     }
 
     func presentMealTypePicker(from tab: AppTab, onPick: @escaping (MealType) -> Void) {
-        let navigator = tab == .counter ? foodNavigator : profileNavigator
+        let navigator = tab == .counter ? foodNavigator : coachNavigator
         let route = MealTypePickerRoute(currentMealType: nil) { type in
             Task {
                 await navigator.dismiss()
@@ -40,6 +47,6 @@ class TabBarRouter: BaseRouter {
 
     func dismissRoutes() {
         foodNavigator.popToRoot(completion: nil)
-        profileNavigator.popToRoot(completion: nil)
+        coachNavigator.popToRoot(completion: nil)
     }
 }

@@ -77,6 +77,8 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
             case .dateChange(let date):
                 self?.trackerService.track(.tapDate(date: date.description))
                 self?.swipeDaysViewModel.updateCurrentDate(to: date)
+            case .swipeDirection(let direction):
+                self?.trackerService.track(.swipeWeek(direction: direction.rawValue))
             }
         }
 
@@ -104,7 +106,6 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
     }
 
     private func updateWeeks(weeks: [Week]) {
-        swipeDaysViewModel.insertDays(of: weeks)
         fastingWidgetViewModel.loadData(weeks: weeks)
     }
 }

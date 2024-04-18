@@ -10,9 +10,6 @@ import AICoach
 
 extension AICoachInitializer: AppInitializer {
     func initialize() {
-        @Dependency(\.trackerService) var trackerService
-        @Dependency(\.storageService) var storageService
-        @Dependency(\.userPropertyService) var userPropertyService
         initialize(styles: .fastingStyles,
                    coachApi: CoachApiImpl())
     }

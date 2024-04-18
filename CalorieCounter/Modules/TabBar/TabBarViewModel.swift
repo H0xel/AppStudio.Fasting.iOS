@@ -19,15 +19,14 @@ class TabBarViewModel: BaseViewModel<TabBarOutput> {
     @Published var activeTab: AppTab = .counter
     @Published var isTabBarPresented = true
     private let foodPickerSubject = PassthroughSubject<MealType, Never>()
-    private let profileUpdateSubject = PassthroughSubject<Void, Never>()
+    private let coachNextMessageSubject = CurrentValueSubject<String, Never>("")
 
     init(input: TabBarInput, output: @escaping TabBarOutputBlock) {
         super.init(output: output)
     }
 
     lazy var foodScreen: some View = {
-        let input = FoodInput(presentFoodLogPublisher: foodPickerSubject.eraseToAnyPublisher(),
-                              profileUpdatePublisher: profileUpdateSubject.eraseToAnyPublisher())
+        let input = FoodInput(presentFoodLogPublisher: foodPickerSubject.eraseToAnyPublisher())
         return router.foodScreen(input: input) { [weak self] output in
             switch output {
             case .switchTabBar(let isHidden):
@@ -36,13 +35,13 @@ class TabBarViewModel: BaseViewModel<TabBarOutput> {
         }
     }()
 
-    lazy var settingsScreen: some View = {
-        router.settingsScreen { [weak self] output in
+    lazy var coachScreen: some View = {
+        router.coachScreen(nextMessagePublisher: coachNextMessageSubject.eraseToAnyPublisher()) { [weak self] output in
             switch output {
-            case .switchTabBar(let isHidden):
-                self?.switchTabBar(isHidden: isHidden)
-            case .updateProfile:
-                self?.profileUpdateSubject.send()
+            case .focusChanged(let isFocused):
+                self?.switchTabBar(isHidden: isFocused)
+            case .presentMultiplePaywall:
+                break
             }
         }
     }()

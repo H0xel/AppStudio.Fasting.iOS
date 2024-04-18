@@ -32,10 +32,12 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
     let constants: CoachConstants
     private var messagesObserver: CoachMessageObserver?
     private var nextMessagePublisher: AnyPublisher<String, Never>
+    private let suggestionTypes: [CoachSuggestionType]
 
     init(input: CoachInput, output: @escaping CoachOutputBlock) {
         constants = input.constants
         nextMessagePublisher = input.nextMessagePublisher
+        suggestionTypes = input.suggestionTypes
         super.init(output: output)
         isSuggestionsPresented = suggestedQuestionsService.shouldShowSuggestions
         isCoachEnable = coachService.isCoachEnable
@@ -58,7 +60,7 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
             return []
         }
         var result: [String] = []
-        for question in suggestedQuestionsService.allQuestions
+        for question in suggestedQuestionsService.allQuestions(types: suggestionTypes)
         where keywords.contains(where: { question.lowercased().contains($0) }) {
             result.append(question)
             if result.count == 3 {
@@ -103,6 +105,10 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
         }
     }
 
+    func onFocusChange(_ isFocused: Bool) {
+        output(.focusChanged(isFocused))
+    }
+
     private func sendMessage(with text: String) {
         if isMonetizationExpAvailable {
             output(.presentMultiplePaywall)
@@ -134,7 +140,7 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
 
     private func updateKeywords(nextQuestion: String) {
         guard nextQuestion.count > 2,
-              !suggestedQuestionsService.allQuestions.contains(nextQuestion) else {
+              !suggestedQuestionsService.allQuestions(types: suggestionTypes).contains(nextQuestion) else {
             keywords = []
             return
         }
@@ -147,6 +153,7 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
             keywords = []
             return
         }
+            
         keywords = suggestedQuestionsService.keywords.filter { keyword in
             questionWords.contains { keyword.lowercased().contains($0) }
         }
@@ -163,7 +170,7 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
     }
 
     private func updateSuggestions() {
-        suggestions = Array(suggestedQuestionsService.allQuestions.prefix(3))
+        suggestions = Array(suggestedQuestionsService.allQuestions(types: suggestionTypes).prefix(3))
     }
 
     private func observeMessages() {

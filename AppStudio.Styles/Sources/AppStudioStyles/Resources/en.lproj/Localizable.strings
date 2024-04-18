@@ -29,6 +29,11 @@
 "Onboarding.sex.description" = "Biological sex can affect many physical elements lIke our metabolism, muscle mass, or hormones, so we use it in our calculations";
 "Onboarding.sex.title" = "What’s your sex?";
 
+// MARK: - RateAppInput
+"RateAppInput.calorieCounter.title" = "Rate how much you like our meal recognition?";
+"RateAppInput.calorieCounter.placeholder" = "What can we improve?";
+"RateAppInput.calorieCounter.buttonTitle" = "Send";
+
 // MARK: - Paywall
 
 "Paywall.continue" = "Continue";

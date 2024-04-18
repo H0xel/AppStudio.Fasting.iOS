@@ -65,6 +65,8 @@ struct ProfileScreen: View {
         .navBarButton(placement: .principal,
                       content: Text(Localization.navBarTitle).font(.poppins(.buttonText)),
                       action: {})
+        .navBarButton(content: closeButton,
+                      action: viewModel.dismiss)
     }
 
     private var closeButton: some View {

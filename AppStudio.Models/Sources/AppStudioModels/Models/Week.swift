@@ -55,6 +55,12 @@ public extension Week {
     }
 }
 
+public extension Array where Element == Week {
+    var days: [Date] {
+        flatMap { $0.days }
+    }
+}
+
 extension Week: Comparable {
     public static func < (lhs: Week, rhs: Week) -> Bool {
         if lhs.days == rhs.days {

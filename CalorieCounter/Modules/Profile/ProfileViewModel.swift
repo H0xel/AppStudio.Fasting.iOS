@@ -178,6 +178,10 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
         trackerService.track(.tapPlanDetails)
     }
 
+    func dismiss() {
+        router.dismiss()
+    }
+
     private func loadData() {
         userData = userDataService.userData
         weightPerDayChangeSpeed = userDataService.weightPerDaySpeed

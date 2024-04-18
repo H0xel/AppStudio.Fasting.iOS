@@ -16,8 +16,6 @@ struct CalorieBudgetView: View {
     let onSubscribeTap: () -> Void
     let bannerAction: (DiscountBannerView.Action) -> Void
 
-    private let val = "50%"
-
     var body: some View {
         VStack(spacing: .zero) {
             CaloriesBudgetHeaderView(goalCalories: dailyNorm.calories, eatenCalories: eatenCalories)
@@ -27,7 +25,6 @@ struct CalorieBudgetView: View {
                 DiscountBannerView(viewData: bannerData, action: bannerAction)
                     .padding(.bottom, .discountBottomPadding)
             }
-
             CaloriesBudgetProfilesView(dailyNormProfile: dailyNorm,
                                        currentProfile: currentProfile,
                                        hasSubscription: hasSubscription,
@@ -56,12 +53,12 @@ private extension CGFloat {
                                     fats: 120,
                                     carbohydrates: 90),
         mealsEaten: [
-            .init(type: .dinner, dayDate: .now, mealItem: .mock),
-            .init(type: .dinner, dayDate: .now, mealItem: .mock),
-            .init(type: .dinner, dayDate: .now, mealItem: .mock),
-            .init(type: .dinner, dayDate: .now, mealItem: .mock),
-            .init(type: .dinner, dayDate: .now, mealItem: .mock),
-            .init(type: .dinner, dayDate: .now, mealItem: .mock)
+            .init(type: .dinner, dayDate: .now, mealItem: .mock, voting: .disabled),
+            .init(type: .dinner, dayDate: .now, mealItem: .mock, voting: .disabled),
+            .init(type: .dinner, dayDate: .now, mealItem: .mock, voting: .disabled),
+            .init(type: .dinner, dayDate: .now, mealItem: .mock, voting: .disabled),
+            .init(type: .dinner, dayDate: .now, mealItem: .mock, voting: .disabled),
+            .init(type: .dinner, dayDate: .now, mealItem: .mock, voting: .disabled)
         ],
         hasSubscription: false,
         onSubscribeTap: {}, 

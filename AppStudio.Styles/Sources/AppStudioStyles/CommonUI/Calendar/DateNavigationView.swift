@@ -11,14 +11,17 @@ public struct DateNavigationView: View {
 
     @Binding private var date: Date
     private let dateFormat: String
+    private let foregroundColor: Color
     private let onPrevDayTap: (Date) -> Void
     private let onNextDayTap: (Date) -> Void
 
     public init(date: Binding<Date>,
-                dateFormat: String,
+                foregroundColor: Color = .studioBlackLight,
+                dateFormat: String = "MMMdd",
                 onPrevDayTap: @escaping (Date) -> Void,
                 onNextDayTap: @escaping (Date) -> Void) {
         self._date = date
+        self.foregroundColor = foregroundColor
         self.dateFormat = dateFormat
         self.onPrevDayTap = onPrevDayTap
         self.onNextDayTap = onNextDayTap
@@ -31,9 +34,14 @@ public struct DateNavigationView: View {
                 onPrevDayTap(date)
             } label: {
                 Image.chevronLeft
+                    .frame(width: .buttonWidth, height: .buttonWidth)
             }
-            Text(date.localeDateOrTodayOrYesterday(with: dateFormat))
-                .font(.poppins(.buttonText))
+            Button {
+                date = .now.startOfTheDay
+            } label: {
+                Text(date.localeDateOrTodayOrYesterday(with: dateFormat))
+                    .font(.poppins(.buttonText))
+            }
             Button {
                 if !isToday {
                     date = date.adding(.day, value: 1)
@@ -42,13 +50,14 @@ public struct DateNavigationView: View {
             } label: {
                 Image.chevronRight
                     .foregroundStyle(rightButtonColor)
+                    .frame(width: .buttonWidth, height: .buttonWidth)
             }
         }
-        .foregroundStyle(Color.studioBlackLight)
+        .foregroundStyle(foregroundColor)
     }
 
     private var rightButtonColor: Color {
-        isToday ? .studioGreyStrokeFill : Color.studioBlackLight
+        isToday ? .studioGreyStrokeFill : foregroundColor
     }
 
     private var isToday: Bool {
@@ -58,6 +67,7 @@ public struct DateNavigationView: View {
 
 private extension CGFloat {
     static let spacing: CGFloat = 20
+    static let buttonWidth: CGFloat = 24
 }
 
 #Preview {

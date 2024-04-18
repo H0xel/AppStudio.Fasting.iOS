@@ -132,4 +132,20 @@ extension Image {
     static var forkKnife: Image {
         Image(systemName: "fork.knife")
     }
+
+    static var thumbUp: Image {
+        Image("thumbUp")
+    }
+    
+    static var thumbUpFilled: Image {
+        Image("thumbUpFilled")
+    }
+
+    static var thumbDown: Image {
+        Image("thumbDown")
+    }
+
+    static var thumbDownFilled: Image {
+        Image("thumbDownFilled")
+    }
 }

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+public enum CoachSuggestionType {
+    case general
+    case fasting
+}

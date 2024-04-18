@@ -61,7 +61,7 @@ class UpdateWeightViewModel: BaseViewModel<UpdateWeightOutput> {
             switch output {
             case .dateChange(let date):
                 self?.currentDate = date
-            case .updateProgress:
+            case .updateProgress, .swipeDirection:
                 break
             }
         }

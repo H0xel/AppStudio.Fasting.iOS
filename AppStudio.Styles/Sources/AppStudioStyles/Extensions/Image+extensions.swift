@@ -64,4 +64,16 @@ public extension Image {
     static var rulet: Image {
         .init(.rulet)
     }
+
+    static var rateStar: Image {
+        .init(.rateStar)
+    }
+
+    static var rateStarFilled: Image {
+        .init(.rateStarFilled)
+    }
+
+    static var rateIllustration: Image {
+        .init(.rateIllustration)
+    }
 }

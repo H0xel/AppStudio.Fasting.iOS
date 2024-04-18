@@ -6,6 +6,7 @@
 //
 
 import Dependencies
+import AICoach
 
 final class EarlyTimeInitializers: Initializers {
 
@@ -14,6 +15,7 @@ final class EarlyTimeInitializers: Initializers {
     func initializers() -> [AppInitializer] {
         [
             DatabaseInitializer(),
+            AICoachDatabaseInitializer(),
             PreferencesInitializer(),
             FirebaseInitializer(),
             CrashlyticsInitializer(),
@@ -24,7 +26,8 @@ final class EarlyTimeInitializers: Initializers {
             SubscriptionServiceInitializer(),
             paywallServiceInitializer,
             QuickActionInitializer(),
-            AppearenceInitializer()
+            AppearenceInitializer(),
+            AICoachInitializer()
         ]
     }
 }

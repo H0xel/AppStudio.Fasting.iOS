@@ -14,6 +14,7 @@ struct MealViewInput {
     let isWeightTapped: Bool
     let tappedIngredient: Ingredient?
     let tappedWeightIngredient: Ingredient?
+    let voting: MealVoting?
 }
 
 enum MealViewOutput {
@@ -22,6 +23,7 @@ enum MealViewOutput {
     case mealWeightTap
     case addIngredientsTap
     case onIngredientPlaceholderClose(String)
+    case vote(MealVoting)
 }
 
 struct MealView: View {
@@ -30,106 +32,116 @@ struct MealView: View {
     let output: (MealViewOutput) -> Void
 
     var body: some View {
-        VStack(spacing: .zero) {
-            HStack(alignment: .top, spacing: .zero) {
-                VStack(alignment: .leading, spacing: .titleSpacing) {
-                    VStack(alignment: .leading, spacing: .subTitleSpacing) {
-                        Text(input.meal.mealName)
-                            .font(.poppinsBold(.buttonText))
-                            .lineLimit(2)
-                            .foregroundStyle(.accent)
-                        if let subTitle = input.meal.brandSubtitle {
-                            Text(subTitle)
-                                .font(.poppins(.body))
+        VStack(spacing: 0){
+            VStack(spacing: .zero) {
+                HStack(alignment: .top, spacing: .zero) {
+                    VStack(alignment: .leading, spacing: .titleSpacing) {
+                        VStack(alignment: .leading, spacing: .subTitleSpacing) {
+                            Text(input.meal.mealName)
+                                .font(.poppinsBold(.buttonText))
+                                .lineLimit(2)
                                 .foregroundStyle(.accent)
-                                .padding(.bottom, .subTitleSpacing)
+                            if let subTitle = input.meal.brandSubtitle {
+                                Text(subTitle)
+                                    .font(.poppins(.body))
+                                    .foregroundStyle(.accent)
+                                    .padding(.bottom, .subTitleSpacing)
+                            }
                         }
+                        MealNutritionProfileView(profile: input.meal.nutritionProfile,
+                                                 canShowNutritions: true)
                     }
-                    MealNutritionProfileView(profile: input.meal.nutritionProfile,
-                                             canShowNutritions: true)
-                }
-                Spacer()
-                Button {
-                    output(.mealWeightTap)
-                } label: {
-                    MealWeightView(weight: input.meal.weight, isTapped: input.isWeightTapped)
-                }
-            }
-            .padding(.bottom, .titleBottomPadding)
-            .padding(.leading, .leadingPadding)
-            .padding(.trailing, .trailingPadding)
-
-            if !input.ingredientPlaceholders.isEmpty {
-                ForEach(input.ingredientPlaceholders, id: \.id) { placeholder in
-                    IngredientPlaceholderView(placeholder: placeholder, onClose: {
-                        output(.onIngredientPlaceholderClose(placeholder.id))
-                    })
-                    .padding(.leading, placeholder.notFound ? 0 : .leadingPadding)
-                    .padding(.trailing, placeholder.notFound ? 0 : .trailingPadding)
-                    .padding(.top, .spacing)
-                }
-            }
-
-            if input.meal.ingredients.count > 1 {
-                ForEach(input.meal.ingredients, id: \.self) { ingredient in
-                    IngredientView(ingredient: ingredient,
-                                   isWeightTapped: ingredient == input.tappedWeightIngredient) {
-                        output(.ingredientWeightTap(ingredient))
-                    }
-                    .id(ingredient)
-                    .background(.white)
-                    .onTapGesture {
-                        output(.ingredientTap(ingredient))
-                    }
-                    .padding(.vertical, ingredient == input.tappedIngredient ? .verticalPadding : .zero)
-                    .padding(.leading, .leadingPadding)
-                    .padding(.trailing, .trailingPadding)
-                    .border(configuration: .init(
-                        cornerRadius: .tappedIngredientCornerRadius,
-                        color: .accent,
-                        lineWidth: ingredient == input.tappedIngredient ? .borderWidth : 0)
-                    )
-                    .padding(.top, .spacing)
-                }
-            }
-
-            if !input.isTapped {
-                HStack(alignment: .center, spacing: .addButtonSpacing) {
-                    Image.plus
-                        .resizable()
-                        .frame(width: .addButtonSmallPadding,
-                               height: .addButtonSmallPadding)
-                        .font(.poppinsBold(.headerL))
-                        .foregroundStyle(Color.accentColor)
-                        .padding(.addButtonSmallPadding)
-                        .background(Color.studioGrayFillProgress)
-                        .continiousCornerRadius(.cornerRadius)
-                        .padding(.vertical, .addButtonSmallPadding)
-
-
-                    Text(Localization.addIngredientTitle)
-                        .font(.poppins(.body))
-
                     Spacer()
+                    Button {
+                        output(.mealWeightTap)
+                    } label: {
+                        MealWeightView(weight: input.meal.weight, isTapped: input.isWeightTapped)
+                    }
                 }
-                .onTapGesture {
-                    output(.addIngredientsTap)
+                .padding(.bottom, .titleBottomPadding)
+                .padding(.leading, .leadingPadding)
+                .padding(.trailing, .trailingPadding)
+
+                if !input.ingredientPlaceholders.isEmpty {
+                    ForEach(input.ingredientPlaceholders, id: \.id) { placeholder in
+                        IngredientPlaceholderView(placeholder: placeholder, onClose: {
+                            output(.onIngredientPlaceholderClose(placeholder.id))
+                        })
+                        .padding(.leading, placeholder.notFound ? 0 : .leadingPadding)
+                        .padding(.trailing, placeholder.notFound ? 0 : .trailingPadding)
+                        .padding(.top, .spacing)
+                    }
                 }
-                .padding(.horizontal, .addButtonHorizontalPadding)
-                .padding(.top, .verticalPadding)
+
+                if input.meal.ingredients.count > 1 {
+                    ForEach(input.meal.ingredients, id: \.self) { ingredient in
+                        IngredientView(ingredient: ingredient,
+                                       isWeightTapped: ingredient == input.tappedWeightIngredient) {
+                            output(.ingredientWeightTap(ingredient))
+                        }
+                                       .id(ingredient)
+                                       .background(.white)
+                                       .onTapGesture {
+                                           output(.ingredientTap(ingredient))
+                                       }
+                                       .padding(.vertical, ingredient == input.tappedIngredient ? .verticalPadding : .zero)
+                                       .padding(.leading, .leadingPadding)
+                                       .padding(.trailing, .trailingPadding)
+                                       .border(configuration: .init(
+                                        cornerRadius: .tappedIngredientCornerRadius,
+                                        color: .accent,
+                                        lineWidth: ingredient == input.tappedIngredient ? .borderWidth : 0)
+                                       )
+                                       .padding(.top, .spacing)
+                    }
+                }
+
+                if !input.isTapped {
+                    HStack(alignment: .center, spacing: .addButtonSpacing) {
+                        Image.plus
+                            .resizable()
+                            .frame(width: .addButtonSmallPadding,
+                                   height: .addButtonSmallPadding)
+                            .font(.poppinsBold(.headerL))
+                            .foregroundStyle(Color.accentColor)
+                            .padding(.addButtonSmallPadding)
+                            .background(Color.studioGrayFillProgress)
+                            .continiousCornerRadius(.cornerRadius)
+                            .padding(.vertical, .addButtonSmallPadding)
+
+
+                        Text(Localization.addIngredientTitle)
+                            .font(.poppins(.body))
+
+                        Spacer()
+                    }
+                    .onTapGesture {
+                        output(.addIngredientsTap)
+                    }
+                    .padding(.horizontal, .addButtonHorizontalPadding)
+                    .padding(.top, .verticalPadding)
+                }
+            }
+            .padding(.top, .topPadding)
+            .padding(.bottom, input.meal.ingredients.count > 1 ? .bottomPadding : .verticalPadding)
+            .background(.white)
+            .border(configuration: .init(cornerRadius: .cornerRadius,
+                                         color: .accent,
+                                         lineWidth: input.isTapped ? .borderWidth : 0))
+            .continiousCornerRadius(.cornerRadius)
+            .animation(.borderAnimation, value: input.tappedIngredient)
+            .animation(.borderAnimation, value: input.isTapped)
+
+            if let voting = input.voting {
+                MealVotingView(voting: voting, output: output)
+                    .animation(.borderAnimation, value: input.isTapped)
+                    .animation(.borderAnimation, value: input.tappedIngredient)
             }
         }
-        .padding(.top, .topPadding)
-        .padding(.bottom, input.meal.ingredients.count > 1 ? .bottomPadding : .verticalPadding)
-        .background(.white)
-        .border(configuration: .init(cornerRadius: .cornerRadius,
-                                     color: .accent,
-                                     lineWidth: input.isTapped ? .borderWidth : 0))
-        .continiousCornerRadius(.cornerRadius)
-        .animation(.borderAnimation, value: input.tappedIngredient)
-        .animation(.borderAnimation, value: input.isTapped)
     }
 }
+
+
 
 private extension MealView {
     enum Localization {
@@ -168,13 +180,13 @@ private extension Animation {
                               isTapped: false,
                               isWeightTapped: false,
                               tappedIngredient: .mock,
-                              tappedWeightIngredient: nil),
+                              tappedWeightIngredient: nil, voting: .notVoted),
                  output: { _ in })
         MealView(input: .init(meal: .mockWithSubTitle, ingredientPlaceholders: [],
                               isTapped: false,
                               isWeightTapped: false,
                               tappedIngredient: nil,
-                              tappedWeightIngredient: nil),
+                              tappedWeightIngredient: nil, voting: .like),
                  output: { _ in })
     }
     .background(.red)

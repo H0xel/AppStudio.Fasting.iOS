@@ -31,6 +31,8 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     private var isBarcodeScanFinishedSuccess = false
     @Atomic private var mealsCountInDay: Int
     @Published var ingredientPlaceholders: [String: [MealPlaceholder]] = [:]
+    @Published private var votings: [String: MealVoting] = [:]
+    private var votingsTimer: [String: TimeInterval] = [:]
 
     var foodLogContext: FoodLogTextFieldContext {
         switch mealSelectedState {
@@ -188,7 +190,8 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
                 isTapped: mealSelectedState.isMealSelected || hasIngredientPlaceholder(for: meal),
                 isWeightTapped: mealSelectedState.isWeightEditing ? mealSelectedState.ingredient == nil : false,
                 tappedIngredient: mealSelectedState.isWeightEditing ? nil : mealSelectedState.ingredient,
-                tappedWeightIngredient: mealSelectedState.isWeightEditing ? mealSelectedState.ingredient : nil
+                tappedWeightIngredient: mealSelectedState.isWeightEditing ? mealSelectedState.ingredient : nil, 
+                voting: nil
             )
         }
         return .init(
@@ -197,8 +200,19 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
             isTapped: hasIngredientPlaceholder(for: meal),
             isWeightTapped: false,
             tappedIngredient: nil,
-            tappedWeightIngredient: nil
+            tappedWeightIngredient: nil, 
+            voting: voting(for: meal)
         )
+    }
+
+    func voting(for meal: Meal) -> MealVoting? {
+        if let voting = votings[meal.id] {
+            return voting
+        }
+        if meal.voting != .notVoted || meal.voting == .disabled {
+            return nil
+        }
+        return meal.voting
     }
 
     func handle(mealViewOutput output: MealViewOutput, meal: Meal) {
@@ -215,6 +229,73 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
             Task {
                 await removeIngredientPlaceholder(placeholderId: placeholderId, for: meal)
             }
+        case .vote(let voting):
+            switch voting {
+            case .notVoted, .disabled:
+                break
+            case .like:
+                trackTapLike()
+            case .dislike:
+                trackTapDislike()
+            }
+            vote(voting: voting, for: meal)
+        }
+    }
+
+    func vote(voting: MealVoting, for meal: Meal) {
+        votings[meal.id] = voting
+        votingsTimer[meal.id] = TimeInterval.second * 3
+        startVotingTimer()
+    }
+
+    var votingTimer: Timer?
+
+    func startVotingTimer() {
+        if votingTimer == nil {
+            votingTimer = Timer.scheduledTimer(withTimeInterval: .second, repeats: true) { [weak self] timer in
+                self?.decreaseVotingTime()
+                self?.checkVotings()
+            }
+        }
+    }
+
+    private func decreaseVotingTime() {
+        votingsTimer.keys.forEach { id in
+            votingsTimer[id] = (votingsTimer[id] ?? 0) - TimeInterval.second
+        }
+    }
+
+    private func checkVotings() {
+        votingsTimer.forEach { (id, time) in
+            if time <= 0 {
+                votingsTimer[id] = nil
+                if let voting = votings[id] {
+                    votings[id] = nil
+                    update(mealId: id, voting: voting)
+                }
+            }
+        }
+
+        if let votingTimer, votings.isEmpty {
+            votingTimer.invalidate()
+            self.votingTimer = nil
+        }
+    }
+
+    private func update(mealId: String, voting: MealVoting) {
+        Task { [weak self] in
+            guard var meal = self?.meal(byId: mealId) else {
+                return
+            }
+            meal.voting = voting
+
+            guard let savedMeal = try await self?.mealService.save(meal: meal) else {
+                return
+            }
+            await self?.update(meal: savedMeal)
+
+            // TODO: - send analytics event
+            self?.trackMealFeedback(meal: savedMeal)
         }
     }
 
@@ -232,6 +313,14 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
                 }
             }
         }
+    }
+
+    private func meal(byId mealId: String) -> Meal? {
+        guard let index = logItems.firstIndex(where: { $0.meal?.id == mealId }),
+              let meal = logItems[index].meal else {
+            return nil
+        }
+        return meal
     }
 
     private func loadMeals(initialData: [Meal]) {
@@ -471,7 +560,7 @@ extension FoodLogViewModel {
 
     private func meals(request: String, type: MealType) async throws -> [Meal] {
         let mealItems = try await calorieCounterService.food(request: request)
-        return mealItems.map { Meal(type: type, dayDate: dayDate, mealItem: $0) }
+        return mealItems.map { Meal(type: type, dayDate: dayDate, mealItem: $0, voting: .notVoted) }
     }
 
     private func ingredients(request: String) async throws -> [Ingredient] {
@@ -516,7 +605,7 @@ extension FoodLogViewModel {
             await updateNotFoundBarcode(placeholderId: placeholder.id)
             return
         }
-        let meals = [Meal(type: mealType, dayDate: dayDate, mealItem: mealItem)]
+        let meals = [Meal(type: mealType, dayDate: dayDate, mealItem: mealItem, voting: .disabled)]
         trackBarcodeScanned(isSucces: true, productName: mealItem.name)
         await replacePlaceholder(with: meals, placeholderId: placeholder.id, mealType: mealType)
         try await mealService.save(meals: meals)
@@ -561,6 +650,34 @@ extension FoodLogViewModel {
 extension FoodLogViewModel {
     func trackBarcodeScannerOpen() {
         trackerService.track(.tapScanBarcode(context: BarcodeScannerOpenContext.container.rawValue))
+    }
+
+    func trackTapLike() {
+        trackerService.track(.tapLike)
+    }
+
+    func trackTapDislike() {
+        trackerService.track(.tapDislike)
+    }
+
+    func trackMealFeedback(meal: Meal) {
+        guard meal.voting == .like || meal.voting == .dislike else {
+            return
+        }
+        trackerService.track(.mealFeedbackSent(
+            type: meal.voting == .like ? "like" : "dislike",
+            name: meal.mealItem.mealName,
+            calories: "\(Int(meal.calories))",
+            carbs: "\(Int(meal.mealItem.nutritionProfile.carbohydrates))",
+            fat: "\(Int(meal.mealItem.nutritionProfile.fats))",
+            protein: "\(Int(meal.mealItem.nutritionProfile.proteins))",
+            ingredients: "\(meal.mealItem.nameFromIngredients)")
+        )
+        if meal.voting == .like {
+            userPropertyService.incrementProperty(property: "feedback_like_count", value: 1)
+        } else {
+            userPropertyService.incrementProperty(property: "feedback_dislike_count", value: 1)
+        }
     }
 
     func trackTapFinishLogging() {

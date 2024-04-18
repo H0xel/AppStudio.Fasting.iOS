@@ -43,7 +43,6 @@ struct FoodLogScrollView: View {
             .scrollDismissesKeyboard(.immediately)
             .onReceive(viewModel.$mealSelectedState) { value in
                 if case let .addIngredients(meal) = value {
-
                     scrollTo(meal.id, reader: reader, anchor: .top)
                     return
                 }
@@ -63,6 +62,7 @@ struct FoodLogScrollView: View {
                 }
                 viewModel.onFocusChanged(isFocused)
             }
+            .animation(.bouncy, value: viewModel.logItems)
         }
     }
 

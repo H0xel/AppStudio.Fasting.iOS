@@ -124,6 +124,15 @@ enum AnalyticEvent: MirrorEnum {
     case elementDeleted(context: WeightChangeContext)
 
     case afFirstSubscribe
+
+    case tapLike
+    case tapDislike
+    case mealFeedbackSent(type: String, name: String, calories: String, carbs: String,
+                          fat: String, protein: String, ingredients: String)
+    case feedbackSent(rating: String, feedback: String)
+
+    case tapNextDay(targetDate: String)
+    case tapPreviousDay(targetDate: String)
 }
 
 extension AnalyticEvent {
@@ -189,6 +198,12 @@ extension AnalyticEvent {
         case .elementChosen: return "Element chosen"
         case .elementDeleted: return "Element deleted"
         case .afFirstSubscribe: return "af_first_subscribe"
+        case .tapLike: return "Tap like"
+        case .tapDislike: return "Tap dislike"
+        case .mealFeedbackSent: return "Meal feedback sent"
+        case .feedbackSent: return "Feedback sent"
+        case .tapNextDay: return "Tap next day"
+        case .tapPreviousDay: return "Tap previous day"
         }
     }
 

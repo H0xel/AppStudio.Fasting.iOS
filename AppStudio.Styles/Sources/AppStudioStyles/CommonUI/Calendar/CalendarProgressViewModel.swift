@@ -14,6 +14,7 @@ import AppStudioModels
 public enum CalendarProgressOutput {
     case updateProgress([Week])
     case dateChange(Date)
+    case swipeDirection(SwipeDirection)
 }
 
 struct CalendarProgress {
@@ -22,10 +23,11 @@ struct CalendarProgress {
 }
 
 public class CalendarProgressViewModel: BaseViewModel<CalendarProgressOutput> {
+
     @Published public var currentDay: Date = .now.startOfTheDay
     @Published public var currentWeek: Week = .current
+    @Published var availableWeeks: [Week] = []
     @Published private var progress: [Date: DayProgress] = [:]
-    @Published private var weeks: Set<Week> = []
     let isFutureAllowed: Bool
     let withFullProgress: Bool
 
@@ -33,15 +35,8 @@ public class CalendarProgressViewModel: BaseViewModel<CalendarProgressOutput> {
         self.isFutureAllowed = isFutureAllowed
         self.withFullProgress = withFullProgress
         super.init()
-        let weeks: [Week] = isFutureAllowed ?
-        [.current.previous, .current, .current.next] :
-        [.current.previous, .current]
-        insertWeeks(weeks)
+        availableWeeks = [.current]
         observeCurrentWeekChange()
-    }
-
-    var availableWeeks: [Week] {
-        weeks.sorted(by: <)
     }
 
     func weekProgress(for week: Week) -> [CalendarProgress] {
@@ -58,15 +53,19 @@ public class CalendarProgressViewModel: BaseViewModel<CalendarProgressOutput> {
             .assign(to: &$progress)
     }
 
+    public func updateProgress(date: Date, progress: DayProgress) {
+        self.progress[date] = progress
+    }
+
     public func updateCurrentDay(for newDate: Date) {
         guard newDate != currentDay else {
             return
         }
         DispatchQueue.main.async {
             self.currentDay = newDate
-            if !self.currentWeek.contains(newDate) {
-                self.currentWeek = .init(ofDay: newDate)
-            }
+            let currentWeek = Week(ofDay: newDate)
+            self.currentWeek = currentWeek
+            self.updateAvailableWeeks(currentWeek: currentWeek)
         }
     }
 
@@ -85,24 +84,29 @@ public class CalendarProgressViewModel: BaseViewModel<CalendarProgressOutput> {
 
     private func observeCurrentWeekChange() {
         $currentWeek
+            .debounce(for: 0.3, scheduler: DispatchQueue.main)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] week in
+                self?.updateAvailableWeeks(currentWeek: week)
+            }
+            .store(in: &cancellables)
+
+        $currentWeek
+            .dropFirst()
+            .sink { [weak self] week in
                 guard let self else { return }
-                let weeks: [Week] = [week.previous, week, week.next]
-                self.output(.updateProgress(weeks))
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    self.insertWeeks(weeks)
-                }
+                let direction: SwipeDirection = week > self.currentWeek ? .forward : .backward
+                output(.swipeDirection(direction))
             }
             .store(in: &cancellables)
     }
 
-    private func insertWeeks(_ weeks: [Week]) {
-        let filteredWeeks = isFutureAllowed ? weeks : weeks.filter { $0 <= .current }
-        var newWeeks = self.weeks
-        for week in filteredWeeks {
-            newWeeks.insert(week)
+    private func updateAvailableWeeks(currentWeek: Week) {
+        var weeks: [Week] = [currentWeek.previous, currentWeek, currentWeek.next]
+        if !isFutureAllowed {
+            weeks = weeks.filter { $0 <= .current }
         }
-        self.weeks = newWeeks
+        availableWeeks = weeks
+        output(.updateProgress(weeks))
     }
 }

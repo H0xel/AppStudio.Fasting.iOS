@@ -23,6 +23,7 @@ extension Meal: EntityMappable {
         self.type = type
         self.mealItem = mealItem
         self.creationDate = creationDate
+        self.voting = MealVoting(rawValue: entity.voting) ?? .notVoted
     }
 
     static var identifierName: String {
@@ -35,5 +36,6 @@ extension Meal: EntityMappable {
         entity.creationDate = creationDate
         entity.type = type.rawValue
         entity.mealItemJson = mealItem.json()
+        entity.voting = voting.rawValue
     }
 }

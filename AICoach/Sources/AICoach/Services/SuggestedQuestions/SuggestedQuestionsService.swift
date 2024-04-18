@@ -9,7 +9,7 @@ import Foundation
 
 protocol SuggestedQuestionsService {
     var keywords: Set<String> { get }
-    var allQuestions: Set<String> { get }
+    func allQuestions(types: [CoachSuggestionType]) -> Set<String>
     var shouldShowSuggestions: Bool { get }
     func relatedQuestions(count: Int) -> [String]
     func toogleSuggestions(isPresented: Bool)

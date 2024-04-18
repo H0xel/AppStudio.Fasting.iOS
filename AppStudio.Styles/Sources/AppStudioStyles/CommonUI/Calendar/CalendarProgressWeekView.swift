@@ -47,7 +47,7 @@ struct CalendarProgressWeekView: View {
                 .frame(width: .dayWidth)
                 .background {
                     if progress.day == selectedDate.startOfTheDay {
-                        styles.selectedDayColor
+                        styles.selectedDayBackgroundColor
                     }
                 }
                 .overlay(
@@ -86,7 +86,7 @@ struct CalendarProgressWeekView: View {
     private func foregroundColor(for date: Date,
                                  defaultColor: Color) -> Color {
         if date == selectedDate {
-            return .studioBlackLight
+            return styles.selectedDayTextColor
         }
         if isFutereAllowed {
             return defaultColor
@@ -105,17 +105,3 @@ private extension CGFloat {
     static let dayHeight: CGFloat = 18
     static let dayBottomPadding: CGFloat = 2
 }
-//
-//#Preview {
-//    ZStack {
-//        Color.green
-//        CalendarProgressWeekView(styles: .fastingHealthOverview,
-//                                 selectedDate: .now,
-//                                 week: .init(ofDay: .now),
-//                                 isFutereAllowed: false,
-//                                 progress: { _ in .init(goal: 10, result: 20)},
-//                                 onTap: { _ in })
-//        .padding(.horizontal, 16)
-//    }
-//}
-

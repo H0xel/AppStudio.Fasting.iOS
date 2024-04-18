@@ -26,7 +26,7 @@ struct HealthOverviewScreen: View {
             .padding(.top, .calendarTopPadding)
             .padding(.bottom, .calendarBottomPadding)
             .background(.white)
-            SwipeDaysView(viewModel: viewModel.swipeDaysViewModel) { day in
+            SwipeDaysView(viewModel: viewModel.swipeDaysViewModel) { day, _  in
                 ScrollViewReader { proxy in
                     ScrollView {
                         Spacer(minLength: .verticalSpacing)

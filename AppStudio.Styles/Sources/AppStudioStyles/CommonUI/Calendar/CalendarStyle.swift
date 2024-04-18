@@ -18,7 +18,8 @@ public struct CalendarStyle {
     let letterColor: Color
     let numberColor: Color
     let dotColor: Color
-    let selectedDayColor: Color
+    let selectedDayBackgroundColor: Color
+    let selectedDayTextColor: Color
     let strokeColor: StrokeColor
     let dotWidth: CGFloat
 
@@ -26,12 +27,14 @@ public struct CalendarStyle {
                 numberColor: Color,
                 dotColor: Color,
                 dotWidth: CGFloat,
-                selectedDayColor: Color,
+                selectedDayBackgroundColor: Color,
+                selectedDayTextColor: Color,
                 strokeColor: StrokeColor) {
         self.letterColor = letterColor
         self.numberColor = numberColor
         self.dotColor = dotColor
-        self.selectedDayColor = selectedDayColor
+        self.selectedDayBackgroundColor = selectedDayBackgroundColor
+        self.selectedDayTextColor = selectedDayTextColor
         self.strokeColor = strokeColor
         self.dotWidth = dotWidth
     }
@@ -43,7 +46,8 @@ public extension CalendarStyle {
               numberColor: .studioBlackLight,
               dotColor: .studioBlackLight, 
               dotWidth: 4,
-              selectedDayColor: .studioGrayFillProgress,
+              selectedDayBackgroundColor: .studioGrayFillProgress,
+              selectedDayTextColor: .studioBlackLight,
               strokeColor: .color(.studioGreyStrokeFill))
     }
 
@@ -74,7 +78,18 @@ public extension CalendarStyle {
                      numberColor: .studioBlackLight,
                      dotColor: .studioBlackLight, 
                      dotWidth: 6,
-                     selectedDayColor: .studioGrayFillProgress,
+                     selectedDayBackgroundColor: .studioGrayFillProgress,
+                     selectedDayTextColor: .studioBlackLight,
                      strokeColor: colors)
+    }
+
+    static var calorieCounter: CalendarStyle {
+        .init(letterColor: .white,
+              numberColor: .white,
+              dotColor: .white,
+              dotWidth: 6,
+              selectedDayBackgroundColor: .studioBlackLight.opacity(0.15),
+              selectedDayTextColor: .white,
+              strokeColor: .color(.white))
     }
 }

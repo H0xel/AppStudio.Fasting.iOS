@@ -69,7 +69,8 @@ class RootRouter: BaseRouter {
                      nextMessagePublisher: AnyPublisher<String, Never>) -> some View {
         let route = CoachRoute(navigator: coachNavigator,
                                input: .init(constants: .fastingConstants,
-                                            nextMessagePublisher: nextMessagePublisher,
+                                            suggestionTypes: [.general, .fasting],
+                                            nextMessagePublisher: nextMessagePublisher),
                                             isMonetizationExpAvailable: isMonetizationExpAvailable),
                                output: { [weak self] output in
             switch output {

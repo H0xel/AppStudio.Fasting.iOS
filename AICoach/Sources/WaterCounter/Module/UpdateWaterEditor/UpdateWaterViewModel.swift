@@ -64,6 +64,8 @@ class UpdateWaterViewModel: BaseViewModel<UpdateWaterOutput> {
                 self?.currentDate = date
             case .updateProgress:
                 break
+            case .swipeDirection:
+                break
             }
         }
         calendarViewModel.$currentDay

@@ -9,6 +9,6 @@ import AppStudioUI
 public typealias CoachOutputBlock = ViewOutput<CoachOutput>
 
 public enum CoachOutput {
-    // add Output parameters here
+    case focusChanged(Bool)
     case presentMultiplePaywall
 }

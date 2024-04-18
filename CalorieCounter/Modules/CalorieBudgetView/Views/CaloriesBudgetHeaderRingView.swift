@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppStudioStyles
 
 struct CaloriesBudgetHeaderRingView: View {
     let calories: Double
@@ -14,7 +15,6 @@ struct CaloriesBudgetHeaderRingView: View {
 
     @State private var trimPercentValue: CGFloat = 0
     @Environment(\.isCurrentTab) private var isCurrentTab
-    @Environment(\.id) private var id
 
     var body: some View {
         ZStack {
@@ -35,11 +35,17 @@ struct CaloriesBudgetHeaderRingView: View {
                                           isLargeHeader: true)
         }
         .frame(width: .totalSize, height: .totalSize)
-        .onChange(of: isCurrentTab) { isCurrentTab in
-            setTrimValue(isCurrentTab: isCurrentTab)
+        .animation(.linear, value: trimPercentValue)
+        .onAppear {
+            setTrimValue(isCurrentTab: true)
         }
-        .onChange(of: id) { _ in
-            setTrimValue(isCurrentTab: isCurrentTab)
+        .onDisappear {
+            setTrimValue(isCurrentTab: false)
+        }
+        .onChange(of: trimPercent) { newValue in
+            if newValue > 0 {
+                setTrimValue(percent: newValue)
+            }
         }
     }
 
@@ -83,7 +89,16 @@ struct CaloriesBudgetHeaderRingView: View {
     }
 
     func setTrimValue(isCurrentTab: Bool) {
-        trimPercentValue = isCurrentTab ? trimPercent : 0
+        if isCurrentTab, trimPercentValue == 0 {
+            trimPercentValue = trimPercent
+        }
+        if !isCurrentTab {
+            trimPercentValue = 0
+        }
+    }
+
+    func setTrimValue(percent: CGFloat) {
+        trimPercentValue = percent
     }
 }
 

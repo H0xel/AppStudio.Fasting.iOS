@@ -12,8 +12,6 @@ struct CaloriesBudgetProfilesCell: View {
     let value: Double
     let total: Double
     @State private var barTotalWidth: CGFloat = 0
-    @Environment(\.isCurrentTab) private var isCurrentTab: Bool
-    @Environment(\.id) private var id
 
     var body: some View {
         VStack(spacing: .verticalSpacing) {
@@ -45,14 +43,15 @@ struct CaloriesBudgetProfilesCell: View {
             .background(
                 GeometryReader { proxy in
                     Color.clear
-                        .onChange(of: isCurrentTab) { isCurrentTab in
-                            setTotalWidth(proxy.size.width, isCurrentTab: isCurrentTab)
+                        .onAppear {
+                            setTotalWidth(proxy.size.width, isCurrentTab: true)
                         }
-                        .onChange(of: id) { _ in
-                            setTotalWidth(proxy.size.width, isCurrentTab: isCurrentTab)
+                        .onDisappear {
+                            setTotalWidth(proxy.size.width, isCurrentTab: false)
                         }
                 }
             )
+            .animation(.linear, value: barTotalWidth)
         }
     }
 

@@ -9,6 +9,7 @@ import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
 import AppStudioServices
+import AppStudioStyles
 
 class FoodRouter: BaseRouter {
 
@@ -32,6 +33,18 @@ class FoodRouter: BaseRouter {
 
     func presentDiscountPaywall(input: DiscountPaywallInput, output: @escaping DiscountPaywallOutputBlock) {
         let route = DiscountPaywallRoute(navigator: navigator, input: input, output: output)
+        present(route: route)
+    }
+
+    func presentRateApp(output: @escaping RateAppOutputBlock) {
+        let route = RateAppRoute(navigator: navigator, input: .calorieCounter, output: output)
+        present(sheet: route, detents: [.height(550)], showIndicator: true)
+    }
+
+    func presentProfile(output: @escaping ProfileOutputBlock) {
+        let route = ProfileRoute(navigator: navigator,
+                                 input: .init(),
+                                 output: output)
         present(route: route)
     }
 }

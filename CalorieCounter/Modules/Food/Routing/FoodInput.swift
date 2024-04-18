@@ -9,5 +9,4 @@ import Combine
 
 struct FoodInput {
     let presentFoodLogPublisher: AnyPublisher<MealType, Never>
-    let profileUpdatePublisher: AnyPublisher<Void, Never>
 }

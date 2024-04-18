@@ -19,3 +19,14 @@ struct MealTypeRecord {
         meals.reduce(.empty) { $0 ++ $1.mealItem.nutritionProfile }
     }
 }
+
+extension MealTypeRecord {
+    static var empty: [MealTypeRecord] {
+        [
+            .init(type: .breakfast, meals: []),
+            .init(type: .lunch, meals: []),
+            .init(type: .dinner, meals: []),
+            .init(type: .snack, meals: [])
+        ]
+    }
+}

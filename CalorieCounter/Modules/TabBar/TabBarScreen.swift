@@ -10,7 +10,7 @@ import AppStudioNavigation
 
 enum AppTab: String {
     case counter = "food_log"
-    case settings = "profile"
+    case coach
 }
 
 struct TabBarScreen: View {
@@ -31,8 +31,8 @@ struct TabBarScreen: View {
         switch viewModel.activeTab {
         case .counter:
             viewModel.foodScreen
-        case .settings:
-            viewModel.settingsScreen
+        case .coach:
+            viewModel.coachScreen
         }
     }
 
@@ -50,17 +50,21 @@ struct TabBarScreen: View {
                 .padding(.vertical, .verticalPadding)
             Spacer()
             Button(action: {
-                viewModel.changeTab(to: .settings)
+                viewModel.changeTab(to: .coach)
             }, label: {
-                Image.personFill
+                coachTabImage
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: .settingsImageWidth, height: .settingsImageHeight)
-                    .foregroundStyle(viewModel.activeTab == .settings ? .accent : .studioGreyStrokeFill)
+                    .foregroundStyle(viewModel.activeTab == .coach ? .accent : .studioGreyStrokeFill)
             })
             Spacer()
         }
         .background(.white)
+    }
+
+    private var coachTabImage: Image {
+        viewModel.activeTab == .coach ? .init(.aiCoachActive) : .init(.aiCoachDisabled)
     }
 }
 

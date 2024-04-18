@@ -24,8 +24,17 @@ class SuggestedQuestionsServiceImpl: SuggestedQuestionsService {
         loadQuestionsIdNeeded()
     }
 
-    var allQuestions: Set<String> {
-        fastingRelatedQuestions.union(generalQuestions)
+    func allQuestions(types: [CoachSuggestionType]) -> Set<String> {
+        var result: Set<String> = []
+        for type in types {
+            switch type {
+            case .general:
+                result = result.union(generalQuestions)
+            case .fasting:
+                result = result.union(fastingRelatedQuestions)
+            }
+        }
+        return result
     }
 
     var shouldShowSuggestions: Bool {

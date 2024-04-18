@@ -12,6 +12,7 @@ import Combine
 struct CoachScreen: View {
     @StateObject var viewModel: CoachViewModel
     @State private var isSuggestionsPresented = true
+    @FocusState private var focused: Bool
 
     var body: some View {
         VStack(spacing: .zero) {
@@ -28,7 +29,7 @@ struct CoachScreen: View {
                                 onScrollToBottom: viewModel.trackScrollToBottom)
                 .hideKeyboardOnTap()
                 .overlay {
-                    if !viewModel.keywords.isEmpty, !viewModel.isWaitingForReply {
+                    if isKeywordsPresented {
                         CoachKeywordsView(keywords: viewModel.keywords,
                                           questions: viewModel.questionsByKeyword) { question in
                             viewModel.nextQuestion = question
@@ -43,10 +44,11 @@ struct CoachScreen: View {
                 CoachTextField(text: $viewModel.nextQuestion,
                                isSuggestionsPresented: isSuggestionsPresented,
                                suggestions: viewModel.suggestions,
-                               isKeywordsPresented: !viewModel.keywords.isEmpty,
+                               isKeywordsPresented: isKeywordsPresented,
                                isWaitingForReply: viewModel.isWaitingForReply,
                                output: viewModel.handle)
                 .layoutPriority(1)
+                .focused($focused)
             }
         }
         .animation(.bouncy, value: viewModel.isCoachEnable)
@@ -65,18 +67,30 @@ struct CoachScreen: View {
         .onAppear {
             isSuggestionsPresented = viewModel.isSuggestionsPresented
         }
+        .onChange(of: focused) { isFocused in
+            viewModel.onFocusChange(isFocused)
+        }
+    }
+
+    private var isKeywordsPresented: Bool {
+        !viewModel.keywords.isEmpty &&
+        !viewModel.isWaitingForReply &&
+        !viewModel.questionsByKeyword.isEmpty
     }
 }
 
 struct CoachScreen_Previews: PreviewProvider {
     static var previews: some View {
         CoachScreen(
-            viewModel: CoachViewModel(
-                input: CoachInput(constants: .init(privacyPolicy: "",
-                                                   termsOfUse: "",
-                                                   appName: "Fasting"),
-                                  nextMessagePublisher: CurrentValueSubject<String, Never>("").eraseToAnyPublisher(), 
-                                  isMonetizationExpAvailable: Just(false).eraseToAnyPublisher()),
+            viewModel: .init(
+                input: .init(
+                    constants: .init(privacyPolicy: "",
+                                     termsOfUse: "",
+                                     appName: "Fasting"),
+                    suggestionTypes: [.general, .fasting],
+                    nextMessagePublisher: CurrentValueSubject<String, Never>("").eraseToAnyPublisher(),
+                    isMonetizationExpAvailable: Just(false).eraseToAnyPublisher()
+                ),
                 output: { _ in }
             )
         )

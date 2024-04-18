@@ -11,19 +11,19 @@ import Dependencies
 class MealServicePreview: MealService {
 
     func save(meal: Meal) async throws -> Meal {
-        .init(type: .breakfast, dayDate: .now, mealItem: .mock)
+        .init(type: .breakfast, dayDate: .now, mealItem: .mock, voting: .disabled)
     }
 
     func save(meals: [Meal]) async throws {}
 
     func meals(forDay dayDate: Date, type: MealType?) async throws -> [Meal] {
-        [.init(type: .breakfast, dayDate: .now, mealItem: .mock)]
+        [.init(type: .breakfast, dayDate: .now, mealItem: .mock, voting: .disabled)]
     }
 
     func delete(byId id: String) async throws {}
 
     func meals(for dates: [Date]) async throws -> [Meal] {
-        [.init(type: .breakfast, dayDate: .now, mealItem: .mock)]
+        [.init(type: .breakfast, dayDate: .now, mealItem: .mock, voting: .disabled)]
     }
 
     func mealObserver(dayDate: Date) -> MealObserver {

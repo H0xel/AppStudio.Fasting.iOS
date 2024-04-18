@@ -52,7 +52,6 @@ struct MealTypeView: View {
         .onTapGesture {
             onCardType(record)
         }
-        .animation(.bouncy, value: record.calories)
     }
 
     private var hasMeal: Bool {

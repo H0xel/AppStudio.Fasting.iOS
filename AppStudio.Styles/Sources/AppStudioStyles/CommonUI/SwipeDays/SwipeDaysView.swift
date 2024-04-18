@@ -10,10 +10,10 @@ import SwiftUI
 public struct SwipeDaysView<Content: View>: View {
 
     @StateObject private var viewModel: SwipeDaysViewModel
-    private let content: (Date) -> Content
+    private let content: (_ tabDate: Date, _ currentDate: Date) -> Content
 
     public init(viewModel: SwipeDaysViewModel,
-                content: @escaping (Date) -> Content) {
+                content: @escaping (_ tabDate: Date, _ currentDate: Date) -> Content) {
         self._viewModel = StateObject(wrappedValue: viewModel)
         self.content = content
     }
@@ -21,15 +21,17 @@ public struct SwipeDaysView<Content: View>: View {
     public var body: some View {
         TabView(selection: $viewModel.currentDay) {
             ForEach(viewModel.displayDays, id: \.self) { day in
-                content(day)
+                content(day, viewModel.currentDay)
             }
         }
+        .animation(nil, value: viewModel.displayDays)
+        .animation(nil, value: viewModel.currentDay)
         .tabViewStyle(.page(indexDisplayMode: .never))
     }
 }
 
 #Preview {
-    SwipeDaysView(viewModel: .init(isFutureAllowed: false)) { date in
+    SwipeDaysView(viewModel: .init(isFutureAllowed: false)) { date, _  in
         Text(date.description)
     }
 }

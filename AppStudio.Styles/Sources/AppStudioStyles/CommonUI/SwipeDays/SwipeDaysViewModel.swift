@@ -14,46 +14,39 @@ public enum SwipeDaysOutput {
 }
 
 public class SwipeDaysViewModel: BaseViewModel<SwipeDaysOutput> {
-    @Published var currentDay: Date
-    @Published private var days: Set<Date> = []
+    @Published public var currentDay: Date
+    @Published var displayDays: [Date] = []
     private let isFutureAllowed: Bool
 
     public init(isFutureAllowed: Bool) {
         currentDay = .now.startOfTheDay
         self.isFutureAllowed = isFutureAllowed
         super.init()
-        insertDays(of: [.init(ofDay: currentDay)])
+        updateDisplayDays()
         observeCurrentDateChange()
-    }
-
-    var displayDays: [Date] {
-        days.sorted(by: <)
     }
 
     public func updateCurrentDate(to newDate: Date) {
         guard newDate != currentDay else {
             return
         }
-        DispatchQueue.main.async {
-            self.currentDay = newDate
-        }
+        currentDay = newDate
+        updateDisplayDays()
     }
 
-    public func insertDays(of weeks: [Week]) {
-        var newDays = days
-        let days = weeks.flatMap { $0.days }
-        let filteredDays = isFutureAllowed ? days : days.filter { $0 <= .now.startOfTheDay }
-        filteredDays.forEach { day in
-            newDays.insert(day)
-        }
-        self.days = newDays
+    private func updateDisplayDays() {
+        let currentWeek = Week(ofDay: currentDay)
+        let days = [currentWeek.previous, currentWeek, currentWeek.next].flatMap { $0.days }
+        displayDays = isFutureAllowed ? days : days.filter { $0 <= .now.startOfTheDay }
     }
 
     private func observeCurrentDateChange() {
         $currentDay
             .receive(on: DispatchQueue.main)
             .sink { [weak self] date in
-                self?.output(.dateUpdated(date))
+                guard let self else { return }
+                self.output(.dateUpdated(date))
+                self.updateDisplayDays()
             }
             .store(in: &cancellables)
     }

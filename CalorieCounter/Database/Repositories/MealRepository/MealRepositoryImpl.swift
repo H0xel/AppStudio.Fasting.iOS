@@ -50,4 +50,13 @@ extension MealRepositoryImpl: MealRepository {
 
         return try await select(request: request)
     }
+
+    func meals(count: Int?) async throws -> [Meal] {
+        let request = Meal.request()
+        if let count {
+            request.fetchLimit = count
+        }
+        request.sortDescriptors = [.init(key: "creationDate", ascending: false)]
+        return try await select(request: request)
+    }
 }

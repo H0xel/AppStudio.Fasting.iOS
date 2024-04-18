@@ -13,10 +13,12 @@ public struct AccentButton: View {
     private let title: TitleType
     private let action: () -> Void
     @Environment(\.isEnabled) private var isEnabled
+    private var cornerRadius: CGFloat
 
-    public init(title: TitleType, action: @escaping () -> Void) {
+    public init(title: TitleType, cornerRadius: CGFloat = 22, action: @escaping () -> Void) {
         self.title = title
         self.action = action
+        self.cornerRadius = cornerRadius
     }
 
     public var body: some View {
@@ -24,10 +26,10 @@ public struct AccentButton: View {
             switch title {
             case .localizedString(let localizedStringKey):
                 Text(localizedStringKey)
-                    .accentButtonStyle(isEnabled: isEnabled)
+                    .accentButtonStyle(isEnabled: isEnabled, cornerRadius: cornerRadius)
             case .string(let string):
                 Text(string)
-                    .accentButtonStyle(isEnabled: isEnabled)
+                    .accentButtonStyle(isEnabled: isEnabled, cornerRadius: cornerRadius)
             }
         }
     }
@@ -36,6 +38,7 @@ public struct AccentButton: View {
 private struct AccentButtonModifier: ViewModifier {
 
     var isEnabled: Bool
+    var cornerRadius: CGFloat
 
     func body(content: Content) -> some View {
         content
@@ -45,13 +48,13 @@ private struct AccentButtonModifier: ViewModifier {
             .padding(.vertical, .verticalPadding)
             .aligned(.centerHorizontaly)
             .background(isEnabled ? Color.studioBlackLight : .studioGreyStrokeFill)
-            .continiousCornerRadius(.cornerRadius)
+            .continiousCornerRadius(cornerRadius)
     }
 }
 
 extension View {
-    func accentButtonStyle(isEnabled: Bool) -> some View {
-        modifier(AccentButtonModifier(isEnabled: isEnabled))
+    func accentButtonStyle(isEnabled: Bool, cornerRadius: CGFloat = 22) -> some View {
+        modifier(AccentButtonModifier(isEnabled: isEnabled, cornerRadius: cornerRadius))
     }
 }
 
