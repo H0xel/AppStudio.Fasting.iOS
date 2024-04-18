@@ -11,6 +11,8 @@ import RxSwift
 import AppStudioServices
 
 class AppCustomizationPreview: AppCustomization, ProductIdsService {
+    var isMonetizationExpAvailable: RxSwift.Observable<Bool> { .just(false) }
+
     var fastingLimitCycles: Int { 3 }
     
     func resetDiscountExp() {}

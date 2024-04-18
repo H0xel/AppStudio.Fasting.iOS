@@ -54,7 +54,7 @@ struct RootScreen: View {
                             tabBarLabelView(title: .progress, image: progressTabImage)
                         }
 
-                    if !viewModel.hasSubscription {
+                    if !viewModel.hasSubscription, !viewModel.monetizationExpAvailable {
                         if let info = viewModel.discountPaywallInfo {
                             viewModel.discountPaywall(input: .init(context: .discountPaywallTab, paywallInfo: info))
                                 .tag(AppTab.paywall)

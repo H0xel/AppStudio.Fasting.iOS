@@ -52,7 +52,7 @@ public class WeightWidgetViewModel: BaseViewModel<WeightWidgetOutput> {
         super.initialize(output: output)
         currentDatePublisher
             .assign(to: &$currentDate)
-        observeHistory()
+//        observeHistory()
     }
 
     private func observeHistory() {

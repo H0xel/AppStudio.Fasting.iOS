@@ -20,6 +20,11 @@ public enum PaywallContext: String {
     case logLimit = "log_limit"
     case barcodeScanner = "barcode_scanner"
     case macros
+
+    case daily = "daily"
+    case fasting = "fasting"
+    case nova = "nova"
+    case progress = "progress"
 }
 
 extension PaywallContext: TrackerParam {

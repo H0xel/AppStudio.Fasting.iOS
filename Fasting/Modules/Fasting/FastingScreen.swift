@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioUI
 import AppStudioNavigation
+import Combine
 
 struct FastingScreen: View {
     @StateObject var viewModel: FastingViewModel
@@ -83,7 +84,7 @@ private extension FastingScreen {
 
 struct FastingScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = FastingViewModel(input: .init(), output: { _ in })
+        let viewModel = FastingViewModel(input: .init(isMonetizationAvailable: Just(false).eraseToAnyPublisher()), output: { _ in })
         viewModel.router = .init(navigator: .init(), fastingWidgetNavigator: .init())
         return ModernNavigationView {
             FastingScreen(viewModel: viewModel)

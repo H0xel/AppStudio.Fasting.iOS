@@ -9,12 +9,37 @@ import Foundation
 import SwiftUI
 import AppStudioStyles
 
-struct HealthWidgetInput {
+struct HealthWidgetInput: Equatable {
     let title: String
     let subtitle: String
     let isExploreButtonPresented: Bool
     let emptyStateInput: ChartEmptyStateInput
     let icon: Image
+
+    static func == (lhs: HealthWidgetInput, rhs: HealthWidgetInput) -> Bool {
+        lhs.title == rhs.title
+    }
+}
+
+extension HealthWidgetInput {
+    var monetizationImage: Image {
+        if self == .weight {
+            return Image(.monetizationWeight)
+        }
+
+        if self == .fasting {
+            return Image(.monetizationFasting)
+        }
+
+        return Image(.monetizationWater)
+    }
+
+    var monetizationTitle: String {
+        if self == .fasting {
+            return "Widget.title.unlockFastingHistory".localized(bundle: .module)
+        }
+        return "Widget.title.enableForOurUsers".localized(bundle: .module)
+    }
 }
 
 extension HealthWidgetInput {

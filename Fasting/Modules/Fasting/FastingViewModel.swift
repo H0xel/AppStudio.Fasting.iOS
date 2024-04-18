@@ -33,6 +33,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     @Published var fastingStages: [FastingStage] = []
     @Published var hasSubscription = false
     @Published var discountPaywallInfo: DiscountPaywallInfo?
+    @Published var monetizationIsAvailable = false
     private let fastingStatusUpdateTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let disposeBag = DisposeBag()
 
@@ -43,6 +44,8 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
         configureFastingInterval()
         observeSubscription()
         subscribeToDiscountAvailable()
+        input.isMonetizationAvailable
+            .assign(to: &$monetizationIsAvailable)
     }
 
     var isFastingActive: Bool {
@@ -124,31 +127,40 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     }
 
     private func startFastingIfPossible(from date: Date) {
+        if monetizationIsAvailable {
+            startFasting(date: date)
+            return
+        }
+
         if fastingFinishedCyclesLimitService.isLimited, !hasSubscription {
             Task {
                 await presentPaywallAndStartFasting(from: date)
             }
             return
         }
-        fastingService.startFasting(from: date)
-        trackFastingStarted(startTime: date.description)
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.requestReviewService.requestAppStoreReview()
-        }
+        startFasting(date: date)
     }
 
     @MainActor
     private func presentPaywallAndStartFasting(from date: Date) async {
         router.presentPaywall { [weak self] paywallOutput in
             if case .subscribed = paywallOutput {
-                self?.fastingService.startFasting(from: date)
+                self?.startFasting(date: date)
             }
             switch paywallOutput {
             case .close, .subscribed:
                 self?.router.dismiss()
             default: break
             }
+        }
+    }
+
+    private func startFasting( date: Date) {
+        fastingService.startFasting(from: date)
+        trackFastingStarted(startTime: date.description)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.requestReviewService.requestAppStoreReview()
         }
     }
 
@@ -287,7 +299,7 @@ extension FastingViewModel {
 
     func presentArticle(for stage: FastingStage) {
         trackerService.track(.tapFastingStages(stage: stage.rawValue, context: .mainScreen))
-        router.presentArticle(for: stage)
+        router.presentArticle(isMonetizationExpAvailable: monetizationIsAvailable, for: stage)
     }
 
     private func presentSuccesScreen() {

@@ -28,6 +28,7 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
     @Published var suggestions: [String] = []
     @Published var keywords: [String] = []
     @Published var isSuggestionsPresented = true
+    @Published var isMonetizationExpAvailable: Bool = false
     let constants: CoachConstants
     private var messagesObserver: CoachMessageObserver?
     private var nextMessagePublisher: AnyPublisher<String, Never>
@@ -43,6 +44,8 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
         observeMessages()
         observeIsWaitingForResponse()
         observeNextMessages()
+        input.isMonetizationExpAvailable
+            .assign(to: &$isMonetizationExpAvailable)
     }
 
     var groupedMessages: [CoachMessagesGroup] {
@@ -101,6 +104,10 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
     }
 
     private func sendMessage(with text: String) {
+        if isMonetizationExpAvailable {
+            output(.presentMultiplePaywall)
+            return
+        }
         guard !isWaitingForReply, !text.trimmingCharacters(in: ["\n", " "]).isEmpty else {
             return
         }

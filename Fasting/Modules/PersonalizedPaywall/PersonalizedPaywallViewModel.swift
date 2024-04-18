@@ -12,6 +12,7 @@ import AppStudioUI
 import AppStudioNavigation
 import AppStudioSubscriptions
 import AppStudioServices
+import AppStudioModels
 
 class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
     @Published var isTrialAvailable = false

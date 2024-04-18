@@ -13,6 +13,8 @@ import AppStudioNavigation
 import AppStudioSubscriptions
 import AppStudioServices
 import MunicornFoundation
+import AppStudioModels
+import AppStudioStyles
 
 private let afFirstSubscribeKey = "CalorieCounter.iCloud.afFirstSubscribeKey"
 
@@ -140,6 +142,19 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
 
     func appeared() {
         trackPaywallShown()
+    }
+
+    func handle(multiplePaywallEvent: MultipleProductPaywallScreen.Event) {
+        switch multiplePaywallEvent {
+        case .close:
+            close()
+        case .restore:
+            restore()
+        case .subscribe:
+            subscribe()
+        case .appeared:
+            appeared()
+        }
     }
 
     private func handle(paywallScreenOutput event: PaywallScreenOutput) {

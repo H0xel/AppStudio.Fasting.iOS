@@ -1,4 +1,4 @@
-//  
+//
 //  DiscountPaywallTimerServiceImpl.swift
 //  Fasting
 //

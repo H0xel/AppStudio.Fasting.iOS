@@ -20,6 +20,11 @@ private let weeklyExp3ProductId = "com.municorn.Fasting.weekly_exp_3"
 private let weeklyExp4ProductId = "com.municorn.Fasting.weekly_exp_4"
 private let weeklyExp5ProductId = "com.municorn.Fasting.weekly_exp_5"
 
+private let weeklyExp7ProductId = "com.municorn.Fasting.weekly_exp_7"
+private let threeMonthlyExp7ProductId =  "com.municorn.Fasting.3monthly_exp_7"
+private let earlyExp7ProductId =  "com.municorn.Fasting.yearly_exp_7"
+
+
 class ProductProviderImpl: ProductProvider, AppInitializer {
     @Dependency(\.productsLoaderService) private var productsLoaderService
     @Dependency(\.subscriptionsLoaderService) private var subscriptionsLoaderService
@@ -61,7 +66,10 @@ class ProductProviderImpl: ProductProvider, AppInitializer {
             ProductCatalogItem(productId: weeklyExp3ProductId, duration: .week, isTrial: false),
             ProductCatalogItem(productId: weeklyExp4ProductId, duration: .week, isTrial: false),
             ProductCatalogItem(productId: weeklyExp5ProductId, duration: .week, isTrial: false),
-            ProductCatalogItem(productId: yearlyProductIdExp6, duration: .year, isTrial: false)
+            ProductCatalogItem(productId: yearlyProductIdExp6, duration: .year, isTrial: false),
+            ProductCatalogItem(productId: weeklyExp7ProductId, duration: .week, isTrial: false),
+            ProductCatalogItem(productId: threeMonthlyExp7ProductId, duration: .threeMonth, isTrial: false),
+            ProductCatalogItem(productId: earlyExp7ProductId, duration: .year, isTrial: false),
         ]
     }()
 }

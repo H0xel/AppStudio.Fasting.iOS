@@ -187,6 +187,6 @@ private extension Int {
     FastingHistoryChart(selectedItem: .constant(.mock), 
                         context: .water(.ounces),
                         initialPosition: .now,
-                        selectedPeriod: .month,
+                        selectedPeriod: .threeMonths,
                         items: .mock) { _ in }
 }

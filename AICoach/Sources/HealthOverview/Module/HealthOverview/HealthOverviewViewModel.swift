@@ -20,8 +20,11 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
 
     @Dependency(\.calendarProgressService) private var calendarProgressService
     @Dependency(\.trackerService) private var trackerService
+    @Dependency(\.firstLaunchService) private var firstLaunchService
 
+    @Published var monetizationIsAvailable: Bool = false
     @Published var currentDay: Date = .now.startOfTheDay
+
     let calendarViewModel = CalendarProgressViewModel(isFutureAllowed: false, withFullProgress: false)
     let swipeDaysViewModel = SwipeDaysViewModel(isFutureAllowed: false)
     let waterCounterViewModel = WaterCounterWidgetViewModel { _ in }
@@ -42,6 +45,8 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
                                          units: input.weightUnits,
                                          output: { _ in })
         waterCounterViewModel.router = WaterCounterWidgetRouter(navigator: router.navigator)
+        input.monetizationIsAvailable
+            .assign(to: &$monetizationIsAvailable)
     }
 
     func scrollToToday() {
@@ -52,6 +57,16 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
     func presentProfile() {
         trackerService.track(.tapProfile)
         output(.profileTapped)
+    }
+
+    func presentPaywall() {
+        output(.showPaywall)
+    }
+
+    func appeared() {
+        if monetizationIsAvailable, !firstLaunchService.isFirstTimeLaunch {
+            presentPaywall()
+        }
     }
 
     private func initializeCalendar() {

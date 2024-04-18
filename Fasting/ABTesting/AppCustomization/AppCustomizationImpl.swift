@@ -30,8 +30,7 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
     func initialize() {
         @Dependency(\.lifeCycleDelegate) var lifeCycleDelegate
         super.initialize(lifecycleDelegate: lifeCycleDelegate)
-        configurePricingExperiment()
-        configureDiscountExperiment()
+        configureExperimentsOnStartApp()
     }
 
     var forceUpdateAppVersion: Observable<String> {
@@ -65,6 +64,7 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
         await register(experiment: PricingOngoingExperiment(experimentName: experimentName))
         await register(experiment: TrialExperiment())
+        await register(experiment: AllMonetizationExperiment())
 
         let discountExperimentName = await discountExperimentName()
         await register(experiment: DiscountPaywallExperiment(experimentName: discountExperimentName))
@@ -88,6 +88,11 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
             .map { return $0.paywallType != nil ? $0 : nil }
     }
 
+    var isMonetizationExpAvailable: Observable<Bool> {
+        experimentValueObservable(forType: AllMonetizationExperiment.self, defaultValue: .control)
+            .map { $0 == .test }
+    }
+
     func requiredAppVersion() async throws -> String {
         try await remoteConfigValue(forKey: requiredAppVersionKey, defaultValue: Bundle.appVersion)
     }
@@ -101,17 +106,17 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
         try await remoteConfigValue(forKey: isLongOnboardingEnabledKey, defaultValue: true)
     }
 
-     var allProductsObservable: Observable<AvailableProducts> {
-         remoteConfigValueObservable(forKey: "all_products", defaultValue: "")
-         .observe(on: MainScheduler.asyncInstance)
-         .map {
-             if $0.isEmpty { throw PricingError.error }
-             return $0
-         }
-         .map { try AvailableProducts(json: $0) }
-         .retry(times: 3, withDelay: .seconds(1))
-         .catchAndReturn(.empty)
-     }
+    var allProductsObservable: Observable<AvailableProducts> {
+        remoteConfigValueObservable(forKey: "all_products", defaultValue: "")
+            .observe(on: MainScheduler.asyncInstance)
+            .map {
+                if $0.isEmpty { throw PricingError.error }
+                return $0
+            }
+            .map { try AvailableProducts(json: $0) }
+            .retry(times: 3, withDelay: .seconds(1))
+            .catchAndReturn(.empty)
+    }
 
     // TODO: Протестить на то чтобы в кэше не сохранялось
 //    func shouldForceUpdate() async throws -> Bool {
@@ -119,6 +124,20 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 //                                                                  defaultValue: Bundle.appVersion)
 //        return !Bundle.lessOrEqualToCurrentVersion(requierdVersion)
 //    }
+}
+
+private extension AppCustomizationImpl {
+    func configureExperimentsOnStartApp() {
+        configurePricingExperiment()
+        configureDiscountExperiment()
+        configureMonetizationExp()
+    }
+
+    func configureMonetizationExp() {
+        Task {
+            try await experimentValue(forType: AllMonetizationExperiment.self, defaultValue: .control)
+        }
+    }
 }
 
 // MARK: - Requests examples

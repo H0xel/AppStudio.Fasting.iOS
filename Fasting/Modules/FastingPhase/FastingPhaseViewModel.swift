@@ -20,10 +20,12 @@ class FastingPhaseViewModel: BaseViewModel<FastingPhaseOutput> {
     @Published var stage: FastingStage
     @Published var hasSubscription = false
     private let disposeBag = DisposeBag()
+    private let isMonetizationExpAvailable: Bool
 
 
     init(input: FastingPhaseInput, output: @escaping FastingPhaseOutputBlock) {
         stage = input.stage
+        isMonetizationExpAvailable = input.isMonetizationExpAvailable
         super.init(output: output)
         observeMayUseApp()
     }
@@ -92,6 +94,12 @@ class FastingPhaseViewModel: BaseViewModel<FastingPhaseOutput> {
 
     func presentPaywall() {
         trackerService.track(.tapUnlockFastingStages)
+
+        if isMonetizationExpAvailable {
+            router.presentMultipleProductPaywall()
+            return
+        }
+
         router.presentPaywall { [weak self] _ in
             self?.router.dismiss(PaywallRoute.self)
         }

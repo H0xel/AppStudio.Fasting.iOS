@@ -50,8 +50,6 @@ struct FastingHistoryScreen: View {
                     onEdit: viewModel.editWater(at:),
                     onAdd: viewModel.addWater)
             }
-
-
         }
         .navBarButton(placement: .navigationBarTrailing,
                       isVisible: viewModel.context == .fasting,

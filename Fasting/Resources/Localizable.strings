@@ -29,6 +29,13 @@
 "Paywall.tryForFree" = "Try 3 days for free, then %@";
 "Paywall.renewsAt" = "Get Plus for %@";
 "Paywall.cancelAnyTime" = "Unlock your advantage now!";
+"Paywall.savePercent" = "Save %i%";
+
+"SubscriptionDuration.week" = "1 week";
+"SubscriptionDuration.month" = "1 month";
+"SubscriptionDuration.threeMonth" = "3 months";
+"SubscriptionDuration.sixMonth" = "6 months";
+"SubscriptionDuration.year" = "12 months";
 
 // MARK: Personalized Paywall
 "PersonalizedPaywall.headerTitle" = "Reach your dream weight of %@ by %@";

@@ -95,7 +95,7 @@ struct FastingPhaseScreen_Previews: PreviewProvider {
         NavigationStack {
             FastingPhaseScreen(
                 viewModel: FastingPhaseViewModel(
-                    input: FastingPhaseInput(stage: .sugarDrop),
+                    input: FastingPhaseInput(isMonetizationExpAvailable: false, stage: .sugarDrop),
                     output: { _ in }
                 )
             )

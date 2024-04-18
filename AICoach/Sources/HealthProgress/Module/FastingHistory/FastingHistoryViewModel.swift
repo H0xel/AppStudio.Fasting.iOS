@@ -39,11 +39,11 @@ class FastingHistoryViewModel: BaseViewModel<FastingHistoryOutput> {
     }
     private var scrollDateTrigger: CurrentValueSubject<Date, Never> = .init(.now)
     @Published var selectedItem: FastingHistoryChartItem?
+
     @Dependency(\.waterService) var waterService
     private var waterObserver: DrinkingWaterObserver?
     private var waterUnits: WaterUnits = .liters
     private var allWater: [Date: DrinkingWater] = [:]
-
 
     init(input: FastingHistoryInput, output: @escaping FastingHistoryOutputBlock) {
         fastingHistoryData = input.historyData

@@ -23,11 +23,13 @@ struct FastingHealthProgressScreen: View {
 
                 HealthProgressBarChartView(
                     widgetInput: .fasting,
-                    items: viewModel.fastingChartItems,
+                    items: viewModel.fastingChartItems, 
+                    isMonetization: viewModel.isMonetization,
                     output: viewModel.handleFastingWidgetOutput
                 )
 
-                HealthLinesChartView(input: .weight(with: viewModel.weightChartItems),
+                HealthLinesChartView(input: .weight(with: viewModel.weightChartItems), 
+                                     isMonetization: viewModel.isMonetization,
                                      output: viewModel.handleWeightWidgetOutput)
                 .modifier(BottomHealthWidgetHintModifier(isHintPresented: viewModel.isWeightHintPresented,
                                                          hint: .weight,
@@ -46,7 +48,8 @@ struct FastingHealthProgressScreen: View {
 
                 HealthProgressBarChartView(
                     widgetInput: .water,
-                    items: viewModel.waterChartItems,
+                    items: viewModel.waterChartItems, 
+                    isMonetization: viewModel.isMonetization,
                     output: viewModel.handleWaterWidgetOutput
                 )
             }
@@ -97,6 +100,7 @@ struct HealthProgressScreen_Previews: PreviewProvider {
     static var previews: some View {
         FastingHealthProgressScreen(
             viewModel: HealthProgressViewModel(
+                isMonetizationExpAvailablePublisher: Just(false).eraseToAnyPublisher(),
                 inputPublisher: Just(FastingHealthProgressInput(
                     bodyMassIndex: 22.3,
                     weightUnits: .kg,

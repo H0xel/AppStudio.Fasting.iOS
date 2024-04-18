@@ -11,4 +11,5 @@ enum HealthChartOutput {
     case infoTap
     case learnMoreTap
     case emptyStateButtonTap
+    case presentPaywall
 }

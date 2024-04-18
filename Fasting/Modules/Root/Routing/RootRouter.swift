@@ -12,6 +12,7 @@ import AICoach
 import HealthProgress
 import Combine
 import HealthOverview
+import AppStudioServices
 
 class RootRouter: BaseRouter {
     @Dependency(\.paywallService) private var paywallService
@@ -33,10 +34,12 @@ class RootRouter: BaseRouter {
     }
 
     func healthProgressScreen(
+        isMonetizationExpAvailablePublisher: AnyPublisher<Bool, Never>,
         inputPublisher: AnyPublisher<FastingHealthProgressInput, Never>,
         output: @escaping HealthProgressOutputBlock
     ) -> some View {
-        let route = FastingHealthProgressRoute(navigator: healthProgressNavigator,
+        let route = FastingHealthProgressRoute(navigator: healthProgressNavigator, 
+                                               isMonetizationExpAvailablePublisher: isMonetizationExpAvailablePublisher,
                                                inputPublisher: inputPublisher,
                                                output: output)
         return healthProgressNavigator.initialize(route: route)
@@ -62,10 +65,18 @@ class RootRouter: BaseRouter {
         return healthOverviewNavigator.initialize(route: route)
     }
 
-    func coachScreen(nextMessagePublisher: AnyPublisher<String, Never>) -> some View {
+    func coachScreen(isMonetizationExpAvailable: AnyPublisher<Bool, Never>,
+                     nextMessagePublisher: AnyPublisher<String, Never>) -> some View {
         let route = CoachRoute(navigator: coachNavigator,
-                               input: .init(constants: .fastingConstants, nextMessagePublisher: nextMessagePublisher),
-                               output: { _ in })
+                               input: .init(constants: .fastingConstants,
+                                            nextMessagePublisher: nextMessagePublisher,
+                                            isMonetizationExpAvailable: isMonetizationExpAvailable),
+                               output: { [weak self] output in
+            switch output {
+            case .presentMultiplePaywall:
+                self?.presentMultipleProductPaywall(context: .nova)
+            }
+        })
         return coachNavigator.initialize(route: route)
     }
 
@@ -106,6 +117,34 @@ class RootRouter: BaseRouter {
                                  input: .init(),
                                  output: { _ in })
         healthOverviewNavigator.present(route: route)
+    }
+
+    func presentMultipleProductPaywall(context: PaywallContext) {
+
+        var navigator: Navigator
+
+        switch context {
+        case .daily:
+            navigator = healthOverviewNavigator
+        case .fasting:
+            navigator = fastingNavigator
+        case .nova:
+            navigator = coachNavigator
+        case .progress:
+            navigator = healthProgressNavigator
+        default:
+            navigator = self.navigator
+        }
+
+        let route = MultiplePaywallRoute(navigator: navigator,
+                                         input: .init(paywallContext: context),
+                                         output: { output in
+            switch output {
+            case .close, .subscribed:
+                navigator.dismiss()
+            }
+        })
+        navigator.present(route: route)
     }
 
     func presentSuccess(on tab: AppTab, input: SuccessInput, output: @escaping SuccessOutputBlock) {

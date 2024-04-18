@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import AppStudioStyles
 
 struct HealthProgressWidgetView<Content: View>: View {
 
     let input: HealthWidgetInput
     let isEmptyState: Bool
+    let isMonetization: Bool
     let output: (HealthChartOutput) -> Void
     let content: () -> Content
 
@@ -28,7 +30,7 @@ struct HealthProgressWidgetView<Content: View>: View {
                         input.icon
                     })
                 }
-                if isEmptyState  {
+                if isEmptyState, !isMonetization  {
                     ChartEmptyView(input: input.emptyStateInput) {
                         output(.emptyStateButtonTap)
                     }
@@ -41,7 +43,13 @@ struct HealthProgressWidgetView<Content: View>: View {
                 }
             }
             .padding(.horizontal, .horizontalPadding)
-            content()
+            if isMonetization {
+                MonetizationOverlayView(input: input) {
+                    output(.presentPaywall)
+                }
+            } else {
+                content()
+            }
 
             if input.isExploreButtonPresented {
                 Button(action: {
@@ -64,6 +72,13 @@ struct HealthProgressWidgetView<Content: View>: View {
     }
 }
 
+extension HealthProgressWidgetView {
+    enum State {
+        case empty
+        case monetization
+    }
+}
+
 private extension String {
     static let exploreMore = "HealthProgressWidget.exploreMore".localized(bundle: .module)
 }
@@ -80,7 +95,7 @@ private extension CGFloat {
 #Preview {
     ZStack {
         Color.red
-        HealthProgressWidgetView(input: .weight, isEmptyState: true, output: { _ in }) {
+        HealthProgressWidgetView(input: .weight, isEmptyState: false, isMonetization: true, output: { _ in }) {
             Text("Hello world!")
         }
     }

@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
+import Combine
 
 struct StartFastingScreen: View {
     @StateObject var viewModel: StartFastingViewModel
@@ -70,7 +71,7 @@ struct StartFastingScreen_Previews: PreviewProvider {
             output: { _ in })
         viewModel.router = .init(navigator: .init())
 
-        return FastingScreen(viewModel: .init(input: .init(), output: { _ in }))
+        return FastingScreen(viewModel: .init(input: .init(isMonetizationAvailable: Just(false).eraseToAnyPublisher()), output: { _ in }))
             .sheet(isPresented: .constant(true)) {
                 ModernNavigationView {
                     StartFastingScreen(viewModel: viewModel)

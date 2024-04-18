@@ -54,7 +54,6 @@
 		566C24922AE8F80B00AEDB3C /* PaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C24852AE8F80B00AEDB3C /* PaywallViewModel.swift */; };
 		566C24932AE8F80B00AEDB3C /* PaywallScreenInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C24872AE8F80B00AEDB3C /* PaywallScreenInput.swift */; };
 		566C24942AE8F80B00AEDB3C /* PaywallScreenOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C24882AE8F80B00AEDB3C /* PaywallScreenOutput.swift */; };
-		566C24952AE8F80B00AEDB3C /* SubscriptionProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C24892AE8F80B00AEDB3C /* SubscriptionProduct.swift */; };
 		566C24962AE8F80B00AEDB3C /* PaywallTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C248B2AE8F80B00AEDB3C /* PaywallTitleView.swift */; };
 		566C24972AE8F80B00AEDB3C /* ShadingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C248C2AE8F80B00AEDB3C /* ShadingImageView.swift */; };
 		566C24982AE8F80B00AEDB3C /* PaywallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C248D2AE8F80B00AEDB3C /* PaywallScreen.swift */; };
@@ -215,12 +214,8 @@
 		A01E809F2B582FCB00AECD39 /* AppearenceInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E809E2B582FCB00AECD39 /* AppearenceInitializer.swift */; };
 		A01EC94F2B552411001C866A /* View+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01EC94E2B552411001C866A /* View+extensions.swift */; };
 		A0223C882B5EBDD5009A77D5 /* UsageLimitPaywallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0223C872B5EBDD5009A77D5 /* UsageLimitPaywallScreen.swift */; };
-		A0223C8A2B5EC06A009A77D5 /* PaywallFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0223C892B5EC06A009A77D5 /* PaywallFeaturesView.swift */; };
-		A0223C8C2B5EC724009A77D5 /* PaywallOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0223C8B2B5EC724009A77D5 /* PaywallOptionsView.swift */; };
 		A02E20B42B681D8400E3F259 /* EnvironmentValues+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02E20B32B681D8400E3F259 /* EnvironmentValues+extensions.swift */; };
-		A036CE412B5FBC1200F902E9 /* PaywallOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CE402B5FBC1200F902E9 /* PaywallOptionView.swift */; };
 		A036CE442B5FD9EC00F902E9 /* UsagePaywallRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CE432B5FD9EC00F902E9 /* UsagePaywallRoute.swift */; };
-		A036CE462B5FDFAA00F902E9 /* UsageLimitPaywallNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CE452B5FDFAA00F902E9 /* UsageLimitPaywallNavigationBar.swift */; };
 		A036CE482B5FEE3200F902E9 /* GetPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CE472B5FEE3200F902E9 /* GetPlusButton.swift */; };
 		A036CE4D2B6021B600F902E9 /* FreeUsageServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CE4A2B6021B600F902E9 /* FreeUsageServiceImpl.swift */; };
 		A036CE4E2B6021B600F902E9 /* FreeUsageDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CE4B2B6021B600F902E9 /* FreeUsageDependencies.swift */; };
@@ -508,7 +503,6 @@
 		566C24852AE8F80B00AEDB3C /* PaywallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallViewModel.swift; sourceTree = "<group>"; };
 		566C24872AE8F80B00AEDB3C /* PaywallScreenInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallScreenInput.swift; sourceTree = "<group>"; };
 		566C24882AE8F80B00AEDB3C /* PaywallScreenOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallScreenOutput.swift; sourceTree = "<group>"; };
-		566C24892AE8F80B00AEDB3C /* SubscriptionProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionProduct.swift; sourceTree = "<group>"; };
 		566C248B2AE8F80B00AEDB3C /* PaywallTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallTitleView.swift; sourceTree = "<group>"; };
 		566C248C2AE8F80B00AEDB3C /* ShadingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadingImageView.swift; sourceTree = "<group>"; };
 		566C248D2AE8F80B00AEDB3C /* PaywallScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallScreen.swift; sourceTree = "<group>"; };
@@ -662,12 +656,8 @@
 		A01E809E2B582FCB00AECD39 /* AppearenceInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearenceInitializer.swift; sourceTree = "<group>"; };
 		A01EC94E2B552411001C866A /* View+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+extensions.swift"; sourceTree = "<group>"; };
 		A0223C872B5EBDD5009A77D5 /* UsageLimitPaywallScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageLimitPaywallScreen.swift; sourceTree = "<group>"; };
-		A0223C892B5EC06A009A77D5 /* PaywallFeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallFeaturesView.swift; sourceTree = "<group>"; };
-		A0223C8B2B5EC724009A77D5 /* PaywallOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallOptionsView.swift; sourceTree = "<group>"; };
 		A02E20B32B681D8400E3F259 /* EnvironmentValues+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+extensions.swift"; sourceTree = "<group>"; };
-		A036CE402B5FBC1200F902E9 /* PaywallOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallOptionView.swift; sourceTree = "<group>"; };
 		A036CE432B5FD9EC00F902E9 /* UsagePaywallRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsagePaywallRoute.swift; sourceTree = "<group>"; };
-		A036CE452B5FDFAA00F902E9 /* UsageLimitPaywallNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageLimitPaywallNavigationBar.swift; sourceTree = "<group>"; };
 		A036CE472B5FEE3200F902E9 /* GetPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlusButton.swift; sourceTree = "<group>"; };
 		A036CE4A2B6021B600F902E9 /* FreeUsageServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeUsageServiceImpl.swift; sourceTree = "<group>"; };
 		A036CE4B2B6021B600F902E9 /* FreeUsageDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeUsageDependencies.swift; sourceTree = "<group>"; };
@@ -1115,7 +1105,6 @@
 			children = (
 				566C24872AE8F80B00AEDB3C /* PaywallScreenInput.swift */,
 				566C24882AE8F80B00AEDB3C /* PaywallScreenOutput.swift */,
-				566C24892AE8F80B00AEDB3C /* SubscriptionProduct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1758,11 +1747,7 @@
 			isa = PBXGroup;
 			children = (
 				A0223C872B5EBDD5009A77D5 /* UsageLimitPaywallScreen.swift */,
-				A0223C892B5EC06A009A77D5 /* PaywallFeaturesView.swift */,
-				A0223C8B2B5EC724009A77D5 /* PaywallOptionsView.swift */,
-				A036CE402B5FBC1200F902E9 /* PaywallOptionView.swift */,
 				A036CE432B5FD9EC00F902E9 /* UsagePaywallRoute.swift */,
-				A036CE452B5FDFAA00F902E9 /* UsageLimitPaywallNavigationBar.swift */,
 			);
 			path = UsageLimitPaywall;
 			sourceTree = "<group>";
@@ -2768,7 +2753,6 @@
 				56D7B2B82B3D3FD1003B721D /* ProfileCalculationInput.swift in Sources */,
 				A01E80942B57E65000AECD39 /* ProfileScreen.swift in Sources */,
 				A0FE905F2B4EFCC90069AC4C /* TabBarRouter.swift in Sources */,
-				A036CE462B5FDFAA00F902E9 /* UsageLimitPaywallNavigationBar.swift in Sources */,
 				A72A7D812B31B031000677A2 /* PersonalizedDescriptionView.swift in Sources */,
 				567500EF2ADFD6BC009331CB /* AppSettingsProviderImpl.swift in Sources */,
 				5692C6902B5A517C007A9E3A /* CodableCache.swift in Sources */,
@@ -2786,7 +2770,6 @@
 				A0729A802B4D535A002336CF /* SnapCarousel.swift in Sources */,
 				A70B6E0A2B32DD710035EF96 /* NotificationOnboardingViewModel.swift in Sources */,
 				56322AAC2B74E7FA00F64D3B /* AvailableProducts.swift in Sources */,
-				A0223C8A2B5EC06A009A77D5 /* PaywallFeaturesView.swift in Sources */,
 				56D7B2C72B3EA174003B721D /* DietType.swift in Sources */,
 				5692C66F2B590B29007A9E3A /* FoodSearchDataType.swift in Sources */,
 				5692C68D2B5974F6007A9E3A /* FoodSearchTargetType.swift in Sources */,
@@ -2932,7 +2915,6 @@
 				A7E45C9E2B4FCC7B00935488 /* DailyCalorieBudgetDescriptionView.swift in Sources */,
 				5692C6972B5A5483007A9E3A /* CodableCacheRepositoryImpl.swift in Sources */,
 				A70B6DD52B31B6680035EF96 /* AccentButton.swift in Sources */,
-				566C24952AE8F80B00AEDB3C /* SubscriptionProduct.swift in Sources */,
 				A01E80952B57E65000AECD39 /* ProfileOutput.swift in Sources */,
 				567501062ADFD955009331CB /* IntercomServiceImpl.swift in Sources */,
 				5675009E2ADFAB69009331CB /* ProductIdsService.swift in Sources */,
@@ -3071,7 +3053,6 @@
 				A77982132B3D64DD0015B37D /* BarcodeRouter.swift in Sources */,
 				5692C6692B58F7FB007A9E3A /* FoodSearchApiDependencies.swift in Sources */,
 				A0D245AF2B3CA7A500B2048C /* ChangeWeightTextField.swift in Sources */,
-				A0223C8C2B5EC724009A77D5 /* PaywallOptionsView.swift in Sources */,
 				56F64D7F2AE10EF20067FE05 /* RootScreen.swift in Sources */,
 				56D7B2BA2B3D409A003B721D /* ProfileCalculationOutput.swift in Sources */,
 				562654C12B68E426006FC4AB /* IngredientPlaceholderView.swift in Sources */,
@@ -3081,7 +3062,6 @@
 				567500262ADE86C3009331CB /* ConcurrentDispatchQueue.swift in Sources */,
 				A05E68D02B30ABC900282F9C /* CalorieCounterServiceImpl.swift in Sources */,
 				56322AAE2B74E7FA00F64D3B /* RemoteExperimentPlans.swift in Sources */,
-				A036CE412B5FBC1200F902E9 /* PaywallOptionView.swift in Sources */,
 				A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */,
 				5675008F2ADFAA4A009331CB /* Contacts.swift in Sources */,
 				ADC7850D2AFA9291005F16A6 /* TelecomApiError.swift in Sources */,

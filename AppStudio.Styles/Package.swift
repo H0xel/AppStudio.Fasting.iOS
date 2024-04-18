@@ -28,7 +28,7 @@ let package = Package(
                 .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
                 .product(name: "AppStudioFoundation", package: "AppStudio.iOS.Common"),
                 .product(name: "AppStudioModels", package: "AppStudio.Models"),
-                .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation"),
+                .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation")
             ],
             resources: [
                 .process("Resources/Color.xcassets")

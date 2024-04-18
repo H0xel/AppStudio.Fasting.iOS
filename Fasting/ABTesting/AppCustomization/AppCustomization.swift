@@ -14,6 +14,7 @@ protocol AppCustomization {
     var forceUpdateAppVersion: Observable<String> { get }
     var appStoreLink: Observable<String> { get }
     var discountPaywallExperiment: Observable<DiscountPaywallInfo?> { get }
+    var isMonetizationExpAvailable: Observable<Bool> { get }
     var allProductsObservable: Observable<AvailableProducts> { get }
     var fastingLimitCycles: Int { get }
     func initialize()

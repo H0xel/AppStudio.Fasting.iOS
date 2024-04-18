@@ -14,4 +14,16 @@ class FastingPhaseRouter: BaseRouter {
         let route = PaywallRoute(navigator: navigator, input: .fastingStages, output: output)
         present(route: route)
     }
+
+    func presentMultipleProductPaywall() {
+        let route = MultiplePaywallRoute(navigator: navigator,
+                                         input: .init(paywallContext: .fastingStages),
+                                         output: { [weak self] output in
+            switch output {
+            case .close, .subscribed:
+                self?.navigator.dismiss()
+            }
+        })
+        navigator.present(route: route)
+    }
 }

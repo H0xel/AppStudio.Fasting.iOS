@@ -29,3 +29,21 @@
 "Onboarding.sex.description" = "Biological sex can affect many physical elements lIke our metabolism, muscle mass, or hormones, so we use it in our calculations";
 "Onboarding.sex.title" = "What’s your sex?";
 
+// MARK: - Paywall
+
+"Paywall.continue" = "Continue";
+"Paywall.restore" = "Restore";
+"Paywall.unlockAllFeatures" = "Unlock\nall features";
+
+"Paywall.fasting.feature1" = "Your Personal Wellness Coach";
+"Paywall.fasting.feature2" = "Access to All Fasting Stages";
+"Paywall.fasting.feature3" = "Detailed Graphs & Insights";
+
+"Paywall.calorieCounter.feature1" = "AI-powered Food Log";
+"Paywall.calorieCounter.feature2" = "Barcode Scan";
+"Paywall.calorieCounter.feature3" = "Complete Macro Tracking";
+
+"Paywall.popular" = "Popular";
+"Paywall.bestValue" = "Best value";
+"Paywall.perWeek" = "per week";
+"Paywall.week" = " / week";

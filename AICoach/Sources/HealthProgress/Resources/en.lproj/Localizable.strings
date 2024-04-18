@@ -97,3 +97,7 @@
 
 "FastingWidgetEmptyView.title" = "No fasts logged in the past 7 days";
 "FastingWidgetEmptyView.subtitle" = "Finish fasting at least one more time";
+
+"Widget.getPlus" = "Get plus";
+"Widget.title.enableForOurUsers" = "Enable for our users";
+"Widget.title.unlockFastingHistory" = "Unlock fasting history";

@@ -75,7 +75,8 @@ struct CoachScreen_Previews: PreviewProvider {
                 input: CoachInput(constants: .init(privacyPolicy: "",
                                                    termsOfUse: "",
                                                    appName: "Fasting"),
-                                  nextMessagePublisher: CurrentValueSubject<String, Never>("").eraseToAnyPublisher()),
+                                  nextMessagePublisher: CurrentValueSubject<String, Never>("").eraseToAnyPublisher(), 
+                                  isMonetizationExpAvailable: Just(false).eraseToAnyPublisher()),
                 output: { _ in }
             )
         )

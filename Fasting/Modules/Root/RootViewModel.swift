@@ -46,12 +46,14 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Published var isProcessingSubcription = false
 
     @Published var discountPaywallInfo: DiscountPaywallInfo?
+    @Published var monetizationExpAvailable = false
 
     let router: RootRouter
     private let disposeBag = DisposeBag()
     private let coachNextMessageSubject = CurrentValueSubject<String, Never>("")
     private let progressInputSubject = CurrentValueSubject<FastingHealthProgressInput, Never>(.empty)
     private let fastingWidgetStateSubject = CurrentValueSubject<FastingWidgetState, Never>(.mockInActive)
+    private let isAllMonetizationAvailableSubject = CurrentValueSubject<Bool, Never>(false)
     private var fastingViewModel: FastingViewModel!
 
     init(router: RootRouter, input: RootInput, output: @escaping RootOutputBlock) {
@@ -81,7 +83,8 @@ class RootViewModel: BaseViewModel<RootOutput> {
     lazy var healthOverviewScreen: some View = {
         router.healthOverviewScreen(input: .init(
             fastingWidget: fastingWidget,
-            weightUnits: onboardingService.data?.weight.units ?? .kg
+            weightUnits: onboardingService.data?.weight.units ?? .kg,
+            monetizationIsAvailable: isAllMonetizationAvailableSubject.eraseToAnyPublisher()
         )) { [weak self] output in
             self?.handle(healthOverviewOutput: output)
         }
@@ -92,12 +95,13 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }()
 
     lazy var coachScreen: some View = {
-        router.coachScreen(nextMessagePublisher: coachNextMessageSubject.eraseToAnyPublisher())
+        router.coachScreen(isMonetizationExpAvailable: isAllMonetizationAvailableSubject.eraseToAnyPublisher(),
+                           nextMessagePublisher: coachNextMessageSubject.eraseToAnyPublisher())
     }()
 
     var healthProgressScreen: some View {
-
-        return router.healthProgressScreen(
+        router.healthProgressScreen(
+            isMonetizationExpAvailablePublisher: isAllMonetizationAvailableSubject.eraseToAnyPublisher(),
             inputPublisher: progressInputSubject.eraseToAnyPublisher()
         ) { [weak self] output in self?.handle(healthProgressScreenOutput: output) }
     }
@@ -151,6 +155,8 @@ class RootViewModel: BaseViewModel<RootOutput> {
             logFast(for: .now)
         case .updateInput:
             updateHealthProgressInput()
+        case .presentMultipleProductPaywall:
+            router.presentMultipleProductPaywall(context: .progress)
         }
     }
 
@@ -158,6 +164,8 @@ class RootViewModel: BaseViewModel<RootOutput> {
         switch output {
         case .profileTapped:
             router.presentProfile()
+        case .showPaywall:
+            router.presentMultipleProductPaywall(context: .daily)
         }
     }
 
@@ -288,13 +296,23 @@ class RootViewModel: BaseViewModel<RootOutput> {
     private func initializePaywallTab() {
         Observable.combineLatest(
             subscriptionService.hasSubscriptionObservable.distinctUntilChanged(),
-            appCustomization.discountPaywallExperiment.distinctUntilChanged()
+            appCustomization.discountPaywallExperiment.distinctUntilChanged(),
+            appCustomization.isMonetizationExpAvailable.distinctUntilChanged()
         )
         .asDriver()
         .drive(with: self) { this, args in
-            let (hasSubscription, discountPaywallInfo) = args
-            this.changeCurrentTabOnLaunch(hasSubsctiption: hasSubscription)
+            let (hasSubscription, discountPaywallInfo, isMonetizationAvailable) = args
+            this.changeCurrentTabOnLaunch(
+                hasSubscription: hasSubscription,
+                isMonetizationAvailable: isMonetizationAvailable)
             this.hasSubscription = hasSubscription
+
+            this.monetizationExpAvailable = isMonetizationAvailable
+
+            if isMonetizationAvailable {
+                this.isAllMonetizationAvailableSubject.send(!hasSubscription)
+            }
+
             if let discountPaywallInfo {
                 this.discountPaywallTimerService.registerPaywall(info: discountPaywallInfo)
             }
@@ -302,13 +320,13 @@ class RootViewModel: BaseViewModel<RootOutput> {
         .disposed(by: disposeBag)
     }
 
-    private func changeCurrentTabOnLaunch(hasSubsctiption: Bool) {
-        if hasSubsctiption {
+    private func changeCurrentTabOnLaunch(hasSubscription: Bool, isMonetizationAvailable: Bool) {
+        if hasSubscription {
             currentTab = .daily
             return
         }
         if !firstLaunchService.isFirstTimeLaunch {
-            currentTab = .paywall
+            currentTab = isMonetizationAvailable ? .daily : .paywall
         }
     }
 
@@ -347,12 +365,16 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
 
     private func initilizeFastingViewModel() {
-        fastingViewModel = .init(input: .init()) { [weak self] output in
+        fastingViewModel = .init(input: .init(
+            isMonetizationAvailable: isAllMonetizationAvailableSubject.eraseToAnyPublisher())
+        ) { [weak self] output in
             switch output {
             case .pinTapped:
                 self?.currentTab = .paywall
             case .updateWidget(let state):
                 self?.fastingWidgetStateSubject.send(state)
+            case .showMultipleProductPaywall:
+                self?.router.presentMultipleProductPaywall(context: .fasting)
             }
         }
         let route = FastingRoute(viewModel: fastingViewModel)
@@ -411,7 +433,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         let allHistory = try await fastingHistoryService.history()
         let fastingHistoryRecords = allHistory.reduce(into: [FastingHistoryRecord]()) { records, history in
             records.append(
-                FastingHistoryRecord(id: history.id, 
+                FastingHistoryRecord(id: history.id,
                                      startDate: history.startedDate,
                                      endDate: history.finishedDate )
             )
@@ -421,7 +443,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         return try await .init(bodyMassIndex: bodyMassIndex(),
                                weightUnits: onboardingService.data?.weight.units ?? .kg,
                                fastingChartItems: chartItems.reversed(),
-                               fastingHistoryChartItems: chartHistoryItems.reversed(), 
+                               fastingHistoryChartItems: chartHistoryItems.reversed(),
                                fastingHistoryData: fastingHistoryData)
     }
 

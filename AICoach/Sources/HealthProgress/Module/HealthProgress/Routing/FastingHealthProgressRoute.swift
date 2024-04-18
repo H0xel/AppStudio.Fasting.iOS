@@ -11,14 +11,17 @@ import Combine
 
 public struct FastingHealthProgressRoute: Route {
     let navigator: Navigator
+    let isMonetizationExpAvailablePublisher: AnyPublisher<Bool, Never>
     let inputPublisher: AnyPublisher<FastingHealthProgressInput, Never>
     let output: HealthProgressOutputBlock
 
     public init(navigator: Navigator,
+                isMonetizationExpAvailablePublisher: AnyPublisher<Bool, Never>,
                 inputPublisher: AnyPublisher<FastingHealthProgressInput, Never>,
                 output: @escaping HealthProgressOutputBlock) {
         self.navigator = navigator
         self.inputPublisher = inputPublisher
+        self.isMonetizationExpAvailablePublisher = isMonetizationExpAvailablePublisher
         self.output = output
     }
 
@@ -29,7 +32,11 @@ public struct FastingHealthProgressRoute: Route {
 
     private var viewModel: HealthProgressViewModel {
         let router = HealthProgressRouter(navigator: navigator)
-        let viewModel = HealthProgressViewModel(inputPublisher: inputPublisher, output: output)
+        let viewModel = HealthProgressViewModel(
+            isMonetizationExpAvailablePublisher: isMonetizationExpAvailablePublisher,
+            inputPublisher: inputPublisher,
+            output: output
+        )
         viewModel.router = router
         return viewModel
     }

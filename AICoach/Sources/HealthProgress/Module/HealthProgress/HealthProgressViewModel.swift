@@ -37,6 +37,7 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
     @Published var fastingHistoryData: FastingHistoryData = .init(records: [])
     @Published var waterChartItems: [HealthProgressBarChartItem] = []
     @Published var weightChartItems: [LineChartItem] = []
+    @Published var isMonetization = false
 
     @Published private var fastingChartHistoryItems: [FastingHistoryChartItem] = []
     @Published private var waterChartHistoryItems: [FastingHistoryChartItem] = []
@@ -46,10 +47,13 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
     private var defaultWeightUnits: WeightUnit = .lb
     private let inputHistoryPublisher: AnyPublisher<FastingHealthProgressInput, Never>
 
-    init(inputPublisher: AnyPublisher<FastingHealthProgressInput, Never>,
+
+    init(isMonetizationExpAvailablePublisher: AnyPublisher<Bool, Never>,
+         inputPublisher: AnyPublisher<FastingHealthProgressInput, Never>,
          output: @escaping HealthProgressOutputBlock) {
         inputHistoryPublisher = inputPublisher
         super.init(output: output)
+        isMonetizationExpAvailablePublisher.assign(to: &$isMonetization)
         observeInput(inputPublisher: inputPublisher)
         isBodyMassHintPresented = storageService.isBodyMassIndexHintPresented
         isWeightHintPresented = storageService.isWeightHintPresented
@@ -88,6 +92,8 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
 
         case .emptyStateButtonTap:
             break
+        case .presentPaywall:
+            self.output(.presentMultipleProductPaywall)
         }
     }
 
@@ -99,6 +105,8 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
             exploreWeight()
         case .emptyStateButtonTap:
             presentUpdateWeight()
+        case .presentPaywall:
+            self.output(.presentMultipleProductPaywall)
         }
     }
 
@@ -113,6 +121,8 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
                                                inputHistoryPublisher: Empty().eraseToAnyPublisher()))
         case .emptyStateButtonTap:
             break
+        case .presentPaywall:
+            self.output(.presentMultipleProductPaywall)
         }
     }
 
@@ -206,6 +216,10 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
     }
 
     private func exploreWeight() {
+        if isMonetization {
+            output(.presentMultipleProductPaywall)
+            return
+        }
         router.presentWeightProgress(weightUnits: defaultWeightUnits) { [weak self] output in
             switch output {
             case .weightUpdated:
@@ -224,6 +238,12 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
     }
 
     private func presentFastingHistory(input: FastingHistoryInput) {
+
+        if isMonetization {
+            output(.presentMultipleProductPaywall)
+            return
+        }
+
         router.pushFastingHistory(input: input) { [weak self] result in
                 switch result {
                 case .close:

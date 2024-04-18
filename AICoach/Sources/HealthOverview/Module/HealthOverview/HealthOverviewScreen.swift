@@ -32,6 +32,10 @@ struct HealthOverviewScreen: View {
                         Spacer(minLength: .verticalSpacing)
                             .id(scrollTriggerId)
                         VStack(spacing: .spacing) {
+                            if viewModel.monetizationIsAvailable {
+                                AllMonetizationBannerView(action: viewModel.presentPaywall)
+                            }
+
                             FastingWidgetView(day: day,
                                               viewModel: viewModel.fastingWidgetViewModel)
                             WaterCounterWidget(date: day,
@@ -60,6 +64,9 @@ struct HealthOverviewScreen: View {
         .navBarButton(content: Image.personFill.foregroundStyle(Color.studioBlackLight),
                       action: viewModel.presentProfile)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppearOnce {
+            viewModel.appeared()
+        }
     }
 }
 
@@ -82,7 +89,8 @@ struct HealthOverviewScreen_Previews: PreviewProvider {
                                     ),
                         output: { _ in }
                     ), 
-                    weightUnits: .kg
+                    weightUnits: .kg,
+                    monetizationIsAvailable: Just(false).eraseToAnyPublisher()
                 ),
                 output: { _ in }
             )

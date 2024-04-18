@@ -14,11 +14,13 @@ struct HealthProgressBarChartView: View {
 
     let widgetInput: HealthWidgetInput
     let items: [HealthProgressBarChartItem]
+    let isMonetization: Bool
     let output: (HealthChartOutput) -> Void
 
     var body: some View {
         HealthProgressWidgetView(input: widgetInput,
-                                 isEmptyState: isEmptyState,
+                                 isEmptyState: isEmptyState, 
+                                 isMonetization: isMonetization,
                                  output: output) {
             Chart {
                 ForEach(items) { barItem in
@@ -61,11 +63,21 @@ struct HealthProgressBarChartView: View {
             .padding(.leading, .leadingPadding)
             .padding(.trailing, .trailingPadding)
         }
-        .frame(height: isEmptyState ? .chartHeightEmptySetate : .chartHeight)
+        .frame(height: height)
     }
 
     private var isEmptyState: Bool {
-        items.reduce(0) { $0 + $1.value } == 0
+        if isMonetization {
+            return false
+        }
+        return items.reduce(0) { $0 + $1.value } == 0
+    }
+
+    private var height: CGFloat {
+        if isMonetization {
+            return .chartHeightMonetization
+        }
+        return isEmptyState ? .chartHeightEmptyState : .chartHeight
     }
 
     func scaleDomain() -> ClosedRange<Double> {
@@ -86,11 +98,13 @@ private extension CGFloat {
     static let trailingPadding: CGFloat = 12
     static let leadingPadding: CGFloat = 20
     static let chartHeight: CGFloat = 302
-    static let chartHeightEmptySetate: CGFloat = 402
+    static let chartHeightMonetization: CGFloat = 350
+    static let chartHeightEmptyState: CGFloat = 402
     static let exploreButtonSpacing: CGFloat = 12
 }
 
 #Preview {
     HealthProgressBarChartView(widgetInput: .weight,
-                               items: []) { _ in }
+                               items: [], 
+                               isMonetization: true) { _ in }
 }

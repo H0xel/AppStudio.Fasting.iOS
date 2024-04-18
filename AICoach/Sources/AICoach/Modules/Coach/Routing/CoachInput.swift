@@ -10,9 +10,13 @@ public struct CoachInput {
 
     let constants: CoachConstants
     let nextMessagePublisher: AnyPublisher<String, Never>
+    let isMonetizationExpAvailable: AnyPublisher<Bool, Never>
 
-    public init(constants: CoachConstants, nextMessagePublisher: AnyPublisher<String, Never>) {
+    public init(constants: CoachConstants,
+                nextMessagePublisher: AnyPublisher<String, Never>,
+                isMonetizationExpAvailable: AnyPublisher<Bool, Never>) {
         self.constants = constants
         self.nextMessagePublisher = nextMessagePublisher
+        self.isMonetizationExpAvailable = isMonetizationExpAvailable
     }
 }

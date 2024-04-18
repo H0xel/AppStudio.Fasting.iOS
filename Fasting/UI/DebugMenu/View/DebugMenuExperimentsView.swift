@@ -53,6 +53,14 @@ struct DebugMenuExperimentsView: View {
                 )
                 experiments.append(.init(experimentName: discountExperimentValue,
                                          value: discExp))
+
+
+                let monetizationExp = try await baseAppCustomization.remoteConfigValue(
+                    forKey: "exp5_alt_monetization",
+                    defaultValue: "non in experiment"
+                )
+
+                experiments.append(.init(experimentName: "exp5_alt_monetization", value: monetizationExp))
             }
         }
     }

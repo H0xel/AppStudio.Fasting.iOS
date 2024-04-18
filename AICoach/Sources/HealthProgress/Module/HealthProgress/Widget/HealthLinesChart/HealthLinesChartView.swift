@@ -14,11 +14,13 @@ import AppStudioModels
 struct HealthLinesChartView: View {
 
     let input: LinesChartInput
+    let isMonetization: Bool
     let output: (HealthChartOutput) -> Void
 
     var body: some View {
         HealthProgressWidgetView(input: input.widgetInput,
-                                 isEmptyState: input.isEmpty,
+                                 isEmptyState: input.isEmpty, 
+                                 isMonetization: isMonetization,
                                  output: output) {
             VStack(spacing: .spacing)  {
                 LineChart(selectedDate: .constant(nil), items: input.items)
@@ -46,7 +48,8 @@ private extension CGFloat {
     ZStack {
         Color.red
         HealthLinesChartView(
-            input: .weight(with: [.trueWeightMock, .scaleWeightMock]),
+            input: .weight(with: [.trueWeightMock, .scaleWeightMock]), 
+            isMonetization: false,
             output: { _ in }
         )
     }

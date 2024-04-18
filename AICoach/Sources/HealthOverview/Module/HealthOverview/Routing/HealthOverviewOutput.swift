@@ -11,4 +11,5 @@ public typealias HealthOverviewOutputBlock = ViewOutput<HealthOverviewOutput>
 
 public enum HealthOverviewOutput {
     case profileTapped
+    case showPaywall
 }

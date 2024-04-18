@@ -13,6 +13,7 @@ import AppStudioNavigation
 import AppStudioSubscriptions
 import AppStudioServices
 import MunicornFoundation
+import AppStudioModels
 
 private let afFirstSubscribeKey = "Fasting.iCloud.afFirstSubscribeKey"
 
@@ -234,11 +235,7 @@ class PaywallViewModel: BaseViewModel<PaywallScreenOutput> {
 
     private func assignProducts() {
         let products = subscriptions.map {
-            SubscriptionProduct(id: $0.productIdentifier,
-                                title: $0.localizedTitle,
-                                titleDetails: $0.formattedPrice ?? "",
-                                durationTitle: $0.duration.title,
-                                promotion: promotionText(for: $0))
+            $0.asSubscriptionProduct(promotion: promotionText(for: $0))
         }
         self.products = products
         if let product = products.last {
@@ -319,6 +316,18 @@ private extension PaywallViewModel {
             trackerService.track(.afFirstSubscribe)
             cloudStorage.afFirstSubscribeTracked = true
         }
+    }
+}
+
+private extension Subscription {
+    func asSubscriptionProduct(for duration: SubscriptionDuration = .week, promotion: String?) -> SubscriptionProduct {
+        .init(id: productIdentifier,
+              title: localizedTitle,
+              titleDetails: formattedPrice ?? "",
+              durationTitle: duration.title,
+              pricePerWeek: localedPrice(for: .week) ?? "",
+              price: localedPrice(for: duration) ?? "",
+              promotion: promotion)
     }
 }
 

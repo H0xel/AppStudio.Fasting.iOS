@@ -6,5 +6,6 @@
 //
 
 struct FastingPhaseInput {
+    let isMonetizationExpAvailable: Bool
     let stage: FastingStage
 }

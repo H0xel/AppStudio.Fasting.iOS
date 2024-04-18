@@ -15,4 +15,5 @@ public enum HealthProgressOutput {
     case edit(historyId: String)
     case addHistory
     case updateInput
+    case presentMultipleProductPaywall
 }
