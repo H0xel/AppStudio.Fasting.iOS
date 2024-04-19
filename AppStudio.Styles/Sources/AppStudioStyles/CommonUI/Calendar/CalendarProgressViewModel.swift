@@ -65,7 +65,6 @@ public class CalendarProgressViewModel: BaseViewModel<CalendarProgressOutput> {
             self.currentDay = newDate
             let currentWeek = Week(ofDay: newDate)
             self.currentWeek = currentWeek
-            self.updateAvailableWeeks(currentWeek: currentWeek)
         }
     }
 

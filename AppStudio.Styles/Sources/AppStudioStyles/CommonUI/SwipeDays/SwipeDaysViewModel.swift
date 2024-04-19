@@ -31,7 +31,6 @@ public class SwipeDaysViewModel: BaseViewModel<SwipeDaysOutput> {
             return
         }
         currentDay = newDate
-        updateDisplayDays()
     }
 
     private func updateDisplayDays() {

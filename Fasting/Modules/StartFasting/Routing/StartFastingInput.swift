@@ -41,11 +41,11 @@ extension StartFastingInput {
               kind: .startTime)
     }
 
-    static func endFasting(initialDate: Date, minDate: Date) -> StartFastingInput {
+    static func endFasting(initialDate: Date, minDate: Date, maxDate: Date) -> StartFastingInput {
         .init(title: "StartFastingScreen.whenFinished",
               datePickerComponents: [.date, .hourAndMinute],
               initialDate: initialDate,
-              datesRange: minDate ... .now,
+              datesRange: minDate ... maxDate,
               context: .endFasting,
               kind: .endTime
         )

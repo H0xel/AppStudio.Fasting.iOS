@@ -63,6 +63,7 @@ public struct WaterCounterWidget: View {
                     }
                 }
                 .frame(width: .glassWidth, height: .glassHeight)
+                .animation(.bouncy(duration: 0.7), value: percent)
             }
             // MARK: - Buttons
             HStack(spacing: .emptySpacing) {

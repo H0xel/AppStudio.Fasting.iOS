@@ -13,23 +13,13 @@ struct TopBorderModifier: ViewModifier {
     var color: Color
     var cornerRadius: CGFloat = 20
 
-    @State private var textFieldHeight: CGFloat = 0
-
     func body(content: Content) -> some View {
-        ZStack {
-            color
-                .frame(height: textFieldHeight)
-                .corners([.topLeft, .topRight], with: cornerRadius)
-                .offset(y: -.borderWidth)
-            Color.white
-                .frame(height: textFieldHeight)
-                .corners([.topLeft, .topRight], with: cornerRadius)
-            content
-                .withViewHeightPreferenceKey
-        }
-        .onViewHeightPreferenceKeyChange { newHeight in
-            textFieldHeight = newHeight
-        }
+        content
+            .background(
+                color
+                    .corners([.topLeft, .topRight], with: cornerRadius)
+                    .offset(y: -.borderWidth)
+            )
     }
 }
 

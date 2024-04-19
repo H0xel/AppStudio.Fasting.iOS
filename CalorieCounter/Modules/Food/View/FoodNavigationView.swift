@@ -30,6 +30,7 @@ struct FoodNavigationView: View {
                 .aligned(.left)
                 DateNavigationView(date: $swipeDaysViewModel.currentDay,
                                    foregroundColor: .white,
+                                   isFutureAllowed: true,
                                    onPrevDayTap: onPrevDayTap,
                                    onNextDayTap: onNextDayTap)
             }

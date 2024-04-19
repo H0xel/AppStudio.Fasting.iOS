@@ -12,17 +12,20 @@ public struct DateNavigationView: View {
     @Binding private var date: Date
     private let dateFormat: String
     private let foregroundColor: Color
+    private let isFutureAllowed: Bool
     private let onPrevDayTap: (Date) -> Void
     private let onNextDayTap: (Date) -> Void
 
     public init(date: Binding<Date>,
                 foregroundColor: Color = .studioBlackLight,
                 dateFormat: String = "MMMdd",
+                isFutureAllowed: Bool = false,
                 onPrevDayTap: @escaping (Date) -> Void,
                 onNextDayTap: @escaping (Date) -> Void) {
         self._date = date
         self.foregroundColor = foregroundColor
         self.dateFormat = dateFormat
+        self.isFutureAllowed = isFutureAllowed
         self.onPrevDayTap = onPrevDayTap
         self.onNextDayTap = onNextDayTap
     }
@@ -43,7 +46,7 @@ public struct DateNavigationView: View {
                     .font(.poppins(.buttonText))
             }
             Button {
-                if !isToday {
+                if isFutureAllowed || !isToday {
                     date = date.adding(.day, value: 1)
                     onNextDayTap(date)
                 }
@@ -57,7 +60,7 @@ public struct DateNavigationView: View {
     }
 
     private var rightButtonColor: Color {
-        isToday ? .studioGreyStrokeFill : foregroundColor
+        isFutureAllowed || !isToday ? foregroundColor : .studioGreyStrokeFill
     }
 
     private var isToday: Bool {

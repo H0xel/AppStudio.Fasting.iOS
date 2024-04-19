@@ -75,8 +75,8 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
             case .updateProgress(let weeks):
                 self?.updateWeeks(weeks: weeks)
             case .dateChange(let date):
+                self?.currentDay = date
                 self?.trackerService.track(.tapDate(date: date.description))
-                self?.swipeDaysViewModel.updateCurrentDate(to: date)
             case .swipeDirection(let direction):
                 self?.trackerService.track(.swipeWeek(direction: direction.rawValue))
             }
@@ -86,13 +86,13 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
             switch output {
             case .dateUpdated(let date):
                 self?.currentDay = date
-                self?.calendarViewModel.updateCurrentDay(for: date)
             }
         }
 
         calendarViewModel.observeProgress(publisher: calendarProgressService.historyPublisher)
 
         $currentDay
+            .removeDuplicates()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] date in
                 self?.updateDate(date: date)

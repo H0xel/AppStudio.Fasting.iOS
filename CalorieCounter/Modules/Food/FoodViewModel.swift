@@ -184,6 +184,7 @@ extension FoodViewModel {
 
     private func subscribeForAvailableDiscountPaywall() {
         discountPaywallTimerService.discountAvailable
+            .receive(on: DispatchQueue.main)
             .assign(to: &$discountPaywallInfo)
     }
 
