@@ -126,9 +126,9 @@ class RootRouter: BaseRouter {
         var navigator: Navigator
 
         switch context {
-        case .daily:
+        case .daily, .popup:
             navigator = healthOverviewNavigator
-        case .fasting:
+        case .fastingStages:
             navigator = fastingNavigator
         case .nova:
             navigator = coachNavigator

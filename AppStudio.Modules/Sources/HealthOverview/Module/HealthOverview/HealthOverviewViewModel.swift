@@ -65,7 +65,7 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
 
     func appeared() {
         if monetizationIsAvailable, !firstLaunchService.isFirstTimeLaunch {
-            presentPaywall()
+            output(.showPopUpPaywall)
         }
     }
 

@@ -21,11 +21,11 @@ private let weeklyExp4ProductId = "com.municorn.Fasting.weekly_exp_4"
 private let weeklyExp5ProductId = "com.municorn.Fasting.weekly_exp_5"
 
 private let weeklyExp7ProductId = "com.municorn.Fasting.weekly_exp_7"
-private let threeMonthlyExp7ProductId =  "com.municorn.Fasting.3monthly_exp_7"
-private let earlyExp7ProductId =  "com.municorn.Fasting.yearly_exp_7"
+private let threeMonthlyExp7ProductId = "com.municorn.Fasting.3monthly_exp_7"
+private let yearlyExp7ProductId = "com.municorn.Fasting.yearly_exp_7"
 
 
-class ProductProviderImpl: ProductProvider, AppInitializer {
+class ProductProviderImpl: ProductProvider, AppInitializer { 
     @Dependency(\.productsLoaderService) private var productsLoaderService
     @Dependency(\.subscriptionsLoaderService) private var subscriptionsLoaderService
     func initialize() {
@@ -55,6 +55,12 @@ class ProductProviderImpl: ProductProvider, AppInitializer {
     }
 
     var remoteExperimentsPlans: [RemoteExperimentPlans] = []
+    
+    var allMonetizationProductIds: [String] = [
+        weeklyExp7ProductId,
+        threeMonthlyExp7ProductId,
+        yearlyExp7ProductId
+    ]
 
     // TODO: SETUP add all product items here
     var productItems: [ProductCatalogItem] = {
@@ -69,7 +75,7 @@ class ProductProviderImpl: ProductProvider, AppInitializer {
             ProductCatalogItem(productId: yearlyProductIdExp6, duration: .year, isTrial: false),
             ProductCatalogItem(productId: weeklyExp7ProductId, duration: .week, isTrial: false),
             ProductCatalogItem(productId: threeMonthlyExp7ProductId, duration: .threeMonth, isTrial: false),
-            ProductCatalogItem(productId: earlyExp7ProductId, duration: .year, isTrial: false),
+            ProductCatalogItem(productId: yearlyExp7ProductId, duration: .year, isTrial: false),
         ]
     }()
 }

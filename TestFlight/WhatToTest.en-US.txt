@@ -1,1 +1,1 @@
-- Release build Calorie counter 1.0.8
+- All monetization exp fixes

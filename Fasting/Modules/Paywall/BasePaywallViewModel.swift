@@ -138,17 +138,11 @@ class BasePaywallViewModel<OutputEventType>: BaseViewModel<OutputEventType> {
 
     private func loadAvailableProducts() {
 
-        let ids = [
-            "com.municorn.Fasting.weekly_exp_7",
-            "com.municorn.Fasting.3monthly_exp_7",
-            "com.municorn.Fasting.yearly_exp_7"
-        ]
-
         Observable.combineLatest(subscriptionService.subscriptionProducts,
                                  productIdsService.paywallProductIds)
             .map { subscriptions, availableIds in
                 subscriptions
-                    .filter { ids.contains($0.productIdentifier) }
+                    .filter { availableIds.contains($0.productIdentifier) }
                     .sorted { $0.duration.timeInterval < $1.duration.timeInterval }
             }
             .asDriver()

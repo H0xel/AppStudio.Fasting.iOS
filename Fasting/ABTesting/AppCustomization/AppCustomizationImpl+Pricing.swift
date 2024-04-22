@@ -74,21 +74,27 @@ extension AppCustomizationImpl {
             .bind(to: productIdsRelay)
             .disposed(by: disposeBag)
 
-        experimentValueObservable(forType: PricingOngoingExperiment.self, defaultValue: .empty)
-            .map { info -> SubscriptionInfo in
-                if info == .empty {
-                    throw PricingError.error
-                }
-                return info
+        Observable.combineLatest(
+            experimentValueObservable(forType: PricingOngoingExperiment.self, defaultValue: .empty),
+            experimentValueObservable(forType: AllMonetizationExperiment.self, defaultValue: .control)
+        )
+        .map { info, allMonetizationExp in
+            if allMonetizationExp == .test {
+                return SubscriptionInfo.allMonetization
             }
-            .retry(times: tryCount, withDelay: .seconds(nextTryIntervalSeconds))
-            .catchAndReturn(SubscriptionInfo.base)
-            .map {
-                cloudStorage.pricingExperimentProductIds = $0.productIds
-                return $0.productIds
+            if info == .empty {
+                throw PricingError.error
             }
-            .bind(to: productIdsRelay)
-            .disposed(by: disposeBag)
+            return info
+        }
+        .retry(times: tryCount, withDelay: .seconds(nextTryIntervalSeconds))
+        .catchAndReturn(SubscriptionInfo.base)
+        .map {
+            cloudStorage.pricingExperimentProductIds = $0.productIds
+            return $0.productIds
+        }
+        .bind(to: productIdsRelay)
+        .disposed(by: disposeBag)
     }
 
     func resetPricingExp() {

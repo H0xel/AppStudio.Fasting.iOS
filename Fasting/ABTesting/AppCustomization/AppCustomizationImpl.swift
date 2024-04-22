@@ -129,9 +129,9 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
 private extension AppCustomizationImpl {
     func configureExperimentsOnStartApp() {
+        configureMonetizationExp()
         configurePricingExperiment()
         configureDiscountExperiment()
-        configureMonetizationExp()
     }
 
     func configureMonetizationExp() {

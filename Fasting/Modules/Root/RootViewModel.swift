@@ -164,8 +164,8 @@ class RootViewModel: BaseViewModel<RootOutput> {
         switch output {
         case .profileTapped:
             router.presentProfile()
-        case .showPaywall:
-            router.presentMultipleProductPaywall(context: .daily)
+        case .showPaywall, .showPopUpPaywall:
+            router.presentMultipleProductPaywall(context: output == .showPopUpPaywall ? .popup : .daily)
         }
     }
 
@@ -375,7 +375,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
             case .updateWidget(let state):
                 self?.fastingWidgetStateSubject.send(state)
             case .showMultipleProductPaywall:
-                self?.router.presentMultipleProductPaywall(context: .fasting)
+                self?.router.presentMultipleProductPaywall(context: .fastingStages)
             }
         }
         let route = FastingRoute(viewModel: fastingViewModel)

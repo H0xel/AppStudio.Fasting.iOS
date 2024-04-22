@@ -2947,7 +2947,6 @@
 				A0382D402AF4F03A009CC579 /* SuccessOutput.swift in Sources */,
 				567500ED2ADFD6A0009331CB /* AppSettingsProvider.swift in Sources */,
 				A7A38DE42BC8226B003704C1 /* MultiplePaywallRouter.swift in Sources */,
-				A76148EE2B74C8A6002A7F95 /* DiscountPaywallTimerServiceImpl.swift in Sources */,
 				56655B662AFCB09100508ED4 /* FastingIntervalHistory.swift in Sources */,
 				56E223ED2B2079B400096664 /* OnboardingService.swift in Sources */,
 				A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */,
@@ -3223,7 +3222,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -3264,7 +3263,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

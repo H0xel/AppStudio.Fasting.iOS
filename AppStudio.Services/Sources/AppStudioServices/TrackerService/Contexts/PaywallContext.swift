@@ -22,7 +22,7 @@ public enum PaywallContext: String {
     case macros
 
     case daily = "daily"
-    case fasting = "fasting"
+    case popup = "popup"
     case nova = "nova"
     case progress = "progress"
 }
