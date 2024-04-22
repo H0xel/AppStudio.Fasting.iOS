@@ -1,1 +1,1 @@
-- Release build Fasting 1.2.1
+- Release build Calorie counter 1.0.8
