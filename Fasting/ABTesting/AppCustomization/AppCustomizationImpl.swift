@@ -25,6 +25,7 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     let productIdsRelay = BehaviorRelay<[String]>(value: [])
     let discountRelay = BehaviorRelay<DiscountPaywallInfo>(value: .empty)
+    let allMonetizationRelay = BehaviorRelay<AllMonetizationExperimentVariant>(value: .control)
     let disposeBag = DisposeBag()
 
     func initialize() {
@@ -89,7 +90,7 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
     }
 
     var isMonetizationExpAvailable: Observable<Bool> {
-        experimentValueObservable(forType: AllMonetizationExperiment.self, defaultValue: .control)
+        allMonetizationRelay.asObservable()
             .map { $0 == .test }
     }
 
@@ -134,9 +135,18 @@ private extension AppCustomizationImpl {
     }
 
     func configureMonetizationExp() {
-        Task {
-            try await experimentValue(forType: AllMonetizationExperiment.self, defaultValue: .control)
-        }
+        experimentValueObservable(forType: AllMonetizationExperiment.self, defaultValue: .control)
+            .map { info in
+                if info == .control {
+                    throw DiscountError.error
+                }
+                return info
+            }
+            .observe(on: MainScheduler.asyncInstance)
+            .retry(times: 3, withDelay: .seconds(1))
+            .catchAndReturn(.control)
+            .bind(to: allMonetizationRelay)
+            .disposed(by: disposeBag)
     }
 }
 

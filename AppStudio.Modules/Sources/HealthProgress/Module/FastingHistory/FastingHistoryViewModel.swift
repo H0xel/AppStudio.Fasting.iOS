@@ -29,7 +29,7 @@ struct WaterHistoryData {
 class FastingHistoryViewModel: BaseViewModel<FastingHistoryOutput> {
     var router: FastingHistoryRouter!
     let context: FastingHistoryInput.Context
-    var chartItems: [FastingHistoryChartItem]
+    @Published var chartItems: [FastingHistoryChartItem] = []
     @Published var initialPosition: Date = .now
     @Published var fastingHistoryData: FastingHistoryData
     @Published var waterHistoryData: WaterHistoryData = .init(water: [])
@@ -47,11 +47,12 @@ class FastingHistoryViewModel: BaseViewModel<FastingHistoryOutput> {
 
     init(input: FastingHistoryInput, output: @escaping FastingHistoryOutputBlock) {
         fastingHistoryData = input.historyData
-        chartItems = input.chartItems
         context = input.context
         super.init(output: output)
         observe(input: input)
         initializeGraphPosition()
+        input.chartItems
+            .assign(to: &$chartItems)
     }
 
     func observe(input: FastingHistoryInput) {

@@ -1,1 +1,1 @@
-- All Monetization exp
+- Release build Fasting 1.2.1

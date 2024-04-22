@@ -79,7 +79,7 @@ struct FastingHistoryScreen_Previews: PreviewProvider {
                     input: FastingHistoryInput(
                         context: .water(.liters),
                         historyData: .mock,
-                        chartItems: .mock,
+                        chartItems: Just([]).eraseToAnyPublisher(),
                         inputHistoryPublisher: Empty().eraseToAnyPublisher()
                     ),
                     output: { _ in }

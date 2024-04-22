@@ -73,7 +73,9 @@ public struct OnboardingSegmentedView<Segment: OnboardingPickerOption>: View {
                         .onChange(of: stringValue) { newValue in
                             guard currentSegment.isFt else { return }
                             if !newValue.isEmpty {
-                                isInchFocused = true
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    self.isInchFocused = true
+                                }
                             }
                             let maxNumbers = 3
                             stringValue = String(newValue.prefix(maxNumbers).filter { $0.isNumber })
@@ -139,7 +141,9 @@ public struct OnboardingSegmentedView<Segment: OnboardingPickerOption>: View {
             textFieldFtWidth = newWidth
         }
         .onAppear {
-            isFocused = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.isFocused = true
+            }
             convertValueToString(value: value)
             convertInchValueToString(inchValue: inchValue)
         }

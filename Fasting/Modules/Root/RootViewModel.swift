@@ -241,10 +241,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         router.presentSuccess(on: tab, input: input) { [weak self] output in
             switch output {
             case let .submit(startDate, endDate):
-                self?.saveHistory(fasting: fasting, startDate: startDate, endDate: endDate, isNew: isNew)
-                if tab == .healthProgress {
-                    self?.updateHealthProgressInput()
-                }
+                self?.saveHistory(fasting: fasting, startDate: startDate, endDate: endDate, isNew: isNew, tab: tab)
             }
         }
     }
@@ -252,7 +249,8 @@ class RootViewModel: BaseViewModel<RootOutput> {
     private func saveHistory(fasting: FastingIntervalHistory,
                              startDate: Date,
                              endDate: Date,
-                             isNew: Bool) {
+                             isNew: Bool,
+                             tab: AppTab) {
         Task {
             let history = FastingIntervalHistory(id: fasting.id,
                                                  currentDate: fasting.currentDate,
@@ -264,6 +262,9 @@ class RootViewModel: BaseViewModel<RootOutput> {
                 trackFastingLogged(fasting: history)
             } else {
                 trackFastingUpdated(newFasting: history, oldFasting: fasting)
+            }
+            if tab == .healthProgress {
+                updateHealthProgressInput()
             }
         }
     }

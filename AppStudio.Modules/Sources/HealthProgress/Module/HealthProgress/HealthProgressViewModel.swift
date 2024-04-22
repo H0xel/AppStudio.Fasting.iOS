@@ -39,8 +39,8 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
     @Published var weightChartItems: [LineChartItem] = []
     @Published var isMonetization = false
 
-    @Published private var fastingChartHistoryItems: [FastingHistoryChartItem] = []
-    @Published private var waterChartHistoryItems: [FastingHistoryChartItem] = []
+    private var fastingChartHistoryItemsSubject = CurrentValueSubject<[FastingHistoryChartItem], Never>([])
+    private var waterChartHistoryItemsSubject = CurrentValueSubject<[FastingHistoryChartItem], Never>([])
     @Published private var waterUnits: WaterUnits = .ounces
     private let currentWeightSubject = CurrentValueSubject<WeightMeasure, Never>(.init(value: 0))
     private var inputCancellable: AnyCancellable?
@@ -86,7 +86,7 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
             presentFastingHistory(
                 input: .init(context: .fasting,
                              historyData: fastingHistoryData,
-                             chartItems: fastingChartHistoryItems,
+                             chartItems: fastingChartHistoryItemsSubject.eraseToAnyPublisher(),
                              inputHistoryPublisher: inputHistoryPublisher)
             )
 
@@ -117,7 +117,7 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
         case .learnMoreTap:
             presentFastingHistory(input: .init(context: .water(waterUnits), 
                                                historyData: .mock,
-                                               chartItems: waterChartHistoryItems,
+                                               chartItems: waterChartHistoryItemsSubject.eraseToAnyPublisher(),
                                                inputHistoryPublisher: Empty().eraseToAnyPublisher()))
         case .emptyStateButtonTap:
             break
@@ -164,7 +164,7 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
 
             await MainActor.run {
                 waterChartItems = items
-                waterChartHistoryItems = historyItems
+                self.waterChartHistoryItemsSubject.send(historyItems)
                 self.waterUnits = waterUnits
             }
         }
@@ -176,7 +176,7 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
             .sink { [weak self] input in
                 self?.bodyMassIndex = input.bodyMassIndex
                 self?.fastingChartItems = input.fastingChartItems
-                self?.fastingChartHistoryItems = input.fastingHistoryChartItems
+                self?.fastingChartHistoryItemsSubject.send(input.fastingHistoryChartItems)
                 self?.defaultWeightUnits = input.weightUnits
                 self?.fastingHistoryData = input.fastingHistoryData
             }

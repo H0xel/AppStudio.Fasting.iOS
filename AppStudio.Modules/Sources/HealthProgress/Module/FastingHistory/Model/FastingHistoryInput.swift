@@ -14,7 +14,7 @@ struct FastingHistoryInput {
     // add Input parameters here
     let context: Context
     let historyData: FastingHistoryData
-    let chartItems:  [FastingHistoryChartItem]
+    let chartItems:  AnyPublisher<[FastingHistoryChartItem], Never>
     let inputHistoryPublisher: AnyPublisher<FastingHealthProgressInput, Never>
 
     enum Context: Equatable {
