@@ -1,1 +1,1 @@
-- All monetization exp fixes
+- Release candidate fasting 1.2.2

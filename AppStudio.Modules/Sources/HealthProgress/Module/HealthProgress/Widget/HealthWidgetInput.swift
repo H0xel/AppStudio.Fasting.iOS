@@ -38,7 +38,12 @@ extension HealthWidgetInput {
         if self == .fasting {
             return "Widget.title.unlockFastingHistory".localized(bundle: .module)
         }
-        return "Widget.title.enableForOurUsers".localized(bundle: .module)
+        
+        if self == .water {
+            return "Widget.title.unlockWaterInsights".localized(bundle: .module)
+        }
+        
+        return  "Widget.title.unlockWeightTrends".localized(bundle: .module)
     }
 }
 

@@ -101,3 +101,5 @@
 "Widget.getPlus" = "Get plus";
 "Widget.title.enableForOurUsers" = "Enable for our users";
 "Widget.title.unlockFastingHistory" = "Unlock fasting history";
+"Widget.title.unlockWeightTrends" = "Unlock weight trends";
+"Widget.title.unlockWaterInsights" = "Unlock water insights";
