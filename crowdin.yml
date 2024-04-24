@@ -1,23 +1,25 @@
 files:
   - source: /Fasting/Resources/en.lproj/*.strings
     translation: /Fasting/Resources/%osx_code%/%original_file_name%
-  - source: /Fasting/Resources/en.lproj/*.strings
+  - source: /CalorieCounter/Resources/en.lproj/*.strings
     translation: /CalorieCounter/Resources/%osx_code%/%original_file_name%
-  - source: /AppStudio.Styles/Sources/AppStudioStyles/Resources/en.lproj/en.lproj/*.strings
+  - source: /AppStudio.Styles/Sources/AppStudioStyles/Resources/en.lproj/*.strings
     translation: /AppStudio.Styles/Sources/AppStudioStyles/Resources/%osx_code%/%original_file_name%
-  - source: /AppStudio.Styles/Sources/AICoach/Resources/en.lproj/en.lproj/*.strings
-    translation: /AppStudio.Styles/Sources/AICoach/Resources/%osx_code%/%original_file_name%
-  - source: /AppStudio.Styles/Sources/Explore/Resources/en.lproj/en.lproj/*.strings
-    translation: /AppStudio.Styles/Sources/Explore/Resources/%osx_code%/%original_file_name%    
-  - source: /AppStudio.Styles/Sources/FastingWidget/Resources/en.lproj/en.lproj/*.strings
-    translation: /AppStudio.Styles/Sources/FastingWidget/Resources/%osx_code%/%original_file_name%
-  - source: /AppStudio.Styles/Sources/HealthOverview/Resources/en.lproj/en.lproj/*.strings
-    translation: /AppStudio.Styles/Sources/HealthOverview/Resources/%osx_code%/%original_file_name%
-  - source: /AppStudio.Styles/Sources/HealthProgress/Resources/en.lproj/en.lproj/*.strings
-    translation: /AppStudio.Styles/Sources/HealthProgress/Resources/%osx_code%/%original_file_name%
-  - source: /AppStudio.Styles/Sources/WaterCounter/Resources/en.lproj/en.lproj/*.strings
-    translation: /AppStudio.Styles/Sources/WaterCounter/Resources/%osx_code%/%original_file_name%
-  - source: /AppStudio.Styles/Sources/WeightGoalWidget/Resources/en.lproj/en.lproj/*.strings
-    translation: /AppStudio.Styles/Sources/WeightGoalWidget/Resources/%osx_code%/%original_file_name%
-  - source: /AppStudio.Styles/Sources/WeightWidget/Resources/en.lproj/en.lproj/*.strings
+  - source: /AppStudio.Modules/Sources/AICoach/Resources/en.lproj/*.strings
+    translation: /AppStudio.Modules/Sources/AICoach/Resources/%osx_code%/%original_file_name%
+  - source: /AppStudio.Modules/Sources/Explore/Resources/en.lproj/*.strings
+    translation: /AppStudio.Modules/Sources/Explore/Resources/%osx_code%/%original_file_name%    
+  - source: /AppStudio.Modules/Sources/FastingWidget/Resources/en.lproj/*.strings
+    translation: /AppStudio.Modules/Sources/FastingWidget/Resources/%osx_code%/%original_file_name%
+  - source: /AppStudio.Modules/Sources/HealthOverview/Resources/en.lproj/*.strings
+    translation: /AppStudio.Modules/Sources/HealthOverview/Resources/%osx_code%/%original_file_name%
+  - source: /AppStudio.Modules/Sources/HealthProgress/Resources/en.lproj/*.strings
+    translation: /AppStudio.Modules/Sources/HealthProgress/Resources/%osx_code%/%original_file_name%
+  - source: /AppStudio.Modules/Sources/WaterCounter/Resources/en.lproj/*.strings
+    translation: /AppStudio.Modules/Sources/WaterCounter/Resources/%osx_code%/%original_file_name%
+  - source: /AppStudio.Modules/Sources/WeightGoalWidget/Resources/en.lproj/*.strings
+    translation: /AppStudio.Modules/Sources/WeightGoalWidget/Resources/%osx_code%/%original_file_name%
+  - source: /AppStudio.Modules/Sources/WeightWidget/Resources/en.lproj/*.strings
     translation: /AppStudio.Styles/Sources/WeightWidget/Resources/%osx_code%/%original_file_name%
+  - source: /AppStudio.Models/Sources/AppStudioModels/Resources/en.lproj/*.strings
+    translation: /AppStudio.Models/Sources/AppStudioModels/Resources/%osx_code%/%original_file_name%
