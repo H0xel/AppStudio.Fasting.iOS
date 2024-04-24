@@ -187,7 +187,6 @@
 		56DD9E922BCFC111008AFD0D /* RateAppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD9E8F2BCFC111008AFD0D /* RateAppDependencies.swift */; };
 		56DD9E932BCFC111008AFD0D /* RateAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD9E902BCFC111008AFD0D /* RateAppService.swift */; };
 		56DD9E952BCFD138008AFD0D /* MealVotingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD9E942BCFD138008AFD0D /* MealVotingView.swift */; };
-		56F64D752AE10AD90067FE05 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56F64D742AE10AD90067FE05 /* Localizable.strings */; };
 		56F64D7C2AE10EF20067FE05 /* RootInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D762AE10EF20067FE05 /* RootInput.swift */; };
 		56F64D7D2AE10EF20067FE05 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D772AE10EF20067FE05 /* RootRouter.swift */; };
 		56F64D7E2AE10EF20067FE05 /* RootRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D782AE10EF20067FE05 /* RootRoute.swift */; };
@@ -441,6 +440,7 @@
 		A7E45C9E2B4FCC7B00935488 /* DailyCalorieBudgetDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E45C9D2B4FCC7B00935488 /* DailyCalorieBudgetDescriptionView.swift */; };
 		A7E45CA02B4FE56900935488 /* DailyCalorieLocalizationConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E45C9F2B4FE56900935488 /* DailyCalorieLocalizationConstructor.swift */; };
 		A7FFA6FE2B9F1A0B00FED655 /* AppStudioServices in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFA6FD2B9F1A0B00FED655 /* AppStudioServices */; };
+		A7FFD17D2BD8F055003055F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7FFD17B2BD8F055003055F0 /* Localizable.strings */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 		ADC784EC2AFA83BD005F16A6 /* AppStudioNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784EB2AFA83BD005F16A6 /* AppStudioNavigation */; };
 		ADC784EF2AFA8559005F16A6 /* AppStudioSubscriptions in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784EE2AFA8559005F16A6 /* AppStudioSubscriptions */; };
@@ -647,7 +647,6 @@
 		56DD9E8F2BCFC111008AFD0D /* RateAppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppDependencies.swift; sourceTree = "<group>"; };
 		56DD9E902BCFC111008AFD0D /* RateAppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppService.swift; sourceTree = "<group>"; };
 		56DD9E942BCFD138008AFD0D /* MealVotingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealVotingView.swift; sourceTree = "<group>"; };
-		56F64D742AE10AD90067FE05 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		56F64D762AE10EF20067FE05 /* RootInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInput.swift; sourceTree = "<group>"; };
 		56F64D772AE10EF20067FE05 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		56F64D782AE10EF20067FE05 /* RootRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRoute.swift; sourceTree = "<group>"; };
@@ -894,6 +893,7 @@
 		A7E45C9B2B4EB9B800935488 /* DailyCalorieBudgetChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCalorieBudgetChartView.swift; sourceTree = "<group>"; };
 		A7E45C9D2B4FCC7B00935488 /* DailyCalorieBudgetDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCalorieBudgetDescriptionView.swift; sourceTree = "<group>"; };
 		A7E45C9F2B4FE56900935488 /* DailyCalorieLocalizationConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCalorieLocalizationConstructor.swift; sourceTree = "<group>"; };
+		A7FFD17C2BD8F055003055F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountIdProviderImpl.swift; sourceTree = "<group>"; };
 		ADC784FA2AFA918D005F16A6 /* AccountTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTarget.swift; sourceTree = "<group>"; };
 		ADC784FD2AFA91F0005F16A6 /* PutAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutAccountRequest.swift; sourceTree = "<group>"; };
@@ -1676,9 +1676,9 @@
 		56C28DD72AE109A80007E48D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A7FFD17A2BD8F055003055F0 /* en.lproj */,
 				A70B6E102B3573C90035EF96 /* Color.xcassets */,
 				563257182ADE57D90000F33C /* Assets.xcassets */,
-				56F64D742AE10AD90067FE05 /* Localizable.strings */,
 				5658F8C82B34039100E010E9 /* Model.xcdatamodeld */,
 			);
 			path = Resources;
@@ -2564,6 +2564,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A7FFD17A2BD8F055003055F0 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A7FFD17B2BD8F055003055F0 /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
 		ADC784FC2AFA91D8005F16A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -2718,12 +2726,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56F64D752AE10AD90067FE05 /* Localizable.strings in Resources */,
 				56C28D862AE106A60007E48D /* .swiftlint.yml in Resources */,
 				5632571C2ADE57D90000F33C /* Preview Assets.xcassets in Resources */,
 				A75DA72A2B9B31D300F6D796 /* Poppins-Regular.ttf in Resources */,
 				A79789312B2AF5E200205170 /* WhatToTest.en-US.txt in Resources */,
 				A75DA72B2B9B31D300F6D796 /* Poppins-SemiBold.ttf in Resources */,
+				A7FFD17D2BD8F055003055F0 /* Localizable.strings in Resources */,
 				53D900722AE63D5400FFEB7A /* Settings.bundle in Resources */,
 				563257192ADE57D90000F33C /* Assets.xcassets in Resources */,
 				5624BEAC2B63A81C00B94D54 /* GoogleService-Info.plist in Resources */,
@@ -3148,7 +3156,6 @@
 				A05E68D02B30ABC900282F9C /* CalorieCounterServiceImpl.swift in Sources */,
 				56322AAE2B74E7FA00F64D3B /* RemoteExperimentPlans.swift in Sources */,
 				A06961D12BC96E55008043A4 /* DayFoodView.swift in Sources */,
-				A036CE412B5FBC1200F902E9 /* PaywallOptionView.swift in Sources */,
 				A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */,
 				5675008F2ADFAA4A009331CB /* Contacts.swift in Sources */,
 				ADC7850D2AFA9291005F16A6 /* TelecomApiError.swift in Sources */,
@@ -3230,6 +3237,17 @@
 			targetProxy = 563257222ADE57DA0000F33C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A7FFD17B2BD8F055003055F0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7FFD17C2BD8F055003055F0 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		563257332ADE57DA0000F33C /* Debug */ = {

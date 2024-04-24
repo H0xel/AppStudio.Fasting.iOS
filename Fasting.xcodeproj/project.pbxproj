@@ -180,7 +180,6 @@
 		56E223FD2B21973400096664 /* OnboardingLoadingViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E223F72B21973400096664 /* OnboardingLoadingViewScreen.swift */; };
 		56E223FE2B21973400096664 /* OnboardingLoadingViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E223F82B21973400096664 /* OnboardingLoadingViewOutput.swift */; };
 		56E223FF2B21973400096664 /* OnboardingLoadingViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E223F92B21973400096664 /* OnboardingLoadingViewViewModel.swift */; };
-		56F64D752AE10AD90067FE05 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56F64D742AE10AD90067FE05 /* Localizable.strings */; };
 		56F64D7C2AE10EF20067FE05 /* RootInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D762AE10EF20067FE05 /* RootInput.swift */; };
 		56F64D7D2AE10EF20067FE05 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D772AE10EF20067FE05 /* RootRouter.swift */; };
 		56F64D7E2AE10EF20067FE05 /* RootRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F64D782AE10EF20067FE05 /* RootRoute.swift */; };
@@ -431,6 +430,7 @@
 		A7DF36832B1DE0FD009080C9 /* InActiveFastingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */; };
 		A7DF36852B1DE195009080C9 /* InActiveFastingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */; };
 		A7E0A1CA2B07418F005DA180 /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */; };
+		A7FFD1812BD8F067003055F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7FFD17F2BD8F067003055F0 /* Localizable.strings */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 /* End PBXBuildFile section */
 
@@ -612,7 +612,6 @@
 		56E223F72B21973400096664 /* OnboardingLoadingViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoadingViewScreen.swift; sourceTree = "<group>"; };
 		56E223F82B21973400096664 /* OnboardingLoadingViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoadingViewOutput.swift; sourceTree = "<group>"; };
 		56E223F92B21973400096664 /* OnboardingLoadingViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoadingViewViewModel.swift; sourceTree = "<group>"; };
-		56F64D742AE10AD90067FE05 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		56F64D762AE10EF20067FE05 /* RootInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInput.swift; sourceTree = "<group>"; };
 		56F64D772AE10EF20067FE05 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		56F64D782AE10EF20067FE05 /* RootRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRoute.swift; sourceTree = "<group>"; };
@@ -845,6 +844,7 @@
 		A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingHeader.swift; sourceTree = "<group>"; };
 		A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingListView.swift; sourceTree = "<group>"; };
 		A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
+		A7FFD1802BD8F067003055F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountIdProviderImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1625,7 +1625,7 @@
 		56C28DD72AE109A80007E48D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				56F64D742AE10AD90067FE05 /* Localizable.strings */,
+				A7FFD17E2BD8F067003055F0 /* en.lproj */,
 				563257182ADE57D90000F33C /* Assets.xcassets */,
 				A0881E6C2AEAC4E500E38FF5 /* Color.xcassets */,
 				56B10AB92AF0DFF9008FC07E /* Model.xcdatamodeld */,
@@ -2469,6 +2469,14 @@
 			path = TestFlight;
 			sourceTree = "<group>";
 		};
+		A7FFD17E2BD8F067003055F0 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A7FFD17F2BD8F067003055F0 /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2593,9 +2601,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56F64D752AE10AD90067FE05 /* Localizable.strings in Resources */,
 				A7E0A1CA2B07418F005DA180 /* WhatToTest.en-US.txt in Resources */,
 				A72C91AA2B95D28B007E2D3C /* Poppins-Medium.ttf in Resources */,
+				A7FFD1812BD8F067003055F0 /* Localizable.strings in Resources */,
 				A7A3CE6D2AEBB32D00308201 /* Poppins-Regular.ttf in Resources */,
 				56C28D862AE106A60007E48D /* .swiftlint.yml in Resources */,
 				5632571C2ADE57D90000F33C /* Preview Assets.xcassets in Resources */,
@@ -3072,6 +3080,17 @@
 			targetProxy = 563257222ADE57DA0000F33C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A7FFD17F2BD8F067003055F0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7FFD1802BD8F067003055F0 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		563257332ADE57DA0000F33C /* Debug */ = {
