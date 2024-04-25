@@ -23,7 +23,7 @@
 "Paywall.headerTitle" = "Paywall Header Title";
 "Paywall.headerDescription" = "Paywall Header Description";
 "Paywall.headerBottomTitle" = "Paywall Header Bottom Title";
-"Paywall.savePercent" = "Save %i%";
+"Paywall.savePercent" = "Save percent";
 "Paywall.reachYourWeightGoals" = "Reach your weight goals";
 "Paywall.tryForFree" = "Try 3 days for free, then %@";
 "Paywall.renewsAt" = "Get Plus for %@";
@@ -58,14 +58,14 @@
 "PersonalizedPaywall.female.name1" = "Diana C";
 "PersonalizedPaywall.female.description1" = "“I always found counting calories to be daunting, but fasting provides the simplicity that has helped me lose weight sustainably“";
 "PersonalizedPaywall.female.name2" = "Lisa M";
-"PersonalizedPaywall.female.description2" = "“I’ve started doing the 20-hour fasting with 4-hour eating window and so far so good“";
+"PersonalizedPaywall.female.description2" = "“I’ve started doing the 20 hour fasting with 4 hour eating window and so far so good“";
 "PersonalizedPaywall.female.name3" = "Paula S";
-"PersonalizedPaywall.female.description3" = "“I didn't believe it at first, but now I have lost 6 kg! Didn't go to gym. I can still eat pizza! Crazy!“";
+"PersonalizedPaywall.female.description3" = "“I didn't believe it at first, but now I have lost 6kg! Didn't go to gym. I can still eat pizza! Crazy!“";
 
 "PersonalizedPaywall.male.name1" = "Trevor M";
 "PersonalizedPaywall.male.description1" = "“I always found counting calories to be daunting, but fasting provides the simplicity that has helped me lose weight sustainably“";
 "PersonalizedPaywall.male.name2" = "Eric K";
-"PersonalizedPaywall.male.description2" = "\"I didn't believe it at first, but now I have lost 6 kg! Didn't go to gym. I can still eat pizza! Crazy!\"";
+"PersonalizedPaywall.male.description2" = "\"I didn't believe it at first, but now I have lost 6kg! Didn't go to gym. I can still eat pizza! Crazy!\"";
 "PersonalizedPaywall.male.name3" = "George P";
 "PersonalizedPaywall.male.description3" = "\"My customized fasting plan really helped me with my stomach cramps and bloating problems\"";
 
@@ -103,7 +103,7 @@
 "Onboarding.fastingGoal.title" = "What do you want to achieve?";
 "Onboarding.fastingGoal.description" = "Pick as many as you like";
 "Onboarding.sex.title" = "What’s your sex?";
-"Onboarding.sex.description" = "Sex can affect many physical elements like our metabolism, muscle mass, or hormones, so we use it in our calculations";
+"Onboarding.sex.description" = "Sex can affect many physical elements lIke our metabolism, muscle mass, or hormones, so we use it in our calculations";
 "Onboarding.activityLevel.title" = "What's your activity level?";
 "Onboarding.specialEvent.title" = "Do you have an event that's inspiring you to lose weight?";
 "Onboarding.specialEvent.description" = "Having something to look forward to will help you stay on track";
@@ -116,7 +116,7 @@
 
 "OnboardingCalculationProccess.progress.title1" = "Analyzing your results...";
 "OnboardingCalculationProccess.progress.title2" = "Creating your plan...";
-"OnboardingCalculationProccess.phase1" = "We rely on behavioral change, not on restrictive eating styles";
+"OnboardingCalculationProccess.phase1" = "We rely on behavioural change, not on restrictive eating styles";
 "OnboardingCalculationProccess.phase2" = "Intermittent fasting is backed by multidisciplinary research";
 "OnboardingCalculationProccess.phase3" = "We say no to diets and focus on your body as a whole";
 "OnboardingCalculationProccess.phase4" = "So you can stop labeling food and just lean to eat intuitively";
@@ -174,7 +174,7 @@
 "ProductCatalog.duration.month" = "month";
 "ProductCatalog.duration.threeMonth" = "3 months";
 "ProductCatalog.duration.sixMonth" = "6 months";
-"ProductCatalog.duration.quater" = "quarter";
+"ProductCatalog.duration.quater" = "quater";
 "ProductCatalog.duration.year" = "year";
 "ProductCatalog.duration.day.form1" = "day";
 "ProductCatalog.duration.day.form2" = "days";
