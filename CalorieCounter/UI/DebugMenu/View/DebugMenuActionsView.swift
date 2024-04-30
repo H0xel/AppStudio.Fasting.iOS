@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Dependencies
+import AppStudioServices
 
 struct DebugMenuActionsView: View {
 
@@ -15,6 +16,7 @@ struct DebugMenuActionsView: View {
     @Dependency(\.cloudStorage) private var cloudStorage
     @Dependency(\.userDataService) private var userDataService
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
+    @Dependency(\.localNotificationService) private var localNotificationService
 
     @State private var currentEnvironment: BackendEnvironment
     @State private var isSubscriptionEnabled: Bool
@@ -64,6 +66,20 @@ struct DebugMenuActionsView: View {
             fatalError("Crash for testing crashlytics")
         }
         .foregroundColor(.red)
+        
+        Button("Register discount notification push 15 sec") {
+            Task {
+                let nextStartingDate = Date().addingTimeInterval(.second * 15)
+                
+                try await localNotificationService.register(DiscountLocalNotification(), 
+                                                            at: .init(year: nextStartingDate.year,
+                                                                      month: nextStartingDate.month,
+                                                                      day: nextStartingDate.day,
+                                                                      hour: nextStartingDate.hour,
+                                                                      minute: nextStartingDate.minute,
+                                                                      second: nextStartingDate.second))
+            }
+        }
     }
 }
 

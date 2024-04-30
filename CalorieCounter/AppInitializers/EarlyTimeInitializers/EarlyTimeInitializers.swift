@@ -27,7 +27,8 @@ final class EarlyTimeInitializers: Initializers {
             paywallServiceInitializer,
             QuickActionInitializer(),
             AppearenceInitializer(),
-            AICoachInitializer()
+            AICoachInitializer(),
+            NotificationCenterInitializer()
         ]
     }
 }

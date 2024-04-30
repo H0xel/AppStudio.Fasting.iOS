@@ -9,6 +9,8 @@ import Foundation
 import Combine
 
 public protocol DiscountPaywallTimerService {
+    var delayedTimerDate: Date? { get }
+    
     var discountAvailable: AnyPublisher<DiscountPaywallInfo?, Never> { get }
 
     func setAvailableDiscount(data: DiscountPaywallInfo?)

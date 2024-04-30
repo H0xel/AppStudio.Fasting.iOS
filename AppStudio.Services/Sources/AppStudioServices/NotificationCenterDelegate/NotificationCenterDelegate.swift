@@ -1,8 +1,8 @@
 //
 //  NotificationCenterDelegate.swift
-//  ExpensesServices
+//  
 //
-//  Created by Руслан Сафаргалеев on 03.05.2023.
+//  Created by Amakhin Ivan on 24.04.2024.
 //
 
 import UserNotifications
@@ -11,11 +11,19 @@ import Dependencies
 class NotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
 
     @Dependency(\.trackerService) private var trackerService
+    @Dependency(\.deepLinkService) private var deepLinkService
 
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        trackerService.track(.launchFromPush)
+        let userInfo = response.notification.request.content.userInfo
+        if userInfo.isEmpty {
+            trackerService.track(.launchFromPush)
+        }
+        
+        if let deeplinkRawValue = userInfo["deepLink"] as? String, let deepLink = DeepLink(rawValue: deeplinkRawValue) {
+            deepLinkService.set(deepLink)
+        }
         completionHandler()
     }
 }

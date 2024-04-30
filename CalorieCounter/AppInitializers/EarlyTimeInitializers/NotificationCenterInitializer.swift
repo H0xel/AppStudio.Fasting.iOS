@@ -1,8 +1,8 @@
 //
 //  NotificationCenterInitializer.swift
-//  Fasting
+//  CalorieCounter
 //
-//  Created by Denis Khlopin on 15.11.2023.
+//  Created by Amakhin Ivan on 24.04.2024.
 //
 
 import Dependencies

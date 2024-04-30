@@ -35,6 +35,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.fastingParametersService) private var fastingParametersService
     @Dependency(\.userPropertyService) private var userPropertyService
     @Dependency(\.weightService) private var weightService
+    @Dependency(\.localNotificationService) private var localNotificationService
 
     @Published var currentTab: AppTab = .daily {
         willSet {
@@ -66,6 +67,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         subscribeForAvailableDiscountPaywall()
         observeCurrentTab()
         updateHealthProgressInput()
+        registerDiscountNotification()
     }
 
     func initialize() {
@@ -137,6 +139,18 @@ class RootViewModel: BaseViewModel<RootOutput> {
             self?.isProcessingSubcription = isProcessing
         }
     }()
+    
+    func handle(deepLink: DeepLink?) {
+        switch deepLink {
+        case .discount:
+            currentTab = .paywall
+            // Раскомитить когда уберем таб пейвола
+//            if let discountPaywallInfo {
+//                router.presentDiscountPaywall(tab: currentTab, info: discountPaywallInfo)
+//            }
+        case nil: break
+        }
+    }
 
     private func handle(healthProgressScreenOutput: HealthProgressOutput) {
         switch healthProgressScreenOutput {
@@ -317,6 +331,10 @@ class RootViewModel: BaseViewModel<RootOutput> {
             if let discountPaywallInfo {
                 this.discountPaywallTimerService.registerPaywall(info: discountPaywallInfo)
             }
+            
+            if hasSubscription {
+                this.deleteDiscountNotification()
+            }
         }
         .disposed(by: disposeBag)
     }
@@ -457,6 +475,30 @@ class RootViewModel: BaseViewModel<RootOutput> {
         let heightMetters = data.height.normalizeValue / 100
         let bodyMassIndex = currentWeight / (heightMetters * heightMetters)
         return bodyMassIndex
+    }
+
+    private func registerDiscountNotification() {
+        $rootScreen
+            .sink(with: self) { this, screen in
+                if screen == .fasting {
+                    guard let notificationStartedDate = this.discountPaywallTimerService.delayedTimerDate,
+                          !this.hasSubscription else { return }
+                    Task {
+                        try await this.localNotificationService.register(DiscountLocalNotification(),
+                                                                         at: .init(year: notificationStartedDate.year,
+                                                                                   month: notificationStartedDate.month,
+                                                                                   day: notificationStartedDate.day,
+                                                                                   hour: notificationStartedDate.hour,
+                                                                                   minute: notificationStartedDate.minute,
+                                                                                   second: notificationStartedDate.second))
+                    }
+                }
+            }
+            .store(in: &cancellables)
+    }
+
+    private func deleteDiscountNotification() {
+        localNotificationService.clearPendingNotification(id: DiscountLocalNotification().id)
     }
 }
 

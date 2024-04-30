@@ -25,6 +25,8 @@ public enum PaywallContext: String {
     case popup = "popup"
     case nova = "nova"
     case progress = "progress"
+    
+    case discountPush = "push_discount"
 }
 
 extension PaywallContext: TrackerParam {

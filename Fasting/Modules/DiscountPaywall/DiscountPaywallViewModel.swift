@@ -23,7 +23,7 @@ enum DiscountPaywallType {
 class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
     var router: DiscountPaywallRouter!
     @Published var timeInterval: TimeInterval = .second
-    @Published var paywallType: DiscountPaywallType = .empty
+    @Published var paywallType: DiscountPaywallType = .timer(.mock)
     let discountPersent: String
     let context: PaywallContext
 

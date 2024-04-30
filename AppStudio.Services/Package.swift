@@ -40,6 +40,9 @@ let package = Package(
                 .product(name: "ABTesting", package: "iOS.ABTesting"),
                 .product(name: "AppStudioSubscriptions", package: "AppStudio.iOS.Subscriptions"),
                 .product(name: "AppStudioModels", package: "AppStudio.Models")
+            ],
+            resources: [
+                .process("Resources/en.lproj/Localizable.strings")
             ]
         )
     ]

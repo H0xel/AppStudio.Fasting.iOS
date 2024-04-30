@@ -14,6 +14,7 @@ import RxSwift
 import AppStudioServices
 import AppStudioModels
 import AppStudioStyles
+import UserNotifications
 
 class FoodViewModel: BaseViewModel<FoodOutput> {
     var router: FoodRouter!
@@ -34,6 +35,7 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
     @Dependency(\.mealService) private var mealService
     @Dependency(\.userDataService) private var userDataService
+    @Dependency(\.localNotificationService) private var localNotificationService
 
     init(input: FoodInput, output: @escaping FoodOutputBlock) {
         super.init(output: output)
@@ -42,6 +44,7 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
         initializeDiscountPaywallExperiment()
         subscribeForAvailableDiscountPaywall()
         initializeCalendar()
+        requestLocalNotifications()
     }
 
     func dayFoodInput(date: Date) -> DayFoodInput {
@@ -143,6 +146,9 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
             .asDriver()
             .drive(with: self) { this, hasSubscription in
                 this.hasSubscription = hasSubscription
+                if hasSubscription {
+                    this.deleteDiscountNotification()
+                }
             }
             .disposed(by: disposeBag)
     }
@@ -154,18 +160,21 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
     func trackPrevDay(_ date: Date) {
         trackerService.track(.tapPreviousDay(targetDate: date.description))
     }
+    
+    func handleDeepLink(deepLink: DeepLink?) {
+        switch deepLink {
+        case .discount:
+            presentDiscountPaywall(context: .discountPush)
+        case .none: break
+        }
+    }
 }
 
 // MARK: Discount experiment
 
 extension FoodViewModel {
     func bannerTapped() {
-        if let discountPaywallInfo {
-            router.presentDiscountPaywall(input: .init(context: .discountMain,
-                                                       paywallInfo: discountPaywallInfo)) { [weak self] _ in
-                self?.router.dismiss()
-            }
-        }
+        presentDiscountPaywall(context: .discountMain)
     }
 
     func updateTimer(discountPaywallInfo: DiscountPaywallInfo) {
@@ -181,6 +190,15 @@ extension FoodViewModel {
     func closeBannerTapped() {
         discountPaywallTimerService.stopTimer()
     }
+    
+    private func presentDiscountPaywall(context: PaywallContext) {
+        if let discountPaywallInfo {
+            router.presentDiscountPaywall(input: .init(context: context,
+                                                       paywallInfo: discountPaywallInfo)) { [weak self] _ in
+                self?.router.dismiss()
+            }
+        }
+    }
 
     private func subscribeForAvailableDiscountPaywall() {
         discountPaywallTimerService.discountAvailable
@@ -193,7 +211,7 @@ extension FoodViewModel {
             .take(1)
             .asDriver()
             .drive(with: self) { this, paywallIInfo in
-                if let paywallIInfo {
+                if let paywallIInfo {                    
                     this.discountPaywallTimerService.registerPaywall(info: paywallIInfo)
                     this.updateTimer(discountPaywallInfo: paywallIInfo)
                     this.startTimer()
@@ -214,5 +232,32 @@ extension FoodViewModel {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    private func requestLocalNotifications() {
+        Task {
+            let authorizationIsGranted = try await UNUserNotificationCenter.current()
+                .requestAuthorization(options: [.alert, .sound, .badge])
+            if authorizationIsGranted {
+                registerDiscountNotification()
+            }
+        }
+    }
+    
+    private func registerDiscountNotification() {
+        guard let notificationStartedDate = discountPaywallTimerService.delayedTimerDate, !hasSubscription else { return }
+        Task {
+            try await localNotificationService.register(DiscountLocalNotification(), 
+                                                        at: .init(year: notificationStartedDate.year,
+                                                                  month: notificationStartedDate.month,
+                                                                  day: notificationStartedDate.day,
+                                                                  hour: notificationStartedDate.hour,
+                                                                  minute: notificationStartedDate.minute,
+                                                                  second: notificationStartedDate.second))
+        }
+    }
+    
+    private func deleteDiscountNotification() {
+        localNotificationService.clearPendingNotification(id: DiscountLocalNotification().id)
     }
 }

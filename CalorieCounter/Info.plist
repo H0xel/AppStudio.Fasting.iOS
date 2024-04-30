@@ -15,24 +15,24 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fb1056281552251947</string>
-      </array>
-      </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>1056281552251947</string>
-    <key>FacebookClientToken</key>
-    <string>3daf59735c13d782da37540fa7741fbd</string>
-    <key>FacebookDisplayName</key>
-    <string>Calorie Counter</string>
-    <key>FacebookAutoLogAppEventsEnabled</key>
-    <true/>
-    <key>FacebookAdvertiserIDCollectionEnabled</key>
-    <true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1056281552251947</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1056281552251947</string>
+	<key>FacebookClientToken</key>
+	<string>3daf59735c13d782da37540fa7741fbd</string>
+	<key>FacebookDisplayName</key>
+	<string>Calorie Counter</string>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<true/>
+	<key>FacebookAdvertiserIDCollectionEnabled</key>
+	<true/>
 </dict>
 </plist>

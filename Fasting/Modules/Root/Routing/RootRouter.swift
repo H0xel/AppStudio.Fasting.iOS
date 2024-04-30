@@ -88,6 +88,35 @@ class RootRouter: BaseRouter {
         }
     }
 
+    func presentDiscountPaywall(tab: AppTab, info: DiscountPaywallInfo) {
+
+        var navigator: Navigator {
+            switch tab {
+            case .fasting:
+                return fastingNavigator
+            case .coach:
+                return coachNavigator
+            case .paywall:
+                return paywallNavigator
+            case .healthProgress:
+                return healthProgressNavigator
+            case .daily:
+                return healthOverviewNavigator
+            }
+        }
+
+        let route = DiscountPaywallRoute(navigator: navigator,
+                                         input: .init(context: .discountPush, paywallInfo: info),
+                                         output: { output in
+            switch output {
+            case .close, .subscribe: navigator.dismiss()
+            case .switchProgress: break
+            }
+        })
+
+        navigator.present(route: route)
+    }
+
     func onboardingScreen(output: @escaping OnboardingOutputBlock) -> some View {
         let route = OnboardingRoute(navigator: onboardingNavigator, input: .init(), output: output)
         return onboardingNavigator.initialize(route: route)

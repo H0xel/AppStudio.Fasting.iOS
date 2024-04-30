@@ -23,3 +23,5 @@ files:
     translation: /AppStudio.Styles/Sources/WeightWidget/Resources/%osx_code%/%original_file_name%
   - source: /AppStudio.Models/Sources/AppStudioModels/Resources/en.lproj/*.strings
     translation: /AppStudio.Models/Sources/AppStudioModels/Resources/%osx_code%/%original_file_name%
+  - source: /AppStudio.Services/Sources/AppStudioServices/Resources/en.lproj/*.strings
+    translation: /AppStudio.Services/Sources/AppStudioServices/Resources/%osx_code%/%original_file_name%

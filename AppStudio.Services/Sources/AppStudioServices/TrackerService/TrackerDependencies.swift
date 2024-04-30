@@ -19,4 +19,5 @@ public extension DependencyValues {
 
 public enum TrackerServiceKey: DependencyKey {
     public static var liveValue: TrackerService?
+    public static var previewValue: TrackerService? = TrackerServicePreview()
 }

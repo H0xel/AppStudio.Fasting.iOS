@@ -46,6 +46,7 @@ struct FoodScreen: View {
                 }
             }
         }
+        .withDeepLink(deepLink: viewModel.handleDeepLink)
     }
 }
 

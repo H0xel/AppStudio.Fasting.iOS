@@ -441,6 +441,7 @@
 		A7E45CA02B4FE56900935488 /* DailyCalorieLocalizationConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E45C9F2B4FE56900935488 /* DailyCalorieLocalizationConstructor.swift */; };
 		A7FFA6FE2B9F1A0B00FED655 /* AppStudioServices in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFA6FD2B9F1A0B00FED655 /* AppStudioServices */; };
 		A7FFD17D2BD8F055003055F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7FFD17B2BD8F055003055F0 /* Localizable.strings */; };
+		A7FFD1832BD94183003055F0 /* NotificationCenterInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFD1822BD94183003055F0 /* NotificationCenterInitializer.swift */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 		ADC784EC2AFA83BD005F16A6 /* AppStudioNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784EB2AFA83BD005F16A6 /* AppStudioNavigation */; };
 		ADC784EF2AFA8559005F16A6 /* AppStudioSubscriptions in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784EE2AFA8559005F16A6 /* AppStudioSubscriptions */; };
@@ -894,6 +895,7 @@
 		A7E45C9D2B4FCC7B00935488 /* DailyCalorieBudgetDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCalorieBudgetDescriptionView.swift; sourceTree = "<group>"; };
 		A7E45C9F2B4FE56900935488 /* DailyCalorieLocalizationConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCalorieLocalizationConstructor.swift; sourceTree = "<group>"; };
 		A7FFD17C2BD8F055003055F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		A7FFD1822BD94183003055F0 /* NotificationCenterInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterInitializer.swift; sourceTree = "<group>"; };
 		AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountIdProviderImpl.swift; sourceTree = "<group>"; };
 		ADC784FA2AFA918D005F16A6 /* AccountTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTarget.swift; sourceTree = "<group>"; };
 		ADC784FD2AFA91F0005F16A6 /* PutAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutAccountRequest.swift; sourceTree = "<group>"; };
@@ -1669,6 +1671,7 @@
 				56C28DC42AE109580007E48D /* AppSyncServiceInitializer.swift */,
 				A7DBD0A62B3AB773003DCD10 /* QuickActionInitializer.swift */,
 				A04CF6422BCFB1B800EDDEA3 /* AICoachInitializer+extensions.swift */,
+				A7FFD1822BD94183003055F0 /* NotificationCenterInitializer.swift */,
 			);
 			path = EarlyTimeInitializers;
 			sourceTree = "<group>";
@@ -2680,7 +2683,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					563257102ADE57D80000F33C = {
 						CreatedOnToolsVersion = 15.0;
@@ -2941,6 +2944,7 @@
 				A0586D862B34E51900C05D48 /* LogButton.swift in Sources */,
 				A041D5FC2B35A3A9009A98B7 /* MealDeleteBanner.swift in Sources */,
 				A04272CC2AE28DF600754326 /* DebugMenuInfoView.swift in Sources */,
+				A7FFD1832BD94183003055F0 /* NotificationCenterInitializer.swift in Sources */,
 				A091B4A42B31FC2C00140B36 /* MealView.swift in Sources */,
 				A01505252B3197A000EC34B5 /* Ingredient.swift in Sources */,
 				A0FE90632B4EFCC90069AC4C /* TabBarViewModel.swift in Sources */,
@@ -3019,7 +3023,6 @@
 				A70B6DFA2B31B9250035EF96 /* CGFloat+Extensions.swift in Sources */,
 				A01505272B3197C100EC34B5 /* MealItem.swift in Sources */,
 				A0FE90602B4EFCC90069AC4C /* TabBarRoute.swift in Sources */,
-				A01505272B3197C100EC34B5 /* MealItem.swift in Sources */,
 				A05E68F02B30B4CC00282F9C /* UIScreen+extensions.swift in Sources */,
 				A72A7D882B31B031000677A2 /* PersonalizedPaywallRouter.swift in Sources */,
 				567500CA2ADFCC54009331CB /* AccountSyncServiceImpl.swift in Sources */,

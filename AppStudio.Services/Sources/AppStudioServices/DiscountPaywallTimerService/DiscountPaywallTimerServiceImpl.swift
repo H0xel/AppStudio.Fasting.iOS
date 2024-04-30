@@ -17,6 +17,10 @@ class DiscountPaywallTimerServiceImpl: DiscountPaywallTimerService {
     var discountAvailable: AnyPublisher<DiscountPaywallInfo?, Never> {
         discountAvailableTrigger.eraseToAnyPublisher()
     }
+    
+    var delayedTimerDate: Date? {
+        storageService.delayedTimerTime
+    }
 
     func setAvailableDiscount(data: DiscountPaywallInfo?) {
         discountAvailableTrigger.send(data)
@@ -26,6 +30,10 @@ class DiscountPaywallTimerServiceImpl: DiscountPaywallTimerService {
     func registerPaywall(info: DiscountPaywallInfo) {
 
         if storageService.startTimerTime == nil {
+            
+            if let delayedTimerTime = info.delayTimeInHours {
+                storageService.delayedTimerTime = .now.addingTimeInterval(.init(minutes: Int(delayedTimerTime * 60)))
+            }
 
             let startedDelayTimeInSeconds = Int((info.delayTimeInHours ?? 0) * 60 * 60)
             let endPaywallTimeInSeconds = Int(info.timerDurationInSeconds ?? 0) + startedDelayTimeInSeconds
@@ -119,11 +127,17 @@ class DiscountPaywallTimerServiceImpl: DiscountPaywallTimerService {
 }
 
 private let startTimerTimeKey = "Fasting.startTimerTimeKey"
+private let delayedTimerTimeKey = "Fasting.delayedTimerTimeKey"
 private let reloadTimerTimeKey = "Fasting.reloadTimerTimeKey"
 private let endPaywallTimeKey = "Fasting.endPaywallTimeKey"
 private let timerIsFinishedKey = "Fasting.timerIsFinishedKey"
 
 extension StorageService {
+    var delayedTimerTime: Date? {
+        get { get(key: delayedTimerTimeKey) }
+        set { set(key: delayedTimerTimeKey, value: newValue) }
+    }
+    
     var startTimerTime: Date? {
         get { get(key: startTimerTimeKey) }
         set { set(key: startTimerTimeKey, value: newValue) }

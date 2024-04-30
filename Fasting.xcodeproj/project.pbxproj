@@ -25,7 +25,6 @@
 		563B8AC52B03AEFC00AF6BB7 /* FastingNotificationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8AC42B03AEFC00AF6BB7 /* FastingNotificationInfo.swift */; };
 		563B8AC72B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8AC62B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift */; };
 		563B8AC92B03AF8400AF6BB7 /* LocalNotificationDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8AC82B03AF8400AF6BB7 /* LocalNotificationDependencies.swift */; };
-		563B8ACB2B04AA4000AF6BB7 /* NotificationCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8ACA2B04AA4000AF6BB7 /* NotificationCenterDelegate.swift */; };
 		563B8ACF2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8ACE2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift */; };
 		564BE0B42AF0E99F00CE7F38 /* MunicornAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 564BE0B32AF0E99F00CE7F38 /* MunicornAPI */; };
 		564BE0B62AF0E99F00CE7F38 /* MunicornCoreData in Frameworks */ = {isa = PBXBuildFile; productRef = 564BE0B52AF0E99F00CE7F38 /* MunicornCoreData */; };
@@ -464,7 +463,6 @@
 		563B8AC42B03AEFC00AF6BB7 /* FastingNotificationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingNotificationInfo.swift; sourceTree = "<group>"; };
 		563B8AC62B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingLocalNotificationServiceImpl.swift; sourceTree = "<group>"; };
 		563B8AC82B03AF8400AF6BB7 /* LocalNotificationDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationDependencies.swift; sourceTree = "<group>"; };
-		563B8ACA2B04AA4000AF6BB7 /* NotificationCenterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterDelegate.swift; sourceTree = "<group>"; };
 		563B8ACE2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterInitializer.swift; sourceTree = "<group>"; };
 		564BE0B92AF0F18300CE7F38 /* DatabaseDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDependencies.swift; sourceTree = "<group>"; };
 		564BE0BE2AF0F30400CE7F38 /* FastingParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingParameters.swift; sourceTree = "<group>"; };
@@ -971,7 +969,6 @@
 			isa = PBXGroup;
 			children = (
 				563B8ABF2B03AE8B00AF6BB7 /* Model */,
-				563B8ACA2B04AA4000AF6BB7 /* NotificationCenterDelegate.swift */,
 				563B8ABB2B01F6E300AF6BB7 /* FastingLocalNotificationService.swift */,
 				563B8AC62B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift */,
 				563B8AC82B03AF8400AF6BB7 /* LocalNotificationDependencies.swift */,
@@ -2808,7 +2805,6 @@
 				56C28DC52AE109580007E48D /* SubscriptionServiceInitializer.swift in Sources */,
 				A008A8312AF14C0B0011A261 /* Animation+extensions.swift in Sources */,
 				A7DBD0942B3AB20A003DCD10 /* QuickActionDependencies.swift in Sources */,
-				563B8ACB2B04AA4000AF6BB7 /* NotificationCenterDelegate.swift in Sources */,
 				5675010A2ADFD955009331CB /* IntercomUpdaterImpl.swift in Sources */,
 				567500432ADFA67E009331CB /* AccountProvider.swift in Sources */,
 				A7C026CD2B1DB235004C3D63 /* InActiveFastingArticleRoute.swift in Sources */,

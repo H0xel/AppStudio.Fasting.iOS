@@ -54,6 +54,7 @@ struct DiscountPaywallScreen: View {
                       action: viewModel.close)
         .navBarButton(content: restoreButton,
                       action: viewModel.restore)
+        .toolbarBackground(.clear, for: .navigationBar)
         .onAppear(perform: viewModel.appeared)
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .active {
@@ -92,19 +93,13 @@ private extension DiscountPaywallScreen {
 
 struct DiscountPaywallScreen_Previews: PreviewProvider {
     static var previews: some View {
-        DiscountPaywallScreen(
-            viewModel: DiscountPaywallViewModel(
-                input: .init(context: .paywallTab, paywallInfo: .init(
-                    name: "",
-                    productId: "", 
-                    delayTimeInHours: nil,
-                    paywallType: "",
-                    renewOfferTime: nil,
-                    discount: 50,
-                    timerDurationInSeconds: 0,
-                    priceDisplay: "")),
-                output: { _ in }
+        NavigationView {
+            DiscountPaywallScreen(
+                viewModel: DiscountPaywallViewModel(
+                    input: .init(context: .paywallTab, paywallInfo: .mock),
+                    output: { _ in }
+                )
             )
-        )
+        }
     }
 }

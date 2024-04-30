@@ -9,6 +9,9 @@ import SwiftUI
 import Dependencies
 import AICoach
 import WeightWidget
+import AppStudioServices
+import AppStudioABTesting
+import FirebaseRemoteConfig
 
 struct DebugMenuActionsView: View {
 
@@ -23,6 +26,7 @@ struct DebugMenuActionsView: View {
     @Dependency(\.weightService) private var weightService
     @Dependency(\.fastingHistoryService) private var fastingHistoryService
     @Dependency(\.weightGoalService) private var weightGoalService
+    @Dependency(\.localNotificationService) private var localNotificationService
 
     @State private var isDeletingMessages = false
 
@@ -92,6 +96,19 @@ struct DebugMenuActionsView: View {
         Button("Delete all weight goals", role: .destructive) {
             Task {
                 try await weightGoalService.deleteAll()
+            }
+        }
+        Button("Register discount notification push 5 sec") {
+            Task {
+                let nextStartingDate = Date().addingTimeInterval(.second * 5)
+
+                try await localNotificationService.register(DiscountLocalNotification(),
+                                                            at: .init(year: nextStartingDate.year,
+                                                                      month: nextStartingDate.month,
+                                                                      day: nextStartingDate.day,
+                                                                      hour: nextStartingDate.hour,
+                                                                      minute: nextStartingDate.minute,
+                                                                      second: nextStartingDate.second))
             }
         }
     }

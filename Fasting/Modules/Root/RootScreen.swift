@@ -9,6 +9,7 @@ import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
 import HealthProgress
+import AppStudioServices
 
 struct RootScreen: View {
 
@@ -20,6 +21,7 @@ struct RootScreen: View {
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
                 viewModel.requestIdfa()
             }
+            .withDeepLink(deepLink: viewModel.handle)
     }
 
     @ViewBuilder
