@@ -33,4 +33,19 @@ enum SpecialEvent: String, CaseIterable, Identifiable, Codable {
             return title
         }
     }
+
+    var eventArticle: String {
+        switch self {
+        case .vacation, .wedding, .sportsCompetition, .reunion:
+            return "OnboardingService.bulletWeight.article.the".localized()
+        case .birthday, .somethingElse:
+            return "OnboardingService.bulletWeight.article.your".localized()
+        case .summer, .noSpecialEvent:
+            return ""
+        }
+    }
+
+    var onboardingQuestion: String {
+        "SpecialEvent.\(rawValue).question".localized()
+    }
 }

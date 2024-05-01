@@ -44,8 +44,8 @@ struct PersonalizedSpecialEventView: View {
         .aligned(.right)
         .padding(.top, Layout.specialEventTopPadding)
         .padding(.trailing, specialEventDateLaterThenEndDate
-                 ? Layout.specialEventTrailingWhenEventIsEarlier
-                 : Layout.specialEventTrailingWhenEventIsLater
+                 ? Layout.specialEventTrailingWhenEventIsLater
+                 : Layout.specialEventTrailingWhenEventIsEarlier
         )
     }
 }
@@ -53,8 +53,8 @@ struct PersonalizedSpecialEventView: View {
 private extension PersonalizedSpecialEventView {
     enum Layout {
         static let specialEventTopPadding: CGFloat = 25
-        static let specialEventTrailingWhenEventIsLater: CGFloat = 45
-        static let specialEventTrailingWhenEventIsEarlier: CGFloat = 26
+        static let specialEventTrailingWhenEventIsLater: CGFloat = 26
+        static let specialEventTrailingWhenEventIsEarlier: CGFloat = 50
         static let specialEventDateBottomPadding: CGFloat = 20
         static let specialEventSeparatorWidth: CGFloat = 2
         static let specialEventSeparatorBottomPadding: CGFloat = 11

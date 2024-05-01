@@ -28,7 +28,7 @@ struct OnboardingLoadingDescriptionView: View {
 private extension OnboardingLoadingDescriptionView {
     enum Layout {
         static let emptySpacing: CGFloat = 0
-        static let changeTextAnimationDuration: CGFloat = 0.1
+        static let changeTextAnimationDuration: CGFloat = 0.2
         static let descriptionHeight: CGFloat = 320
         static let horizontalPadding: CGFloat = 44
     }

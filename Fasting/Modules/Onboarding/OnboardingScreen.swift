@@ -115,7 +115,7 @@ struct OnboardingScreen: View {
                                  selectedOptions: [viewModel.specialEvent].compactMap { $0 },
                                  onTap: viewModel.specialEventTapped)
         case .specialEventDate:
-            OnboardingDatePickerView(title: Localization.specialEventDateTitle,
+            OnboardingDatePickerView(title: viewModel.specialEvent?.onboardingQuestion ?? "",
                                      canChoosePast: false,
                                      date: $viewModel.specialEventDate)
         case .none:

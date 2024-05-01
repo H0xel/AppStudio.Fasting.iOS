@@ -27,7 +27,7 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
     @Published var fastingGoals: [FastingGoal] = []
     @Published var specialEvent: SpecialEvent?
     @Published var birthdayDate: Date = .dateWith(day: 1, month: 1, year: 2000)
-    @Published var specialEventDate: Date = .now
+    @Published var specialEventDate: Date = .now.adding(.month, value: 1)
     @Published var height: CGFloat = 0
     @Published var inchHeight: CGFloat = 0
     @Published var currentWeight: CGFloat = 0

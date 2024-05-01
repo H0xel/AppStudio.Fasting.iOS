@@ -23,6 +23,11 @@ public struct WeightMeasure: Codable, Equatable {
         }
     }
 
+    public var wholeValueWithUnits: String {
+        let value = String(format: "%.0f", value)
+        return "\(value) \(units.title)"
+    }
+
     public var valueWithUnits: String {
         let value = String(format: "%.2f", value)
         return "\(value) \(units.title)"

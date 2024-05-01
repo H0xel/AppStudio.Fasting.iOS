@@ -125,7 +125,9 @@ private extension Sex {
                       weight: weightUnit == .kg ? 12 : 25),
                 .init(image: .init(.ericK),
                       name: NSLocalizedString("PersonalizedPaywall.male.name2", comment: ""),
-                      description: NSLocalizedString("PersonalizedPaywall.male.description2", comment: ""),
+                      description: weightUnit == .kg ?
+                      NSLocalizedString("PersonalizedPaywall.male.description2.kg", comment: "") :
+                        NSLocalizedString("PersonalizedPaywall.male.description2.lb", comment: ""),
                       weight: weightUnit == .kg ? 6 : 13),
                 .init(image: .init(.georgeP),
                       name: NSLocalizedString("PersonalizedPaywall.male.name3", comment: ""),
@@ -144,7 +146,9 @@ private extension Sex {
                       weight: weightUnit == .kg ? 3 : 6),
                 .init(image: .init(.paulaS),
                       name: NSLocalizedString("PersonalizedPaywall.female.name3", comment: ""),
-                      description: NSLocalizedString("PersonalizedPaywall.female.description3", comment: ""),
+                      description: weightUnit == .kg ?
+                      NSLocalizedString("PersonalizedPaywall.female.description3.kg", comment: "") :
+                        NSLocalizedString("PersonalizedPaywall.female.description3.lb", comment: ""),
                       weight: weightUnit == .kg ? 6 : 13)
             ]
         }

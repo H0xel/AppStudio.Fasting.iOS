@@ -55,18 +55,20 @@
 "PersonalizedPaywall.description.7" = "Promote cell regeneration, detoxification and metabolism";
 "PersonalizedPaywall.description.8" = "Scientifically proven";
 
-"PersonalizedPaywall.female.name1" = "Diana C";
+"PersonalizedPaywall.female.name1" = "Diana";
 "PersonalizedPaywall.female.description1" = "“I always found counting calories to be daunting, but fasting provides the simplicity that has helped me lose weight sustainably“";
-"PersonalizedPaywall.female.name2" = "Lisa M";
+"PersonalizedPaywall.female.name2" = "Lisa";
 "PersonalizedPaywall.female.description2" = "“I’ve started doing the 20-hour fasting with 4-hour eating window and so far so good“";
-"PersonalizedPaywall.female.name3" = "Paula S";
-"PersonalizedPaywall.female.description3" = "“I didn't believe it at first, but now I have lost 6 kg! Didn't go to gym. I can still eat pizza! Crazy!“";
+"PersonalizedPaywall.female.name3" = "Paula";
+"PersonalizedPaywall.female.description3.kg" = "“I didn't believe it at first, but now I have lost 6 kg! Didn't go to gym. I can still eat pizza! Crazy!“";
+"PersonalizedPaywall.female.description3.lb" = "“I didn't believe it at first, but now I have lost 13 lb! Didn't go to gym. I can still eat pizza! Crazy!“";
 
-"PersonalizedPaywall.male.name1" = "Trevor M";
+"PersonalizedPaywall.male.name1" = "Trevor";
 "PersonalizedPaywall.male.description1" = "“I always found counting calories to be daunting, but fasting provides the simplicity that has helped me lose weight sustainably“";
-"PersonalizedPaywall.male.name2" = "Eric K";
-"PersonalizedPaywall.male.description2" = "\"I didn't believe it at first, but now I have lost 6 kg! Didn't go to gym. I can still eat pizza! Crazy!\"";
-"PersonalizedPaywall.male.name3" = "George P";
+"PersonalizedPaywall.male.name2" = "Eric";
+"PersonalizedPaywall.male.description2.kg" = "\"I didn't believe it at first, but now I have lost 6 kg! Didn't go to gym. I can still eat pizza! Crazy!\"";
+"PersonalizedPaywall.male.description2.lb" = "\"I didn't believe it at first, but now I have lost 13 lb! Didn't go to gym. I can still eat pizza! Crazy!\"";
+"PersonalizedPaywall.male.name3" = "George";
 "PersonalizedPaywall.male.description3" = "\"My customized fasting plan really helped me with my stomach cramps and bloating problems\"";
 
 // MARK: - Fasting Screen
@@ -119,15 +121,19 @@
 "OnboardingCalculationProccess.phase1" = "We rely on behavioral change, not on restrictive eating styles";
 "OnboardingCalculationProccess.phase2" = "Intermittent fasting is backed by multidisciplinary research";
 "OnboardingCalculationProccess.phase3" = "We say no to diets and focus on your body as a whole";
-"OnboardingCalculationProccess.phase4" = "So you can stop labeling food and just lean to eat intuitively";
+"OnboardingCalculationProccess.phase4" = "So you can stop labeling food and just learn to eat intuitively";
 "OnboardingCalculationProccess.phase5" = "And remember: Nobody’s perfect. That’s completely normal!";
 "OnboardingCalculationProccess.phase6" = "We’re always here to get you back on track";
 
 "OnboardingService.paywallTitle" = "Reach your dream weight of %@ by %@";
-"OnboardingService.bulletWeight.title" = "Lose ~%@ by your %@!";
+"OnboardingService.bulletWeight.title" = "Lose ~%@ by %@ %@!";
+"OnboardingService.bulletWeight.article.the" = "the";
+"OnboardingService.bulletWeight.article.your" = "your";
+
 // MARK: Choose fasting plan
 
 "ChooseFastingPlan.title" = "Choose your\nfasting time";
+"ChooseFastingPlan.title.onboarding" = "Your recommended\nfasting schedule";
 "ChooseFastingPlan.description" = "Your fasting period starts right after the last meal of the day. Select a fasting schedule that best suits your daily routine.";
 "ChooseFastingPlan.buttonTitle" = "Choose";
 "ChooseFastingPlan.regular" = "Regular";
@@ -331,6 +337,15 @@
 
 "SpecialEvent.somethingElse.title" = "Big event";
 "SpecialEvent.sportsCompetition.title" = "Competition";
+
+"SpecialEvent.vacation.question" = "When does your vacation start?";
+"SpecialEvent.wedding.question" = "When is your wedding?";
+"SpecialEvent.sportsCompetition.question" = "When is your sports event?";
+"SpecialEvent.summer.question" = "When do you want to see the results for the summer?";
+"SpecialEvent.reunion.question" = "When is your school reunion?";
+"SpecialEvent.birthday.question" = "When is your birthday party?";
+"SpecialEvent.somethingElse.question" = "When is your special occasion?";
+"SpecialEvent.noSpecialEvent.question" = "When is your special occasion?";
 
 // MARK: - Fasting Phase
 "FastingPhase.sugarRises" = "Blood sugar slowly rises";

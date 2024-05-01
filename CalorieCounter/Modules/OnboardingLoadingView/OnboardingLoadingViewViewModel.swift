@@ -12,7 +12,7 @@ import Foundation
 
 class OnboardingLoadingViewViewModel: BaseViewModel<OnboardingLoadingViewOutput> {
     var router: OnboardingLoadingViewRouter!
-    @Published private var data: OnboardingCalculationProccessData = .calculateData(interval: 0)
+    @Published var data: OnboardingCalculationProccessData = .calculateData(interval: 0)
     private var isFinished = false
 
     var title: String {

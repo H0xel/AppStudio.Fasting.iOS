@@ -253,8 +253,6 @@
 		A04DBFB02AF3D2780045980F /* ForceUpdateBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04DBFAF2AF3D2780045980F /* ForceUpdateBanner.swift */; };
 		A04E933D2BC67CC900696462 /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E933C2BC67CC900696462 /* CloseButtonView.swift */; };
 		A04F51E32B23092400CBDADE /* OnboardingFlowIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F51E22B23092400CBDADE /* OnboardingFlowIndicatorView.swift */; };
-		A050046A2B20705B00820E45 /* OnboardingPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05004692B20705B00820E45 /* OnboardingPickerView.swift */; };
-		A050046C2B20724500820E45 /* OnboardingPickerOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A050046B2B20724500820E45 /* OnboardingPickerOptionView.swift */; };
 		A050046E2B2074F800820E45 /* OnboardingPreviousPageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A050046D2B2074F800820E45 /* OnboardingPreviousPageButton.swift */; };
 		A05004702B20A0BF00820E45 /* OnboardingFlowStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A050046F2B20A0BF00820E45 /* OnboardingFlowStep.swift */; };
 		A05004722B20A18300820E45 /* OnboardingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05004712B20A18300820E45 /* OnboardingStartView.swift */; };
@@ -668,8 +666,6 @@
 		A04DBFAF2AF3D2780045980F /* ForceUpdateBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateBanner.swift; sourceTree = "<group>"; };
 		A04E933C2BC67CC900696462 /* CloseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonView.swift; sourceTree = "<group>"; };
 		A04F51E22B23092400CBDADE /* OnboardingFlowIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowIndicatorView.swift; sourceTree = "<group>"; };
-		A05004692B20705B00820E45 /* OnboardingPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPickerView.swift; sourceTree = "<group>"; };
-		A050046B2B20724500820E45 /* OnboardingPickerOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPickerOptionView.swift; sourceTree = "<group>"; };
 		A050046D2B2074F800820E45 /* OnboardingPreviousPageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPreviousPageButton.swift; sourceTree = "<group>"; };
 		A050046F2B20A0BF00820E45 /* OnboardingFlowStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowStep.swift; sourceTree = "<group>"; };
 		A05004712B20A18300820E45 /* OnboardingStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartView.swift; sourceTree = "<group>"; };
@@ -1872,8 +1868,6 @@
 		A05004682B20703A00820E45 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A05004692B20705B00820E45 /* OnboardingPickerView.swift */,
-				A050046B2B20724500820E45 /* OnboardingPickerOptionView.swift */,
 				A050046D2B2074F800820E45 /* OnboardingPreviousPageButton.swift */,
 				A05004712B20A18300820E45 /* OnboardingStartView.swift */,
 				A05004762B20D94100820E45 /* OnboardingDatePickerView.swift */,
@@ -2959,7 +2953,6 @@
 				A04426302AF23DAE005400AE /* TimeInterval+extensions.swift in Sources */,
 				567500062ADE84B4009331CB /* Migration.swift in Sources */,
 				A7D01B932AF115F200C50C1F /* NotificationOnboardingOutput.swift in Sources */,
-				A050046C2B20724500820E45 /* OnboardingPickerOptionView.swift in Sources */,
 				A7D01B802AF10A6D00C50C1F /* SetupFastingOutput.swift in Sources */,
 				5662DED02B16164600C1637C /* FastingRingView.swift in Sources */,
 				A063B1FA2AEBD0E800084696 /* StartFastingViewModel.swift in Sources */,
@@ -2978,7 +2971,6 @@
 				567500CC2ADFCC54009331CB /* AppSyncServiceImpl.swift in Sources */,
 				A04E933D2BC67CC900696462 /* CloseButtonView.swift in Sources */,
 				A76294372B21A4B300DAF93B /* PersonalizedStartWeightView.swift in Sources */,
-				A050046A2B20705B00820E45 /* OnboardingPickerView.swift in Sources */,
 				A0382D412AF4F03A009CC579 /* SuccessViewModel.swift in Sources */,
 				567501072ADFD955009331CB /* IntercomService.swift in Sources */,
 				A7A1AEA42AFE2C0A00B6211E /* Contexts.swift in Sources */,

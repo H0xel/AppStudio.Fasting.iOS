@@ -26,7 +26,7 @@ struct OnboardingFlowIndicatorView: View {
                     Color.white
                         .frame(width: Layout.indicatorsSpacing,
                                height: Layout.stepIndicatorHeight)
-                        .opacity(isGreaterThenCurrentStep(step) ? 1 : 0)
+                        .opacity(isGreaterOrEqualThenCurrentStep(step) ? 1 : 0)
                 }
             }
             .background(
@@ -47,6 +47,13 @@ struct OnboardingFlowIndicatorView: View {
             return true
         }
         return stepIndex > currentStepIndex
+    }
+
+    private func isGreaterOrEqualThenCurrentStep(_ step: OnboardingFlowStep) -> Bool {
+        guard let currentStepIndex = stepsIndexes[currentStep], let stepIndex = stepsIndexes[step] else {
+            return true
+        }
+        return stepIndex >= currentStepIndex
     }
 
     private var gradient: some View {

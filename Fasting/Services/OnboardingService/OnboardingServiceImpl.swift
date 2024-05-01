@@ -76,7 +76,7 @@ class OnboardingServiceImpl: OnboardingService, WaterIntakeService {
         let specialEventDate = data.specialEventDate ?? data.birthdayDate
 
         let specialEventWithWeightTitle = data.specialEvent.eventName + " " + (
-            calculatedData.specialEventWeight?.valueWithUnits ?? ""
+            calculatedData.specialEventWeight?.wholeValueWithUnits ?? ""
         )
 
         var status: PersonalizedChart.SpecialEventStatus {
@@ -89,12 +89,12 @@ class OnboardingServiceImpl: OnboardingService, WaterIntakeService {
 
         return .init(title: calculatedData.paywallTitle,
                      chart: .init(
-                        startWeight: data.weight.valueWithUnits,
-                        endWeight: data.desiredWeight.valueWithUnits,
-                        weightDifference: "- \(weightDifference.valueWithUnits)",
-                        endDate: calculatedData.desiredWeightDate.paywallLocaleDateTimeString,
+                        startWeight: data.weight.wholeValueWithUnits,
+                        endWeight: data.desiredWeight.wholeValueWithUnits,
+                        weightDifference: "- \(weightDifference.wholeValueWithUnits)",
+                        endDate: calculatedData.desiredWeightDate.currentLocaleFormatted(with: "MMM dd"),
                         specialEventWithWeightTitle: specialEventWithWeightTitle,
-                        specialEventDate: specialEventDate.paywallLocaleDateTimeString,
+                        specialEventDate: specialEventDate.currentLocaleFormatted(with: "MMM dd"),
                         specialEventStatus: status),
                      sex: sex,
                      activityLevel: activityLevel,
@@ -149,7 +149,7 @@ class OnboardingServiceImpl: OnboardingService, WaterIntakeService {
 
         if let event = data.specialEventDate {
             let daysToEvent = event.timeIntervalSinceNow.hours / 24
-            let eventWeight = data.weight.value - CGFloat(daysToEvent) * weightPerDay
+            let eventWeight = max(data.weight.value - CGFloat(daysToEvent) * weightPerDay, data.desiredWeight.value)
             specialEventWeight = .init(value: eventWeight, units: data.weight.units)
             eventDropWeightMeasure = .init(value: data.weight.value - eventWeight, units: data.weight.units)
         }
@@ -181,13 +181,12 @@ class OnboardingServiceImpl: OnboardingService, WaterIntakeService {
         guard let data else { return [] }
         var bullets = [String]()
 
-        if let dropWeight, data.specialEvent != .noSpecialEvent {
-            let eventTitle = data.specialEventDate == nil
-            ? SpecialEvent.birthday.eventName
-            : data.specialEvent.eventName
+        if let dropWeight, dropWeight.value >= 2, data.specialEvent != .noSpecialEvent {
+            let event = data.specialEventDate == nil ? SpecialEvent.birthday : data.specialEvent
+            let eventTitle = event.eventName.lowercased()
             let weightTitle = NSLocalizedString("OnboardingService.bulletWeight.title",
                                                 comment: "Lose ~3 kg by your birthday! ")
-            bullets.append(String(format: weightTitle, dropWeight.valueWithUnits, eventTitle))
+            bullets.append(String(format: weightTitle, dropWeight.wholeValueWithUnits, event.eventArticle, eventTitle))
         }
 
         var availableBullets = FastingGoal.availableBullets
@@ -213,7 +212,13 @@ class OnboardingServiceImpl: OnboardingService, WaterIntakeService {
         let title = NSLocalizedString("OnboardingService.paywallTitle",
                                       comment: "Reach your dream weight of 52 kg by February 14")
 
-        return String(format: title, data.desiredWeight.valueWithUnits, desiredWeightDate.localeShortDateString)
+        return String(
+            format: title,
+            data.desiredWeight.wholeValueWithUnits,
+            desiredWeightDate.currentLocaleFormatted(
+                with: desiredWeightDate.year == Date().year ? "MMMM dd" : " MMMM dd yyyy"
+            )
+        )
     }
 }
 

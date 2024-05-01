@@ -29,6 +29,7 @@ struct OnboardingLoadingViewScreen: View {
             totalInterval += Layout.timerInterval
             viewModel.updateOnboardingCalculationProccessData(interval: totalInterval)
         }
+        .animation(.linear(duration: 0.2), value: viewModel.data)
     }
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OnboardingCalculationProccessData {
+struct OnboardingCalculationProccessData: Equatable {
     let angle: CGFloat
     let progress: CGFloat
     let phase: OnboardingCalculationProccessPhases

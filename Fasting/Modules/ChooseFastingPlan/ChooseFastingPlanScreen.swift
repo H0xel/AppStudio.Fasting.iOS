@@ -14,7 +14,9 @@ struct ChooseFastingPlanScreen: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            Text(Localization.title)
+            Text(viewModel.context == .onboarding ?
+                    Localization.titleOnboarding :
+                    Localization.title)
                 .font(.adaptivePoppins(font: .headerL, smallDeviceFont: .headerM))
                 .padding(.top, Layout.titleTopPadding)
                 .padding(.bottom, Layout.titleBottomPadding)
@@ -58,6 +60,7 @@ private extension ChooseFastingPlanScreen {
 private extension ChooseFastingPlanScreen {
     enum Localization {
         static let title: LocalizedStringKey = "ChooseFastingPlan.title"
+        static let titleOnboarding: LocalizedStringKey = "ChooseFastingPlan.title.onboarding"
         static let description: LocalizedStringKey = "ChooseFastingPlan.description"
     }
 }

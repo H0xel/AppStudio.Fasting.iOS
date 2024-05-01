@@ -24,7 +24,7 @@ struct OnboardingFlowIndicatorView: View {
                     Color.white
                         .frame(width: Layout.indicatorsSpacing,
                                height: Layout.stepIndicatorHeight)
-                        .opacity(currentStep.rawValue < step.rawValue ? 1 : 0)
+                        .opacity(currentStep.rawValue <= step.rawValue ? 1 : 0)
                 }
             }
             .background(
