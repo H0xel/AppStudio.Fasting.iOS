@@ -7,9 +7,10 @@
 
 import Foundation
 import UserNotifications
+import Dependencies
+import MunicornFoundation
 
 class LocalNotificationServiceImpl: LocalNotificationService {
-    
     func register(_ notification: LocalNotification, at date: DateComponents) async throws {
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
         
@@ -30,5 +31,13 @@ class LocalNotificationServiceImpl: LocalNotificationService {
     private func requestAuthorization() async throws -> Bool {
         let settings = await UNUserNotificationCenter.current().notificationSettings()
         return !(settings.authorizationStatus == .notDetermined || settings.authorizationStatus == .denied)
+    }
+}
+
+private let discountNotificationRegisteredKey = "DiscountNotification.registered"
+public extension StorageService {
+    var discountNotificationRegistered: Bool {
+        get { get(key: discountNotificationRegisteredKey, defaultValue: false) }
+        set { set(key: discountNotificationRegisteredKey, value: newValue) }
     }
 }

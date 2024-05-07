@@ -36,6 +36,7 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
     @Dependency(\.mealService) private var mealService
     @Dependency(\.userDataService) private var userDataService
     @Dependency(\.localNotificationService) private var localNotificationService
+    @Dependency(\.storageService) private var storageService
 
     init(input: FoodInput, output: @escaping FoodOutputBlock) {
         super.init(output: output)
@@ -238,7 +239,7 @@ extension FoodViewModel {
         Task {
             let authorizationIsGranted = try await UNUserNotificationCenter.current()
                 .requestAuthorization(options: [.alert, .sound, .badge])
-            if authorizationIsGranted {
+            if authorizationIsGranted, !storageService.discountNotificationRegistered {
                 registerDiscountNotification()
             }
         }
@@ -254,6 +255,7 @@ extension FoodViewModel {
                                                                   hour: notificationStartedDate.hour,
                                                                   minute: notificationStartedDate.minute,
                                                                   second: notificationStartedDate.second))
+            storageService.discountNotificationRegistered = true
         }
     }
     
