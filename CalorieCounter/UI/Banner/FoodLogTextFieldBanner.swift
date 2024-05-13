@@ -11,7 +11,7 @@ import AppStudioNavigation
 struct FoodLogTextFieldBanner: Banner {
 
     let onTap: () -> Void
-    let onBarcodeScan: () -> Void
+    let onBarcodeScan: (Bool) -> Void
 
     var view: AnyView {
         FoodLogTextField(isDisableEditing: true,

@@ -349,6 +349,9 @@
 		A70B6E0F2B32DD710035EF96 /* NotificationOnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70B6E092B32DD710035EF96 /* NotificationOnboardingRouter.swift */; };
 		A70B6E112B3573C90035EF96 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A70B6E102B3573C90035EF96 /* Color.xcassets */; };
 		A70D4C462B2B125D00F10477 /* Contexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70D4C452B2B125D00F10477 /* Contexts.swift */; };
+		A711E54C2BECB81F00AC81F9 /* CameraAccessServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A711E5492BECB81F00AC81F9 /* CameraAccessServiceImpl.swift */; };
+		A711E54D2BECB81F00AC81F9 /* CameraAccessDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A711E54A2BECB81F00AC81F9 /* CameraAccessDependencies.swift */; };
+		A711E54E2BECB81F00AC81F9 /* CameraAccessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A711E54B2BECB81F00AC81F9 /* CameraAccessService.swift */; };
 		A712BE7E2B832D30005504B1 /* MealServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712BE7D2B832D30005504B1 /* MealServicePreview.swift */; };
 		A712BE802B832E43005504B1 /* UserDataServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712BE7F2B832E43005504B1 /* UserDataServicePreview.swift */; };
 		A712BE822B832EAA005504B1 /* FreeUsageServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712BE812B832EAA005504B1 /* FreeUsageServicePreview.swift */; };
@@ -803,6 +806,9 @@
 		A70B6E092B32DD710035EF96 /* NotificationOnboardingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingRouter.swift; sourceTree = "<group>"; };
 		A70B6E102B3573C90035EF96 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		A70D4C452B2B125D00F10477 /* Contexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contexts.swift; sourceTree = "<group>"; };
+		A711E5492BECB81F00AC81F9 /* CameraAccessServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccessServiceImpl.swift; sourceTree = "<group>"; };
+		A711E54A2BECB81F00AC81F9 /* CameraAccessDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccessDependencies.swift; sourceTree = "<group>"; };
+		A711E54B2BECB81F00AC81F9 /* CameraAccessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccessService.swift; sourceTree = "<group>"; };
 		A712BE7D2B832D30005504B1 /* MealServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealServicePreview.swift; sourceTree = "<group>"; };
 		A712BE7F2B832E43005504B1 /* UserDataServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataServicePreview.swift; sourceTree = "<group>"; };
 		A712BE812B832EAA005504B1 /* FreeUsageServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeUsageServicePreview.swift; sourceTree = "<group>"; };
@@ -1471,6 +1477,7 @@
 		5675FFD12ADE8358009331CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A711E5482BECB80E00AC81F9 /* CameraAccessService */,
 				56DD9E8D2BCFC0ED008AFD0D /* RateAppService */,
 				A712BEA72B834CF6005504B1 /* PromoPaywallService */,
 				A00B4DB42B737A1F0067A872 /* FacebookInitializer */,
@@ -2296,6 +2303,16 @@
 			path = Routing;
 			sourceTree = "<group>";
 		};
+		A711E5482BECB80E00AC81F9 /* CameraAccessService */ = {
+			isa = PBXGroup;
+			children = (
+				A711E5492BECB81F00AC81F9 /* CameraAccessServiceImpl.swift */,
+				A711E54A2BECB81F00AC81F9 /* CameraAccessDependencies.swift */,
+				A711E54B2BECB81F00AC81F9 /* CameraAccessService.swift */,
+			);
+			path = CameraAccessService;
+			sourceTree = "<group>";
+		};
 		A712BE872B834CA6005504B1 /* DiscountPaywall */ = {
 			isa = PBXGroup;
 			children = (
@@ -3025,6 +3042,7 @@
 				A0FE90602B4EFCC90069AC4C /* TabBarRoute.swift in Sources */,
 				A05E68F02B30B4CC00282F9C /* UIScreen+extensions.swift in Sources */,
 				A72A7D882B31B031000677A2 /* PersonalizedPaywallRouter.swift in Sources */,
+				A711E54D2BECB81F00AC81F9 /* CameraAccessDependencies.swift in Sources */,
 				567500CA2ADFCC54009331CB /* AccountSyncServiceImpl.swift in Sources */,
 				56C28DD22AE109580007E48D /* MobileDeviceDataProviderInitializer.swift in Sources */,
 				567500272ADE86C3009331CB /* ExecutionDispatchQueue.swift in Sources */,
@@ -3056,6 +3074,7 @@
 				5692C6952B5A5410007A9E3A /* CodableCacheRepository.swift in Sources */,
 				A70B6DFB2B31B9250035EF96 /* Double+Extensions.swift in Sources */,
 				A72A7D962B31B031000677A2 /* OnboardingOutput.swift in Sources */,
+				A711E54E2BECB81F00AC81F9 /* CameraAccessService.swift in Sources */,
 				5658F8D22B3408FC00E010E9 /* MealRepository.swift in Sources */,
 				561961B32B34474600B95FC9 /* MealRepositoryImpl.swift in Sources */,
 				A7DBD0A02B3AB687003DCD10 /* QuickActionService.swift in Sources */,
@@ -3103,6 +3122,7 @@
 				A0FE904A2B4EF0A80069AC4C /* TopBorderModifier.swift in Sources */,
 				A036CE482B5FEE3200F902E9 /* GetPlusButton.swift in Sources */,
 				A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */,
+				A711E54C2BECB81F00AC81F9 /* CameraAccessServiceImpl.swift in Sources */,
 				A72A7D7D2B31B031000677A2 /* PersonalizedChart.swift in Sources */,
 				ADC785032AFA922B005F16A6 /* SubscriptionsApiImpl.swift in Sources */,
 				A72A7D7C2B31B031000677A2 /* PersonalizedStartWeightView.swift in Sources */,

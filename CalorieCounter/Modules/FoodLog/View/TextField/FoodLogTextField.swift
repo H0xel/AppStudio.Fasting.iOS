@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AppStudioUI
+import Dependencies
 
 enum FoodLogTextFieldContext {
     case addMeal
@@ -14,11 +15,13 @@ enum FoodLogTextFieldContext {
 }
 
 struct FoodLogTextField: View {
+    @Dependency(\.cameraAccessService) private var cameraAccessService
+
     var context: FoodLogTextFieldContext = .addMeal
     var isDisableEditing = false
     var isBarcodeShown = true
     let onTap: (String) -> Void
-    let onBarcodeScan: () -> Void
+    let onBarcodeScan: (Bool) -> Void
     @State private var text: String = ""
 
     @FocusState private var isFocused: Bool
@@ -71,7 +74,12 @@ struct FoodLogTextField: View {
                 if !text.isEmpty {
                     FoodLogTextFieldButton(isAccent: true, image: .arrowUp, onTap: log)
                 } else if isBarcodeShown {
-                    FoodLogTextFieldButton(image: .barcode, onTap: onBarcodeScan)
+                    FoodLogTextFieldButton(image: .barcode) {
+                        Task {
+                            let cameraAccessGranted = await cameraAccessService.requestAccess()
+                            onBarcodeScan(cameraAccessGranted)
+                        }
+                    }
                 }
             }
         }
@@ -143,11 +151,14 @@ private extension FoodLogTextField {
     VStack(spacing: 0) {
         ZStack {
             Color.yellow
-            FoodLogTextField(isBarcodeShown: true, onTap: { _ in }, onBarcodeScan: {})
+            FoodLogTextField(isBarcodeShown: true, onTap: { _ in }, onBarcodeScan: { _ in })
         }
         ZStack {
             Color.yellow
-            FoodLogTextField(context: .addIngredients(.mock), isBarcodeShown: true, onTap: { _ in }, onBarcodeScan: {})
+            FoodLogTextField(context: .addIngredients(.mock),
+                             isBarcodeShown: true, 
+                             onTap: { _ in },
+                             onBarcodeScan: { _ in })
         }
     }
 }

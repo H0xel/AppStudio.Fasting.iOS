@@ -20,7 +20,7 @@ class FoodRouter: BaseRouter {
         push(route: route)
     }
 
-    func presentTextField(onTap: @escaping() -> Void, onBarcodeScan: @escaping() -> Void) {
+    func presentTextField(onTap: @escaping () -> Void, onBarcodeScan: @escaping (Bool) -> Void) {
         present(banner: FoodLogTextFieldBanner(onTap: onTap, onBarcodeScan: onBarcodeScan))
     }
 
@@ -46,5 +46,21 @@ class FoodRouter: BaseRouter {
                                  input: .init(),
                                  output: output)
         present(route: route)
+    }
+
+    func presentCameraAccessAlert() {
+        let alertTitle = NSLocalizedString("CameraAlert.title" , comment: "")
+        let alertSubTitle = NSLocalizedString("CameraAlert.subtitle" , comment: "")
+        let openSettingTitle = NSLocalizedString("CameraAlert.openSettings" , comment: "")
+        let cancelButtonTitle = NSLocalizedString("Button.cancel" , comment: "")
+        let openSettingsAction = DialogAction(title: openSettingTitle, role: nil, image: nil) {
+            guard let settingsAppURL = URL(string: UIApplication.openSettingsURLString) else { return }
+            UIApplication.shared.open(settingsAppURL, options: [:])
+        }
+        let cancelAction = DialogAction(title: cancelButtonTitle, role: .cancel, image: nil, action: {})
+        present(systemAlert: Alert(
+            title: alertTitle,
+            message: alertSubTitle,
+            actions: [openSettingsAction, cancelAction]))
     }
 }

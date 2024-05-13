@@ -73,8 +73,11 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
         router.presentTextField { [weak self] in
             guard let self else { return }
             self.focusTextFieldSubject.send((calendarViewModel.currentDay, .input))
-        } onBarcodeScan: { [weak self] in
-            guard let self else { return }
+        } onBarcodeScan: { [weak self] accessGranted in
+            guard let self, accessGranted else {
+                self?.router.presentCameraAccessAlert()
+                return
+            }
             self.focusTextFieldSubject.send((calendarViewModel.currentDay, .barcode))
         }
     }

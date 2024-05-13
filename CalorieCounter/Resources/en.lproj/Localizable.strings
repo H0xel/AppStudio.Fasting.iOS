@@ -381,3 +381,8 @@
 "MealVoting.title.notVoted" = "Recognized correctly?";
 "MealVoting.title.like" = "Thanks!";
 "MealVoting.title.dislike" = "Thanks! We'll work on it.";
+
+// MARK: Camera Alert
+"CameraAlert.title" = "\"Calorie Counter\" \nWould Like to Access the Camera";
+"CameraAlert.subtitle" = "Allow camera access in the settings to scan barcodes.";
+"CameraAlert.openSettings" = "Open application settings";

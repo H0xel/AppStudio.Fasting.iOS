@@ -9,6 +9,7 @@ import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
 import Dependencies
+import Photos
 
 class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
 
@@ -19,6 +20,7 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.userPropertyService) private var userPropertyService
     @Dependency(\.requestReviewService) private var requestReviewService
+    @Dependency(\.cameraAccessService) private var cameraAccessService
 
     var router: FoodLogRouter!
     @Published var mealType: MealType
@@ -81,7 +83,12 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
 
     func onViewAppear() {
         if context == .barcode {
-            barcodeScan()
+            Task {
+                let cameraAccessGranted = await cameraAccessService.requestAccess()
+                await MainActor.run {
+                    barcodeScan(accessGranted: cameraAccessGranted)
+                }
+            }
         }
     }
 
@@ -584,11 +591,15 @@ extension FoodLogViewModel {
         }
     }
 
-    func barcodeScan() {
+    func barcodeScan(accessGranted: Bool) {
+        guard accessGranted else {
+            router.presentCameraAccessAlert()
+            return
+        }
         isBarcodeScanFinishedSuccess = true
         guard hasSubscription else {
             presentPaywall { [weak self] in
-                self?.barcodeScan()
+                self?.barcodeScan(accessGranted: accessGranted)
             }
             return
         }

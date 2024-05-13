@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
+import AVFoundation
 
 struct FoodLogScreen: View {
     @StateObject var viewModel: FoodLogViewModel
@@ -38,9 +39,9 @@ struct FoodLogScreen: View {
                     .padding(.trailing, .logButtonTrailingPadding)
                 }
                 FoodLogTextField(context: viewModel.foodLogContext,
-                                 onTap: viewModel.logMeal(text:)) {
+                                 onTap: viewModel.logMeal(text:)) { accessGranted in
                     viewModel.trackBarcodeScannerOpen()
-                    viewModel.barcodeScan()
+                    viewModel.barcodeScan(accessGranted: accessGranted)
                 }
                 .focused($isFocused)
             }
