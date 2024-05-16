@@ -52,3 +52,6 @@
 "Paywall.bestValue" = "Best value";
 "Paywall.perWeek" = "per week";
 "Paywall.week" = " / week";
+
+"Today.title" = "Today";
+"Date.yesterday.title" = "Yesterday";
