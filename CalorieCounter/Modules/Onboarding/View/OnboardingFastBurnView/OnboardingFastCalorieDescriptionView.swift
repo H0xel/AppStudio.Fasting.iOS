@@ -49,8 +49,8 @@ extension OnboardingFastCalorieDescriptionView {
 
         var subtitle: String {
             switch self {
-            case .averageDailyCalories: return "Average daily\ncalories"
-            case .estimatedAchievementDate: return "Estimated\nachievement date"
+            case .averageDailyCalories: return Localization.averageDailyCalories
+            case .estimatedAchievementDate: return Localization.estimatedAchievementDate
             }
         }
     }
@@ -60,6 +60,11 @@ private enum Localization {
     static func kcal(_ kcal: String) -> String {
         String(format: NSLocalizedString("OnboardingEstimatedExpenditureView.title", comment: ""), kcal)
     }
+
+    static var averageDailyCalories = NSLocalizedString("OnboardingEstimatedExpenditureView.averageDaily",
+                                                        comment: "")
+    static var estimatedAchievementDate =  NSLocalizedString("OnboardingEstimatedExpenditureView.estimatedAchievementDate",
+                                                             comment: "")
 }
 
 private extension CGFloat {

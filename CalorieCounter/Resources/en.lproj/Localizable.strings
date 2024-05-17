@@ -232,6 +232,8 @@
 "OnboardingEstimatedExpenditureView.title" = "%@ kcal";
 "OnboardingEstimatedExpenditureView.subtitle" = "your estimated expenditure";
 "OnboardingEstimatedExpenditureView.description" = "Expenditure is the number of calories you would need to consume to maintain your current weight";
+"OnboardingEstimatedExpenditureView.averageDaily" = "Average daily\ncalories";
+"OnboardingEstimatedExpenditureView.estimatedAchievementDate" = "Estimated\nachievement date";
 
 // MARK: - CalorieGoal
 "CalorieGoal.lose" = "Lose weight";
