@@ -54,7 +54,7 @@ struct PersonalizedPaywallScreen: View {
             .opacity(viewModel.canDisplayCloseButton ? 1 : 0),
                       action: viewModel.close)
         .navBarButton(content: restoreButton,
-                      action: viewModel.restore)
+                      action: viewModel.restoreTapped)
     }
 
     private var restoreButton: some View {

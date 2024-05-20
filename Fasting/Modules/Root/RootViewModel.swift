@@ -10,7 +10,6 @@ import AppStudioUI
 import SwiftUI
 import Dependencies
 import RxSwift
-import AppStudioSubscriptions
 import HealthProgress
 import Combine
 import HealthOverview
@@ -18,6 +17,7 @@ import FastingWidget
 import WeightWidget
 import AppStudioModels
 import AppStudioServices
+import NewAppStudioSubscriptions
 
 class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.storageService) private var storageService
@@ -25,7 +25,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.fastingParametersInitializer) private var fastingParametersInitializer
     @Dependency(\.appCustomization) private var appCustomization
-    @Dependency(\.subscriptionService) private var subscriptionService
+    @Dependency(\.newSubscriptionService) private var newSubscriptionService
     @Dependency(\.fastingService) private var fastingService
     @Dependency(\.firstLaunchService) private var firstLaunchService
     @Dependency(\.quickActionTypeServiceService) private var quickActionTypeServiceService
@@ -36,6 +36,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.userPropertyService) private var userPropertyService
     @Dependency(\.weightService) private var weightService
     @Dependency(\.localNotificationService) private var localNotificationService
+    @Dependency(\.onboardingApi) private var onboardingApi
 
     @Published var currentTab: AppTab = .daily {
         willSet {
@@ -139,7 +140,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
             self?.isProcessingSubcription = isProcessing
         }
     }()
-    
+
     func handle(deepLink: DeepLink?) {
         switch deepLink {
         case .discount:
@@ -150,6 +151,14 @@ class RootViewModel: BaseViewModel<RootOutput> {
 //            }
         case nil: break
         }
+    }
+
+    func handle(status: inAppPurchaseStatus) {
+        if status.isLoading {
+            isProcessingSubcription = true
+            return
+        }
+        isProcessingSubcription = false
     }
 
     private func handle(healthProgressScreenOutput: HealthProgressOutput) {
@@ -178,8 +187,11 @@ class RootViewModel: BaseViewModel<RootOutput> {
         switch output {
         case .profileTapped:
             router.presentProfile()
-        case .showPaywall, .showPopUpPaywall:
-            router.presentMultipleProductPaywall(context: output == .showPopUpPaywall ? .popup : .daily)
+        case .showPaywall:
+            router.presentMultipleProductPaywall(context: .daily)
+        case .showPopUpPaywall:
+            guard !isProcessingSubcription else { return }
+            router.presentMultipleProductPaywall(context: .popup)
         }
     }
 
@@ -310,7 +322,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     private func initializePaywallTab() {
         Observable.combineLatest(
-            subscriptionService.hasSubscriptionObservable.distinctUntilChanged(),
+            newSubscriptionService.hasSubscription.asObservable().distinctUntilChanged(),
             appCustomization.discountPaywallExperiment.distinctUntilChanged(),
             appCustomization.isMonetizationExpAvailable.distinctUntilChanged()
         )
@@ -499,13 +511,6 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     private func deleteDiscountNotification() {
         localNotificationService.clearPendingNotification(id: DiscountLocalNotification().id)
-    }
-}
-
-// MARK: Routing
-extension RootViewModel {
-    func showPaywall() {
-        router.presentPaywall()
     }
 }
 

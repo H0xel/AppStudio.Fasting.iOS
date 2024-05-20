@@ -66,9 +66,9 @@ public extension ProfileButtonInput {
               image: sex == .male ? .init(.sexMale) : .init(.sexFemale))
     }
 
-    static func birthday(birthday: Date) -> ProfileButtonInput {
+    static func birthday(birthday: Date?) -> ProfileButtonInput {
         .init(title: "ProfileScreen.birthday".localized(bundle: .module),
-              description: birthday.currentLocaleFormatted(with: "MMdyyyy"),
+              description: birthday?.currentLocaleFormatted(with: "MMdyyyy") ?? "ProfileScreen.birthday.add".localized(bundle: .module),
               image: .init(.birthday))
     }
 

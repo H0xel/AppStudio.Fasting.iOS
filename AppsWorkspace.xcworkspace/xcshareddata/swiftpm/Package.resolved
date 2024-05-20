@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git",
       "state" : {
-        "revision" : "40603706a50b29c124c2bb3a71e97f2e85f3c935",
-        "version" : "1.0.2"
+        "revision" : "fcea7d861bde431558cb89ba4c8761b022a662c4",
+        "version" : "1.0.3"
       }
     },
     {

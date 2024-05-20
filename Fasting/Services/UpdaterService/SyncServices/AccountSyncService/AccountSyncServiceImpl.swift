@@ -12,14 +12,19 @@ import MunicornUtilities
 class AccountSyncServiceImpl: SyncServiceBaseImpl<EmptyResult> {
     @Dependency(\.accountApi) private var accountApi
     @Dependency(\.analyticKeyStore) private var analyticKeyStore
+    @Dependency(\.newSubscriptionInitializer) private var newSubscriptionInitializer
+    @Dependency(\.onboardingInitializer) private var onboardingInitializer
 
     override func syncRequest() async throws -> EmptyResult? {
         do {
-            return try await accountApi.putAccount(
+            let result = try await accountApi.putAccount(
                 PutAccountRequest(isProduction: !UIDevice.current.isSandbox,
                                   idfa: UIDevice.current.idfa,
                                   appsflyerId: analyticKeyStore.currentAppsFlyerId,
                                   firebaseId: analyticKeyStore.currentFirebaseId))
+            newSubscriptionInitializer.initialize()
+            onboardingInitializer.initialize()
+            return result
         } catch {
             return try await retry()
         }

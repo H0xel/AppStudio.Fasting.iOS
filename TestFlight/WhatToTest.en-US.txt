@@ -1,1 +1,1 @@
-- Release rc CC 1.0.9
+- W2W fasting integration

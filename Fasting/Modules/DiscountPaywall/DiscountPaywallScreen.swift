@@ -34,7 +34,7 @@ struct DiscountPaywallScreen: View {
                 }
 
                 if isSettings {
-                    Button(action: viewModel.restore) {
+                    Button(action: viewModel.restoreTapped) {
                         restoreButton
                             .padding(.trailing, .tabBarRestoreButtonTrailingPadding)
                             .padding(.top, .tabBarRestoreButtonBottomPadding)
@@ -53,7 +53,7 @@ struct DiscountPaywallScreen: View {
                       content: Image.close.foregroundStyle(Color.studioGreyStrokeFill),
                       action: viewModel.close)
         .navBarButton(content: restoreButton,
-                      action: viewModel.restore)
+                      action: viewModel.restoreTapped)
         .toolbarBackground(.clear, for: .navigationBar)
         .onAppear(perform: viewModel.appeared)
         .onChange(of: scenePhase) { newPhase in

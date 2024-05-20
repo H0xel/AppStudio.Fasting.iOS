@@ -12,7 +12,6 @@ import AppStudioServices
 
 final class AppSyncServiceImpl: ServiceBaseImpl, AppSyncService {
     @Dependency(\.storageService) private var storageService
-    @Dependency(\.subscriptionService) private var subscriptionService
     @Dependency(\.accountSyncService) private var accountSyncService
     @Dependency(\.firstLaunchService) private var firstLaunchService
 
@@ -63,9 +62,5 @@ final class AppSyncServiceImpl: ServiceBaseImpl, AppSyncService {
         uploadReceipt()
     }
 
-    private func uploadReceipt() {
-        subscriptionService.uploadReceipt()
-            .subscribe()
-            .disposed(by: disposeBag)
-    }
+    private func uploadReceipt() {}
 }

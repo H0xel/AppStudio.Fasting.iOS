@@ -13,50 +13,46 @@ import AppStudioNavigation
 import AppStudioSubscriptions
 import AppStudioServices
 import AppStudioModels
+import StoreKit
 
-class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
+class PersonalizedPaywallViewModel: BasePaywallViewModel<PersonalizedPaywallOutput> {
+    @Dependency(\.productIdsService) private var productIdsService
+    @Dependency(\.appCustomization) private var appCustomization
+    @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
+    @Dependency(\.newSubscriptionService) private var newSubscriptionService
+
     @Published var isTrialAvailable = false
     @Published var canDisplayCloseButton = false
-    @Published private var highestPriceSubscription: SubscriptionProduct?
     @Published private var discountPaywallInfo: DiscountPaywallInfo?
     let input: PersonalizedPaywallInput
 
     var router: PersonalizedPaywallRouter!
 
     private let disposeBag = DisposeBag()
-    private var subscriptions: [Subscription] = []
-    @Dependency(\.subscriptionService) private var subscriptionService
-    @Dependency(\.messengerService) private var messenger
-    @Dependency(\.productIdsService) private var productIdsService
-    @Dependency(\.trackerService) private var trackerService
-    @Dependency(\.analyticKeyStore) private var analyticKeyStore
-    @Dependency(\.appCustomization) private var appCustomization
-    @Dependency(\.promoPaywallService) private var promoPaywallService
-    @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
-    @Dependency(\.cloudStorage) private var cloudStorage
+    private var paywallSubscription: Product?
 
-    private let context = "personalizedPaywall"
 
     init(input: PersonalizedPaywallInput, output: @escaping PersonalizedPaywallOutputBlock) {
         self.input = input
         super.init(output: output)
+        paywallContext = .onboarding
         configureCloseButton()
-        subscribeToLoadingState()
-        subscribeToMayUseAppStatus()
-        subscribeToFinishTransactionState()
-        subscribeToRestoreChange()
-        loadAvailableProducts()
+        initializeRemoteSubscriptions()
+        subscribeToDiscountPaywallState()
         subscribeForAvailableDiscountPaywall()
+        subscribeToStatus()
     }
 
     private var headerDescription: String {
-        promoPaywallService.pricingExperimentSKProduct?.paywallDescription(isTrialAvailable: isTrialAvailable) ?? ""
+        guard let paywallSubscription else { return "" }
+        return paywallSubscription.paywallDescription(isTrialAvailable: isTrialAvailable) ?? ""
     }
 
     var promoViewData: PersonalizedPromotionalOfferView.ViewData? {
-        guard let skProduct = promoPaywallService.pricingExperimentSKProduct,
-              let promoPrice = skProduct.promoPriceLocale,
-              let promoDuration = skProduct.promoDuration else {
+        guard let paywallSubscription,
+              let promoPrice = paywallSubscription.promoPriceLocale,
+              let promoDuration = paywallSubscription.promoDuration,
+              isTrialAvailable else {
             return nil
         }
         return .init(duration: promoDuration, price: promoPrice)
@@ -68,22 +64,14 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
     }
 
     func subscribe() {
-        guard let subscription = subscriptions.first(
-            where: { $0.productIdentifier == promoPaywallService.pricingExperimentSKProduct?.productIdentifier }
-        ) else {
-            return
+        if let paywallSubscription {
+            subscribe(id: paywallSubscription.id)
         }
-        subscriptionService.purchase(subscription: subscription, context: context)
-        trackerService.track(.tapSubscribe(context: .onboarding,
-                                           productId: subscription.productIdentifier,
-                                           type: .main,
-                                           afId: analyticKeyStore.currentAppsFlyerId))
-        router.presentProgressView()
     }
 
     func close() {
         guard canDisplayCloseButton else { return }
-        trackerService.track(.tapClosePaywall(context: .onboarding))
+        paywallClosed()
 
         if let discountPaywallInfo {
             output(.showDiscountPaywall(.init(context: .discountOnboarding, paywallInfo: discountPaywallInfo)))
@@ -93,19 +81,62 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
         output(.close)
     }
 
-    func restore() {
-        router.presentProgressView()
-        subscriptionService.restore()
-        trackerService.track(.tapRestorePurchases(context: .onboarding,
-                                                  afId: analyticKeyStore.currentAppsFlyerId))
+    func restoreTapped() {
+        restore()
     }
 
     func appeared() {
-        trackPaywallShown()
+        paywallAppeared()
     }
 
     func scrolledDown() {
         canDisplayCloseButton = true
+    }
+
+    private func subscribeToStatus() {
+        $status
+            .sink(with: self) { this, status in
+                switch status {
+                case .none: break
+                case .subscribed:
+                    this.router.dismissBanner()
+                    this.output(.subscribed)
+                case .showAlert:
+                    this.showRestoreErrorAlert()
+                case .showProgress:
+                    this.router.presentProgressView()
+                case .hideProgress:
+                    this.router.dismissBanner()
+                }
+            }
+            .store(in: &cancellables)
+    }
+
+    private func showRestoreErrorAlert() {
+        let alertTitle = NSLocalizedString("PaywallDetailsScreen.errorSubscription",
+                                           comment: "error subscription status")
+        router.present(systemAlert: Alert(title: alertTitle, message: nil, actions: []))
+    }
+
+    private func initializeRemoteSubscriptions() {
+        $subscriptions
+            .setFailureType(to: Error.self)
+            .combineLatest(productIdsService.paywallProductIds.asPublisher())
+            .sink(with: self,
+                  receiveCompletion: { _ in },
+                  receiveValue: { this, args in
+                let products = args.0
+                let productId = args.1.first
+                this.paywallSubscription = products.first(where: { $0.id == productId })
+                Task { @MainActor in
+                    if let paywallSubscription = this.paywallSubscription {
+                        this.isTrialAvailable = await this.newSubscriptionService.hasPromotion(
+                            product: paywallSubscription
+                        )
+                    }
+                }
+            })
+            .store(in: &cancellables)
     }
 
     private func subscribeForAvailableDiscountPaywall() {
@@ -114,103 +145,14 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
     }
 
     private func subscribeToDiscountPaywallState() {
-        subscriptionService.hasSubscriptionObservable
-            .distinctUntilChanged()
-            .flatMap(with: self, { this, hasSubscription -> Observable<(hasSubscription: Bool,
-                                                                        discountPaywallInfo: DiscountPaywallInfo?)> in
-                this.appCustomization.discountPaywallExperiment
-                    .map { (hasSubscription, $0) }
-            })
+        appCustomization.discountPaywallExperiment
             .asDriver()
-            .drive(with: self) { this, args in
-                if let discountPaywallInfo = args.discountPaywallInfo {
+            .drive(with: self) { this, discountPaywallInfo in
+                if let discountPaywallInfo = discountPaywallInfo {
                     this.discountPaywallTimerService.registerPaywall(info: discountPaywallInfo)
                 }
             }
             .disposed(by: disposeBag)
-    }
-
-    private func subscribeToLoadingState() {
-        messenger.onMessage(SubscriptionStateMessage.self)
-            .map { $0.stateChangeType }
-            .asDriver()
-            .drive(with: self) { this, state in
-                switch state {
-                case .error:
-                    this.router.dismissBanner()
-                default:
-                    break
-                }
-            }
-            .disposed(by: disposeBag)
-    }
-
-    private func subscribeToRestoreChange() {
-        messenger.onMessage(RestoreSubscriptionStateMessage.self)
-            .map { $0.state }
-            .asDriver()
-            .drive(with: self) { this, state in
-                switch state {
-                case .failed:
-                    this.showRestoreErrorAlert()
-                    this.trackRestoreFinishedEvent(result: .fail, context: .onboarding)
-                case .restored:
-                    this.trackRestoreFinishedEvent(result: .success, context: .onboarding)
-                }
-                this.router.dismissBanner()
-            }
-            .disposed(by: disposeBag)
-    }
-
-    private func subscribeToMayUseAppStatus() {
-        subscriptionService.actualSubscription
-            .filter { $0.isUnlimited }
-            .take(1)
-            .asDriver()
-            .drive(with: self) { this, _ in
-                this.output(.subscribed)
-                this.router.dismissBanner()
-            }
-            .disposed(by: disposeBag)
-    }
-
-    private func subscribeToFinishTransactionState() {
-        messenger.onMessage(FinishTransactionMessage.self)
-            .distinctUntilChanged()
-            .subscribe(with: self) { this, transaction in
-                this.trackPurchaseFinished(transaction: transaction)
-            }
-            .disposed(by: disposeBag)
-    }
-
-    private func loadAvailableProducts() {
-        subscriptionService.subscriptionProducts
-            .asDriver()
-            .drive(with: self) { this, subscriptions in
-                this.subscriptions = subscriptions
-                this.checkIsTrialAvailable()
-            }
-            .disposed(by: disposeBag)
-    }
-
-    private func checkIsTrialAvailable() {
-        guard let trial = subscriptions.first(
-            where: { $0.productIdentifier == promoPaywallService.pricingExperimentSKProduct?.productIdentifier }
-        ) else {
-            return
-        }
-        subscriptionService.isTrialAvailable(for: trial)
-            .asDriver()
-            .drive(with: self) { this, isAvailable in
-                this.isTrialAvailable = isAvailable
-            }
-            .disposed(by: disposeBag)
-    }
-
-    private func showRestoreErrorAlert() {
-        let alertTitle = NSLocalizedString("PaywallDetailsScreen.errorSubscription",
-                                             comment: "error subscription status")
-        router.present(systemAlert: Alert(title: alertTitle, message: nil, actions: []))
     }
 
     private func configureCloseButton() {
@@ -220,40 +162,6 @@ class PersonalizedPaywallViewModel: BaseViewModel<PersonalizedPaywallOutput> {
             await MainActor.run { [weak self] in
                 self?.canDisplayCloseButton = true
             }
-        }
-    }
-}
-
-// MARK: - Track analytics events
-
-private extension PersonalizedPaywallViewModel {
-
-    func trackPaywallShown() {
-        trackerService.track(.paywallShown(context: .onboarding,
-                                           type: .main,
-                                           afId: analyticKeyStore.currentAppsFlyerId))
-    }
-
-    func trackRestoreFinishedEvent(result: RestoreResult, context: PaywallContext) {
-        trackerService.track(.restoreFinished(context: context,
-                                              result: result,
-                                              afId: analyticKeyStore.currentAppsFlyerId))
-    }
-
-    func trackPurchaseFinished(transaction: FinishTransactionMessage) {
-        guard let productID = promoPaywallService.pricingExperimentSKProduct?.productIdentifier  else {
-            return
-        }
-        trackerService.track(.purchaseFinished(context: .onboarding,
-                                               result: transaction.result,
-                                               message: transaction.error?.localizedDescription ?? "",
-                                               productId: productID,
-                                               type: .main,
-                                               afId: analyticKeyStore.currentAppsFlyerId))
-
-        if transaction.state == .purchased && !cloudStorage.afFirstSubscribeTracked {
-            trackerService.track(.afFirstSubscribe)
-            cloudStorage.afFirstSubscribeTracked = true
         }
     }
 }

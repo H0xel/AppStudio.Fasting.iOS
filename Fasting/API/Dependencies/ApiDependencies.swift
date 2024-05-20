@@ -7,7 +7,7 @@
 
 import Foundation
 import Dependencies
-import AppStudioSubscriptions
+import NewAppStudioSubscriptions
 import MunicornUtilities
 import UIKit
 
@@ -24,6 +24,10 @@ extension DependencyValues {
     var subscriptionApi: SubscriptionApi {
         self[SubscriptionApiKey.self]
     }
+
+    var onboardingApi: OnboardingApi {
+        self[OnboardingApiKey.self]
+    }
 }
 
 private enum AppStudioApiSettingsProviderKey: DependencyKey {
@@ -38,6 +42,10 @@ private enum AccountApiKey: DependencyKey {
 
 private enum SubscriptionApiKey: DependencyKey {
     static let liveValue: SubscriptionApi = SubscriptionsApiImpl()
+}
+
+private enum OnboardingApiKey: DependencyKey {
+    static let liveValue: OnboardingApi = OnboardingApiImpl()
 }
 
 // TODO: TEMP if we want to track server errors we need to implement it and remove mocking

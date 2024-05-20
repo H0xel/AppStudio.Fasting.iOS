@@ -23,7 +23,7 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     @Dependency(\.fastingHistoryService) private var fastingHistoryService
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.fastingFinishedCyclesLimitService) private var fastingFinishedCyclesLimitService
-    @Dependency(\.subscriptionService) private var subscriptionService
+    @Dependency(\.newSubscriptionService) private var newSubscriptionService
     @Dependency(\.requestReviewService) private var requestReviewService
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
 
@@ -221,12 +221,8 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     }
 
     private func observeSubscription() {
-        subscriptionService.hasSubscriptionObservable
-            .asDriver()
-            .drive(with: self) { this, hasSubscription in
-                this.hasSubscription = hasSubscription
-            }
-            .disposed(by: disposeBag)
+        newSubscriptionService.hasSubscription
+            .assign(to: &$hasSubscription)
     }
 }
 

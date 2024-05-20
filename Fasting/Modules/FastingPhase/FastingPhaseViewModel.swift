@@ -12,9 +12,8 @@ import Dependencies
 import RxSwift
 
 class FastingPhaseViewModel: BaseViewModel<FastingPhaseOutput> {
-
-    @Dependency(\.subscriptionService) private var subscriptionService
     @Dependency(\.trackerService) private var trackerService
+    @Dependency(\.newSubscriptionService) private var newSubscriptionService
 
     var router: FastingPhaseRouter!
     @Published var stage: FastingStage
@@ -106,11 +105,7 @@ class FastingPhaseViewModel: BaseViewModel<FastingPhaseOutput> {
     }
 
     private func observeMayUseApp() {
-        subscriptionService.hasSubscriptionObservable
-            .asDriver()
-            .drive(with: self) { this, mayUseApp in
-                this.hasSubscription = mayUseApp
-            }
-            .disposed(by: disposeBag)
+        newSubscriptionService.hasSubscription
+            .assign(to: &$hasSubscription)
     }
 }

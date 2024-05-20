@@ -11,7 +11,7 @@ import AppStudioModels
 struct OnboardingData: Codable {
     let goals: Set<FastingGoal>
     let sex: Sex
-    let birthdayDate: Date
+    let birthdayDate: Date?
     let height: HeightMeasure
     let weight: WeightMeasure
     let desiredWeight: WeightMeasure

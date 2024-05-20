@@ -25,7 +25,8 @@ public enum PaywallContext: String {
     case popup = "popup"
     case nova = "nova"
     case progress = "progress"
-    
+
+    case inAppPurchase = "in_app_purchase"
     case discountPush = "push_discount"
 }
 

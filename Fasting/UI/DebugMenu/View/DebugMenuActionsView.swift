@@ -20,13 +20,14 @@ struct DebugMenuActionsView: View {
     @Dependency(\.cloudStorage) private var cloudStorage
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.storageService) private var storageService
-    @Dependency(\.subscriptionService) private var subscriptionService
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
     @Dependency(\.coachService) private var coachService
     @Dependency(\.weightService) private var weightService
     @Dependency(\.fastingHistoryService) private var fastingHistoryService
     @Dependency(\.weightGoalService) private var weightGoalService
     @Dependency(\.localNotificationService) private var localNotificationService
+    @Dependency(\.onboardingService) private var onboardingService
+    let onboarding = OnboardingApiImpl()
 
     @State private var isDeletingMessages = false
 
@@ -63,6 +64,7 @@ struct DebugMenuActionsView: View {
 
         Button("Reset onboarding") {
             storageService.onboardingIsFinished = false
+            onboardingService.reset()
         }
 
         Button("Reset discount paywall timer") {

@@ -11,7 +11,6 @@ import Dependencies
 import AppStudioUI
 
 class OnboardingRouter: BaseRouter {
-    @Dependency(\.paywallService) private var paywallService
 
     static func route(navigator: Navigator,
                       input: OnboardingInput,
@@ -65,7 +64,7 @@ class OnboardingRouter: BaseRouter {
         present(route: route)
     }
 
-    private func pushChooseFastingScreen(output: @escaping ChooseFastingPlanOutputBlock) {
+    func pushChooseFastingScreen(output: @escaping ChooseFastingPlanOutputBlock) {
         let route = ChooseFastingPlanRoute(navigator: navigator, input: .init(context: .onboarding), output: output)
         push(route: route)
     }

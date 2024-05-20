@@ -27,7 +27,6 @@ private let yearlyExp7ProductId = "com.municorn.Fasting.yearly_exp_7"
 
 class ProductProviderImpl: ProductProvider, AppInitializer { 
     @Dependency(\.productsLoaderService) private var productsLoaderService
-    @Dependency(\.subscriptionsLoaderService) private var subscriptionsLoaderService
     func initialize() {
 
         Task {
@@ -46,7 +45,6 @@ class ProductProviderImpl: ProductProvider, AppInitializer {
                     }
                 }
         }
-        subscriptionsLoaderService.initialize()
     }
 
     // TODO: SETUP default product list
@@ -55,7 +53,7 @@ class ProductProviderImpl: ProductProvider, AppInitializer {
     }
 
     var remoteExperimentsPlans: [RemoteExperimentPlans] = []
-    
+
     var allMonetizationProductIds: [String] = [
         weeklyExp7ProductId,
         threeMonthlyExp7ProductId,

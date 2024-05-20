@@ -5,39 +5,44 @@
 //  Created by Amakhin Ivan on 11.04.2024.
 //
 
-import AppStudioNavigation
-import AppStudioUI
-import AppStudioStyles
 import AppStudioModels
-import SwiftUI
-import AppStudioSubscriptions
+import NewAppStudioSubscriptions
 import Dependencies
-import RxSwift
 import AppStudioServices
-import MunicornFoundation
+import AppStudioStyles
+import AppStudioNavigation
+import StoreKit
 
 class MultiplePaywallViewModel: BasePaywallViewModel<MultiplePaywallOutput> {
-    var router: MultiplePaywallRouter!
+    @Dependency(\.newSubscriptionService) private var newSubscriptionService
+    @Dependency(\.appCustomization) private var appCustomization
+    @Dependency(\.productIdsService) private var productIdsService
 
+    var router: MultiplePaywallRouter!
     @Published var selectedProduct: SubscriptionProduct?
-    private let context: PaywallContext
+
+    private var paywallSubscriptions: [Product] = []
 
     init(input: MultiplePaywallInput, output: @escaping MultiplePaywallOutputBlock) {
-        context = input.paywallContext
         super.init(output: output)
         paywallContext = input.paywallContext
         subscribeToStatus()
+        initializeRemoteSubscriptions()
     }
 
     var popularProduct: SubscriptionProduct {
-        guard let subscription = subscriptions.first(where: { $0.duration == .threeMonth }) else {
+        guard let subscription = paywallSubscriptions.first(where: {
+            $0.subscription?.subscriptionPeriod.duration == .threeMonth
+        }) else {
             return .empty
         }
         return subscription.asSubscriptionProduct(for: .threeMonth, promotion: promotionText(for: subscription))
     }
 
     var bestValueProduct: SubscriptionProduct {
-        guard let subscription = subscriptions.first(where: { $0.duration == .year }) else {
+        guard let subscription = paywallSubscriptions.first(where: {
+            $0.subscription?.subscriptionPeriod.duration == .year
+        }) else {
             return .empty
         }
 
@@ -45,7 +50,9 @@ class MultiplePaywallViewModel: BasePaywallViewModel<MultiplePaywallOutput> {
     }
 
     var weeklySubscription: SubscriptionProduct {
-        guard let subscription = subscriptions.first(where: { $0.duration == .week }) else {
+        guard let subscription = subscriptions.first(where: {
+            $0.subscription?.subscriptionPeriod.duration == .week
+        }) else {
             return .empty
         }
         return subscription.asSubscriptionProduct(promotion: promotionText(for: subscription))
@@ -54,16 +61,16 @@ class MultiplePaywallViewModel: BasePaywallViewModel<MultiplePaywallOutput> {
     func handle(_ event: MultipleProductPaywallScreen.Event) {
         switch event {
         case .close:
-            trackerService.track(.tapClosePaywall(context: context))
+            paywallClosed()
             output(.close)
         case .restore:
-            router.presentProgressView()
-            subscriptionService.restore()
-            trackerService.track(.tapRestorePurchases(context: context, afId: analyticKeyStore.currentAppsFlyerId))
+            restore()
         case .subscribe:
-            subscribe(id: selectedProduct?.id ?? "")
+            if let selectedProduct {
+                subscribe(id: selectedProduct.id)
+            }
         case .appeared:
-            trackPaywallShown()
+            paywallAppeared()
         }
     }
 
@@ -71,9 +78,9 @@ class MultiplePaywallViewModel: BasePaywallViewModel<MultiplePaywallOutput> {
         $status
             .sink(with: self) { this, status in
                 switch status {
-                case .initial:
-                    this.router.dismissBanner()
+                case .none: break
                 case .subscribed:
+                    this.router.dismissBanner()
                     this.output(.subscribed)
                 case .showAlert:
                     this.showRestoreErrorAlert()
@@ -81,12 +88,6 @@ class MultiplePaywallViewModel: BasePaywallViewModel<MultiplePaywallOutput> {
                     this.router.presentProgressView()
                 case .hideProgress:
                     this.router.dismissBanner()
-                case .subscriptionsLoaded:
-                    if let bestValueProduct = this.subscriptions.first(where: { $0.duration == .year }) {
-                        this.selectedProduct = bestValueProduct.asSubscriptionProduct(
-                            for: .year,
-                            promotion: this.promotionText(for: bestValueProduct))
-                    }
                 }
             }
             .store(in: &cancellables)
@@ -97,38 +98,35 @@ class MultiplePaywallViewModel: BasePaywallViewModel<MultiplePaywallOutput> {
                                            comment: "error subscription status")
         router.present(systemAlert: Alert(title: alertTitle, message: nil, actions: []))
     }
+
+    private func initializeRemoteSubscriptions() {
+        $subscriptions
+            .setFailureType(to: Error.self)
+            .combineLatest(productIdsService.paywallProductIds.asPublisher())
+            .sink(with: self,
+                  receiveCompletion: { _ in },
+                  receiveValue: { this, args in
+                let products = args.0
+                let productIds = args.1
+                this.paywallSubscriptions = products.filter { productIds.contains($0.id) }
+                this.selectedProduct = this.bestValueProduct
+            })
+            .store(in: &cancellables)
+    }
 }
 
 extension MultiplePaywallViewModel {
-    private func promotionText(for subscription: Subscription) -> String? {
-        guard subscription.productIdentifier != shortestSubscription?.productIdentifier,
-              let price = subscription.pricePerWeek?.value.doubleValue,
-              let shortestSubscriptionPrice = shortestSubscription?.pricePerWeek?.value.doubleValue,
+    private func promotionText(for subscription: Product) -> String? {
+        guard let shortestSubscription = paywallSubscriptions.first(where: { $0.subscription?.subscriptionPeriod.duration == .week }),
+              let price = subscription.pricePerWeek?.description.double,
+              shortestSubscription.id != subscription.id,
+              let shortestSubscriptionPrice = shortestSubscription.pricePerWeek?.description.double,
               shortestSubscriptionPrice > 0 else {
             return nil
         }
+
         let percent = Int(price * 100 / shortestSubscriptionPrice)
         let saveText = NSLocalizedString("Paywall.savePercent", comment: "Save precent")
         return "\(String(format: saveText, 100 - percent))%"
-    }
-}
-
-private extension Subscription {
-    func asSubscriptionProduct(for duration: SubscriptionDuration = .week, promotion: String?) -> SubscriptionProduct {
-        .init(id: productIdentifier,
-              title: localizedTitle,
-              titleDetails: formattedPrice ?? "",
-              durationTitle: duration.title,
-              pricePerWeek: localedPrice(for: .week) ?? "",
-              price: localedPrice(for: duration) ?? "",
-              promotion: promotion)
-    }
-}
-
-private extension MultiplePaywallViewModel {
-    func trackPaywallShown() {
-        trackerService.track(.paywallShown(context: context,
-                                           type: .main,
-                                           afId: analyticKeyStore.currentAppsFlyerId))
     }
 }

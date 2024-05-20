@@ -31,8 +31,8 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
         userData?.sex ?? .female
     }
 
-    var birthday: Date {
-        userData?.birthdayDate ?? .now
+    var birthday: Date? {
+        userData?.birthdayDate
     }
 
     var height: HeightMeasure {
@@ -48,7 +48,7 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
 
     func changeBirthday() {
         trackerService.track(.tapChangeBirthdayDate)
-        router.presentChangeBirthday(currentBirthday: birthday) { [weak self] date in
+        router.presentChangeBirthday(currentBirthday: birthday ?? .now) { [weak self] date in
             self?.updateBirthday(date)
         }
     }

@@ -22,19 +22,6 @@ extension DependencyValues {
     var productProviderInitializer: AppInitializer {
         self[ProductProviderKey.self]
     }
-
-
-    var paywallService: PaywallService {
-        self[PaywallServiceAndInitializerKey.self]
-    }
-
-    var paywallServiceInitializer: AppInitializer {
-        self[PaywallServiceAndInitializerKey.self]
-    }
-}
-
-private enum PaywallServiceAndInitializerKey: DependencyKey {
-    static var liveValue = PaywallServiceImpl()
 }
 
 private enum AppStudioSubscriptionDelegateKey: DependencyKey {

@@ -19,6 +19,7 @@
 "ProfileScreen.saveChanges" = "Save changes";
 "ProfileScreen.sex" = "Sex";
 "ProfileScreen.birthday" = "Birthday";
+"ProfileScreen.birthday.add" = "Add";
 "ProfileScreen.height" = "Height";
 "ProfileScreen.support" = "Support";
 "ProfileScreen.termsOfUse" = "Terms of use";

@@ -13,8 +13,8 @@ struct PaywallScreen: View {
 
     var body: some View {
         VStack(spacing: .zero) {
-            if isSettings {
-                Button(action: viewModel.restore) {
+            if viewModel.isSettings {
+                Button(action: viewModel.restoreTapped) {
                     restoreButton
                         .padding(.trailing, Layout.tabBarRestoreButtonTrailingPadding)
                         .padding(.top, Layout.tabBarRestoreButtonBottomPadding)
@@ -26,7 +26,7 @@ struct PaywallScreen: View {
                 .padding(.horizontal, Layout.horizontalPadding)
                 .padding(.top, Layout.verticalPadding)
 
-            ShadingImageView(image: isSettings ? .init(.paywallImageTabBar) : .paywall)
+            ShadingImageView(image: viewModel.isSettings ? .init(.paywallImageTabBar) : .paywall)
 
             Spacer()
 
@@ -40,9 +40,9 @@ struct PaywallScreen: View {
                       content: Image.close.foregroundStyle(Color.studioGreyStrokeFill),
                       action: viewModel.close)
         .navBarButton(placement: .navigationBarTrailing,
-                      isVisible: !isSettings,
+                      isVisible: !viewModel.isSettings,
                       content: restoreButton,
-                      action: viewModel.restore)
+                      action: viewModel.restoreTapped)
         .onAppear(perform: viewModel.appeared)
     }
 
@@ -50,10 +50,6 @@ struct PaywallScreen: View {
         Text(Localization.restore)
             .foregroundColor(.studioGrayPlaceholder)
             .font(.poppins(.buttonText))
-    }
-
-    private var isSettings: Bool {
-        viewModel.context == .paywallTab
     }
 }
 

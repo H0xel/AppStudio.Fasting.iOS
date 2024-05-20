@@ -7,7 +7,7 @@
 
 import Foundation
 import Moya
-import AppStudioSubscriptions
+import NewAppStudioSubscriptions
 
 enum SubscriptionTarget {
     case getSubscription
@@ -38,8 +38,8 @@ extension SubscriptionTarget: TelecomTargetType {
         switch self {
         case .getSubscription:
                 .requestPlain
-        case .putReceipt(let receiptReuest):
-                .requestJSONEncodable(receiptReuest)
+        case .putReceipt(let receiptRequest):
+                .requestJSONEncodable(receiptRequest)
         }
     }
 }

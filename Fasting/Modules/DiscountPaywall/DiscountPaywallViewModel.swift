@@ -7,12 +7,11 @@
 
 import AppStudioNavigation
 import AppStudioUI
-import Foundation
 import Combine
 import Dependencies
-import RxSwift
-import AppStudioSubscriptions
+import NewAppStudioSubscriptions
 import AppStudioServices
+import StoreKit
 
 enum DiscountPaywallType {
     case timer(DiscountTimerView.ViewData)
@@ -20,23 +19,20 @@ enum DiscountPaywallType {
     case empty
 }
 
-class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
-    var router: DiscountPaywallRouter!
+class DiscountPaywallViewModel: BasePaywallViewModel<DiscountPaywallOutput> {
+    @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
+    @Dependency(\.appCustomization) private var appCustomization
+    @Dependency(\.productIdsService) private var productIdsService
+
     @Published var timeInterval: TimeInterval = .second
-    @Published var paywallType: DiscountPaywallType = .timer(.mock)
+    @Published var paywallType: DiscountPaywallType = .empty
+
+    var router: DiscountPaywallRouter!
     let discountPersent: String
     let context: PaywallContext
 
-    @Dependency(\.subscriptionService) private var subscriptionService
-    @Dependency(\.trackerService) private var trackerService
-    @Dependency(\.analyticKeyStore) private var analyticKeyStore
-    @Dependency(\.messengerService) private var messenger
-    @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
-    @Dependency(\.cloudStorage) private var cloudStorage
-
     private let paywallInfo: DiscountPaywallInfo
-    private let disposeBag = DisposeBag()
-    private var subscription: AppStudioSubscriptions.Subscription?
+    private var paywallSubscription: Product?
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     init(input: DiscountPaywallInput, output: @escaping DiscountPaywallOutputBlock) {
@@ -44,47 +40,29 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
         discountPersent = "\(input.paywallInfo.discount ?? 0)%"
         context = input.context
         super.init(output: output)
-        subscribeToMayUseAppStatus()
-        loadAvailableProducts()
-        subscribeToLoadingState()
-        subscribeToRestoreChange()
-        subscribeToFinishTransactionState()
+        paywallContext = input.context
+        subscribeToStatus()
+        initializeRemoteSubscriptions()
         updateTimer()
         startTimer()
     }
 
     func subscribe() {
-        guard let subscription else { return }
-        subscriptionService.purchase(subscription: subscription, context: context.rawValue)
-        trackerService.track(.tapSubscribe(context: context,
-                                           productId: subscription.productIdentifier,
-                                           type: .main,
-                                           afId: analyticKeyStore.currentAppsFlyerId))
-        if context == .paywallTab || context == .discountPaywallTab {
-            output(.switchProgress(isProcessing: true))
-        } else {
-            router.presentProgressView()
-        }
+        guard let paywallSubscription else { return }
+        subscribe(id: paywallSubscription.id)
     }
 
     func close() {
         output(.close)
-        trackerService.track(.tapClosePaywall(context: .discountOnboarding))
+        paywallClosed()
     }
 
-    func restore() {
-        if context == .paywallTab || context == .discountPaywallTab {
-            output(.switchProgress(isProcessing: true))
-        } else {
-            router.presentProgressView()
-        }
-        subscriptionService.restore()
-        trackerService.track(.tapRestorePurchases(context: .onboarding,
-                                                  afId: analyticKeyStore.currentAppsFlyerId))
+    func restoreTapped() {
+        restore()
     }
 
     func appeared() {
-        trackPaywallShown()
+        paywallAppeared()
     }
 
     func updateTimer() {
@@ -111,113 +89,52 @@ class DiscountPaywallViewModel: BaseViewModel<DiscountPaywallOutput> {
             .store(in: &cancellables)
     }
 
-    private func loadAvailableProducts() {
-        subscriptionService.subscriptionProducts
-            .asDriver()
-            .drive(with: self) { this, subscriptions in
-                if let subscription = subscriptions
-                    .first(where: { $0.productIdentifier == this.paywallInfo.productId }) {
-                    this.paywallType = .init(paywallInfo: this.paywallInfo, subscription: subscription)
-                    this.subscription = subscription
-                }
-            }
-            .disposed(by: disposeBag)
-    }
-
-    private func subscribeToLoadingState() {
-        messenger.onMessage(SubscriptionStateMessage.self)
-            .map { $0.stateChangeType }
-            .asDriver()
-            .drive(with: self) { this, state in
-                switch state {
-                case .error:
-                    this.output(.switchProgress(isProcessing: false))
-                    this.router.dismissBanner()
-                default:
-                    break
-                }
-            }
-            .disposed(by: disposeBag)
-    }
-
-    private func subscribeToMayUseAppStatus() {
-        subscriptionService.actualSubscription
-            .filter { $0.isUnlimited }
-            .take(1)
-            .asDriver()
-            .drive(with: self) { this, _ in
-                this.output(.switchProgress(isProcessing: false))
-                this.router.dismissBanner()
-                this.output(.subscribe)
-                this.discountPaywallTimerService.setAvailableDiscount(data: nil)
-            }
-            .disposed(by: disposeBag)
-    }
-
-    private func subscribeToRestoreChange() {
-        messenger.onMessage(RestoreSubscriptionStateMessage.self)
-            .map { $0.state }
-            .asDriver()
-            .drive(with: self) { this, state in
-                switch state {
-                case .failed:
+    private func subscribeToStatus() {
+        $status
+            .sink(with: self) { this, status in
+                switch status {
+                case .none: break
+                case .subscribed:
+                    this.context == .discountPaywallTab
+                    ? this.output(.switchProgress(isProcessing: false))
+                    : this.router.dismissBanner()
+                    this.output(.subscribe)
+                case .showAlert:
                     this.showRestoreErrorAlert()
-                    this.trackRestoreFinishedEvent(result: .fail, context: this.context)
-                case .restored:
-                    this.trackRestoreFinishedEvent(result: .success, context: this.context)
+                case .showProgress:
+                    this.context == .discountPaywallTab
+                    ? this.output(.switchProgress(isProcessing: true))
+                    : this.router.presentProgressView()
+                case .hideProgress:
+                    this.context == .discountPaywallTab
+                    ? this.output(.switchProgress(isProcessing: false))
+                    : this.router.dismissBanner()
                 }
-                this.output(.switchProgress(isProcessing: false))
-                this.router.dismissBanner()
             }
-            .disposed(by: disposeBag)
-    }
-
-    private func subscribeToFinishTransactionState() {
-        messenger.onMessage(FinishTransactionMessage.self)
-            .distinctUntilChanged()
-            .subscribe(with: self) { this, transaction in
-                this.trackPurchaseFinished(transaction: transaction)
-            }
-            .disposed(by: disposeBag)
+            .store(in: &cancellables)
     }
 
     private func showRestoreErrorAlert() {
         let alertTitle = NSLocalizedString("PaywallDetailsScreen.errorSubscription",
-                                             comment: "error subscription status")
+                                           comment: "error subscription status")
         router.present(systemAlert: Alert(title: alertTitle, message: nil, actions: []))
     }
-}
 
-// MARK: - Track analytics events
-
-private extension DiscountPaywallViewModel {
-
-    func trackPaywallShown() {
-        trackerService.track(.paywallShown(context: context,
-                                           type: .main,
-                                           afId: analyticKeyStore.currentAppsFlyerId))
-    }
-
-    func trackRestoreFinishedEvent(result: RestoreResult, context: PaywallContext) {
-        trackerService.track(.restoreFinished(context: context,
-                                              result: result,
-                                              afId: analyticKeyStore.currentAppsFlyerId))
-    }
-
-    func trackPurchaseFinished(transaction: FinishTransactionMessage) {
-        guard let subscription else {
-            return
-        }
-        trackerService.track(.purchaseFinished(context: context,
-                                               result: transaction.result,
-                                               message: transaction.error?.localizedDescription ?? "",
-                                               productId: subscription.productIdentifier,
-                                               type: .main,
-                                               afId: analyticKeyStore.currentAppsFlyerId))
-
-        if transaction.state == .purchased && !cloudStorage.afFirstSubscribeTracked {
-            trackerService.track(.afFirstSubscribe)
-            cloudStorage.afFirstSubscribeTracked = true
-        }
+    private func initializeRemoteSubscriptions() {
+        $subscriptions
+            .setFailureType(to: Error.self)
+            .combineLatest(productIdsService.paywallProductIds.asPublisher())
+            .sink(with: self,
+                  receiveCompletion: { _ in },
+                  receiveValue: { this, args in
+                let products = args.0
+                this.paywallSubscription = products.first(where: { $0.id == this.paywallInfo.productId })
+                Task { @MainActor in
+                    if let paywallSubscription = this.paywallSubscription {
+                        this.paywallType = .init(paywallInfo: this.paywallInfo, subscription: paywallSubscription)
+                    }
+                }
+            })
+            .store(in: &cancellables)
     }
 }

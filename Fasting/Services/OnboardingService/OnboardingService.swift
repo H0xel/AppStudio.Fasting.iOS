@@ -12,4 +12,5 @@ protocol OnboardingService {
     var calculatedData: OnboardingCalculatedData? { get }
     var paywallInput: PersonalizedPaywallInput? { get }
     func save(data: OnboardingData)
+    func reset()
 }

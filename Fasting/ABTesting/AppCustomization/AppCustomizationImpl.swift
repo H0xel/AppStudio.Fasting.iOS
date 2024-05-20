@@ -14,6 +14,7 @@ import RxSwift
 import Dependencies
 import ABTesting
 import AppStudioServices
+import Combine
 
 private let requiredAppVersionKey = "force_update_version"
 private let closePaywallButtonDelayKey = "close_paywall_button_delay"

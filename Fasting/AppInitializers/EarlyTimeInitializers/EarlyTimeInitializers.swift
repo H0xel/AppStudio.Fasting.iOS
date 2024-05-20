@@ -15,8 +15,6 @@ import WeightWidget
 import WeightGoalWidget
 
 final class EarlyTimeInitializers: Initializers {
-
-    @Dependency(\.paywallServiceInitializer) private var paywallServiceInitializer
     @Dependency(\.fastingParametersInitializer) private var fastingParametersInitializer
 
     func initializers() -> [AppInitializer] {
@@ -33,9 +31,7 @@ final class EarlyTimeInitializers: Initializers {
             AccountProviderInitializer(),
             MobileDeviceDataProviderInitializer(),
             TrackerServiceInitializer(),
-            SubscriptionServiceInitializer(),
             NotificationCenterInitializer(),
-            paywallServiceInitializer,
             fastingParametersInitializer,
             AppearanceInitializer(),
             QuickActionInitializer(),

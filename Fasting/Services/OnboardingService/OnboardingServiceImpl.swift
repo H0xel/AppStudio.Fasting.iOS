@@ -73,7 +73,7 @@ class OnboardingServiceImpl: OnboardingService, WaterIntakeService {
         let weightDifference = WeightMeasure(value: abs(data.weight.value - data.desiredWeight.value),
                                              units: data.weight.units)
 
-        let specialEventDate = data.specialEventDate ?? data.birthdayDate
+        let specialEventDate = data.specialEventDate ?? (data.birthdayDate ?? .now)
 
         let specialEventWithWeightTitle = data.specialEvent.eventName + " " + (
             calculatedData.specialEventWeight?.wholeValueWithUnits ?? ""
@@ -121,6 +121,10 @@ class OnboardingServiceImpl: OnboardingService, WaterIntakeService {
         calculate()
     }
 
+    func reset() {
+        data = nil
+    }
+
     private func saveDataInWidgets(data: OnboardingData) {
         coachService.updateUserData(data.aiCoachUserData)
         Task {
@@ -156,7 +160,7 @@ class OnboardingServiceImpl: OnboardingService, WaterIntakeService {
 
         let paywallTitle = paywallTitle(desiredWeightDate: dropWeightDate)
         let bullets = paywallBullets(dropWeight: eventDropWeightMeasure)
-        let fromAges = fromAgesTitle(birthday: data.birthdayDate)
+        let fromAges = fromAgesTitle(birthday: data.birthdayDate ?? .now)
 
         let baseWaterIntake = data.weight.normalizeValue / 0.03
         let waterIntake = baseWaterIntake + data.activityLevel.waterLevel
@@ -227,7 +231,7 @@ private extension OnboardingData {
         .init(currentWeight: weight.valueWithUnits,
               goalWeight: desiredWeight.valueWithUnits,
               height: height.valueWithUnits,
-              dateOfBirth: birthdayDate,
+              dateOfBirth: birthdayDate ?? .now,
               sex: sex.rawValue)
     }
 }

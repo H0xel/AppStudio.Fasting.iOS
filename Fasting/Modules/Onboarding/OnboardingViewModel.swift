@@ -19,6 +19,8 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
     @Dependency(\.userPropertyService) private var userPropertyService
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.onboardingService) private var onboardingService
+    @Dependency(\.newSubscriptionService) private var newSubscriptionService
+    @Dependency(\.cloudStorage) private var cloudStorage
 
     var router: OnboardingRouter!
     @Published var step: OnboardingFlowStep = .none
@@ -36,10 +38,12 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
     @Published var weightUnit: WeightUnit = .lb
     @Published var isMovingForward = true
     @Published var isLongOnboadingEnabled = false
+    @Published private var hasSubscription: Bool = false
 
     init(input: OnboardingInput, output: @escaping OnboardingOutputBlock) {
         super.init(output: output)
         initialize()
+        subscribeToHasSubscription()
     }
 
     var isNextButtonEnabled: Bool {
@@ -110,7 +114,12 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
     func nextStep() {
         isMovingForward = true
         trackNextStep()
-        if step == .start, !isLongOnboadingEnabled {
+
+        if step == .start, cloudStorage.userWithOnboardingApi {
+            output(.onboardingIsFinished)
+        }
+
+        if step == .start, !isLongOnboadingEnabled, !hasSubscription {
             presentPaywall()
             return
         }
@@ -140,6 +149,11 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
                 self?.step = .start
             }
         }
+    }
+
+    private func subscribeToHasSubscription() {
+        newSubscriptionService.hasSubscription
+            .assign(to: &$hasSubscription)
     }
 
     private func presentPaywall() {
@@ -192,7 +206,16 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
         onboardingService.save(data: onboardingData)
 
         router.presentLoadingView { [weak self] in
-            self?.presentPaywall()
+            if self?.hasSubscription == false {
+                self?.presentPaywall()
+                return
+            }
+            self?.router.pushChooseFastingScreen { [weak self] output in
+                switch output {
+                case .onboardingIsFinished:
+                    self?.output(.onboardingIsFinished)
+                }
+            }
         }
     }
 }

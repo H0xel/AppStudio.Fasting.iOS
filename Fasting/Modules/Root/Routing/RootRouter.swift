@@ -15,7 +15,6 @@ import HealthOverview
 import AppStudioServices
 
 class RootRouter: BaseRouter {
-    @Dependency(\.paywallService) private var paywallService
     @Dependency(\.openURL) private var openURL
 
     let fastingNavigator = Navigator()
@@ -67,7 +66,7 @@ class RootRouter: BaseRouter {
 
     func coachScreen(isMonetizationExpAvailable: AnyPublisher<Bool, Never>,
                      nextMessagePublisher: AnyPublisher<String, Never>) -> some View {
-        var route = CoachRoute(navigator: coachNavigator,
+        let route = CoachRoute(navigator: coachNavigator,
                                input: .init(constants: .fastingConstants,
                                             suggestionTypes: [.general, .fasting],
                                             nextMessagePublisher: nextMessagePublisher,
@@ -80,12 +79,6 @@ class RootRouter: BaseRouter {
             }
         })
         return coachNavigator.initialize(route: route)
-    }
-
-    func presentPaywall() {
-        Task {
-            await paywallService.presentPaywallIfNeeded(paywallContext: .onboarding, router: self)
-        }
     }
 
     func presentDiscountPaywall(tab: AppTab, info: DiscountPaywallInfo) {
@@ -183,6 +176,26 @@ class RootRouter: BaseRouter {
                                  input: input,
                                  output: output)
         navigator(for: tab).present(route: route)
+    }
+
+    func presentProgressView(for tab: AppTab, isOnboarding: Bool) {
+        var navigator: Navigator {
+            if isOnboarding {
+                return onboardingNavigator
+            }
+            return self.navigator(for: tab)
+        }
+        navigator.present(banner: DimmedProgressBanner())
+    }
+
+    func dismissBanner(for tab: AppTab, isOnboarding: Bool) {
+        var navigator: Navigator {
+            if isOnboarding {
+                return onboardingNavigator
+            }
+            return self.navigator(for: tab)
+        }
+        navigator.dismissBanner()
     }
 
     private func sendEmailWithOpenUrl() {

@@ -21,6 +21,7 @@ struct RootScreen: View {
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
                 viewModel.requestIdfa()
             }
+            .withInAppPurchase(status: viewModel.handle)
             .withDeepLink(deepLink: viewModel.handle)
     }
 
@@ -30,7 +31,12 @@ struct RootScreen: View {
         case .launchScreen:
             LaunchScreen()
         case .onboarding:
-            viewModel.onboardingScreen
+            ZStack {
+                viewModel.onboardingScreen
+                if viewModel.isProcessingSubcription {
+                    DimmedProgressBanner().view
+                }
+            }
         case .fasting:
             ZStack {
                 TabView(selection: $viewModel.currentTab) {
