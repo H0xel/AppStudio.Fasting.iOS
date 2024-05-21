@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 14.03.2024.
+  
+*/
+
+"FastingWidgetView.startFasting" = "Empezar el ayuno";
+"FastingWidgetView.endFasting" = "Finalizar el ayuno";
+"FastingWidgetView.youFastedFor" = "Has ayunado durante";
+"FastingWidgetView.fastTime" = "%i h de ayuno";
+"FastingWidgetView.until" = "hasta";
+"FastingWidgetView.zeroHours" = "0 h";
+"FastingWidgetView.logFast" = "Registrar ayuno";
+"FastingWidgetView.update" = "Actualizar";

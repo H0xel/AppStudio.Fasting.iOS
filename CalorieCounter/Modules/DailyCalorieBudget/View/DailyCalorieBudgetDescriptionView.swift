@@ -12,7 +12,7 @@ struct DailyCalorieBudgetDescriptionView: View {
     let viewData: ViewData
 
     var body: some View {
-        VStack(spacing: .zero) {
+        VStack(alignment: .leading, spacing: .zero) {
             HStack(spacing: .zero) {
 
                 ZStack {

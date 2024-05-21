@@ -7,21 +7,21 @@
 */
 // MARK: - WeightGoalProgressView
 
-"WeightGoalProgressView.start" = "Start";
-"WeightGoalProgressView.goal" = "Goal";
+"WeightGoalProgressView.start" = "Iniciar";
+"WeightGoalProgressView.goal" = "Meta";
 
 // MARK: - WeightGoalUpdateScreen
-"WeightGoalUpdateScreen.title" = "Weight Goal";
-"WeightGoalUpdateScreen.save" = "Save";
+"WeightGoalUpdateScreen.title" = "Meta de Peso";
+"WeightGoalUpdateScreen.save" = "Salvar";
 
 // MARK: - WeightGoalWidgetScreen
-"WeightGoalWidgetScreen.trueWeight" = "True Weight";
-"WeightGoalWidgetScreen.daysIn" = "Days In";
-"WeightGoalWidgetScreen.dayIn" = "Day In";
-"WeightGoalWidgetScreen.goal" = "Goal";
+"WeightGoalWidgetScreen.trueWeight" = "Peso Real";
+"WeightGoalWidgetScreen.daysIn" = "Dias em Progresso";
+"WeightGoalWidgetScreen.dayIn" = "Dia em Progresso";
+"WeightGoalWidgetScreen.goal" = "Meta";
 
 // MARK: - WeightGoalSuccessView
-"WeightGoalSuccessView.title" = "Amazing work!";
-"WeightGoalSuccessView.subtitle" = "You've reached your weight goal. Keep it up!";
+"WeightGoalSuccessView.title" = "Trabalho incrível!";
+"WeightGoalSuccessView.subtitle" = "Você alcançou sua meta de peso. Continue assim!";
 
-"WeightGoalOverweightView.text" = "Every journey has its ups and downs. Just keep on going, you've got this!";
+"WeightGoalOverweightView.text" = "Toda jornada tem seus altos e baixos. Continue em frente, você consegue!";

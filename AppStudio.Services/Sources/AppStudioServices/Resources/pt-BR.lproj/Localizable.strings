@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 14.03.2024.
+  
+*/
+
+"Deeplink.title.discount" = "Alerta de desconto exclusivo!";
+"Deeplink.body.discount" = "Desbloqueie seu desconto especial agora. Oferta por tempo limitado!";

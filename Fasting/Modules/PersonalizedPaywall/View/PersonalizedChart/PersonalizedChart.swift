@@ -34,6 +34,7 @@ struct PersonalizedChart: View {
                     specialEventDate: viewData.specialEventDate,
                     specialEventDateLaterThenEndDate: viewData.specialEventStatus == .isLaterThenEndDate
                 )
+                .padding(.trailing, Layout.specialEventTrailingPadding)
             }
         }
         .frame(width: Layout.width, height: Layout.height)
@@ -68,6 +69,7 @@ extension PersonalizedChart {
         static let vectorBottomPadding: CGFloat = 38
         static let vectorLeadingPadding: CGFloat = 24
         static let vectorTrailingPadding: CGFloat = 26
+        static let specialEventTrailingPadding: CGFloat = 30
     }
 }
 

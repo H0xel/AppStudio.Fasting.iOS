@@ -118,14 +118,17 @@ class MultiplePaywallViewModel: BasePaywallViewModel<MultiplePaywallOutput> {
 extension MultiplePaywallViewModel {
     private func promotionText(for subscription: Product) -> String? {
         guard let shortestSubscription = paywallSubscriptions.first(where: { $0.subscription?.subscriptionPeriod.duration == .week }),
-              let price = subscription.pricePerWeek?.description.double,
+              let price = subscription.pricePerWeek,
               shortestSubscription.id != subscription.id,
-              let shortestSubscriptionPrice = shortestSubscription.pricePerWeek?.description.double,
+              let shortestSubscriptionPrice = shortestSubscription.pricePerWeek,
               shortestSubscriptionPrice > 0 else {
             return nil
         }
 
-        let percent = Int(price * 100 / shortestSubscriptionPrice)
+        let productPricePerWeek = NSDecimalNumber(decimal: price).doubleValue
+        let shortestProductPrice = NSDecimalNumber(decimal: shortestSubscriptionPrice).doubleValue
+
+        let percent = Int(productPricePerWeek * 100 / shortestProductPrice)
         let saveText = NSLocalizedString("Paywall.savePercent", comment: "Save precent")
         return "\(String(format: saveText, 100 - percent))%"
     }

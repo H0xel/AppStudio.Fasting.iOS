@@ -1,426 +1,444 @@
 // MARK: - Common
-"SaveTitle" = "Save";
-"CancelTitle" = "Cancel";
-"Button.cancel" = "Cancel";
-"TodayTitle" = "Today";
-"NextTitle" = "Next";
+"SaveTitle" = "Salvar";
+"CancelTitle" = "Cancelar";
+"Button.cancel" = "Cancelar";
+"TodayTitle" = "Hoje";
+"NextTitle" = "Próximo";
 
 // MARK: - RootScreen
-"RootScreen.TabBar.daily" = "Daily";
-"RootScreen.TabBar.fasting" = "Fasting";
+"RootScreen.TabBar.daily" = "Diário";
+"RootScreen.TabBar.fasting" = "Jejum";
 "RootScreen.TabBar.nova" = "Nova";
-"RootScreen.TabBar.progress" = "Progress";
-"RootScreen.TabBar.profile" = "Profile";
+"RootScreen.TabBar.progress" = "Progresso";
+"RootScreen.TabBar.profile" = "Perfil";
 "RootScreen.TabBar.plus" = "Plus+";
 
 // MARK: - Paywall Screen
-"Paywall.title" = "Paywall Title";
-"Paywall.noPaymentNow" = "No payment now!";
-"Paywall.cancelTitle" = "Get in Shape You Always Dreamed Of!";
-"Paywall.cancelSubtitle" = "Tap your name in iPhone Settings, then tap Subscriptions and choose Fasting Tracker & Timer. Tap Cancel. Done!";
-"Paywall.Continue" = "Continue";
-"Paywall.restore" = "Restore";
-"Paywall.headerTitle" = "Paywall Header Title";
-"Paywall.headerDescription" = "Paywall Header Description";
-"Paywall.headerBottomTitle" = "Paywall Header Bottom Title";
-"Paywall.savePercent" = "Save percent";
-"Paywall.reachYourWeightGoals" = "Reach your weight goals";
-"Paywall.tryForFree" = "Try 3 days for free, then %@";
-"Paywall.renewsAt" = "Get Plus for %@";
-"Paywall.cancelAnyTime" = "Unlock your advantage now!";
-"Paywall.savePercent" = "Save %i%";
+"Paywall.title" = "Título do Paywall";
+"Paywall.noPaymentNow" = "Sem pagamento agora!";
+"Paywall.cancelTitle" = "Alcance a forma física que sempre sonhou!";
+"Paywall.cancelSubtitle" = "Toque no seu nome nas configurações do iPhone, depois toque em Assinaturas e escolha Fasting Tracker & Timer. Toque em Cancelar. Pronto!";
+"Paywall.Continue" = "Continuar";
+"Paywall.restore" = "Restaurar";
+"Paywall.headerTitle" = "Título do Cabeçalho do Paywall";
+"Paywall.headerDescription" = "Descrição do Cabeçalho do Paywall";
+"Paywall.headerBottomTitle" = "Título Inferior do Cabeçalho do Paywall";
+"Paywall.savePercent" = "Poupe %i%";
+"Paywall.reachYourWeightGoals" = "Alcance suas metas de peso";
+"Paywall.tryForFree" = "Experimente 3 dias grátis, depois %@";
+"Paywall.renewsAt" = "Obtenha Plus por %@";
+"Paywall.cancelAnyTime" = "Desbloqueie suas vantagens agora!";
+"Paywall.savePercent" = "Poupe %i%";
 
-"SubscriptionDuration.week" = "1 week";
-"SubscriptionDuration.month" = "1 month";
-"SubscriptionDuration.threeMonth" = "3 months";
-"SubscriptionDuration.sixMonth" = "6 months";
-"SubscriptionDuration.year" = "12 months";
+"SubscriptionDuration.week" = "1 semana";
+"SubscriptionDuration.month" = "1 mês";
+"SubscriptionDuration.threeMonth" = "3 meses";
+"SubscriptionDuration.sixMonth" = "6 meses";
+"SubscriptionDuration.year" = "12 meses";
 
 // MARK: Personalized Paywall
-"PersonalizedPaywall.headerTitle" = "Reach your dream weight of %@ by %@";
-"PersonalizedPaywall.getPlus" = "Get Plus for %@";
-"PersonalizedPaywall.renewsAt" = "Renews at %@";
-"PersonalizedPaywall.now" = "Now";
-"PersonalizedPaywall.realTransformation" = "Real transformations";
-"PersonalizedPaywall.whatYoullGet" = "What you’ll get";
+"PersonalizedPaywall.headerTitle" = "Alcance o peso dos seus sonhos de %@ até %@";
+"PersonalizedPaywall.getPlus" = "Obtenha Plus por %@";
+"PersonalizedPaywall.renewsAt" = "Renova por %@";
+"PersonalizedPaywall.now" = "Agora";
+"PersonalizedPaywall.realTransformation" = "Transformações reais";
+"PersonalizedPaywall.whatYoullGet" = "O que você vai receber";
 
-"PersonalizedPaywall.loseWeightBullet" = "Lose ~%@ kg by your %@!";
+"PersonalizedPaywall.loseWeightBullet" = "Perca ~%@ kg até %@!";
 
-"PersonalizedPaywall.description.1" = "Customized for %@ ages %@";
-"PersonalizedPaywall.description.2" = "Adapted for %@ lifestyle";
-"PersonalizedPaywall.description.3" = "Easy to follow fasting schedule";
-"PersonalizedPaywall.description.4" = "Eat whatever you want outside of fasting period";
-"PersonalizedPaywall.description.5" = "No exercise and yo-yo effect";
-"PersonalizedPaywall.description.6" = "No equipment and place limitations";
-"PersonalizedPaywall.description.7" = "Promote cell regeneration, detoxification and metabolism";
-"PersonalizedPaywall.description.8" = "Scientifically proven";
+"PersonalizedPaywall.description.1" = "Personalizado para %@ de %@";
+"PersonalizedPaywall.description.2" = "Adaptado para o estilo de vida de %@";
+"PersonalizedPaywall.description.3" = "Programa de jejum fácil de seguir";
+"PersonalizedPaywall.description.4" = "Coma o que quiser fora do período de jejum";
+"PersonalizedPaywall.description.5" = "Sem exercício e efeito sanfona";
+"PersonalizedPaywall.description.6" = "Sem equipamento e limitações de espaço";
+"PersonalizedPaywall.description.7" = "Promove a regeneração celular, desintoxicação e metabolismo";
+"PersonalizedPaywall.description.8" = "Cientificamente comprovado";
 
-"PersonalizedPaywall.female.name1" = "Diana C";
-"PersonalizedPaywall.female.description1" = "“I always found counting calories to be daunting, but fasting provides the simplicity that has helped me lose weight sustainably“";
-"PersonalizedPaywall.female.name2" = "Lisa M";
-"PersonalizedPaywall.female.description2" = "“I’ve started doing the 20 hour fasting with 4 hour eating window and so far so good“";
-"PersonalizedPaywall.female.name3" = "Paula S";
-"PersonalizedPaywall.female.description3" = "“I didn't believe it at first, but now I have lost 6kg! Didn't go to gym. I can still eat pizza! Crazy!“";
+"PersonalizedPaywall.female.name1" = "Diana";
+"PersonalizedPaywall.female.description1" = "“Sempre achei complicado contar calorias, mas o jejum proporciona a simplicidade que me ajudou a perder peso de forma sustentável“";
+"PersonalizedPaywall.female.name2" = "Lisa";
+"PersonalizedPaywall.female.description2" = "“Comecei fazendo o jejum de 20 horas com janela de alimentação de 4 horas e até agora, tudo bem“";
+"PersonalizedPaywall.female.name3" = "Paula";
+"PersonalizedPaywall.female.description3.kg" = "“Eu não acreditava no começo, mas agora perdi 6 kg! Não fui à academia. Ainda posso comer pizza! Incrível!“";
+"PersonalizedPaywall.female.description3.lb" = "“Eu não acreditava no começo, mas agora perdi 13 lb! Não fui à academia. Ainda posso comer pizza! Incrível!“";
 
-"PersonalizedPaywall.male.name1" = "Trevor M";
-"PersonalizedPaywall.male.description1" = "“I always found counting calories to be daunting, but fasting provides the simplicity that has helped me lose weight sustainably“";
-"PersonalizedPaywall.male.name2" = "Eric K";
-"PersonalizedPaywall.male.description2" = "\"I didn't believe it at first, but now I have lost 6kg! Didn't go to gym. I can still eat pizza! Crazy!\"";
-"PersonalizedPaywall.male.name3" = "George P";
-"PersonalizedPaywall.male.description3" = "\"My customized fasting plan really helped me with my stomach cramps and bloating problems\"";
+"PersonalizedPaywall.male.name1" = "Thiago";
+"PersonalizedPaywall.male.description1" = "“Sempre achei complicado contar calorias, mas o jejum proporciona a simplicidade que me ajudou a perder peso de forma sustentável“";
+"PersonalizedPaywall.male.name2" = "Eric";
+"PersonalizedPaywall.male.description2.kg" = "\"Eu não acreditava no começo, mas agora perdi 6 kg! Não fui à academia. Ainda posso comer pizza! Incrível!\"";
+"PersonalizedPaywall.male.description2.lb" = "\"Eu não acreditava no começo, mas agora perdi 13 lb! Não fui à academia. Ainda posso comer pizza! Incrível!\"";
+"PersonalizedPaywall.male.name3" = "Jorge";
+"PersonalizedPaywall.male.description3" = "\"Meu plano de jejum personalizado realmente me ajudou com meus problemas de cólicas estomacais e inchaço\"";
 
 // MARK: - Fasting Screen
-"FastingScreen.startFasting" = "Start fasting";
-"FastingScreen.endFasting" = "End fasting";
-"FastingProgressView.nextFastIn" = "Next fast in";
-"FastingProgressView.readyToFast" = "Ready\nto fast?";
-"FastingProgressView.youFastFor" = "You've fasted for";
+"FastingScreen.startFasting" = "Começar o jejum";
+"FastingScreen.endFasting" = "Encerrar jejum";
+"FastingProgressView.nextFastIn" = "Próximo jejum em";
+"FastingProgressView.readyToFast" = "Pronto
+para jejuar?";
+"FastingProgressView.youFastFor" = "Você jejuou por";
 
-"FastingIntervalView.fastingStarted" = "Fasting started";
-"FastingIntervalView.fastingStarts" = "Fasting starts";
-"FastingIntervalView.fastingEnd" = "Fasting ends";
-"FastingIntervalView.fastingEnds" = "Fasting ends";
-"StartFastingScreen.goalReached" = "Goal reached";
+"FastingIntervalView.fastingStarted" = "Jejum iniciado";
+"FastingIntervalView.fastingStarts" = "Jejum começa";
+"FastingIntervalView.fastingEnd" = "Jejum termina";
+"FastingIntervalView.fastingEnds" = "Jejum termina";
+"StartFastingScreen.goalReached" = "Meta alcançada";
 
 // MARK: - Start Fasting Screen
-"StartFastingScreen.whenToStart" = "When did you start\nfasting?";
-"StartFastingScreen.whenWantToStart" = "When do you want to start\nfasting?";
-"StartFastingScreen.whenFinished" = "When did you finish\nfasting?";
+"StartFastingScreen.whenToStart" = "Quando você começou\no jejum?";
+"StartFastingScreen.whenWantToStart" = "Quando você quer começar\no jejum?";
+"StartFastingScreen.whenFinished" = "Quando você terminou
+de jejuar?";
 
 
 // MARK: - Fasting Stage
-"FastingStage.bloodSugarRises" = "Blood sugar rises";
-"FastingStage.bloodSugarFalls" = "Blood sugar falls";
-"FastingStage.bloodSugarNormal" = "Blood sugar normal";
-"FastingStage.burningFat" = "Fat burning";
-"FastingStage.ketosis" = "Ketosis";
-"FastingStage.autophagy" = "Autophagy";
+"FastingStage.bloodSugarRises" = "O açúcar no sangue aumenta";
+"FastingStage.bloodSugarFalls" = "O açúcar no sangue diminui";
+"FastingStage.bloodSugarNormal" = "Açúcar no sangue normal";
+"FastingStage.burningFat" = "Queima de gordura";
+"FastingStage.ketosis" = "Cetose";
+"FastingStage.autophagy" = "Autofagia";
 
 // MARK: - Onboarding
 
-"Onboarding.buttonTitle" = "Get started";
-"Onboarding.description" = "Take your health and well-being to the next level";
-"Onboarding.fastingGoal.title" = "What do you want to achieve?";
-"Onboarding.fastingGoal.description" = "Pick as many as you like";
-"Onboarding.sex.title" = "What’s your sex?";
-"Onboarding.sex.description" = "Sex can affect many physical elements lIke our metabolism, muscle mass, or hormones, so we use it in our calculations";
-"Onboarding.activityLevel.title" = "What's your activity level?";
-"Onboarding.specialEvent.title" = "Do you have an event that's inspiring you to lose weight?";
-"Onboarding.specialEvent.description" = "Having something to look forward to will help you stay on track";
-"Onboarding.birthdayTitle" = "When is your birthday?";
-"Onboarding.specialEventDateTitle" = "When will this event take place?";
-"Onboarding.height.title" = "How tall are you?";
-"Onboarding.currentWeight.title" = "What's your current weight?";
-"Onboarding.desiredWeight.title" = "What is your target weight?";
-"Onboarding.desiredWeight.description" = "Let's get there together";
+"Onboarding.buttonTitle" = "Começar";
+"Onboarding.description" = "Leve sua saúde e bem-estar para o próximo nível";
+"Onboarding.fastingGoal.title" = "O que você deseja alcançar?";
+"Onboarding.fastingGoal.description" = "Escolha quantos desejar";
+"Onboarding.sex.title" = "Qual é o seu sexo?";
+"Onboarding.sex.description" = "O sexo pode afetar muitos elementos físicos, como nosso metabolismo, massa muscular ou hormônios, por isso usamos isso em nossos cálculos";
+"Onboarding.activityLevel.title" = "Qual é o seu nível de atividade?";
+"Onboarding.specialEvent.title" = "Você tem algum evento que está motivando você a perder peso?";
+"Onboarding.specialEvent.description" = "Ter algo pelo qual esperar vai ajudar você a se manter no caminho";
+"Onboarding.birthdayTitle" = "Quando é o seu aniversário?";
+"Onboarding.specialEventDateTitle" = "Quando esse evento acontecerá?";
+"Onboarding.height.title" = "Qual a sua altura?";
+"Onboarding.currentWeight.title" = "Qual é o seu peso atual?";
+"Onboarding.desiredWeight.title" = "Qual é o seu peso desejado?";
+"Onboarding.desiredWeight.description" = "Vamos conseguir juntos";
 
-"OnboardingCalculationProccess.progress.title1" = "Analyzing your results...";
-"OnboardingCalculationProccess.progress.title2" = "Creating your plan...";
-"OnboardingCalculationProccess.phase1" = "We rely on behavioural change, not on restrictive eating styles";
-"OnboardingCalculationProccess.phase2" = "Intermittent fasting is backed by multidisciplinary research";
-"OnboardingCalculationProccess.phase3" = "We say no to diets and focus on your body as a whole";
-"OnboardingCalculationProccess.phase4" = "So you can stop labeling food and just lean to eat intuitively";
-"OnboardingCalculationProccess.phase5" = "And remember: Nobody’s perfect. That’s completely normal!";
-"OnboardingCalculationProccess.phase6" = "We’re always here to get you back on track";
+"OnboardingCalculationProccess.progress.title1" = "Analisando seus resultados...";
+"OnboardingCalculationProccess.progress.title2" = "Criando seu plano...";
+"OnboardingCalculationProccess.phase1" = "Contamos com mudança comportamental, não em estilos de alimentação restritivos";
+"OnboardingCalculationProccess.phase2" = "O jejum intermitente é respaldado por pesquisas multidisciplinares";
+"OnboardingCalculationProccess.phase3" = "Dizemos não às dietas e focamos no seu corpo como um todo";
+"OnboardingCalculationProccess.phase4" = "Então você pode parar de rotular alimentos e apenas aprender a comer intuitivamente";
+"OnboardingCalculationProccess.phase5" = "E lembre-se: Ninguém é perfeito. Isso é completamente normal!";
+"OnboardingCalculationProccess.phase6" = "Estamos sempre aqui para ajudá-lo a se reencontrar no caminho";
 
-"OnboardingService.paywallTitle" = "Reach your dream weight of %@ by %@";
-"OnboardingService.bulletWeight.title" = "Lose ~%@ by your %@!";
+"OnboardingService.paywallTitle" = "Alcance seu peso dos sonhos de %@ até %@";
+"OnboardingService.bulletWeight.title" = "Perca ~%@ até %@ %@!";
+"OnboardingService.bulletWeight.article.the" = "the";
+"OnboardingService.bulletWeight.article.your" = "your";
+
 // MARK: Choose fasting plan
 
-"ChooseFastingPlan.title" = "Choose your\nfasting time";
-"ChooseFastingPlan.description" = "Your fasting period starts right after the last meal of the day. Select a fasting schedule that best suits your daily routine.";
-"ChooseFastingPlan.buttonTitle" = "Choose";
+"ChooseFastingPlan.title" = "Escolha seu
+horário de jejum";
+"ChooseFastingPlan.title.onboarding" = "Seu cronograma de jejum recomendado";
+"ChooseFastingPlan.description" = "Seu período de jejum começa logo após a última refeição do dia. Selecione um horário de jejum que melhor se adapte à sua rotina diária.";
+"ChooseFastingPlan.buttonTitle" = "Escolher";
 "ChooseFastingPlan.regular" = "Regular";
-"ChooseFastingPlan.beginner" = "Beginner";
-"ChooseFastingPlan.expert" = "Expert";
-"ChooseFastingPlan.regular.description" = "Full health benefits";
-"ChooseFastingPlan.beginner.description" = "Getting into things";
-"ChooseFastingPlan.expert.description" = "Maximum fat burning";
+"ChooseFastingPlan.beginner" = "Iniciante";
+"ChooseFastingPlan.expert" = "Especialista";
+"ChooseFastingPlan.regular.description" = "Benefícios completos à saúde";
+"ChooseFastingPlan.beginner.description" = "Se integrando às coisas";
+"ChooseFastingPlan.expert.description" = "Máxima queima de gordura";
 "ChooseFastingPlan.regular.intervalPlan" = "16:8";
 "ChooseFastingPlan.beginner.intervalPlan" = "14:10";
 "ChooseFastingPlan.expert.intervalPlan" = "20:4";
-"ChooseFastingPlan.beginner.intervalDescription" = "14h fasting · 10h eating";
-"ChooseFastingPlan.expert.intervalDescription" = "20h fasting · 4h eating";
-"ChooseFastingPlan.regular.intervalDescription" = "16h fasting · 8h eating";
-"ChooseFastingPlan.beginner.intervalDescription" = "14h fasting · 10h eating";
-"ChooseFastingPlan.expert.intervalDescription" = "20h fasting · 4h eating";
+"ChooseFastingPlan.beginner.intervalDescription" = "14h de jejum · 10h comendo";
+"ChooseFastingPlan.expert.intervalDescription" = "20h de jejum · 4h comendo";
+"ChooseFastingPlan.regular.intervalDescription" = "16h de jejum · 8h comendo";
+"ChooseFastingPlan.beginner.intervalDescription" = "14h de jejum · 10h comendo";
+"ChooseFastingPlan.expert.intervalDescription" = "20h de jejum · 4h comendo";
 
 
 // MARK: Setup fasting
 
-"SetupFasting.title" = "Start fasting at";
-"SetupFasting.buttonBannerTitle" = "Change";
-"SetupFasting.description" = "Fasting ends on the following day at 2:00 pm";
-"SetupFasting.buttonTitle" = "Save";
-"SetupFasting.sameDay" = "Fasting ends on the same day at";
-"SetupFasting.followingDay" = "Fasting ends on the following day at";
+"SetupFasting.title" = "Comece o jejum às";
+"SetupFasting.buttonBannerTitle" = "Alterar";
+"SetupFasting.description" = "O jejum termina no dia seguinte às 14:00";
+"SetupFasting.buttonTitle" = "Salvar";
+"SetupFasting.sameDay" = "O jejum termina no mesmo dia às";
+"SetupFasting.followingDay" = "O jejum termina no dia seguinte às";
 
 // MARK: Notification onboarding
 
-"NotificationOnboarding.title" = "Stay Motivated with Notifications";
-"NotificationOnboarding.button" = "Allow notifications";
+"NotificationOnboarding.title" = "Fique motivado com notificações";
+"NotificationOnboarding.button" = "Permitir notificações";
 
 // MARK: - Profile
-"ProfileScreen.navigationTitle" = "Profile";
-"ProfileScreen.supportEmailSubject" = "Fasting App Support";
+"ProfileScreen.navigationTitle" = "Perfil";
+"ProfileScreen.supportEmailSubject" = "Suporte ao App de Jejum";
 
 // MARK: - Subscription
-"ProductCatalog.duration.day.period" = "daily";
-"ProductCatalog.duration.week.period" = "weekly";
-"ProductCatalog.duration.month.period" = "monthly";
-"ProductCatalog.duration.year.period" = "yearly";
-"ProductCatalog.duration.day" = "day";
-"ProductCatalog.duration.week" = "week";
-"ProductCatalog.duration.month" = "month";
-"ProductCatalog.duration.threeMonth" = "3 months";
-"ProductCatalog.duration.sixMonth" = "6 months";
-"ProductCatalog.duration.quater" = "quater";
-"ProductCatalog.duration.year" = "year";
-"ProductCatalog.duration.day.form1" = "day";
-"ProductCatalog.duration.day.form2" = "days";
-"ProductCatalog.duration.week.form1" = "week";
-"ProductCatalog.duration.week.form2" = "weeks";
-"ProductCatalog.duration.month.form1" = "month";
-"ProductCatalog.duration.month.form2" = "months";
-"ProductCatalog.duration.year.form1" = "year";
-"ProductCatalog.duration.year.form2" = "years";
-"ProductCatalog.duration.year.short" = "yr";
-"ProductCatalog.duration.month.short" = "mo";
-"ProductCatalog.duration.week.short" = "wk";
-"ProductCatalog.priceTitle" = "%@ per %@";
+"ProductCatalog.duration.day.period" = "diário";
+"ProductCatalog.duration.week.period" = "semanalmente";
+"ProductCatalog.duration.month.period" = "mensal";
+"ProductCatalog.duration.year.period" = "anual";
+"ProductCatalog.duration.day" = "dia";
+"ProductCatalog.duration.week" = "semana";
+"ProductCatalog.duration.month" = "mês";
+"ProductCatalog.duration.threeMonth" = "3 meses";
+"ProductCatalog.duration.sixMonth" = "6 meses";
+"ProductCatalog.duration.quater" = "trimestre";
+"ProductCatalog.duration.year" = "ano";
+"ProductCatalog.duration.day.form1" = "dia";
+"ProductCatalog.duration.day.form2" = "dias";
+"ProductCatalog.duration.week.form1" = "semana";
+"ProductCatalog.duration.week.form2" = "semanas";
+"ProductCatalog.duration.month.form1" = "mês";
+"ProductCatalog.duration.month.form2" = "meses";
+"ProductCatalog.duration.year.form1" = "ano";
+"ProductCatalog.duration.year.form2" = "anos";
+"ProductCatalog.duration.year.short" = "ano";
+"ProductCatalog.duration.month.short" = "mês";
+"ProductCatalog.duration.week.short" = "sem.";
+"ProductCatalog.priceTitle" = "%@ por %@";
 
 // MARK: - Success screen
-"SuccessScreen.striveForProgress" = "Strive for progress, not perfection!";
-"SuccessScreen.fastingChampion" = "You are a fasting champion! Keep it up!";
-"SuccessScreen.outdoneYourself" = "You've outdone yourself!";
-"SuccessScreen.youFastedFor" = "You fasted for %@ hours more than you planned";
-"SuccessScreen.yourFastingTime" = "Your fasting time";
-"SuccessScreen.fastingEnded" = "Fasting ended";
-"SuccessScreen.submit" = "Submit";
-"SuccessScreen.logFast" = "Log Fast";
+"SuccessScreen.striveForProgress" = "Busque progresso, não perfeição!";
+"SuccessScreen.fastingChampion" = "Você é um campeão do jejum! Continue assim!";
+"SuccessScreen.outdoneYourself" = "Você se superou!";
+"SuccessScreen.youFastedFor" = "Você fez jejum %@ horas a mais do que planejou";
+"SuccessScreen.yourFastingTime" = "Seu tempo de jejum";
+"SuccessScreen.fastingEnded" = "Jejum encerrado";
+"SuccessScreen.submit" = "Enviar";
+"SuccessScreen.logFast" = "Registro Rápido";
 
 // MARK: - End Fasting Early Screen
-"EndFastingEarlyScreen.title" = "Don't give up!\nYou can do it.";
-"EndFastingEarlyScreen.fastingTime" = "You have fasted for less than %@";
-"EndFastingEarlyScreen.hour.form1" = "%i hour";
-"EndFastingEarlyScreen.hour.form2" = "%i hours";
+"EndFastingEarlyScreen.title" = "Não desista!\nVocê consegue.";
+"EndFastingEarlyScreen.fastingTime" = "Você fez jejum por menos de %@";
+"EndFastingEarlyScreen.hour.form1" = "%i hora";
+"EndFastingEarlyScreen.hour.form2" = "%i horas";
 
 // MARK: - Local Notifications
 
-"NotificationType.beforeStartOfFasting1.title" = "Nearly time to start fasting";
-"NotificationType.beforeStartOfFasting1.subtitle" = "Finish your meal before your fast begins in 1 hour.";
-"NotificationType.beforeStartOfFasting2.title" = "Are you ready? 😎";
-"NotificationType.beforeStartOfFasting2.subtitle" = "Fasting begins in 1 hour!";
-"NotificationType.beforeStartOfFasting3.title" = "1 hour to go! ⏰";
-"NotificationType.beforeStartOfFasting3.subtitle" = "Fasting starts in an hour. Get ready!";
+"NotificationType.beforeStartOfFasting1.title" = "Quase na hora de começar o jejum";
+"NotificationType.beforeStartOfFasting1.subtitle" = "Termine sua refeição antes de seu jejum começar em 1 hora.";
+"NotificationType.beforeStartOfFasting2.title" = "Está preparado? 😎";
+"NotificationType.beforeStartOfFasting2.subtitle" = "O jejum começa em 1 hora!";
+"NotificationType.beforeStartOfFasting3.title" = "Falta 1 hora! ⏰";
+"NotificationType.beforeStartOfFasting3.subtitle" = "O jejum começa em uma hora. Prepare-se!";
 
-"NotificationType.startOfFasting1.title" = "It’s fasting time ⏰";
-"NotificationType.startOfFasting1.subtitle" = "Tap to start your timer.";
-"NotificationType.startOfFasting2.title" = "Ready, set, GO! 🏁";
-"NotificationType.startOfFasting2.subtitle" = "It’s time to start your fasting timer.";
-"NotificationType.startOfFasting3.title" = "It’s time to fast! 🔔";
-"NotificationType.startOfFasting3.subtitle" = "Start your timer to track your success";
+"NotificationType.startOfFasting1.title" = "Hora de jejuar ⏰";
+"NotificationType.startOfFasting1.subtitle" = "Toque para iniciar seu cronômetro.";
+"NotificationType.startOfFasting2.title" = "Preparar, apontar e já! 🏁";
+"NotificationType.startOfFasting2.subtitle" = "É hora de iniciar seu cronômetro de jejum.";
+"NotificationType.startOfFasting3.title" = "É hora de jejuar! 🔔";
+"NotificationType.startOfFasting3.subtitle" = "Inicie seu cronômetro para acompanhar seu sucesso";
 
 
-"NotificationType.beforeEndOfFasting1.title" = "You almost made it! 🕐";
-"NotificationType.beforeEndOfFasting1.subtitle" = "Just 1 hour left to complete another successful fast. Keep it up!";
-"NotificationType.beforeEndOfFasting2.title" = "One More Hour";
-"NotificationType.beforeEndOfFasting2.subtitle" = "Only one hour left on this %i-hour fast. You've got this! 💪";
-"NotificationType.beforeEndOfFasting3.title" = "Hang in there! 😃";
-"NotificationType.beforeEndOfFasting3.subtitle" = "You're almost done! Just one more hour of fasting to go!";
+"NotificationType.beforeEndOfFasting1.title" = "Você quase conseguiu! 🕐";
+"NotificationType.beforeEndOfFasting1.subtitle" = "Falta apenas 1 hora para completar outro jejum bem-sucedido. Continue firme!";
+"NotificationType.beforeEndOfFasting2.title" = "Mais uma hora";
+"NotificationType.beforeEndOfFasting2.subtitle" = "Resta apenas uma hora neste jejum de %i horas. Você consegue! 💪";
+"NotificationType.beforeEndOfFasting3.title" = "Aguente firme! 😃";
+"NotificationType.beforeEndOfFasting3.subtitle" = "Você está quase lá! Só mais uma hora de jejum!";
 
-"NotificationType.endOfFasting1.title" = "Fasting completed!";
-"NotificationType.endOfFasting1.subtitle" = "You made it! 💪 Stop your timer, it’s time to eat!";
-"NotificationType.endOfFasting2.title" = "Goal reached! 👏";
-"NotificationType.endOfFasting2.subtitle" = "You did it! Tap here to end your fast.";
-"NotificationType.endOfFasting3.title" = "You did it! 🥳";
-"NotificationType.endOfFasting3.subtitle" = "Now you can end the timer and enjoy your long-awaited meal.";
+"NotificationType.endOfFasting1.title" = "Jejum concluído!";
+"NotificationType.endOfFasting1.subtitle" = "Você conseguiu! 💪 Pare seu cronômetro, é hora de comer!";
+"NotificationType.endOfFasting2.title" = "Meta alcançada! 👏";
+"NotificationType.endOfFasting2.subtitle" = "Você conseguiu! Toque aqui para terminar seu jejum.";
+"NotificationType.endOfFasting3.title" = "Você conseguiu! 🥳";
+"NotificationType.endOfFasting3.subtitle" = "Agora você pode encerrar o cronômetro e saborear sua refeição tão esperada.";
 
-"NotificationType.forgotToStartFasting.title" = "How is it going?";
-"NotificationType.forgotToStartFasting.subtitle" = "If you’re already fasting, start the timer and enjoy your %i hour fast! ⏰";
+"NotificationType.forgotToStartFasting.title" = "Como está indo?";
+"NotificationType.forgotToStartFasting.subtitle" = "Se você já está jejuando, inicie o cronômetro e aproveite seu jejum de %i hora! ⏰";
 
-"NotificationType.forgotToFinishFasting.title" = "Your fast is already over";
-"NotificationType.forgotToFinishFasting.subtitle" = "Wow! Are you still fasting? 🤯 Or just forgot to stop your timer?";
+"NotificationType.forgotToFinishFasting.title" = "Seu jejum já acabou";
+"NotificationType.forgotToFinishFasting.subtitle" = "Uau! Você ainda está jejuando? 🤯 Ou apenas esqueceu de parar seu cronômetro?";
 
-"NotificationType.fatBurningPhaseInfos.title" = "You start to burn fat!";
-"NotificationType.fatBurningPhaseInfos.subtitle" = "Your body is now actively burning through its fat reserves.";
+"NotificationType.fatBurningPhaseInfos.title" = "Você começa a queimar gordura!";
+"NotificationType.fatBurningPhaseInfos.subtitle" = "Seu corpo agora está ativamente queimando suas reservas de gordura.";
 
 // MARK: Fasting Inactive Stage
-"FastingInactiveStage.prepareForFasting" = "How to prepare for fasting?";
-"FastingInactiveStage.whatCanYouEat" = "What can you eat while fasting?";
-"FastingInactiveStage.fastingPhases" = "Fasting phases";
+"FastingInactiveStage.prepareForFasting" = "Como se preparar para o jejum?";
+"FastingInactiveStage.whatCanYouEat" = "O que você pode comer enquanto jejua?";
+"FastingInactiveStage.fastingPhases" = "Fases do jejum";
 
-"FastingInactiveStage.prepareForFasting.description" = "Preparing for a fast is crucial to ensure a smooth and beneficial fasting experience. It involves adjusting your diet, staying hydrated, and mentally preparing yourself for the period of not eating. Proper preparation can help minimize hunger, maintain energy levels, and provide a more comfortable fasting journey.";
-"FastingInactiveStage.whatCanYouEat.description" = "While fasting implies abstaining from caloric intake for a specific period, understanding what you can consume during fasting windows can help you adhere to your fasting goals without feeling overly restricted. Certain low- or zero-calorie beverages can aid in managing hunger and maintaining hydration.";
+"FastingInactiveStage.prepareForFasting.description" = "Preparar-se para um jejum é crucial para garantir uma experiência de jejum tranquila e benéfica. Isso envolve ajustar sua dieta, manter-se hidratado e preparar-se mentalmente para o período de não alimentação. A preparação adequada pode ajudar a minimizar a fome, manter os níveis de energia e proporcionar uma jornada de jejum mais confortável.";
+"FastingInactiveStage.whatCanYouEat.description" = "Embora o jejum implique abster-se de ingestão calórica por um período específico, entender o que você pode consumir durante as janelas de jejum pode ajudá-lo a aderir aos seus objetivos de jejum sem se sentir excessivamente restrito. Certas bebidas de baixa ou zero caloria podem auxiliar na gestão da fome e manutenção da hidratação.";
 
 // MARK: InActive Fasting Article
 
-"InActiveFastingArticle.list.howToPrepareForFasting.title.1" = "Prioritize Protein:";
-"InActiveFastingArticle.list.howToPrepareForFasting.title.2" = "Focus on Fiber:";
-"InActiveFastingArticle.list.howToPrepareForFasting.title.3" = "Include Healthy Fats:";
-"InActiveFastingArticle.list.howToPrepareForFasting.title.4" = "Hydrate:";
-"InActiveFastingArticle.list.howToPrepareForFasting.title.5" = "Avoid Highly Processed Foods:";
-"InActiveFastingArticle.list.howToPrepareForFasting.title.6" = "Minimize Added Sugars:";
-"InActiveFastingArticle.list.howToPrepareForFasting.title.7" = "Reduce Caffeine and Alcohol:";
-"InActiveFastingArticle.list.howToPrepareForFasting.title.8" = "Prepare Mentally:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.1" = "Priorize proteínas:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.2" = "Foco em Fibras:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.3" = "Inclua Gorduras Saudáveis:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.4" = "Hidrate-se:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.5" = "Evite Alimentos Altamente Processados:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.6" = "Minimize Açúcares Adicionados:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.7" = "Reduza Cafeína e Álcool:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.8" = "Prepare-se Mentalmente:";
 
-"InActiveFastingArticle.list.howToPrepareForFasting.1" = "Include adequate amounts of protein in your diet, such as meat, fish, tofu, and nuts, to support muscle maintenance and satiety.";
-"InActiveFastingArticle.list.howToPrepareForFasting.2" = "High-fiber foods like beans, fruits, and vegetables can help regulate digestion and keep you feeling full longer.";
-"InActiveFastingArticle.list.howToPrepareForFasting.3" = "Incorporate healthy fats, like avocado and nuts, which can help stabilize blood sugar and support a smoother transition into fasting.";
-"InActiveFastingArticle.list.howToPrepareForFasting.4" = "Increase your water intake before starting your fast. Drinking plenty of water is crucial for maintaining hydration and helping manage hunger.";
-"InActiveFastingArticle.list.howToPrepareForFasting.5" = "Limit consumption of processed foods, which can increase cravings. Instead, opt for whole, minimally processed foods to support a healthier metabolic state and reduce the temptation to overeat.";
-"InActiveFastingArticle.list.howToPrepareForFasting.6" = "Reduce the intake of foods and beverages high in added sugars to stabilize blood sugar levels.";
-"InActiveFastingArticle.list.howToPrepareForFasting.7" = "Cutting down on caffeine and alcohol prior to fasting can prevent withdrawal symptoms and dehydration.";
-"InActiveFastingArticle.list.howToPrepareForFasting.8" = "Cultivate a positive mindset about fasting, focusing on the benefits and how it aligns with your health goals.";
+"InActiveFastingArticle.list.howToPrepareForFasting.1" = "Inclua quantidades adequadas de proteína em sua dieta, como carne, peixe, tofu e nozes, para manter a manutenção muscular e a saciedade.";
+"InActiveFastingArticle.list.howToPrepareForFasting.2" = "Alimentos ricos em fibras como feijões, frutas e vegetais podem ajudar a regular a digestão e mantê-lo saciado por mais tempo.";
+"InActiveFastingArticle.list.howToPrepareForFasting.3" = "Incorpore gorduras saudáveis, como abacate e nozes, que podem ajudar a estabilizar o açúcar no sangue e apoiar uma transição mais suave para o jejum.";
+"InActiveFastingArticle.list.howToPrepareForFasting.4" = "Aumente sua ingestão de água antes de começar seu jejum. Beber bastante água é crucial para manter a hidratação e ajudar a gerenciar a fome.";
+"InActiveFastingArticle.list.howToPrepareForFasting.5" = "Limite o consumo de alimentos processados, que podem aumentar os desejos. Em vez disso, opte por alimentos inteiros e minimamente processados para apoiar um estado metabólico mais saudável e reduzir a tentação de comer em excesso.";
+"InActiveFastingArticle.list.howToPrepareForFasting.6" = "Reduza a ingestão de alimentos e bebidas ricos em açúcares adicionados para estabilizar os níveis de açúcar no sangue.";
+"InActiveFastingArticle.list.howToPrepareForFasting.7" = "Reduzir o consumo de cafeína e álcool antes do jejum pode prevenir sintomas de abstinência e desidratação.";
+"InActiveFastingArticle.list.howToPrepareForFasting.8" = "Cultive uma mentalidade positiva sobre o jejum, focando nos benefícios e como ele se alinha com seus objetivos de saúde.";
 
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.1" = "Water:";
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.2" = "Tea and Coffee:";
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.3" = "Lemon Water:";
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.4" = "Apple Cider Vinegar:";
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.5" = "Diet Sodas:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.1" = "Água:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.2" = "Chá e café:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.3" = "Água com limão:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.4" = "Vinagre de maçã:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.5" = "Refrigerantes diet:";
 
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.1" = "Essential for hydration, water does not break a fast. Feel free to drink still, sparkling, or mineral water.";
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.2" = "Black coffee and tea are acceptable, provided they are consumed without added sugar or milk.";
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.3" = "A glass of lemon water, being low in calories, can provide vitamin C and potentially help reduce hunger.";
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.4" = "Diluted apple cider vinegar can aid in feeling full and may offer health benefits without breaking your fast.";
-"InActiveFastingArticle.list.whatCanYouEatWhileFasting.5" = "Consuming diet sodas is permissible and can be a viable option to satisfy sweet cravings without breaking your fast. They offer a sweet taste without the caloric intake, helping you stick to your fasting regimen.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.1" = "Essencial para hidratação, a água não interrompe um jejum. Sinta-se à vontade para beber água ainda, com gás ou mineral.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.2" = "Café preto e chá são aceitáveis, desde que consumidos sem açúcar ou leite adicionados.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.3" = "Um copo de água com limão, sendo baixo em calorias, pode fornecer vitamina C e potencialmente ajudar a reduzir a fome.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.4" = "Vinagre de maçã diluído pode ajudar a sentir-se cheio e pode oferecer benefícios à saúde sem interromper seu jejum.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.5" = "Consumir refrigerantes diet é permitido e pode ser uma opção viável para satisfazer desejos doces sem interromper seu jejum. Eles oferecem um sabor doce sem a ingestão calórica, ajudando-o a manter seu regime de jejum.";
 
 // MARK: - Fasting Goal
-"FastingGoal.loseWeight" = "Lose  weight";
-"FastingGoal.lookBetter" = "Look better";
-"FastingGoal.feelMoreEnergetic" = "Feel more energetic";
-"FastingGoal.improveMentalClarity" = "Improve mental clarity";
-"FastingGoal.liveLonger" = "Live longer";
-"FastingGoal.healthierLifestyle" = "Healthier lifestyle";
+"FastingGoal.loseWeight" = "Perder peso";
+"FastingGoal.lookBetter" = "Melhorar a aparência";
+"FastingGoal.feelMoreEnergetic" = "Sinta-se com mais energia";
+"FastingGoal.improveMentalClarity" = "Melhorar a clareza mental";
+"FastingGoal.liveLonger" = "Viver mais";
+"FastingGoal.healthierLifestyle" = "Estilo de vida mais saudável";
 
 "FastingGoal.bullet.loseWeight" = "";
-"FastingGoal.bullet.lookBetter" = "Build your dream body";
-"FastingGoal.bullet.feelMoreEnergetic" = "Become more active in daily life";
-"FastingGoal.bullet.improveMentalClarity" = "Boost focus and feel more alert";
-"FastingGoal.bullet.liveLonger" = "Activate rejuvenation mechanisms";
-"FastingGoal.bullet.healthierLifestyle" = "Develop long-lasting healthy habits";
+"FastingGoal.bullet.lookBetter" = "Construir seu corpo dos sonhos";
+"FastingGoal.bullet.feelMoreEnergetic" = "Tornar-se mais ativo na vida diária";
+"FastingGoal.bullet.improveMentalClarity" = "Aumentar o foco e sentir-se mais alerta";
+"FastingGoal.bullet.liveLonger" = "Ativar mecanismos de rejuvenescimento";
+"FastingGoal.bullet.healthierLifestyle" = "Desenvolver hábitos saudáveis ​​de longa duração";
 
 // MARK: - Sex
-"Sex.male" = "Male";
-"Sex.female" = "Female";
-"Sex.other" = "Other";
+"Sex.male" = "Masculino";
+"Sex.female" = "Feminino";
+"Sex.other" = "Outro";
 
-"Sex.women" = "women";
-"Sex.men" = "men";
+"Sex.women" = "mulheres";
+"Sex.men" = "homens";
 
 // MARK: - Activity Level
-"ActivityLevel.sedentary" = "Sedentary";
-"ActivityLevel.lightlyActive" = "Lightly active";
-"ActivityLevel.moderatelyActive" = "Moderately active";
-"ActivityLevel.veryActive" = "Very active";
+"ActivityLevel.sedentary" = "Sedentário";
+"ActivityLevel.lightlyActive" = "Levemente ativo";
+"ActivityLevel.moderatelyActive" = "Moderadamente ativo";
+"ActivityLevel.veryActive" = "Muito ativo";
 
-"ActivityLevel.sedentary.description" = "I spend most of my day sitting";
-"ActivityLevel.lightlyActive.description" = "I work on my feet and move around throughout the day";
-"ActivityLevel.moderatelyActive.description" = "I have made exercise a lasting habit";
-"ActivityLevel.veryActive.description" = "I spend most of my day doing physical activities";
+"ActivityLevel.sedentary.description" = "Passo a maior parte do meu dia sentado";
+"ActivityLevel.lightlyActive.description" = "Trabalho em pé e me movimento ao longo do dia";
+"ActivityLevel.moderatelyActive.description" = "Tornei o exercício um hábito duradouro";
+"ActivityLevel.veryActive.description" = "Passo a maior parte do meu dia realizando atividades físicas";
 
 // MARK: - Special Event
-"SpecialEvent.vacation" = "Vacation";
-"SpecialEvent.wedding" = "Wedding";
-"SpecialEvent.sportsCompetition" = "Sports competition";
-"SpecialEvent.summer" = "Summer";
-"SpecialEvent.reunion" = "Reunion";
-"SpecialEvent.birthday" = "Birthday";
-"SpecialEvent.somethingElse" = "Something else";
-"SpecialEvent.noSpecialEvent" = "No special event";
+"SpecialEvent.vacation" = "Férias";
+"SpecialEvent.wedding" = "Casamento";
+"SpecialEvent.sportsCompetition" = "Competição esportiva";
+"SpecialEvent.summer" = "Verão";
+"SpecialEvent.reunion" = "Reunião";
+"SpecialEvent.birthday" = "Aniversário";
+"SpecialEvent.somethingElse" = "Outro evento";
+"SpecialEvent.noSpecialEvent" = "Nenhum evento especial";
 
-"SpecialEvent.somethingElse.title" = "Big event";
-"SpecialEvent.sportsCompetition.title" = "Competition";
+"SpecialEvent.somethingElse.title" = "Grande evento";
+"SpecialEvent.sportsCompetition.title" = "Competição";
+
+"SpecialEvent.vacation.question" = "Quando suas férias começam?";
+"SpecialEvent.wedding.question" = "Quando é seu casamento?";
+"SpecialEvent.sportsCompetition.question" = "Quando é seu evento esportivo?";
+"SpecialEvent.summer.question" = "Quando você quer ver os resultados para o verão?";
+"SpecialEvent.reunion.question" = "Quando é a sua reunião de escola?";
+"SpecialEvent.birthday.question" = "Quando é a sua festa de aniversário?";
+"SpecialEvent.somethingElse.question" = "Quando é sua ocasião especial?";
+"SpecialEvent.noSpecialEvent.question" = "Quando é sua ocasião especial?";
 
 // MARK: - Fasting Phase
-"FastingPhase.sugarRises" = "Blood sugar slowly rises";
-"FastingPhase.sugarDrop" = "Blood sugar is going down";
-"FastingPhase.sugarNormal" = "Blood sugar returns to normal";
-"FastingPhase.burning" = "Fat burning";
-"FastingPhase.ketosis" = "Ketosis";
-"FastingPhase.autophagy" = "Autophagy";
+"FastingPhase.sugarRises" = "A glicose no sangue aumenta lentamente";
+"FastingPhase.sugarDrop" = "A glicose no sangue está diminuindo";
+"FastingPhase.sugarNormal" = "A glicose no sangue volta ao normal";
+"FastingPhase.burning" = "Queima de gordura";
+"FastingPhase.ketosis" = "Cetose";
+"FastingPhase.autophagy" = "Autofagia";
 
-"FastingPhase.sugarRises.locked" = "Stage 1";
-"FastingPhase.sugarDrop.locked" = "Stage 2";
-"FastingPhase.sugarNormal.locked" = "Stage 3";
-"FastingPhase.burning.locked" = "Stage 4";
-"FastingPhase.ketosis.locked" = "Stage 5";
-"FastingPhase.autophagy.locked" = "Stage 6";
+"FastingPhase.sugarRises.locked" = "Estágio 1";
+"FastingPhase.sugarDrop.locked" = "Estágio 2";
+"FastingPhase.sugarNormal.locked" = "Estágio 3";
+"FastingPhase.burning.locked" = "Estágio 4";
+"FastingPhase.ketosis.locked" = "Estágio 5";
+"FastingPhase.autophagy.locked" = "Estágio 6";
 
-"FastingPhase.startDescription.sugarRises" = "Begins right after your last meal";
-"FastingPhase.startDescription.sugarDrop" = "Begins 2h after your last meal";
-"FastingPhase.startDescription.sugarNormal" = "Begins 8h after your last meal";
-"FastingPhase.startDescription.burning" = "Begins 10h after your last meal";
-"FastingPhase.startDescription.ketosis" = "Begins 14-16h after your last meal";
-"FastingPhase.startDescription.autophagy" = "Begins 16h after your last meal";
+"FastingPhase.startDescription.sugarRises" = "Começa logo após sua última refeição";
+"FastingPhase.startDescription.sugarDrop" = "Começa 2h após sua última refeição";
+"FastingPhase.startDescription.sugarNormal" = "Começa 8h após sua última refeição";
+"FastingPhase.startDescription.burning" = "Começa 10h após sua última refeição";
+"FastingPhase.startDescription.ketosis" = "Começa 14-16h após sua última refeição";
+"FastingPhase.startDescription.autophagy" = "Começa 16h após sua última refeição";
 
-"FastingPhaseArticle.sugarRises.paragraph" = "You feel fairly normal as your body begins the digestion process. Absorbed nutrients are broken down into their individual components and utilized for both energy and muscle development.";
-"FastingPhaseArticle.sugarRises.point1" = "Levels of the hunger hormone \"ghrelin\" decrease, while the levels of the hormone \"leptin\", responsible for creating a sense of fullness, increase";
-"FastingPhaseArticle.sugarRises.point2" = "Ingested carbohydrates are processed and released into the bloodstream as glucose (blood sugar).";
-"FastingPhaseArticle.sugarRises.point3" = "As a result, blood sugar rises, which triggers the production of insulin.";
-"FastingPhaseArticle.sugarRises.point4" = "Insulin stimulates the absorption of blood sugar into the tissues, providing a quick supply of energy.";
-"FastingPhaseArticle.sugarRises.point5" = "Insulin also stimulates the conversion of excess glucose into its storage form glycogen.";
-"FastingPhaseArticle.sugarRises.point6" = "Glycogen is stored in your liver and muscles, to be released when energy is needed once more.";
-"FastingPhaseArticle.sugarRises.point7" = "Once the glycogen stores are full, any excess glycogen is stored in your fatty tissue in the form of fat.";
+"FastingPhaseArticle.sugarRises.paragraph" = "Você se sente bastante normal enquanto seu corpo inicia o processo de digestão. Os nutrientes absorvidos são decompostos em seus componentes individuais e utilizados tanto para energia quanto para desenvolvimento muscular.";
+"FastingPhaseArticle.sugarRises.point1" = "Os níveis do hormônio da fome \"ghrelin\" diminuem, enquanto os níveis do hormônio \"leptina\", responsável por criar uma sensação de saciedade, aumentam";
+"FastingPhaseArticle.sugarRises.point2" = "Os carboidratos ingeridos são processados e liberados na corrente sanguínea como glicose (açúcar no sangue).";
+"FastingPhaseArticle.sugarRises.point3" = "Como resultado, a glicose no sangue aumenta, o que desencadeia a produção de insulina.";
+"FastingPhaseArticle.sugarRises.point4" = "A insulina estimula a absorção de glicose no sangue nos tecidos, fornecendo um suprimento rápido de energia.";
+"FastingPhaseArticle.sugarRises.point5" = "A insulina também estimula a conversão do excesso de glicose em sua forma de armazenamento, o glicogênio.";
+"FastingPhaseArticle.sugarRises.point6" = "O glicogênio é armazenado em seu fígado e músculos, para ser liberado quando mais energia for necessária.";
+"FastingPhaseArticle.sugarRises.point7" = "Uma vez que os estoques de glicogênio estão cheios, qualquer excesso de glicogênio é armazenado no seu tecido adiposo na forma de gordura.";
 
-"FastingPhaseArticle.sugarDrop.paragraph" = "After rising, your blood sugar starts dropping again. This process is actually the natural way for your body to react after your blood sugar spikes.";
-"FastingPhaseArticle.sugarDrop.point1" = "Insulin transports the glucose in the blood to our cells and tissues. As a result, the level of glucose in the blood drops and your blood sugar decreases to near normal after spiking.";
-"FastingPhaseArticle.sugarDrop.point2" = "Insulin also plays a role in how your body uses fat. As there's plenty of glucose in our blood and glycogen in our muscles or liver, fat is not used as a primary source of energy. Only when glucose levels drop does your body turn to fat stores.";
-"FastingPhaseArticle.sugarDrop.point3" = "You might feel a sense of hunger as your blood sugar decreases. A smart tip is to drink a large glass of water when this happens. It's often enough to keep hunger at bay until it fades naturally.";
+"FastingPhaseArticle.sugarDrop.paragraph" = "Após aumentar, sua glicose no sangue começa a cair novamente. Este processo é realmente a maneira natural do seu corpo reagir depois que sua glicose no sangue dispara.";
+"FastingPhaseArticle.sugarDrop.point1" = "A insulina transporta a glicose no sangue para nossas células e tecidos. Como resultado, o nível de glicose no sangue diminui e sua glicose no sangue volta ao normal depois de disparar.";
+"FastingPhaseArticle.sugarDrop.point2" = "A insulina também desempenha um papel em como seu corpo usa gordura. Enquanto há bastante glicose em nosso sangue e glicogênio em nossos músculos ou fígado, a gordura não é usada como fonte primária de energia. Somente quando os níveis de glicose diminuem é que seu corpo recorre às reservas de gordura.";
+"FastingPhaseArticle.sugarDrop.point3" = "Você pode sentir uma sensação de fome à medida que sua glicose no sangue diminui. Uma dica inteligente é beber um grande copo de água quando isso acontecer. Muitas vezes é suficiente para manter a fome afastada até que ela desapareça naturalmente.";
 
-"FastingPhaseArticle.sugarNormal.paragraph" = "Now, your blood sugar has gone back to its usual level, and your body is using stored energy to keep things going.";
-"FastingPhaseArticle.sugarNormal.point1" = "After your food is all digested and your body stops producing insulin, there's a short resting period. Your digestive organs get a break.";
-"FastingPhaseArticle.sugarNormal.point2" = "As your organs, muscles, and cognitive processes continues to constantly consume energy, a hormone called glucagon steps in. Its job is to release the stored glycogen into your bloodstream. This keeps your blood sugar steady and makes sure your body keeps getting energy. The body uses glycogen stores to produce glucose and meet its energy needs.";
-"FastingPhaseArticle.sugarNormal.point3" = "Feeling hungry? Your stomach is reminding you that it's been a while since your last meal. But it doesn't necessarily mean you're actually that hungry. As your glycogen reserves are running out, you might even lose a little body fat.";
+"FastingPhaseArticle.sugarNormal.paragraph" = "Agora, sua glicose no sangue voltou ao seu nível usual, e seu corpo está usando energia armazenada para manter as coisas funcionando.";
+"FastingPhaseArticle.sugarNormal.point1" = "Depois que sua comida é toda digerida e seu corpo para de produzir insulina, há um curto período de descanso. Seus órgãos digestivos têm uma pausa.";
+"FastingPhaseArticle.sugarNormal.point2" = "À medida que seus órgãos, músculos e processos cognitivos continuam a consumir energia constantement...";
+"FastingPhaseArticle.sugarNormal.point3" = "Sentindo fome? Seu estômago está lembrando você que já faz um tempo desde sua última refeição. Mas isso não significa necessariamente que você está realmente com fome. À medida que suas reservas de glicogênio estão se esgotando, você até pode perder um pouco de gordura corporal.";
 
-"FastingPhaseArticle.ketosis.paragraph" = "After your fat-metabolizing hormones have kicked into gear, providing your body with new energy, something interesting happens. Research shows that during a fasting period of approximately 14 to 16 hours, the energy supply from fat increases by 60%, as your liver starts to produce ketones and your body switches into a ketosis st";
-"FastingPhaseArticle.ketosis.point1" = "Ketones are fatty acid molecules formed in the liver when fat cells are broken down. They are known to provide energy to all vital organs.";
-"FastingPhaseArticle.ketosis.point2" = "Ketones also activate your nerve cells, strengthen intellectual capacity, and develop new cells from your brain's stem cells. Your ability to concentrate increases and you feel more alert.";
-"FastingPhaseArticle.ketosis.point3" = "As a result, you experience a surge in energy levels, accompanied by a decrease in “ghrelin” — the hunger hormone, which brings an additional benefit of appetite suppression.";
-"FastingPhaseArticle.ketosis.point4" = "Ketones act as signaling molecules, instructing your body on how to better regulate its metabolism in a stressful environment.";
-"FastingPhaseArticle.ketosis.point5" = "Ketosis produces fewer inflammatory by-products, providing health benefits to your body and triggering rejuvenation processes.";
+"FastingPhaseArticle.ketosis.paragraph" = "Depois que seus hormônios metabolizadores de gordura entrarem em ação, fornecendo ao seu corpo uma nova energia, algo interessante acontece. Pesquisas mostram que durante um período de jejum de aproximadamente 14 a 16 horas, o suprimento de energia proveniente da gordura aumenta em 60%, à medida que seu fígado começa a produzir cetonas e seu corpo entra em cetose.";
+"FastingPhaseArticle.ketosis.point1" = "As cetonas são moléculas de ácido graxo formadas no fígado quando as células de gordura são quebradas. Elas são conhecidas por fornecer energia a todos os órgãos vitais.";
+"FastingPhaseArticle.ketosis.point2" = "As cetonas também ativam suas células nervosas, fortalecem a capacidade intelectual e desenvolvem novas células a partir das células-tronco do seu cérebro. Sua capacidade de concentração aumenta e você se sente mais alerta.";
+"FastingPhaseArticle.ketosis.point3" = "Como resultado, você experimenta um aumento nos níveis de energia, acompanhado por uma diminuição na \"grelina\" — o hormônio da fome, trazendo um benefício adicional de supressão do apetite.";
+"FastingPhaseArticle.ketosis.point4" = "As cetonas atuam como moléculas sinalizadoras, instruindo seu corpo sobre como regular melhor seu metabolismo em u...";
+"FastingPhaseArticle.ketosis.point5" = "A cetose produz menos subprodutos inflamatórios, proporcionando benefícios à saúde ao seu corpo e desencadeando processes dede rejuvenescimento.";
 
-"FastingPhaseArticle.autophagy.paragraph" = "At this point, your body triggers autophagy, a process kickstarted by a longer fast and fat-burning. Autophagy is translated from the ancient Greek αὐτόφαγος (autóphagos), meaning \"to consume oneself.\" And this is exactly what happens - your body is actually reusing old or damaged cell parts as it self-repairs.";
-"FastingPhaseArticle.autophagy.point1" = "During the autophagy process, viruses, bacteria and damaged cell structures are identified and broken down into their most basic components.";
-"FastingPhaseArticle.autophagy.point2" = "These components are then recycled for energy generation or discarded. The primary advantage of autophagy is best known as the body resetting the clock and producing younger cells.";
-"FastingPhaseArticle.autophagy.point3" = "Autophagy has the potential to reduce inflammation in the body, thereby minimizing the risk of chronic diseases and slowing down the aging process.";
-"FastingPhaseArticle.autophagy.point4" = "Additionally, as it activates certain immune cells, it can also strengthen your immune system.";
-"FastingPhaseArticle.autophagy.point5" = "Various studies have already shown that autophagy induced by fasting can potentially extend life expectancy.";
+"FastingPhaseArticle.autophagy.paragraph" = "Neste ponto, seu corpo desencadeia a autofagia, um processo iniciado por um jejum mais longo e queima de gordura. Autofagia é traduzida do grego antigo αὐτόφαγος (autóphagos), significando \"consumir a si mesmo.\" E isso é exatamente o que acontece - seu corpo está realmente reutilizando partes antigas ou danificadas das células à medida que se auto-repara.";
+"FastingPhaseArticle.autophagy.point1" = "Durante o processo de autofagia, vírus, bactérias e estruturas celulares danificadas são identificadas e quebradas em seus componentes mais básicos.";
+"FastingPhaseArticle.autophagy.point2" = "Esses componentes são então reciclados para geração de energia ou descartados. A principal vantagem da autofagia é mais conhecida como o corpo reiniciando o relógio e produzindo células mais jovens.";
+"FastingPhaseArticle.autophagy.point3" = "A autofagia tem o potencial de reduzir a inflamação no corpo, minimizando assim o risco de doenças crônicas e retardando o processo de envelhecimento.";
+"FastingPhaseArticle.autophagy.point4" = "Além disso, ao ativar certas células imunológicas, também pode fortalecer seu sistema imunológico.";
+"FastingPhaseArticle.autophagy.point5" = "Vários estudos já demonstraram que a autofagia induzida pelo jejum pode potencialmente expandir a expectativa de vida.";
 
-"FastingPhaseArticle.burning.paragraph" = "As you surpass 10-hour mark your body starts to deplete its glycogen stores. These stored carbohydrates served as a quick energy source, but now it's time to tap into a more substantial reserve — your fat stores. The average calorie supply of an adult person in the form of fat reserves amounts to about 80,000 calories.";
-"FastingPhaseArticle.burning.point1" = "Your body produces fat burning hormones, breaking down fats into a more simple form, ready to fuel your cells and keep you functioning at your best.";
-"FastingPhaseArticle.burning.point1.point1" = "Growth Hormone (HGH): Stimulates fat metabolism.";
-"FastingPhaseArticle.burning.point1.point2" = "IGF-1 (Insulin-Like Growth Factor): Supports muscle preservation.";
-"FastingPhaseArticle.burning.point1.point3" = "Glucagon: Initiates the breakdown of stored fats.";
-"FastingPhaseArticle.burning.point1.point4" = "Testosterone and Adrenaline: Released to burn body fat.";
-"FastingPhaseArticle.burning.point1.point5" = "T3 (triiodothyronine): Plays a role in regulating metabolism.";
-"FastingPhaseArticle.burning.point2" = "This stage is particularly conducive to weight loss. Consider complementing your body's efforts with gentle exercise for even greater results.";
+"FastingPhaseArticle.burning.paragraph" = "Quando você ultrapassa a marca de 10 horas, seu corpo começa a esgotar suas reservas de glicogênio. Esses carboidratos armazenados serviram como uma fonte de energia rápida, mas agora é hora de aproveitar uma reserva mais substancial – seus estoques de gordura. O fornecimento médio de calorias de um adulto na forma de reservas de gordura é de cerca de 80.000 calorias.";
+"FastingPhaseArticle.burning.point1" = "Seu corpo produz hormônios queimadores de gordura, quebrando gorduras em uma forma mais simples, pronta para alimentar suas células e mantê-lo funcionando da melhor forma.";
+"FastingPhaseArticle.burning.point1.point1" = "Hormônio do Crescimento (HGH): Estimula o metabolismo de gordura.";
+"FastingPhaseArticle.burning.point1.point2" = "IGF-1 (Fator de Crescimento Semelhante à Insulina): Suporta a preservação muscular.";
+"FastingPhaseArticle.burning.point1.point3" = "Glucagon: Inicia a quebra de gorduras armazenadas.";
+"FastingPhaseArticle.burning.point1.point4" = "Testosterona e Adrenalina: Liberados para queimar gordura corporal.";
+"FastingPhaseArticle.burning.point1.point5" = "T3 (triiodotironina): Desempenha um papel na regulação do metabolismo.";
+"FastingPhaseArticle.burning.point2" = "Esta fase é particularmente propícia para a perda de peso. Considere complementar os esforços do seu corpo com exercícios leves para resultados ainda maiores.";
 
 // MARK: - LockedViewPaywallButton
 
-"LockedViewPaywallButton.title" = "Unlock fasting stages";
-"LockedViewPaywallButton.description" = "See the different fasting stages your body has been through with Fasting Plus";
+"LockedViewPaywallButton.title" = "Desbloquear fases de jejum";
+"LockedViewPaywallButton.description" = "Veja as diferentes fases de jejum pelas quais seu corpo passou com Fasting Plus";
 "LockedViewPaywallButton.buttonTitle" = "Fasting Tracker Plus";
 
 // MARK: Quick action
-"Review.title" = "Need assistance?";
-"Review.subTitle" = "Contact support or share your feedback with us";
+"Review.title" = "Precisa de assistência?";
+"Review.subTitle" = "Entre em contato com o suporte ou compartilhe seu feedback conosco";
 
 // MARK: Discount Paywall
-"DiscountPaywall.limitedTimeOffer" = "Limited Time Offer";
-"DiscountPaywall.specialOffer" = "Special Offer";
-"DiscountPaywall.discountOff" = "%@ OFF";
-"DiscountPaywall.days" = "days";
+"DiscountPaywall.limitedTimeOffer" = "Oferta por Tempo Limitado";
+"DiscountPaywall.specialOffer" = "Oferta Especial";
+"DiscountPaywall.discountOff" = "%@ DE DESCONTO";
+"DiscountPaywall.days" = "dias";
 "DiscountPaywall.hr" = "hr";
 "DiscountPaywall.min" = "min";
-"DiscountPaywall.sec" = "sec";
-"DiscountPaywall.only" = "Only";
-"DiscountPaywall.week" = "/ week";
-"DiscountPaywall.saveNow" = "Save %@ now";
-"DiscountPaywall.unlimitedAccess" = "Unlimited access to all features";
+"DiscountPaywall.sec" = "seg";
+"DiscountPaywall.only" = "Apenas";
+"DiscountPaywall.week" = "por semana";
+"DiscountPaywall.saveNow" = "Economize %@ agora";
+"DiscountPaywall.unlimitedAccess" = "Acesso ilimitado a todas as funcionalidades";
 
-"CoachConstants.appName" = "Intermittent Fasting Tracker";
+"CoachConstants.appName" = "Rastreador de Jejum Intermitente";
 
 // MARK: - HalthOverviewScreen
-"HalthOverviewScreen.readyToFast" = "Ready to fast?";
-"HalthOverviewScreen.nextFastIn" = "Next fast in";
+"HalthOverviewScreen.readyToFast" = "Pronto para jejuar?";
+"HalthOverviewScreen.nextFastIn" = "Próximo jejum em";

@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 13.03.2024.
+  
+*/
+// MARK: - Sex
+
+"Sex.male" = "Masculino";
+"Sex.female" = "Femenino";
+"Sex.other" = "Otro";
+
+"Sex.women" = "mujeres";
+"Sex.men" = "hombres";
+
+// MARK: - WeightUnit
+"WeightUnit.lb" = "lb";
+"WeightUnit.kg" = "kg";
+
+// MARK: Height Unit
+"HeightUnit.ft" = "ft";
+"HeightUnit.cm" = "cm";
+"HeightUnit.in" = "in";
+
+// MARK: - HealthWidgetHint
+"HealthWidgetHint.bodyMass.title" = "Índice de masa corporal (IMC)";
+"HealthWidgetHint.bodyMass.description" = "es un método sencillo para determinar la categoría del peso, según tu altura y peso";
+"HealthWidgetHint.weight.title" = "Cómo entender el peso";
+"HealthWidgetHint.weight.description" = "El peso en la báscula fluctúa de forma natural todos los días. Matizamos estas variaciones para identificar tu peso real, lo que te permitirá ver cambios significativos.";
+
+// MARK: - DateChartScale
+"DateChartScale.week" = "Semana";
+"DateChartScale.month" = "Mes";
+"DateChartScale.threeMonth" = "3 meses";
+
+// MARK: - LineChartItem
+"LineChartItem.trueWeight" = "Peso real";
+"LineChartItem.scaleWeight" = "Peso en la báscula";
+"LineChartItem.goalWeight" = "Peso meta";

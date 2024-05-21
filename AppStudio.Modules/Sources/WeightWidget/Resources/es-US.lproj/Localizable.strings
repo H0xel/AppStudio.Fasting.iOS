@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 14.03.2024.
+  
+*/
+// MARK: - Weight Widget
+
+"WeightWidgetView.title" = "Peso actual";
+"WeightWidgetView.scaleWeight" = "Peso en la báscula";
+"WeightWidgetView.trueWeight" = "Peso real";
+"WeightWidgetView.update" = "Actualizar";
+
+// MARK: - UpdateWeightScreen
+"UpdateWeightScreen.save" = "Guardar";
+"UpdateWeightScreen.today" = "Hoy";
+
+// MARK: - Hint
+"WeightWidgetHint.title" = "Comprensión del peso";
+"WeightWidgetHint.scaleWeight.title" = "¿Qué es el peso en la báscula?";
+"WeightWidgetHint.scaleWeight.answer1" = "El peso en la báscula es el número que ves en la báscula y registras en la aplicación. Puede variar debido a factores como el nivel de agua corporal total, contenidos gastrointestinales y más.";
+"WeightWidgetHint.scaleWeight.answer2" = "Observamos tu peso neto en la báscula y completamos los huecos utilizando la interpolación lineal. Estos datos se muestran como una línea gris pálida en la página del peso.";
+
+"WeightWidgetHint.trueWeight.title" = "¿Qué es el peso real?";
+"WeightWidgetHint.trueWeight.answer1" = "Analizamos tu peso en la báscula utilizando nuestro algoritmo para determinar tu peso real, el cual se muestra como una línea de color azul intenso.";
+"WeightWidgetHint.trueWeight.answer2" = "El peso real representa una tendencia que toma en cuenta las fluctuaciones de peso diarias para ayudarte a entender los cambios significativos que te acercan o te alejan de tus metas de peso.";
+
+"WeightWidgetHint.howToWeight.title" = "¿Cómo debo pesarme?";
+"WeightWidgetHint.howToWeight.answer1" = "Es mejor que te peses por la mañana, después de ir al baño, pero antes de comer o beber algo. Lleva la menor cantidad de ropa posible, o por lo menos usa la misma ropa cada vez que te subas a la báscula.";
+
+"WeightWidgetHint.howOftenWeight.title" = "¿Con qué frecuencia debería pesarme?";
+"WeightWidgetHint.howOftenWeight.answer1" = "El peso real es resistente a las entradas de peso faltantes. Sin embargo, para obtener los mejores resultados, pésate diariamente o por lo menos tres veces a la semana.";
+
+// MARK: - WeightProgressScreen
+"WeightProgressScreen.title" = "Peso";
+"WeightProgressScreen.averageTrueWeight" = "Peso real promedio";
+"WeightProgressScreen.chageOverPeriod" = "Cambio a lo largo del periodo";
+
+// MARK: - WeightProgressAnalyticsView
+"WeightProgressAnalyticsView.currentTrueWeight" = "Peso real actual";
+"WeightProgressAnalyticsView.weeklyWeightChange" = "Cambio de peso semanal";
+"WeightProgressAnalyticsView.projection" = "Proyección a 30 días";
+
+"WeightProgressAnalyticsView.currentTrueWeight.description" = "Nuestra estimación sobre tu peso actual después de matizar las fluctuaciones diarias.";
+"WeightProgressAnalyticsView.weeklyWeightChange.description.weightLoss" = "Tu tasa típica semanal de pérdida de peso durante las últimas tres semanas.";
+"WeightProgressAnalyticsView.weeklyWeightChange.description.weightGain" = "Tu tasa típica semanal de aumento de peso durante las últimas tres semanas.";
+"WeightProgressAnalyticsView.projection.description.weightLoss" = "Tu peso proyectado a 30 días si continúas con tu tasa actual de pérdida de peso. Los cambios en la ingesta o el gasto de energía pueden alterar significativamente esta proyección.";
+"WeightProgressAnalyticsView.projection.description.weightGain" = "Tu peso proyectado a 30 días si continúas tu tasa actual de ganancia de peso. Los cambios en la ingesta o el gasto de energía pueden alterar significativamente esta proyección.";
+
+"WeightProgressAnalyticsView.perWeek" = "por semana";
+
+"WeightProgressAnalyticsView.gatheringData" = "Recopilando datos";
+"WeightProgressAnalyticsView.gatheringDataDescription" = "Un análisis completo estará disponible después de tres semanas de seguimiento del peso.";
+"WeightProgressAnalyticsView.projectionPending" = "Proyección pendiente";
+"WeightProgressAnalyticsView.projectionPendingDescription" = "Una predicción precisa requiere tres semanas de seguimiento del peso.";
+
+// MARK: - ScaleWeightHistoryScreen
+"ScaleWeightHistoryScreen.title" = "Registro del peso en la báscula";

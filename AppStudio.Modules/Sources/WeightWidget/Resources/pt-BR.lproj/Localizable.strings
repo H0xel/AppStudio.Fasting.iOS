@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 14.03.2024.
+  
+*/
+// MARK: - Weight Widget
+
+"WeightWidgetView.title" = "Peso Atual";
+"WeightWidgetView.scaleWeight" = "Peso da Balança";
+"WeightWidgetView.trueWeight" = "Peso real";
+"WeightWidgetView.update" = "Atualizar";
+
+// MARK: - UpdateWeightScreen
+"UpdateWeightScreen.save" = "Salvar";
+"UpdateWeightScreen.today" = "Hoje";
+
+// MARK: - Hint
+"WeightWidgetHint.title" = "Entendendo o Peso";
+"WeightWidgetHint.scaleWeight.title" = "O que é Peso da Balança?";
+"WeightWidgetHint.scaleWeight.answer1" = "Peso da Balança é o número que você vê na balança e registra no aplicativo. Pode flutuar devido a fatores como água corporal total, conteúdos gastrointestinais e mais.";
+"WeightWidgetHint.scaleWeight.answer2" = "Analisamos seu Peso da Balança bruto e preenchemos as lacunas usando interpolação linear. Esses dados são exibidos como uma linha cinza clara na página de Peso.";
+
+"WeightWidgetHint.trueWeight.title" = "O que é o Peso real?";
+"WeightWidgetHint.trueWeight.answer1" = "Analisamos seu Peso da balança usando nosso algoritmo para determinar seu Peso real, que é exibido como uma linha azul escura.";
+"WeightWidgetHint.trueWeight.answer2" = "O Peso real representa uma tendência que leva em conta as flutuações diárias de peso para ajudar a entender as mudanças significativas que aproximam ou afastam você dos seus objetivos de peso.";
+
+"WeightWidgetHint.howToWeight.title" = "Como Devo me Pesar?";
+"WeightWidgetHint.howToWeight.answer1" = "É melhor se pesar logo pela manhã depois de usar o banheiro, mas antes de comer ou beber qualquer coisa. Vista o mínimo de roupas possível, ou pelo menos use as mesmas roupas sempre que subir na balança.";
+
+"WeightWidgetHint.howOftenWeight.title" = "Com que Frequência Devo me Pesar?";
+"WeightWidgetHint.howOftenWeight.answer1" = "O Peso real é resiliente a entradas de peso ausentes. No entanto, para melhores resultados, pese-se diariamente ou pelo menos três vezes por semana.";
+
+// MARK: - WeightProgressScreen
+"WeightProgressScreen.title" = "Peso";
+"WeightProgressScreen.averageTrueWeight" = "Peso real médio";
+"WeightProgressScreen.chageOverPeriod" = "Mudança ao Longo do Período";
+
+// MARK: - WeightProgressAnalyticsView
+"WeightProgressAnalyticsView.currentTrueWeight" = "Peso real atual";
+"WeightProgressAnalyticsView.weeklyWeightChange" = "Mudança Semanal de Peso";
+"WeightProgressAnalyticsView.projection" = "Projeção de 30 Dias";
+
+"WeightProgressAnalyticsView.currentTrueWeight.description" = "Nossa estimativa do seu peso atual após suavizar as flutuações diárias.";
+"WeightProgressAnalyticsView.weeklyWeightChange.description.weightLoss" = "Sua típica taxa semanal de perda de peso nas últimas três semanas.";
+"WeightProgressAnalyticsView.weeklyWeightChange.description.weightGain" = "Sua típica taxa semanal de ganho de peso nas últimas três semanas.";
+"WeightProgressAnalyticsView.projection.description.weightLoss" = "Seu peso projetado em 30 dias se sua taxa atual de perda de peso continuar. Mudanças na ingestão ou gasto de energia podem alterar significativamente essa projeção.";
+"WeightProgressAnalyticsView.projection.description.weightGain" = "Seu peso projetado em 30 dias se sua taxa atual de ganho de peso continuar. Mudanças na ingestão ou gasto de energia podem alterar significativamente essa projeção.";
+
+"WeightProgressAnalyticsView.perWeek" = "por semana";
+
+"WeightProgressAnalyticsView.gatheringData" = "Coletando Dados";
+"WeightProgressAnalyticsView.gatheringDataDescription" = "Uma análise completa estará disponível após três semanas de acompanhamento do peso.";
+"WeightProgressAnalyticsView.projectionPending" = "Projeção Pendente";
+"WeightProgressAnalyticsView.projectionPendingDescription" = "Previsões precisas exigem três semanas de acompanhamento do peso.";
+
+// MARK: - ScaleWeightHistoryScreen
+"ScaleWeightHistoryScreen.title" = "Registro de Peso da Balança";

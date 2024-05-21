@@ -1,0 +1,441 @@
+// MARK: - Common
+"SaveTitle" = "Guardar";
+"CancelTitle" = "Cancelar";
+"Button.cancel" = "Cancelar";
+"TodayTitle" = "Hoy";
+"NextTitle" = "Siguiente";
+
+// MARK: - RootScreen
+"RootScreen.TabBar.daily" = "A diario";
+"RootScreen.TabBar.fasting" = "Ayuno";
+"RootScreen.TabBar.nova" = "Nova";
+"RootScreen.TabBar.progress" = "Progreso";
+"RootScreen.TabBar.profile" = "Perfil";
+"RootScreen.TabBar.plus" = "Plus+";
+
+// MARK: - Paywall Screen
+"Paywall.title" = "Título del muro de pago";
+"Paywall.noPaymentNow" = "¡Sin ningún pago ahora!";
+"Paywall.cancelTitle" = "¡Ponte en forma como siempre soñaste!";
+"Paywall.cancelSubtitle" = "Pulsa tu nombre en los ajustes del iPhone, después pulsa en Subscripciones y elige Fasting Tracker & Timer. Pulsa en Cancelar. ¡Listo!";
+"Paywall.Continue" = "Continuar";
+"Paywall.restore" = "Restaurar";
+"Paywall.headerTitle" = "Título del encabezado del muro de pago";
+"Paywall.headerDescription" = "Descripción del encabezado del muro de pago";
+"Paywall.headerBottomTitle" = "Título inferior del encabezado del muro de pago";
+"Paywall.savePercent" = "Ahorra %i%";
+"Paywall.reachYourWeightGoals" = "Logra tus metas de peso";
+"Paywall.tryForFree" = "Prueba 3 días gratis, después %@";
+"Paywall.renewsAt" = "Obtén Plus por %@";
+"Paywall.cancelAnyTime" = "¡Aprovecha tu ventaja ahora!";
+"Paywall.savePercent" = "Ahorra %i%";
+
+"SubscriptionDuration.week" = "1 semana";
+"SubscriptionDuration.month" = "1 mes";
+"SubscriptionDuration.threeMonth" = "3 meses";
+"SubscriptionDuration.sixMonth" = "6 meses";
+"SubscriptionDuration.year" = "12 meses";
+
+// MARK: Personalized Paywall
+"PersonalizedPaywall.headerTitle" = "Alcanza tu peso ideal de %@ para el %@";
+"PersonalizedPaywall.getPlus" = "Obtén Plus por %@";
+"PersonalizedPaywall.renewsAt" = "Se renueva el %@";
+"PersonalizedPaywall.now" = "Ahora";
+"PersonalizedPaywall.realTransformation" = "Transformaciones reales";
+"PersonalizedPaywall.whatYoullGet" = "Qué obtendrás";
+
+"PersonalizedPaywall.loseWeightBullet" = "¡Pierde ~%@ kg con tu %@!";
+
+"PersonalizedPaywall.description.1" = "Personalizado para %@ de %@ años";
+"PersonalizedPaywall.description.2" = "Adaptado para el estilo de vida %@";
+"PersonalizedPaywall.description.3" = "Horario de ayuno fácil de seguir";
+"PersonalizedPaywall.description.4" = "Come lo que quieras fuera del periodo de ayuno";
+"PersonalizedPaywall.description.5" = "Sin ejercicio ni efecto yoyó";
+"PersonalizedPaywall.description.6" = "Sin limitaciones de equipo y lugar";
+"PersonalizedPaywall.description.7" = "Promueve la regeneración celular, la desintoxicación y el metabolismo";
+"PersonalizedPaywall.description.8" = "Demostrado científicamente";
+
+"PersonalizedPaywall.female.name1" = "Diana";
+"PersonalizedPaywall.female.description1" = "«Siempre me pareció complicado contar calorías, pero el ayuno proporciona la sencillez que me ha ayudado a perder peso de manera sostenible»";
+"PersonalizedPaywall.female.name2" = "Lisa";
+"PersonalizedPaywall.female.description2" = "«Comencé a hacer el ayuno de 20 horas con un periodo de alimentación de 4 horas y hasta ahora todo va bien»";
+"PersonalizedPaywall.female.name3" = "Paula";
+"PersonalizedPaywall.female.description3.kg" = "«¡Al principio no lo creía, pero ya he perdido 6 kg! No tuve que ir al gimnasio. ¡Y aún puedo comer pizza! ¡Es increíble!»";
+"PersonalizedPaywall.female.description3.lb" = "«¡Al principio no lo creía, pero ya he perdido 13 lb! No tuve que ir al gimnasio. ¡Y aún puedo comer pizza! ¡Es increíble!»";
+
+"PersonalizedPaywall.male.name1" = "Trevor";
+"PersonalizedPaywall.male.description1" = "«Siempre me pareció complicado contar calorías, pero el ayuno proporciona la sencillez que me ha ayudado a perder peso de manera sostenible»";
+"PersonalizedPaywall.male.name2" = "Eric";
+"PersonalizedPaywall.male.description2.kg" = "«¡Al principio no lo creía, pero ya he perdido 6 kg! No tuve que ir al gimnasio. ¡Y aún puedo comer pizza! ¡Es increíble!»";
+"PersonalizedPaywall.male.description2.lb" = "«¡Al principio no lo creía, pero ya he perdido 13 lb! No tuve que ir al gimnasio. ¡Y aún puedo comer pizza! ¡Es increíble!»";
+"PersonalizedPaywall.male.name3" = "George";
+"PersonalizedPaywall.male.description3" = "«Mi plan de ayuno personalizado me ayudó de veras con mis problemas de cólicos y distensión abdominal»";
+
+// MARK: - Fasting Screen
+"FastingScreen.startFasting" = "Empezar el ayuno";
+"FastingScreen.endFasting" = "Finalizar ayuno";
+"FastingProgressView.nextFastIn" = "Próximo ayuno en";
+"FastingProgressView.readyToFast" = "¿Todo listo\npara ayunar?";
+"FastingProgressView.youFastFor" = "Has ayunado durante";
+
+"FastingIntervalView.fastingStarted" = "Ayuno iniciado";
+"FastingIntervalView.fastingStarts" = "El ayuno comienza";
+"FastingIntervalView.fastingEnd" = "El ayuno termina";
+"FastingIntervalView.fastingEnds" = "El ayuno termina";
+"StartFastingScreen.goalReached" = "Meta alcanzada";
+
+// MARK: - Start Fasting Screen
+"StartFastingScreen.whenToStart" = "¿Cuándo empezaste\na ayunar?";
+"StartFastingScreen.whenWantToStart" = "¿Cuándo quieres\ncomenzar a ayunar?";
+"StartFastingScreen.whenFinished" = "¿Cuándo terminaste\nde ayunar?";
+
+
+// MARK: - Fasting Stage
+"FastingStage.bloodSugarRises" = "El nivel de azúcar en la sangre aumenta";
+"FastingStage.bloodSugarFalls" = "El nivel de azúcar en la sangre disminuye";
+"FastingStage.bloodSugarNormal" = "El nivel de azúcar en la sangre es normal";
+"FastingStage.burningFat" = "Quema de grasa";
+"FastingStage.ketosis" = "Cetosis";
+"FastingStage.autophagy" = "Autofagia";
+
+// MARK: - Onboarding
+
+"Onboarding.buttonTitle" = "Comenzar";
+"Onboarding.description" = "Lleva tu salud y bienestar al siguiente nivel";
+"Onboarding.fastingGoal.title" = "¿Qué quieres lograr?";
+"Onboarding.fastingGoal.description" = "Elige tantos como quieras";
+"Onboarding.sex.title" = "¿Cuál es tu sexo?";
+"Onboarding.sex.description" = "El sexo puede afectar a muchos elementos físicos, como nuestro metabolismo, masa muscular y hormonas, así que lo incluimos en nuestros cálculos";
+"Onboarding.activityLevel.title" = "¿Cuál es tu nivel de actividad?";
+"Onboarding.specialEvent.title" = "¿Tienes algún evento que te inspire a perder peso?";
+"Onboarding.specialEvent.description" = "Tener una expectativa te ayudará a mantenerte en el camino correcto";
+"Onboarding.birthdayTitle" = "¿Cuándo es tu cumpleaños?";
+"Onboarding.specialEventDateTitle" = "¿Cuándo se llevará a cabo este evento?";
+"Onboarding.height.title" = "¿Cuál es tu estatura?";
+"Onboarding.currentWeight.title" = "¿Cuál es tu peso actual?";
+"Onboarding.desiredWeight.title" = "¿Cuál es tu peso meta?";
+"Onboarding.desiredWeight.description" = "Vamos a lograrlo juntos";
+
+"OnboardingCalculationProccess.progress.title1" = "Analizando tus resultados...";
+"OnboardingCalculationProccess.progress.title2" = "Creando tu plan...";
+"OnboardingCalculationProccess.phase1" = "Nos basamos en el cambio de comportamiento, no en estilos de alimentación restrictivos";
+"OnboardingCalculationProccess.phase2" = "El ayuno intermitente está respaldado por investigaciones multidisciplinarias";
+"OnboardingCalculationProccess.phase3" = "Decimos no a las dietas y nos centramos en tu cuerpo en su conjunto";
+"OnboardingCalculationProccess.phase4" = "Así puedes dejar de etiquetar los alimentos y simplemente aprender a comer de manera intuitiva";
+"OnboardingCalculationProccess.phase5" = "Y recuerda que nadie es perfecto. ¡Eso es completamente normal!";
+"OnboardingCalculationProccess.phase6" = "Siempre estaremos aquí para ayudarte a volver por el buen camino";
+
+"OnboardingService.paywallTitle" = "Alcanza tu peso ideal de %@ para el %@";
+"OnboardingService.bulletWeight.title" = "¡Pierde ~%@ para %@ %@!";
+"OnboardingService.bulletWeight.article.the" = "el";
+"OnboardingService.bulletWeight.article.your" = "tu";
+
+// MARK: Choose fasting plan
+
+"ChooseFastingPlan.title" = "Elige tu hora\nde ayuno";
+"ChooseFastingPlan.title.onboarding" = "Tu horario de ayuno\nrecomendado";
+"ChooseFastingPlan.description" = "Tu periodo de ayuno comienza justo después de la última comida del día. Selecciona el horario de ayuno que mejor se adapte a tu rutina diaria.";
+"ChooseFastingPlan.buttonTitle" = "Elegir";
+"ChooseFastingPlan.regular" = "Normal";
+"ChooseFastingPlan.beginner" = "Principiante";
+"ChooseFastingPlan.expert" = "Experto";
+"ChooseFastingPlan.regular.description" = "Beneficios completos para la salud";
+"ChooseFastingPlan.beginner.description" = "Primeros pasos";
+"ChooseFastingPlan.expert.description" = "Quema de grasa máxima";
+"ChooseFastingPlan.regular.intervalPlan" = "16:8";
+"ChooseFastingPlan.beginner.intervalPlan" = "14:10";
+"ChooseFastingPlan.expert.intervalPlan" = "20:4";
+"ChooseFastingPlan.beginner.intervalDescription" = "14 h de ayuno · 10 h de comida";
+"ChooseFastingPlan.expert.intervalDescription" = "20 h de ayuno · 4 h de comida";
+"ChooseFastingPlan.regular.intervalDescription" = "16 h de ayuno · 8 h de comida";
+"ChooseFastingPlan.beginner.intervalDescription" = "14 h de ayuno · 10 h de comida";
+"ChooseFastingPlan.expert.intervalDescription" = "20 h de ayuno · 4 h de comida";
+
+
+// MARK: Setup fasting
+
+"SetupFasting.title" = "Comienza a ayunar a las";
+"SetupFasting.buttonBannerTitle" = "Cambiar";
+"SetupFasting.description" = "El ayuno termina al día siguiente a las 2:00 p.m.";
+"SetupFasting.buttonTitle" = "Guardar";
+"SetupFasting.sameDay" = "El ayuno termina el mismo día a las";
+"SetupFasting.followingDay" = "El ayuno termina el día siguiente a las";
+
+// MARK: Notification onboarding
+
+"NotificationOnboarding.title" = "Mantente motivado con ayuda de las notificaciones";
+"NotificationOnboarding.button" = "Permitir las notificaciones";
+
+// MARK: - Profile
+"ProfileScreen.navigationTitle" = "Perfil";
+"ProfileScreen.supportEmailSubject" = "Soporte para la aplicación de ayuno";
+
+// MARK: - Subscription
+"ProductCatalog.duration.day.period" = "a diario";
+"ProductCatalog.duration.week.period" = "semanalmente";
+"ProductCatalog.duration.month.period" = "mensualmente";
+"ProductCatalog.duration.year.period" = "anualmente";
+"ProductCatalog.duration.day" = "día";
+"ProductCatalog.duration.week" = "semana";
+"ProductCatalog.duration.month" = "mes";
+"ProductCatalog.duration.threeMonth" = "3 meses";
+"ProductCatalog.duration.sixMonth" = "6 meses";
+"ProductCatalog.duration.quater" = "trimestre";
+"ProductCatalog.duration.year" = "año";
+"ProductCatalog.duration.day.form1" = "día";
+"ProductCatalog.duration.day.form2" = "días";
+"ProductCatalog.duration.week.form1" = "semana";
+"ProductCatalog.duration.week.form2" = "semanas";
+"ProductCatalog.duration.month.form1" = "mes";
+"ProductCatalog.duration.month.form2" = "meses";
+"ProductCatalog.duration.year.form1" = "año";
+"ProductCatalog.duration.year.form2" = "años";
+"ProductCatalog.duration.year.short" = "año";
+"ProductCatalog.duration.month.short" = "mes";
+"ProductCatalog.duration.week.short" = "sem";
+"ProductCatalog.priceTitle" = "%@ por %@";
+
+// MARK: - Success screen
+"SuccessScreen.striveForProgress" = "Esfuérzate por el progreso, no por la perfección!";
+"SuccessScreen.fastingChampion" = "¡Eres un campeón del ayuno! ¡Sigue así!";
+"SuccessScreen.outdoneYourself" = "¡Te has superado!";
+"SuccessScreen.youFastedFor" = "Has ayunado %@ horas más de lo previsto";
+"SuccessScreen.yourFastingTime" = "Tu tiempo de ayuno";
+"SuccessScreen.fastingEnded" = "El ayuno ha terminado";
+"SuccessScreen.submit" = "Enviar";
+"SuccessScreen.logFast" = "Registrar ayuno";
+
+// MARK: - End Fasting Early Screen
+"EndFastingEarlyScreen.title" = "¡No te rindas!\nPuedes hacerlo.";
+"EndFastingEarlyScreen.fastingTime" = "Has ayunado menos de %@";
+"EndFastingEarlyScreen.hour.form1" = "%i hora";
+"EndFastingEarlyScreen.hour.form2" = "%i horas";
+
+// MARK: - Local Notifications
+
+"NotificationType.beforeStartOfFasting1.title" = "Ya casi es hora de comenzar el ayuno";
+"NotificationType.beforeStartOfFasting1.subtitle" = "Termina tu comida antes de empezar tu ayuno en 1 hora.";
+"NotificationType.beforeStartOfFasting2.title" = "¿Todo listo? 😎";
+"NotificationType.beforeStartOfFasting2.subtitle" = "¡El ayuno comienza en 1 hora!";
+"NotificationType.beforeStartOfFasting3.title" = "¡Falta 1 hora! ⏰";
+"NotificationType.beforeStartOfFasting3.subtitle" = "El ayuno comienza en una hora. ¡Prepárate!";
+
+"NotificationType.startOfFasting1.title" = "Es hora de ayunar ⏰";
+"NotificationType.startOfFasting1.subtitle" = "Pulsa para iniciar tu temporizador.";
+"NotificationType.startOfFasting2.title" = "¡Preparados, listos, YA! 🏁";
+"NotificationType.startOfFasting2.subtitle" = "Es hora de iniciar tu temporizador de ayuno.";
+"NotificationType.startOfFasting3.title" = "¡Es hora de ayunar! 🔔";
+"NotificationType.startOfFasting3.subtitle" = "Inicia tu temporizador para registrar tu éxito";
+
+
+"NotificationType.beforeEndOfFasting1.title" = "¡Casi lo has logrado! 🕐";
+"NotificationType.beforeEndOfFasting1.subtitle" = "Solo falta 1 hora para completar otro ayuno exitoso. ¡Sigue así!";
+"NotificationType.beforeEndOfFasting2.title" = "Una hora más";
+"NotificationType.beforeEndOfFasting2.subtitle" = "Solo falta una hora en este ayuno de %i horas. ¡Puedes hacerlo! 💪";
+"NotificationType.beforeEndOfFasting3.title" = "¡Aguanta! 😃";
+"NotificationType.beforeEndOfFasting3.subtitle" = "¡Casi has terminado! Solo te falta una hora más de ayuno.";
+
+"NotificationType.endOfFasting1.title" = "¡Ayuno completado!";
+"NotificationType.endOfFasting1.subtitle" = "¡Lo lograste! 💪 ¡Detén el temporizador, es hora de comer!";
+"NotificationType.endOfFasting2.title" = "¡Meta alcanzada! 👏";
+"NotificationType.endOfFasting2.subtitle" = "¡Lo lograste! Pulsa aquí para terminar tu ayuno.";
+"NotificationType.endOfFasting3.title" = "¡Lo lograste! 🥳";
+"NotificationType.endOfFasting3.subtitle" = "Ya puedes detener el temporizador y disfrutar de una muy esperada comida.";
+
+"NotificationType.forgotToStartFasting.title" = "¿Cómo va todo?";
+"NotificationType.forgotToStartFasting.subtitle" = "Si ya estás ayunando, ¡inicia el temporizador y disfruta de tu ayuno de %i hora! ⏰";
+
+"NotificationType.forgotToFinishFasting.title" = "Tu ayuno ya ha terminado";
+"NotificationType.forgotToFinishFasting.subtitle" = "¡Guau! ¿Sigues ayunando? 🤯 ¿O es que olvidaste detener tu temporizador?";
+
+"NotificationType.fatBurningPhaseInfos.title" = "¡Ya comienzas a quemar grasa!";
+"NotificationType.fatBurningPhaseInfos.subtitle" = "Ahora tu cuerpo está quemando activamente sus reservas de grasa.";
+
+// MARK: Fasting Inactive Stage
+"FastingInactiveStage.prepareForFasting" = "¿Cómo prepararse para el ayuno?";
+"FastingInactiveStage.whatCanYouEat" = "¿Qué puedes comer mientras ayunas?";
+"FastingInactiveStage.fastingPhases" = "Fases del ayuno";
+
+"FastingInactiveStage.prepareForFasting.description" = "Prepararse para un ayuno es esencial para garantizar una experiencia de ayuno óptima y beneficiosa. Implica ajustar tu dieta, mantenerte hidratado y prepararte mentalmente para el periodo en el que no comerás. Una preparación adecuada puede ayudar a minimizar el hambre, mantener los niveles de energía y proporcionar una experiencia de ayuno más cómoda.";
+"FastingInactiveStage.whatCanYouEat.description" = "Aunque ayunar implica abstenerse de ingerir calorías durante un periodo específico, saber qué puedes consumir durante las ventanas de ayuno puede ayudarte a lograr tus metas de ayuno sin sentir demasiadas restricciones. Algunas bebidas bajas en calorías, o sin calorías, pueden ayudarte a controlar el hambre y mantener la hidratación.";
+
+// MARK: InActive Fasting Article
+
+"InActiveFastingArticle.list.howToPrepareForFasting.title.1" = "Prioriza las proteínas:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.2" = "Céntrate en la fibra:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.3" = "Incluye grasas saludables:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.4" = "Hidrátate:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.5" = "Evita los alimentos muy procesados:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.6" = "Minimiza los azúcares añadidos:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.7" = "Reduce la cafeína y el alcohol:";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.8" = "Prepárate mentalmente:";
+
+"InActiveFastingArticle.list.howToPrepareForFasting.1" = "Incluye cantidades adecuadas de proteínas en tu dieta, como carne, pescado, tofu y frutos secos para ayudar con el mantenimiento muscular y la saciedad.";
+"InActiveFastingArticle.list.howToPrepareForFasting.2" = "Los alimentos ricos en fibra, como alubias, frutas y verduras, pueden ayudarte a regular la digestión y hacerte sentir lleno durante más tiempo.";
+"InActiveFastingArticle.list.howToPrepareForFasting.3" = "Incluye grasas saludables, como aguacate y frutos secos, que pueden ayudar a estabilizar el nivel de azúcar en la sangre y respaldar una transición mejor hacia el ayuno.";
+"InActiveFastingArticle.list.howToPrepareForFasting.4" = "Incrementa tu ingesta de agua antes de comenzar el ayuno. Es esencial beber mucha agua para mantener la hidratación y ayudar a controlar el hambre.";
+"InActiveFastingArticle.list.howToPrepareForFasting.5" = "Limita el consumo de alimentos procesados, ya que pueden aumentar los antojos. En su lugar, elige alimentos enteros y mínimamente procesados para obtener un estado metabólico más saludable y reducir la tentación de comer en exceso.";
+"InActiveFastingArticle.list.howToPrepareForFasting.6" = "Reduce la ingesta de alimentos y bebidas con muchos azúcares añadidos para estabilizar los niveles de azúcar en la sangre.";
+"InActiveFastingArticle.list.howToPrepareForFasting.7" = "Reducir el consumo de cafeína y alcohol antes del ayuno puede evitar los síntomas de abstinencia y deshidratación.";
+"InActiveFastingArticle.list.howToPrepareForFasting.8" = "Cultiva una mentalidad positiva sobre el ayuno, céntrate en los beneficios y cómo se alinean con tus metas de salud.";
+
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.1" = "Agua:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.2" = "Té y café:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.3" = "Agua con limón:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.4" = "Vinagre de manzana:";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.5" = "Refrescos dietéticos:";
+
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.1" = "Esencial para la hidratación, el agua no rompe el ayuno. Bebe sin miedo agua sin gas, con gas o mineral.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.2" = "El café solo y el té son aceptables, siempre y cuando se ingieran sin azúcar ni leche.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.3" = "Un vaso de agua con limón, al ser bajo en calorías, puede proporcionar vitamina C y ayudarte a reducir el hambre.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.4" = "El vinagre de manzana diluido puede hacerte sentir lleno y ofrece beneficios para la salud sin interrumpir tu ayuno.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.5" = "Se permite beber refrescos dietéticos y puede ser una opción viable para satisfacer el deseo de comer dulces sin romper el ayuno. Proporcionan un sabor dulce sin ingerir calorías y te ayudarán a cumplir el régimen de ayuno.";
+
+// MARK: - Fasting Goal
+"FastingGoal.loseWeight" = "Pierde peso";
+"FastingGoal.lookBetter" = "Ten un mejor aspecto";
+"FastingGoal.feelMoreEnergetic" = "Siéntete con más energía";
+"FastingGoal.improveMentalClarity" = "Mejora tu claridad mental";
+"FastingGoal.liveLonger" = "Vive más tiempo";
+"FastingGoal.healthierLifestyle" = "Estilo de vida más saludable";
+
+"FastingGoal.bullet.loseWeight" = "";
+"FastingGoal.bullet.lookBetter" = "Desarrolla el cuerpo de tus sueños";
+"FastingGoal.bullet.feelMoreEnergetic" = "Conviértete en una persona más activa en la vida diaria";
+"FastingGoal.bullet.improveMentalClarity" = "Mejora tu concentración y siéntete más alerta";
+"FastingGoal.bullet.liveLonger" = "Activa los mecanismos de rejuvenecimiento";
+"FastingGoal.bullet.healthierLifestyle" = "Desarrolla hábitos saludables duraderos";
+
+// MARK: - Sex
+"Sex.male" = "Masculino";
+"Sex.female" = "Femenino";
+"Sex.other" = "Otro";
+
+"Sex.women" = "mujeres";
+"Sex.men" = "hombres";
+
+// MARK: - Activity Level
+"ActivityLevel.sedentary" = "Sedentario";
+"ActivityLevel.lightlyActive" = "Poco activo";
+"ActivityLevel.moderatelyActive" = "Moderadamente activo";
+"ActivityLevel.veryActive" = "Muy activo";
+
+"ActivityLevel.sedentary.description" = "Paso la mayor parte del día sentado";
+"ActivityLevel.lightlyActive.description" = "Trabajo de pie y me muevo durante el día";
+"ActivityLevel.moderatelyActive.description" = "Hice del ejercicio un hábito duradero";
+"ActivityLevel.veryActive.description" = "Paso la mayor parte del día haciendo actividades físicas";
+
+// MARK: - Special Event
+"SpecialEvent.vacation" = "Vacaciones";
+"SpecialEvent.wedding" = "Boda";
+"SpecialEvent.sportsCompetition" = "Competición deportiva";
+"SpecialEvent.summer" = "Verano";
+"SpecialEvent.reunion" = "Reunión";
+"SpecialEvent.birthday" = "Cumpleaños";
+"SpecialEvent.somethingElse" = "Otro evento";
+"SpecialEvent.noSpecialEvent" = "No hay ningún evento especial";
+
+"SpecialEvent.somethingElse.title" = "Gran evento";
+"SpecialEvent.sportsCompetition.title" = "Competición";
+
+"SpecialEvent.vacation.question" = "¿Cuándo comienzan tus vacaciones?";
+"SpecialEvent.wedding.question" = "¿Cuándo es tu boda?";
+"SpecialEvent.sportsCompetition.question" = "¿Cuándo es tu evento deportivo?";
+"SpecialEvent.summer.question" = "¿Cuándo quieres ver resultados del verano?";
+"SpecialEvent.reunion.question" = "¿Cuándo es tu reunión de exalumnos?";
+"SpecialEvent.birthday.question" = "¿Cuándo es tu fiesta de cumpleaños?";
+"SpecialEvent.somethingElse.question" = "¿Cuándo es tu ocasión especial?";
+"SpecialEvent.noSpecialEvent.question" = "¿Cuándo es tu ocasión especial?";
+
+// MARK: - Fasting Phase
+"FastingPhase.sugarRises" = "El nivel de azúcar en la sangre sube lentamente";
+"FastingPhase.sugarDrop" = "El nivel de azúcar en la sangre disminuye";
+"FastingPhase.sugarNormal" = "El nivel de azúcar en la sangre vuelve a la normalidad";
+"FastingPhase.burning" = "Quema de grasa";
+"FastingPhase.ketosis" = "Cetosis";
+"FastingPhase.autophagy" = "Autofagia";
+
+"FastingPhase.sugarRises.locked" = "Etapa 1";
+"FastingPhase.sugarDrop.locked" = "Etapa 2";
+"FastingPhase.sugarNormal.locked" = "Etapa 3";
+"FastingPhase.burning.locked" = "Etapa 4";
+"FastingPhase.ketosis.locked" = "Etapa 5";
+"FastingPhase.autophagy.locked" = "Etapa 6";
+
+"FastingPhase.startDescription.sugarRises" = "Comienza justo después de tu última comida";
+"FastingPhase.startDescription.sugarDrop" = "Comienza 2 h después de tu última comida";
+"FastingPhase.startDescription.sugarNormal" = "Comienza 8 h después de tu última comida";
+"FastingPhase.startDescription.burning" = "Comienza 10 h después de tu última comida";
+"FastingPhase.startDescription.ketosis" = "Comienza entre 14 y 16 h después de tu última comida";
+"FastingPhase.startDescription.autophagy" = "Comienza 16 h después de tu última comida";
+
+"FastingPhaseArticle.sugarRises.paragraph" = "Te sientes bastante normal mientras tu cuerpo comienza el proceso de digestión. Los nutrientes absorbidos se descomponen en sus componentes individuales y se utilizan tanto para proporcionar energía como para el desarrollo muscular.";
+"FastingPhaseArticle.sugarRises.point1" = "Los niveles de la hormona del hambre «grelina» disminuyen, mientras que los niveles de la hormona «leptina», responsable de crear una sensación de saciedad, aumentan";
+"FastingPhaseArticle.sugarRises.point2" = "Los carbohidratos ingeridos se procesan y liberan en el torrente sanguíneo como glucosa (azúcar en la sangre).";
+"FastingPhaseArticle.sugarRises.point3" = "Como resultado, el nivel de azúcar en la sangre sube, lo que desencadena la producción de insulina.";
+"FastingPhaseArticle.sugarRises.point4" = "La insulina estimula la absorción de la glucosa en los tejidos y proporciona un suministro rápido de energía.";
+"FastingPhaseArticle.sugarRises.point5" = "La insulina también estimula la conversión del exceso de glucosa en su forma almacenada, el glucógeno.";
+"FastingPhaseArticle.sugarRises.point6" = "El glucógeno se almacena en el hígado y los músculos, y se libera cuando se necesita más energía.";
+"FastingPhaseArticle.sugarRises.point7" = "Cuando las reservas de glucógeno están llenas, cualquier exceso de glucógeno se almacena en el tejido graso en forma de grasa.";
+
+"FastingPhaseArticle.sugarDrop.paragraph" = "Después de subir, el nivel de azúcar en la sangre comienza a bajar nuevamente. En realidad, este proceso es la forma natural en la que el cuerpo reacciona cuando se dispara el nivel de azúcar en la sangre.";
+"FastingPhaseArticle.sugarDrop.point1" = "La insulina transporta la glucosa que hay en la sangre a células y tejidos. Como resultado, el nivel de glucosa en la sangre disminuye y el azúcar en la sangre disminuye a un nivel casi normal después de dispararse.";
+"FastingPhaseArticle.sugarDrop.point2" = "La insulina también desempeña un papel importante en cómo usa la grasa el cuerpo. Como hay mucha glucosa en la sangre y glucógeno en los músculos o hígado, la grasa no se usa como fuente primaria de energía. Solo cuando los niveles de glucosa bajan, el cuerpo recurre a las reservas de grasa.";
+"FastingPhaseArticle.sugarDrop.point3" = "Puedes sentir una sensación de hambre a medida que el nivel de azúcar en la sangre disminuye. Un consejo inteligente es beber un vaso de agua grande cuando esto suceda. A menudo es suficiente para mantener el hambre a raya hasta que desaparezca naturalmente.";
+
+"FastingPhaseArticle.sugarNormal.paragraph" = "Ahora, el nivel de azúcar en tu sangre ha vuelto a su nivel normal, y tu cuerpo está usando la energía almacenada para que todo funcione correctamente.";
+"FastingPhaseArticle.sugarNormal.point1" = "Cuando hayas digerido la comida por completo y tu cuerpo deje de producir insulina, habrá un breve periodo de descanso. Tus órganos digestivos se darán un respiro.";
+"FastingPhaseArticle.sugarNormal.point2" = "A medida que tus órganos, músculos y procesos cognitivos sigan consumiendo energía constantemente, interviene una hormona llamada glucagón. Su función es liberar el glucógeno almacenado en el torrente sanguíneo. Esto mantiene estable el nivel de azúcar en la sangre y garantiza que el cuerpo siga recibiendo energía. El cuerpo usa las reservas de glucógeno para producir glucosa y satisfacer sus necesidades energéticas.";
+"FastingPhaseArticle.sugarNormal.point3" = "¿Sientes hambre? Tu estómago te recuerda que ha pasado un tiempo desde tu última comida. Pero eso no necesariamente significa que tengas mucha hambre. A medida que se agotan tus reservas de glucógeno, incluso podrías perder un poco de grasa corporal.";
+
+"FastingPhaseArticle.ketosis.paragraph" = "Una vez que las hormonas que metabolizan la grasa se ponen en marcha, proporcionando a tu cuerpo nueva energía, sucede algo interesante. Una investigación muestra que durante un periodo de ayuno de aproximadamente 14 a 16 horas, el suministro de energía que proviene de la grasa aumenta un 60 %, a medida que el hígado comienza a producir cetonas y tu cuerpo cambia a un estado de cetosis";
+"FastingPhaseArticle.ketosis.point1" = "Las cetonas son moléculas de ácido graso que se forman en el hígado cuando se descomponen las células grasas. Se sabe que proporcionan energía a todos los órganos vitales.";
+"FastingPhaseArticle.ketosis.point2" = "Las cetonas también activan las células nerviosas, fortalecen la capacidad intelectual y desarrollan nuevas células a partir de las células madre de tu cerebro. Tu habilidad para concentrarte aumenta y te sientes más alerta.";
+"FastingPhaseArticle.ketosis.point3" = "Como resultado, sentirás un aumento en los niveles de energía, acompañado de una disminución de la «grelina», la hormona del hambre, que aporta un beneficio adicional de supresión del apetito.";
+"FastingPhaseArticle.ketosis.point4" = "Las cetonas actúan como moléculas señalizadoras e instruyen a tu cuerpo a regular mejor su metabolismo en un entorno de estrés.";
+"FastingPhaseArticle.ketosis.point5" = "La cetosis produce menos subproductos inflamatorios, lo cual proporciona beneficios para la salud a tu cuerpo y desencadena procesos de rejuvenecimiento.";
+
+"FastingPhaseArticle.autophagy.paragraph" = "En este punto, tu cuerpo desencadena la autofagia, un proceso que se inicia durante un ayuno prolongado y la quema de grasa. El término autofagia proviene del griego antiguo αὐτόφαγος (autóphagos), que significa «consumirse a sí mismo». Y eso es exactamente lo que sucede. Tu cuerpo reutiliza partes de células viejas o dañadas mientras se autorrepara.";
+"FastingPhaseArticle.autophagy.point1" = "Durante el proceso de autofagia, se identifican y descomponen virus, bacterias y estructuras celulares dañadas en sus componentes más básicos.";
+"FastingPhaseArticle.autophagy.point2" = "Después, estos componentes se reciclan para la generación de energía o se descartan. La ventaja principal de la autofagia es que el organismo reinicia el reloj corporal y produce células más jóvenes.";
+"FastingPhaseArticle.autophagy.point3" = "La autofagia puede reducir la inflamación en el cuerpo, lo cual minimiza el riesgo de sufrir enfermedades crónicas y desacelera el proceso de envejecimiento.";
+"FastingPhaseArticle.autophagy.point4" = "Además, al activar ciertas células inmunes, también puede fortalecer tu sistema inmunológico.";
+"FastingPhaseArticle.autophagy.point5" = "Varios estudios han demostrado que la autofagia inducida por el ayuno puede ampliar potencialmente la esperanza de vida.";
+
+"FastingPhaseArticle.burning.paragraph" = "Al llegar a la marca de 10 horas, el cuerpo comienza a agotar sus reservas de glucógeno. Estos carbohidratos almacenados servían como una fuente rápida de energía, pero es hora de acceder a una reserva más sustancial, las reservas de grasa. El suministro promedio de calorías de una persona adulta en forma de reservas de grasa asciende a aproximadamente 80 000 calorías.";
+"FastingPhaseArticle.burning.point1" = "Tu cuerpo produce hormonas que queman grasas, y las descompone en una forma más simple, listas para alimentar a tus células y mantenerte funcionando de manera óptima.";
+"FastingPhaseArticle.burning.point1.point1" = "Hormona de crecimiento (HGH): Estimula el metabolismo de las grasas.";
+"FastingPhaseArticle.burning.point1.point2" = "IGF-1 (Factor de crecimiento insulínico): Respalda la conservación muscular.";
+"FastingPhaseArticle.burning.point1.point3" = "Glucagón: Inicia la descomposición de las grasas almacenadas.";
+"FastingPhaseArticle.burning.point1.point4" = "Testosterona y adrenalina: Se liberan para quemar la grasa corporal.";
+"FastingPhaseArticle.burning.point1.point5" = "T3 (triiodotironina): Desempeña un papel en la regulación del metabolismo.";
+"FastingPhaseArticle.burning.point2" = "Esta etapa es particularmente propicia para perder peso. Puedes complementar los esfuerzos de tu cuerpo con ejercicios suaves para obtener aún mejores resultados.";
+
+// MARK: - LockedViewPaywallButton
+
+"LockedViewPaywallButton.title" = "Desbloquear las etapas del ayuno";
+"LockedViewPaywallButton.description" = "Conoce las diferentes etapas del ayuno por las que pasa tu cuerpo con Fasting Plus";
+"LockedViewPaywallButton.buttonTitle" = "Fasting Tracker Plus";
+
+// MARK: Quick action
+"Review.title" = "¿Necesitas ayuda?";
+"Review.subTitle" = "Ponte en contacto con Soporte o envíanos tus comentarios";
+
+// MARK: Discount Paywall
+"DiscountPaywall.limitedTimeOffer" = "Oferta por tiempo limitado";
+"DiscountPaywall.specialOffer" = "Oferta especial";
+"DiscountPaywall.discountOff" = "%@ DE DESCUENTO";
+"DiscountPaywall.days" = "días";
+"DiscountPaywall.hr" = "h";
+"DiscountPaywall.min" = "min";
+"DiscountPaywall.sec" = "seg";
+"DiscountPaywall.only" = "Solo";
+"DiscountPaywall.week" = "/ semana";
+"DiscountPaywall.saveNow" = "Ahorra %@ ahora";
+"DiscountPaywall.unlimitedAccess" = "Acceso ilimitado a todas las funciones";
+
+"CoachConstants.appName" = "Intermittent Fasting Tracker";
+
+// MARK: - HalthOverviewScreen
+"HalthOverviewScreen.readyToFast" = "¿Todo listo para ayunar?";
+"HalthOverviewScreen.nextFastIn" = "Próximo ayuno en";

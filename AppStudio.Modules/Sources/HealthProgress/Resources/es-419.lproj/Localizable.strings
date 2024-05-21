@@ -7,99 +7,99 @@
 */
 // MARK: - FastingHealthProgressScreen
 
-"FastingHealthProgressScreen.title" = "Progress";
-"FastingHealthProgressScreen.fastingTitle" = "Fasting";
-"FastingHealthProgressScreen.fastingSubtitle" = "Last 7 days";
-"FastingHealthProgressScreen.exploreMore" = "Explore more";
-"FastingHealthProgressScreen.lastSevenDays" = "Last 7 days";
-"FastingHealthProgressScreen.weightTitle" = "Weight";
-"FastingHealthProgressScreen.waterTitle" = "Water";
+"FastingHealthProgressScreen.title" = "Progreso";
+"FastingHealthProgressScreen.fastingTitle" = "Ayuno";
+"FastingHealthProgressScreen.fastingSubtitle" = "Últimos 7 días";
+"FastingHealthProgressScreen.exploreMore" = "Explorar más";
+"FastingHealthProgressScreen.lastSevenDays" = "Últimos 7 días";
+"FastingHealthProgressScreen.weightTitle" = "Peso";
+"FastingHealthProgressScreen.waterTitle" = "Agua";
 
 // MARK: - BodyMassIndex
 "BodyMassIndex.normal" = "Normal";
-"BodyMassIndex.underweight" = "Underweight";
-"BodyMassIndex.overweight" = "Overweight";
-"BodyMassIndex.obese" = "Obese";
+"BodyMassIndex.underweight" = "Bajo peso";
+"BodyMassIndex.overweight" = "Sobrepeso";
+"BodyMassIndex.obese" = "Obesidad";
 
 // MARK: - BodyMassIndexView
-"BodyMassIndexView.title" = "Body Mass Index";
+"BodyMassIndexView.title" = "Índice de Masa Corporal";
 "BodyMassIndexView.kgForSquareMetter" = "kg/m";
 
 // MARK: - HintScreen
-"HintTopic.bmi.title" = "Body Mass Index (BMI)";
-"HintTopic.bmi.questionsContent.title" = "What is BMI?";
-"HintTopic.bmi.questionsContent.answer1" = "BMI is a tool that estimates whether your weight is in a healthy range for your height. It calculates a score by dividing your weight in kilograms by the square of your height in meters.";
-"HintTopic.bmi.questionsContent.answer2" = "Most adults fall into one of four BMI categories: underweight (under 18 kg/m2), normal weight (18 to 24.9), overweight (25 to 29.9), and obese (30 or more).";
+"HintTopic.bmi.title" = "Índice de Masa Corporal (IMC)";
+"HintTopic.bmi.questionsContent.title" = "¿Qué es el IMC?";
+"HintTopic.bmi.questionsContent.answer1" = "El IMC es una herramienta que estima si tu peso está en un rango saludable para tu altura. Se calcula dividiendo tu peso en kilogramos por el cuadrado de tu altura en metros.";
+"HintTopic.bmi.questionsContent.answer2" = "La mayoría de los adultos pertenecen a una de las cuatro categorías del IMC: bajo peso (menos de 18 kg/m²), peso normal (18 a 24.9), sobrepeso (25 a 29.9) y obesidad (30 o más).";
 
-"HintTopic.bmi.bodyMassContent.title" = "Interpreting Your BMI";
-"HintTopic.bmi.bodyMassContent.underweight.topic1" = "Your BMI falls into the underweight range. This alone doesn't guarantee health concerns, but it can be associated with increased risks of muscle loss, weakened immunity, and nutritional deficiencies.";
-"HintTopic.bmi.bodyMassContent.underweight.topic2" = "Consult a doctor or dietitian to discuss if your weight is healthy for you.  Remember, your individual health is more than just a number.";
-"HintTopic.bmi.bodyMassContent.normal.topic1" = "A BMI in the normal range generally indicates a lower risk of developing certain health problems like heart disease, diabetes, and high blood pressure.";
-"HintTopic.bmi.bodyMassContent.normal.topic2" = "But remember, BMI is just one piece of the puzzle. Your overall health also depends on factors like your diet, activity level, and family history.";
-"HintTopic.bmi.bodyMassContent.overweight.topic1" = "An overweight BMI indicates a potential for increased risk of developing certain health problems like heart disease, diabetes, and high blood pressure. However, it's important to remember that BMI doesn't tell the whole story.";
-"HintTopic.bmi.bodyMassContent.overweight.topic2" = "Consult a doctor or dietitian if you're concerned about your weight or health. They can help you assess your individual situation, considering factors beyond just a number.";
-"HintTopic.bmi.bodyMassContent.obese.topic1" = "Your BMI falls into the obese range. Obesity is linked to a higher risk of developing heart disease, type 2 diabetes, and some cancers.";
-"HintTopic.bmi.bodyMassContent.obese.topic2" = "While BMI can be a helpful starting point, it doesn't tell the whole story about your health.  We recommend consulting a doctor or  dietitian to discuss personalized strategies for improving your health and well-being.";
+"HintTopic.bmi.bodyMassContent.title" = "Interpretación de tu IMC";
+"HintTopic.bmi.bodyMassContent.underweight.topic1" = "Tu IMC se encuentra en un rango de peso bajo. Esto por sí solo no significa que tengas problemas de salud, pero puede estar asociado con un aumento en el riesgo de pérdida de músculo, debilidad inmunológica y deficiencias nutricionales.";
+"HintTopic.bmi.bodyMassContent.underweight.topic2" = "Consulta a un médico o nutricionista para discutir si tu peso es saludable. Recuerda, tu salud es más que solo un número.";
+"HintTopic.bmi.bodyMassContent.normal.topic1" = "Un IMC que está en el rango normal generalmente indica un menor riesgo de desarrollar problemas de salud como enfermedades cardíacas, diabetes y presión arterial alta.";
+"HintTopic.bmi.bodyMassContent.normal.topic2" = "Pero recuerda, el IMC es solo una parte del panorama. Tu salud general también depende de factores como tu dieta, nivel de actividad y antecedentes familiares.";
+"HintTopic.bmi.bodyMassContent.overweight.topic1" = "Un IMC con sobrepeso indica un mayor riesgo de desarrollar problemas de salud como enfermedades cardíacas, diabetes y presión arterial alta. Sin embargo, es importante recordar que el IMC no lo dice todo.";
+"HintTopic.bmi.bodyMassContent.overweight.topic2" = "Consulta a un médico o nutricionista si se preocupa tu peso o salud. Ellos te ayudarán a evaluar tu situación tomando en cuenta factores que van más allá de un número.";
+"HintTopic.bmi.bodyMassContent.obese.topic1" = "Tu IMC está en el rango de obesidad. La obesidad está vinculada a un mayor riesgo de desarrollar enfermedades del corazón, diabetes tipo 2 y algunos tipos de cáncer.";
+"HintTopic.bmi.bodyMassContent.obese.topic2" = "Aunque el IMC puede ser un punto de partida útil, no lo dice todo sobre tu salud. Recomendamos que consultes a un médico o nutricionista para discutir estrategias personalizadas que mejoren tu salud y bienestar.";
 
-"HintTopic.bmi.novaQustionsContent.title" = "Want to learn more about BMI? Ask Nova!";
-"HintTopic.bmi.novaQustionsContent.question1" = "How can I improve my BMI healthily?";
-"HintTopic.bmi.novaQustionsContent.question2" = "Does BMI vary with age and gender?";
-"HintTopic.bmi.novaQustionsContent.question3" = "Is BMI accurate for all body types?";
+"HintTopic.bmi.novaQustionsContent.title" = "¿Quieres aprender más sobre el IMC? ¡Pregúntale a Nova!";
+"HintTopic.bmi.novaQustionsContent.question1" = "¿Cómo puedo mejorar mi IMC de manera saludable?";
+"HintTopic.bmi.novaQustionsContent.question2" = "¿El IMC varía según la edad y el género?";
+"HintTopic.bmi.novaQustionsContent.question3" = "¿El IMC es preciso para todos los tipos de cuerpo?";
 
-"HintTopic.fasting.title" = "Fasting";
-"HintTopic.fasting.fastingPhasesContent.title" = "The bar's color represents the final phase reached in each fasting session:";
-"FastingPhases.BloodSugarSlowlyRises" = "Blood sugar slowly rises";
-"FastingPhases.BloodSugarIsGoingDown" = "Blood sugar is going down";
-"FastingPhases.BloodSugarReturnsToNormal" = "Blood sugar returns to normal";
-"FastingPhases.FatBurning" = "Fat burning";
-"FastingPhases.Ketosis" = "Ketosis";
-"FastingPhases.Autophagy" = "Autophagy";
-"HintTopic.fasting.paragraphContent.title" = "Average Fasting Time";
-"HintTopic.fasting.paragraphContent.topic1" = "Calculated as the total hours of fasting within the selected timeframe, divided by the number of completed fasting sessions.";
+"HintTopic.fasting.title" = "Ayuno";
+"HintTopic.fasting.fastingPhasesContent.title" = "El color de la barra representa la fase final que se alcanzó en cada sesión de ayuno:";
+"FastingPhases.BloodSugarSlowlyRises" = "El nivel de azúcar en la sangre sube lentamente";
+"FastingPhases.BloodSugarIsGoingDown" = "El nivel de azúcar en la sangre disminuye";
+"FastingPhases.BloodSugarReturnsToNormal" = "El nivel de azúcar en la sangre vuelve a la normalidad";
+"FastingPhases.FatBurning" = "Quema de grasa";
+"FastingPhases.Ketosis" = "Cetosis";
+"FastingPhases.Autophagy" = "Autofagia";
+"HintTopic.fasting.paragraphContent.title" = "Tiempo de ayuno promedio";
+"HintTopic.fasting.paragraphContent.topic1" = "Se calcula como el total de horas de ayuno en el periodo de tiempo seleccionado, dividido por el número de sesiones de ayuno completadas.";
 
 "FastingHistoryRecord.duration.title" = "%@ h %@ min";
-"FastingHistoryScreen.title" = "Fasting History";
-"FastingHistoryScreen.fasting.title" = "Fasting";
-"FastingHistoryScreen.water.title" = "Water";
+"FastingHistoryScreen.title" = "Historial de ayuno";
+"FastingHistoryScreen.fasting.title" = "Ayuno";
+"FastingHistoryScreen.water.title" = "Agua";
 
-"FastingHistoryScreen.period.week" = "Week";
-"FastingHistoryScreen.period.month" = "Month";
-"FastingHistoryScreen.period.threeMonths" = "3 months";
-"FastingHistoryScreen.fasting.goal" = "Fasting Goal";
-"FastingHistoryScreen.water.goal" = "Water Goal";
+"FastingHistoryScreen.period.week" = "Semana";
+"FastingHistoryScreen.period.month" = "Mes";
+"FastingHistoryScreen.period.threeMonths" = "3 meses";
+"FastingHistoryScreen.fasting.goal" = "Meta de ayuno";
+"FastingHistoryScreen.water.goal" = "Meta de agua";
 
 // MARK: - Fasting History Stage
-"FastingHistoryScreen.bloodSugarRises" = "Blood sugar rises";
-"FastingHistoryScreen.bloodSugarFalls" = "Blood sugar falls";
-"FastingHistoryScreen.bloodSugarNormal" = "Blood sugar normal";
-"FastingHistoryScreen.burningFat" = "Fat burning";
-"FastingHistoryScreen.ketosis" = "Ketosis";
-"FastingHistoryScreen.autophagy" = "Autophagy";
-"FastingHistoryScreen.averageTime" = "Average Time";
-"FastingHistoryScreen.averageIntake" = "Average Intake";
-"FastingHistoryScreen.waterConsumed" = "Water Consumed";
-"FastingHistoryScreen.fastingTime" = "Fasting Time";
-"FastingHistoryScreen.weeklyTime" = "Weekly Average";
+"FastingHistoryScreen.bloodSugarRises" = "El nivel de azúcar en la sangre aumenta";
+"FastingHistoryScreen.bloodSugarFalls" = "El nivel de azúcar en la sangre disminuye";
+"FastingHistoryScreen.bloodSugarNormal" = "El nivel de azúcar en la sangre es normal";
+"FastingHistoryScreen.burningFat" = "Quema de grasa";
+"FastingHistoryScreen.ketosis" = "Cetosis";
+"FastingHistoryScreen.autophagy" = "Autofagia";
+"FastingHistoryScreen.averageTime" = "Tiempo promedio";
+"FastingHistoryScreen.averageIntake" = "Ingesta promedio";
+"FastingHistoryScreen.waterConsumed" = "Agua ingerida";
+"FastingHistoryScreen.fastingTime" = "Tiempo de ayuno";
+"FastingHistoryScreen.weeklyTime" = "Promedio semanal";
 "FastingHistoryScreen.averageTime.h" = "h";
 "FastingHistoryScreen.averageTime.m" = "min";
-"FastingHistoryScreen.averageLiters" = "liters";
-"FastingHistoryScreen.goalReached" = "Goal Reached";
-"FastingHistoryScreen.striveForProgress" = "Strive for progress, \nnot perfection 🌱";
-"FastingHistoryScreen.times" = "times";
-"HealthProgressWidget.exploreMore" = "Explore More";
+"FastingHistoryScreen.averageLiters" = "litros";
+"FastingHistoryScreen.goalReached" = "Meta alcanzada";
+"FastingHistoryScreen.striveForProgress" = "Lucha por el progreso, \nno por la perfección 🌱";
+"FastingHistoryScreen.times" = "veces";
+"HealthProgressWidget.exploreMore" = "Explorar más";
 
-"WeightWidgetEmptyView.title" = "No weight logged in the past 7 days";
-"WeightWidgetEmptyView.subtitle" = "Weigh in at least one more time";
-"WeightWidgetEmptyView.buttonTitle" = "Log Weight";
+"WeightWidgetEmptyView.title" = "No se registró peso en los últimos 7 días";
+"WeightWidgetEmptyView.subtitle" = "Pésate por lo menos una vez más";
+"WeightWidgetEmptyView.buttonTitle" = "Registrar peso";
 
-"WaterWidgetEmptyView.title" = "No water logged in the past 7 days";
-"WaterWidgetEmptyView.subtitle" = "Log water at least one more time";
+"WaterWidgetEmptyView.title" = "No se registró agua en los últimos 7 días";
+"WaterWidgetEmptyView.subtitle" = "Registra agua por lo menos una vez más";
 
-"FastingWidgetEmptyView.title" = "No fasts logged in the past 7 days";
-"FastingWidgetEmptyView.subtitle" = "Finish fasting at least one more time";
+"FastingWidgetEmptyView.title" = "No se registraron ayunos en los últimos 7 días";
+"FastingWidgetEmptyView.subtitle" = "Finaliza el ayuno por lo menos una vez más";
 
-"Widget.getPlus" = "Get plus";
-"Widget.title.enableForOurUsers" = "Enable for our users";
-"Widget.title.unlockFastingHistory" = "Unlock fasting history";
-"Widget.title.unlockWeightTrends" = "Unlock weight trends";
-"Widget.title.unlockWaterInsights" = "Unlock water insights";
+"Widget.getPlus" = "Obtener plus";
+"Widget.title.enableForOurUsers" = "Habilitar para nuestros usuarios";
+"Widget.title.unlockFastingHistory" = "Desbloquear el historial de ayuno";
+"Widget.title.unlockWeightTrends" = "Desbloquear las tendencias de peso";
+"Widget.title.unlockWaterInsights" = "Desbloquear la información sobre el agua";

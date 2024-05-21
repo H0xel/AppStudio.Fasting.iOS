@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 14.03.2024.
+  
+*/
+
+"SwipeAction.delete" = "Supprimer";
+
+// MARK: - HealthWidgetHint
+"HealthWidgetHint.learnMore" = "En savoir plus";
+"UpdateWeightTodayButton.today" = "Aujourd'hui";
+
+"HeightUnit.ft" = "pi";
+"HeightUnit.in" = "po";
+
+"ProfileScreen.changeInfoDescription" = "Changer vos informations peut entraîner un recalcul de votre plan actuel";
+"ProfileScreen.saveChanges" = "Sauvegarder les modifications";
+"ProfileScreen.sex" = "Sexe";
+"ProfileScreen.birthday" = "Date de naissance";
+"ProfileScreen.birthday.add" = "Ajouter";
+"ProfileScreen.height" = "Taille";
+"ProfileScreen.support" = "Assistance";
+"ProfileScreen.termsOfUse" = "Conditions d'utilisation";
+"ProfileScreen.privacyPolicy" = "Politique de confidentialité";
+
+"Onboarding.height.title" = "Quelle est votre taille ?";
+"Onboarding.birthdayTitle" = "Quelle est votre date de naissance ?";
+"Onboarding.sex.description" = "Le sexe biologique peut influencer de nombreux éléments physiques comme notre métabolisme, notre masse musculaire ou nos hormones, nous l'utilisons donc dans nos calculs";
+"Onboarding.sex.title" = "Quel est votre sexe ?";
+
+// MARK: - RateAppInput
+"RateAppInput.calorieCounter.title" = "Voulez-vous évaluer à quel point vous aimez notre reconnaissance des repas ?";
+"RateAppInput.calorieCounter.placeholder" = "Que pouvons-nous améliorer ?";
+"RateAppInput.calorieCounter.buttonTitle" = "Envoyer";
+
+// MARK: - Paywall
+
+"Paywall.continue" = "Continuer";
+"Paywall.restore" = "Rétablir";
+"Paywall.unlockAllFeatures" = "Déverrouiller\ntoutes les fonctionnalités";
+
+"Paywall.fasting.feature1" = "Votre entraîneur personnel de bien-être";
+"Paywall.fasting.feature2" = "Accès à toutes les étapes de jeûne";
+"Paywall.fasting.feature3" = "Graphiques et analyses détaillées";
+
+"Paywall.calorieCounter.feature1" = "Journal alimentaire assisté par IA";
+"Paywall.calorieCounter.feature2" = "Scanner de code-barres";
+"Paywall.calorieCounter.feature3" = "Suivi complet des macronutriments";
+
+"Paywall.popular" = "Populaire";
+"Paywall.bestValue" = "Meilleure offre";
+"Paywall.perWeek" = "par semaine";
+"Paywall.week" = " / semaine";
+
+"Today.title" = "Aujourd'hui";
+"Date.yesterday.title" = "Hier";

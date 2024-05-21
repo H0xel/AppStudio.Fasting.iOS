@@ -5,30 +5,30 @@
   Created by Руслан Сафаргалеев on 06.03.2024.
   
 */
-"WaterCounterWidget.title" = "Water Intake";
+"WaterCounterWidget.title" = "Consumo de agua";
 
-"WaterCounterSettingsScreen.title" = "Water Settings";
-"WaterCounterSettingsScreen.dailyGoal.title" = "Daily Goal";
-"WaterCounterSettingsScreen.preferredVolume.title" = "Preferred Volume";
-"WaterCounterSettingsScreen.units.title" = "Units";
-"WaterCounterSettingsScreen.closeButton.title" = "Close";
+"WaterCounterSettingsScreen.title" = "Configuración para el agua";
+"WaterCounterSettingsScreen.dailyGoal.title" = "Meta diaria";
+"WaterCounterSettingsScreen.preferredVolume.title" = "Volumen preferido";
+"WaterCounterSettingsScreen.units.title" = "Unidades";
+"WaterCounterSettingsScreen.closeButton.title" = "Cerrar";
 
-"WaterCounterSettings.goalEditor.title" = "Daily Goal";
-"WaterCounterSettings.goalEditor.description" = "Based on your profile data, the recommended daily water intake is ~ %@ %@";
-"WaterCounterSettings.prefferedVolume.title" = "Preferred Volume";
+"WaterCounterSettings.goalEditor.title" = "Meta diaria";
+"WaterCounterSettings.goalEditor.description" = "Según los datos de tu perfil, la ingesta diaria de agua recomendada es ~ %@ %@";
+"WaterCounterSettings.prefferedVolume.title" = "Volumen preferido";
 
-"WaterCounterSettings.saveButton.title" = "Save";
+"WaterCounterSettings.saveButton.title" = "Guardar";
 
-"WaterCounterWidget.addWaterEditor.title" = "Add Drink";
-"WaterCounterWidget.addWaterEditor.buttonTitle" = "Add";
+"WaterCounterWidget.addWaterEditor.title" = "Agregar bebida";
+"WaterCounterWidget.addWaterEditor.buttonTitle" = "Agregar";
 
-"WaterUnits.unitsGlobalTitle.liters" = "L";
+"WaterUnits.unitsGlobalTitle.liters" = "l";
 "WaterUnits.unitsGlobalTitle.ounces" = "oz";
 
 "WaterUnits.unitsTitle.liters" = "ml";
 "WaterUnits.unitsTitle.ounces" = "oz";
 
-"WaterUnits.unitsGlobalFullTitle.liters" = "Liters";
-"WaterUnits.unitsGlobalFullTitle.ounces" = "Ounces";
+"WaterUnits.unitsGlobalFullTitle.liters" = "Litros";
+"WaterUnits.unitsGlobalFullTitle.ounces" = "Onzas";
 
-"UpdateWaterScreen.save" = "Save";
+"UpdateWaterScreen.save" = "Guardar";

@@ -1,0 +1,105 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 04.03.2024.
+  
+*/
+// MARK: - FastingHealthProgressScreen
+
+"FastingHealthProgressScreen.title" = "Progrès";
+"FastingHealthProgressScreen.fastingTitle" = "Jeûne";
+"FastingHealthProgressScreen.fastingSubtitle" = "Les 7 derniers jours";
+"FastingHealthProgressScreen.exploreMore" = "Explorer plus";
+"FastingHealthProgressScreen.lastSevenDays" = "Les 7 derniers jours";
+"FastingHealthProgressScreen.weightTitle" = "Poids";
+"FastingHealthProgressScreen.waterTitle" = "Eau";
+
+// MARK: - BodyMassIndex
+"BodyMassIndex.normal" = "Normal";
+"BodyMassIndex.underweight" = "Insuffisance pondérale";
+"BodyMassIndex.overweight" = "Surpoids";
+"BodyMassIndex.obese" = "Obésité";
+
+// MARK: - BodyMassIndexView
+"BodyMassIndexView.title" = "Indice de masse corporelle";
+"BodyMassIndexView.kgForSquareMetter" = "kg/m";
+
+// MARK: - HintScreen
+"HintTopic.bmi.title" = "Indice de masse corporelle (IMC)";
+"HintTopic.bmi.questionsContent.title" = "Qu'est-ce que l'IMC ?";
+"HintTopic.bmi.questionsContent.answer1" = "L'IMC est un outil qui estime si votre poids est dans une plage saine pour votre taille. Il calcule un score en divisant votre poids en kilogrammes par le carré de votre taille en mètres.";
+"HintTopic.bmi.questionsContent.answer2" = "La plupart des adultes se classent dans l'une des quatre catégories d'IMC : insuffisance pondérale (moins de 18 kg/m2), poids normal (18 à 24,9), surpoids (25 à 29,9) et obésité (30 ou plus).";
+
+"HintTopic.bmi.bodyMassContent.title" = "Interpréter votre IMC";
+"HintTopic.bmi.bodyMassContent.underweight.topic1" = "Votre IMC se situe dans la plage de l'insuffisance pondérale. Cela seul ne garantit pas de problèmes de santé, mais cela peut être associé à des risques accrus de perte musculaire, d'immunité affaiblie et de carences nutritionnelles.";
+"HintTopic.bmi.bodyMassContent.underweight.topic2" = "Consultez un médecin ou un diététicien pour discuter si votre poids est sain pour vous. Rappelez-vous, votre santé individuelle est plus qu'un simple nombre.";
+"HintTopic.bmi.bodyMassContent.normal.topic1" = "Un IMC dans la plage normale indique généralement un risque moins élevé de développer certains problèmes de santé tels que les maladies cardiaques, le diabète et l'hypertension artérielle.";
+"HintTopic.bmi.bodyMassContent.normal.topic2" = "Mais rappelez-vous, l'IMC n'est qu'une partie du puzzle. Votre santé globale dépend également de facteurs tels que votre alimentation, votre niveau d'activité et vos antécédents familiaux.";
+"HintTopic.bmi.bodyMassContent.overweight.topic1" = "Un IMC en surpoids indique un potentiel pour un risque accru de développer certains problèmes de santé comme les maladies cardiaques, le diabète et l'hypertension artérielle. Cependant, il est important de se rappeler que l'IMC ne dit pas tout.";
+"HintTopic.bmi.bodyMassContent.overweight.topic2" = "Consultez un médecin ou un diététicien si vous êtes préoccupé par votre poids ou votre santé. Ils peuvent vous aider à évaluer votre situation individuelle, en tenant compte de facteurs au-delà d'un simple nombre.";
+"HintTopic.bmi.bodyMassContent.obese.topic1" = "Votre IMC se situe dans la plage de l'obésité. L'obésité est liée à un risque plus élevé de développer des maladies cardiaques, le diabète de type 2 et certains cancers.";
+"HintTopic.bmi.bodyMassContent.obese.topic2" = "Bien que l'IMC puisse être un bon point de départ, il ne dit pas tout de votre santé. Nous recommandons de consulter un médecin ou un diététicien pour discuter de stratégies personnalisées permettant d'améliorer votre santé et votre bien-être.";
+
+"HintTopic.bmi.novaQustionsContent.title" = "Vous voulez en savoir plus sur l'IMC ? Demandez à Nova !";
+"HintTopic.bmi.novaQustionsContent.question1" = "Comment puis-je améliorer mon IMC de manière saine ?";
+"HintTopic.bmi.novaQustionsContent.question2" = "L'IMC varie-t-il avec l'âge et le sexe ?";
+"HintTopic.bmi.novaQustionsContent.question3" = "L'IMC est-il précis pour toutes les morphologies ?";
+
+"HintTopic.fasting.title" = "Jeûne";
+"HintTopic.fasting.fastingPhasesContent.title" = "La couleur de la barre représente la phase finale atteinte lors de chaque session de jeûne :";
+"FastingPhases.BloodSugarSlowlyRises" = "La glycémie monte lentement";
+"FastingPhases.BloodSugarIsGoingDown" = "La glycémie est en baisse";
+"FastingPhases.BloodSugarReturnsToNormal" = "La glycémie revient à la normale";
+"FastingPhases.FatBurning" = "Brûlage des graisses";
+"FastingPhases.Ketosis" = "Cétose";
+"FastingPhases.Autophagy" = "Autophagie";
+"HintTopic.fasting.paragraphContent.title" = "Temps de jeûne moyen";
+"HintTopic.fasting.paragraphContent.topic1" = "Calculé comme le total des heures de jeûne sur la période sélectionnée, divisé par le nombre de sessions de jeûne complétées.";
+
+"FastingHistoryRecord.duration.title" = "%@ h %@ min";
+"FastingHistoryScreen.title" = "Historique du jeûne";
+"FastingHistoryScreen.fasting.title" = "Jeûne";
+"FastingHistoryScreen.water.title" = "Eau";
+
+"FastingHistoryScreen.period.week" = "Semaine";
+"FastingHistoryScreen.period.month" = "Mois";
+"FastingHistoryScreen.period.threeMonths" = "3 mois";
+"FastingHistoryScreen.fasting.goal" = "Objectif de jeûne";
+"FastingHistoryScreen.water.goal" = "Objectif d'hydratation";
+
+// MARK: - Fasting History Stage
+"FastingHistoryScreen.bloodSugarRises" = "Le taux de sucre dans le sang augmente";
+"FastingHistoryScreen.bloodSugarFalls" = "La glycémie baisse";
+"FastingHistoryScreen.bloodSugarNormal" = "Glycémie normale";
+"FastingHistoryScreen.burningFat" = "Brûlage des graisses";
+"FastingHistoryScreen.ketosis" = "Cétose";
+"FastingHistoryScreen.autophagy" = "Autophagie";
+"FastingHistoryScreen.averageTime" = "Temps moyen";
+"FastingHistoryScreen.averageIntake" = "Apport moyen";
+"FastingHistoryScreen.waterConsumed" = "Eau consommée";
+"FastingHistoryScreen.fastingTime" = "Temps de jeûne";
+"FastingHistoryScreen.weeklyTime" = "Moyenne hebdomadaire";
+"FastingHistoryScreen.averageTime.h" = "h";
+"FastingHistoryScreen.averageTime.m" = "min";
+"FastingHistoryScreen.averageLiters" = "litres";
+"FastingHistoryScreen.goalReached" = "Objectif atteint";
+"FastingHistoryScreen.striveForProgress" = "Aspirez au progrès, \npas à la perfection 🌱";
+"FastingHistoryScreen.times" = "fois";
+"HealthProgressWidget.exploreMore" = "Explorer plus";
+
+"WeightWidgetEmptyView.title" = "Aucun poids enregistré ces 7 derniers jours";
+"WeightWidgetEmptyView.subtitle" = "Pesez-vous au moins une fois de plus";
+"WeightWidgetEmptyView.buttonTitle" = "Enregistrer le poids";
+
+"WaterWidgetEmptyView.title" = "Aucune hydratation enregistrée ces 7 derniers jours";
+"WaterWidgetEmptyView.subtitle" = "Enregistrez votre hydratation au moins une fois de plus";
+
+"FastingWidgetEmptyView.title" = "Aucun jeûne enregistré ces 7 derniers jours";
+"FastingWidgetEmptyView.subtitle" = "Terminez le jeûne au moins une fois de plus";
+
+"Widget.getPlus" = "Obtenir plus";
+"Widget.title.enableForOurUsers" = "Activer pour nos utilisateurs";
+"Widget.title.unlockFastingHistory" = "Débloquer l'historique de jeûne";
+"Widget.title.unlockWeightTrends" = "Débloquer les tendances de poids";
+"Widget.title.unlockWaterInsights" = "Débloquer les informations sur l'eau";

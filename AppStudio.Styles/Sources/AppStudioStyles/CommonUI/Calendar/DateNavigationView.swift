@@ -42,7 +42,7 @@ public struct DateNavigationView: View {
             Button {
                 date = .now.startOfTheDay
             } label: {
-                Text(date.localeDateOrTodayOrYesterday(with: dateFormat))
+                Text(date.localizedDateOrTodayOrYesterday(with: dateFormat))
                     .font(.poppins(.buttonText))
             }
             Button {

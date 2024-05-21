@@ -71,7 +71,11 @@ let package = Package(
                 .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
             ],
             resources: [
-                .process("Resources/en.lproj/Localizable.strings")
+                .process("Resources/en.lproj/Localizable.strings"),
+                .process("Resources/es.lproj/Localizable.strings"),
+                .process("Resources/fr-CA.lproj/Localizable.strings"),
+                .process("Resources/fr.lproj/Localizable.strings"),
+                .process("Resources/pt-BR.lproj/Localizable.strings")
             ]
         ),
         .target(
@@ -88,6 +92,14 @@ let package = Package(
                 .product(name: "AppStudioServices", package: "AppStudio.Services"),
                 .product(name: "AppStudioModels", package: "AppStudio.Models"),
                 "WeightGoalWidget"
+            ],
+            resources: [
+//                .process("Resources")
+                .process("Resources/en.lproj/Localizable.strings"),
+                .process("Resources/es.lproj/Localizable.strings"),
+                .process("Resources/fr-CA.lproj/Localizable.strings"),
+                .process("Resources/fr.lproj/Localizable.strings"),
+                .process("Resources/pt-BR.lproj/Localizable.strings")
             ]
         ),
         .target(
@@ -102,6 +114,14 @@ let package = Package(
                 .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
                 .product(name: "AppStudioServices", package: "AppStudio.Services"),
                 .product(name: "AppStudioModels", package: "AppStudio.Models"),
+            ],
+            resources: [
+//                .process("Resources")
+                .process("Resources/en.lproj/Localizable.strings"),
+//                .process("Resources/es.lproj/Localizable.strings"),
+                .process("Resources/fr-CA.lproj/Localizable.strings"),
+                .process("Resources/fr.lproj/Localizable.strings"),
+                .process("Resources/pt-BR.lproj/Localizable.strings")
             ]
         ),
         .target(
@@ -119,6 +139,13 @@ let package = Package(
                 "WeightWidget",
                 "FastingWidget",
                 "WaterCounter"
+            ],
+            resources: [
+                .process("Resources/en.lproj/Localizable.strings"),
+                .process("Resources/es.lproj/Localizable.strings"),
+                .process("Resources/fr-CA.lproj/Localizable.strings"),
+                .process("Resources/fr.lproj/Localizable.strings"),
+                .process("Resources/pt-BR.lproj/Localizable.strings")
             ]
         ),
         .target(
@@ -135,6 +162,13 @@ let package = Package(
                 "WeightWidget",
                 "WeightGoalWidget",
                 "WaterCounter"
+            ],
+            resources: [
+                .process("Resources/en.lproj/Localizable.strings"),
+                .process("Resources/es.lproj/Localizable.strings"),
+                .process("Resources/fr-CA.lproj/Localizable.strings"),
+                .process("Resources/fr.lproj/Localizable.strings"),
+                .process("Resources/pt-BR.lproj/Localizable.strings")
             ]
         ),
         .target(
@@ -148,6 +182,13 @@ let package = Package(
                 .product(name: "AppStudioAnalytics", package: "AppStudio.iOS.Analytics"),
                 .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
                 .product(name: "AppStudioServices", package: "AppStudio.Services")
+            ],
+            resources: [
+                .process("Resources/en.lproj/Localizable.strings"),
+                .process("Resources/es.lproj/Localizable.strings"),
+                .process("Resources/fr-CA.lproj/Localizable.strings"),
+                .process("Resources/fr.lproj/Localizable.strings"),
+                .process("Resources/pt-BR.lproj/Localizable.strings")
             ]
         ),
         .target(
@@ -163,6 +204,13 @@ let package = Package(
                 .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
                 .product(name: "AppStudioServices", package: "AppStudio.Services"),
                 .product(name: "AppStudioModels", package: "AppStudio.Models"),
+            ],
+            resources: [
+                .process("Resources/en.lproj/Localizable.strings"),
+                .process("Resources/es.lproj/Localizable.strings"),
+                .process("Resources/fr-CA.lproj/Localizable.strings"),
+                .process("Resources/fr.lproj/Localizable.strings"),
+                .process("Resources/pt-BR.lproj/Localizable.strings")
             ]
         ),
         .target(
@@ -178,6 +226,13 @@ let package = Package(
                 .product(name: "AppStudioStyles", package: "AppStudio.Styles"),
                 .product(name: "AppStudioServices", package: "AppStudio.Services"),
                 .product(name: "AppStudioModels", package: "AppStudio.Models"),
+            ],
+            resources: [
+                .process("Resources/en.lproj/Localizable.strings"),
+                .process("Resources/es.lproj/Localizable.strings"),
+                .process("Resources/fr-CA.lproj/Localizable.strings"),
+                .process("Resources/fr.lproj/Localizable.strings"),
+                .process("Resources/pt-BR.lproj/Localizable.strings")
             ]
         ),
         .testTarget(name: "WaterCounterTest", dependencies: ["WaterCounter"])

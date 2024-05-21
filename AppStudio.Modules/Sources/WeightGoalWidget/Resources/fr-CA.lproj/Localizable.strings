@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 22.03.2024.
+  
+*/
+// MARK: - WeightGoalProgressView
+
+"WeightGoalProgressView.start" = "Commencer";
+"WeightGoalProgressView.goal" = "Objectif";
+
+// MARK: - WeightGoalUpdateScreen
+"WeightGoalUpdateScreen.title" = "Objectif de poids";
+"WeightGoalUpdateScreen.save" = "Enregistrer";
+
+// MARK: - WeightGoalWidgetScreen
+"WeightGoalWidgetScreen.trueWeight" = "Poids réel";
+"WeightGoalWidgetScreen.daysIn" = "Jours écoulés";
+"WeightGoalWidgetScreen.dayIn" = "Jour écoulé";
+"WeightGoalWidgetScreen.goal" = "Objectif";
+
+// MARK: - WeightGoalSuccessView
+"WeightGoalSuccessView.title" = "Excellent travail!";
+"WeightGoalSuccessView.subtitle" = "Vous avez atteint votre objectif de poids. Continuez ainsi!";
+
+"WeightGoalOverweightView.text" = "Chaque parcours a ses hauts et ses bas. Continuez à avancer, vous en êtes capable!";

@@ -123,6 +123,7 @@ class OnboardingServiceImpl: OnboardingService, WaterIntakeService {
 
     func reset() {
         data = nil
+        calculatedData = nil
     }
 
     private func saveDataInWidgets(data: OnboardingData) {

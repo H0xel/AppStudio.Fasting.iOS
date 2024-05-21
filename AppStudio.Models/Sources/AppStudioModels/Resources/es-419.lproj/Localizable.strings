@@ -7,12 +7,12 @@
 */
 // MARK: - Sex
 
-"Sex.male" = "Male";
-"Sex.female" = "Female";
-"Sex.other" = "Other";
+"Sex.male" = "Masculino";
+"Sex.female" = "Femenino";
+"Sex.other" = "Otro";
 
-"Sex.women" = "women";
-"Sex.men" = "men";
+"Sex.women" = "mujeres";
+"Sex.men" = "hombres";
 
 // MARK: - WeightUnit
 "WeightUnit.lb" = "lb";
@@ -24,17 +24,17 @@
 "HeightUnit.in" = "in";
 
 // MARK: - HealthWidgetHint
-"HealthWidgetHint.bodyMass.title" = "Body Mass Index (BMI)";
-"HealthWidgetHint.bodyMass.description" = "is a simple method for determining weight category, based on your height and weight";
-"HealthWidgetHint.weight.title" = "Understanding Weight";
-"HealthWidgetHint.weight.description" = "Scale Weight fluctuates naturally each day. We smooth out these variations to identify your True Weight, enabling you to see meaningful changes.";
+"HealthWidgetHint.bodyMass.title" = "Índice de Masa Corporal (IMC)";
+"HealthWidgetHint.bodyMass.description" = "es un método simple para determinar la categoría del peso, según tu altura y peso";
+"HealthWidgetHint.weight.title" = "Comprensión del peso";
+"HealthWidgetHint.weight.description" = "El peso en la báscula fluctúa naturalmente cada día. Matizamos estas variaciones para identificar tu peso real, lo cual te permitirá ver cambios significativos.";
 
 // MARK: - DateChartScale
-"DateChartScale.week" = "Week";
-"DateChartScale.month" = "Month";
-"DateChartScale.threeMonth" = "3 months";
+"DateChartScale.week" = "Semana";
+"DateChartScale.month" = "Mes";
+"DateChartScale.threeMonth" = "3 meses";
 
 // MARK: - LineChartItem
-"LineChartItem.trueWeight" = "True Weight";
-"LineChartItem.scaleWeight" = "Scale Weight";
-"LineChartItem.goalWeight" = "Goal Weight";
+"LineChartItem.trueWeight" = "Peso real";
+"LineChartItem.scaleWeight" = "Peso en la báscula";
+"LineChartItem.goalWeight" = "Peso meta";

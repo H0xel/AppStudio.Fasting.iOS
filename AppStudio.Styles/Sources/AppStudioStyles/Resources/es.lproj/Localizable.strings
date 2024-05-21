@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 14.03.2024.
+  
+*/
+
+"SwipeAction.delete" = "Eliminar";
+
+// MARK: - HealthWidgetHint
+"HealthWidgetHint.learnMore" = "Más información";
+"UpdateWeightTodayButton.today" = "Hoy";
+
+"HeightUnit.ft" = "ft";
+"HeightUnit.in" = "in";
+
+"ProfileScreen.changeInfoDescription" = "Cambiar tu información podría generar un nuevo cálculo de tu plan actual";
+"ProfileScreen.saveChanges" = "Guardar los cambios";
+"ProfileScreen.sex" = "Sexo";
+"ProfileScreen.birthday" = "Cumpleaños";
+"ProfileScreen.birthday.add" = "Añadir";
+"ProfileScreen.height" = "Estatura";
+"ProfileScreen.support" = "Soporte";
+"ProfileScreen.termsOfUse" = "Términos de uso";
+"ProfileScreen.privacyPolicy" = "Política de privacidad";
+
+"Onboarding.height.title" = "¿Cuál es tu estatura?";
+"Onboarding.birthdayTitle" = "¿Cuándo es tu cumpleaños?";
+"Onboarding.sex.description" = "El sexo biológico puede afectar a muchos elementos físicos, como nuestro metabolismo, masa muscular u hormonas, así que lo incluimos en nuestros cálculos";
+"Onboarding.sex.title" = "¿Cuál es tu sexo?";
+
+// MARK: - RateAppInput
+"RateAppInput.calorieCounter.title" = "¿Evalúa cuánto te gusta nuestro reconocimiento de comidas?";
+"RateAppInput.calorieCounter.placeholder" = "¿Qué podemos mejorar?";
+"RateAppInput.calorieCounter.buttonTitle" = "Enviar";
+
+// MARK: - Paywall
+
+"Paywall.continue" = "Continuar";
+"Paywall.restore" = "Restaurar";
+"Paywall.unlockAllFeatures" = "Desbloquear\ntodas las funciones";
+
+"Paywall.fasting.feature1" = "Tu entrenador de bienestar personal";
+"Paywall.fasting.feature2" = "Acceso a todas las etapas del ayuno";
+"Paywall.fasting.feature3" = "Gráficos e información detallados";
+
+"Paywall.calorieCounter.feature1" = "Registro de alimentos con IA";
+"Paywall.calorieCounter.feature2" = "Escaneo de código de barras";
+"Paywall.calorieCounter.feature3" = "Registro completo de macronutrientes";
+
+"Paywall.popular" = "Popular";
+"Paywall.bestValue" = "Mejor valor";
+"Paywall.perWeek" = "a la semana";
+"Paywall.week" = " / semana";
+
+"Today.title" = "Hoy";
+"Date.yesterday.title" = "Ayer";

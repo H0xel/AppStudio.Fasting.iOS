@@ -373,8 +373,15 @@
 		A712BEAD2B834CF6005504B1 /* PromoPaywallDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712BEAA2B834CF6005504B1 /* PromoPaywallDependencies.swift */; };
 		A712BEB12B834D9E005504B1 /* DiscountPaywallExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712BEAF2B834D9E005504B1 /* DiscountPaywallExperiment.swift */; };
 		A712BEB32B834E62005504B1 /* TimeInterval+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712BEB22B834E62005504B1 /* TimeInterval+extensions.swift */; };
+		A71C4BDD2BF734B8005C2BF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A71C4BD52BF734B8005C2BF6 /* Localizable.strings */; };
+		A71C4BDE2BF734B8005C2BF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A71C4BD82BF734B8005C2BF6 /* Localizable.strings */; };
+		A71C4BDF2BF734B8005C2BF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A71C4BDB2BF734B8005C2BF6 /* Localizable.strings */; };
 		A71CEB792B7DFE680056C99A /* AppCustomizationPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71CEB782B7DFE680056C99A /* AppCustomizationPreview.swift */; };
 		A71CEB7B2B7DFEB10056C99A /* AppInitializerServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71CEB7A2B7DFEB10056C99A /* AppInitializerServicePreview.swift */; };
+		A729F9272BF4B55400875BB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A729F9152BF4B55400875BB5 /* Localizable.strings */; };
+		A729F9282BF4B55400875BB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A729F9182BF4B55400875BB5 /* Localizable.strings */; };
+		A729F92B2BF4B55400875BB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A729F9212BF4B55400875BB5 /* Localizable.strings */; };
+		A729F92C2BF4B55400875BB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A729F9242BF4B55400875BB5 /* Localizable.strings */; };
 		A72A7D4B2B304C9E000677A2 /* PreviewSubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A7D4A2B304C9E000677A2 /* PreviewSubscriptionService.swift */; };
 		A72A7D4D2B304CF0000677A2 /* AppSyncServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A7D4C2B304CF0000677A2 /* AppSyncServicePreview.swift */; };
 		A72A7D7B2B31B031000677A2 /* PersonalizedPaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72A7D562B31B031000677A2 /* PersonalizedPaywallViewModel.swift */; };
@@ -442,6 +449,7 @@
 		A7E45C9C2B4EB9B800935488 /* DailyCalorieBudgetChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E45C9B2B4EB9B800935488 /* DailyCalorieBudgetChartView.swift */; };
 		A7E45C9E2B4FCC7B00935488 /* DailyCalorieBudgetDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E45C9D2B4FCC7B00935488 /* DailyCalorieBudgetDescriptionView.swift */; };
 		A7E45CA02B4FE56900935488 /* DailyCalorieLocalizationConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E45C9F2B4FE56900935488 /* DailyCalorieLocalizationConstructor.swift */; };
+		A7E9CAD52BF6454D00128ACA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7E9CAD72BF6454D00128ACA /* InfoPlist.strings */; };
 		A7FFA6FE2B9F1A0B00FED655 /* AppStudioServices in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFA6FD2B9F1A0B00FED655 /* AppStudioServices */; };
 		A7FFD17D2BD8F055003055F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7FFD17B2BD8F055003055F0 /* Localizable.strings */; };
 		A7FFD1832BD94183003055F0 /* NotificationCenterInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFD1822BD94183003055F0 /* NotificationCenterInitializer.swift */; };
@@ -830,9 +838,19 @@
 		A712BEAA2B834CF6005504B1 /* PromoPaywallDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoPaywallDependencies.swift; sourceTree = "<group>"; };
 		A712BEAF2B834D9E005504B1 /* DiscountPaywallExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountPaywallExperiment.swift; sourceTree = "<group>"; };
 		A712BEB22B834E62005504B1 /* TimeInterval+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+extensions.swift"; sourceTree = "<group>"; };
+		A71C4BD62BF734B8005C2BF6 /* es-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-US"; path = Localizable.strings; sourceTree = "<group>"; };
+		A71C4BD92BF734B8005C2BF6 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = Localizable.strings; sourceTree = "<group>"; };
+		A71C4BDC2BF734B8005C2BF6 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = Localizable.strings; sourceTree = "<group>"; };
+		A71C4BE02BF734C7005C2BF6 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		A71C4BE12BF734C7005C2BF6 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		A71C4BE22BF734C8005C2BF6 /* es-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-US"; path = "es-US.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A71CEB782B7DFE680056C99A /* AppCustomizationPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationPreview.swift; sourceTree = "<group>"; };
 		A71CEB7A2B7DFEB10056C99A /* AppInitializerServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializerServicePreview.swift; sourceTree = "<group>"; };
 		A722306D2AFCB6C800303D5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A729F9162BF4B55400875BB5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
+		A729F9192BF4B55400875BB5 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = Localizable.strings; sourceTree = "<group>"; };
+		A729F9222BF4B55400875BB5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = Localizable.strings; sourceTree = "<group>"; };
+		A729F9252BF4B55400875BB5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
 		A72A7D4A2B304C9E000677A2 /* PreviewSubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSubscriptionService.swift; sourceTree = "<group>"; };
 		A72A7D4C2B304CF0000677A2 /* AppSyncServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSyncServicePreview.swift; sourceTree = "<group>"; };
 		A72A7D562B31B031000677A2 /* PersonalizedPaywallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalizedPaywallViewModel.swift; sourceTree = "<group>"; };
@@ -900,6 +918,11 @@
 		A7E45C9B2B4EB9B800935488 /* DailyCalorieBudgetChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCalorieBudgetChartView.swift; sourceTree = "<group>"; };
 		A7E45C9D2B4FCC7B00935488 /* DailyCalorieBudgetDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCalorieBudgetDescriptionView.swift; sourceTree = "<group>"; };
 		A7E45C9F2B4FE56900935488 /* DailyCalorieLocalizationConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCalorieLocalizationConstructor.swift; sourceTree = "<group>"; };
+		A7E9CAD62BF6454D00128ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A7E9CAD82BF6454F00128ACA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A7E9CAD92BF6455000128ACA /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		A7E9CADA2BF6455000128ACA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		A7E9CADB2BF6455100128ACA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7FFD17C2BD8F055003055F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		A7FFD1822BD94183003055F0 /* NotificationCenterInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterInitializer.swift; sourceTree = "<group>"; };
 		AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountIdProviderImpl.swift; sourceTree = "<group>"; };
@@ -1686,10 +1709,18 @@
 		56C28DD72AE109A80007E48D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A71C4BDA2BF734B8005C2BF6 /* es-419.lproj */,
+				A71C4BD72BF734B8005C2BF6 /* es-MX.lproj */,
+				A71C4BD42BF734B8005C2BF6 /* es-US.lproj */,
+				A729F9142BF4B55400875BB5 /* es.lproj */,
+				A729F9172BF4B55400875BB5 /* fr-CA.lproj */,
+				A729F9232BF4B55400875BB5 /* fr.lproj */,
+				A729F9202BF4B55400875BB5 /* pt-BR.lproj */,
 				A7FFD17A2BD8F055003055F0 /* en.lproj */,
 				A70B6E102B3573C90035EF96 /* Color.xcassets */,
 				563257182ADE57D90000F33C /* Assets.xcassets */,
 				5658F8C82B34039100E010E9 /* Model.xcdatamodeld */,
+				A7E9CAD72BF6454D00128ACA /* InfoPlist.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2357,6 +2388,62 @@
 			path = PromoPaywallService;
 			sourceTree = "<group>";
 		};
+		A71C4BD42BF734B8005C2BF6 /* es-US.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A71C4BD52BF734B8005C2BF6 /* Localizable.strings */,
+			);
+			path = "es-US.lproj";
+			sourceTree = "<group>";
+		};
+		A71C4BD72BF734B8005C2BF6 /* es-MX.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A71C4BD82BF734B8005C2BF6 /* Localizable.strings */,
+			);
+			path = "es-MX.lproj";
+			sourceTree = "<group>";
+		};
+		A71C4BDA2BF734B8005C2BF6 /* es-419.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A71C4BDB2BF734B8005C2BF6 /* Localizable.strings */,
+			);
+			path = "es-419.lproj";
+			sourceTree = "<group>";
+		};
+		A729F9142BF4B55400875BB5 /* es.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A729F9152BF4B55400875BB5 /* Localizable.strings */,
+			);
+			path = es.lproj;
+			sourceTree = "<group>";
+		};
+		A729F9172BF4B55400875BB5 /* fr-CA.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A729F9182BF4B55400875BB5 /* Localizable.strings */,
+			);
+			path = "fr-CA.lproj";
+			sourceTree = "<group>";
+		};
+		A729F9202BF4B55400875BB5 /* pt-BR.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A729F9212BF4B55400875BB5 /* Localizable.strings */,
+			);
+			path = "pt-BR.lproj";
+			sourceTree = "<group>";
+		};
+		A729F9232BF4B55400875BB5 /* fr.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A729F9242BF4B55400875BB5 /* Localizable.strings */,
+			);
+			path = fr.lproj;
+			sourceTree = "<group>";
+		};
 		A72A7D492B304C90000677A2 /* SubscriptionService */ = {
 			isa = PBXGroup;
 			children = (
@@ -2718,6 +2805,13 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
+				"fr-CA",
+				"pt-BR",
+				fr,
+				"es-US",
+				"es-MX",
+				"es-419",
 			);
 			mainGroup = 563257082ADE57D80000F33C;
 			packageReferences = (
@@ -2746,14 +2840,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A71C4BDE2BF734B8005C2BF6 /* Localizable.strings in Resources */,
+				A729F92C2BF4B55400875BB5 /* Localizable.strings in Resources */,
 				56C28D862AE106A60007E48D /* .swiftlint.yml in Resources */,
+				A729F9272BF4B55400875BB5 /* Localizable.strings in Resources */,
 				5632571C2ADE57D90000F33C /* Preview Assets.xcassets in Resources */,
+				A7E9CAD52BF6454D00128ACA /* InfoPlist.strings in Resources */,
 				A75DA72A2B9B31D300F6D796 /* Poppins-Regular.ttf in Resources */,
 				A79789312B2AF5E200205170 /* WhatToTest.en-US.txt in Resources */,
 				A75DA72B2B9B31D300F6D796 /* Poppins-SemiBold.ttf in Resources */,
 				A7FFD17D2BD8F055003055F0 /* Localizable.strings in Resources */,
 				53D900722AE63D5400FFEB7A /* Settings.bundle in Resources */,
+				A729F9282BF4B55400875BB5 /* Localizable.strings in Resources */,
 				563257192ADE57D90000F33C /* Assets.xcassets in Resources */,
+				A71C4BDF2BF734B8005C2BF6 /* Localizable.strings in Resources */,
+				A729F92B2BF4B55400875BB5 /* Localizable.strings in Resources */,
+				A71C4BDD2BF734B8005C2BF6 /* Localizable.strings in Resources */,
 				5624BEAC2B63A81C00B94D54 /* GoogleService-Info.plist in Resources */,
 				A70B6E112B3573C90035EF96 /* Color.xcassets in Resources */,
 			);
@@ -3262,6 +3364,77 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A71C4BD52BF734B8005C2BF6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A71C4BD62BF734B8005C2BF6 /* es-US */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A71C4BD82BF734B8005C2BF6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A71C4BD92BF734B8005C2BF6 /* es-MX */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A71C4BDB2BF734B8005C2BF6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A71C4BDC2BF734B8005C2BF6 /* es-419 */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A729F9152BF4B55400875BB5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A729F9162BF4B55400875BB5 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A729F9182BF4B55400875BB5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A729F9192BF4B55400875BB5 /* fr-CA */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A729F9212BF4B55400875BB5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A729F9222BF4B55400875BB5 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A729F9242BF4B55400875BB5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A729F9252BF4B55400875BB5 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A7E9CAD72BF6454D00128ACA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7E9CAD62BF6454D00128ACA /* en */,
+				A7E9CAD82BF6454F00128ACA /* fr */,
+				A7E9CAD92BF6455000128ACA /* fr-CA */,
+				A7E9CADA2BF6455000128ACA /* pt-BR */,
+				A7E9CADB2BF6455100128ACA /* es */,
+				A71C4BE02BF734C7005C2BF6 /* es-419 */,
+				A71C4BE12BF734C7005C2BF6 /* es-MX */,
+				A71C4BE22BF734C8005C2BF6 /* es-US */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		A7FFD17B2BD8F055003055F0 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3413,6 +3586,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalorieCounter/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CalorieCounter;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Access to the camera is used to recognize barcode";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used to show you personalized ads";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -3456,6 +3630,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalorieCounter/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CalorieCounter;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Access to the camera is used to recognize barcode";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used to show you personalized ads";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

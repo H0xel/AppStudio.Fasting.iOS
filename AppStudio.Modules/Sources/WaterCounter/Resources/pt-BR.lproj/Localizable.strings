@@ -5,22 +5,22 @@
   Created by Руслан Сафаргалеев on 06.03.2024.
   
 */
-"WaterCounterWidget.title" = "Water Intake";
+"WaterCounterWidget.title" = "Ingestão de Água";
 
-"WaterCounterSettingsScreen.title" = "Water Settings";
-"WaterCounterSettingsScreen.dailyGoal.title" = "Daily Goal";
-"WaterCounterSettingsScreen.preferredVolume.title" = "Preferred Volume";
-"WaterCounterSettingsScreen.units.title" = "Units";
-"WaterCounterSettingsScreen.closeButton.title" = "Close";
+"WaterCounterSettingsScreen.title" = "Configurações de Água";
+"WaterCounterSettingsScreen.dailyGoal.title" = "Meta Diária";
+"WaterCounterSettingsScreen.preferredVolume.title" = "Volume Preferencial";
+"WaterCounterSettingsScreen.units.title" = "Unidades";
+"WaterCounterSettingsScreen.closeButton.title" = "Fechar";
 
-"WaterCounterSettings.goalEditor.title" = "Daily Goal";
-"WaterCounterSettings.goalEditor.description" = "Based on your profile data, the recommended daily water intake is ~ %@ %@";
-"WaterCounterSettings.prefferedVolume.title" = "Preferred Volume";
+"WaterCounterSettings.goalEditor.title" = "Meta Diária";
+"WaterCounterSettings.goalEditor.description" = "Baseado nos dados do seu perfil, a ingestão diária recomendada de água é ~ %@ %@";
+"WaterCounterSettings.prefferedVolume.title" = "Volume Preferencial";
 
-"WaterCounterSettings.saveButton.title" = "Save";
+"WaterCounterSettings.saveButton.title" = "Salvar";
 
-"WaterCounterWidget.addWaterEditor.title" = "Add Drink";
-"WaterCounterWidget.addWaterEditor.buttonTitle" = "Add";
+"WaterCounterWidget.addWaterEditor.title" = "Adicionar Bebida";
+"WaterCounterWidget.addWaterEditor.buttonTitle" = "Adicionar";
 
 "WaterUnits.unitsGlobalTitle.liters" = "L";
 "WaterUnits.unitsGlobalTitle.ounces" = "oz";
@@ -28,7 +28,7 @@
 "WaterUnits.unitsTitle.liters" = "ml";
 "WaterUnits.unitsTitle.ounces" = "oz";
 
-"WaterUnits.unitsGlobalFullTitle.liters" = "Liters";
-"WaterUnits.unitsGlobalFullTitle.ounces" = "Ounces";
+"WaterUnits.unitsGlobalFullTitle.liters" = "Litros";
+"WaterUnits.unitsGlobalFullTitle.ounces" = "Onças";
 
-"UpdateWaterScreen.save" = "Save";
+"UpdateWaterScreen.save" = "Salvar";

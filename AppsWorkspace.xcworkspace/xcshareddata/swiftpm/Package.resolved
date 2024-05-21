@@ -75,7 +75,7 @@
     {
       "identity" : "appstudio.ios.subscriptions",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git",
+      "location" : "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions",
       "state" : {
         "revision" : "fcea7d861bde431558cb89ba4c8761b022a662c4",
         "version" : "1.0.3"

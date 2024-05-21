@@ -6,11 +6,11 @@
   
 */
 
-"FastingWidgetView.startFasting" = "Start fasting";
-"FastingWidgetView.endFasting" = "End fasting";
-"FastingWidgetView.youFastedFor" = "You've fasted for";
-"FastingWidgetView.fastTime" = "%ih fast";
-"FastingWidgetView.until" = "until";
+"FastingWidgetView.startFasting" = "Iniciar jejum";
+"FastingWidgetView.endFasting" = "Encerrar jejum";
+"FastingWidgetView.youFastedFor" = "Você jejuou por";
+"FastingWidgetView.fastTime" = "jejum de %ih";
+"FastingWidgetView.until" = "até";
 "FastingWidgetView.zeroHours" = "0 h";
-"FastingWidgetView.logFast" = "Log Fast";
-"FastingWidgetView.update" = "Update";
+"FastingWidgetView.logFast" = "Registrar Jejum";
+"FastingWidgetView.update" = "Atualizar";

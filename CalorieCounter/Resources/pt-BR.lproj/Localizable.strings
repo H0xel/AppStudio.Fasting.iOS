@@ -1,381 +1,394 @@
 // MARK: - Common
-"SaveTitle" = "Save";
-"CancelTitle" = "Cancel";
-"Button.cancel" = "Cancel";
-"TodayTitle" = "Today";
-"NextTitle" = "Next";
-"StartTitle" = "Start";
+"SaveTitle" = "Salvar";
+"CancelTitle" = "Cancelar";
+"Button.cancel" = "Cancelar";
+"TodayTitle" = "Hoje";
+"NextTitle" = "Próximo";
+"StartTitle" = "Iniciar";
 "OkTitle" = "Ok";
 
 // MARK: - Paywall Screen
-"Paywall.title" = "Paywall Title";
-"Paywall.noPaymentNow" = "No payment now!";
-"Paywall.cancelTitle" = "Get in Shape You Always Dreamed Of!";
-"Paywall.cancelSubtitle" = "Tap your name in iPhone Settings, then tap Subscriptions and choose Fasting Tracker & Timer. Tap Cancel. Done!";
-"Paywall.Continue" = "Continue";
-"Paywall.restore" = "Restore";
-"Paywall.headerTitle" = "Paywall Header Title";
-"Paywall.headerDescription" = "Paywall Header Description";
-"Paywall.headerBottomTitle" = "Paywall Header Bottom Title";
-"Paywall.savePercent" = "Save percent";
-"Paywall.reachYourWeightGoals" = "Ready to start\nyour journey?";
-"Paywall.tryForFree" = "Try 3 days for free, then %@";
-"Paywall.renewsAt" = "Cancel anytime. Renews at %@";
-"Paywall.cancelAnyTime" = "Cancel anytime";
-"Paywall.unlockAdvanteges" = "Unlock your advantage now!";
-"Paywall.savePercent" = "Save %i%";
+"Paywall.title" = "Título do Paywall";
+"Paywall.noPaymentNow" = "Sem pagamento agora!";
+"Paywall.cancelTitle" = "Consiga a forma que sempre sonhou!";
+"Paywall.cancelSubtitle" = "Toque no seu nome nas configurações do iPhone, depois toque em Assinaturas e escolha Fasting Tracker & Timer. Toque em Cancelar. Pronto!";
+"Paywall.Continue" = "Continuar";
+"Paywall.restore" = "Restaurar";
+"Paywall.headerTitle" = "Título do Cabeçalho do Paywall";
+"Paywall.headerDescription" = "Descrição do Cabeçalho do Paywall";
+"Paywall.headerBottomTitle" = "Título Inferior do Cabeçalho do Paywall";
+"Paywall.savePercent" = "Poupe %i%";
+"Paywall.reachYourWeightGoals" = "Pronto para iniciar
+sua jornada?";
+"Paywall.tryForFree" = "Experimente 3 dias grátis, depois %@";
+"Paywall.renewsAt" = "Cancelamento a qualquer momento. Renova por %@";
+"Paywall.cancelAnyTime" = "Cancelamento a qualquer momento";
+"Paywall.unlockAdvanteges" = "Desbloqueie suas vantagens agora!";
+"Paywall.savePercent" = "Poupe %i%";
 
 // MARK: Personalized Paywall
-"PersonalizedPaywall.headerTitle" = "Reach your dream weight of %@ by %@";
-"PersonalizedPaywall.getPlus" = "Get Plus for %@";
-"PersonalizedPaywall.now" = "Now";
-"PersonalizedPaywall.realTransformation" = "Real transformations";
-"PersonalizedPaywall.whatYoullGet" = "What you’ll get";
+"PersonalizedPaywall.headerTitle" = "Alcance o peso dos seus sonhos de %@ até %@";
+"PersonalizedPaywall.getPlus" = "Obtenha Plus por %@";
+"PersonalizedPaywall.now" = "Agora";
+"PersonalizedPaywall.realTransformation" = "Transformações reais";
+"PersonalizedPaywall.whatYoullGet" = "O que você vai obter";
 
-"PersonalizedPaywall.loseWeightBullet" = "Lose ~%@ kg by your %@!";
+"PersonalizedPaywall.loseWeightBullet" = "Perca ~%@ kg até %@!";
 
-"PersonalizedPaywall.description.1" = "Customized for %@ ages %@";
-"PersonalizedPaywall.description.2" = "Adapted for %@ lifestyle";
-"PersonalizedPaywall.description.3" = "Easy to follow fasting schedule";
-"PersonalizedPaywall.description.4" = "Eat whatever you want outside of fasting period";
-"PersonalizedPaywall.description.5" = "No exercise and yo-yo effect";
-"PersonalizedPaywall.description.6" = "No equipment and place limitations";
-"PersonalizedPaywall.description.7" = "Promote cell regeneration, detoxification and metabolism";
-"PersonalizedPaywall.description.8" = "Scientifically proven";
+"PersonalizedPaywall.description.1" = "Personalizado para %@ de %@";
+"PersonalizedPaywall.description.2" = "Adaptado para o estilo de vida de %@";
+"PersonalizedPaywall.description.3" = "Programa de jejum fácil de seguir";
+"PersonalizedPaywall.description.4" = "Coma o que quiser fora do período de jejum";
+"PersonalizedPaywall.description.5" = "Sem exercício e efeito sanfona";
+"PersonalizedPaywall.description.6" = "Sem equipamento e limitações de espaço";
+"PersonalizedPaywall.description.7" = "Promove a regeneração celular, desintoxicação e metabolismo";
+"PersonalizedPaywall.description.8" = "Cientificamente comprovado";
 
-"PersonalizedPaywall.female.name1" = "Diana C";
-"PersonalizedPaywall.female.description1" = "“I always found counting calories to be daunting, but fasting provides the simplicity that has helped me lose weight sustainably“";
-"PersonalizedPaywall.female.name2" = "Lisa M";
-"PersonalizedPaywall.female.description2" = "“I’ve started doing the 20 hour fasting with 4 hour eating window and so far so good“";
-"PersonalizedPaywall.female.name3" = "Paula S";
-"PersonalizedPaywall.female.description3" = "“I didn't believe it at first, but now I have lost 6kg! Didn't go to gym. I can still eat pizza! Crazy!“";
+"PersonalizedPaywall.female.name1" = "Diana";
+"PersonalizedPaywall.female.description1" = "“Sempre achei complicado contar calorias, mas o jejum proporciona a simplicidade que me ajudou a perder peso de forma sustentável“";
+"PersonalizedPaywall.female.name2" = "Lisa";
+"PersonalizedPaywall.female.description2" = "“Comecei o jejum de 20 horas com janela de alimentação de 4 horas e até agora, tudo bem“";
+"PersonalizedPaywall.female.name3" = "Paula";
+"PersonalizedPaywall.female.description3.kg" = "“Eu não acreditava no começo, mas agora perdi 6 kg! Não fui à academia. Ainda posso comer pizza! Incrível!“";
+"PersonalizedPaywall.female.description3.lb" = "“Eu não acreditava no começo, mas agora perdi 13 lb! Não fui à academia. Ainda posso comer pizza! Incrível!“";
 
-"PersonalizedPaywall.male.name1" = "Trevor M";
-"PersonalizedPaywall.male.description1" = "“I always found counting calories to be daunting, but fasting provides the simplicity that has helped me lose weight sustainably“";
-"PersonalizedPaywall.male.name2" = "Eric K";
-"PersonalizedPaywall.male.description2" = "\"I didn't believe it at first, but now I have lost 6kg! Didn't go to gym. I can still eat pizza! Crazy!\"";
-"PersonalizedPaywall.male.name3" = "George P";
-"PersonalizedPaywall.male.description3" = "\"My customized fasting plan really helped me with my stomach cramps and bloating problems\"";
+"PersonalizedPaywall.male.name1" = "Thiago";
+"PersonalizedPaywall.male.description1" = "“Sempre achei complicado contar calorias, mas o jejum proporciona a simplicidade que me ajudou a perder peso de forma sustentável“";
+"PersonalizedPaywall.male.name2" = "Eric";
+"PersonalizedPaywall.male.description2.kg" = "\"Eu não acreditava no começo, mas agora perdi 6 kg! Não fui à academia. Ainda posso comer pizza! Incrível!\"";
+"PersonalizedPaywall.male.description2.lb" = "\"Eu não acreditava no começo, mas agora perdi 13 lb! Não fui à academia. Ainda posso comer pizza! Incrível!\"";
+"PersonalizedPaywall.male.name3" = "Jorge";
+"PersonalizedPaywall.male.description3" = "\"Meu plano de jejum personalizado realmente me ajudou com meus problemas de cólicas estomacais e inchaço\"";
 
 // MARK: - Onboarding
 
-"Onboarding.buttonTitle" = "Get started";
-"Onboarding.description" = "Calorie and macro tracking. Simplified.";
-"Onboarding.fastingGoal.title" = "What do you want to achieve?";
-"Onboarding.fastingGoal.description" = "Pick as many as you like";
-"Onboarding.sex.title" = "What’s your sex?";
-"Onboarding.sex.description" = "Biological sex can affect many physical elements lIke our metabolism, muscle mass, or hormones, so we use it in our calculations";
-"Onboarding.activityLevel.title" = "What's your activity level?";
+"Onboarding.buttonTitle" = "Começar";
+"Onboarding.description" = "Rastreamento de calorias e macros. Simplificado.";
+"Onboarding.fastingGoal.title" = "O que você deseja alcançar?";
+"Onboarding.fastingGoal.description" = "Escolha quantos quiser";
+"Onboarding.sex.title" = "Qual é o seu sexo?";
+"Onboarding.sex.description" = "O sexo biológico pode afetar muitos elementos físicos como nosso metabolismo, massa muscular ou hormônios, então usamos isso em nossos cálculos";
+"Onboarding.activityLevel.title" = "Qual é o seu nível de atividade?";
 "Onboarding.activityLevel.description" = "Select your level of daily physical activity outside of exercise (during work, leisure time, etc)";
-"Onboarding.specialEvent.title" = "Do you have an event that's inspiring you to lose weight?";
-"Onboarding.specialEvent.description" = "Having something to look forward to will help you stay on track";
-"Onboarding.birthdayTitle" = "When is your birthday?";
-"Onboarding.specialEventDateTitle" = "When will this event take place?";
-"Onboarding.height.title" = "How tall are you?";
-"Onboarding.currentWeight.title" = "What's your current weight?";
-"Onboarding.desiredWeight.title" = "What is your target weight?";
-"Onboarding.desiredWeight.description" = "Let's get there together";
-"Onboarding.howOftenDoYouExercise.title" = "How often do you exercise?";
-"Onboarding.howOftenDoYouExercise.description" = "Choose the number of recreational sports, cardio, or resistance training sessions you do per week";
-"Onboarding.whatTrainingYouDoing.title" = "What training you’re doing?";
-"Onboarding.whatTrainingYouDoing.description" = "Choose the training you’re doing, if any";
-"Onboarding.calorieGoal.title" = "What is your goal?";
-"Onboarding.calorieGoal.description" = "Select your weight goal";
-"Onboarding.dietType.title" = "What is your preferred diet?";
-"Onboarding.proteinLevel.title" = "What is your preferred protein level?";
-"Onboarding.fastCalorieBurn.title" = "How fast would you like to get to it?";
-"Onboarding.fastCalorieBurn.changeGoalTitle" = "How fast would you like to get to your goal?";
+"Onboarding.specialEvent.title" = "Você tem algum evento que está motivando você a perder peso?";
+"Onboarding.specialEvent.description" = "Ter algo pelo qual esperar vai ajudar você a se manter no caminho";
+"Onboarding.birthdayTitle" = "Qual é a sua data de nascimento?";
+"Onboarding.specialEventDateTitle" = "Quando esse evento acontecerá?";
+"Onboarding.height.title" = "Qual é a sua altura?";
+"Onboarding.currentWeight.title" = "Qual é o seu peso atual?";
+"Onboarding.desiredWeight.title" = "Qual é o seu peso desejado?";
+"Onboarding.desiredWeight.description" = "Vamos chegar lá juntos";
+"Onboarding.howOftenDoYouExercise.title" = "Com que frequência você se exercita?";
+"Onboarding.howOftenDoYouExercise.description" = "Escolha o número de sessões de esportes recreativos, cardio ou treinamento de resistência que você faz por semana";
+"Onboarding.whatTrainingYouDoing.title" = "Qual treinamento você está fazendo?";
+"Onboarding.whatTrainingYouDoing.description" = "Escolha o treinamento que você está fazendo, se houver";
+"Onboarding.calorieGoal.title" = "Qual é o seu objetivo?";
+"Onboarding.calorieGoal.description" = "Selecione seu objetivo de peso";
+"Onboarding.dietType.title" = "Qual é a sua dieta preferida?";
+"Onboarding.proteinLevel.title" = "Qual é o seu nível de proteína preferido?";
+"Onboarding.fastCalorieBurn.title" = "Com que rapidez você gostaria de alcançá-lo?";
+"Onboarding.fastCalorieBurn.changeGoalTitle" = "Com que rapidez você gostaria de alcançar seu objetivo?";
 
-"OnboardingCalculationProccess.progress.title1" = "Analyzing your results...";
-"OnboardingCalculationProccess.progress.title2" = "Aligning your plan\nto your goal...";
-"OnboardingCalculationProccess.progress.title3" = "Adjusting plan\nto your information...";
-"OnboardingCalculationProccess.progress.title4" = "All done!\nYour plan is ready";
-"OnboardingCalculationProccess.phase1" = "We rely on behavioural change, not on restrictive eating styles";
-"OnboardingCalculationProccess.phase2" = "Intermittent fasting is backed by multidisciplinary research";
-"OnboardingCalculationProccess.phase3" = "We say no to diets and focus on your body as a whole";
-"OnboardingCalculationProccess.phase4" = "So you can stop labeling food and just lean to eat intuitively";
-"OnboardingCalculationProccess.phase5" = "And remember: Nobody’s perfect. That’s completely normal!";
-"OnboardingCalculationProccess.phase6" = "We’re always here to get you back on track";
+"OnboardingCalculationProccess.progress.title1" = "Analisando seus resultados...";
+"OnboardingCalculationProccess.progress.title2" = "Alinhando seu plano
+ao seu objetivo...";
+"OnboardingCalculationProccess.progress.title3" = "Ajustando o plano
+às suas informações...";
+"OnboardingCalculationProccess.progress.title4" = "Tudo pronto!
+Seu plano está pronto";
+"OnboardingCalculationProccess.phase1" = "Nós confiamos na mudança comportamental, não em estilos alimentares restritivos";
+"OnboardingCalculationProccess.phase2" = "O jejum intermitente é respaldado por pesquisas multidisciplinares";
+"OnboardingCalculationProccess.phase3" = "Nós dizemos não às dietas e focamos no seu corpo como um todo";
+"OnboardingCalculationProccess.phase4" = "Então você pode parar de rotular alimentos e apenas aprender a comer de forma intuitiva";
+"OnboardingCalculationProccess.phase5" = "E lembre-se: Ninguém é perfeito. Isso é completamente normal!";
+"OnboardingCalculationProccess.phase6" = "Estamos sempre aqui para te colocar de volta no caminho";
 
-"OnboardingService.paywallTitle" = "Reach your dream weight of %@ by %@";
-"OnboardingService.bulletWeight.title" = "Lose ~%@ by your %@!";
+"OnboardingService.paywallTitle" = "Alcance seu peso dos sonhos de %@ até %@";
+"OnboardingService.bulletWeight.title" = "Perca ~%@ até o seu %@!";
 
 // MARK: - Fasting Goal
-"FastingGoal.loseWeight" = "Lose  weight";
-"FastingGoal.lookBetter" = "Look better";
-"FastingGoal.feelMoreEnergetic" = "Feel more energetic";
-"FastingGoal.improveMentalClarity" = "Improve mental clarity";
-"FastingGoal.liveLonger" = "Live longer";
-"FastingGoal.healthierLifestyle" = "Healthier lifestyle";
+"FastingGoal.loseWeight" = "Perder peso";
+"FastingGoal.lookBetter" = "Melhorar a aparência";
+"FastingGoal.feelMoreEnergetic" = "Sinta-se com mais energia";
+"FastingGoal.improveMentalClarity" = "Melhorar a clareza mental";
+"FastingGoal.liveLonger" = "Viver mais";
+"FastingGoal.healthierLifestyle" = "Estilo de vida mais saudável";
 
 "FastingGoal.bullet.loseWeight" = "";
-"FastingGoal.bullet.lookBetter" = "Build your dream body";
-"FastingGoal.bullet.feelMoreEnergetic" = "Become more active in daily life";
-"FastingGoal.bullet.improveMentalClarity" = "Boost focus and feel more alert";
-"FastingGoal.bullet.liveLonger" = "Activate rejuvenation mechanisms";
-"FastingGoal.bullet.healthierLifestyle" = "Develop long-lasting healthy habits";
+"FastingGoal.bullet.lookBetter" = "Construir o corpo dos seus sonhos";
+"FastingGoal.bullet.feelMoreEnergetic" = "Tornar-se mais ativo na vida diária";
+"FastingGoal.bullet.improveMentalClarity" = "Aumentar o foco e se sentir mais alerta";
+"FastingGoal.bullet.liveLonger" = "Ativar mecanismos de rejuvenescimento";
+"FastingGoal.bullet.healthierLifestyle" = "Desenvolver hábitos saudáveis de longa duração";
 
 // MARK: - Sex
-"Sex.male" = "Male";
-"Sex.female" = "Female";
-"Sex.other" = "Other";
+"Sex.male" = "Masculino";
+"Sex.female" = "Feminino";
+"Sex.other" = "Outro";
 
-"Sex.women" = "women";
-"Sex.men" = "men";
+"Sex.women" = "mulheres";
+"Sex.men" = "homens";
 
 // MARK: - Activity Level
-"ActivityLevel.sedentary" = "Sedentary";
-"ActivityLevel.moderatelyActive" = "Moderately active";
-"ActivityLevel.veryActive" = "Very active";
+"ActivityLevel.sedentary" = "Sedentário";
+"ActivityLevel.moderatelyActive" = "Moderadamente ativo";
+"ActivityLevel.veryActive" = "Muito ativo";
 
-"ActivityLevel.sedentary.description" = "In many cases, this would correspond to less than 5,000 steps a day.";
-"ActivityLevel.moderatelyActive.description" = "In many cases, this would correspond to 5,000 - 15,000 steps a day.";
-"ActivityLevel.veryActive.description" = "In many cases, this would correspond to more than 15,000 steps a day.";
+"ActivityLevel.sedentary.description" = "Em muitos casos, isso corresponderia a menos de 5.000 passos por dia.";
+"ActivityLevel.moderatelyActive.description" = "Em muitos casos, isso corresponderia a 5.000 - 15.000 passos por dia.";
+"ActivityLevel.veryActive.description" = "Em muitos casos, isso corresponderia a mais de 15.000 passos por dia.";
 
 // MARK: - Special Event
-"SpecialEvent.vacation" = "Vacation";
-"SpecialEvent.wedding" = "Wedding";
-"SpecialEvent.sportsCompetition" = "Sports competition";
-"SpecialEvent.summer" = "Summer";
-"SpecialEvent.reunion" = "Reunion";
-"SpecialEvent.birthday" = "Birthday";
-"SpecialEvent.somethingElse" = "Something else";
-"SpecialEvent.noSpecialEvent" = "No special event";
+"SpecialEvent.vacation" = "Férias";
+"SpecialEvent.wedding" = "Casamento";
+"SpecialEvent.sportsCompetition" = "Competição esportiva";
+"SpecialEvent.summer" = "Verão";
+"SpecialEvent.reunion" = "Reunião";
+"SpecialEvent.birthday" = "Aniversário";
+"SpecialEvent.somethingElse" = "Outro";
+"SpecialEvent.noSpecialEvent" = "Nenhum evento especial";
 
-"SpecialEvent.somethingElse.title" = "Big event";
-"SpecialEvent.sportsCompetition.title" = "Competition";
+"SpecialEvent.somethingElse.title" = "Grande evento";
+"SpecialEvent.sportsCompetition.title" = "Competição";
 
 // MARK: Notification onboarding
 
-"NotificationOnboarding.title" = "Stay Motivated with Notifications";
-"NotificationOnboarding.button" = "Allow notifications";
+"NotificationOnboarding.title" = "Fique motivado com notificações";
+"NotificationOnboarding.button" = "Permitir notificações";
 
 // MARK: - Subscription
-"ProductCatalog.duration.day.period" = "daily";
-"ProductCatalog.duration.week.period" = "weekly";
-"ProductCatalog.duration.month.period" = "monthly";
-"ProductCatalog.duration.year.period" = "yearly";
-"ProductCatalog.duration.day" = "day";
-"ProductCatalog.duration.week" = "week";
-"ProductCatalog.duration.month" = "month";
-"ProductCatalog.duration.quater" = "quarter";
-"ProductCatalog.duration.year" = "year";
-"ProductCatalog.duration.day.form1" = "day";
-"ProductCatalog.duration.day.form2" = "days";
-"ProductCatalog.duration.week.form1" = "week";
-"ProductCatalog.duration.week.form2" = "weeks";
-"ProductCatalog.duration.month.form1" = "month";
-"ProductCatalog.duration.month.form2" = "months";
-"ProductCatalog.duration.year.form1" = "year";
-"ProductCatalog.duration.year.form2" = "years";
-"ProductCatalog.duration.year.short" = "yr";
-"ProductCatalog.duration.month.short" = "mo";
-"ProductCatalog.duration.week.short" = "wk";
-"ProductCatalog.priceTitle" = "%@ per %@";
+"ProductCatalog.duration.day.period" = "diário";
+"ProductCatalog.duration.week.period" = "semanalmente";
+"ProductCatalog.duration.month.period" = "por mês";
+"ProductCatalog.duration.year.period" = "anual";
+"ProductCatalog.duration.day" = "dia";
+"ProductCatalog.duration.week" = "semana";
+"ProductCatalog.duration.month" = "mês";
+"ProductCatalog.duration.quater" = "trimestre";
+"ProductCatalog.duration.year" = "ano";
+"ProductCatalog.duration.day.form1" = "dia";
+"ProductCatalog.duration.day.form2" = "dias";
+"ProductCatalog.duration.week.form1" = "semana";
+"ProductCatalog.duration.week.form2" = "semanas";
+"ProductCatalog.duration.month.form1" = "mês";
+"ProductCatalog.duration.month.form2" = "meses";
+"ProductCatalog.duration.year.form1" = "ano";
+"ProductCatalog.duration.year.form2" = "anos";
+"ProductCatalog.duration.year.short" = "ano";
+"ProductCatalog.duration.month.short" = "mês";
+"ProductCatalog.duration.week.short" = "sem";
+"ProductCatalog.priceTitle" = "%@ por %@";
 
-"SubscriptionDuration.week" = "1 week";
-"SubscriptionDuration.month" = "1 month";
-"SubscriptionDuration.threeMonth" = "3 months";
-"SubscriptionDuration.sixMonth" = "6 months";
-"SubscriptionDuration.year" = "12 months";
+"SubscriptionDuration.week" = "1 semana";
+"SubscriptionDuration.month" = "1 mês";
+"SubscriptionDuration.threeMonth" = "3 meses";
+"SubscriptionDuration.sixMonth" = "6 meses";
+"SubscriptionDuration.year" = "12 meses";
 
 // MARK: - Meal Type
-"MealType.breakfast" = "Breakfast";
-"MealType.lunch" = "Lunch";
-"MealType.dinner" = "Dinner";
-"MealType.snack" = "Snack";
+"MealType.breakfast" = "Café da manhã";
+"MealType.lunch" = "Almoço";
+"MealType.dinner" = "Jantar";
+"MealType.snack" = "Lanche";
 
 // MARK: - Food Log Screen
-"FoodLogScreen.emptyViewTitle" = "For recognition accuracy, enter one dish or item at a time";
-"FoodLogScreen.textFieldPlaceholder" = "Add one dish or item";
-"FoodLogScreen.notFocuesedTextFieldPlaceholder" = "Describe your meal";
-"FoodLogScreen.log" = "Log";
-"FoodLogScreen.done" = "Done";
-"FoodLogScreen.newIngredientsTitle" = "New Ingredients in";
-"FoodLogScreen.addIngredientButtonTitle" = "Add Ingredient";
+"FoodLogScreen.emptyViewTitle" = "Para precisão no reconhecimento, insira um prato ou item por vez";
+"FoodLogScreen.textFieldPlaceholder" = "Adicione um prato ou item";
+"FoodLogScreen.notFocuesedTextFieldPlaceholder" = "Descreva sua refeição";
+"FoodLogScreen.log" = "Registrar";
+"FoodLogScreen.done" = "Concluído";
+"FoodLogScreen.newIngredientsTitle" = "Novos Ingredientes em";
+"FoodLogScreen.addIngredientButtonTitle" = "Incluir Ingrediente";
 
 // MARK: - NutritionProfile
 "NutritionProfile.proteins" = "P";
-"NutritionProfile.fats" = "F";
+"NutritionProfile.fats" = "G";
 "NutritionProfile.carbs" = "C";
 
 // MARK: - Ingredient
 "Ingredient.weightLabel" = "g";
 
 // MARK: Quick action
-"Review.title" = "Need assistance?";
-"Review.subTitle" = "Contact support or share your feedback with us";
+"Review.title" = "Precisa de ajuda?";
+"Review.subTitle" = "Entre em contato com o suporte ou compartilhe seu feedback conosco";
 
 // MARK: - Profile
-"ProfileScreen.supportEmailSubject" = "Calorie Counter App Support";
+"ProfileScreen.supportEmailSubject" = "Suporte do Aplicativo Contador de Calorias";
 
 // MARK: - Meal delete banner
-"MealDeleteBanner.deleteMeal" = "Delete meal";
-"MealDeleteBanner.deleteIngredient" = "Delete ingredient";
+"MealDeleteBanner.deleteMeal" = "Excluir refeição";
+"MealDeleteBanner.deleteIngredient" = "Excluir ingrediente";
 
 // MARK: - Exercise frequency
-"ExerciseActivity.sessionsPerWeek0" = "0 sessions / week";
-"ExerciseActivity.sessionsPerWeek1to3" = "1-3 sessions / week";
-"ExerciseActivity.sessionsPerWeek4to6" = "4-6 sessions / week";
-"ExerciseActivity.sessionsPerWeekMoreThan7" = "7+ sessions / week";
+"ExerciseActivity.sessionsPerWeek0" = "0 sessões / semana";
+"ExerciseActivity.sessionsPerWeek1to3" = "1-3 sessões / semana";
+"ExerciseActivity.sessionsPerWeek4to6" = "4-6 sessões / semana";
+"ExerciseActivity.sessionsPerWeekMoreThan7" = "7+ sessões / semana";
 
 // MARK: - ActivityType
-"ActivityType.noActivity" = "None or relaxed activity";
-"ActivityType.cardio" = "Lifting";
+"ActivityType.noActivity" = "Nenhuma ou atividade relaxada";
+"ActivityType.cardio" = "Musculação";
 "ActivityType.lifting" = "Cardio";
-"ActivityType.both" = "Cardio & lifting";
+"ActivityType.both" = "Cardio e musculação";
 
 
 // MARK: - OnboardingEstimatedExpenditureView
 "OnboardingEstimatedExpenditureView.title" = "%@ kcal";
-"OnboardingEstimatedExpenditureView.subtitle" = "your estimated expenditure";
-"OnboardingEstimatedExpenditureView.description" = "Expenditure is the number of calories you would need to consume to maintain your current weight";
+"OnboardingEstimatedExpenditureView.subtitle" = "seu gasto estimado";
+"OnboardingEstimatedExpenditureView.description" = "Gasto é o número de calorias que você precisa consumir para manter seu peso atual";
+"OnboardingEstimatedExpenditureView.averageDaily" = "Média diária de\ncalorias";
+"OnboardingEstimatedExpenditureView.estimatedAchievementDate" = "Data estimada \nde alcance";
 
 // MARK: - CalorieGoal
-"CalorieGoal.lose" = "Lose weight";
-"CalorieGoal.maintain" = "Maintain";
-"CalorieGoal.gain" = "Gain";
+"CalorieGoal.lose" = "Perder peso";
+"CalorieGoal.maintain" = "Manter";
+"CalorieGoal.gain" = "Ganhar";
 
-"CalorieGoal.lose.description" = "Goal of losing weight";
-"CalorieGoal.maintain.description" = "Goal of keeping your weight at its current level";
-"CalorieGoal.gain.description" = "Goal of gaining weight";
+"CalorieGoal.lose.description" = "Objetivo de perder peso";
+"CalorieGoal.maintain.description" = "Objetivo de manter seu peso no nível atual";
+"CalorieGoal.gain.description" = "Objetivo de ganhar peso";
 
 // MARK: ProteinLevel
 
-"ProteinLevel.low" = "Low";
-"ProteinLevel.moderate" = "Moderate";
-"ProteinLevel.high" = "High";
-"ProteinLevel.extraHigh" = "Extra high";
+"ProteinLevel.low" = "Baixo";
+"ProteinLevel.moderate" = "Moderado";
+"ProteinLevel.high" = "Alto";
+"ProteinLevel.extraHigh" = "Extra alto";
 
-"ProteinLevel.low.description" = "On the low side of the optimal range";
-"ProteinLevel.moderate.description" = "In the middle of the optimal range";
-"ProteinLevel.high.description" = "On the high end of the optimal range";
-"ProteinLevel.extraHigh.description" = "Highest recommended intake";
+"ProteinLevel.low.description" = "No lado baixo da faixa ótima";
+"ProteinLevel.moderate.description" = "No meio da faixa ótima";
+"ProteinLevel.high.description" = "No alto da faixa ótima";
+"ProteinLevel.extraHigh.description" = "Ingestão máxima recomendada";
 
 // MARK: DietType
 
-"DietType.balanced" = "Balanced";
-"DietType.lowFat" = "Low-fat";
-"DietType.lowCarb" = "Low-carb";
+"DietType.balanced" = "Equilibrado";
+"DietType.lowFat" = "Baixo teor de gordura";
+"DietType.lowCarb" = "Baixo teor de carboidratos";
 "DietType.keto" = "Keto";
 
-"DietType.balanced.description" = "Standard distribution of carbs and fat";
-"DietType.lowFat.description" = "Fat will be reduced to prioritize carb and protein intake";
-"DietType.lowCarb.description" = "Carbs will be reduced to prioritize fat and protein intake";
-"DietType.keto.description" = "Carbs will be very restricted to allow for higher fat intake";
+"DietType.balanced.description" = "Distribuição padrão de carboidratos e gorduras";
+"DietType.lowFat.description" = "A gordura será reduzida para priorizar a ingestão de carboidratos e proteínas";
+"DietType.lowCarb.description" = "Os carboidratos serão reduzidos para priorizar a ingestão de gorduras e proteínas";
+"DietType.keto.description" = "Os carboidratos serão muito restritos para permitir maior ingestão de gorduras";
 
 // MARK: Fast burn
 
-"OnboardingFastCalorieView.recommended" = "Recommended";
-"OnboardingFastCalorieView.slower" = "Slower";
-"OnboardingFastCalorieView.faster" = "Faster";
-"OnboardingFastCalorieView.minimumIntake" = "Minimum recommended intake";
-"OnboardingFastCalorieView.burnPerWeek" = "%@ / week";
-"OnboardingFastCalorieView.loseWeight.description1" = "This rate of weight loss is generally considered sustainable for achieving long-term success.";
-"OnboardingFastCalorieView.gainWeight.description1" = "This weight gain rate supports muscle building while minimizing the risk of gaining excess fat.";
-"OnboardingFastCalorieView.description2" = "Consuming fewer than 1200 kcal daily is not advisable for health reasons. Your daily calorie allowance adjusted accordingly.";
+"OnboardingFastCalorieView.recommended" = "Recomendado";
+"OnboardingFastCalorieView.slower" = "Mais lento";
+"OnboardingFastCalorieView.faster" = "Mais rápido";
+"OnboardingFastCalorieView.minimumIntake" = "Ingestão mínima recomendada";
+"OnboardingFastCalorieView.burnPerWeek" = "%@ / semana";
+"OnboardingFastCalorieView.loseWeight.description1" = "Esta taxa de perda de peso é geralmente considerada sustentável para alcançar sucesso a longo prazo.";
+"OnboardingFastCalorieView.gainWeight.description1" = "Esta taxa de ganho de peso suporta a construção muscular enquanto minimiza o risco de ganhar gordura excessiva.";
+"OnboardingFastCalorieView.description2" = "Consumir menos de 1200 kcal diariamente não é aconselhável por motivos de saúde. Sua permissão diária de calorias foi ajustada de acordo.";
 
 // MARK: DailyCalorieBudget
 
-"DailyCalorieBudget.profileInfoTitle" = "Program";
-"DailyCalorieBudget.title" = "Your daily calorie goal";
-"DailyCalorieBudget.protein" = "Protein";
-"DailyCalorieBudget.fat" = "Fat";
-"DailyCalorieBudget.carbs" = "Carbs";
-"DailyCalorieBudget.estimatedExpenditure" = "Estimated Expenditure";
-"DailyCalorieBudget.dailyCalorieGoal" = "Daily calorie goal";
-"DailyCalorieBudget.estimatedAchievementDate" = "Estimated achievement date";
-"DailyCalorieBudget.targetProtein" = "Target Protein";
-"DailyCalorieBudget.dietType" = "Diet Type";
+"DailyCalorieBudget.profileInfoTitle" = "Programa";
+"DailyCalorieBudget.title" = "Sua meta diária de calorias";
+"DailyCalorieBudget.protein" = "Proteína";
+"DailyCalorieBudget.fat" = "Gordura";
+"DailyCalorieBudget.carbs" = "Carboidratos";
+"DailyCalorieBudget.estimatedExpenditure" = "Gasto Estimado";
+"DailyCalorieBudget.dailyCalorieGoal" = "Meta diária de calorias";
+"DailyCalorieBudget.estimatedAchievementDate" = "Data estimada de alcance";
+"DailyCalorieBudget.targetProtein" = "Proteína Alvo";
+"DailyCalorieBudget.dietType" = "Tipo de Dieta";
 
-"DailyCalorieBudget.estimatedExpenditure.description" = "Upon analyzing your data on physical activity and body metrics, we determined that your daily energy expenditure is approximately %@ kcal.";
-"DailyCalorieBudget.dailyCalorieGoal.description" = "Your goal is to %@, so your daily average Calorie Goal should be around %@";
-"DailyCalorieBudget.dailyCalorieGoal.description.loose" = "lose weight at a rate of -%@ per week";
-"DailyCalorieBudget.dailyCalorieGoal.description.gain" = "gain weight at a rate of +%@ per week";
-"DailyCalorieBudget.dailyCalorieGoal.description.maintain" = "maintain your starting weight";
+"DailyCalorieBudget.estimatedExpenditure.description" = "Ao analisar seus dados de atividade física e métricas corporais, determinamos que seu gasto energético diário é aproximadamente %@ kcal.";
+"DailyCalorieBudget.dailyCalorieGoal.description" = "Seu objetivo é %@, então sua Meta Média Diária de Calorias deve ser cerca de %@";
+"DailyCalorieBudget.dailyCalorieGoal.description.loose" = "perder peso a uma taxa de -%@ por semana";
+"DailyCalorieBudget.dailyCalorieGoal.description.gain" = "ganhar peso a uma taxa de +%@ por semana";
+"DailyCalorieBudget.dailyCalorieGoal.description.maintain" = "manter seu peso inicial";
 
 
-"DailyCalorieBudget.estimatedAchievementDate.description" = "With a daily calorie %@, we estimated that you will reach your goal on %@.";
-"DailyCalorieBudget.estimatedAchievementDate.description.deficit" = "deficit of %@ kcal and a weight loss rate of -%@ per week";
-"DailyCalorieBudget.estimatedAchievementDate.description.surplus" = "surplus of %@ kcal and a weight gain rate of +%@ lb per week";
+"DailyCalorieBudget.estimatedAchievementDate.description" = "Com uma meta diária de %@ calorias, estimamos que você alcançará seu objetivo em %@.";
+"DailyCalorieBudget.estimatedAchievementDate.description.deficit" = "déficit de %@ kcal e uma taxa de perda de peso de -%@ por semana";
+"DailyCalorieBudget.estimatedAchievementDate.description.surplus" = "superávit de %@ kcal e uma taxa de ganho de peso de +%@ lb por semana";
 
-"DailyCalorieBudget.targetProtein.description" = "Given that you have a goal of %@ weight and prefer a moderate amount of protein, consuming %@ of body weight of protein is a good daily average given your lifestyle and training.";
-"DailyCalorieBudget.targetProtein.description.lose" = "loosing";
-"DailyCalorieBudget.targetProtein.description.gain" = "gaining";
-"DailyCalorieBudget.targetProtein.description.maintain" = "maintaining your";
+"DailyCalorieBudget.targetProtein.description" = "Visto que você tem uma meta de %@ de peso e prefere uma quantidade moderada de proteína, consumir %@ do peso corporal em proteína é uma boa média diária dado seu estilo de vida e treinamento.";
+"DailyCalorieBudget.targetProtein.description.lose" = "perdendo";
+"DailyCalorieBudget.targetProtein.description.gain" = "ganhando";
+"DailyCalorieBudget.targetProtein.description.maintain" = "mantendo seu";
 
-"DailyCalorieBudget.dietType.description" = "Finally, we distributed your remaining calories between carbs and fat in accordance with the %@ Diet.";
+"DailyCalorieBudget.dietType.description" = "Finalmente, distribuímos suas calorias restantes entre carboidratos e gorduras de acordo com a Dieta %@.";
 
 // MARK: - Weekday
-"Weekday.monday" = "M";
-"Weekday.tuesday" = "T";
-"Weekday.wednesday" = "W";
-"Weekday.thursday" = "T";
-"Weekday.friday" = "F";
-"Weekday.saturday" = "S";
-"Weekday.sunday" = "S";
+"Weekday.monday" = "Segunda-feira";
+"Weekday.tuesday" = "Terça-feira";
+"Weekday.wednesday" = "Quarta-feira";
+"Weekday.thursday" = "Quinta-feira";
+"Weekday.friday" = "Sexta-feira";
+"Weekday.saturday" = "Sábado";
+"Weekday.sunday" = "Domingo";
 
 // MARK: - MealTypeView
-"MealTypeView.add" = "Add";
+"MealTypeView.add" = "Incluir";
 "MealTypeView.calories" = "kcal";
 
 // MARK: - CaloriesBudgetHeaderView
-"CaloriesBudgetHeaderView.eatenTitle" = "eaten";
-"CaloriesBudgetHeaderView.goalTitle" = "goal";
-"CaloriesBudgetHeaderView.kcalLeftTitle" = "kcal left";
-"CaloriesBudgetHeaderView.kcalOverTitle" = "kcal over";
+"CaloriesBudgetHeaderView.eatenTitle" = "consumido";
+"CaloriesBudgetHeaderView.goalTitle" = "meta";
+"CaloriesBudgetHeaderView.kcalLeftTitle" = "kcal restantes";
+"CaloriesBudgetHeaderView.kcalOverTitle" = "kcal excedentes";
 
 // MARK: = NotFoundMealPlaceholderView
-"NotFoundMealPlaceholderView.title" = "Nothing found with this barcode";
-"IngredientPlaceholderView.notFound" = "Nothing found with this barcode";
+"NotFoundMealPlaceholderView.title" = "Nada encontrado com este código de barras";
+"IngredientPlaceholderView.notFound" = "Nada encontrado com este código de barras";
 
 // MARK: - UsageLimitPaywallScreen
-"UsageLimitPaywallScreen.unlockAllFeatures" = "Unlock\nall features";
-"UsageLimitPaywallScreen.feature1" = "AI-powered Food Log";
-"UsageLimitPaywallScreen.feature2" = "Barcode Scan";
-"UsageLimitPaywallScreen.feature3" = "Complete Macro Tracking";
+"UsageLimitPaywallScreen.unlockAllFeatures" = "Desbloqueie todos os recursos";
+"UsageLimitPaywallScreen.feature1" = "Registro de alimentos com IA";
+"UsageLimitPaywallScreen.feature2" = "Leitura de código de barras";
+"UsageLimitPaywallScreen.feature3" = "Acompanhamento completo de macronutrientes";
 
 // MARK: - PaywallOptionsView
 "PaywallOptionsView.popular" = "Popular";
-"PaywallOptionsView.bestValue" = "Best value";
-"PaywallOptionsView.perWeek" = "per week";
-"PaywallOptionsView.week" = " / week";
+"PaywallOptionsView.bestValue" = "Melhor valor";
+"PaywallOptionsView.perWeek" = "por semana";
+"PaywallOptionsView.week" = " / semana";
 
 // MARK: - Profile Screen
-"ProfileScreen.navTitle" = "Profile";
-"ProfileScreen.support" = "Support";
-"ProfileScreen.termsOfUse" = "Terms of use";
-"ProfileScreen.privacyPolicy" = "Privacy policy";
-"ProfileScreen.changeGoal" = "Change goal";
-"ProfileScreen.targetWeight" = "Target weight";
-"ProfileScreen.calorieGoal" = "Daily calorie goal";
-"ProfileScreen.weeklyWeightLoss" = "Weekly weight loss";
-"ProfileScreen.weeklyWeightGain" = "Weekly weight gain";
+"ProfileScreen.navTitle" = "Perfil";
+"ProfileScreen.support" = "Suporte";
+"ProfileScreen.termsOfUse" = "Termos de Uso";
+"ProfileScreen.privacyPolicy" = "Política de Privacidade";
+"ProfileScreen.changeGoal" = "Alterar objetivo";
+"ProfileScreen.targetWeight" = "Peso alvo";
+"ProfileScreen.calorieGoal" = "Meta diária de calorias";
+"ProfileScreen.weeklyWeightLoss" = "Perda de peso semanal";
+"ProfileScreen.weeklyWeightGain" = "Ganho de peso semanal";
 
 // MARK: - Food Screen
-"FoodScreen.getPlus" = "Get Plus";
+"FoodScreen.getPlus" = "Obtenha Plus";
 "FoodScreen.macros" = "Macros";
 
 // MARK: Discount Paywall
-"DiscountPaywall.limitedTimeOffer" = "Limited Time Offer";
-"DiscountPaywall.specialOffer" = "Special Offer";
-"DiscountPaywall.discountOff" = "%@ OFF";
-"DiscountPaywall.days" = "days";
+"DiscountPaywall.limitedTimeOffer" = "Oferta por tempo limitado";
+"DiscountPaywall.specialOffer" = "Oferta especial";
+"DiscountPaywall.discountOff" = "%@ DE DESCONTO";
+"DiscountPaywall.days" = "dias";
 "DiscountPaywall.hr" = "hr";
 "DiscountPaywall.min" = "min";
-"DiscountPaywall.sec" = "sec";
-"DiscountPaywall.only" = "Only";
-"DiscountPaywall.week" = "/ week";
-"DiscountPaywall.saveNow %@" = "Save %@ now";
-"DiscountPaywall.unlimitedAccess" = "Unlimited access to all features";
-"DiscountPaywall.banner.description %@" = "Unlimited access to all premium features for a year at %@ off!";
-"DiscountPaywall.banner.get" = "Get";
-"DiscountPaywall.banner.off" = "OFF";
-"DiscountPaywall.banner.button %@" = "Save %@ now";
+"DiscountPaywall.sec" = "seg";
+"DiscountPaywall.only" = "Apenas";
+"DiscountPaywall.week" = "por semana";
+"DiscountPaywall.saveNow %@" = "Economize %@ agora";
+"DiscountPaywall.unlimitedAccess" = "Acesso ilimitado a todas as funcionalidades";
+"DiscountPaywall.banner.description %@" = "Acesso ilimitado a todas as funcionalidades premium por um ano com %@ de desconto!";
+"DiscountPaywall.banner.get" = "Obter";
+"DiscountPaywall.banner.off" = "DE DESCONTO";
+"DiscountPaywall.banner.button %@" = "Economize %@ agora";
 
-"CoachConstants.appName" = "Calorie Counter";
+"CoachConstants.appName" = "Contador de Calorias";
 
 // MARK: - MealVoting
-"MealVoting.title.notVoted" = "Recognized correctly?";
-"MealVoting.title.like" = "Thanks!";
-"MealVoting.title.dislike" = "Thanks! We'll work on it.";
+"MealVoting.title.notVoted" = "Reconhecido corretamente?";
+"MealVoting.title.like" = "Obrigado!";
+"MealVoting.title.dislike" = "Obrigado! Vamos trabalhar nisso.";
+
+// MARK: Camera Alert
+"CameraAlert.title" = "\"Calorie Counter\" \nGostaria de acessar a câmera";
+"CameraAlert.subtitle" = "Permita acesso à câmera nas configurações para escanear códigos de barras.";
+"CameraAlert.openSettings" = "Abrir configurações do aplicativo";

@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 06.03.2024.
+  
+*/
+"WaterCounterWidget.title" = "Apport en eau";
+
+"WaterCounterSettingsScreen.title" = "Paramètres d'hydratation";
+"WaterCounterSettingsScreen.dailyGoal.title" = "Objectif quotidien";
+"WaterCounterSettingsScreen.preferredVolume.title" = "Volume préféré";
+"WaterCounterSettingsScreen.units.title" = "Unités";
+"WaterCounterSettingsScreen.closeButton.title" = "Fermer";
+
+"WaterCounterSettings.goalEditor.title" = "Objectif quotidien";
+"WaterCounterSettings.goalEditor.description" = "Selon les données de votre profil, l'apport quotidien en eau recommandé est d'environ %@ %@";
+"WaterCounterSettings.prefferedVolume.title" = "Volume préféré";
+
+"WaterCounterSettings.saveButton.title" = "Enregistrer";
+
+"WaterCounterWidget.addWaterEditor.title" = "Ajouter une boisson";
+"WaterCounterWidget.addWaterEditor.buttonTitle" = "Ajouter";
+
+"WaterUnits.unitsGlobalTitle.liters" = "L";
+"WaterUnits.unitsGlobalTitle.ounces" = "oz";
+
+"WaterUnits.unitsTitle.liters" = "ml";
+"WaterUnits.unitsTitle.ounces" = "oz";
+
+"WaterUnits.unitsGlobalFullTitle.liters" = "Litres";
+"WaterUnits.unitsGlobalFullTitle.ounces" = "Onces";
+
+"UpdateWaterScreen.save" = "Enregistrer";

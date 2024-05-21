@@ -6,52 +6,53 @@
   
 */
 
-"SwipeAction.delete" = "Delete";
+"SwipeAction.delete" = "Eliminar";
 
 // MARK: - HealthWidgetHint
-"HealthWidgetHint.learnMore" = "Learn more";
-"UpdateWeightTodayButton.today" = "Today";
+"HealthWidgetHint.learnMore" = "Más información";
+"UpdateWeightTodayButton.today" = "Hoy";
 
 "HeightUnit.ft" = "ft";
 "HeightUnit.in" = "in";
 
-"ProfileScreen.changeInfoDescription" = "Changing your info might lead to a recalculation of your current plan";
-"ProfileScreen.saveChanges" = "Save changes";
-"ProfileScreen.sex" = "Sex";
-"ProfileScreen.birthday" = "Birthday";
-"ProfileScreen.height" = "Height";
-"ProfileScreen.support" = "Support";
-"ProfileScreen.termsOfUse" = "Terms of use";
-"ProfileScreen.privacyPolicy" = "Privacy policy";
+"ProfileScreen.changeInfoDescription" = "Cambiar tu información podría generar un nuevo cálculo de tu plan actual";
+"ProfileScreen.saveChanges" = "Guardar los cambios";
+"ProfileScreen.sex" = "Sexo";
+"ProfileScreen.birthday" = "Fecha de nacimiento";
+"ProfileScreen.birthday.add" = "Añadir";
+"ProfileScreen.height" = "Estatura";
+"ProfileScreen.support" = "Soporte";
+"ProfileScreen.termsOfUse" = "Términos de uso";
+"ProfileScreen.privacyPolicy" = "Política de privacidad";
 
-"Onboarding.height.title" = "How tall are you?";
-"Onboarding.birthdayTitle" = "When is your birthday?";
-"Onboarding.sex.description" = "Biological sex can affect many physical elements lIke our metabolism, muscle mass, or hormones, so we use it in our calculations";
-"Onboarding.sex.title" = "What’s your sex?";
+"Onboarding.height.title" = "¿Cuál es tu estatura?";
+"Onboarding.birthdayTitle" = "¿Cuál es tu fecha de nacimiento?";
+"Onboarding.sex.description" = "El sexo biológico puede afectar muchos elementos físicos como nuestro metabolismo, masa muscular u hormonas, así que lo incluimos en nuestros cálculos";
+"Onboarding.sex.title" = "¿Cuál es tu sexo?";
 
 // MARK: - RateAppInput
-"RateAppInput.calorieCounter.title" = "Rate how much you like our meal recognition?";
-"RateAppInput.calorieCounter.placeholder" = "What can we improve?";
-"RateAppInput.calorieCounter.buttonTitle" = "Send";
+"RateAppInput.calorieCounter.title" = "¿Evalúa cuánto te gusta nuestro reconocimiento de comidas?";
+"RateAppInput.calorieCounter.placeholder" = "¿Qué podemos mejorar?";
+"RateAppInput.calorieCounter.buttonTitle" = "Enviar";
 
 // MARK: - Paywall
 
-"Paywall.continue" = "Continue";
-"Paywall.restore" = "Restore";
-"Paywall.unlockAllFeatures" = "Unlock\nall features";
+"Paywall.continue" = "Continuar";
+"Paywall.restore" = "Restablecer";
+"Paywall.unlockAllFeatures" = "Desbloquear\ntodas las funciones";
 
-"Paywall.fasting.feature1" = "Your Personal Wellness Coach";
-"Paywall.fasting.feature2" = "Access to All Fasting Stages";
-"Paywall.fasting.feature3" = "Detailed Graphs & Insights";
+"Paywall.fasting.feature1" = "Tu entrenador de bienestar personal";
+"Paywall.fasting.feature2" = "Acceso a todas las etapas del ayuno";
+"Paywall.fasting.feature3" = "Gráficos e información detallados";
 
-"Paywall.calorieCounter.feature1" = "AI-powered Food Log";
-"Paywall.calorieCounter.feature2" = "Barcode Scan";
-"Paywall.calorieCounter.feature3" = "Complete Macro Tracking";
+"Paywall.calorieCounter.feature1" = "Registro de alimentos con IA";
+"Paywall.calorieCounter.feature2" = "Escaneo de código de barras";
+"Paywall.calorieCounter.feature3" = "Registro completo de macronutrientes";
 
 "Paywall.popular" = "Popular";
-"Paywall.bestValue" = "Best value";
-"Paywall.perWeek" = "per week";
-"Paywall.week" = " / week";
+"Paywall.bestValue" = "Mejor valor";
+"Paywall.perWeek" = "por semana";
+"Paywall.week" = " / semana";
 
-"Today.title" = "Today";
-"Date.yesterday.title" = "Yesterday";
+"Today.title" = "Hoy";
+"Date.yesterday.title" = "Ayer";

@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Руслан Сафаргалеев on 14.03.2024.
+  
+*/
+// MARK: - Weight Widget
+
+"WeightWidgetView.title" = "Poids actuel";
+"WeightWidgetView.scaleWeight" = "Poids sur la balance";
+"WeightWidgetView.trueWeight" = "Poids réel";
+"WeightWidgetView.update" = "Mettre à jour";
+
+// MARK: - UpdateWeightScreen
+"UpdateWeightScreen.save" = "Enregistrer";
+"UpdateWeightScreen.today" = "Aujourd'hui";
+
+// MARK: - Hint
+"WeightWidgetHint.title" = "Comprendre le poids";
+"WeightWidgetHint.scaleWeight.title" = "Qu'est-ce que le poids sur la balance?";
+"WeightWidgetHint.scaleWeight.answer1" = "Le poids de la balance est le nombre que vous voyez sur la balance et enregistrez dans l'application. Il peut varier en fonction de facteurs tels que le total d'eau corporelle, le contenu gastro-intestinal, et plus encore.";
+"WeightWidgetHint.scaleWeight.answer2" = "Nous examinons votre poids brut de la balance et comblons les lacunes en utilisant l'interpolation linéaire. Ces données sont présentées sous forme de ligne gris pâle sur la page du poids.";
+
+"WeightWidgetHint.trueWeight.title" = "Qu'est-ce que le poids réel?";
+"WeightWidgetHint.trueWeight.answer1" = "Nous analysons votre poids de la balance à l'aide de notre algorithme pour déterminer votre poids réel, qui est affiché sous forme de ligne bleu profond.";
+"WeightWidgetHint.trueWeight.answer2" = "Le poids réel représente une tendance qui tient compte des fluctuations quotidiennes du poids afin de vous aider à comprendre les changements significatifs qui vous rapprochent ou vous éloignent de vos objectifs de poids.";
+
+"WeightWidgetHint.howToWeight.title" = "Comment me peser?";
+"WeightWidgetHint.howToWeight.answer1" = "Il est préférable de vous peser le matin après avoir utilisé les toilettes mais avant de manger ou de boire quoi que ce soit. Portez le moins de vêtements possible, ou au moins portez les mêmes vêtements chaque fois que vous montez sur la balance.";
+
+"WeightWidgetHint.howOftenWeight.title" = "À quelle fréquence dois-je me peser?";
+"WeightWidgetHint.howOftenWeight.answer1" = "Le poids réel est résistant aux absences d'entrées de poids. Cependant, pour les meilleurs résultats, pesez-vous quotidiennement ou au moins trois fois par semaine.";
+
+// MARK: - WeightProgressScreen
+"WeightProgressScreen.title" = "Poids";
+"WeightProgressScreen.averageTrueWeight" = "Poids moyen réel";
+"WeightProgressScreen.chageOverPeriod" = "Changement sur la période";
+
+// MARK: - WeightProgressAnalyticsView
+"WeightProgressAnalyticsView.currentTrueWeight" = "Poids actuel réel";
+"WeightProgressAnalyticsView.weeklyWeightChange" = "Changement de poids hebdomadaire";
+"WeightProgressAnalyticsView.projection" = "Projection à 30 jours";
+
+"WeightProgressAnalyticsView.currentTrueWeight.description" = "Notre estimation de votre poids actuel après avoir lissé les fluctuations quotidiennes.";
+"WeightProgressAnalyticsView.weeklyWeightChange.description.weightLoss" = "Votre taux hebdomadaire typique de perte de poids au cours des trois dernières semaines.";
+"WeightProgressAnalyticsView.weeklyWeightChange.description.weightGain" = "Votre taux hebdomadaire typique de prise de poids au cours des trois dernières semaines.";
+"WeightProgressAnalyticsView.projection.description.weightLoss" = "Votre poids projeté dans 30 jours si votre rythme actuel de perte de poids se poursuit. Les changements dans la prise ou la dépense d'énergie peuvent modifier significativement cette projection.";
+"WeightProgressAnalyticsView.projection.description.weightGain" = "Votre poids projeté dans 30 jours si votre rythme actuel de prise de poids se poursuit. Les changements dans la prise ou la dépense d'énergie peuvent modifier significativement cette projection.";
+
+"WeightProgressAnalyticsView.perWeek" = "par semaine";
+
+"WeightProgressAnalyticsView.gatheringData" = "Collecte de données";
+"WeightProgressAnalyticsView.gatheringDataDescription" = "Une analyse complète sera disponible après trois semaines de suivi du poids.";
+"WeightProgressAnalyticsView.projectionPending" = "Projection en attente";
+"WeightProgressAnalyticsView.projectionPendingDescription" = "Une prévision précise nécessite trois semaines de suivi du poids.";
+
+// MARK: - ScaleWeightHistoryScreen
+"ScaleWeightHistoryScreen.title" = "Journal de poids sur la balance";

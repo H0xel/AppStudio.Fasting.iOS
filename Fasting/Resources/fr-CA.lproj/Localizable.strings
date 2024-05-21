@@ -1,0 +1,441 @@
+// MARK: - Common
+"SaveTitle" = "Enregistrer";
+"CancelTitle" = "Annuler";
+"Button.cancel" = "Annuler";
+"TodayTitle" = "Aujourd'hui";
+"NextTitle" = "Suivant";
+
+// MARK: - RootScreen
+"RootScreen.TabBar.daily" = "Quotidien";
+"RootScreen.TabBar.fasting" = "Jeûne";
+"RootScreen.TabBar.nova" = "Nova";
+"RootScreen.TabBar.progress" = "Progrès";
+"RootScreen.TabBar.profile" = "Profil";
+"RootScreen.TabBar.plus" = "Plus+";
+
+// MARK: - Paywall Screen
+"Paywall.title" = "Titre de la page de paiement";
+"Paywall.noPaymentNow" = "Aucun paiement pour l'instant!";
+"Paywall.cancelTitle" = "Obtenez la forme dont vous avez toujours rêvé!";
+"Paywall.cancelSubtitle" = "Appuyez sur votre nom dans les paramètres de votre iPhone, puis appuyez sur Abonnements et choisissez Fasting Tracker & Timer. Appuyez sur Annuler. Terminé!";
+"Paywall.Continue" = "Continuer";
+"Paywall.restore" = "Rétablir";
+"Paywall.headerTitle" = "Titre principal de la page de paiement";
+"Paywall.headerDescription" = "Description principale de la page de paiement";
+"Paywall.headerBottomTitle" = "Titre en bas de l'en-tête de la page de paiement";
+"Paywall.savePercent" = "Moins %i%";
+"Paywall.reachYourWeightGoals" = "Atteignez vos objectifs de poids";
+"Paywall.tryForFree" = "Essayez 3 jours gratuitement, puis %@";
+"Paywall.renewsAt" = "Obtenez Plus pour %@";
+"Paywall.cancelAnyTime" = "Débloquez votre avantage maintenant!";
+"Paywall.savePercent" = "Moins %i%";
+
+"SubscriptionDuration.week" = "1 semaine";
+"SubscriptionDuration.month" = "1 mois";
+"SubscriptionDuration.threeMonth" = "3 mois";
+"SubscriptionDuration.sixMonth" = "6 mois";
+"SubscriptionDuration.year" = "12 mois";
+
+// MARK: Personalized Paywall
+"PersonalizedPaywall.headerTitle" = "Atteignez votre poids de rêve de %@ d'ici le %@";
+"PersonalizedPaywall.getPlus" = "Obtenez Plus pour %@";
+"PersonalizedPaywall.renewsAt" = "Se renouvelle le %@";
+"PersonalizedPaywall.now" = "Maintenant";
+"PersonalizedPaywall.realTransformation" = "Transformations réelles";
+"PersonalizedPaywall.whatYoullGet" = "Ce que vous obtiendrez";
+
+"PersonalizedPaywall.loseWeightBullet" = "Perdez environ %@ kg d'ici votre %@!";
+
+"PersonalizedPaywall.description.1" = "Personnalisé pour les %@ de %@";
+"PersonalizedPaywall.description.2" = "Adapté pour un mode de vie %@";
+"PersonalizedPaywall.description.3" = "Programme de jeûne facile à suivre";
+"PersonalizedPaywall.description.4" = "Mangez ce que vous voulez en dehors de la période de jeûne";
+"PersonalizedPaywall.description.5" = "Pas d'exercice ni d'effet yo-yo";
+"PersonalizedPaywall.description.6" = "Pas de contraintes d'équipement et de lieu";
+"PersonalizedPaywall.description.7" = "Favorise la régénération cellulaire, la détoxification et le métabolisme";
+"PersonalizedPaywall.description.8" = "Scientifiquement prouvé";
+
+"PersonalizedPaywall.female.name1" = "Diana";
+"PersonalizedPaywall.female.description1" = "« J'ai toujours trouvé compliqué de compter les calories, mais le jeûne offre la simplicité qui m'a aidé à perdre du poids de manière durable »";
+"PersonalizedPaywall.female.name2" = "Lisa";
+"PersonalizedPaywall.female.description2" = "« J’ai commencé le jeûne de 20 heures avec une fenêtre de prise alimentaire de 4 heures et jusqu'ici tout va bien »";
+"PersonalizedPaywall.female.name3" = "Paula";
+"PersonalizedPaywall.female.description3.kg" = "« Je n'y croyais pas au début, mais maintenant j'ai perdu 6 kg! Je n'ai pas fréquenté la salle de sport. Je peux encore manger de la pizza! Incroyable! »";
+"PersonalizedPaywall.female.description3.lb" = "« Je n'y croyais pas au début, mais maintenant j'ai perdu 13 lb! Je n'ai pas fréquenté la salle de sport. Je peux encore manger de la pizza! Incroyable! »";
+
+"PersonalizedPaywall.male.name1" = "Trevor";
+"PersonalizedPaywall.male.description1" = "« J'ai toujours trouvé compliqué de compter les calories, mais le jeûne offre la simplicité qui m'a aidé à perdre du poids de manière durable »";
+"PersonalizedPaywall.male.name2" = "Eric";
+"PersonalizedPaywall.male.description2.kg" = "« Je n'y croyais pas au début, mais maintenant j'ai perdu 6 kg! Je n'ai pas fréquenté la salle de sport. Je peux encore manger de la pizza! Incroyable! »";
+"PersonalizedPaywall.male.description2.lb" = "« Je n'y croyais pas au début, mais maintenant j'ai perdu 13 lb! Je n'ai pas fréquenté la salle de sport. Je peux encore manger de la pizza! Incroyable! »";
+"PersonalizedPaywall.male.name3" = "George";
+"PersonalizedPaywall.male.description3" = "« Mon plan de jeûne personnalisé m'a vraiment aidé avec mes crampes d'estomac et mes problèmes de ballonnements »";
+
+// MARK: - Fasting Screen
+"FastingScreen.startFasting" = "Commencer le jeûne";
+"FastingScreen.endFasting" = "Terminer le jeûne";
+"FastingProgressView.nextFastIn" = "Prochain jeûne dans";
+"FastingProgressView.readyToFast" = "Prêt\nà jeûner?";
+"FastingProgressView.youFastFor" = "Vous avez jeûné pendant";
+
+"FastingIntervalView.fastingStarted" = "Jeûne commencé";
+"FastingIntervalView.fastingStarts" = "Le jeûne commence";
+"FastingIntervalView.fastingEnd" = "Le jeûne se termine";
+"FastingIntervalView.fastingEnds" = "Le jeûne se termine";
+"StartFastingScreen.goalReached" = "Objectif atteint";
+
+// MARK: - Start Fasting Screen
+"StartFastingScreen.whenToStart" = "Quand avez-vous commencé\nà jeûner?";
+"StartFastingScreen.whenWantToStart" = "Quand voulez-vous commencer\nà jeûner?";
+"StartFastingScreen.whenFinished" = "Quand avez-vous terminé\nde jeûner?";
+
+
+// MARK: - Fasting Stage
+"FastingStage.bloodSugarRises" = "Le taux de sucre dans le sang augmente";
+"FastingStage.bloodSugarFalls" = "La glycémie baisse";
+"FastingStage.bloodSugarNormal" = "Glycémie normale";
+"FastingStage.burningFat" = "Combustion des graisses";
+"FastingStage.ketosis" = "Cétose";
+"FastingStage.autophagy" = "Autophagie";
+
+// MARK: - Onboarding
+
+"Onboarding.buttonTitle" = "Commencer";
+"Onboarding.description" = "Faites passer votre santé et votre bien-être au niveau supérieur";
+"Onboarding.fastingGoal.title" = "Quels sont vos objectifs?";
+"Onboarding.fastingGoal.description" = "Choisissez autant que vous le souhaitez";
+"Onboarding.sex.title" = "Quel est votre sexe?";
+"Onboarding.sex.description" = "Le sexe peut affecter de nombreux éléments physiques comme notre métabolisme, notre masse musculaire ou nos hormones, donc nous l'utilisons dans nos calculs";
+"Onboarding.activityLevel.title" = "Quel est votre niveau d'activité?";
+"Onboarding.specialEvent.title" = "Avez-vous un événement qui vous inspire à perdre du poids?";
+"Onboarding.specialEvent.description" = "Avoir quelque chose à attendre vous aidera à rester sur la bonne voie";
+"Onboarding.birthdayTitle" = "Quelle est votre date de naissance?";
+"Onboarding.specialEventDateTitle" = "Quand aura lieu cet événement?";
+"Onboarding.height.title" = "Quelle est votre taille?";
+"Onboarding.currentWeight.title" = "Quel est votre poids actuel?";
+"Onboarding.desiredWeight.title" = "Quel est votre poids cible?";
+"Onboarding.desiredWeight.description" = "Allons-y ensemble";
+
+"OnboardingCalculationProccess.progress.title1" = "Analyse de vos résultats...";
+"OnboardingCalculationProccess.progress.title2" = "Création de votre plan...";
+"OnboardingCalculationProccess.phase1" = "Nous nous appuyons sur le changement de comportement, et non sur des styles alimentaires restrictifs";
+"OnboardingCalculationProccess.phase2" = "Le jeûne intermittent est soutenu par des recherches multidisciplinaires";
+"OnboardingCalculationProccess.phase3" = "Nous disons non aux régimes et nous concentrons sur votre corps dans son ensemble";
+"OnboardingCalculationProccess.phase4" = "Ainsi, vous pouvez arrêter d'éplucher les étiquettes des aliments et simplement apprendre à manger de façon intuitive";
+"OnboardingCalculationProccess.phase5" = "Et rappelez-vous : personne n'est parfait. C'est tout à fait normal!";
+"OnboardingCalculationProccess.phase6" = "Nous sommes toujours là pour vous aider à rester sur la bonne voie";
+
+"OnboardingService.paywallTitle" = "Atteignez votre poids de rêve de %@ d'ici le %@";
+"OnboardingService.bulletWeight.title" = "Perdez ~%@ d'ici %@ %@!";
+"OnboardingService.bulletWeight.article.the" = "le";
+"OnboardingService.bulletWeight.article.your" = "votre";
+
+// MARK: Choose fasting plan
+
+"ChooseFastingPlan.title" = "Choisissez votre\nheure de jeûne";
+"ChooseFastingPlan.title.onboarding" = "Votre horaire de\njeûne recommandé";
+"ChooseFastingPlan.description" = "Votre période de jeûne commence juste après le dernier repas de la journée. Sélectionnez un horaire de jeûne qui convient le mieux à votre routine quotidienne.";
+"ChooseFastingPlan.buttonTitle" = "Choisir";
+"ChooseFastingPlan.regular" = "Normal";
+"ChooseFastingPlan.beginner" = "Débutant";
+"ChooseFastingPlan.expert" = "Expert";
+"ChooseFastingPlan.regular.description" = "Avantages complets pour la santé";
+"ChooseFastingPlan.beginner.description" = "S'initier";
+"ChooseFastingPlan.expert.description" = "Combustion maximale des graisses";
+"ChooseFastingPlan.regular.intervalPlan" = "16:8";
+"ChooseFastingPlan.beginner.intervalPlan" = "14:10";
+"ChooseFastingPlan.expert.intervalPlan" = "20:4";
+"ChooseFastingPlan.beginner.intervalDescription" = "14 h de jeûne · 10 h de repas";
+"ChooseFastingPlan.expert.intervalDescription" = "20 h de jeûne · 4 h de repas";
+"ChooseFastingPlan.regular.intervalDescription" = "16 h de jeûne · 8 h de repas";
+"ChooseFastingPlan.beginner.intervalDescription" = "14 h de jeûne · 10 h de repas";
+"ChooseFastingPlan.expert.intervalDescription" = "20 h de jeûne · 4 h de repas";
+
+
+// MARK: Setup fasting
+
+"SetupFasting.title" = "Commencer le jeûne à";
+"SetupFasting.buttonBannerTitle" = "Modifier";
+"SetupFasting.description" = "Le jeûne se termine le jour suivant à 14 h";
+"SetupFasting.buttonTitle" = "Enregistrer";
+"SetupFasting.sameDay" = "Le jeûne se termine le même jour à";
+"SetupFasting.followingDay" = "Le jeûne se termine le jour suivant à";
+
+// MARK: Notification onboarding
+
+"NotificationOnboarding.title" = "Gardez la motivation avec des notifications";
+"NotificationOnboarding.button" = "Autoriser les notifications";
+
+// MARK: - Profile
+"ProfileScreen.navigationTitle" = "Profil";
+"ProfileScreen.supportEmailSubject" = "Support de l'application de jeûne";
+
+// MARK: - Subscription
+"ProductCatalog.duration.day.period" = "quotidien";
+"ProductCatalog.duration.week.period" = "hebdomadaire";
+"ProductCatalog.duration.month.period" = "mensuel";
+"ProductCatalog.duration.year.period" = "annuel";
+"ProductCatalog.duration.day" = "jour";
+"ProductCatalog.duration.week" = "semaine";
+"ProductCatalog.duration.month" = "mois";
+"ProductCatalog.duration.threeMonth" = "3 mois";
+"ProductCatalog.duration.sixMonth" = "6 mois";
+"ProductCatalog.duration.quater" = "trimestre";
+"ProductCatalog.duration.year" = "année";
+"ProductCatalog.duration.day.form1" = "jour";
+"ProductCatalog.duration.day.form2" = "jours";
+"ProductCatalog.duration.week.form1" = "semaine";
+"ProductCatalog.duration.week.form2" = "semaines";
+"ProductCatalog.duration.month.form1" = "mois";
+"ProductCatalog.duration.month.form2" = "mois";
+"ProductCatalog.duration.year.form1" = "année";
+"ProductCatalog.duration.year.form2" = "années";
+"ProductCatalog.duration.year.short" = "an";
+"ProductCatalog.duration.month.short" = "mo";
+"ProductCatalog.duration.week.short" = "sem";
+"ProductCatalog.priceTitle" = "%@ par %@";
+
+// MARK: - Success screen
+"SuccessScreen.striveForProgress" = "Aspirez au progrès, pas à la perfection!";
+"SuccessScreen.fastingChampion" = "Vous êtes un champion du jeûne! Continuez comme ça!";
+"SuccessScreen.outdoneYourself" = "Vous vous êtes surpassé!";
+"SuccessScreen.youFastedFor" = "Vous avez jeûné %@ heures de plus que prévu";
+"SuccessScreen.yourFastingTime" = "Votre temps de jeûne";
+"SuccessScreen.fastingEnded" = "Fin du jeûne";
+"SuccessScreen.submit" = "Envoyer";
+"SuccessScreen.logFast" = "Enregistrer le jeûne";
+
+// MARK: - End Fasting Early Screen
+"EndFastingEarlyScreen.title" = "Ne renoncez pas!\nVous pouvez y arriver.";
+"EndFastingEarlyScreen.fastingTime" = "Vous avez jeûné moins de %@";
+"EndFastingEarlyScreen.hour.form1" = "%i heure";
+"EndFastingEarlyScreen.hour.form2" = "%i heures";
+
+// MARK: - Local Notifications
+
+"NotificationType.beforeStartOfFasting1.title" = "Presque l'heure de commencer à jeûner";
+"NotificationType.beforeStartOfFasting1.subtitle" = "Terminez votre repas avant que votre jeûne ne commence dans 1 heure.";
+"NotificationType.beforeStartOfFasting2.title" = "Êtes-vous prêt? 😎";
+"NotificationType.beforeStartOfFasting2.subtitle" = "Le jeûne commence dans 1 heure!";
+"NotificationType.beforeStartOfFasting3.title" = "1 heure à tenir! ⏰";
+"NotificationType.beforeStartOfFasting3.subtitle" = "Le jeûne commence dans une heure. Préparez-vous!";
+
+"NotificationType.startOfFasting1.title" = "C'est l'heure de jeûner ⏰";
+"NotificationType.startOfFasting1.subtitle" = "Appuyez pour démarrer votre minuteur.";
+"NotificationType.startOfFasting2.title" = "À vos marques, prêts, PARTEZ! 🏁";
+"NotificationType.startOfFasting2.subtitle" = "Il est temps de démarrer votre minuteur de jeûne.";
+"NotificationType.startOfFasting3.title" = "Il est temps de jeûner! 🔔";
+"NotificationType.startOfFasting3.subtitle" = "Démarrez votre minuteur pour suivre vos succès";
+
+
+"NotificationType.beforeEndOfFasting1.title" = "Vous avez presque réussi! 🕐";
+"NotificationType.beforeEndOfFasting1.subtitle" = "Il reste juste 1 heure pour compléter un autre jeûne réussi. Continuez ainsi!";
+"NotificationType.beforeEndOfFasting2.title" = "Encore une heure";
+"NotificationType.beforeEndOfFasting2.subtitle" = "Il reste seulement une heure à ce jeûne de %i heures. Vous pouvez le faire! 💪";
+"NotificationType.beforeEndOfFasting3.title" = "Tenez bon! 😃";
+"NotificationType.beforeEndOfFasting3.subtitle" = "Vous avez presque terminé! Il reste juste une heure de jeûne!";
+
+"NotificationType.endOfFasting1.title" = "Jeûne terminé!";
+"NotificationType.endOfFasting1.subtitle" = "Vous avez réussi! 💪 Arrêtez votre minuteur, il est temps de manger!";
+"NotificationType.endOfFasting2.title" = "Objectif atteint! 👏";
+"NotificationType.endOfFasting2.subtitle" = "Vous avez réussi! Appuyez ici pour terminer votre jeûne.";
+"NotificationType.endOfFasting3.title" = "Vous avez réussi! 🥳";
+"NotificationType.endOfFasting3.subtitle" = "Vous pouvez maintenant arrêter le minuteur et profiter de votre repas tant attendu.";
+
+"NotificationType.forgotToStartFasting.title" = "Comment ça va?";
+"NotificationType.forgotToStartFasting.subtitle" = "Si vous jeûnez déjà, démarrez le minuteur et profitez de votre jeûne d'%i heure! ⏰";
+
+"NotificationType.forgotToFinishFasting.title" = "Votre jeûne est déjà terminé";
+"NotificationType.forgotToFinishFasting.subtitle" = "Incroyable! Vous jeûnez encore? 🤯 Ou vous avez juste oublié d'arrêter votre minuteur?";
+
+"NotificationType.fatBurningPhaseInfos.title" = "Vous commencez à brûler des graisses!";
+"NotificationType.fatBurningPhaseInfos.subtitle" = "Votre corps est maintenant activement en train de brûler ses réserves de graisse.";
+
+// MARK: Fasting Inactive Stage
+"FastingInactiveStage.prepareForFasting" = "Comment se préparer au jeûne?";
+"FastingInactiveStage.whatCanYouEat" = "Que peut-on manger pendant le jeûne?";
+"FastingInactiveStage.fastingPhases" = "Phases de jeûne";
+
+"FastingInactiveStage.prepareForFasting.description" = "Se préparer à un jeûne est crucial pour assurer une expérience de jeûne fluide et bénéfique. Cela implique d'ajuster votre alimentation, de rester hydraté, et de vous préparer mentalement pour la période sans manger. Une bonne préparation peut aider à minimiser la faim, maintenir les niveaux d'énergie, et offrir un parcours de jeûne plus confortable.";
+"FastingInactiveStage.whatCanYouEat.description" = "Bien que jeûner implique de s'abstenir de toute prise calorique pendant une période spécifique, comprendre ce que vous pouvez consommer pendant les fenêtres de jeûne peut vous aider à adhérer à vos objectifs de jeûne sans vous sentir trop restreint. Certaines boissons à faible teneur en calories ou sans calories peuvent aider à gérer la faim et à maintenir l'hydratation.";
+
+// MARK: InActive Fasting Article
+
+"InActiveFastingArticle.list.howToPrepareForFasting.title.1" = "Prioriser les protéines :";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.2" = "Concentrez-vous sur les fibres :";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.3" = "Incluez des graisses saines :";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.4" = "Hydratez-vous :";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.5" = "Évitez les aliments très transformés :";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.6" = "Minimisez les sucres ajoutés :";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.7" = "Réduisez la caféine et l'alcool :";
+"InActiveFastingArticle.list.howToPrepareForFasting.title.8" = "Préparez-vous mentalement :";
+
+"InActiveFastingArticle.list.howToPrepareForFasting.1" = "Incluez des quantités adéquates de protéines dans votre alimentation, telles que de la viande, du poisson, du tofu et des noix, pour favoriser le maintien des muscles et la satiété.";
+"InActiveFastingArticle.list.howToPrepareForFasting.2" = "Les aliments riches en fibres comme les haricots, les fruits et les légumes peuvent aider à réguler la digestion et vous permettre de vous sentir rassasié plus longtemps.";
+"InActiveFastingArticle.list.howToPrepareForFasting.3" = "Incluez des matières grasses saines, comme l'avocat et les noix, qui peuvent stabiliser la glycémie et favoriser une transition en douceur vers le jeûne.";
+"InActiveFastingArticle.list.howToPrepareForFasting.4" = "Augmentez votre consommation d'eau avant de commencer votre jeûne. Boire beaucoup d'eau est crucial pour maintenir l'hydratation et aider à gérer la faim.";
+"InActiveFastingArticle.list.howToPrepareForFasting.5" = "Limitez la consommation d'aliments transformés, qui peuvent augmenter les envies. Privilégiez plutôt des aliments entiers et peu transformés pour soutenir un état métabolique plus sain et réduire la tentation de trop manger.";
+"InActiveFastingArticle.list.howToPrepareForFasting.6" = "Réduisez la consommation d'aliments et de boissons riches en sucres ajoutés pour stabiliser les niveaux de glycémie.";
+"InActiveFastingArticle.list.howToPrepareForFasting.7" = "Réduisez les apports en caféine et en alcool avant le jeûne pour éviter les symptômes de sevrage et la déshydratation.";
+"InActiveFastingArticle.list.howToPrepareForFasting.8" = "Cultivez un état d'esprit positif à propos du jeûne, en vous concentrant sur les avantages et son alignement avec vos objectifs de santé.";
+
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.1" = "Eau :";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.2" = "Thé et café :";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.3" = "Eau citronnée :";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.4" = "Vinaigre de cidre de pomme :";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.title.5" = "Sodas sans sucre :";
+
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.1" = "Essentielle pour l'hydratation, l'eau ne rompt pas un jeûne. N'hésitez pas à boire de l'eau plate, pétillante ou minérale.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.2" = "Le café noir et le thé sont acceptables, à condition qu'ils soient consommés sans sucre ni lait.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.3" = "Un verre d'eau citronnée, faible en calories, peut fournir de la vitamine C et potentiellement aider à réduire la faim.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.4" = "Le vinaigre de cidre de pomme dilué peut aider à se sentir rassasié et peut offrir des bienfaits pour la santé sans rompre votre jeûne.";
+"InActiveFastingArticle.list.whatCanYouEatWhileFasting.5" = "La consommation de sodas sans sucres est permise et peut être une option viable pour satisfaire les envies de sucré sans rompre votre jeûne. Ils offrent un goût sucré sans l'apport calorique, vous aidant à respecter votre régime de jeûne.";
+
+// MARK: - Fasting Goal
+"FastingGoal.loseWeight" = "Perdre du poids";
+"FastingGoal.lookBetter" = "Avoir une meilleure apparence";
+"FastingGoal.feelMoreEnergetic" = "Avoir plus d'énergie";
+"FastingGoal.improveMentalClarity" = "Améliorer la clarté mentale";
+"FastingGoal.liveLonger" = "Vivre plus longtemps";
+"FastingGoal.healthierLifestyle" = "Mode de vie plus sain";
+
+"FastingGoal.bullet.loseWeight" = "";
+"FastingGoal.bullet.lookBetter" = "Bâtir le corps de vos rêves";
+"FastingGoal.bullet.feelMoreEnergetic" = "Devenir plus actif dans la vie quotidienne";
+"FastingGoal.bullet.improveMentalClarity" = "Améliorer votre concentration et vous sentir plus alerte";
+"FastingGoal.bullet.liveLonger" = "Activer les mécanismes de régénération";
+"FastingGoal.bullet.healthierLifestyle" = "Développer des habitudes saines durables";
+
+// MARK: - Sex
+"Sex.male" = "Homme";
+"Sex.female" = "Femme";
+"Sex.other" = "Autre";
+
+"Sex.women" = "femmes";
+"Sex.men" = "hommes";
+
+// MARK: - Activity Level
+"ActivityLevel.sedentary" = "Sédentaire";
+"ActivityLevel.lightlyActive" = "Légèrement actif";
+"ActivityLevel.moderatelyActive" = "Modérément actif";
+"ActivityLevel.veryActive" = "Très actif";
+
+"ActivityLevel.sedentary.description" = "Je passe la plupart de ma journée assis";
+"ActivityLevel.lightlyActive.description" = "Je travaille debout et me déplace tout au long de la journée";
+"ActivityLevel.moderatelyActive.description" = "J'ai fait de l'exercice une habitude durable";
+"ActivityLevel.veryActive.description" = "Je passe la plupart de ma journée à faire des activités physiques";
+
+// MARK: - Special Event
+"SpecialEvent.vacation" = "Vacances";
+"SpecialEvent.wedding" = "Mariage";
+"SpecialEvent.sportsCompetition" = "Compétition sportive";
+"SpecialEvent.summer" = "Été";
+"SpecialEvent.reunion" = "Réunion";
+"SpecialEvent.birthday" = "Anniversaire";
+"SpecialEvent.somethingElse" = "Autre chose";
+"SpecialEvent.noSpecialEvent" = "Aucun événement spécial";
+
+"SpecialEvent.somethingElse.title" = "Événement";
+"SpecialEvent.sportsCompetition.title" = "Compétition";
+
+"SpecialEvent.vacation.question" = "Quand vos vacances commencent-elles?";
+"SpecialEvent.wedding.question" = "Quand a lieu votre mariage?";
+"SpecialEvent.sportsCompetition.question" = "Quand a lieu votre événement sportif ?";
+"SpecialEvent.summer.question" = "Quand voulez-vous voir les résultats pour l'été?";
+"SpecialEvent.reunion.question" = "Quand a lieu votre réunion d'école?";
+"SpecialEvent.birthday.question" = "Quand a lieu votre fête d'anniversaire?";
+"SpecialEvent.somethingElse.question" = "Quand a lieu votre occasion spéciale?";
+"SpecialEvent.noSpecialEvent.question" = "Quand a lieu votre occasion spéciale?";
+
+// MARK: - Fasting Phase
+"FastingPhase.sugarRises" = "La glycémie monte lentement";
+"FastingPhase.sugarDrop" = "La glycémie est en baisse";
+"FastingPhase.sugarNormal" = "La glycémie revient à la normale";
+"FastingPhase.burning" = "Combustion des graisses";
+"FastingPhase.ketosis" = "Cétose";
+"FastingPhase.autophagy" = "Autophagie";
+
+"FastingPhase.sugarRises.locked" = "Étape 1";
+"FastingPhase.sugarDrop.locked" = "Étape 2";
+"FastingPhase.sugarNormal.locked" = "Étape 3";
+"FastingPhase.burning.locked" = "Étape 4";
+"FastingPhase.ketosis.locked" = "Étape 5";
+"FastingPhase.autophagy.locked" = "Étape 6";
+
+"FastingPhase.startDescription.sugarRises" = "Commence juste après votre dernier repas";
+"FastingPhase.startDescription.sugarDrop" = "Commence 2 h après votre dernier repas";
+"FastingPhase.startDescription.sugarNormal" = "Commence 8 h après votre dernier repas";
+"FastingPhase.startDescription.burning" = "Commence 10 h après votre dernier repas";
+"FastingPhase.startDescription.ketosis" = "Commence entre 14 et 16 h après votre dernier repas";
+"FastingPhase.startDescription.autophagy" = "Commence 16 h après votre dernier repas";
+
+"FastingPhaseArticle.sugarRises.paragraph" = "Vous vous sentez assez normal pendant que votre corps commence le processus de digestion. Les nutriments absorbés sont décomposés en leurs composants individuels et utilisés pour l'énergie et le développement musculaire.";
+"FastingPhaseArticle.sugarRises.point1" = "Les niveaux de l'hormone de la faim « ghréline » diminuent, tandis que les niveaux de l'hormone « leptine », responsable de la sensation de satiété, augmentent";
+"FastingPhaseArticle.sugarRises.point2" = "Les glucides ingérés sont traités et libérés dans la circulation sanguine sous forme de glucose (sucre dans le sang).";
+"FastingPhaseArticle.sugarRises.point3" = "En conséquence, la glycémie augmente, ce qui déclenche la production d'insuline.";
+"FastingPhaseArticle.sugarRises.point4" = "L'insuline stimule l'absorption du sucre dans le sang dans les tissus, fournissant un apport rapide en énergie.";
+"FastingPhaseArticle.sugarRises.point5" = "L'insuline stimule également la conversion de l'excès de glucose en sa forme de stockage, le glycogène.";
+"FastingPhaseArticle.sugarRises.point6" = "Le glycogène est stocké dans votre foie et vos muscles, pour être libéré lorsque l'énergie est à nouveau nécessaire.";
+"FastingPhaseArticle.sugarRises.point7" = "Une fois les réserves de glycogène remplies, tout excès de glycogène est stocké dans vos tissus adipeux sous forme de graisse.";
+
+"FastingPhaseArticle.sugarDrop.paragraph" = "Après avoir augmenté, votre taux de sucre dans le sang commence à baisser à nouveau. Ce processus est en fait la manière naturelle pour votre corps de réagir après que votre taux de sucre dans le sang ait augmenté.";
+"FastingPhaseArticle.sugarDrop.point1" = "L'insuline transporte le glucose dans le sang vers nos cellules et tissus. En conséquence, le niveau de glucose dans le sang diminue et votre glycémie baisse presque à la normale après avoir augmenté.";
+"FastingPhaseArticle.sugarDrop.point2" = "L'insuline joue également un rôle dans la manière dont votre corps utilise les graisses. Comme il y a beaucoup de glucose dans notre sang et de glycogène dans nos muscles ou notre foie, la graisse n'est pas utilisée comme source d'énergie principale. Ce n'est que lorsque les niveaux de glucose diminuent que votre corps se tourne vers les réserves de graisses.";
+"FastingPhaseArticle.sugarDrop.point3" = "Vous pourriez ressentir un sens de la faim lorsque votre glycémie diminue. Un bon conseil est de boire un grand verre d'eau à ce moment-là. Cela suffit souvent à éloigner la faim jusqu'à ce qu'elle disparaisse naturellement.";
+
+"FastingPhaseArticle.sugarNormal.paragraph" = "Maintenant, votre glycémie est revenue à son niveau habituel, et votre corps utilise l'énergie stockée pour continuer à fonctionner.";
+"FastingPhaseArticle.sugarNormal.point1" = "Après que votre nourriture soit entièrement digérée et que votre corps cesse de produire de l'insuline, il y a une courte période de repos. Vos organes digestifs prennent une pause.";
+"FastingPhaseArticle.sugarNormal.point2" = "Alors que vos organes, muscles et processus cognitifs continuent à consommer constamment de l'énergie, une hormone appelée glucagon intervient. Son rôle est de libérer le glycogène stocké dans votre circulation sanguine. Cela maintient votre glycémie stable et assure que votre corps continue à recevoir de l'énergie. Le corps utilise les réserves de glycogène pour produire du glucose et répondre à ses besoins énergétiques.";
+"FastingPhaseArticle.sugarNormal.point3" = "Vous avez faim? Votre estomac vous rappelle que cela fait un moment depuis votre dernier repas. Mais cela ne signifie pas nécessairement que vous avez vraiment faim. Alors que vos réserves de glycogène s'épuisent, vous pourriez même perdre un peu de graisse corporelle.";
+
+"FastingPhaseArticle.ketosis.paragraph" = "Après que vos hormones métabolisant les graisses se soient activées, fournissant à votre corps une nouvelle énergie, quelque chose d'intéressant se produit. Les recherches montrent que pendant une période de jeûne d'environ 14 à 16 heures, l'approvisionnement en énergie provenant des graisses augmente de 60 %, car votre foie commence à produire des cétones et votre corps passe en cétose";
+"FastingPhaseArticle.ketosis.point1" = "Les cétones sont des molécules d'acides gras formées dans le foie lorsque les cellules graisseuses sont décomposées. Elles sont connues pour fournir de l'énergie à tous les organes vitaux.";
+"FastingPhaseArticle.ketosis.point2" = "Les cétones activent également vos cellules nerveuses, renforcent la capacité intellectuelle et développent de nouvelles cellules à partir des cellules souches de votre cerveau. Votre capacité de concentration augmente et vous vous sentez plus alerte.";
+"FastingPhaseArticle.ketosis.point3" = "En conséquence, vous ressentez un regain d'énergie, accompagné d'une diminution de la « ghréline », l'hormone de la faim, ce qui apporte un avantage supplémentaire de suppression de l'appétit.";
+"FastingPhaseArticle.ketosis.point4" = "Les cétones agissent comme des molécules de signalisation, indiquant à votre corps comment mieux réguler son métabolisme dans un environnement stressant.";
+"FastingPhaseArticle.ketosis.point5" = "La cétose produit moins de sous-produits inflammatoires, offrant des avantages pour la santé à votre corps et déclenchant des processus de rajeunissement.";
+
+"FastingPhaseArticle.autophagy.paragraph" = "À ce stade, votre corps déclenche l'autophagie, un processus déclenché par un jeûne plus long et la combustion des graisses. L'autophagie est traduite du grec ancien αὐτόφαγος (autóphagos), signifiant « se consommer soi-même ». Et c'est exactement ce qui se passe - votre corps réutilise en fait des parties de cellules vieilles ou endommagées alors qu'il s'autorépare.";
+"FastingPhaseArticle.autophagy.point1" = "Pendant le processus d'autophagie, les virus, les bactéries et les structures cellulaires endommagées sont identifiés et décomposés en leurs composants les plus élémentaires.";
+"FastingPhaseArticle.autophagy.point2" = "Ces composants sont ensuite recyclés pour la génération d'énergie ou éliminés. L'avantage principal de l'autophagie est mieux connu sous le nom de réinitialisation de l'horloge du corps et de production de cellules plus jeunes.";
+"FastingPhaseArticle.autophagy.point3" = "L'autophagie a le potentiel de réduire l'inflammation dans le corps, minimisant ainsi le risque de maladies chroniques et ralentissant le processus de vieillissement.";
+"FastingPhaseArticle.autophagy.point4" = "De plus, en activant certaines cellules immunitaires, elle peut également renforcer votre système immunitaire.";
+"FastingPhaseArticle.autophagy.point5" = "Plusieurs études ont déjà montré que l'autophagie induite par le jeûne peut potentiellement prolonger l'espérance de vie.";
+
+"FastingPhaseArticle.burning.paragraph" = "Lorsque vous dépassez la marque des 10 heures, votre corps commence à épuiser ses réserves de glycogène. Ces glucides stockés servaient de source d'énergie rapide, mais il est maintenant temps de puiser dans une réserve plus substantielle — vos réserves de graisses. La réserve calorique moyenne d'une personne adulte sous forme de réserves de graisse s'élève à environ 80 000 calories.";
+"FastingPhaseArticle.burning.point1" = "Votre corps produit des hormones brûlant les graisses, décomposant les graisses en une forme plus simple, prête à alimenter vos cellules et à vous permettre de fonctionner au mieux de vos capacités.";
+"FastingPhaseArticle.burning.point1.point1" = "Hormone de croissance (HGH) : Stimule le métabolisme des graisses.";
+"FastingPhaseArticle.burning.point1.point2" = "IGF-1 (Facteur de croissance semblable à l'insuline) : soutient la préservation musculaire.";
+"FastingPhaseArticle.burning.point1.point3" = "Glucagon : initie la décomposition des graisses stockées.";
+"FastingPhaseArticle.burning.point1.point4" = "Testostérone et Adrénaline : libérées pour brûler la graisse corporelle.";
+"FastingPhaseArticle.burning.point1.point5" = "T3 (triiodothyronine) : joue un rôle dans la régulation du métabolisme.";
+"FastingPhaseArticle.burning.point2" = "Cette phase est particulièrement propice à la perte de poids. Envisagez de compléter les efforts de votre corps avec de l'exercice doux pour des résultats encore meilleurs.";
+
+// MARK: - LockedViewPaywallButton
+
+"LockedViewPaywallButton.title" = "Débloquez les phases de jeûne";
+"LockedViewPaywallButton.description" = "Voyez les différentes étapes du jeûne par lesquelles votre corps est passé avec Fasting Plus";
+"LockedViewPaywallButton.buttonTitle" = "Fasting Tracker Plus";
+
+// MARK: Quick action
+"Review.title" = "Besoin d'aide?";
+"Review.subTitle" = "Contactez l'assistance ou partagez vos commentaires avec nous";
+
+// MARK: Discount Paywall
+"DiscountPaywall.limitedTimeOffer" = "Offre à durée limitée";
+"DiscountPaywall.specialOffer" = "Offre spéciale";
+"DiscountPaywall.discountOff" = "%@ DE RÉDUCTION";
+"DiscountPaywall.days" = "jours";
+"DiscountPaywall.hr" = "h";
+"DiscountPaywall.min" = "min";
+"DiscountPaywall.sec" = "sec";
+"DiscountPaywall.only" = "Seulement";
+"DiscountPaywall.week" = "/ semaine";
+"DiscountPaywall.saveNow" = "Économisez %@ maintenant";
+"DiscountPaywall.unlimitedAccess" = "Accès illimité à toutes les fonctionnalités";
+
+"CoachConstants.appName" = "Intermittent Fasting Tracker";
+
+// MARK: - HalthOverviewScreen
+"HalthOverviewScreen.readyToFast" = "Prêt à jeûner?";
+"HalthOverviewScreen.nextFastIn" = "Prochain jeûne dans";

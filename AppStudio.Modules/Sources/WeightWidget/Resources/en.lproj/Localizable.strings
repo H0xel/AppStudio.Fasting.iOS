@@ -5,11 +5,11 @@
   Created by Руслан Сафаргалеев on 14.03.2024.
   
 */
-
 // MARK: - Weight Widget
+
 "WeightWidgetView.title" = "Current Weight";
-"WeightWidgetView.scaleWeight" = "Scale weight";
-"WeightWidgetView.trueWeight" = "True weight";
+"WeightWidgetView.scaleWeight" = "Scale Weight";
+"WeightWidgetView.trueWeight" = "True Weight";
 "WeightWidgetView.update" = "Update";
 
 // MARK: - UpdateWeightScreen
@@ -24,7 +24,7 @@
 
 "WeightWidgetHint.trueWeight.title" = "What is True Weight?";
 "WeightWidgetHint.trueWeight.answer1" = "We analyze your Scale Weight using our algorithm to determine your True Weight, which is shown as a deep blue line.";
-"WeightWidgetHint.trueWeight.answer2" = "True Weight represents a trend that accounts for daily fluctuations in weight to help you understand the meaningful changes that move you closer to or further away from your weight goals.";
+"WeightWidgetHint.trueWeight.answer2" = "We analyze your Scale Weight using our algorithm to determine your True Weight, which is shown as a deep blue line.";
 
 "WeightWidgetHint.howToWeight.title" = "How Do I Weigh Myself?";
 "WeightWidgetHint.howToWeight.answer1" = "It’s best to weigh yourself first thing in the morning after using the restroom but before eating or drinking anything. Wear as little clothing as possible, or at least wear the same clothes whenever you step on the scale.";
