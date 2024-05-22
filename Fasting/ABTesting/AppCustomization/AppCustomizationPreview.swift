@@ -15,7 +15,7 @@ class AppCustomizationPreview: AppCustomization, ProductIdsService {
     var isMonetizationExpAvailable: RxSwift.Observable<Bool> { .just(false) }
 
     var fastingLimitCycles: Int { 3 }
-    
+
     func resetDiscountExp() {}
 
     var discountPaywallExperiment: RxSwift.Observable<DiscountPaywallInfo?> { .just(.empty) }

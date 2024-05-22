@@ -93,15 +93,7 @@ class FastingPhaseViewModel: BaseViewModel<FastingPhaseOutput> {
 
     func presentPaywall() {
         trackerService.track(.tapUnlockFastingStages)
-
-        if isMonetizationExpAvailable {
-            router.presentMultipleProductPaywall()
-            return
-        }
-
-        router.presentPaywall { [weak self] _ in
-            self?.router.dismiss(PaywallRoute.self)
-        }
+        output(.presentPaywallFromArticle)
     }
 
     private func observeMayUseApp() {

@@ -10,7 +10,6 @@ import Foundation
 enum AppTab: String {
     case fasting
     case coach
-    case paywall
     case healthProgress
     case daily
 }

@@ -37,7 +37,7 @@ class RootRouter: BaseRouter {
         inputPublisher: AnyPublisher<FastingHealthProgressInput, Never>,
         output: @escaping HealthProgressOutputBlock
     ) -> some View {
-        let route = FastingHealthProgressRoute(navigator: healthProgressNavigator, 
+        let route = FastingHealthProgressRoute(navigator: healthProgressNavigator,
                                                isMonetizationExpAvailablePublisher: isMonetizationExpAvailablePublisher,
                                                inputPublisher: inputPublisher,
                                                output: output)
@@ -65,23 +65,18 @@ class RootRouter: BaseRouter {
     }
 
     func coachScreen(isMonetizationExpAvailable: AnyPublisher<Bool, Never>,
-                     nextMessagePublisher: AnyPublisher<String, Never>) -> some View {
+                     nextMessagePublisher: AnyPublisher<String, Never>,
+                     output: @escaping CoachOutputBlock) -> some View {
         let route = CoachRoute(navigator: coachNavigator,
                                input: .init(constants: .fastingConstants,
                                             suggestionTypes: [.general, .fasting],
                                             nextMessagePublisher: nextMessagePublisher,
                                             isMonetizationExpAvailable: isMonetizationExpAvailable),
-                               output: { [weak self] output in
-            switch output {
-            case .presentMultiplePaywall:
-                self?.presentMultipleProductPaywall(context: .nova)
-            case .focusChanged: break
-            }
-        })
+                               output: output)
         return coachNavigator.initialize(route: route)
     }
 
-    func presentDiscountPaywall(tab: AppTab, info: DiscountPaywallInfo) {
+    func presentDiscountPaywall(tab: AppTab, info: DiscountPaywallInfo, context: PaywallContext) {
 
         var navigator: Navigator {
             switch tab {
@@ -89,8 +84,6 @@ class RootRouter: BaseRouter {
                 return fastingNavigator
             case .coach:
                 return coachNavigator
-            case .paywall:
-                return paywallNavigator
             case .healthProgress:
                 return healthProgressNavigator
             case .daily:
@@ -99,7 +92,7 @@ class RootRouter: BaseRouter {
         }
 
         let route = DiscountPaywallRoute(navigator: navigator,
-                                         input: .init(context: .discountPush, paywallInfo: info),
+                                         input: .init(context: context, paywallInfo: info),
                                          output: { output in
             switch output {
             case .close, .subscribe: navigator.dismiss()
@@ -211,8 +204,6 @@ class RootRouter: BaseRouter {
             fastingNavigator
         case .coach:
             coachNavigator
-        case .paywall:
-            paywallNavigator
         case .healthProgress:
             healthProgressNavigator
         case .daily:

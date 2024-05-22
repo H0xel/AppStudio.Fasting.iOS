@@ -13,5 +13,5 @@ typealias FastingOutputBlock = ViewOutput<FastingOutput>
 enum FastingOutput {
     case pinTapped
     case updateWidget(FastingWidgetState)
-    case showMultipleProductPaywall
+    case showPaywallFromArticle
 }

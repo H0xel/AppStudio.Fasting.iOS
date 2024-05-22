@@ -295,7 +295,12 @@ extension FastingViewModel {
 
     func presentArticle(for stage: FastingStage) {
         trackerService.track(.tapFastingStages(stage: stage.rawValue, context: .mainScreen))
-        router.presentArticle(isMonetizationExpAvailable: monetizationIsAvailable, for: stage)
+        router.presentArticle(isMonetizationExpAvailable: monetizationIsAvailable, for: stage) { [weak self] output in
+            switch output {
+            case .presentPaywallFromArticle:
+                self?.output(.showPaywallFromArticle)
+            }
+        }
     }
 
     private func presentSuccesScreen() {
@@ -394,7 +399,7 @@ private extension FastingViewModel {
                 timeFasted: stage.interval.toTime,
                 startTime: fastingInterval.startDate.description,
                 currentTime: Date.now.description,
-                schedule: fastingInterval.plan.description, 
+                schedule: fastingInterval.plan.description,
                 context: context))
         }
     }

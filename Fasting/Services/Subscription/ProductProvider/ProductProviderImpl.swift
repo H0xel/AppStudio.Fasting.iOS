@@ -73,7 +73,7 @@ class ProductProviderImpl: ProductProvider, AppInitializer {
             ProductCatalogItem(productId: yearlyProductIdExp6, duration: .year, isTrial: false),
             ProductCatalogItem(productId: weeklyExp7ProductId, duration: .week, isTrial: false),
             ProductCatalogItem(productId: threeMonthlyExp7ProductId, duration: .threeMonth, isTrial: false),
-            ProductCatalogItem(productId: yearlyExp7ProductId, duration: .year, isTrial: false),
+            ProductCatalogItem(productId: yearlyExp7ProductId, duration: .year, isTrial: false)
         ]
     }()
 }

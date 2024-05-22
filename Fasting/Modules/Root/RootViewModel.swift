@@ -48,14 +48,12 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Published var isProcessingSubcription = false
 
     @Published var discountPaywallInfo: DiscountPaywallInfo?
-    @Published var monetizationExpAvailable = false
 
     let router: RootRouter
     private let disposeBag = DisposeBag()
     private let coachNextMessageSubject = CurrentValueSubject<String, Never>("")
     private let progressInputSubject = CurrentValueSubject<FastingHealthProgressInput, Never>(.empty)
     private let fastingWidgetStateSubject = CurrentValueSubject<FastingWidgetState, Never>(.mockInActive)
-    private let isAllMonetizationAvailableSubject = CurrentValueSubject<Bool, Never>(false)
     private var fastingViewModel: FastingViewModel!
 
     init(router: RootRouter, input: RootInput, output: @escaping RootOutputBlock) {
@@ -87,7 +85,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         router.healthOverviewScreen(input: .init(
             fastingWidget: fastingWidget,
             weightUnits: onboardingService.data?.weight.units ?? .kg,
-            monetizationIsAvailable: isAllMonetizationAvailableSubject.eraseToAnyPublisher()
+            monetizationIsAvailable: $hasSubscription.map { !$0 }.eraseToAnyPublisher()
         )) { [weak self] output in
             self?.handle(healthOverviewOutput: output)
         }
@@ -98,13 +96,19 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }()
 
     lazy var coachScreen: some View = {
-        router.coachScreen(isMonetizationExpAvailable: isAllMonetizationAvailableSubject.eraseToAnyPublisher(),
-                           nextMessagePublisher: coachNextMessageSubject.eraseToAnyPublisher())
+        router.coachScreen(isMonetizationExpAvailable: $hasSubscription.map { !$0 }.eraseToAnyPublisher(),
+                           nextMessagePublisher: coachNextMessageSubject.eraseToAnyPublisher()) { [weak self] output in
+            switch output {
+            case .presentMultiplePaywall:
+                self?.router.presentMultipleProductPaywall(context: .nova)
+            case .focusChanged: break
+            }
+        }
     }()
 
     var healthProgressScreen: some View {
         router.healthProgressScreen(
-            isMonetizationExpAvailablePublisher: isAllMonetizationAvailableSubject.eraseToAnyPublisher(),
+            isMonetizationExpAvailablePublisher: $hasSubscription.map { !$0 }.eraseToAnyPublisher(),
             inputPublisher: progressInputSubject.eraseToAnyPublisher()
         ) { [weak self] output in self?.handle(healthProgressScreenOutput: output) }
     }
@@ -144,11 +148,9 @@ class RootViewModel: BaseViewModel<RootOutput> {
     func handle(deepLink: DeepLink?) {
         switch deepLink {
         case .discount:
-            currentTab = .paywall
-            // Раскомитить когда уберем таб пейвола
-//            if let discountPaywallInfo {
-//                router.presentDiscountPaywall(tab: currentTab, info: discountPaywallInfo)
-//            }
+            if let discountPaywallInfo {
+                router.presentDiscountPaywall(tab: currentTab, info: discountPaywallInfo, context: .discountPush)
+            }
         case nil: break
         }
     }
@@ -189,8 +191,16 @@ class RootViewModel: BaseViewModel<RootOutput> {
             router.presentProfile()
         case .showPaywall:
             router.presentMultipleProductPaywall(context: .daily)
+        case .showDiscountPaywall:
+            if let discountPaywallInfo {
+                router.presentDiscountPaywall(tab: currentTab, info: discountPaywallInfo, context: .daily)
+            }
         case .showPopUpPaywall:
             guard !isProcessingSubcription else { return }
+            if let discountPaywallInfo {
+                router.presentDiscountPaywall(tab: currentTab, info: discountPaywallInfo, context: .popup)
+                return
+            }
             router.presentMultipleProductPaywall(context: .popup)
         }
     }
@@ -323,27 +333,18 @@ class RootViewModel: BaseViewModel<RootOutput> {
     private func initializePaywallTab() {
         Observable.combineLatest(
             newSubscriptionService.hasSubscription.asObservable().distinctUntilChanged(),
-            appCustomization.discountPaywallExperiment.distinctUntilChanged(),
-            appCustomization.isMonetizationExpAvailable.distinctUntilChanged()
+            appCustomization.discountPaywallExperiment.distinctUntilChanged()
         )
         .asDriver()
         .drive(with: self) { this, args in
-            let (hasSubscription, discountPaywallInfo, isMonetizationAvailable) = args
-            this.changeCurrentTabOnLaunch(
-                hasSubscription: hasSubscription,
-                isMonetizationAvailable: isMonetizationAvailable)
+            let (hasSubscription, discountPaywallInfo) = args
+            this.changeCurrentTabOnLaunch(hasSubscription: hasSubscription)
             this.hasSubscription = hasSubscription
-
-            this.monetizationExpAvailable = isMonetizationAvailable
-
-            if isMonetizationAvailable {
-                this.isAllMonetizationAvailableSubject.send(!hasSubscription)
-            }
 
             if let discountPaywallInfo {
                 this.discountPaywallTimerService.registerPaywall(info: discountPaywallInfo)
             }
-            
+
             if hasSubscription {
                 this.deleteDiscountNotification()
             }
@@ -351,13 +352,10 @@ class RootViewModel: BaseViewModel<RootOutput> {
         .disposed(by: disposeBag)
     }
 
-    private func changeCurrentTabOnLaunch(hasSubscription: Bool, isMonetizationAvailable: Bool) {
+    private func changeCurrentTabOnLaunch(hasSubscription: Bool) {
         if hasSubscription {
             currentTab = .daily
             return
-        }
-        if !firstLaunchService.isFirstTimeLaunch {
-            currentTab = isMonetizationAvailable ? .daily : .paywall
         }
     }
 
@@ -397,14 +395,16 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     private func initilizeFastingViewModel() {
         fastingViewModel = .init(input: .init(
-            isMonetizationAvailable: isAllMonetizationAvailableSubject.eraseToAnyPublisher())
+            isMonetizationAvailable: $hasSubscription.eraseToAnyPublisher())
         ) { [weak self] output in
             switch output {
             case .pinTapped:
-                self?.currentTab = .paywall
+                if let discountPaywallInfo = self?.discountPaywallInfo {
+                    self?.router.presentDiscountPaywall(tab: .fasting, info: discountPaywallInfo, context: .discountPin)
+                }
             case .updateWidget(let state):
                 self?.fastingWidgetStateSubject.send(state)
-            case .showMultipleProductPaywall:
+            case .showPaywallFromArticle:
                 self?.router.presentMultipleProductPaywall(context: .fastingStages)
             }
         }
@@ -496,13 +496,15 @@ class RootViewModel: BaseViewModel<RootOutput> {
                     guard let notificationStartedDate = this.discountPaywallTimerService.delayedTimerDate,
                           !this.hasSubscription else { return }
                     Task {
-                        try await this.localNotificationService.register(DiscountLocalNotification(),
-                                                                         at: .init(year: notificationStartedDate.year,
-                                                                                   month: notificationStartedDate.month,
-                                                                                   day: notificationStartedDate.day,
-                                                                                   hour: notificationStartedDate.hour,
-                                                                                   minute: notificationStartedDate.minute,
-                                                                                   second: notificationStartedDate.second))
+                        try await this.localNotificationService.register(
+                            DiscountLocalNotification(),
+                            at: .init(year: notificationStartedDate.year,
+                                      month: notificationStartedDate.month,
+                                      day: notificationStartedDate.day,
+                                      hour: notificationStartedDate.hour,
+                                      minute: notificationStartedDate.minute,
+                                      second: notificationStartedDate.second)
+                        )
                     }
                 }
             }

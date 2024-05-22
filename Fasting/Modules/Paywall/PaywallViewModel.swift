@@ -103,7 +103,9 @@ class PaywallViewModel: BasePaywallViewModel<PaywallScreenOutput> {
                 case .showAlert:
                     this.showRestoreErrorAlert()
                 case .showProgress:
-                    this.isSettings ? this.output(.switchProgressView(isPresented: true)) : this.router.presentProgressView()
+                    this.isSettings 
+                    ? this.output(.switchProgressView(isPresented: true))
+                    : this.router.presentProgressView()
                 case .hideProgress:
                     this.isSettings
                     ? this.output(.switchProgressView(isPresented: false))

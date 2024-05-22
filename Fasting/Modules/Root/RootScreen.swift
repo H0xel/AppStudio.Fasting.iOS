@@ -61,22 +61,6 @@ struct RootScreen: View {
                         .tabItem {
                             tabBarLabelView(title: .progress, image: progressTabImage)
                         }
-
-                    if !viewModel.hasSubscription, !viewModel.monetizationExpAvailable {
-                        if let info = viewModel.discountPaywallInfo {
-                            viewModel.discountPaywall(input: .init(context: .discountPaywallTab, paywallInfo: info))
-                                .tag(AppTab.paywall)
-                                .tabItem {
-                                    tabBarLabelView(title: .plus, image: .crownFill)
-                                }
-                        } else {
-                            viewModel.paywallScreen
-                                .tag(AppTab.paywall)
-                                .tabItem {
-                                    tabBarLabelView(title: .plus, image: .crownFill)
-                                }
-                        }
-                    }
                 }
                 if viewModel.isProcessingSubcription {
                     DimmedProgressBanner().view

@@ -21,7 +21,7 @@ struct SubscriptionInfo: Named, Equatable {
     static var empty: SubscriptionInfo = {
         SubscriptionInfo(name: "empty", productIds: [])
     }()
-    
+
     static var allMonetization: SubscriptionInfo = {
         @Dependency(\.productProvider) var productProvider
         return SubscriptionInfo(name: "all_monetization", productIds: productProvider.allMonetizationProductIds)

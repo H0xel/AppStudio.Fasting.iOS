@@ -87,10 +87,10 @@ class FastingRouter: BaseRouter {
         currentNavigator.present(route: route)
     }
 
-    func presentArticle(isMonetizationExpAvailable: Bool, for stage: FastingStage) {
+    func presentArticle(isMonetizationExpAvailable: Bool, for stage: FastingStage, output: @escaping FastingPhaseOutputBlock) {
         let route = FastingPhaseRoute(navigator: currentNavigator, input: .init(
             isMonetizationExpAvailable: isMonetizationExpAvailable,
-            stage: stage), output: { _ in })
+            stage: stage), output: output)
         currentNavigator.present(route: route)
     }
 

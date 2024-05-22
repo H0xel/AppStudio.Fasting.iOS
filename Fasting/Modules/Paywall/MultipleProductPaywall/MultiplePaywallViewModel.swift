@@ -117,7 +117,9 @@ class MultiplePaywallViewModel: BasePaywallViewModel<MultiplePaywallOutput> {
 
 extension MultiplePaywallViewModel {
     private func promotionText(for subscription: Product) -> String? {
-        guard let shortestSubscription = paywallSubscriptions.first(where: { $0.subscription?.subscriptionPeriod.duration == .week }),
+        guard let shortestSubscription = paywallSubscriptions.first(
+            where: { $0.subscription?.subscriptionPeriod.duration == .week }
+        ),
               let price = subscription.pricePerWeek,
               shortestSubscription.id != subscription.id,
               let shortestSubscriptionPrice = shortestSubscription.pricePerWeek,

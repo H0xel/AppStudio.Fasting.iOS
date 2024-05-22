@@ -15,6 +15,8 @@ public enum PaywallContext: String {
     case paywallTab = "paywall_tab"
     case freeUsageLimit
     case fastingStages = "fasting_stages"
+    case discountPin = "discount_pin"
+    case fasting
 
     case discountMain = "discount_main"
     case logLimit = "log_limit"

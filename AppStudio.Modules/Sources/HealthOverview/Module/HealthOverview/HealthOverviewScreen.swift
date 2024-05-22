@@ -33,7 +33,24 @@ struct HealthOverviewScreen: View {
                             .id(scrollTriggerId)
                         VStack(spacing: .spacing) {
                             if viewModel.monetizationIsAvailable {
-                                AllMonetizationBannerView(action: viewModel.presentPaywall)
+                                if viewModel.monetizationIsAvailable {
+                                    if let discountInfo = viewModel.discountPaywallInfo {
+                                        DiscountBannerView(viewData: .init(
+                                            discount: "\(discountInfo.discount ?? 0)%",
+                                            timerInterval: viewModel.timerInterval,
+                                            type: discountInfo.paywallType == "discount_timer" ? .timer : .promotion)
+                                        ) { action in
+                                            switch action {
+                                            case .close:
+                                                viewModel.closeBannerTapped()
+                                            case .openPaywall:
+                                                viewModel.bannerTapped()
+                                            }
+                                        }
+                                    } else {
+                                        AllMonetizationBannerView(action: viewModel.presentPaywall)
+                                    }
+                                }
                             }
 
                             FastingWidgetView(day: day,

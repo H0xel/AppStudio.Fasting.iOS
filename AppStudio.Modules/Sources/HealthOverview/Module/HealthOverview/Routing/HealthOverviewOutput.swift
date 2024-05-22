@@ -13,4 +13,5 @@ public enum HealthOverviewOutput {
     case profileTapped
     case showPaywall
     case showPopUpPaywall
+    case showDiscountPaywall
 }

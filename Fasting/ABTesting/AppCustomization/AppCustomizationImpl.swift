@@ -90,11 +90,6 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
             .map { return $0.paywallType != nil ? $0 : nil }
     }
 
-    var isMonetizationExpAvailable: Observable<Bool> {
-        allMonetizationRelay.asObservable()
-            .map { $0 == .test }
-    }
-
     func requiredAppVersion() async throws -> String {
         try await remoteConfigValue(forKey: requiredAppVersionKey, defaultValue: Bundle.appVersion)
     }
@@ -130,24 +125,8 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
 private extension AppCustomizationImpl {
     func configureExperimentsOnStartApp() {
-        configureMonetizationExp()
         configurePricingExperiment()
         configureDiscountExperiment()
-    }
-
-    func configureMonetizationExp() {
-        experimentValueObservable(forType: AllMonetizationExperiment.self, defaultValue: .control)
-            .map { info in
-                if info == .control {
-                    throw DiscountError.error
-                }
-                return info
-            }
-            .observe(on: MainScheduler.asyncInstance)
-            .retry(times: 3, withDelay: .seconds(1))
-            .catchAndReturn(.control)
-            .bind(to: allMonetizationRelay)
-            .disposed(by: disposeBag)
     }
 }
 

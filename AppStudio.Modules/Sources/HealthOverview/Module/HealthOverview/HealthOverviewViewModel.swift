@@ -10,20 +10,26 @@ import AppStudioNavigation
 import AppStudioUI
 import Combine
 import AppStudioStyles
+import AppStudioServices
 import Dependencies
 import AppStudioModels
 import WaterCounter
 import FastingWidget
 import WeightWidget
+import RxSwift
 
 class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
 
     @Dependency(\.calendarProgressService) private var calendarProgressService
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.firstLaunchService) private var firstLaunchService
+    @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
 
     @Published var monetizationIsAvailable: Bool = false
     @Published var currentDay: Date = .now.startOfTheDay
+    @Published var discountPaywallInfo: DiscountPaywallInfo?
+    @Published var timerInterval: TimeInterval = .second
+    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     let calendarViewModel = CalendarProgressViewModel(isFutureAllowed: false, withFullProgress: false)
     let swipeDaysViewModel = SwipeDaysViewModel(isFutureAllowed: false)
@@ -47,6 +53,7 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
         waterCounterViewModel.router = WaterCounterWidgetRouter(navigator: router.navigator)
         input.monetizationIsAvailable
             .assign(to: &$monetizationIsAvailable)
+        subscribeForAvailableDiscountPaywall()
     }
 
     func scrollToToday() {
@@ -107,6 +114,57 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
 
     private func updateWeeks(weeks: [Week]) {
         fastingWidgetViewModel.loadData(weeks: weeks)
+    }
+}
+
+// MARK: DiscountExp
+
+extension HealthOverviewViewModel {
+    func bannerTapped() {
+        output(.showDiscountPaywall)
+    }
+
+    func updateTimer(discountPaywallInfo: DiscountPaywallInfo) {
+        guard let interval = discountPaywallTimerService.getCurrentTimer(
+            durationInSeconds: discountPaywallInfo.timerDurationInSeconds ?? 0
+        ) else {
+            return
+        }
+
+        timerInterval = interval
+    }
+
+    func closeBannerTapped() {
+        discountPaywallTimerService.stopTimer()
+    }
+
+    private func subscribeForAvailableDiscountPaywall() {
+        discountPaywallTimerService.discountAvailable
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$discountPaywallInfo)
+
+        $discountPaywallInfo
+            .sink(with: self) { this, info in
+                if let info {
+                    this.updateTimer(discountPaywallInfo: info)
+                    this.startTimer()
+                }
+            }
+            .store(in: &cancellables)
+    }
+
+    private func startTimer() {
+        Publishers.Merge(timer, Just(.now))
+            .receive(on: DispatchQueue.main)
+            .sink(with: self) { this, _ in
+                this.timerInterval -= .second
+
+                if this.timerInterval.seconds <= 0 {
+                    this.discountPaywallTimerService.setAvailableDiscount(data: nil)
+                    this.timer.upstream.connect().cancel()
+                }
+            }
+            .store(in: &cancellables)
     }
 }
 

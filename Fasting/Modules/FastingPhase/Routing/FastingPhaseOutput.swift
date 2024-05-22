@@ -10,4 +10,5 @@ typealias FastingPhaseOutputBlock = ViewOutput<FastingPhaseOutput>
 
 enum FastingPhaseOutput {
     // add Output parameters here
+    case presentPaywallFromArticle
 }

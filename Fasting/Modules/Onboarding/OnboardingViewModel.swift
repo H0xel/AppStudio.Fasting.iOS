@@ -38,7 +38,7 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
     @Published var weightUnit: WeightUnit = .lb
     @Published var isMovingForward = true
     @Published var isLongOnboadingEnabled = false
-    @Published private var hasSubscription: Bool = false
+    @Published private var hasSubscription = false
 
     init(input: OnboardingInput, output: @escaping OnboardingOutputBlock) {
         super.init(output: output)
