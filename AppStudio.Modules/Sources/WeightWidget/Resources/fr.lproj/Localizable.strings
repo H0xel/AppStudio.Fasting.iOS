@@ -24,7 +24,7 @@
 
 "WeightWidgetHint.trueWeight.title" = "Qu'est-ce que le poids réel ?";
 "WeightWidgetHint.trueWeight.answer1" = "Nous analysons votre poids de la balance à l'aide de notre algorithme pour déterminer votre poids réel, qui est affiché sous forme de ligne bleu profond.";
-"WeightWidgetHint.trueWeight.answer2" = "Le poids réel représente une tendance qui tient compte des fluctuations quotidiennes du poids afin de vous aider à comprendre les changements significatifs qui vous rapprochent ou vous éloignent de vos objectifs de poids.";
+"WeightWidgetHint.trueWeight.answer2" = "Nous analysons votre poids de la balance à l'aide de notre algorithme pour déterminer votre poids réel, qui est affiché sous forme de ligne bleu profond.";
 
 "WeightWidgetHint.howToWeight.title" = "Comment me peser ?";
 "WeightWidgetHint.howToWeight.answer1" = "Il est préférable de vous peser le matin après avoir utilisé les toilettes mais avant de manger ou de boire quoi que ce soit. Portez le moins de vêtements possible, ou au moins portez les mêmes vêtements chaque fois que vous montez sur la balance.";

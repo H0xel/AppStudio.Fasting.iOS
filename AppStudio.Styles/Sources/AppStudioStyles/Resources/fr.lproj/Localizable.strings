@@ -56,3 +56,20 @@
 
 "Today.title" = "Aujourd'hui";
 "Date.yesterday.title" = "Hier";
+
+// MARK: Discount Paywall
+"DiscountPaywall.limitedTimeOffer" = "Offre à durée limitée";
+"DiscountPaywall.specialOffer" = "Offre spéciale";
+"DiscountPaywall.discountOff" = "%@ DE RÉDUCTION";
+"DiscountPaywall.days" = "jours";
+"DiscountPaywall.hr" = "h";
+"DiscountPaywall.min" = "min";
+"DiscountPaywall.sec" = "sec";
+"DiscountPaywall.only" = "Seulement";
+"DiscountPaywall.week" = "/ semaine";
+"DiscountPaywall.saveNow %@" = "Économisez %@ maintenant";
+"DiscountPaywall.unlimitedAccess" = "Accès illimité à toutes les fonctionnalités";
+"DiscountPaywall.banner.description" = "Accès illimité à toutes les fonctionnalités premium pour un an à %@ de remise !";
+"DiscountPaywall.banner.get" = "Obtenir";
+"DiscountPaywall.banner.off" = "REMISE";
+"DiscountPaywall.banner.button" = "Économisez %@ maintenant";

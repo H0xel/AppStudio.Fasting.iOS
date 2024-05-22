@@ -9,7 +9,7 @@
 
 "WeightWidgetView.title" = "Peso Atual";
 "WeightWidgetView.scaleWeight" = "Peso da Balança";
-"WeightWidgetView.trueWeight" = "Peso real";
+"WeightWidgetView.trueWeight" = "Peso Real";
 "WeightWidgetView.update" = "Atualizar";
 
 // MARK: - UpdateWeightScreen
@@ -24,7 +24,7 @@
 
 "WeightWidgetHint.trueWeight.title" = "O que é o Peso real?";
 "WeightWidgetHint.trueWeight.answer1" = "Analisamos seu Peso da balança usando nosso algoritmo para determinar seu Peso real, que é exibido como uma linha azul escura.";
-"WeightWidgetHint.trueWeight.answer2" = "O Peso real representa uma tendência que leva em conta as flutuações diárias de peso para ajudar a entender as mudanças significativas que aproximam ou afastam você dos seus objetivos de peso.";
+"WeightWidgetHint.trueWeight.answer2" = "Analisamos seu Peso da balança usando nosso algoritmo para determinar seu Peso real, que é exibido como uma linha azul escura.";
 
 "WeightWidgetHint.howToWeight.title" = "Como Devo me Pesar?";
 "WeightWidgetHint.howToWeight.answer1" = "É melhor se pesar logo pela manhã depois de usar o banheiro, mas antes de comer ou beber qualquer coisa. Vista o mínimo de roupas possível, ou pelo menos use as mesmas roupas sempre que subir na balança.";
