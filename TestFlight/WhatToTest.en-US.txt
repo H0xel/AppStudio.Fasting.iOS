@@ -1,1 +1,2 @@
-- Release Candidate Fasting 1.2.3
+- UI updates tasks:
+- 781, 785, 787

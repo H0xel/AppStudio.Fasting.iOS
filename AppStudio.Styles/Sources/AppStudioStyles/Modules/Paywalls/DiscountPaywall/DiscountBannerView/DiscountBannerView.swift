@@ -35,7 +35,7 @@ public struct DiscountBannerView: View {
                     .padding(.horizontal, .buttonHorizontalPadding)
                     .padding(.vertical, .buttonVerticalPadding)
                     .foregroundStyle(.white)
-                    .background(.black)
+                    .background(Color.studioBlackLight)
                     .continiousCornerRadius(.buttonCornerRadius)
                     .padding(.bottom, .buttonBottomPadding)
 
@@ -56,8 +56,8 @@ public struct DiscountBannerView: View {
 }
 
 private extension CGFloat {
-    static var buttonHorizontalPadding: CGFloat { 32 }
-    static var buttonVerticalPadding: CGFloat { 16 }
+    static var buttonHorizontalPadding: CGFloat { 24 }
+    static var buttonVerticalPadding: CGFloat { 14.5 }
     static var buttonCornerRadius: CGFloat { 44 }
     static var buttonBottomPadding: CGFloat { 20 }
     static var imageHeight: CGFloat { 72 }
@@ -92,7 +92,7 @@ extension DiscountBannerView {
 
 extension DiscountBannerView.ViewData {
     public static var mock: DiscountBannerView.ViewData {
-        .init(discount: "50%", timerInterval: .init(minutes: 15), type: .timer)
+        .init(discount: "50%", timerInterval: .init(minutes: 15), type: .promotion)
     }
 }
 

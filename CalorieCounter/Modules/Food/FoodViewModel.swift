@@ -22,7 +22,7 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
     @Published var discountPaywallInfo: DiscountPaywallInfo?
     @Published var timerInterval: TimeInterval = .second
     let swipeDaysViewModel = SwipeDaysViewModel(isFutureAllowed: true)
-    let calendarViewModel = CalendarProgressViewModel(isFutureAllowed: true, withFullProgress: false)
+    let calendarViewModel = CalendarProgressViewModel(isFutureAllowed: true, withFullProgress: true)
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let disposeBag = DisposeBag()
     private let focusTextFieldSubject = PassthroughSubject<(Date, FoodLogContext), Never>()

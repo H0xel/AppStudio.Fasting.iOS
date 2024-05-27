@@ -18,6 +18,7 @@ let package = Package(
         .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git", exact: "1.0.11"),
         .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Common.git", exact: "1.0.20"),
         .package(url: "https://github.com/m-unicorn/iOS.MunicornFoundation.git", exact: "1.2.11"),
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", exact: "6.6.0"),
         .package(path: "AppStudio.Models")
     ],
     targets: [
@@ -28,7 +29,8 @@ let package = Package(
                 .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
                 .product(name: "AppStudioFoundation", package: "AppStudio.iOS.Common"),
                 .product(name: "AppStudioModels", package: "AppStudio.Models"),
-                .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation")
+                .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation"),
+                .product(name: "RxSwift", package: "RxSwift"),
             ],
             resources: [
                 .process("Resources/Color.xcassets")

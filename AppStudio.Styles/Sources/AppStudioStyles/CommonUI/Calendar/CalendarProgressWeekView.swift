@@ -99,7 +99,7 @@ private extension CGFloat {
     static let cornerRadius: CGFloat = 56
     static let dayWidth: CGFloat = 44
     static let capsuleBorderWidth: CGFloat = 1.5
-    static let colorBorderWidth: CGFloat = 0.5
+    static let colorBorderWidth: CGFloat = 1
     static let letterBottomPadding: CGFloat = 4
     static let letterHeight: CGFloat = 15
     static let dayHeight: CGFloat = 18
