@@ -50,12 +50,12 @@ class MultiplePaywallViewModel: BasePaywallViewModel<MultiplePaywallOutput> {
     }
 
     var weeklySubscription: SubscriptionProduct {
-        guard let subscription = subscriptions.first(where: {
+        guard let subscription = paywallSubscriptions.first(where: {
             $0.subscription?.subscriptionPeriod.duration == .week
         }) else {
             return .empty
         }
-        return subscription.asSubscriptionProduct(promotion: promotionText(for: subscription))
+        return subscription.asSubscriptionProduct(promotion: nil)
     }
 
     func handle(_ event: MultipleProductPaywallScreen.Event) {
