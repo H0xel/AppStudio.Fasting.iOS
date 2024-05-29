@@ -20,7 +20,7 @@ struct FoodLogNutritionProfileView: View {
                     configuration: configuration(for: type),
                     bordered: false
                 )
-                if type != .carbs {
+                if type != .proteins {
                     Spacer()
                 }
             }

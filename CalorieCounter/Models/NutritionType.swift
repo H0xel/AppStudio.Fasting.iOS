@@ -9,9 +9,9 @@ import SwiftUI
 
 enum NutritionType: String, CaseIterable {
     case calories
-    case proteins
     case fats
     case carbs
+    case proteins
 
     var title: String {
         NSLocalizedString("NutritionProfile.\(rawValue)", comment: "")

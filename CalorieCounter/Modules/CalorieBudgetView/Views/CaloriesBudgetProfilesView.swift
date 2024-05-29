@@ -22,10 +22,6 @@ struct CaloriesBudgetProfilesView: View {
             }
             HStack(spacing: .emptySpacing) {
                 Spacer()
-                CaloriesBudgetProfilesCell(type: .proteins,
-                                           value: currentProfile.proteins,
-                                           total: dailyNormProfile.proteins)
-                Spacer(minLength: .horizontalPadding)
                 CaloriesBudgetProfilesCell(type: .fats,
                                            value: currentProfile.fats,
                                            total: dailyNormProfile.fats)
@@ -33,6 +29,10 @@ struct CaloriesBudgetProfilesView: View {
                 CaloriesBudgetProfilesCell(type: .carbs,
                                            value: currentProfile.carbohydrates,
                                            total: dailyNormProfile.carbohydrates)
+                Spacer(minLength: .horizontalPadding)
+                CaloriesBudgetProfilesCell(type: .proteins,
+                                           value: currentProfile.proteins,
+                                           total: dailyNormProfile.proteins)
                 Spacer()
             }
             .blur(radius: hasSubscription ? 0 : 4)
