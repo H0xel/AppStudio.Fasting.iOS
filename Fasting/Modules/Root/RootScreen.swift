@@ -61,6 +61,28 @@ struct RootScreen: View {
                         .tabItem {
                             tabBarLabelView(title: .progress, image: progressTabImage)
                         }
+                    viewModel.exploreScreen
+                        .tag(AppTab.explore)
+                        .tabItem {
+                            tabBarLabelView(title: .explore, image: exploreTabImage)
+                        }
+
+//                    if !viewModel.hasSubscription, !viewModel.monetizationExpAvailable {
+//                        if let info = viewModel.discountPaywallInfo {
+//                            viewModel.discountPaywall(input: .init(context: .discountPaywallTab, paywallInfo: info))
+//                                .tag(AppTab.paywall)
+//                                .tabItem {
+//                                    tabBarLabelView(title: .plus, image: .crownFill)
+//                                }
+//                        } else {
+//                            viewModel.paywallScreen
+//                                .tag(AppTab.paywall)
+//                                .tabItem {
+//                                    tabBarLabelView(title: .plus, image: .crownFill)
+//                                }
+//                        }
+//                    }
+
                 }
                 if viewModel.isProcessingSubcription {
                     DimmedProgressBanner().view
@@ -99,6 +121,10 @@ struct RootScreen: View {
     private var progressTabImage: Image {
         viewModel.currentTab == .healthProgress ? .progressTabActive : .progressTabInActive
     }
+
+    private var exploreTabImage: Image {
+        viewModel.currentTab == .explore ? .init(.exploreActive) : .init(.exploreInActive)
+    }
 }
 
 private extension LocalizedStringKey {
@@ -107,6 +133,7 @@ private extension LocalizedStringKey {
     static let nova: LocalizedStringKey = "RootScreen.TabBar.nova"
     static let progress: LocalizedStringKey = "RootScreen.TabBar.progress"
     static let plus: LocalizedStringKey = "RootScreen.TabBar.plus"
+    static let explore: LocalizedStringKey = "RootScreen.TabBar.explore"
 }
 
 struct RootScreen_Previews: PreviewProvider {

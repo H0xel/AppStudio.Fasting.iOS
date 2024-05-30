@@ -29,8 +29,7 @@ struct CoachSuggestionsStackView: View {
                                                      color: styles.colors.coachGreyStrokeFill,
                                                      lineWidth: .textBorderWidth))
                 }
-                .transition(.push(from: .top))
-                .id(UUID())
+                .transition(.push(from: .leading))
             }
         }
     }

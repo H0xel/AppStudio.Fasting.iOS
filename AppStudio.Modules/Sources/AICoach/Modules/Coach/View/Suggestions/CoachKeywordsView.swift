@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Dependencies
+import AppStudioStyles
 
 struct CoachKeywordsView: View {
 

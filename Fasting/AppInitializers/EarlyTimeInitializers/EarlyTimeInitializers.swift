@@ -13,6 +13,7 @@ import WaterCounter
 import FastingWidget
 import WeightWidget
 import WeightGoalWidget
+import Explore
 
 final class EarlyTimeInitializers: Initializers {
     @Dependency(\.fastingParametersInitializer) private var fastingParametersInitializer
@@ -24,6 +25,7 @@ final class EarlyTimeInitializers: Initializers {
             WaterCounterDatabaseInitializer(),
             WeightWidgetDatabaseInitializer(),
             WeightGoalWidgetDatabaseInitializer(),
+            ExploreDatabaseInitializer(),
             PreferencesInitializer(),
             FirebaseInitializer(),
             CrashlyticsInitializer(),
@@ -39,7 +41,8 @@ final class EarlyTimeInitializers: Initializers {
             HealthOveviewInitializer(),
             HealthProgressInitializer(),
             FastingWidgetInitializer(),
-            WaterCounterInitializer()
+            WaterCounterInitializer(),
+            ExploreInitializer()
         ]
     }
 }

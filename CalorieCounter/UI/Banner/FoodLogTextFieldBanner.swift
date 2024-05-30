@@ -9,12 +9,12 @@ import SwiftUI
 import AppStudioNavigation
 
 struct FoodLogTextFieldBanner: Banner {
-
     let onTap: () -> Void
     let onBarcodeScan: (Bool) -> Void
 
     var view: AnyView {
-        FoodLogTextField(isDisableEditing: true,
+        FoodLogTextField(text: .constant(""),
+                         isDisableEditing: true,
                          onTap: { _ in onTap() },
                          onBarcodeScan: onBarcodeScan)
             .aligned(.bottom)

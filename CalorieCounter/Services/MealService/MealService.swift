@@ -13,4 +13,5 @@ protocol MealService {
     func meals(forDay dayDate: Date, type: MealType?) async throws -> [Meal]
     func delete(byId id: String) async throws
     func mealObserver(dayDate: Date) -> MealObserver
+    func allMeals() async throws -> [Meal]
 }

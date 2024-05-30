@@ -9,6 +9,9 @@ import Foundation
 import Dependencies
 
 class MealServicePreview: MealService {
+    func allMeals() async throws -> [Meal] {
+        [.mock, .mock, .mock]
+    }
 
     func save(meal: Meal) async throws -> Meal {
         .init(type: .breakfast, dayDate: .now, mealItem: .mock, voting: .disabled)

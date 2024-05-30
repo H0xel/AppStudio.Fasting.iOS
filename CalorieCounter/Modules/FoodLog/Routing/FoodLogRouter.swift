@@ -19,12 +19,14 @@ class FoodLogRouter: BaseRouter {
         present(sheet: route, detents: [.medium], showIndicator: false)
     }
 
-    func presentDeleteBanner(title: LocalizedStringKey,
+    func presentDeleteBanner(editType: MealEditType,
                              onCancel: @escaping () -> Void,
-                             onDelete: @escaping () -> Void) {
-        let banner = MealDeleteBanner(title: title,
+                             onDelete: @escaping () -> Void,
+                             onEdit: @escaping () -> Void) {
+        let banner = MealDeleteBanner(editType: editType,
                                       onCancel: onCancel,
-                                      onDelete: onDelete)
+                                      onDelete: onDelete,
+                                      onEdit: onEdit)
         present(banner: banner)
     }
 

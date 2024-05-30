@@ -6,6 +6,13 @@
 //
 
 import Foundation
+
 struct Articles: Codable {
     let stacks: [ArticleStack]
+}
+
+extension Articles {
+    static var mock: Articles {
+        .init(stacks: [.mockSmall, .mockLarge])
+    }
 }

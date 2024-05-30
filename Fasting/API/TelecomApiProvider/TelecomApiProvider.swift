@@ -61,4 +61,23 @@ class TelecomApiProvider<Target: TelecomTargetType> {
             }
         }
     }
+
+    func requestData(_ target: Target) async throws -> Data {
+        try await withUnsafeThrowingContinuation { continuation in
+            provider.request(target) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let filteredReponse = try response.filterSuccessfulStatusCodes()
+                        let data = filteredReponse.data
+                        continuation.resume(returning: data)
+                    } catch {
+                        continuation.resume(throwing: error)
+                    }
+                case .failure(let moyaError):
+                    continuation.resume(throwing: moyaError)
+                }
+            }
+        }
+    }
 }

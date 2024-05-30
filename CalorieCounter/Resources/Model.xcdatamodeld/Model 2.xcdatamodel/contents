@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23D60" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CodableCacheEntity" representedClassName="CodableCacheEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="key" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="value" optional="YES" attributeType="String"/>
+        <fetchIndex name="byKeyTypeDate">
+            <fetchIndexElement property="key" type="Binary" order="ascending"/>
+            <fetchIndexElement property="type" type="Binary" order="ascending"/>
+            <fetchIndexElement property="date" type="Binary" order="descending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="MealEntity" representedClassName="MealEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dayDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="mealItemJson" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="voting" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <fetchIndex name="byDateType">
+            <fetchIndexElement property="dayDate" type="Binary" order="ascending"/>
+            <fetchIndexElement property="type" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="MealItemEntity" representedClassName="MealItemEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="creationType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dateUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="ingredients" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="subtitle" optional="YES" attributeType="String"/>
+        <fetchIndex name="byId">
+            <fetchIndexElement property="id" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byNameType">
+            <fetchIndexElement property="name" type="Binary" order="ascending"/>
+            <fetchIndexElement property="creationType" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="MealUsageEntity" representedClassName="MealUsageEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="mealId" optional="YES" attributeType="String"/>
+        <attribute name="mealType" optional="YES" attributeType="String"/>
+        <attribute name="usage" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <fetchIndex name="byMealType">
+            <fetchIndexElement property="mealType" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byMealId">
+            <fetchIndexElement property="mealId" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="NutritionProfileEntity" representedClassName="NutritionProfileEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="carbohydrates" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="fats" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="proteins" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <fetchIndex name="byStartDate">
+            <fetchIndexElement property="startDate" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+</model>

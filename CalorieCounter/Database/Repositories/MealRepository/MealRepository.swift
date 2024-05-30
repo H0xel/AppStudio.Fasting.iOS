@@ -14,4 +14,5 @@ protocol MealRepository {
     func delete(byId id: String) async throws
     func mealObserver(dayDate: Date) -> MealObserver
     func meals(count: Int?) async throws -> [Meal]
+    func allMeals() async throws -> [Meal]
 }

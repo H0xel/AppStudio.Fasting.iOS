@@ -10,7 +10,7 @@ import Foundation
 struct Meal: Hashable, Identifiable {
     let id: String
     let type: MealType
-    let dayDate: Date
+    var dayDate: Date
     let creationDate: Date
     let mealItem: MealItem
     var voting: MealVoting
@@ -40,9 +40,16 @@ struct Meal: Hashable, Identifiable {
 }
 
 extension Meal {
+    var isMealNeedToSave: Bool {
+        !isQuickAdded
+    }
 
     var calories: Double {
         mealItem.nutritionProfile.calories
+    }
+
+    var isQuickAdded: Bool {
+        mealItem.creationType == .quickAdd
     }
 
     func copyWith(type: MealType) -> Meal {
@@ -59,9 +66,7 @@ extension Meal {
               type: type,
               dayDate: dayDate,
               creationDate: creationDate,
-              mealItem: .init(name: mealItem.name,
-                              subTitle: mealItem.subTitle,
-                              ingredients: ingredients),
+              mealItem: mealItem.updated(ingredients: ingredients),
               voting: voting)
     }
 

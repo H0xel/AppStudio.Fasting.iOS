@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Explore
 
 struct DebugMenuScreen: View {
 

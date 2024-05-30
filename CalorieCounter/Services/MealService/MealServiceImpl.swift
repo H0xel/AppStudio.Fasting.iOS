@@ -10,9 +10,13 @@ import Dependencies
 
 class MealServiceImpl: MealService {
     @Dependency(\.mealRepository) private var mealRepository
+    @Dependency(\.mealItemService) private var mealItemService
 
     func save(meal: Meal) async throws -> Meal {
-        try await mealRepository.save(meal: meal)
+        if meal.isMealNeedToSave {
+            _ = try await mealItemService.save(meal.mealItem)
+        }
+        return try await mealRepository.save(meal: meal)
     }
 
     func save(meals: [Meal]) async throws {
@@ -31,5 +35,9 @@ class MealServiceImpl: MealService {
 
     func mealObserver(dayDate: Date) -> MealObserver {
         mealRepository.mealObserver(dayDate: dayDate)
+    }
+
+    func allMeals() async throws -> [Meal] {
+        try await mealRepository.allMeals()
     }
 }

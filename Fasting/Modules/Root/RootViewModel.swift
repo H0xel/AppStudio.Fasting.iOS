@@ -81,6 +81,16 @@ class RootViewModel: BaseViewModel<RootOutput> {
         router.presentAppStore(applink)
     }
 
+    lazy var exploreScreen: some View = {
+        router.exploreScreen { [weak self] output in
+            switch output {
+            case .nova(let question):
+                self?.currentTab = .coach
+                self?.coachNextMessageSubject.send(question)
+            }
+        }
+    }()
+
     lazy var healthOverviewScreen: some View = {
         router.healthOverviewScreen(input: .init(
             fastingWidget: fastingWidget,
@@ -338,7 +348,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         .asDriver()
         .drive(with: self) { this, args in
             let (hasSubscription, discountPaywallInfo) = args
-            this.changeCurrentTabOnLaunch(hasSubscription: hasSubscription)
+            this.changeCurrentTabOnLaunch(hasSubscription: hasSubscription, isMonetizationAvailable: true)
             this.hasSubscription = hasSubscription
 
             if let discountPaywallInfo {
@@ -352,12 +362,24 @@ class RootViewModel: BaseViewModel<RootOutput> {
         .disposed(by: disposeBag)
     }
 
-    private func changeCurrentTabOnLaunch(hasSubscription: Bool) {
-        if hasSubscription {
-            currentTab = .daily
-            return
-        }
+
+    private func changeCurrentTabOnLaunch(hasSubscription: Bool, isMonetizationAvailable: Bool) {
+        //  TODO: - Пока закомментировал
+        //        if hasSubscription {
+        currentTab = .daily
+        //            return
+        //        }
+        //        if !firstLaunchService.isFirstTimeLaunch {
+        //            currentTab = isMonetizationAvailable ? .daily : .paywall
+        //        }
     }
+//    private func changeCurrentTabOnLaunch(hasSubscription: Bool) {
+//        if hasSubscription {
+//            currentTab = .daily
+//            return
+//        }
+//
+//    }
 
     private func subscribeToActionTypeEvent() {
         $rootScreen

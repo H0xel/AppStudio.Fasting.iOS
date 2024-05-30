@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Dependencies
+import AppStudioStyles
 
 enum CoachTextFieldOutput {
     case send(text: String)
@@ -24,18 +25,21 @@ struct CoachTextField: View {
     let suggestions: [String]
     let isKeywordsPresented: Bool
     let isWaitingForReply: Bool
+    let maxPosition: CGFloat
     let output: (CoachTextFieldOutput) -> Void
 
     var body: some View {
         VStack(spacing: .zero) {
-            if isSuggestionsPresented {
-                CoachSuggestionsView(suggestions: suggestions) {
-                    output(.regenerateSuggestions)
-                } onTap: { suggestion in
-                    output(.tapSuggestion(text: suggestion, context: .list))
-                }
-                .hideKeyboardOnTap()
+            CoachSuggestionsView(suggestions: suggestions,
+                                 maxPosition: maxPosition,
+                                 isPresented: isSuggestionsPresented) {
+                output(.regenerateSuggestions)
+            } onTap: { suggestion in
+                output(.tapSuggestion(text: suggestion, context: .list))
             }
+            .hideKeyboardOnTap()
+            .frame(height: isSuggestionsPresented ? nil : 0)
+
             HStack(alignment: .bottom, spacing: .spacing) {
                 CoachTextFieldView(text: $text, styles: styles)
                 CoachTextFieldButton(text: text,
@@ -72,11 +76,12 @@ private extension CGFloat {
                            isSuggestionsPresented: true,
                            suggestions: [
                             "Tips to manage social eating pressure? What to eat before exercise?",
-                            "What meals/snack can help me stay full?",
+                            "What meals/snacks can help me stay full?",
                             "Can you help me with a workout plan?"
                            ],
                            isKeywordsPresented: false, 
-                           isWaitingForReply: false) { _ in }
+                           isWaitingForReply: false, 
+                           maxPosition: 20) { _ in }
         }
     }
 }

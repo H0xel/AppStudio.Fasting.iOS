@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MealSelectedState {
+enum MealSelectedState: Equatable {
     case notSelected
     case delete(Meal)
     case ingredient(Meal, Ingredient)
@@ -62,6 +62,15 @@ enum MealSelectedState {
             false
         case .ingredientWeight, .mealWeight:
             true
+        }
+    }
+
+    var isAddingIngredient: Bool {
+        switch self {
+        case .notSelected, .mealWeight, .delete, .ingredient, .ingredientWeight:
+            return false
+        case .addIngredients:
+            return true
         }
     }
 }

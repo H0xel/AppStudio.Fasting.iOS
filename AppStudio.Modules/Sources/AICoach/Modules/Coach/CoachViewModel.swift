@@ -34,6 +34,7 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
     private var nextMessagePublisher: AnyPublisher<String, Never>
     private let suggestionTypes: [CoachSuggestionType]
 
+
     init(input: CoachInput, output: @escaping CoachOutputBlock) {
         constants = input.constants
         nextMessagePublisher = input.nextMessagePublisher
@@ -109,6 +110,11 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
         output(.focusChanged(isFocused))
     }
 
+    func tapKeywordSuggestion(_ question: String) {
+        sendMessage(with: question)
+        trackTapSuggestion(context: .input)
+    }
+
     private func sendMessage(with text: String) {
         if isMonetizationExpAvailable {
             output(.presentMultiplePaywall)
@@ -170,7 +176,7 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
     }
 
     private func updateSuggestions() {
-        suggestions = Array(suggestedQuestionsService.allQuestions(types: suggestionTypes).prefix(3))
+        self.suggestions = nextSuggestions
     }
 
     private func observeMessages() {
@@ -204,6 +210,13 @@ class CoachViewModel: BaseViewModel<CoachOutput> {
                 this.sendMessage(with: nextMessage)
             })
             .store(in: &cancellables)
+    }
+
+    private var nextSuggestions: [String] {
+        Array (
+            suggestedQuestionsService
+                .allQuestions(types: suggestionTypes)
+        )
     }
 }
 

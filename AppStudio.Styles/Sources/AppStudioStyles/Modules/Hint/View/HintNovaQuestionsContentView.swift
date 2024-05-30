@@ -7,11 +7,17 @@
 
 import SwiftUI
 
-struct HintNovaQuestionsContentView: View {
-    let novaQuestionsContent: NovaQustionsContent
-    let onQuestionTap: (String) -> Void
+public struct HintNovaQuestionsContentView: View {
+    private let novaQuestionsContent: NovaQustionsContent
+    private let onQuestionTap: (String) -> Void
 
-    var body: some View {
+    public init(novaQuestionsContent: NovaQustionsContent,
+                onQuestionTap: @escaping (String) -> Void) {
+        self.novaQuestionsContent = novaQuestionsContent
+        self.onQuestionTap = onQuestionTap
+    }
+
+    public var body: some View {
         VStack(alignment: .leading, spacing: .spacing) {
             HStack(alignment: .center, spacing: .horizontalSpacing) {
                 novaQuestionsContent.icon

@@ -75,7 +75,7 @@
     {
       "identity" : "appstudio.ios.subscriptions",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions",
+      "location" : "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git",
       "state" : {
         "revision" : "fcea7d861bde431558cb89ba4c8761b022a662c4",
         "version" : "1.0.3"
@@ -185,8 +185,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:m-unicorn/iOS.MunicornFoundation.git",
       "state" : {
-        "revision" : "124aab594d3313f2239e2c339f13b30aeecffcbf",
-        "version" : "1.2.11"
+        "revision" : "41f8733416185bd392b800354613f185abc15d89",
+        "version" : "1.2.12"
       }
     },
     {
@@ -214,6 +214,15 @@
       "state" : {
         "revision" : "819d0a2173aff699fb8c364b6fb906f7cdb1a692",
         "version" : "2.30909.0"
+      }
+    },
+    {
+      "identity" : "networkimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gonzalezreal/NetworkImage",
+      "state" : {
+        "revision" : "7aff8d1b31148d32c5933d75557d42f6323ee3d1",
+        "version" : "6.0.0"
       }
     },
     {
@@ -277,6 +286,15 @@
       "state" : {
         "revision" : "e97a6fcb1ab07462881ac165fdbb37f067e205d5",
         "version" : "1.5.4"
+      }
+    },
+    {
+      "identity" : "swift-markdown-ui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gonzalezreal/swift-markdown-ui",
+      "state" : {
+        "revision" : "ae799d015a5374708f7b4c85f3294c05f2a564e2",
+        "version" : "2.3.0"
       }
     },
     {

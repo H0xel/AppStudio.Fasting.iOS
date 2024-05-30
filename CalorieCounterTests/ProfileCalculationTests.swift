@@ -8,6 +8,7 @@
 import XCTest
 @testable import CalorieCounter
 import Dependencies
+import AppStudioModels
 
 final class ProfileCalculationTests: XCTestCase {
     @Dependency(\.profileCalculationServiceService) var profileCalculationServiceService
@@ -18,8 +19,8 @@ final class ProfileCalculationTests: XCTestCase {
 
     func testTDDCreateServices() throws {
         let initial = ProfileCalculationInitialData(sex: .male,
-                                                    age: 45,
-                                                    height: .init(value: 180),
+                                                    birthday: .now,
+                                                    height: .init(value: 180, units: .cm),
                                                     weight: .init(value: 107),
                                                     activityLevel: .sedentary,
                                                     exerciseActivity: .sessionsPerWeek1to3,

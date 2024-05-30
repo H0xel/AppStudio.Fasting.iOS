@@ -13,12 +13,14 @@ import HealthProgress
 import Combine
 import HealthOverview
 import AppStudioServices
+import Explore
 
 class RootRouter: BaseRouter {
     @Dependency(\.openURL) private var openURL
 
     let fastingNavigator = Navigator()
     let healthOverviewNavigator = Navigator()
+    private let exploreNavigator = Navigator()
     private let paywallNavigator = Navigator()
     private let coachNavigator = Navigator()
     private let onboardingNavigator = Navigator()
@@ -30,6 +32,11 @@ class RootRouter: BaseRouter {
 
     var fastingScreen: some View {
         fastingNavigator.rootRoute?.view
+    }
+
+    func exploreScreen(output: @escaping ArticlesOutputBlock) -> some View {
+        let route = ArticlesRoute(navigator: exploreNavigator, input: .init(), output: output)
+        return exploreNavigator.initialize(route: route)
     }
 
     func healthProgressScreen(
@@ -88,6 +95,8 @@ class RootRouter: BaseRouter {
                 return healthProgressNavigator
             case .daily:
                 return healthOverviewNavigator
+            case .explore:
+                return exploreNavigator
             }
         }
 
@@ -208,6 +217,8 @@ class RootRouter: BaseRouter {
             healthProgressNavigator
         case .daily:
             healthOverviewNavigator
+        case .explore:
+            exploreNavigator
         }
     }
 }

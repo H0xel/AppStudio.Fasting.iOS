@@ -7,9 +7,15 @@
 
 import Foundation
 
-struct ArticleNutritionProfile: Codable {
+struct ArticleNutritionProfile: Codable, Hashable {
     let calories: Double
     let proteins: Double
     let fats: Double
     let carbs: Double
+}
+
+extension ArticleNutritionProfile {
+    static var mock: ArticleNutritionProfile {
+        .init(calories: 376, proteins: 12, fats: 12, carbs: 25)
+    }
 }

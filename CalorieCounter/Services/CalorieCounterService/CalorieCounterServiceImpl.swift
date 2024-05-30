@@ -6,6 +6,7 @@
 //
 
 import Dependencies
+import Foundation
 
 class CalorieCounterServiceImpl: CalorieCounterService {
     @Dependency(\.calorieCounterApi) private var calorieCounterApi
@@ -50,8 +51,11 @@ private extension ApiIngredient {
 
 private extension ApiMeal {
     var asMeal: MealItem {
-        MealItem(name: ingredients.count == 1 ? "" : name, 
+        MealItem(id: UUID().uuidString,
+                 name: ingredients.count == 1 ? "" : name,
                  subTitle: nil,
-                 ingredients: ingredients.map { $0.asIngridient })
+                 ingredients: ingredients.map { $0.asIngridient },
+                 creationType: .chatGPT,
+                 dateUpdated: .now)
     }
 }

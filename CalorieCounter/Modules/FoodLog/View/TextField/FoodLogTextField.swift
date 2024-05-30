@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AppStudioUI
+import AppStudioStyles
 import Dependencies
 
 enum FoodLogTextFieldContext {
@@ -15,14 +16,15 @@ enum FoodLogTextFieldContext {
 }
 
 struct FoodLogTextField: View {
+    @Binding var text: String
     @Dependency(\.cameraAccessService) private var cameraAccessService
 
     var context: FoodLogTextFieldContext = .addMeal
     var isDisableEditing = false
+    var showTopBorder = true
     var isBarcodeShown = true
     let onTap: (String) -> Void
     let onBarcodeScan: (Bool) -> Void
-    @State private var text: String = ""
 
     @FocusState private var isFocused: Bool
 
@@ -55,14 +57,14 @@ struct FoodLogTextField: View {
                         axis: .vertical
                     )
                     .focused($isFocused)
-                    .submitLabel(.done)
+                    .submitLabel(.return)
                     .modifier(NoNewLineTextFieldModifier(text: $text, onSubmit: log))
                     .font(.poppins(.body))
                     .lineLimit(5)
                     .padding(.vertical, .emptyStateVerticalPadding)
                 }
                 .padding(.horizontal, .emptyStateHorizontalPadding)
-                .background(Color.studioGreyFillCard)
+                .background(Color.studioGreyFillProgress)
                 .continiousCornerRadius(.textfieldCornerRadius)
                 .disabled(isDisableEditing)
                 .onTapGesture {
@@ -70,9 +72,8 @@ struct FoodLogTextField: View {
                         onTap("")
                     }
                 }
-
                 if !text.isEmpty {
-                    FoodLogTextFieldButton(isAccent: true, image: .arrowUp, onTap: log)
+                    FoodLogTextFieldButton(isAccent: true, image: .sparkles, onTap: log)
                 } else if isBarcodeShown {
                     FoodLogTextFieldButton(image: .barcode) {
                         Task {
@@ -86,8 +87,8 @@ struct FoodLogTextField: View {
         .padding(.emptyStatePadding)
         .foregroundStyle(.accent)
         .background(.white)
-        .corners([.topLeft, .topRight], with: .cornerRadius)
-        .modifier(TopBorderModifier())
+        .corners([.topLeft, .topRight], with: showTopBorder ? .cornerRadius : .zero)
+        .modifier(TopBorderModifier(color: showTopBorder ? .studioGreyStrokeFill : .clear))
     }
 
     private var headerTitle: String {
@@ -126,11 +127,11 @@ private extension CGFloat {
     static let notFocusedLeadingPadding: CGFloat = 0
     static let trailingPadding: CGFloat = 16
     static let cornerRadius: CGFloat = 20
-    static let textfieldCornerRadius: CGFloat = 20
+    static let textfieldCornerRadius: CGFloat = 56
     static let spacing: CGFloat = 4
     static let arrowBottomPadding: CGFloat = 14
-    static let emptyStateVerticalPadding: CGFloat = 8
-    static let emptyStatePadding: CGFloat = 8
+    static let emptyStateVerticalPadding: CGFloat = 12
+    static let emptyStatePadding: CGFloat = 10
     static let emptyStateHorizontalPadding: CGFloat = 16
     static let emptyStateCornerRadius: CGFloat = 56
     static let titleSpacing: CGFloat = 4
@@ -151,12 +152,13 @@ private extension FoodLogTextField {
     VStack(spacing: 0) {
         ZStack {
             Color.yellow
-            FoodLogTextField(isBarcodeShown: true, onTap: { _ in }, onBarcodeScan: { _ in })
+
+            FoodLogTextField(text: .constant(""), isBarcodeShown: true, onTap: { _ in }, onBarcodeScan: { _ in })
         }
         ZStack {
             Color.yellow
-            FoodLogTextField(context: .addIngredients(.mock),
-                             isBarcodeShown: true, 
+            FoodLogTextField(text: .constant(""), context: .addIngredients(.mock),
+                             isBarcodeShown: true,
                              onTap: { _ in },
                              onBarcodeScan: { _ in })
         }

@@ -19,7 +19,7 @@ struct FoodLogScrollView: View {
             ScrollView {
                 Spacer(minLength: .topSpacing)
                     .id(topSpacerId)
-                ForEach(viewModel.logItems, id: \.self) { logItem in
+                ForEach(viewModel.logItems, id: \.id) { logItem in
                     switch logItem {
                     case .meal(let meal):
                         MealView(input: viewModel.mealViewInput(for: meal)) { output in
@@ -27,7 +27,7 @@ struct FoodLogScrollView: View {
                         }
                         .id(meal.id)
                         .onTapGesture {
-                            viewModel.setMealToDelete(meal)
+                            viewModel.clearMealSelection()
                         }
                     case .placeholder(let placeholder):
                         MealPlaceholderView(text: placeholder.mealText)

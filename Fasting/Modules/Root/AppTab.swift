@@ -12,4 +12,5 @@ enum AppTab: String {
     case coach
     case healthProgress
     case daily
+    case explore
 }

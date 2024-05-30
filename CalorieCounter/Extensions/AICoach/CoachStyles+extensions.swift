@@ -22,6 +22,6 @@ extension CoachStyles {
                             coachGrayPlaceholder: .studioGrayPlaceholder,
                             coachGrayText: .studioGrayText,
                             coachSky: .studioSky),
-              images: .init(coachIcon: .init(.coachIcon)))
+              images: .init(coachIcon: .coachIcon))
     }
 }

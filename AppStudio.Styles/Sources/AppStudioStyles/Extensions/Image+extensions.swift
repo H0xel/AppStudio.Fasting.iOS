@@ -29,6 +29,26 @@ public extension Image {
         Image(systemName: "chart.line.uptrend.xyaxis")
     }
 
+    /// 􀆿
+    static var sparkles: Image {
+        Image(systemName: "sparkles")
+    }
+
+    /// 􀉟
+    static var bookmarkFill: Image {
+        Image(systemName: "bookmark.fill")
+    }
+
+    /// 􀚈
+    static var squareGrid: Image {
+        Image(systemName: "square.grid.2x2.fill")
+    }
+
+    /// 􀏆
+    static var photoFill: Image {
+        Image(systemName: "photo.fill")
+    }
+
     static var widgetInfo: Image {
         .init(.widgetInfo)
     }
@@ -75,5 +95,9 @@ public extension Image {
 
     static var rateIllustration: Image {
         .init(.rateIllustration)
+    }
+
+    static var coachIcon: Image {
+        .init(.coachIcon)
     }
 }

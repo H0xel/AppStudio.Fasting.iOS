@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct ArticleApi: Codable {
+    let free: Bool
+    let title: String
+    let type: ArticleType
+    let cookTime: Int?
+    let readTime: Int?
+    let nutritionProfile: ArticleNutritionProfile?
+}

@@ -13,7 +13,7 @@ import UIKit
 
 extension DependencyValues {
     var migrations: [Migration] {
-        []
+        [MealtItemMigration()]
     }
     var migrationLaunchService: MigrationLaunchService {
         self[MigrationLaunchServiceKey.self]

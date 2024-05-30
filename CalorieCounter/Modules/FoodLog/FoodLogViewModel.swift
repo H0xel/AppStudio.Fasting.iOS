@@ -9,6 +9,7 @@ import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
 import Dependencies
+import Combine
 import Photos
 
 class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
@@ -20,6 +21,7 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.userPropertyService) private var userPropertyService
     @Dependency(\.requestReviewService) private var requestReviewService
+    @Dependency(\.mealUsageService) private var mealUsageService
     @Dependency(\.cameraAccessService) private var cameraAccessService
 
     var router: FoodLogRouter!
@@ -28,6 +30,11 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     @Published var mealSelectedState: MealSelectedState = .notSelected
     @Published var hasSubscription: Bool
     @Published var isKeyboardFocused: Bool
+    @Published var isSuggestionsPresented: Bool
+    @Published var logType: LogType = .log
+    @Published var quickAddMeal: Meal?
+    @Published var mealRequest = ""
+    @Published var isQuickAddPresented = false
     private let dayDate: Date
     private let context: FoodLogContext
     private var isBarcodeScanFinishedSuccess = false
@@ -35,6 +42,7 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     @Published var ingredientPlaceholders: [String: [MealPlaceholder]] = [:]
     @Published private var votings: [String: MealVoting] = [:]
     private var votingsTimer: [String: TimeInterval] = [:]
+    private var dismissSuggestionsSubject = PassthroughSubject<Void, Never>()
 
     var foodLogContext: FoodLogTextFieldContext {
         switch mealSelectedState {
@@ -58,16 +66,19 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
         }
         return meal
     }
-
+    
     init(input: FoodLogInput, output: @escaping FoodLogOutputBlock) {
         mealType = input.mealType
         dayDate = input.dayDate
         context = input.context
         isKeyboardFocused = input.context.isKeyboardFocused
+        isSuggestionsPresented = input.context.isKeyboardFocused
         hasSubscription = input.hasSubscription
         mealsCountInDay = input.mealsCountInDay
         super.init(output: output)
         loadMeals(initialData: input.initialMeal)
+
+        subscribeLogTypeEvents()
     }
 
     var nutritionProfile: NutritionProfile {
@@ -79,6 +90,16 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
                 return $0
             }
         }
+    }
+
+    var foodSuggestionsInput: FoodSuggestionsInput {
+        .init(mealPublisher: $logItems.map { $0.compactMap { $0.meal?.mealItem } }.eraseToAnyPublisher(),
+              mealType: mealType,
+              mealRequestPublisher: $mealRequest.eraseToAnyPublisher(),
+              isPresented: isKeyboardFocused,
+              collapsePublisher: dismissSuggestionsSubject.eraseToAnyPublisher(), 
+              searchRequest: mealRequest,
+              canShowFavorites: logType == .log)
     }
 
     func onViewAppear() {
@@ -95,6 +116,8 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     func onFocusChanged(_ isFocused: Bool) {
         if case .addIngredients = mealSelectedState, !isFocused {
             mealSelectedState = .notSelected
+            isQuickAddPresented = false
+            isKeyboardFocused = false
         }
     }
 
@@ -176,9 +199,11 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     }
 
     func dismiss() {
+        #if !DEBUG
         if !logItems.isEmpty {
             requestReviewService.requestAppStoreReview()
         }
+        #endif
         hideKeyboard()
         output(.closed)
         router.dismiss()
@@ -222,6 +247,69 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
         return meal.voting
     }
 
+    func closeChip() {
+            switch logType {
+            case .log:
+                break
+            case .history:
+                withAnimation {
+                    logType = .log
+                }
+
+            case .quickAdd:
+                quickAddMeal = nil
+                isQuickAddPresented = false
+                withAnimation(.linear(duration: 0.35)) {
+                    logType = .log
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.4) {
+                    self.isSuggestionsPresented = true
+                    self.isKeyboardFocused = true
+                }
+            case .addRecipe:
+                break
+            }
+    }
+
+    @MainActor
+    private func clearLogTypeQuickAddState() async {
+        logType = .log
+        isQuickAddPresented = false
+        isSuggestionsPresented = false
+        isKeyboardFocused = false
+    }
+
+    @MainActor
+    private func clearQuickAddMeal() async {
+        quickAddMeal = nil
+        isQuickAddPresented = false
+        isKeyboardFocused = true
+        isSuggestionsPresented = true
+    }
+
+    func handle(quickAddOutput: QuickAddOutput) {
+        switch quickAddOutput {
+        case .created(let meal):
+            dismissSuggestionsSubject.send()
+            Task {
+                var editedMeal = meal.copyWith(type: mealType)
+                editedMeal.dayDate = dayDate
+                let savedMeal = try await mealService.save(meal: editedMeal)
+                await updateOrInsert(meal: savedMeal)
+                await clearLogTypeQuickAddState()
+            }
+        case .updated(let meal):
+            dismissSuggestionsSubject.send()
+            Task {
+                let saved = try await mealService.save(meal: meal)
+                await update(meal: saved)
+                await clearLogTypeQuickAddState()
+            }
+        case .dismiss:
+            break
+        }
+    }
+
     func handle(mealViewOutput output: MealViewOutput, meal: Meal) {
         switch output {
         case .ingredientTap(let ingredient):
@@ -246,6 +334,8 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
                 trackTapDislike()
             }
             vote(voting: voting, for: meal)
+        case .tap:
+            setMealToDelete(meal)
         }
     }
 
@@ -270,6 +360,41 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
         votingsTimer.keys.forEach { id in
             votingsTimer[id] = (votingsTimer[id] ?? 0) - TimeInterval.second
         }
+    }
+
+    private func subscribeLogTypeEvents() {
+        $logType
+            .receive(on: DispatchQueue.main)
+            .filter { $0 == .quickAdd }
+            .sink(with: self) { this, _ in
+                this.isQuickAddPresented = true
+            }
+            .store(in: &cancellables)
+
+        $logType
+            .receive(on: DispatchQueue.main)
+            .filter { $0 == .history }
+            .sink(with: self) { this, _ in
+                this.isKeyboardFocused = true
+            }
+            .store(in: &cancellables)
+
+        $isQuickAddPresented
+            .receive(on: DispatchQueue.main)
+            .filter { $0 }
+            .sink(with: self) { this, value in
+                this.isSuggestionsPresented = false
+                this.isKeyboardFocused = true
+            }
+            .store(in: &cancellables)
+
+        $isSuggestionsPresented
+            .receive(on: DispatchQueue.main)
+            .filter { $0 }
+            .sink(with: self) { this, value in
+                this.isQuickAddPresented = false
+            }
+            .store(in: &cancellables)
     }
 
     private func checkVotings() {
@@ -353,6 +478,15 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     }
 
     @MainActor
+    private func updateOrInsert(meal: Meal) {
+        if let index = mealIndex(of: meal) {
+            logItems[index] = .meal(meal)
+        } else {
+            logItems.insert(.meal(meal), at: 0)
+        }
+    }
+
+    @MainActor
     private func replaceMeals(_ meals: [Meal]) {
         logItems = meals.map { .meal($0) }
     }
@@ -367,6 +501,7 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     private func addIngredientsTapped(for meal: Meal) {
         clearSelection()
         isKeyboardFocused = true
+        isQuickAddPresented = false
         mealSelectedState = .addIngredients(meal)
     }
 
@@ -403,7 +538,7 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     }
 
     private func presentIngredientDeleteBanner(meal: Meal, ingredient: Ingredient) {
-        router.presentDeleteBanner(title: "MealDeleteBanner.deleteIngredient") { [weak self] in
+        router.presentDeleteBanner(editType: .deleteIngredient) { [weak self] in
             self?.clearSelection()
         } onDelete: { [weak self] in
             guard let self else { return }
@@ -417,17 +552,45 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
             updateMeal(newMeal)
             logItems[index] = .meal(newMeal)
             trackerService.track(.elementDeleted(context: .ingredient))
-        }
+        } onEdit: {}
     }
 
     @MainActor
     func deselectAndDismissKeyboard() {
+        isSuggestionsPresented = false
+        isQuickAddPresented = false
         isKeyboardFocused = false
         mealSelectedState = .notSelected
     }
 
+    func handle(foodSuggestionsOutput output: FoodSuggestionsOutput) {
+        switch output {
+        case .add(let mealItem):
+            let meal = Meal(type: mealType,
+                            dayDate: dayDate,
+                            mealItem: mealItem,
+                            voting: .disabled)
+            logItems.insert(.meal(meal), at: 0)
+            Task {
+                try await save(meals: [meal])
+            }
+            mealRequest = ""
+        case .remove(let mealItem):
+            guard let mealIndex = logItems.firstIndex(where: { $0.meal?.mealItem.id == mealItem.id }),
+                  let meal = logItems[mealIndex].meal else {
+                return
+            }
+            deleteMeal(meal)
+            logItems.remove(at: mealIndex)
+            decrementMealsCount()
+        case .togglePresented(let isPresented):
+            isKeyboardFocused = isPresented
+            isSuggestionsPresented = isPresented
+        }
+    }
+
     private func presentMealDeleteBanner(_ meal: Meal) {
-        router.presentDeleteBanner(title: "MealDeleteBanner.deleteMeal") { [weak self] in
+        router.presentDeleteBanner(editType: meal.isQuickAdded ? .quickAddMeal : .deleteMeal) { [weak self] in
             self?.clearMealSelection()
         } onDelete: { [weak self] in
             guard let self else { return }
@@ -436,11 +599,16 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
             logItems = logItems.filter { $0.meal?.id != meal.id }
             trackerService.track(.elementDeleted(context: .meal))
             decrementMealsCount()
+        } onEdit: { [weak self] in
+            guard let self else { return }
+            self.clearMealSelection()
+            self.quickAddMeal = meal
+            self.logType = .quickAdd
+            self.isQuickAddPresented = true
         }
     }
 
-
-    private func clearMealSelection() {
+    func clearMealSelection() {
         mealSelectedState = .notSelected
         router.dismissBanner()
     }
@@ -468,10 +636,12 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     @MainActor
     private func appendPlaceholder(_ placeholder: MealPlaceholder) {
         logItems.insert(.placeholder(placeholder), at: 0)
+        dismissSuggestionsSubject.send()
     }
 
     @MainActor
     private func appendIngredientPlaceholder(_ placeholder: MealPlaceholder, for meal: Meal) {
+        dismissSuggestionsSubject.send()
         var ings = ingredientPlaceholders[meal.id] ?? [MealPlaceholder]()
         ings.append(placeholder)
         ingredientPlaceholders[meal.id] = ings
@@ -504,7 +674,9 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
 
     private func deleteMeal(_ meal: Meal) {
         Task { [weak self] in
-            try await self?.mealService.delete(byId: meal.id)
+            guard let self else { return }
+            try await self.mealService.delete(byId: meal.id)
+            try await mealUsageService.decrementUsage(meal.mealItem, mealType: mealType)
         }
     }
 
@@ -554,13 +726,23 @@ extension FoodLogViewModel {
     }
 
     private func requestMeal(text: String) async throws {
+        await MainActor.run {
+            isSuggestionsPresented = false
+        }
         let placeholder = MealPlaceholder(mealText: text)
         await appendPlaceholder(placeholder)
         trackerService.track(.entrySent)
         let meals = try await meals(request: text, type: mealType)
         await replacePlaceholder(with: meals, placeholderId: placeholder.id, mealType: mealType)
         trackerService.track(.mealAdded(ingredientsCounts: meals.flatMap { $0.mealItem.ingredients }.count))
+        try await save(meals: meals)
+    }
+
+    private func save(meals: [Meal]) async throws {
         try await mealService.save(meals: meals)
+        for meal in meals {
+            _ = try await mealUsageService.incrementUsage(meal.mealItem, mealType: mealType)
+        }
         freeUsageService.insertDate(date: dayDate)
         incrementMealsCount()
     }
@@ -609,6 +791,9 @@ extension FoodLogViewModel {
     }
 
     private func searchMeal(barcode: String) async throws {
+        await MainActor.run {
+            isSuggestionsPresented = false
+        }
         let placeholder = MealPlaceholder(mealText: barcode)
         await appendPlaceholder(placeholder)
         guard let mealItem = try await foodSearchService.search(barcode: barcode) else {
@@ -620,6 +805,9 @@ extension FoodLogViewModel {
         trackBarcodeScanned(isSucces: true, productName: mealItem.name)
         await replacePlaceholder(with: meals, placeholderId: placeholder.id, mealType: mealType)
         try await mealService.save(meals: meals)
+        for meal in meals {
+            _ = try await mealUsageService.incrementUsage(meal.mealItem, mealType: mealType)
+        }
         freeUsageService.insertDate(date: dayDate)
         incrementMealsCount()
     }

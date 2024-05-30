@@ -24,6 +24,7 @@ enum MealViewOutput {
     case addIngredientsTap
     case onIngredientPlaceholderClose(String)
     case vote(MealVoting)
+    case tap
 }
 
 struct MealView: View {
@@ -31,33 +32,41 @@ struct MealView: View {
     let input: MealViewInput
     let output: (MealViewOutput) -> Void
 
+    var isHeaderHidden: Bool {
+        input.meal.creationType == .quickAdd && input.meal.mealName.isEmpty
+    }
     var body: some View {
-        VStack(spacing: 0){
+        VStack(spacing: .zero){
             VStack(spacing: .zero) {
                 HStack(alignment: .top, spacing: .zero) {
                     VStack(alignment: .leading, spacing: .titleSpacing) {
-                        VStack(alignment: .leading, spacing: .subTitleSpacing) {
-                            Text(input.meal.mealName)
-                                .font(.poppinsBold(.buttonText))
-                                .lineLimit(2)
-                                .foregroundStyle(.accent)
-                            if let subTitle = input.meal.brandSubtitle {
-                                Text(subTitle)
-                                    .font(.poppins(.body))
+                        if !isHeaderHidden {
+                            VStack(alignment: .leading, spacing: .subTitleSpacing) {
+                                Text(input.meal.mealName)
+                                    .font(.poppinsBold(.buttonText))
+                                    .lineLimit(2)
                                     .foregroundStyle(.accent)
-                                    .padding(.bottom, .subTitleSpacing)
+                                if let subTitle = input.meal.brandSubtitle {
+                                    Text(subTitle)
+                                        .font(.poppins(.body))
+                                        .foregroundStyle(.accent)
+                                        .padding(.bottom, .subTitleSpacing)
+                                }
                             }
                         }
                         MealNutritionProfileView(profile: input.meal.nutritionProfile,
                                                  canShowNutritions: true)
                     }
                     Spacer()
-                    Button {
-                        output(.mealWeightTap)
-                    } label: {
-                        MealWeightView(weight: input.meal.weight, isTapped: input.isWeightTapped)
+                    if input.meal.creationType != .quickAdd {
+                        Button {
+                            output(.mealWeightTap)
+                        } label: {
+                            MealWeightView(weight: input.meal.weight, isTapped: input.isWeightTapped)
+                        }
                     }
                 }
+                .background(.white)
                 .padding(.bottom, .titleBottomPadding)
                 .padding(.leading, .leadingPadding)
                 .padding(.trailing, .trailingPadding)
@@ -96,35 +105,57 @@ struct MealView: View {
                     }
                 }
 
-                if !input.isTapped {
-                    HStack(alignment: .center, spacing: .addButtonSpacing) {
-                        Image.plus
+                // MARK: - BOTTOM Panel
+                HStack(alignment: .center, spacing: .addButtonSpacing) {
+                    if input.meal.creationType == .quickAdd {
+                        Text(Localization.quickAdd)
+                            .font(.poppins(.description))
+                            .foregroundStyle(Color.studioGrayText)
+                    } else {
+                        HStack(alignment: .center, spacing: .addButtonSpacing) {
+                            Image.plus
+                                .resizable()
+                                .frame(width: .addButtonSmallPadding,
+                                       height: .addButtonSmallPadding)
+                                .font(.poppinsBold(.headerL))
+                                .foregroundStyle(Color.accentColor)
+                                .padding(.addButtonSmallPadding)
+                                .background(Color.studioGrayFillProgress)
+                                .continiousCornerRadius(.cornerRadius)
+                                .padding(.vertical, .addButtonSmallPadding)
+
+                            Text(Localization.addIngredientTitle)
+                                .font(.poppins(.body))
+                        }
+                        .onTapGesture {
+                            output(.addIngredientsTap)
+                        }
+                    }
+                    Spacer()
+
+                    Button {
+                        output(.tap)
+                    } label: {
+                        Image.points
+                            .renderingMode(.template)
                             .resizable()
-                            .frame(width: .addButtonSmallPadding,
-                                   height: .addButtonSmallPadding)
-                            .font(.poppinsBold(.headerL))
-                            .foregroundStyle(Color.accentColor)
-                            .padding(.addButtonSmallPadding)
-                            .background(Color.studioGrayFillProgress)
-                            .continiousCornerRadius(.cornerRadius)
-                            .padding(.vertical, .addButtonSmallPadding)
-
-
-                        Text(Localization.addIngredientTitle)
-                            .font(.poppins(.body))
-
-                        Spacer()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: .iconSize, height: .iconSize)
+                            .padding(.iconPadding)
+                            .foregroundStyle(isPointsButtonDisabled
+                                             ? Color.studioGreyStrokeFill : Color.studioBlackLight)
                     }
-                    .onTapGesture {
-                        output(.addIngredientsTap)
-                    }
-                    .padding(.horizontal, .addButtonHorizontalPadding)
-                    .padding(.top, .verticalPadding)
                 }
+
+                .padding(.horizontal, .addButtonHorizontalPadding)
+                .padding(.top, .verticalPadding)
             }
             .padding(.top, .topPadding)
             .padding(.bottom, input.meal.ingredients.count > 1 ? .bottomPadding : .verticalPadding)
             .background(.white)
+            .onTapGesture {
+                output(.tap)
+            }
             .border(configuration: .init(cornerRadius: .cornerRadius,
                                          color: .accent,
                                          lineWidth: input.isTapped ? .borderWidth : 0))
@@ -139,14 +170,17 @@ struct MealView: View {
             }
         }
     }
+    var isPointsButtonDisabled: Bool {
+        input.isTapped
+    }
 }
-
-
 
 private extension MealView {
     enum Localization {
         static let addIngredientTitle = NSLocalizedString("FoodLogScreen.addIngredientButtonTitle",
                                                           comment: "Add Ingredient")
+        static let quickAdd = NSLocalizedString("LogType.quickAdd",
+                                                comment: "Quick Add")
     }
 }
 
@@ -166,6 +200,9 @@ private extension CGFloat {
     static let addButtonHorizontalPadding: CGFloat = 16
     static let addButtonSmallPadding: CGFloat = 8
     static let addButtonSpacing: CGFloat = 8
+
+    static let iconSize: CGFloat = 16
+    static let iconPadding: CGFloat = 4
 }
 
 private extension Animation {
@@ -176,6 +213,20 @@ private extension Animation {
 
 #Preview {
     VStack {
+        MealView(input: .init(meal: .mockQuickAddWithTitle, ingredientPlaceholders: [],
+                              isTapped: false,
+                              isWeightTapped: false,
+                              tappedIngredient: nil,
+                              tappedWeightIngredient: nil, voting: .like),
+                 output: { _ in })
+        
+        MealView(input: .init(meal: .mockQuickAdd, ingredientPlaceholders: [],
+                              isTapped: false,
+                              isWeightTapped: false,
+                              tappedIngredient: nil,
+                              tappedWeightIngredient: nil, voting: .like),
+                 output: { _ in })
+
         MealView(input: .init(meal: .mock, ingredientPlaceholders: [MealPlaceholder(mealText: "test")],
                               isTapped: false,
                               isWeightTapped: false,
@@ -191,3 +242,4 @@ private extension Animation {
     }
     .background(.red)
 }
+

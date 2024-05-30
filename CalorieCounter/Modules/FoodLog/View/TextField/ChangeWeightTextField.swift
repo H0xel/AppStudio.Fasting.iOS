@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AppStudioUI
+import AppStudioStyles
 
 struct ChangeWeightTextField: View {
 
@@ -38,7 +39,7 @@ struct ChangeWeightTextField: View {
             .padding(.vertical, .verticalPadding)
 
             if !text.isEmpty {
-                FoodLogTextFieldButton(image: .checkmark) {
+                ChangeWeightButton {
                     hideKeyboard()
                     onWeightChange(weight)
                 }

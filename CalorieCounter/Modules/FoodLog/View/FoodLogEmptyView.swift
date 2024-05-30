@@ -16,12 +16,16 @@ struct FoodLogEmptyView: View {
             type.image
                 .resizable()
                 .frame(width: .imageWidth, height: .imageHeight)
-            Text(Localization.emptyViewTitle)
+            Text(title)
                 .font(.poppins(.body))
                 .foregroundStyle(Color.studioGreyPlaceholder)
                 .multilineTextAlignment(.center)
         }
         .padding(.horizontal, .horizontalPadding)
+    }
+
+    private var title: String {
+        "FoodLogScreen.emptyViewTitle.\(type.rawValue)".localized()
     }
 }
 
@@ -30,12 +34,6 @@ private extension CGFloat {
     static let horizontalPadding: CGFloat = 64
     static let imageWidth: CGFloat = 100
     static let imageHeight: CGFloat = 80
-}
-
-private extension FoodLogEmptyView {
-    enum Localization {
-        static let emptyViewTitle: LocalizedStringKey = "FoodLogScreen.emptyViewTitle"
-    }
 }
 
 #Preview {

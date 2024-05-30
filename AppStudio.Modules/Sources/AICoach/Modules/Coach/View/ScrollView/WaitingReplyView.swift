@@ -12,7 +12,7 @@ struct WaitingReplyView: View {
 
     @Dependency(\.styles) private var styles
 
-    private let timer = Timer.publish(every: 0.7, on: .main, in: .default).autoconnect()
+    private let timer = Timer.publish(every: 0.4, on: .main, in: .default).autoconnect()
     @State private var dotsCount = 1
 
     var body: some View {

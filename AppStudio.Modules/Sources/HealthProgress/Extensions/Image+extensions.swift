@@ -20,10 +20,6 @@ public extension Image {
         Image(.hintIcon)
     }
 
-    static var coachIcon: Image {
-        Image(.coachIcon)
-    }
-
     static var sugarRises: Image {
         Image(.sugarRises)
     }

@@ -1,4 +1,4 @@
-//  
+//
 //  FoodLogScreen.swift
 //  CalorieCounter
 //
@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
+import Combine
 import AVFoundation
 
 struct FoodLogScreen: View {
@@ -20,6 +21,9 @@ struct FoodLogScreen: View {
             VStack(spacing: .zero) {
                 FoodLogNutritionProfileView(profile: viewModel.nutritionProfile,
                                             hasSubscription: viewModel.hasSubscription)
+                if viewModel.hasSubscription {
+                    FoodLogCalorieBudgetView(profile: viewModel.nutritionProfile)
+                }
                 if hasItems {
                     FoodLogScrollView(viewModel: viewModel, isFocused: isFocused)
                         .padding(.horizontal, .horizontalPadding)
@@ -29,23 +33,11 @@ struct FoodLogScreen: View {
             if !hasItems {
                 FoodLogEmptyView(type: viewModel.mealType)
             }
-            VStack(spacing: .textFieldSpacing) {
-                if canShowDoneButton {
-                    LogButton {
-                        viewModel.trackTapFinishLogging()
-                        viewModel.dismiss()
-                    }
-                    .aligned(.right)
-                    .padding(.trailing, .logButtonTrailingPadding)
-                }
-                FoodLogTextField(context: viewModel.foodLogContext,
-                                 onTap: viewModel.logMeal(text:)) { accessGranted in
-                    viewModel.trackBarcodeScannerOpen()
-                    viewModel.barcodeScan(accessGranted: accessGranted)
-                }
+
+            FoodLogInputView(isFocused: isFocused, viewModel: viewModel)
                 .focused($isFocused)
-            }
-            .aligned(.bottom)
+                .aligned(.bottom)
+
             if let ingredient = viewModel.tappedWeightIngredient {
                 ChangeWeightTextField(title: ingredient.name,
                                       initialWeight: ingredient.weight,
@@ -54,16 +46,31 @@ struct FoodLogScreen: View {
             }
 
             if let meal = viewModel.tappedWeightMeal {
-                ChangeWeightTextField(title: meal.mealItem.name,
+                ChangeWeightTextField(title: meal.mealItem.mealName,
                                       initialWeight: meal.mealItem.weight,
                                       onWeightChange: viewModel.changeMealWeight,
                                       onCancel: viewModel.clearSelection)
             }
         }
         .onAppear(perform: viewModel.onViewAppear)
-        .onReceive(viewModel.$isKeyboardFocused) { value in
+        .onReceive(viewModel.$isKeyboardFocused.debounce(for: 0.15, scheduler: DispatchQueue.main)) { value in
             isFocused = value
         }
+        .onChange(of: viewModel.logType, perform: { logType in
+            if logType == .history {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    viewModel.isKeyboardFocused = true
+                }
+            }
+        })
+        .onChange(of: viewModel.mealSelectedState, perform: { state in
+            switch state {
+            case .delete:
+                viewModel.isKeyboardFocused = false
+            default:
+                break
+            }
+        })
         .onChange(of: isFocused, perform: viewModel.onFocusChanged)
         .navigationBarTitleDisplayMode(.inline)
         .navBarButton(placement: .principal,
@@ -86,10 +93,6 @@ struct FoodLogScreen: View {
         .foregroundStyle(Color.accentColor)
     }
 
-    private var canShowDoneButton: Bool {
-        !isFocused && hasItems && viewModel.mealSelectedState.isNotSelected
-    }
-
     private var hasItems: Bool {
         !viewModel.logItems.isEmpty
     }
@@ -102,6 +105,9 @@ private extension CGFloat {
     static let horizontalPadding: CGFloat = 16
     static let textFieldSpacing: CGFloat = 12
     static let logButtonTrailingPadding: CGFloat = 20
+    static let bottomPadding: CGFloat = 8
+    static let horizontalChipsPadding: CGFloat = 10
+    static let doneButtonOffset: CGFloat = -80
 }
 
 struct FoodLogScreen_Previews: PreviewProvider {

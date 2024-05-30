@@ -11,8 +11,13 @@ import AppStudioStyles
 
 class AppearanceInitializer: AppInitializer {
     func initialize() {
+        let tabBarAppearence = UITabBarAppearance()
+        tabBarAppearence.configureWithTransparentBackground()
+        tabBarAppearence.backgroundColor = .white
+        UITabBar.appearance().standardAppearance = tabBarAppearence
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearence
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color.studioGreyStrokeFill)
-        UITabBar.appearance().backgroundColor = UIColor.white
+
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground()
         navBarAppearance.backgroundColor = .white

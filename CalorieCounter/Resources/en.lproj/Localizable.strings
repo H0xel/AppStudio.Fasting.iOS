@@ -185,10 +185,13 @@
 "MealType.breakfast" = "Breakfast";
 "MealType.lunch" = "Lunch";
 "MealType.dinner" = "Dinner";
-"MealType.snack" = "Snack";
+"MealType.snack" = "Snacks";
 
 // MARK: - Food Log Screen
-"FoodLogScreen.emptyViewTitle" = "For recognition accuracy, enter one dish or item at a time";
+"FoodLogScreen.emptyViewTitle.breakfast" = "What did you have for breakfast?";
+"FoodLogScreen.emptyViewTitle.lunch" = "What did you have for lunch?";
+"FoodLogScreen.emptyViewTitle.dinner" = "What did you have for dinner?";
+"FoodLogScreen.emptyViewTitle.snack" = "What snacks did you have?";
 "FoodLogScreen.textFieldPlaceholder" = "Add one dish or item";
 "FoodLogScreen.notFocuesedTextFieldPlaceholder" = "Describe your meal";
 "FoodLogScreen.log" = "Log";
@@ -212,8 +215,9 @@
 "ProfileScreen.supportEmailSubject" = "Calorie Counter App Support";
 
 // MARK: - Meal delete banner
-"MealDeleteBanner.deleteMeal" = "Delete meal";
-"MealDeleteBanner.deleteIngredient" = "Delete ingredient";
+"MealDeleteBanner.deleteMeal" = "Delete Meal";
+"MealDeleteBanner.deleteIngredient" = "Delete Ingredient";
+"MealDeleteBanner.editMeal" = "Edit";
 
 // MARK: - Exercise frequency
 "ExerciseActivity.sessionsPerWeek0" = "0 sessions / week";
@@ -336,7 +340,7 @@
 // MARK: - UsageLimitPaywallScreen
 "UsageLimitPaywallScreen.unlockAllFeatures" = "Unlock\nall features";
 "UsageLimitPaywallScreen.feature1" = "AI-powered Food Log";
-"UsageLimitPaywallScreen.feature2" = "Barcode Scan";
+"UsageLimitPaywallScreen.feature2" = "Barcode Scanner";
 "UsageLimitPaywallScreen.feature3" = "Complete Macro Tracking";
 
 // MARK: - PaywallOptionsView
@@ -383,6 +387,32 @@
 "MealVoting.title.notVoted" = "Recognized correctly?";
 "MealVoting.title.like" = "Thanks!";
 "MealVoting.title.dislike" = "Thanks! We'll work on it.";
+
+// MARK: - FoodSuggestionsEmptyView
+"FoodSuggestionsEmptyView.title" = "No entries yet";
+"FoodSuggestionsEmptyView.subtitle" = "Start logging to view history";
+
+// MARK: -
+"LogType.log" = "Log";
+"LogType.history" = "History";
+"LogType.quickAdd" = "Quick Add";
+"LogType.addRecipe" = "Add Recipe";
+
+// MARK: - FoodSearchEmptyView
+"FoodSearchEmptyView.title.tap" = "Tap";
+"FoodSearchEmptyView.title.toUse" = "to use AI recognition";
+
+// MARK: - Quick Add
+"QuickAdd.protein" = "Protein";
+"QuickAdd.fat" = "Fat";
+"QuickAdd.carbs" = "Carbs";
+"QuickAdd.calories" = "Calories";
+"QuickAdd.foodName" = "Food Name";
+"QuickAdd.title" = "Quick Add";
+
+"QuickAdd.nutritions.units" = "g";
+"QuickAdd.calories.units" = "kcal";
+"QuickAdd.foodName.placeholder" = "Optional";
 
 // MARK: Camera Alert
 "CameraAlert.title" = "\"Calorie Counter\" \nWould Like to Access the Camera";

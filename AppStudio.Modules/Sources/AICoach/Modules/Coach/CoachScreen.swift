@@ -8,15 +8,21 @@
 import SwiftUI
 import AppStudioNavigation
 import Combine
+import AppStudioUI
 
 struct CoachScreen: View {
     @StateObject var viewModel: CoachViewModel
     @State private var isSuggestionsPresented = true
     @FocusState private var focused: Bool
+    @State private var maxPosition: CGFloat = 0
 
     var body: some View {
         VStack(spacing: .zero) {
             CoachNavigationView()
+
+            MinYPositionTracker(coordinateSpace: .global) { newValue in
+                maxPosition = newValue + 10
+            }
 
             if !viewModel.isCoachEnable {
                 CoachEmptyView()
@@ -31,21 +37,21 @@ struct CoachScreen: View {
                 .overlay {
                     if isKeywordsPresented {
                         CoachKeywordsView(keywords: viewModel.keywords,
-                                          questions: viewModel.questionsByKeyword) { question in
-                            viewModel.nextQuestion = question
-                            viewModel.trackTapSuggestion(context: .input)
-                        }
+                                          questions: viewModel.questionsByKeyword,
+                                          onTap: viewModel.tapKeywordSuggestion)
                         .aligned(.bottom)
                         .transition(.asymmetric(insertion: .push(from: .bottom),
                                                 removal: .push(from: .top)))
                     }
                 }
                 .transition(.push(from: .top))
+
                 CoachTextField(text: $viewModel.nextQuestion,
                                isSuggestionsPresented: isSuggestionsPresented,
                                suggestions: viewModel.suggestions,
                                isKeywordsPresented: isKeywordsPresented,
                                isWaitingForReply: viewModel.isWaitingForReply,
+                               maxPosition: maxPosition,
                                output: viewModel.handle)
                 .layoutPriority(1)
                 .focused($focused)

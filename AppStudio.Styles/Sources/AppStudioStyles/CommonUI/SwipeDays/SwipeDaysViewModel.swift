@@ -42,10 +42,12 @@ public class SwipeDaysViewModel: BaseViewModel<SwipeDaysOutput> {
     private func observeCurrentDateChange() {
         $currentDay
             .receive(on: DispatchQueue.main)
+            .handleEvents(receiveOutput: { [weak self] date in
+                self?.output(.dateUpdated(date))
+            })
+            .debounce(for: 0.3, scheduler: DispatchQueue.main)
             .sink { [weak self] date in
-                guard let self else { return }
-                self.output(.dateUpdated(date))
-                self.updateDisplayDays()
+                self?.updateDisplayDays()
             }
             .store(in: &cancellables)
     }

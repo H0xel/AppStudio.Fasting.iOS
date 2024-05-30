@@ -5,6 +5,7 @@
 //  Created by Denis Khlopin on 18.01.2024.
 //
 import Dependencies
+import Foundation
 
 private let proteinNutrientId: Int = 1003
 private let carboNutrientIdId: Int = 1005
@@ -67,6 +68,7 @@ private extension FoodSearchResponse {
         let weight = food.servingSize ?? 0
 
         return MealItem(
+            id: UUID().uuidString,
             name: "",
             subTitle: nil,
             ingredients: [
@@ -81,7 +83,9 @@ private extension FoodSearchResponse {
                         carbohydrates: carbo
                     )
                 )
-            ]
+            ], 
+            creationType: .chatGPT,
+            dateUpdated: .now
         )
     }
 

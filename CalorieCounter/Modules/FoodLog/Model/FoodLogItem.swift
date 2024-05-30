@@ -20,6 +20,15 @@ enum FoodLogItem: Hashable {
             return mealPlaceholder.id
         }
     }
+    
+    var id: String {
+        switch self {
+        case .meal(let meal):
+            return meal.id
+        case .placeholder(let mealPlaceholder), .notFoundBarcode(let mealPlaceholder):
+            return mealPlaceholder.id
+        }
+    }
 
     var meal: Meal? {
         switch self {

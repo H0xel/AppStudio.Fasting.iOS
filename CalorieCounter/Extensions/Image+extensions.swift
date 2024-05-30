@@ -99,10 +99,6 @@ extension Image {
         Image(systemName: "lock.fill")
     }
 
-    static var arrowUp: Image {
-        Image(systemName: "arrow.up")
-    }
-
     /// 􀙬
     static var flame: Image {
         Image(systemName: "flame.fill")
@@ -147,5 +143,25 @@ extension Image {
 
     static var thumbDownFilled: Image {
         Image("thumbDownFilled")
+    }
+
+    static var logHistory: Image {
+        Image(.logHistory)
+    }
+
+    static var bannerCloseButton: Image {
+        Image(.bannerCloseButton)
+    }
+
+    static var bannerEdit: Image {
+        Image(.bannerEdit)
+    }
+
+    static var bannerTrash: Image {
+        Image(.bannerTrash)
+    }
+
+    static var points: Image {
+        Image(.points)
     }
 }

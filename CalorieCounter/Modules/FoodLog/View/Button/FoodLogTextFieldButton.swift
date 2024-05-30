@@ -13,22 +13,23 @@ struct FoodLogTextFieldButton: View {
     let onTap: () -> Void
 
     var body: some View {
-
         Button(action: onTap) {
             image
+                .resizable()
                 .renderingMode(.template)
-                .foregroundStyle(isAccent ? .white : .accent)
-                .font(.footnote)
-                .fontWeight(.medium)
                 .frame(width: .imageWidth, height: .imageWidth)
-                .background(isAccent ? Color.accentColor : Color.studioGreyFillProgress)
-                .continiousCornerRadius(.imageWidth / 2)
+                .foregroundStyle(isAccent ? .white : .studioBlackLight)
+                .font(.footnote.weight(.medium))
+                .frame(width: .backgroundWidth, height: .backgroundWidth)
+                .background(isAccent ? Color.studioBlackLight : Color.studioGreyFillProgress)
+                .continiousCornerRadius(.backgroundWidth / 2)
         }
     }
 }
 
 private extension CGFloat {
-    static let imageWidth: CGFloat = 40
+    static let backgroundWidth: CGFloat = 48
+    static let imageWidth: CGFloat = 24
 }
 
 #Preview {

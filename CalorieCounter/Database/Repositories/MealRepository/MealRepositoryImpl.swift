@@ -59,4 +59,8 @@ extension MealRepositoryImpl: MealRepository {
         request.sortDescriptors = [.init(key: "creationDate", ascending: false)]
         return try await select(request: request)
     }
+
+    func allMeals() async throws -> [Meal] {
+        try await selectAll()
+    }
 }
