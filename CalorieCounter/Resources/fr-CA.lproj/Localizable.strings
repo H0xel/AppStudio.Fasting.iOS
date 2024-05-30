@@ -185,10 +185,13 @@
 "MealType.breakfast" = "Petit déjeuner";
 "MealType.lunch" = "Déjeuner";
 "MealType.dinner" = "Souper";
-"MealType.snack" = "Collation";
+"MealType.snack" = "Collations";
 
 // MARK: - Food Log Screen
-"FoodLogScreen.emptyViewTitle" = "Pour une précision de reconnaissance, entrez un plat ou un article à la fois";
+"FoodLogScreen.emptyViewTitle.breakfast" = "Qu'est-ce que tu as mangé au petit-déjeuner ?";
+"FoodLogScreen.emptyViewTitle.lunch" = "Qu'est-ce que tu as mangé au déjeuner ?";
+"FoodLogScreen.emptyViewTitle.dinner" = "Qu'est-ce que tu as mangé au dîner ?";
+"FoodLogScreen.emptyViewTitle.snack" = "Quelles collations as-tu pris ?";
 "FoodLogScreen.textFieldPlaceholder" = "Ajoutez un plat ou un article";
 "FoodLogScreen.notFocuesedTextFieldPlaceholder" = "Décrivez votre repas";
 "FoodLogScreen.log" = "Journal";
@@ -214,6 +217,7 @@
 // MARK: - Meal delete banner
 "MealDeleteBanner.deleteMeal" = "Supprimer le repas";
 "MealDeleteBanner.deleteIngredient" = "Supprimer l'ingrédient";
+"MealDeleteBanner.editMeal" = "Modifier";
 
 // MARK: - Exercise frequency
 "ExerciseActivity.sessionsPerWeek0" = "0 séance / semaine";
@@ -336,7 +340,7 @@
 // MARK: - UsageLimitPaywallScreen
 "UsageLimitPaywallScreen.unlockAllFeatures" = "Déverrouiller\ntoutes les fonctionnalités";
 "UsageLimitPaywallScreen.feature1" = "Journal alimentaire assisté par l'IA";
-"UsageLimitPaywallScreen.feature2" = "Numérisation de codes à barres";
+"UsageLimitPaywallScreen.feature2" = "Scanner de code-barres";
 "UsageLimitPaywallScreen.feature3" = "Suivi complet des macronutriments";
 
 // MARK: - PaywallOptionsView
@@ -383,6 +387,32 @@
 "MealVoting.title.notVoted" = "Reconnu correctement?";
 "MealVoting.title.like" = "Merci!";
 "MealVoting.title.dislike" = "Merci! Nous y travaillerons.";
+
+// MARK: - FoodSuggestionsEmptyView
+"FoodSuggestionsEmptyView.title" = "Aucune entrée pour l'instant";
+"FoodSuggestionsEmptyView.subtitle" = "Commencez à vous connecter pour afficher l'historique";
+
+// MARK: -
+"LogType.log" = "Journal";
+"LogType.history" = "Histoire";
+"LogType.quickAdd" = "Ajout rapide";
+"LogType.addRecipe" = "Ajouter une recette";
+
+// MARK: - FoodSearchEmptyView
+"FoodSearchEmptyView.title.tap" = "Appuyez sur";
+"FoodSearchEmptyView.title.toUse" = "pour utiliser la reconnaissance par IA";
+
+// MARK: - Quick Add
+"QuickAdd.protein" = "Protéine";
+"QuickAdd.fat" = "Lipides";
+"QuickAdd.carbs" = "Glucides";
+"QuickAdd.calories" = "Calories";
+"QuickAdd.foodName" = "Nom de l'aliment";
+"QuickAdd.title" = "Ajout rapide";
+
+"QuickAdd.nutritions.units" = "g";
+"QuickAdd.calories.units" = "kcal";
+"QuickAdd.foodName.placeholder" = "Facultatif";
 
 // MARK: Camera Alert
 "CameraAlert.title" = "\"Calorie Counter\" \nvoudrait accéder à la caméra";

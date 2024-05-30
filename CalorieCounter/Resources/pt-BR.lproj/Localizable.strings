@@ -189,10 +189,13 @@ Seu plano está pronto";
 "MealType.breakfast" = "Café da manhã";
 "MealType.lunch" = "Almoço";
 "MealType.dinner" = "Jantar";
-"MealType.snack" = "Lanche";
+"MealType.snack" = "Lanches";
 
 // MARK: - Food Log Screen
-"FoodLogScreen.emptyViewTitle" = "Para precisão no reconhecimento, insira um prato ou item por vez";
+"FoodLogScreen.emptyViewTitle.breakfast" = "O que você comeu no café da manhã?";
+"FoodLogScreen.emptyViewTitle.lunch" = "O que você comeu no almoço?";
+"FoodLogScreen.emptyViewTitle.dinner" = "O que você comeu no jantar?";
+"FoodLogScreen.emptyViewTitle.snack" = "Quais lanches você comeu?";
 "FoodLogScreen.textFieldPlaceholder" = "Adicione um prato ou item";
 "FoodLogScreen.notFocuesedTextFieldPlaceholder" = "Descreva sua refeição";
 "FoodLogScreen.log" = "Registrar";
@@ -218,6 +221,7 @@ Seu plano está pronto";
 // MARK: - Meal delete banner
 "MealDeleteBanner.deleteMeal" = "Excluir refeição";
 "MealDeleteBanner.deleteIngredient" = "Excluir ingrediente";
+"MealDeleteBanner.editMeal" = "Editar";
 
 // MARK: - Exercise frequency
 "ExerciseActivity.sessionsPerWeek0" = "0 sessões / semana";
@@ -387,6 +391,32 @@ Seu plano está pronto";
 "MealVoting.title.notVoted" = "Reconhecido corretamente?";
 "MealVoting.title.like" = "Obrigado!";
 "MealVoting.title.dislike" = "Obrigado! Vamos trabalhar nisso.";
+
+// MARK: - FoodSuggestionsEmptyView
+"FoodSuggestionsEmptyView.title" = "Nenhuma entrada ainda";
+"FoodSuggestionsEmptyView.subtitle" = "Comece a registrar para ver o histórico";
+
+// MARK: -
+"LogType.log" = "Registrar";
+"LogType.history" = "História";
+"LogType.quickAdd" = "Adição rápida";
+"LogType.addRecipe" = "Adicionar receita";
+
+// MARK: - FoodSearchEmptyView
+"FoodSearchEmptyView.title.tap" = "Toque";
+"FoodSearchEmptyView.title.toUse" = "para usar o reconhecimento de IA";
+
+// MARK: - Quick Add
+"QuickAdd.protein" = "Proteína";
+"QuickAdd.fat" = "Gordura";
+"QuickAdd.carbs" = "Carboidratos";
+"QuickAdd.calories" = "Calorias";
+"QuickAdd.foodName" = "Nome do alimento";
+"QuickAdd.title" = "Adição rápida";
+
+"QuickAdd.nutritions.units" = "g";
+"QuickAdd.calories.units" = "kcal";
+"QuickAdd.foodName.placeholder" = "Opcional";
 
 // MARK: Camera Alert
 "CameraAlert.title" = "\"Calorie Counter\" \nGostaria de acessar a câmera";

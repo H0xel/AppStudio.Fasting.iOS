@@ -5,8 +5,8 @@
   Created by Руслан Сафаргалеев on 14.03.2024.
   
 */
-
 // MARK: Article
+
 "Nutrition.fat" = "Fat";
 "Nutrition.protein" = "Protein";
 "Nutrition.carbs" = "Carbs";

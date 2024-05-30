@@ -12,7 +12,7 @@
 "RootScreen.TabBar.progress" = "Progreso";
 "RootScreen.TabBar.profile" = "Perfil";
 "RootScreen.TabBar.plus" = "Plus+";
-"RootScreen.TabBar.explore" = "Explore";
+"RootScreen.TabBar.explore" = "Explorar";
 
 // MARK: - Paywall Screen
 "Paywall.title" = "Título del muro de pago";

@@ -5,3 +5,21 @@
   Created by Руслан Сафаргалеев on 14.03.2024.
   
 */
+// MARK: Article
+
+"Nutrition.fat" = "Gordura";
+"Nutrition.protein" = "Proteína";
+"Nutrition.carbs" = "Carboidratos";
+"Nutrition.perServing" = "por porção";
+"Nutrition.kcal" = "kcal";
+"Nutrition.g" = "g";
+"Nutrition.minCook" = "min de preparo";
+"Nutrition.saved" = "Salvo";
+"ArticlesScreen.explore" = "Explorar";
+"ArticlePreviewView.timeToRead" = "5 min de leitura";
+
+// MARK: - FavouriteArticlesScreen
+"FavouriteArticlesScreen.title" = "Biblioteca";
+"FavouriteArticlesScreen.emptyTitle" = "Seus artigos e receitas salvos\naparecem aqui";
+"FavouriteArticlesScreen.articles" = "Artigos";
+"FavouriteArticlesScreen.recipes" = "Receitas";
