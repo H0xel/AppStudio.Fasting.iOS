@@ -9,6 +9,7 @@ import Foundation
 import AppStudioUI
 import Dependencies
 import AppStudioServices
+import NewAppStudioSubscriptions
 import RxSwift
 import Combine
 import AppStudioModels
@@ -18,7 +19,7 @@ class DayFoodViewModel: BaseViewModel<DayFoodOutput> {
     @Dependency(\.userDataService) private var userDataService
     @Dependency(\.mealService) private var mealService
     @Dependency(\.freeUsageService) private var freeUsageService
-    @Dependency(\.subscriptionServiceAdapter) private var subscriptionService
+    @Dependency(\.newSubscriptionService) private var subscriptionService
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.rateAppService) private var rateAppService
     @Dependency(\.userPropertyService) private var userPropertyService
@@ -184,12 +185,8 @@ class DayFoodViewModel: BaseViewModel<DayFoodOutput> {
     }
 
     private func observeSubscription() {
-        subscriptionService.hasSubscriptionObservable
-            .asDriver()
-            .drive(with: self) { this, hasSubscription in
-                this.hasSubscription = hasSubscription
-            }
-            .disposed(by: disposeBag)
+        subscriptionService.hasSubscription
+            .assign(to: &$hasSubscription)
     }
 
     private func observeProfileUpdate(publisher: AnyPublisher<Void, Never>) {

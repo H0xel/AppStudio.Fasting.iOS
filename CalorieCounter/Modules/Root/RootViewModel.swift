@@ -10,18 +10,18 @@ import AppStudioUI
 import SwiftUI
 import Dependencies
 import RxSwift
+import NewAppStudioSubscriptions
 
 class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.cloudStorage) private var cloudStorage
     @Dependency(\.idfaRequestService) private var idfaRequestService
     @Dependency(\.appCustomization) private var appCustomization
-    @Dependency(\.subscriptionServiceAdapter) private var subscriptionService
     @Dependency(\.firstLaunchService) private var firstLaunchService
     @Dependency(\.quickActionTypeServiceService) private var quickActionTypeServiceService
     @Dependency(\.trackerService) private var trackerService
 
     @Published var rootScreen: RootScreen = .launchScreen
-    @Published var hasSubscription = false
+    @Published var inAppPurchaseIsLoading = false
 
     var router: RootRouter!
 
@@ -60,6 +60,14 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     var calorieCounterScreen: some View {
         router.tabBarScreen
+    }
+
+    func handle(status: inAppPurchaseStatus) {
+        if status.isLoading {
+            inAppPurchaseIsLoading = true
+            return
+        }
+        inAppPurchaseIsLoading = false
     }
 
     private func initializeForceUpdateIfNeeded() {

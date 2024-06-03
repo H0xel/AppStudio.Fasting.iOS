@@ -7,7 +7,7 @@
 
 import Foundation
 import Moya
-import AppStudioSubscriptions
+import NewAppStudioSubscriptions
 
 enum SubscriptionTarget {
     case getSubscription

@@ -29,7 +29,7 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
     private let foodLogSubject = PassthroughSubject<(Date, MealType), Never>()
     private let updateProfileSubject = PassthroughSubject<Void, Never>()
 
-    @Dependency(\.subscriptionServiceAdapter) private var subscriptionService
+    @Dependency(\.newSubscriptionService) private var subscriptionService
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
@@ -146,15 +146,15 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
     }
 
     private func observeSubscription() {
-        subscriptionService.hasSubscriptionObservable
-            .asDriver()
-            .drive(with: self) { this, hasSubscription in
+        subscriptionService.hasSubscription
+            .receive(on: DispatchQueue.main)
+            .sink(with: self) { this, hasSubscription in
                 this.hasSubscription = hasSubscription
                 if hasSubscription {
                     this.deleteDiscountNotification()
                 }
             }
-            .disposed(by: disposeBag)
+            .store(in: &cancellables)
     }
 
     func trackNextDay(_ date: Date) {

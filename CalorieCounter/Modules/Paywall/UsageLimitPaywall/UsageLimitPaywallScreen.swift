@@ -12,7 +12,7 @@ import AppStudioStyles
 
 struct UsageLimitPaywallScreen: View {
 
-    @StateObject var viewModel: PaywallViewModel
+    @StateObject var viewModel: UsageLimitPaywallViewModel
 
     var body: some View {
         MultipleProductPaywallScreen(

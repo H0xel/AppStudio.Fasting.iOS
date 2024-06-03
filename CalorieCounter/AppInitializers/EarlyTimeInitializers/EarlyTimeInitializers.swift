@@ -23,7 +23,7 @@ final class EarlyTimeInitializers: Initializers {
             AccountProviderInitializer(),
             MobileDeviceDataProviderInitializer(),
             TrackerServiceInitializer(),
-            SubscriptionServiceInitializer(),
+            NewSubscriptionInitializerService(),
             paywallServiceInitializer,
             QuickActionInitializer(),
             AppearenceInitializer(),

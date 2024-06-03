@@ -18,6 +18,12 @@ struct RootScreen: View {
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
                 viewModel.requestIdfa()
             }
+            .withInAppPurchase(status: viewModel.handle)
+            .overlay {
+                if viewModel.inAppPurchaseIsLoading {
+                    DimmedProgressBanner().view
+                }
+            }
     }
 
     @ViewBuilder

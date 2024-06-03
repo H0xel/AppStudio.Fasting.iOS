@@ -1,13 +1,14 @@
-//  
+//
 //  DiscountPaywallInput.swift
 //  Fasting
 //
 //  Created by Amakhin Ivan on 06.02.2024.
 //
 
-import AppStudioSubscriptions
+import NewAppStudioSubscriptions
 import Foundation
 import AppStudioServices
+import StoreKit
 
 struct DiscountPaywallInput {
     let context: PaywallContext
@@ -15,24 +16,26 @@ struct DiscountPaywallInput {
 }
 
 extension DiscountPaywallType {
-    init(paywallInfo: DiscountPaywallInfo, subscription: Subscription) {
+    init(paywallInfo: DiscountPaywallInfo, subscription: Product) {
         let multiplier: Double = 1 - (Double(paywallInfo.discount ?? 0) / 100)
+
+        let duration = subscription.subscription?.subscriptionPeriod.duration ?? .week
 
         var descriptionViewData: DiscountDescriptionView.ViewData {
             if paywallInfo.priceDisplay == "old_new" {
-                return .oldNew(price: subscription.multipliedLocalePrice(
-                    for: subscription.duration,
+                return .oldNew(price: subscription.multipliedLocalizePrice(
+                    for: duration,
                     multiplier: NSDecimalNumber(value: multiplier)) ?? "",
-                               discountPrice: subscription.localedPrice(for: subscription.duration) ?? "",
-                               duration: subscription.duration.durationLocalized,
+                               discountPrice: subscription.localizedPrice(for: duration) ?? "",
+                               duration: duration.durationLocalized,
                                color: paywallInfo.paywallType == "discount_timer" ? .studioRed : .black)
             }
 
-            return .perWeek(weekPrice: subscription.localedPrice(for: .week) ?? "",
-                            pricePerYear: subscription.multipliedLocalePrice(
-                                for: subscription.duration,
+            return .perWeek(weekPrice: subscription.localizedPrice(for: .week) ?? "",
+                            pricePerYear: subscription.multipliedLocalizePrice(
+                                for: duration,
                                 multiplier: NSDecimalNumber(value: multiplier)) ?? "",
-                            discountPricePerYear: subscription.formattedPrice ?? "",
+                            discountPricePerYear: subscription.displayPrice,
                             color: paywallInfo.paywallType == "discount_timer" ? .studioRed : .black)
         }
 
@@ -51,47 +54,8 @@ extension DiscountPaywallType {
     }
 }
 
-extension Subscription {
-    func multipliedLocalePrice(for duration: SubscriptionDuration, multiplier: NSDecimalNumber) -> String? {
-        let price: Price? =
-        switch duration {
-        case .week: pricePerWeek
-        case .month: priceByMonth
-        case .threeMonth: Price(currency: priceByMonth?.currency ?? "",
-                                value: (priceByMonth?.value ?? 0).multiplying(by: 3))
-        case .sixMonth:
-            Price(currency: priceByMonth?.currency ?? "",
-                  value: (priceByMonth?.value ?? 0).multiplying(by: 6))
-        case .year:
-            pricePerYear
-        }
-        guard let price else {
-            return nil
-        }
-        let numberFormatter = NumberFormatter()
-        numberFormatter.formatterBehavior = .behavior10_4
-        numberFormatter.numberStyle = .currency
-        numberFormatter.locale = product.priceLocale
-
-        return numberFormatter.string(from: price.value.dividing(by: multiplier).round(0).adding(0.99))
-    }
-}
-
 extension SubscriptionDuration {
     var durationLocalized: String {
         NSLocalizedString("ProductCatalog.duration.\(rawValue)", comment: "Duration")
-    }
-}
-
-
-extension NSDecimalNumber {
-    public func round(_ decimals: Int) -> NSDecimalNumber {
-        return self.rounding(accordingToBehavior:
-                                NSDecimalNumberHandler(roundingMode: .down,
-                                                       scale: Int16(decimals),
-                                                       raiseOnExactness: false,
-                                                       raiseOnOverflow: false,
-                                                       raiseOnUnderflow: false,
-                                                       raiseOnDivideByZero: false))
     }
 }

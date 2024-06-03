@@ -5,17 +5,18 @@
 //  Created by Denis Khlopin on 15.08.2023.
 //
 
-import RxSwift
-import AppStudioSubscriptions
+import Combine
+import Foundation
+import NewAppStudioSubscriptions
 import Dependencies
 import AppStudioNavigation
 import MunicornFoundation
 
 class PaywallServiceImpl: PaywallService {
-    @Dependency(\.subscriptionServiceAdapter) private var subscriptionService
+    @Dependency(\.newSubscriptionService) private var subscriptionService
     @Dependency(\.cloudStorage) private var cloudStorage
 
-    private let disposeBag = DisposeBag()
+    private var cancellable = Set<AnyCancellable>()
     @Atomic private var hasSubscription = false
     @Atomic private var isPresenting = false
 
@@ -59,11 +60,11 @@ class PaywallServiceImpl: PaywallService {
 
 extension PaywallServiceImpl: AppInitializer {
     func initialize() {
-        subscriptionService.hasSubscriptionObservable
-            .asDriver()
-            .drive(with: self) { this, mayUseApp in
-                this.hasSubscription = mayUseApp
+        subscriptionService.hasSubscription
+            .receive(on: DispatchQueue.main)
+            .sink(with: self) { this, hasSubscription in
+                this.hasSubscription = hasSubscription
             }
-            .disposed(by: disposeBag)
+            .store(in: &cancellable)
     }
 }

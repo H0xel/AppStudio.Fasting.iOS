@@ -7,7 +7,7 @@
 
 import Foundation
 import Dependencies
-import AppStudioSubscriptions
+import NewAppStudioSubscriptions
 import MunicornUtilities
 import UIKit
 
