@@ -116,7 +116,12 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
         trackNextStep()
 
         if step == .start, cloudStorage.userWithOnboardingApi {
-            output(.onboardingIsFinished)
+            router.pushChooseFastingScreen { [weak self] output in
+                switch output {
+                case .onboardingIsFinished:
+                    self?.output(.onboardingIsFinished)
+                }
+            }
         }
 
         if step == .start, !isLongOnboadingEnabled, !hasSubscription {

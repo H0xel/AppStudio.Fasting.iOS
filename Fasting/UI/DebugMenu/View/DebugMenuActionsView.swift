@@ -27,6 +27,7 @@ struct DebugMenuActionsView: View {
     @Dependency(\.weightGoalService) private var weightGoalService
     @Dependency(\.localNotificationService) private var localNotificationService
     @Dependency(\.onboardingService) private var onboardingService
+    @Dependency(\.newSubscriptionService) private var newSubscriptionService
     let onboarding = OnboardingApiImpl()
 
     @State private var isDeletingMessages = false

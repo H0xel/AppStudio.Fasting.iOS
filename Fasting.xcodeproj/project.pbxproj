@@ -3627,7 +3627,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.3;
+				version = 1.0.4;
 			};
 		};
 		A0255E882AFBD3C000221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Common" */ = {

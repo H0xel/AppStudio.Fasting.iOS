@@ -15,6 +15,7 @@ final class OnboardingInitializer: AppInitializer {
     @Dependency(\.fastingParametersInitializer) private var fastingParametersInitializer
     @Dependency(\.onboardingService) private var onboardingService
     @Dependency(\.userPropertyService) private var userPropertyService
+    @Dependency(\.newSubscriptionService) private var newSubscriptionService
 
     func initialize() {
         Task {
@@ -23,6 +24,18 @@ final class OnboardingInitializer: AppInitializer {
                 userPropertyService.set(userProperties: ["w2w": true])
                 onboardingService.save(data: .init(onboardingData))
                 cloudStorage.userWithOnboardingApi = true
+                tryToRestoreSubscriptionFromW2W()
+            }
+        }
+    }
+
+    func tryToRestoreSubscriptionFromW2W() {
+        let tryAmount = 3
+
+        for _ in 1...tryAmount {
+            Task {
+                try await Task.sleep(seconds: 1)
+                newSubscriptionService.restoreWithoutAppstore()
             }
         }
     }
