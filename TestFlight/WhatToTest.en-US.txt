@@ -1,1 +1,1 @@
-- CC new subscriptions library integration
+- Release build Fasting 1.2.4

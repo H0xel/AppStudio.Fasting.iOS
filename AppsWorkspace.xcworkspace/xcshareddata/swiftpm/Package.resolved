@@ -75,7 +75,7 @@
     {
       "identity" : "appstudio.ios.subscriptions",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git",
+      "location" : "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions",
       "state" : {
         "revision" : "45dacbd13080fae883cd81b30d8cd9a677432d8d",
         "version" : "1.0.4"
@@ -104,8 +104,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/facebook/facebook-ios-sdk",
       "state" : {
-        "revision" : "c19607d535864533523d1f437c84035e5fb101cf",
-        "version" : "14.1.0"
+        "revision" : "9ed465ccd73c231144d49a9c681774577c616f34",
+        "version" : "17.0.2"
       }
     },
     {
