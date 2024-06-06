@@ -22,8 +22,8 @@ public enum GlobalConstants {
     public static let privacyPolicy = "https://telecom.municorn.com/privacy?app=fasting"
 
     // MARK: - Intercom
-    public static let intercomObfuscatedAppId = "28553b15100f0911"
-    public static let intercomObfuscatedApiKey = "324d202b010d054a1a1c151a27564505464914417948407d530a0456501503463b62116043410a5b01141c4211225840"
+    public static let intercomObfuscatedAppId = "23403404130b5855"
+    public static let intercomObfuscatedApiKey = "324d202b010d054a4719104075534750141e13107440402107595d55591604116b3812324c115f0c0412151915715040"
 
     // MARK: - iCloud settings
     public static let iCloudContainerIdentifier = "iCloud.CONTAINER_IDENTIFIER"

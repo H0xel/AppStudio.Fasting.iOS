@@ -18,7 +18,7 @@ extension LogType {
     var selectedColor: Color {
         switch self {
         case .log, .quickAdd, .addRecipe:
-            Color.accentColor
+            Color.studioBlackLight
         case .history:
             Color.studioGreen
         }

@@ -118,7 +118,7 @@ struct MealView: View {
                                 .frame(width: .addButtonSmallPadding,
                                        height: .addButtonSmallPadding)
                                 .font(.poppinsBold(.headerL))
-                                .foregroundStyle(Color.accentColor)
+                                .foregroundStyle(Color.studioBlackLight)
                                 .padding(.addButtonSmallPadding)
                                 .background(Color.studioGrayFillProgress)
                                 .continiousCornerRadius(.cornerRadius)

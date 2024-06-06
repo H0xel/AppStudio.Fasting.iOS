@@ -10,12 +10,14 @@ import AppStudioUI
 import Foundation
 import Dependencies
 import AppStudioModels
+import AppStudioServices
 
 class ProfileViewModel: BaseViewModel<ProfileOutput> {
     @Dependency(\.onboardingService) private var onboardingService
     @Dependency(\.fastingParametersService) private var fastingParametersService
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.userPropertyService) private var userPropertyService
+    @Dependency(\.intercomService) private var intercomService
     @Published private var userData: OnboardingData?
 
     var router: ProfileRouter!
@@ -80,7 +82,9 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
     }
 
     func contactSupport() {
-        router.presentSupport()
+        intercomService.presentIntercom()
+            .sink { _ in }
+            .store(in: &cancellables)
         trackTapSupport()
     }
 

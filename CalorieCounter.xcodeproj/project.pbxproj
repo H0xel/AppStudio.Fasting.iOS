@@ -449,6 +449,7 @@
 		A740810D2B4BFD860041C0E4 /* OnboardingEstimatedExpenditureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740810C2B4BFD860041C0E4 /* OnboardingEstimatedExpenditureView.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
+		A758C61D2C0F009C00F9DC3F /* Intercom in Frameworks */ = {isa = PBXBuildFile; productRef = A758C61C2C0F009C00F9DC3F /* Intercom */; };
 		A75DA72A2B9B31D300F6D796 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A75DA7282B9B31D300F6D796 /* Poppins-Regular.ttf */; };
 		A75DA72B2B9B31D300F6D796 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A75DA7292B9B31D300F6D796 /* Poppins-SemiBold.ttf */; };
 		A771AC882C070D6600640E5F /* NewSubscriptionInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A771AC872C070D6600640E5F /* NewSubscriptionInitializer.swift */; };
@@ -1014,6 +1015,7 @@
 				A0A439822BC7FBA500139D15 /* AppStudioModels in Frameworks */,
 				ADC784F62AFA859C005F16A6 /* AppStudioUI in Frameworks */,
 				A00B4DB12B7377980067A872 /* FacebookLogin in Frameworks */,
+				A758C61D2C0F009C00F9DC3F /* Intercom in Frameworks */,
 				ADC784EC2AFA83BD005F16A6 /* AppStudioNavigation in Frameworks */,
 				5658F8C32B34009700E010E9 /* MunicornFoundation in Frameworks */,
 				ADC784F42AFA859C005F16A6 /* AppStudioFoundation in Frameworks */,
@@ -2939,6 +2941,7 @@
 				A7FFA6FD2B9F1A0B00FED655 /* AppStudioServices */,
 				A0A439812BC7FBA500139D15 /* AppStudioModels */,
 				A04CF6492BCFB3A200EDDEA3 /* AICoach */,
+				A758C61C2C0F009C00F9DC3F /* Intercom */,
 			);
 			productName = AppStudioTemplate;
 			productReference = 563257112ADE57D80000F33C /* CalorieCounter.app */;
@@ -3007,6 +3010,7 @@
 				ADC784F72AFA86CC005F16A6 /* XCRemoteSwiftPackageReference "Moya" */,
 				5658F8BF2B34009700E010E9 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */,
 				A00B4DA92B7377980067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				A758C61B2C0F009C00F9DC3F /* XCRemoteSwiftPackageReference "intercom-ios-sp" */,
 			);
 			productRefGroup = 563257122ADE57D80000F33C /* Products */;
 			projectDirPath = "";
@@ -3984,6 +3988,14 @@
 				version = 17.0.2;
 			};
 		};
+		A758C61B2C0F009C00F9DC3F /* XCRemoteSwiftPackageReference "intercom-ios-sp" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/intercom/intercom-ios-sp";
+			requirement = {
+				kind = exactVersion;
+				version = 17.1.1;
+			};
+		};
 		ADC784EA2AFA83BD005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Navigation";
@@ -4085,6 +4097,11 @@
 		A0A439812BC7FBA500139D15 /* AppStudioModels */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppStudioModels;
+		};
+		A758C61C2C0F009C00F9DC3F /* Intercom */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A758C61B2C0F009C00F9DC3F /* XCRemoteSwiftPackageReference "intercom-ios-sp" */;
+			productName = Intercom;
 		};
 		A7FFA6FD2B9F1A0B00FED655 /* AppStudioServices */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -37,6 +37,7 @@ class NotificationOnboardingViewModel: BaseViewModel<NotificationOnboardingOutpu
     private func requestAuthorization() async -> Bool {
         let isGranted = try? await UNUserNotificationCenter.current()
             .requestAuthorization(options: [.alert, .sound, .badge])
+        await UIApplication.shared.registerForRemoteNotifications()
         return isGranted ?? false
     }
 }

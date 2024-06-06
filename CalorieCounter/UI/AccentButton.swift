@@ -22,7 +22,7 @@ struct AccentButton: View {
                 .foregroundStyle(.white)
                 .padding(.vertical, Layout.verticalPadding)
                 .aligned(.centerHorizontaly)
-                .background(isEnabled ? Color.accentColor : Color.studioGreyStrokeFill)
+                .background(isEnabled ? Color.studioBlackLight : Color.studioGreyStrokeFill)
                 .continiousCornerRadius(Layout.cornerRadius)
         }
     }

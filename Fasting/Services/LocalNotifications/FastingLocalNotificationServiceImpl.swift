@@ -7,6 +7,7 @@
 
 import Foundation
 import UserNotifications
+import UIKit
 
 class FastingLocalNotificationServiceImpl: FastingLocalNotificationService {
     func updateNotifications(interval: FastingInterval, isProcessing: Bool) {
@@ -103,7 +104,9 @@ extension FastingLocalNotificationServiceImpl {
     }
 
     private func requestAuthorization() async throws -> Bool {
-        try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
+        let granted = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
+        await UIApplication.shared.registerForRemoteNotifications()
+        return granted
     }
 }
 

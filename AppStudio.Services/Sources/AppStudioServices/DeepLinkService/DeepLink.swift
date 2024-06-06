@@ -10,6 +10,7 @@ import AppStudioAnalytics
 
 public enum DeepLink: String {
     case discount
+    case intercom
 }
 
 extension DeepLink: TrackerParam {

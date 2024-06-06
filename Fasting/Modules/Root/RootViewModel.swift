@@ -37,6 +37,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.weightService) private var weightService
     @Dependency(\.localNotificationService) private var localNotificationService
     @Dependency(\.onboardingApi) private var onboardingApi
+    @Dependency(\.intercomService) private var intercomService
 
     @Published var currentTab: AppTab = .daily {
         willSet {
@@ -162,6 +163,14 @@ class RootViewModel: BaseViewModel<RootOutput> {
         case .discount:
             if let discountPaywallInfo {
                 router.presentDiscountPaywall(tab: currentTab, info: discountPaywallInfo, context: .discountPush)
+            }
+        case .intercom:
+            Task {
+                await router.popToRoot()
+                intercomService.hideIntercom()
+                intercomService.presentIntercom()
+                    .sink { _ in }
+                    .store(in: &cancellables)
             }
         case nil: break
         }

@@ -18,6 +18,7 @@ struct FastingApp: App {
         WindowGroup {
             RootRoute(navigator: navigator, input: RootInput(), output: { _ in }).view
                 .preferredColorScheme(.light)
+                .accentColor(Color.studioBlackLight)
         }
     }
 }

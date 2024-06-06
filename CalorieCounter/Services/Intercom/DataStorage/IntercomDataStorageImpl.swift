@@ -10,7 +10,7 @@ import Combine
 import Dependencies
 
 class IntercomDataStorageImpl: IntercomDataStorage {
-    @Dependency(\.storageService) private var storageService
+    @Dependency(\.accountProvider) private var accountProvider
     private var intercomDataTrigger = CurrentValueSubject<IntercomData?, Never>(nil)
 
     var intercomData: AnyPublisher<IntercomData?, Never> {
@@ -19,9 +19,8 @@ class IntercomDataStorageImpl: IntercomDataStorage {
     }
 
     func initialize() {
-        let userId = storageService.intercomUserId
-        let hash = storageService.intercomUserHash
-        sync(userId: userId, hash: hash)
+        let userId = accountProvider.accountId
+        sync(userId: userId, hash: "")
     }
 
     func sync(userId: String?, hash: String?) {

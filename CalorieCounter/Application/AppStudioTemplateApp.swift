@@ -16,6 +16,7 @@ struct CalorieCounterApp: App {
         WindowGroup {
             RootRoute(navigator: .init(), input: .init(), output: { _ in }).view
                 .preferredColorScheme(.light)
+                .accentColor(Color.studioBlackLight)
         }
     }
 }

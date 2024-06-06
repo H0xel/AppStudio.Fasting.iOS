@@ -38,7 +38,7 @@ private struct AccentButtonModifier: ViewModifier {
             .foregroundStyle(.white)
             .padding(.vertical, .verticalPadding)
             .aligned(.centerHorizontaly)
-            .background(isEnabled ? Color.accentColor : Color.studioGreyStrokeFill)
+            .background(isEnabled ? Color.studioBlackLight : Color.studioGreyStrokeFill)
             .continiousCornerRadius(.cornerRadius)
     }
 }

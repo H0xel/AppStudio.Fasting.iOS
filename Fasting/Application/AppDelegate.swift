@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 import Dependencies
 import UIKit
+import Intercom
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     @Dependency(\.appInitializerService) var appInitializerService
@@ -52,6 +53,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         return sceneConfiguration
     }
 
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Intercom.setDeviceToken(deviceToken)
+    }
 
     private func congifureAppearance() {
         UIDatePicker.appearance().minuteInterval = 5

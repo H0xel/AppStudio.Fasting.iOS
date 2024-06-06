@@ -11,4 +11,5 @@ import Combine
 protocol IntercomService {
     func initialize()
     func presentIntercom() -> AnyPublisher<Void, Never>
+    func hideIntercom()
 }

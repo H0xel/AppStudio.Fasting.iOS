@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 import Dependencies
 import FacebookCore
+import Intercom
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     @Dependency(\.appInitializerService) var appInitializerService
@@ -49,6 +50,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         sceneConfiguration.delegateClass = SceneDelegate.self
 
         return sceneConfiguration
+    }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Intercom.setDeviceToken(deviceToken)
     }
 
     private func initializeMessageEvents() {

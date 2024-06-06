@@ -22,6 +22,7 @@ let package = Package(
         .package(url: "https://github.com/m-unicorn/iOS.MunicornFoundation.git", exact: "1.2.12"),
         .package(url: "https://github.com/m-unicorn/iOS.ABTesting.git", exact: "1.0.6"),
         .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git", exact: "1.0.4"),
+        .package(url: "https://github.com/intercom/intercom-ios-sp", exact: "17.1.1"),
         .package(path: "AppStudio.Models")
     ],
     targets: [
@@ -41,7 +42,8 @@ let package = Package(
                 .product(name: "ABTesting", package: "iOS.ABTesting"),
                 .product(name: "AppStudioSubscriptions", package: "AppStudio.iOS.Subscriptions"),
                 .product(name: "NewAppStudioSubscriptions", package: "AppStudio.iOS.Subscriptions"),
-                .product(name: "AppStudioModels", package: "AppStudio.Models")
+                .product(name: "AppStudioModels", package: "AppStudio.Models"),
+                .product(name: "Intercom", package: "intercom-ios-sp")
             ],
             resources: [
                 .process("Resources/en.lproj/Localizable.strings")

@@ -10,6 +10,7 @@ import AppStudioUI
 import Foundation
 import Dependencies
 import AppStudioModels
+import Intercom
 
 class ProfileViewModel: BaseViewModel<ProfileOutput> {
 
@@ -17,6 +18,7 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
     @Dependency(\.profileCalculationServiceService) private var profileCalculationServiceService
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.userPropertyService) private var userPropertyService
+    @Dependency(\.intercomService) private var intercomService
 
     var router: ProfileRouter!
     @Published private var userData: ProfileCalculationInitialData?
@@ -76,8 +78,10 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
     }
 
     func contactSupport() {
+        intercomService.presentIntercom()
+            .sink { _ in }
+            .store(in: &cancellables)
         trackerService.track(.tapSupport)
-        router.presentSupport()
     }
 
     func changeSex() {

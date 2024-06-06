@@ -18,7 +18,7 @@ struct BorderedButton: View {
             Text(title)
                 .font(.poppins(.buttonText))
                 .frame(height: Layout.lineHeight)
-                .foregroundStyle(Color.accentColor)
+                .foregroundStyle(Color.studioBlackLight)
                 .padding(.vertical, Layout.verticalPadding)
                 .aligned(.centerHorizontaly)
                 .continiousCornerRadius(Layout.cornerRadius)

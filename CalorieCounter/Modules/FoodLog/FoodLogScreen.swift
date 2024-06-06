@@ -90,7 +90,7 @@ struct FoodLogScreen: View {
             Image.chevronDown
                 .font(.system(size: .backButtonFontSize, weight: .medium))
         }
-        .foregroundStyle(Color.accentColor)
+        .foregroundStyle(Color.studioBlackLight)
     }
 
     private var hasItems: Bool {

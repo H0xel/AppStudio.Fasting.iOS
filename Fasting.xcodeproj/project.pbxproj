@@ -354,6 +354,7 @@
 		A73F2CAC2BDBACA6005ADA82 /* NewAppStudioSubscriptions in Frameworks */ = {isa = PBXBuildFile; productRef = A73F2CAB2BDBACA6005ADA82 /* NewAppStudioSubscriptions */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
+		A758C61A2C0DFEEA00F9DC3F /* Intercom in Frameworks */ = {isa = PBXBuildFile; productRef = A758C6192C0DFEEA00F9DC3F /* Intercom */; };
 		A75956F02B172EBF00ECCAB0 /* SubscriptionPreviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75956EF2B172EBF00ECCAB0 /* SubscriptionPreviewService.swift */; };
 		A76294302B219E0B00DAF93B /* PersonalizedTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762942F2B219E0B00DAF93B /* PersonalizedTitleView.swift */; };
 		A76294322B219E2100DAF93B /* PersonalizedChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76294312B219E2100DAF93B /* PersonalizedChart.swift */; };
@@ -883,6 +884,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5675002A2ADE8763009331CB /* ABTesting in Frameworks */,
+				A758C61A2C0DFEEA00F9DC3F /* Intercom in Frameworks */,
 				563257FD2ADE61E30000F33C /* AppStudioAnalytics in Frameworks */,
 				A0255E8A2AFBD3C000221EC6 /* AppStudioABTesting in Frameworks */,
 				A0255E6C2AFBAA9A00221EC6 /* Moya in Frameworks */,
@@ -2631,6 +2633,7 @@
 				A0C16DE82BB2DD3200D64B4C /* AppStudioServices */,
 				56CB8E472BD79C5E00E7712C /* Explore */,
 				A73F2CAB2BDBACA6005ADA82 /* NewAppStudioSubscriptions */,
+				A758C6192C0DFEEA00F9DC3F /* Intercom */,
 			);
 			productName = AppStudioTemplate;
 			productReference = 563257112ADE57D80000F33C /* Fasting.app */;
@@ -2699,6 +2702,7 @@
 				A0255E8F2AFBD3ED00221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */,
 				564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */,
 				A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				A758C6182C0DFEEA00F9DC3F /* XCRemoteSwiftPackageReference "intercom-ios-sp" */,
 			);
 			productRefGroup = 563257122ADE57D80000F33C /* Products */;
 			projectDirPath = "";
@@ -3426,6 +3430,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fasting/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Fasting;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow camera access to send photos to support.";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used to show you personalized ads";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -3467,6 +3472,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fasting/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Fasting;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow camera access to send photos to support.";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used to show you personalized ads";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -3634,6 +3640,14 @@
 				kind = branch;
 			};
 		};
+		A758C6182C0DFEEA00F9DC3F /* XCRemoteSwiftPackageReference "intercom-ios-sp" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/intercom/intercom-ios-sp";
+			requirement = {
+				kind = exactVersion;
+				version = 17.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3774,6 +3788,11 @@
 		A73F2CAB2BDBACA6005ADA82 /* NewAppStudioSubscriptions */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NewAppStudioSubscriptions;
+		};
+		A758C6192C0DFEEA00F9DC3F /* Intercom */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A758C6182C0DFEEA00F9DC3F /* XCRemoteSwiftPackageReference "intercom-ios-sp" */;
+			productName = Intercom;
 		};
 /* End XCSwiftPackageProductDependency section */
 

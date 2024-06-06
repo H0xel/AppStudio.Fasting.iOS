@@ -35,7 +35,7 @@ struct StartFastingScreen: View {
             .padding(.horizontal, Layout.horizontalPadding)
         }
         .multilineTextAlignment(.center)
-        .foregroundStyle(Color.accentColor)
+        .foregroundStyle(Color.studioBlackLight)
         .padding(.top, Layout.topPadding)
         .padding(.bottom, Layout.bottomPadding)
     }

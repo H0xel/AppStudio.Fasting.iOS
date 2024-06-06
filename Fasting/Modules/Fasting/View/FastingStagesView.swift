@@ -102,7 +102,7 @@ struct FastingStagesView: View {
     private func title(for stage: FastingStage) -> some View {
         if stage == currentStage {
             Text(hasSubscription || stage == .sugarRises ? stage.title : Localization.title(for: stage))
-                .foregroundStyle(stage == currentStage ? .white : .accentColor)
+                .foregroundStyle(stage == currentStage ? .white : Color.studioBlackLight)
                 .transition(
                     .asymmetric(
                         insertion: .move(edge: .leading),

@@ -36,6 +36,8 @@
 	<string>Fasting Tracker</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>IntercomAutoIntegratePushNotifications</key>
+	<false/>
 	<key>NSAdvertisingAttributionReportEndpoint</key>
 	<string>https://appsflyer-skadnetwork.com/</string>
 	<key>UIAppFonts</key>

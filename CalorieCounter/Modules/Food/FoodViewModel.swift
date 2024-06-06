@@ -37,6 +37,7 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
     @Dependency(\.userDataService) private var userDataService
     @Dependency(\.localNotificationService) private var localNotificationService
     @Dependency(\.storageService) private var storageService
+    @Dependency(\.intercomService) private var intercomService
 
     init(input: FoodInput, output: @escaping FoodOutputBlock) {
         super.init(output: output)
@@ -169,6 +170,14 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
         switch deepLink {
         case .discount:
             presentDiscountPaywall(context: .discountPush)
+        case .intercom:
+            Task {
+                await router.popToRoot()
+                intercomService.hideIntercom()
+                intercomService.presentIntercom()
+                    .sink { _ in }
+                    .store(in: &cancellables)
+            }
         case .none: break
         }
     }
@@ -242,6 +251,7 @@ extension FoodViewModel {
         Task {
             let authorizationIsGranted = try await UNUserNotificationCenter.current()
                 .requestAuthorization(options: [.alert, .sound, .badge])
+            await UIApplication.shared.registerForRemoteNotifications()
             if authorizationIsGranted, !storageService.discountNotificationRegistered {
                 registerDiscountNotification()
             }

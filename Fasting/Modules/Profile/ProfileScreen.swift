@@ -53,7 +53,9 @@ struct ProfileScreen: View {
         .background(Color.studioGreyFillProgress)
         .navBarButton(placement: .principal,
                       isVisible: true,
-                      content: Text(Localization.navigationTitle).font(.poppins(.buttonText)),
+                      content: Text(Localization.navigationTitle)
+                                    .font(.poppins(.buttonText))
+                                    .foregroundStyle(Color.studioBlackLight),
                       action: {})
         .navigationBarTitleDisplayMode(.inline)
         .navBarButton(content: closeButton,
