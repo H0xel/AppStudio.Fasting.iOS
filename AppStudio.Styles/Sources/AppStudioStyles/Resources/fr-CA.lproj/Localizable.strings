@@ -29,6 +29,7 @@
 "Onboarding.birthdayTitle" = "Quelle est votre date de naissance?";
 "Onboarding.sex.description" = "Le sexe biologique peut influencer de nombreux éléments physiques comme notre métabolisme, notre masse musculaire ou nos hormones, nous l'utilisons donc dans nos calculs";
 "Onboarding.sex.title" = "Quel est votre sexe?";
+"Onboarding.recommended" = "Recommandé";
 
 // MARK: - RateAppInput
 "RateAppInput.calorieCounter.title" = "Voulez-vous évaluer à quel point vous aimez notre reconnaissance des repas?";
