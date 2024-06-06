@@ -74,7 +74,9 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
 
     func requestIdfa() {
-        idfaRequestService.requestIDFATracking()
+        Task {
+            await idfaRequestService.requestIDFATracking()
+        }
     }
 
     func openAppStore(_ applink: String) {

@@ -14,7 +14,20 @@ final class IDFARequestServiceImpl: IDFARequestService {
     @Dependency(\.analyticKeyStore) private var analyticKeyStore
     @Dependency(\.storageService) private var storageService
 
-    public func requestIDFATracking() {
+    public func requestIDFATracking() async {
+        do {
+            try await Task.sleep(seconds: 1)
+            let osVersion = ProcessInfo.processInfo.operatingSystemVersion
+            if osVersion.majorVersion == 17 && osVersion.minorVersion == 4 {
+                await requestIDFATrackingFixed()
+            } else {
+                requestIDFATrackingDefault()
+            }
+            await retryIDFARequestIfNeeded()
+        } catch {}
+    }
+
+    public func requestIDFATrackingDefault() {
         guard ATTrackingManager.trackingAuthorizationStatus == .notDetermined else {
             return
         }
@@ -26,5 +39,25 @@ final class IDFARequestServiceImpl: IDFARequestService {
                                                       afId: self.analyticKeyStore.currentAppsFlyerId))
             }
         }
+    }
+
+    private func requestIDFATrackingFixed() async {
+        var status = ATTrackingManager.trackingAuthorizationStatus
+        if status != .notDetermined {
+            return
+        }
+        trackService.track(.idfaShown(afId: analyticKeyStore.currentAppsFlyerId))
+        status = await ATTrackingManager.requestTrackingAuthorization()
+        if status == ATTrackingManager.trackingAuthorizationStatus {
+            trackService.track(.idfaAnswered(isGranted: status == .authorized,
+                                             afId: analyticKeyStore.currentAppsFlyerId))
+        }
+    }
+
+    private func retryIDFARequestIfNeeded() async {
+        do {
+            try await Task.sleep(seconds: 9)
+            await requestIDFATracking()
+        } catch {}
     }
 }

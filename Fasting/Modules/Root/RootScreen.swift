@@ -14,12 +14,15 @@ import AppStudioServices
 struct RootScreen: View {
 
     @StateObject var viewModel: RootViewModel
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         currentView
             .withDebugMenu()
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-                viewModel.requestIdfa()
+            .onChange(of: scenePhase) { phase in
+                if phase == .active {
+                    viewModel.requestIdfa()
+                }
             }
             .withInAppPurchase(status: viewModel.handle)
             .withDeepLink(deepLink: viewModel.handle)

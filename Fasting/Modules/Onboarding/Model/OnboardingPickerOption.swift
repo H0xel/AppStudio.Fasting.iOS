@@ -16,6 +16,10 @@ extension FastingGoal: OnboardingPickerOption {
     var isFt: Bool {
         false
     }
+
+    var isRecommended: Bool {
+        false
+    }
 }
 
 extension ActivityLevel: OnboardingPickerOption {
@@ -26,6 +30,10 @@ extension ActivityLevel: OnboardingPickerOption {
     var isFt: Bool {
         false
     }
+
+    var isRecommended: Bool {
+        false
+    }
 }
 
 extension SpecialEvent: OnboardingPickerOption {
@@ -34,6 +42,10 @@ extension SpecialEvent: OnboardingPickerOption {
     }
 
     var isFt: Bool {
+        false
+    }
+
+    var isRecommended: Bool {
         false
     }
 }

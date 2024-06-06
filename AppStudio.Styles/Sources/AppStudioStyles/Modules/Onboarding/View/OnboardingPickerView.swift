@@ -54,7 +54,8 @@ public struct OnboardingPickerView<Option: OnboardingPickerOption>: View {
                             OnboardingPickerOptionView(
                                 text: option.title,
                                 description: option.description,
-                                isSelected: selectedOptions.contains(option)
+                                isSelected: selectedOptions.contains(option),
+                                isRecommended: option.isRecommended
                             ) {
                                 onTap(option)
                             }

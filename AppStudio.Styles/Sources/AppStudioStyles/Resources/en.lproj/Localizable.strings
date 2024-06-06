@@ -29,6 +29,7 @@
 "Onboarding.birthdayTitle" = "When is your birthday?";
 "Onboarding.sex.description" = "Biological sex can affect many physical elements like our metabolism, muscle mass, or hormones, so we use it in our calculations";
 "Onboarding.sex.title" = "What’s your sex?";
+"Onboarding.recommended" = "Recommended";
 
 // MARK: - RateAppInput
 "RateAppInput.calorieCounter.title" = "Rate how much you like our meal recognition?";

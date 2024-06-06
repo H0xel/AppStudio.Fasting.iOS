@@ -11,9 +11,14 @@ public protocol OnboardingPickerOption: Identifiable, Hashable {
     var title: String { get }
     var description: String? { get }
     var isFt: Bool { get }
+    var isRecommended: Bool { get }
 }
 
 extension HeightUnit: OnboardingPickerOption {
+    public var isRecommended: Bool {
+        false
+    }
+    
     public var id: String {
         rawValue
     }
@@ -28,6 +33,10 @@ extension HeightUnit: OnboardingPickerOption {
 }
 
 extension WeightUnit: OnboardingPickerOption {
+    public var isRecommended: Bool {
+        false
+    }
+
     public var id: String {
         rawValue
     }
@@ -42,6 +51,10 @@ extension WeightUnit: OnboardingPickerOption {
 }
 
 extension Sex: OnboardingPickerOption {
+    public var isRecommended: Bool {
+        false
+    }
+
     public var description: String? {
         nil
     }

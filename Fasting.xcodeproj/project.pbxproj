@@ -377,7 +377,6 @@
 		A7A2E7192BF356300087D062 /* OnboardingDataApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2E7182BF356300087D062 /* OnboardingDataApi.swift */; };
 		A7A2E71B2BF3A4380087D062 /* HeightApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2E71A2BF3A4380087D062 /* HeightApi.swift */; };
 		A7A2E71D2BF3A4440087D062 /* WeightApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2E71C2BF3A4440087D062 /* WeightApi.swift */; };
-		A7A38DCC2BC6783A003704C1 /* AllMonetizationExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A38DCB2BC6783A003704C1 /* AllMonetizationExperiment.swift */; };
 		A7A38DE32BC8226B003704C1 /* MultiplePaywallInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A38DDD2BC8226A003704C1 /* MultiplePaywallInput.swift */; };
 		A7A38DE42BC8226B003704C1 /* MultiplePaywallRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A38DDE2BC8226B003704C1 /* MultiplePaywallRouter.swift */; };
 		A7A38DE52BC8226B003704C1 /* MultiplePaywallRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A38DDF2BC8226B003704C1 /* MultiplePaywallRoute.swift */; };
@@ -804,7 +803,6 @@
 		A7A2E7182BF356300087D062 /* OnboardingDataApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDataApi.swift; sourceTree = "<group>"; };
 		A7A2E71A2BF3A4380087D062 /* HeightApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightApi.swift; sourceTree = "<group>"; };
 		A7A2E71C2BF3A4440087D062 /* WeightApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightApi.swift; sourceTree = "<group>"; };
-		A7A38DCB2BC6783A003704C1 /* AllMonetizationExperiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMonetizationExperiment.swift; sourceTree = "<group>"; };
 		A7A38DDD2BC8226A003704C1 /* MultiplePaywallInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplePaywallInput.swift; sourceTree = "<group>"; };
 		A7A38DDE2BC8226B003704C1 /* MultiplePaywallRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplePaywallRouter.swift; sourceTree = "<group>"; };
 		A7A38DDF2BC8226B003704C1 /* MultiplePaywallRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplePaywallRoute.swift; sourceTree = "<group>"; };
@@ -1262,7 +1260,6 @@
 		5675005A2ADFA97F009331CB /* Experiments */ = {
 			isa = PBXGroup;
 			children = (
-				A7A38DCA2BC677F0003704C1 /* AllMonetizationExperiment */,
 				A72D45232B84D81000BC2E41 /* DiscountExperiment */,
 				A0497E8F2B28C35700F21FB0 /* TrialExperiment */,
 				A07D95A62AE946BF00D2C2E2 /* PricingExperiment */,
@@ -2354,14 +2351,6 @@
 			path = Modifier;
 			sourceTree = "<group>";
 		};
-		A7A38DCA2BC677F0003704C1 /* AllMonetizationExperiment */ = {
-			isa = PBXGroup;
-			children = (
-				A7A38DCB2BC6783A003704C1 /* AllMonetizationExperiment.swift */,
-			);
-			path = AllMonetizationExperiment;
-			sourceTree = "<group>";
-		};
 		A7A38DDC2BC8224C003704C1 /* MultipleProductPaywall */ = {
 			isa = PBXGroup;
 			children = (
@@ -2903,7 +2892,6 @@
 				A00B4DCA2B7382170067A872 /* FacebookInitializerServiceImpl.swift in Sources */,
 				5662DEC82B1614BE00C1637C /* FastingRingPointCircleView.swift in Sources */,
 				567500D92ADFCDAC009331CB /* SandboxApiSettingsProviderImpl.swift in Sources */,
-				A7A38DCC2BC6783A003704C1 /* AllMonetizationExperiment.swift in Sources */,
 				567500422ADFA67E009331CB /* AccountProviderImpl.swift in Sources */,
 				A04426322AF23DC0005400AE /* Int+extensions.swift in Sources */,
 				56C28DD62AE109580007E48D /* AppSyncServiceInitializer.swift in Sources */,

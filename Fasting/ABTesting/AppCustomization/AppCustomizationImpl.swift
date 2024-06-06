@@ -26,7 +26,6 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     let productIdsRelay = BehaviorRelay<[String]>(value: [])
     let discountRelay = BehaviorRelay<DiscountPaywallInfo>(value: .empty)
-    let allMonetizationRelay = BehaviorRelay<AllMonetizationExperimentVariant>(value: .control)
     let disposeBag = DisposeBag()
 
     func initialize() {
@@ -66,7 +65,6 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
         await register(experiment: PricingOngoingExperiment(experimentName: experimentName))
         await register(experiment: TrialExperiment())
-        await register(experiment: AllMonetizationExperiment())
 
         let discountExperimentName = await discountExperimentName()
         await register(experiment: DiscountPaywallExperiment(experimentName: discountExperimentName))

@@ -6,5 +6,5 @@
 //
 
 public protocol IDFARequestService {
-    func requestIDFATracking()
+    func requestIDFATracking() async
 }

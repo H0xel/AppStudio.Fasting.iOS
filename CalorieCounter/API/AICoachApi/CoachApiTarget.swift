@@ -9,7 +9,7 @@ import Foundation
 import Moya
 import AICoach
 
-private let basePath = "Fasting/Coach/"
+private let basePath = "CalorieCounter/Coach/"
 
 enum CoachApiTarget {
     case sendMessage(request: SendMessageRequest)

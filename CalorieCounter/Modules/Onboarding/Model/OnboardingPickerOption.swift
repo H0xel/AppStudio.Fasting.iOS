@@ -16,6 +16,10 @@ extension FastingGoal: OnboardingPickerOption {
     var isFt: Bool {
         false
     }
+
+    var isRecommended: Bool {
+        false
+    }
 }
 
 extension ActivityLevel: OnboardingPickerOption {
@@ -24,6 +28,10 @@ extension ActivityLevel: OnboardingPickerOption {
     }
 
     var isFt: Bool {
+        false
+    }
+
+    var isRecommended: Bool {
         false
     }
 }
@@ -36,6 +44,10 @@ extension SpecialEvent: OnboardingPickerOption {
     var isFt: Bool {
         false
     }
+
+    var isRecommended: Bool {
+        false
+    }
 }
 
 extension ExerciseActivity: OnboardingPickerOption {
@@ -44,6 +56,10 @@ extension ExerciseActivity: OnboardingPickerOption {
     }
 
     var isFt: Bool {
+        false
+    }
+
+    var isRecommended: Bool {
         false
     }
 }
@@ -56,6 +72,10 @@ extension ActivityType: OnboardingPickerOption {
     var isFt: Bool {
         false
     }
+
+    var isRecommended: Bool {
+        false
+    }
 }
 
 extension CalorieGoal: OnboardingPickerOption {
@@ -64,6 +84,10 @@ extension CalorieGoal: OnboardingPickerOption {
     }
 
     var isFt: Bool {
+        false
+    }
+
+    var isRecommended: Bool {
         false
     }
 }
@@ -76,6 +100,13 @@ extension DietType: OnboardingPickerOption {
     var isFt: Bool {
         false
     }
+
+    var isRecommended: Bool {
+        switch self {
+        case .balanced: return true
+        default: return false
+        }
+    }
 }
 
 extension ProteinLevel: OnboardingPickerOption {
@@ -85,5 +116,12 @@ extension ProteinLevel: OnboardingPickerOption {
 
     var isFt: Bool {
         false
+    }
+
+    var isRecommended: Bool {
+        switch self {
+        case .moderate: return true
+        default: return false
+        }
     }
 }
