@@ -13,7 +13,6 @@ import AVFoundation
 
 struct FoodLogScreen: View {
     @StateObject var viewModel: FoodLogViewModel
-    @FocusState private var isFocused: Bool
 
     var body: some View {
         ZStack {
@@ -25,7 +24,7 @@ struct FoodLogScreen: View {
                     FoodLogCalorieBudgetView(profile: viewModel.nutritionProfile)
                 }
                 if hasItems {
-                    FoodLogScrollView(viewModel: viewModel, isFocused: isFocused)
+                    FoodLogScrollView(viewModel: viewModel)
                         .padding(.horizontal, .horizontalPadding)
                 }
                 Spacer()
@@ -34,44 +33,10 @@ struct FoodLogScreen: View {
                 FoodLogEmptyView(type: viewModel.mealType)
             }
 
-            FoodLogInputView(isFocused: isFocused, viewModel: viewModel)
-                .focused($isFocused)
+            FoodLogInputView(isPresented: !viewModel.isBannerPresented, viewModel: viewModel.inputViewModel)
                 .aligned(.bottom)
-
-            if let ingredient = viewModel.tappedWeightIngredient {
-                ChangeWeightTextField(title: ingredient.name,
-                                      initialWeight: ingredient.weight,
-                                      onWeightChange: viewModel.changeIngredientWeight,
-                                      onCancel: viewModel.clearSelection)
-            }
-
-            if let meal = viewModel.tappedWeightMeal {
-                ChangeWeightTextField(title: meal.mealItem.mealName,
-                                      initialWeight: meal.mealItem.weight,
-                                      onWeightChange: viewModel.changeMealWeight,
-                                      onCancel: viewModel.clearSelection)
-            }
+                .opacity(viewModel.isBannerPresented ? 0 : 1)
         }
-        .onAppear(perform: viewModel.onViewAppear)
-        .onReceive(viewModel.$isKeyboardFocused.debounce(for: 0.15, scheduler: DispatchQueue.main)) { value in
-            isFocused = value
-        }
-        .onChange(of: viewModel.logType, perform: { logType in
-            if logType == .history {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    viewModel.isKeyboardFocused = true
-                }
-            }
-        })
-        .onChange(of: viewModel.mealSelectedState, perform: { state in
-            switch state {
-            case .delete:
-                viewModel.isKeyboardFocused = false
-            default:
-                break
-            }
-        })
-        .onChange(of: isFocused, perform: viewModel.onFocusChanged)
         .navigationBarTitleDisplayMode(.inline)
         .navBarButton(placement: .principal,
                       content: navigationTitleView,

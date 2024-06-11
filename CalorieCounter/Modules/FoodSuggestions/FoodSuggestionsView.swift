@@ -15,6 +15,7 @@ struct FoodSuggestionsView: View {
     @Binding var scrollOffset: CGFloat
     let isFocused: Bool
     let inputHeight: CGFloat
+    let canShowFavorites: Bool
     @StateObject var viewModel: FoodSuggestionsViewModel
 
     @State private var viewId = UUID()
@@ -40,6 +41,9 @@ struct FoodSuggestionsView: View {
             }
             .onChange(of: viewModel.selectedItemIds) { _ in
                 viewId = .init()
+            }
+            .onChange(of: canShowFavorites) { canShowFavorites in
+                viewModel.toggleFavorites(canShowFavorites: canShowFavorites)
             }
     }
 
@@ -109,21 +113,22 @@ private extension CGFloat {
     static let horizontalPadding: CGFloat = 16
     static let bottomSpacing: CGFloat = 16
     static let itemVerticalPadding: CGFloat = 10
-    static let minTopPadding: CGFloat = 51
+    static let minTopPadding: CGFloat = 44
 }
 
 #Preview {
     FoodSuggestionsView(
         scrollOffset: .constant(0),
-        isFocused: false, inputHeight: 121,
+        isFocused: false,
+        inputHeight: 121,
+        canShowFavorites: true,
         viewModel: .init(
             input: .init(mealPublisher: Just([]).eraseToAnyPublisher(),
                          mealType: .breakfast,
                          mealRequestPublisher: Just("").eraseToAnyPublisher(),
                          isPresented: true,
                          collapsePublisher: Just(()).eraseToAnyPublisher(),
-                         searchRequest: "", 
-                         canShowFavorites: true),
+                         searchRequest: ""),
             output: { _ in }
         )
     )

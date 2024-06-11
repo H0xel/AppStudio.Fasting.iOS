@@ -5,6 +5,10 @@
 //  Created by Denis Khlopin on 10.05.2024.
 //
 
+import Foundation
+
 struct QuickAddInput {
-    // add Input parameters here
+    let meal: Meal?
+    let mealType: MealType
+    let dayDate: Date
 }

@@ -8,34 +8,34 @@
 import SwiftUI
 
 struct MealVotingView: View {
-    let voting: MealVoting
-    let output: (MealViewOutput) -> Void
+
+    @StateObject var viewModel: MealVotingViewModel
 
     var body: some View {
         HStack(spacing: .spacing) {
-            Text(voting.buttonTitle)
+            Text(viewModel.voting.buttonTitle)
                 .foregroundStyle(Color.studioGreyText)
                 .font(.poppins(.description))
 
             Spacer()
 
-            voting.imageThumbDown
+            viewModel.voting.imageThumbDown
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: .imageSize, height: .imageSize)
                 .onTapGesture {
                     withAnimation(.bouncy) {
-                        output(.vote(.dislike))
+                        viewModel.vote(voting: .dislike)
                     }
                 }
 
-            voting.imageThumbUp
+            viewModel.voting.imageThumbUp
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: .imageSize, height: .imageSize)
                 .onTapGesture {
                     withAnimation(.bouncy) {
-                        output(.vote(.like))
+                        viewModel.vote(voting: .like)
                     }
                 }
         }

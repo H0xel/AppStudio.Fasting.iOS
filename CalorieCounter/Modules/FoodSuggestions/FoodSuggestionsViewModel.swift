@@ -25,7 +25,6 @@ struct FoodSuggestionsInput {
     let isPresented: Bool
     let collapsePublisher: AnyPublisher<Void, Never>
     let searchRequest: String
-    let canShowFavorites: Bool
 }
 
 class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
@@ -36,7 +35,7 @@ class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
     @Published var isSuggestionsPresented: Bool
     @Published var searchRequest = ""
     private let mealType: MealType
-    private let canShowFavorites: Bool
+    @Published private var canShowFavorites = true
     @Published var selectedItemIds: Set<String> = []
     private var canToggle = true
 
@@ -44,7 +43,6 @@ class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
          output: @escaping ViewOutput<FoodSuggestionsOutput>) {
         mealType = input.mealType
         isSuggestionsPresented = input.isPresented
-        canShowFavorites = input.canShowFavorites
         super.init(output: output)
         loadMeals(searchRequest: input.searchRequest)
         observeRequest(publisher: input.mealRequestPublisher)
@@ -75,6 +73,11 @@ class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
             loadMeals(searchRequest: searchRequest)
         }
         output(.togglePresented(isPresented: isPresented))
+    }
+
+    func toggleFavorites(canShowFavorites: Bool) {
+        self.canShowFavorites = canShowFavorites
+        loadMeals(searchRequest: searchRequest)
     }
 
     private func observeMeals(publisher: AnyPublisher<[MealItem], Never>) {

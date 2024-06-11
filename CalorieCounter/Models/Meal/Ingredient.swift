@@ -61,4 +61,8 @@ extension Ingredient {
                                                            carbohydrates: 2.0).normalize(with: 30))
         ]
     }
+
+    func updated(newWeight: CGFloat) -> Ingredient {
+        .init(name: name, brandTitle: brandTitle, weight: newWeight, normalizedProfile: normalizedProfile)
+    }
 }

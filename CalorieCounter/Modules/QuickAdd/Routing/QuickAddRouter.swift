@@ -9,9 +9,4 @@ import SwiftUI
 import AppStudioNavigation
 
 class QuickAddRouter: BaseRouter {
-    static func route(navigator: Navigator,
-                      meal: Meal?,
-                      output: @escaping QuickAddOutputBlock) -> Route {
-        QuickAddRoute(navigator: navigator, meal: meal, output: output)
-    }
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct LogChipsView: View {
-    @Binding var selected: LogType
+    let logType: LogType
+    let onPick: (LogType) -> Void
     let onClose: () -> Void
     private let types: [LogType] = [.history, .quickAdd]
 
@@ -17,15 +18,24 @@ struct LogChipsView: View {
             HStack(spacing: .spacing) {
                 ForEach(types, id: \.self) { type in
                     LogChipsButton(type: type,
-                                   isSelected: type == selected,
+                                   isSelected: type == logType,
                                    onClose: onClose,
-                                   onTap: { withAnimation { selected = type } })
+                                   onTap: { onPick(type) })
                 }
             }
         }
+        .padding(.top, .chipsTopPadding)
+        .padding(.bottom, .bottomPadding)
+        .padding(.horizontal, .horizontalChipsPadding)
+        .transition(.identity)
+        .padding(.top, -.chipsTopPadding)
+        .background(.white)
     }
 }
 
 private extension CGFloat {
     static let spacing: CGFloat = 12
+    static let chipsTopPadding: CGFloat = 10
+    static let bottomPadding: CGFloat = 10
+    static let horizontalChipsPadding: CGFloat = 10
 }

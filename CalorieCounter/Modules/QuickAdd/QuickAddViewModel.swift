@@ -11,6 +11,7 @@ import Combine
 import Foundation
 
 class QuickAddViewModel: BaseViewModel<QuickAddOutput> {
+
     var router: QuickAddRouter!
 
     @Published var calories: Double = 0.0
@@ -18,18 +19,15 @@ class QuickAddViewModel: BaseViewModel<QuickAddOutput> {
     @Published var fats: Double = 0.0
     @Published var carbs: Double = 0.0
     @Published var foodName: String = ""
-    private var editedMeal: Meal?
+    var editedMeal: Meal?
+    private let mealType: MealType
+    private let dayDate: Date
 
-    init(meal: Meal?, output: @escaping QuickAddOutputBlock) {
+    init(input: QuickAddInput, output: @escaping QuickAddOutputBlock) {
+        mealType = input.mealType
+        dayDate = input.dayDate
         super.init(output: output)
-        if let meal, meal.isQuickAdded, let ingredient = meal.mealItem.ingredients.first {
-            self.calories = ingredient.normalizedProfile.calories
-            self.proteins = ingredient.normalizedProfile.proteins
-            self.fats = ingredient.normalizedProfile.fats
-            self.carbs = ingredient.normalizedProfile.carbohydrates
-            self.foodName = ingredient.name
-            self.editedMeal = meal
-        }
+        fillData(meal: input.meal)
     }
 
     var isSaveAvailable: Bool {
@@ -42,41 +40,52 @@ class QuickAddViewModel: BaseViewModel<QuickAddOutput> {
         } else {
             createMeal()
         }
+        changeLogType(to: .log)
+    }
+
+    func changeLogType(to type: LogType) {
+        output(.logType(logType: type))
+    }
+
+    private func fillData(meal: Meal?) {
+        guard let meal, meal.isQuickAdded, let ingredient = meal.mealItem.ingredients.first else {
+            return
+        }
+        calories = ingredient.normalizedProfile.calories
+        proteins = ingredient.normalizedProfile.proteins
+        fats = ingredient.normalizedProfile.fats
+        carbs = ingredient.normalizedProfile.carbohydrates
+        foodName = ingredient.name
+        editedMeal = meal
     }
 
     private func createMeal() {
+        let mealItem = MealItem.quickAdded(
+            foodName: foodName,
+            nutritionProfile: .init(calories: calories,
+                                    proteins: proteins,
+                                    fats: fats,
+                                    carbohydrates: carbs)
+        )
         let meal = Meal(
             id: UUID().uuidString,
-            type: .breakfast,
-            dayDate: .now,
+            type: mealType,
+            dayDate: dayDate,
             creationDate: .now,
-            mealItem: .init(
-                id: UUID().uuidString,
-                name: "",
-                subTitle: nil,
-                ingredients: [.init(name: foodName,
-                                    brandTitle: nil,
-                                    weight: 100,
-                                    normalizedProfile: .init(calories: calories,
-                                                             proteins: proteins,
-                                                             fats: fats,
-                                                             carbohydrates: carbs))],
-                creationType: .quickAdd,
-                dateUpdated: .now),
+            mealItem: mealItem,
             voting: .disabled)
 
         output(.created(meal))
     }
 
-    func clearFocus() {
-        hideKeyboard()
+    func close() {
+        output(.close)
     }
 
     private func saveMeal() {
         guard let meal = editedMeal else {
             return
         }
-
         let savedMeal = meal.copyWith(
             ingredients: [
                 .init(

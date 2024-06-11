@@ -19,17 +19,6 @@ class FoodLogRouter: BaseRouter {
         present(sheet: route, detents: [.medium], showIndicator: false)
     }
 
-    func presentDeleteBanner(editType: MealEditType,
-                             onCancel: @escaping () -> Void,
-                             onDelete: @escaping () -> Void,
-                             onEdit: @escaping () -> Void) {
-        let banner = MealDeleteBanner(editType: editType,
-                                      onCancel: onCancel,
-                                      onDelete: onDelete,
-                                      onEdit: onEdit)
-        present(banner: banner)
-    }
-
     func presentBarcodeScanner(output: @escaping BarcodeOutputBlock) {
         let route = BarcodeRoute(navigator: navigator, input: BarcodeInput(), output: output)
         present(route: route)
@@ -40,6 +29,11 @@ class FoodLogRouter: BaseRouter {
                                       context: .barcodeScanner,
                                       output: output)
         present(route: route)
+    }
+
+    func presentQuickAddBanner(input: QuickAddInput, output: @escaping QuickAddOutputBlock) {
+        let banner = QuickAddBanner(navigator: navigator, input: input, output: output)
+        present(banner: banner)
     }
 
     func presentCameraAccessAlert() {
@@ -56,4 +50,5 @@ class FoodLogRouter: BaseRouter {
             title: alertTitle,
             message: alertSubTitle,
             actions: [openSettingsAction, cancelAction]))
-    }}
+    }
+}

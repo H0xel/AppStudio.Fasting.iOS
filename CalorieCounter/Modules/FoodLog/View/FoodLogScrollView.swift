@@ -12,28 +12,25 @@ private let topSpacerId = "topSpacerId"
 struct FoodLogScrollView: View {
 
     @ObservedObject var viewModel: FoodLogViewModel
-    let isFocused: Bool
 
     var body: some View {
         ScrollViewReader { reader in
             ScrollView {
                 Spacer(minLength: .topSpacing)
                     .id(topSpacerId)
-                ForEach(viewModel.logItems, id: \.id) { logItem in
-                    switch logItem {
-                    case .meal(let meal):
-                        MealView(input: viewModel.mealViewInput(for: meal)) { output in
-                            viewModel.handle(mealViewOutput: output, meal: meal)
-                        }
-                        .id(meal.id)
-                        .onTapGesture {
-                            viewModel.clearMealSelection()
-                        }
-                    case .placeholder(let placeholder):
-                        MealPlaceholderView(text: placeholder.mealText)
-                    case .notFoundBarcode(let placeholder):
-                        NotFoundMealPlaceholderView {
-                            viewModel.remove(placeholder: placeholder)
+                LazyVStack(spacing: .spacing) {
+                    ForEach(viewModel.logItems, id: \.id) { logItem in
+                        switch logItem {
+                        case .meal(let meal):
+                            MealView(viewModel: viewModel.mealViewModel(meal: meal))
+                                .id(meal)
+                                .id(meal.id)
+                        case .placeholder(let placeholder):
+                            MealPlaceholderView(text: placeholder.mealText)
+                        case .notFoundBarcode(let placeholder):
+                            NotFoundMealPlaceholderView {
+                                viewModel.remove(placeholder: placeholder)
+                            }
                         }
                     }
                 }
@@ -41,33 +38,18 @@ struct FoodLogScrollView: View {
             }
             .scrollIndicators(.hidden)
             .scrollDismissesKeyboard(.immediately)
-            .onReceive(viewModel.$mealSelectedState) { value in
-                if case let .addIngredients(meal) = value {
-                    scrollTo(meal.id, reader: reader, anchor: .top)
-                    return
-                }
-
-                if let ingredient = value.ingredient {
-                    scrollTo(ingredient, reader: reader)
-                    return
-                }
-
-                if let meal = value.meal {
-                    scrollTo(meal.id, reader: reader, anchor: .top)
-                }
+            .onChange(of: viewModel.selectedMealId) { id in
+                scrollTo(id, reader: reader, anchor: .center)
             }
-            .onChange(of: isFocused) { isFocused in
-                if isFocused, viewModel.mealSelectedState.isNotSelected {
-                    scrollTo(topSpacerId, reader: reader)
-                }
-                viewModel.onFocusChanged(isFocused)
+            .onReceive(viewModel.scrollToTopPublisher) { _ in
+                scrollTo(topSpacerId, reader: reader)
             }
             .animation(.bouncy, value: viewModel.logItems)
         }
     }
 
     private func scrollTo<ID: Hashable>(_ id: ID, reader: ScrollViewProxy, anchor: UnitPoint = .center) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             withAnimation(.linear) {
                 reader.scrollTo(id, anchor: anchor)
             }
@@ -78,6 +60,7 @@ struct FoodLogScrollView: View {
 private extension CGFloat {
     static let topSpacing: CGFloat = 16
     static let bottomSpacing: CGFloat = 183
+    static let spacing: CGFloat = 8
 }
 
 #Preview {
@@ -91,6 +74,6 @@ private extension CGFloat {
                 hasSubscription: false,
                 mealsCountInDay: 0),
             output: { _ in }
-        ), isFocused: false
+        )
     )
 }

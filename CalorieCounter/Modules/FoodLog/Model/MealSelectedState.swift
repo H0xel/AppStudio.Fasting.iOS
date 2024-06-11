@@ -9,27 +9,17 @@ import Foundation
 
 enum MealSelectedState: Equatable {
     case notSelected
-    case delete(Meal)
-    case ingredient(Meal, Ingredient)
-    case ingredientWeight(Meal, Ingredient)
-    case mealWeight(Meal)
-    case addIngredients(Meal)
-
-    var meal: Meal? {
-        switch self {
-        case .notSelected:
-            nil
-        case .delete(let meal), .addIngredients(let meal), .ingredientWeight(let meal, _),
-                .mealWeight(let meal), .ingredient(let meal, _):
-            meal
-        }
-    }
+    case delete
+    case ingredient(Ingredient)
+    case ingredientWeight(Ingredient)
+    case mealWeight
+    case addIngredients
 
     var ingredient: Ingredient? {
         switch self {
         case .notSelected, .delete, .mealWeight, .addIngredients:
             nil
-        case .ingredient(_, let ingredient), .ingredientWeight(_, let ingredient):
+        case .ingredient(let ingredient), .ingredientWeight(let ingredient):
             ingredient
         }
     }

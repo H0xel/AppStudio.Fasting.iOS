@@ -165,6 +165,20 @@ extension MealItem {
               creationType: creationType,
               dateUpdated: dateUpdated)
     }
+
+    static func quickAdded(foodName: String, nutritionProfile profile: NutritionProfile) -> MealItem {
+        .init(id: UUID().uuidString,
+              name: "",
+              subTitle: nil,
+              ingredients: [
+                .init(name: foodName,
+                      brandTitle: nil,
+                      weight: 100,
+                      normalizedProfile: profile)
+              ],
+              creationType: .quickAdd,
+              dateUpdated: .now)
+    }
 }
 
 extension Array where Element == MealItem {

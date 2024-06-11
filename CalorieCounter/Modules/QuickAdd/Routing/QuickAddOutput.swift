@@ -9,8 +9,8 @@ import AppStudioUI
 typealias QuickAddOutputBlock = ViewOutput<QuickAddOutput>
 
 enum QuickAddOutput {
-    // add Output parameters here
     case created(Meal)
     case updated(Meal)
-    case dismiss
+    case logType(logType: LogType)
+    case close
 }

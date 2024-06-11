@@ -60,6 +60,9 @@ struct CustomTextField: View {
                 isFocused = true
             }
         }
+        .onChange(of: isKeyboardFocused) { isKeyboardFocused in
+            isFocused = isKeyboardFocused == true
+        }
     }
 
     var formattedPlaceholder: String {
