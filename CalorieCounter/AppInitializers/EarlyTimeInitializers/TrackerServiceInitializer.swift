@@ -26,8 +26,8 @@ final class TrackerServiceInitializer: AppInitializer {
 
         let amplitudeKey = obfusactor.reveal(
             key: UIDevice.current.isSandbox
-            ? "6a403712135b5903411c13402759470512191814231448730308575f52120644"
-            : "631a6445445a59571b18121b22504703414e454377134322010e0353584356"
+            ? "6e46314d440f57541418131176034354101f1016241546765355555203415212"
+            : "69466716460b5c5f121c1444750217501b4e131a2544407657545c0604400046"
         )
         let appsflyerAppId = obfusactor.reveal(key: "6d16644040505e571615")
         let appsflyerDevKey = obfusactor.reveal(key: "161b19393e381a556a796d651d5403044c7575730c33")
