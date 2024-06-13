@@ -362,6 +362,12 @@
 		A76294372B21A4B300DAF93B /* PersonalizedStartWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76294362B21A4B300DAF93B /* PersonalizedStartWeightView.swift */; };
 		A76294392B21A50E00DAF93B /* PersonalizedWeightDifferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76294382B21A50D00DAF93B /* PersonalizedWeightDifferenceView.swift */; };
 		A762943B2B21A58C00DAF93B /* PersonalizedSpecialEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762943A2B21A58C00DAF93B /* PersonalizedSpecialEventView.swift */; };
+		A76B46332C11A6FD00D97DEC /* W2WLoginInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B462D2C11A6FD00D97DEC /* W2WLoginInput.swift */; };
+		A76B46342C11A6FD00D97DEC /* W2WLoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B462E2C11A6FD00D97DEC /* W2WLoginRouter.swift */; };
+		A76B46352C11A6FD00D97DEC /* W2WLoginRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B462F2C11A6FD00D97DEC /* W2WLoginRoute.swift */; };
+		A76B46362C11A6FD00D97DEC /* W2WLoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B46302C11A6FD00D97DEC /* W2WLoginScreen.swift */; };
+		A76B46372C11A6FD00D97DEC /* W2WLoginOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B46312C11A6FD00D97DEC /* W2WLoginOutput.swift */; };
+		A76B46382C11A6FD00D97DEC /* W2WLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B46322C11A6FD00D97DEC /* W2WLoginViewModel.swift */; };
 		A777D14A2B209ADB00B48F41 /* PersonalizedPaywallInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A777D1442B209ADB00B48F41 /* PersonalizedPaywallInput.swift */; };
 		A777D14B2B209ADB00B48F41 /* PersonalizedPaywallRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A777D1452B209ADB00B48F41 /* PersonalizedPaywallRouter.swift */; };
 		A777D14C2B209ADB00B48F41 /* PersonalizedPaywallRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A777D1462B209ADB00B48F41 /* PersonalizedPaywallRoute.swift */; };
@@ -788,6 +794,12 @@
 		A76294362B21A4B300DAF93B /* PersonalizedStartWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedStartWeightView.swift; sourceTree = "<group>"; };
 		A76294382B21A50D00DAF93B /* PersonalizedWeightDifferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedWeightDifferenceView.swift; sourceTree = "<group>"; };
 		A762943A2B21A58C00DAF93B /* PersonalizedSpecialEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedSpecialEventView.swift; sourceTree = "<group>"; };
+		A76B462D2C11A6FD00D97DEC /* W2WLoginInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginInput.swift; sourceTree = "<group>"; };
+		A76B462E2C11A6FD00D97DEC /* W2WLoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginRouter.swift; sourceTree = "<group>"; };
+		A76B462F2C11A6FD00D97DEC /* W2WLoginRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginRoute.swift; sourceTree = "<group>"; };
+		A76B46302C11A6FD00D97DEC /* W2WLoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginScreen.swift; sourceTree = "<group>"; };
+		A76B46312C11A6FD00D97DEC /* W2WLoginOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginOutput.swift; sourceTree = "<group>"; };
+		A76B46322C11A6FD00D97DEC /* W2WLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginViewModel.swift; sourceTree = "<group>"; };
 		A777D1442B209ADB00B48F41 /* PersonalizedPaywallInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedPaywallInput.swift; sourceTree = "<group>"; };
 		A777D1452B209ADB00B48F41 /* PersonalizedPaywallRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedPaywallRouter.swift; sourceTree = "<group>"; };
 		A777D1462B209ADB00B48F41 /* PersonalizedPaywallRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedPaywallRoute.swift; sourceTree = "<group>"; };
@@ -1542,6 +1554,7 @@
 		56C28D682AE0FBFC0007E48D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A76B462C2C11A6CA00D97DEC /* W2WLogin */,
 				A7C026D12B1DB24E004C3D63 /* InActiveFastingArticle */,
 				A7A3972D2B71F683003330C3 /* DiscountPaywall */,
 				A777D1432B209AC300B48F41 /* PersonalizedPaywall */,
@@ -2313,6 +2326,27 @@
 			path = PersonalizedChart;
 			sourceTree = "<group>";
 		};
+		A76B462C2C11A6CA00D97DEC /* W2WLogin */ = {
+			isa = PBXGroup;
+			children = (
+				A76B46392C11A70800D97DEC /* Routing */,
+				A76B46302C11A6FD00D97DEC /* W2WLoginScreen.swift */,
+				A76B46322C11A6FD00D97DEC /* W2WLoginViewModel.swift */,
+			);
+			path = W2WLogin;
+			sourceTree = "<group>";
+		};
+		A76B46392C11A70800D97DEC /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A76B46312C11A6FD00D97DEC /* W2WLoginOutput.swift */,
+				A76B462D2C11A6FD00D97DEC /* W2WLoginInput.swift */,
+				A76B462E2C11A6FD00D97DEC /* W2WLoginRouter.swift */,
+				A76B462F2C11A6FD00D97DEC /* W2WLoginRoute.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
 		A777D1432B209AC300B48F41 /* PersonalizedPaywall */ = {
 			isa = PBXGroup;
 			children = (
@@ -2827,6 +2861,7 @@
 				A7D01B7D2AF10A6D00C50C1F /* SetupFastingRouter.swift in Sources */,
 				A044263C2AF240F4005400AE /* ProfileRoute.swift in Sources */,
 				A729F92E2BF4B77C00875BB5 /* OnboardingResponse.swift in Sources */,
+				A76B46382C11A6FD00D97DEC /* W2WLoginViewModel.swift in Sources */,
 				56C28DCB2AE109580007E48D /* AppInitializerService.swift in Sources */,
 				A78085082B7DEAFE002BF67E /* AppCustomizationPreview.swift in Sources */,
 				A0382D3E2AF4F03A009CC579 /* SuccessRoute.swift in Sources */,
@@ -2924,6 +2959,7 @@
 				56728A652B7203CE00652341 /* ProductsLoaderService.swift in Sources */,
 				567500032ADE84B4009331CB /* MigrationLaunchServiceImpl.swift in Sources */,
 				56CB8E4E2BD79F1200E7712C /* ExploreInitializer+extentions.swift in Sources */,
+				A76B46342C11A6FD00D97DEC /* W2WLoginRouter.swift in Sources */,
 				A78535E52AF1481900437F5E /* SnapCarousel.swift in Sources */,
 				A04272D02AE29E6F00754326 /* WithDebugMenuModifier.swift in Sources */,
 				A7D01B6A2AF0CCF900C50C1F /* ChooseFastingPlanInput.swift in Sources */,
@@ -2985,6 +3021,7 @@
 				56C28DC72AE109580007E48D /* LateTimeInitializers.swift in Sources */,
 				A711E55C2BEE50FF00AC81F9 /* NewSubscriptionInitializerDependency.swift in Sources */,
 				564BE0C12AF0F31600CE7F38 /* FastingParameters+Mappable.swift in Sources */,
+				A76B46352C11A6FD00D97DEC /* W2WLoginRoute.swift in Sources */,
 				A72D45272B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift in Sources */,
 				A7A3973D2B71FEFE003330C3 /* DiscountPaywallView.swift in Sources */,
 				566C24942AE8F80B00AEDB3C /* PaywallScreenOutput.swift in Sources */,
@@ -3057,6 +3094,7 @@
 				56CB8E462BD79C4500E7712C /* ExploreApiImpl.swift in Sources */,
 				567500042ADE84B4009331CB /* AppMigrationsProvider.swift in Sources */,
 				A777D14E2B209ADB00B48F41 /* PersonalizedPaywallOutput.swift in Sources */,
+				A76B46372C11A6FD00D97DEC /* W2WLoginOutput.swift in Sources */,
 				A7D01B6C2AF0CCF900C50C1F /* ChooseFastingPlanRoute.swift in Sources */,
 				A7D01B5F2AF0C82100C50C1F /* OnboardingRoute.swift in Sources */,
 				A08449702B1A86AC00D30E04 /* FastingPhaseRoute.swift in Sources */,
@@ -3105,6 +3143,7 @@
 				A7A38DE72BC8226B003704C1 /* MultiplePaywallOutput.swift in Sources */,
 				A0881E5C2AEAB7A800E38FF5 /* Image+icons.swift in Sources */,
 				A0255E7A2AFBD1F200221EC6 /* SubscriptionsApiImpl.swift in Sources */,
+				A76B46332C11A6FD00D97DEC /* W2WLoginInput.swift in Sources */,
 				A00B4DC82B7382170067A872 /* FacebookInitializerService.swift in Sources */,
 				A7D01B612AF0C82100C50C1F /* OnboardingOutput.swift in Sources */,
 				56655B6A2AFCB12A00508ED4 /* FastingIntervalHistory+Mappable.swift in Sources */,
@@ -3184,6 +3223,7 @@
 				567500252ADE86C3009331CB /* Atomic.swift in Sources */,
 				A7D01B8F2AF115F200C50C1F /* NotificationOnboardingInput.swift in Sources */,
 				567500C72ADFCC54009331CB /* SyncServiceBaseImpl.swift in Sources */,
+				A76B46362C11A6FD00D97DEC /* W2WLoginScreen.swift in Sources */,
 				A76294392B21A50E00DAF93B /* PersonalizedWeightDifferenceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

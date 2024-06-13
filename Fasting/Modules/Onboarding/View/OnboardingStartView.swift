@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingStartView: View {
 
-    let onTap: () -> Void
+    let onTap: (Action) -> Void
 
     var body: some View {
         ZStack {
@@ -33,7 +33,25 @@ struct OnboardingStartView: View {
                         .font(.poppins(.headerL))
                         .padding(.bottom, Layout.textVerticalPadding)
                         .background()
-                    AccentButton(title: .localizedString(Localization.buttonTitle), action: onTap)
+                    AccentButton(title: .localizedString(Localization.buttonTitle)) {
+                        onTap(.getStartedTapped)
+                    }
+
+                    HStack(spacing: Layout.bottomW2WSpacing) {
+                        Text("W2W.onboarding.title")
+                            .font(.poppins(.description))
+                        Button(action: {
+                            onTap(.w2wSignIn)
+                        }, label: {
+                            HStack(spacing: Layout.buttonSpacing) {
+                                Text("W2W.onboarding.signIn")
+                                Image.arrowRight
+                            }
+                            .font(.poppinsMedium(.description))
+                        })
+                    }
+                    .foregroundStyle(Color.studioBlackLight)
+                    .padding(.top, Layout.topW2WPadding)
                 }
                 .padding(.horizontal, Layout.horizontalPadding)
                 .padding(.bottom, Layout.buttonBottomPadding)
@@ -41,6 +59,13 @@ struct OnboardingStartView: View {
             }
         }
         .frame(width: UIScreen.main.bounds.width)
+    }
+}
+
+extension OnboardingStartView {
+    enum Action {
+        case getStartedTapped
+        case w2wSignIn
     }
 }
 
@@ -52,12 +77,15 @@ private extension OnboardingStartView {
 
     enum Layout {
         static let textVerticalPadding: CGFloat = 56
-        static let buttonBottomPadding: CGFloat = 58
+        static let buttonBottomPadding: CGFloat = 38
         static let horizontalPadding: CGFloat = 32
         static let gradientHeight: CGFloat = 100
+        static let buttonSpacing: CGFloat = 4
+        static let bottomW2WSpacing: CGFloat = 16
+        static let topW2WPadding: CGFloat = 20
     }
 }
 
 #Preview {
-    OnboardingStartView {}
+    OnboardingStartView { _ in }
 }

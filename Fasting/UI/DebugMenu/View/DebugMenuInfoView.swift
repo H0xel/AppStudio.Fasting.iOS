@@ -12,6 +12,7 @@ import AppStudioSubscriptions
 struct DebugMenuInfoView: View {
 
     @Dependency(\.accountIdProvider) private var accountIdProvider
+    @Dependency(\.cloudStorage) private var cloudStorage
 
     var body: some View {
         Text("Model name - \(UIDevice.current.modelName)")
@@ -22,6 +23,7 @@ struct DebugMenuInfoView: View {
                 UINotificationFeedbackGenerator().notificationOccurred(.success)
             }
         Text("Locale - \(Locale.current.identifier)")
+        Text("W2W account - \(cloudStorage.w2wUserEmail ?? "empty")")
     }
 }
 

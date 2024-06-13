@@ -19,12 +19,21 @@ class ChooseFastingPlanViewModel: BaseViewModel<ChooseFastingPlanOutput> {
     let plans: [FastViewPlan] = [.init(plan: .regular), .init(plan: .beginner), .init(plan: .expert)]
     @Published var index = 0
     @Published private var previousPlan: FastingPlan = .beginner
+    @Published var showW2WActivationBanner = false
 
     init(input: ChooseFastingPlanInput, output: @escaping ChooseFastingPlanOutputBlock) {
         context = input.context
         super.init(output: output)
         trackFastingScheduleScreenShownIfNeeded()
         subscribeToPreviousPlan()
+
+        if context == .w2wOnboarding {
+            Task { @MainActor in
+                showW2WActivationBanner = true
+                try await Task.sleep(seconds: 3)
+                showW2WActivationBanner = false
+            }
+        }
     }
 
     func choosePlanTapped() {

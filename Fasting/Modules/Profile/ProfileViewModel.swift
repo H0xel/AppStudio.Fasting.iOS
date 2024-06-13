@@ -17,8 +17,11 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
     @Dependency(\.fastingParametersService) private var fastingParametersService
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.userPropertyService) private var userPropertyService
+    @Dependency(\.cloudStorage) private var cloudStorage
     @Dependency(\.intercomService) private var intercomService
+
     @Published private var userData: OnboardingData?
+    @Published var userEmail: String?
 
     var router: ProfileRouter!
     @Published var plan: FastingPlan = .beginner
@@ -27,6 +30,7 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
         super.init(output: output)
         subscribeToFastingPlan()
         loadData()
+        updateUserEmail()
     }
 
     var sex: Sex {
@@ -81,6 +85,13 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
         router.open(url: url)
     }
 
+    func pushW2WLoginScreen() {
+        router.pushW2WLoginScreen { [weak self] in
+            self?.router.dismiss()
+            self?.updateUserEmail()
+        }
+    }
+
     func contactSupport() {
         intercomService.presentIntercom()
             .sink { _ in }
@@ -124,6 +135,10 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
         guard let userData = userData?.updated(height: newHeight) else { return }
         onboardingService.save(data: userData)
         self.userData = userData
+    }
+
+    private func updateUserEmail() {
+        userEmail = cloudStorage.w2wUserEmail
     }
 }
 

@@ -13,7 +13,7 @@ struct ChooseFastingPlanScreen: View {
     @StateObject var viewModel: ChooseFastingPlanViewModel
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             Text(viewModel.context == .onboarding ?
                     Localization.titleOnboarding :
                     Localization.title)
@@ -37,11 +37,31 @@ struct ChooseFastingPlanScreen: View {
             }
             Spacer(minLength: 20)
         }
+        .overlay {
+            VStack(spacing: .zero) {
+                HStack(spacing: Layout.bannerSpacing) {
+                    Image.checkmark
+                        .foregroundStyle(.green)
+                    Text("W2W.banner.activateSuccessfully")
+                        .font(.poppins(.body))
+                        .foregroundStyle(.white)
+                }
+                .padding(.horizontal, Layout.bannerHorizontalPadding)
+                .padding(.vertical, Layout.bannerVerticalPadding)
+                .background(Color.studioBlackLight)
+                .continiousCornerRadius(Layout.bannerCornerRadius)
+                Spacer()
+            }
+            .padding(.top, Layout.bannerTopPadding)
+            .ignoresSafeArea()
+            .opacity(viewModel.showW2WActivationBanner ? 1 : 0)
+            .animation(.interpolatingSpring, value: viewModel.showW2WActivationBanner)
+        }
         .multilineTextAlignment(.center)
-        .navBarButton(isVisible: viewModel.context != .onboarding,
+        .navBarButton(isVisible: viewModel.context != .onboarding && viewModel.context != .w2wOnboarding,
                       content: Image.xmarkUnfilled.foregroundColor(.accent),
                       action: viewModel.backButtonTapped)
-        .navigationBarHidden(false)
+        .navigationBarHidden(viewModel.context == .w2wOnboarding)
     }
 }
 
@@ -53,6 +73,11 @@ private extension ChooseFastingPlanScreen {
         static let descriptionBottomPadding: CGFloat = 40
         static let horizontalPadding: CGFloat = 32
         static let lineSpacing: CGFloat = 3
+        static let bannerSpacing: CGFloat = 12
+        static let bannerCornerRadius: CGFloat = 20
+        static let bannerTopPadding: CGFloat = 50
+        static let bannerHorizontalPadding: CGFloat = 16
+        static let bannerVerticalPadding: CGFloat = 19
     }
 }
 

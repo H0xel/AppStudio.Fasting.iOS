@@ -95,6 +95,12 @@ public extension ProfileButtonInput {
               description: nil,
               image: nil)
     }
+
+    static var signInByEmail: ProfileButtonInput {
+        .init(title: "ProfileScreen.signInByEmail".localized(bundle: .module),
+              description: nil,
+              image: nil)
+    }
 }
 
 private extension ProfileButtonView {

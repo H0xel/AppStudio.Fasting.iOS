@@ -23,7 +23,7 @@ class OnboardingRouter: BaseRouter {
 
             switch paywallOutput {
             case .close, .subscribed:
-                self?.pushChooseFastingScreen(output: output)
+                self?.pushChooseFastingScreen(context: .onboarding, output: output)
             case let .showDiscountPaywall(input):
                 self?.navigator.dismiss()
                 self?.presentDiscountPaywall(input: input, output: output)
@@ -37,7 +37,7 @@ class OnboardingRouter: BaseRouter {
 
             switch paywallOutput {
             case .close, .subscribed:
-                self?.pushChooseFastingScreen(output: output)
+                self?.pushChooseFastingScreen(context: .onboarding, output: output)
             case let .showDiscountPaywall(input):
                 self?.navigator.dismiss()
                 self?.presentDiscountPaywall(input: input, output: output)
@@ -56,7 +56,7 @@ class OnboardingRouter: BaseRouter {
         let route = DiscountPaywallRoute(navigator: navigator, input: input) { [weak self] paywallOutput in
             switch paywallOutput {
             case .close, .subscribe:
-                self?.pushChooseFastingScreen(output: output)
+                self?.pushChooseFastingScreen(context: .onboarding, output: output)
             case .switchProgress:
                 break
             }
@@ -64,8 +64,8 @@ class OnboardingRouter: BaseRouter {
         present(route: route)
     }
 
-    func pushChooseFastingScreen(output: @escaping ChooseFastingPlanOutputBlock) {
-        let route = ChooseFastingPlanRoute(navigator: navigator, input: .init(context: .onboarding), output: output)
+    func pushChooseFastingScreen(context: ChooseFastingPlanInput.Context, output: @escaping ChooseFastingPlanOutputBlock) {
+        let route = ChooseFastingPlanRoute(navigator: navigator, input: .init(context: context), output: output)
         push(route: route)
     }
 
@@ -73,6 +73,18 @@ class OnboardingRouter: BaseRouter {
         let route = OnboardingLoadingViewRoute(navigator: navigator) { _ in
             self.navigator.dismiss()
             completion()
+        }
+        push(route: route)
+    }
+
+    func pushW2WLoginScreen(output: @escaping ChooseFastingPlanOutputBlock) {
+        let route = W2WLoginRoute(navigator: navigator, input: .init(context: .onboarding)) { [weak self] outputEvent in
+            switch outputEvent {
+            case .close:
+                self?.navigator.dismiss()
+            case .userSaved:
+                self?.pushChooseFastingScreen(context: .w2wOnboarding, output: output)
+            }
         }
         push(route: route)
     }

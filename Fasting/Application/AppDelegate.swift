@@ -27,6 +27,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
+        guard !UIScreen.isPreview else { return true}
         appInitializerService.initialize()
         trackLaunch()
         initializeMessageEvents()
@@ -48,6 +49,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             name: "Default",
             sessionRole: connectingSceneSession.role
         )
+        guard !UIScreen.isPreview else { return sceneConfiguration }
         sceneConfiguration.delegateClass = SceneDelegate.self
 
         return sceneConfiguration

@@ -45,6 +45,17 @@ struct ProfileScreen: View {
                                       action: viewModel.preesentPrivacyPolicy)
                 }
                 .continiousCornerRadius(.cornerRadius)
+
+                VStack(spacing: .zero) {
+                    if let userEmail = viewModel.userEmail {
+                        ProfileLoginedView(title: userEmail)
+                    } else {
+                        ProfileButtonView(input: .signInByEmail,
+                                          action: viewModel.pushW2WLoginScreen)
+                    }
+                }
+                .background()
+                .continiousCornerRadius(.cornerRadius)
             }
             .padding(.horizontal, .horizontalPadding)
             Spacer(minLength: .spacing)

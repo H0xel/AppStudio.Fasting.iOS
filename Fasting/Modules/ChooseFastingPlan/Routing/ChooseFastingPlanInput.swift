@@ -11,6 +11,7 @@ struct ChooseFastingPlanInput {
         case fasting
         case profile
         case daily
+        case w2wOnboarding
     }
     let context: Context
 }

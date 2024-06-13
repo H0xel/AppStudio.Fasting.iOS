@@ -116,7 +116,7 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
         trackNextStep()
 
         if step == .start, cloudStorage.userWithOnboardingApi {
-            router.pushChooseFastingScreen { [weak self] output in
+            router.pushChooseFastingScreen(context: .onboarding) { [weak self] output in
                 switch output {
                 case .onboardingIsFinished:
                     self?.output(.onboardingIsFinished)
@@ -143,6 +143,15 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
         isMovingForward = false
         if let prevStep = OnboardingFlowStep(rawValue: step.rawValue - 1) {
             step = prevStep
+        }
+    }
+
+    func w2wSignTapped() {
+        router.pushW2WLoginScreen { [weak self] output in
+            switch output {
+            case .onboardingIsFinished:
+                self?.output(.onboardingIsFinished)
+            }
         }
     }
 
@@ -215,7 +224,7 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
                 self?.presentPaywall()
                 return
             }
-            self?.router.pushChooseFastingScreen { [weak self] output in
+            self?.router.pushChooseFastingScreen(context: .onboarding) { [weak self] output in
                 switch output {
                 case .onboardingIsFinished:
                     self?.output(.onboardingIsFinished)

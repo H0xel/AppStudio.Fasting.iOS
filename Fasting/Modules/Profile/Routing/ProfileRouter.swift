@@ -77,6 +77,18 @@ class ProfileRouter: BaseRouter {
         push(route: route)
     }
 
+    func pushW2WLoginScreen(completion: @escaping () -> Void) {
+        let route = W2WLoginRoute(navigator: navigator, input: .init(context: .settings)) { [weak self] outputEvent in
+            switch outputEvent {
+            case .close:
+                self?.navigator.dismiss()
+            case .userSaved:
+                completion()
+            }
+        }
+        push(route: route)
+    }
+
     private func sendEmailWithOpenUrl() {
         Task {
             guard let url = URL(string: GlobalConstants.contactEmail) else { return }

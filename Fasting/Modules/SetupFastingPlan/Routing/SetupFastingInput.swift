@@ -20,7 +20,7 @@ struct SetupFastingInput {
 extension SetupFastingInput.Context {
     init(_ context: ChooseFastingPlanInput.Context) {
         switch context {
-        case .onboarding: self = .onboarding
+        case .onboarding, .w2wOnboarding: self = .onboarding
         case .fasting: self = .fasting
         case .profile: self = .profile
         case .daily: self = .daily
