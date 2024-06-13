@@ -213,7 +213,6 @@
 		A0255E802AFBD25400221EC6 /* TelecomApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E7F2AFBD25400221EC6 /* TelecomApiError.swift */; };
 		A0255E822AFBD27600221EC6 /* TelecomApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E812AFBD27600221EC6 /* TelecomApiProvider.swift */; };
 		A0255E842AFBD29400221EC6 /* TelecomTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E832AFBD29400221EC6 /* TelecomTargetType.swift */; };
-		A0255E872AFBD38300221EC6 /* AppStudioSubscriptions in Frameworks */ = {isa = PBXBuildFile; productRef = A0255E862AFBD38300221EC6 /* AppStudioSubscriptions */; };
 		A0255E8A2AFBD3C000221EC6 /* AppStudioABTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A0255E892AFBD3C000221EC6 /* AppStudioABTesting */; };
 		A0255E8C2AFBD3C000221EC6 /* AppStudioFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = A0255E8B2AFBD3C000221EC6 /* AppStudioFoundation */; };
 		A0255E8E2AFBD3C000221EC6 /* AppStudioUI in Frameworks */ = {isa = PBXBuildFile; productRef = A0255E8D2AFBD3C000221EC6 /* AppStudioUI */; };
@@ -908,7 +907,6 @@
 				A0DAAF762BA320F500BDE42D /* AppStudioStyles in Frameworks */,
 				A00B4DBD2B73817F0067A872 /* FacebookAEM in Frameworks */,
 				A00B4DC12B73817F0067A872 /* FacebookCore in Frameworks */,
-				A0255E872AFBD38300221EC6 /* AppStudioSubscriptions in Frameworks */,
 				A0159BE72BA32C4000CEB32E /* WeightWidget in Frameworks */,
 				564BE0B82AF0E99F00CE7F38 /* MunicornFoundation in Frameworks */,
 				A0C16DE92BB2DD3200D64B4C /* AppStudioServices in Frameworks */,
@@ -2643,7 +2641,6 @@
 				5675000E2ADE85FD009331CB /* FirebaseRemoteConfig */,
 				567500292ADE8763009331CB /* ABTesting */,
 				A0255E6B2AFBAA9A00221EC6 /* Moya */,
-				A0255E862AFBD38300221EC6 /* AppStudioSubscriptions */,
 				A0255E892AFBD3C000221EC6 /* AppStudioABTesting */,
 				A0255E8B2AFBD3C000221EC6 /* AppStudioFoundation */,
 				A0255E8D2AFBD3C000221EC6 /* AppStudioUI */,
@@ -2731,7 +2728,6 @@
 				567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */,
 				A0255E6A2AFBAA9A00221EC6 /* XCRemoteSwiftPackageReference "Moya" */,
-				A0255E852AFBD38300221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Subscriptions" */,
 				A0255E882AFBD3C000221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Common" */,
 				A0255E8F2AFBD3ED00221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */,
 				564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */,
@@ -3656,14 +3652,6 @@
 				version = 15.0.3;
 			};
 		};
-		A0255E852AFBD38300221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Subscriptions" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.4;
-			};
-		};
 		A0255E882AFBD3C000221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Common" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Common.git";
@@ -3783,11 +3771,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A0255E6A2AFBAA9A00221EC6 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
-		};
-		A0255E862AFBD38300221EC6 /* AppStudioSubscriptions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A0255E852AFBD38300221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Subscriptions" */;
-			productName = AppStudioSubscriptions;
 		};
 		A0255E892AFBD3C000221EC6 /* AppStudioABTesting */ = {
 			isa = XCSwiftPackageProductDependency;

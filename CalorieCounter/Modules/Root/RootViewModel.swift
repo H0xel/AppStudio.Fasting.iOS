@@ -19,6 +19,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.firstLaunchService) private var firstLaunchService
     @Dependency(\.quickActionTypeServiceService) private var quickActionTypeServiceService
     @Dependency(\.trackerService) private var trackerService
+    @Dependency(\.newSubscriptionService) private var newSubscriptionService
 
     @Published var rootScreen: RootScreen = .launchScreen
     @Published var inAppPurchaseIsLoading = false
@@ -35,6 +36,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     func initialize() {
         initializeForceUpdateIfNeeded()
+        tryToRestoreAppstoreTransactionsToSubs()
     }
 
     func requestIdfa() {
@@ -90,6 +92,12 @@ class RootViewModel: BaseViewModel<RootOutput> {
                 }
             }
             .disposed(by: disposeBag)
+    }
+
+    private func tryToRestoreAppstoreTransactionsToSubs() {
+        Task {
+           await newSubscriptionService.restoreAppstoreTransactionsToSubs()
+        }
     }
 
     private func subscribeToActionTypeEvent() {

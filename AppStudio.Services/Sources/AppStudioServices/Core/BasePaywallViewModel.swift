@@ -78,6 +78,7 @@ open class BasePaywallViewModel<OutputEventType>: BaseViewModel<OutputEventType>
             status = .showProgress
             do {
                 try await newSubscriptionService.restore()
+                await newSubscriptionService.restoreAppstoreTransactionsToSubs()
                 status = .hideProgress
                 trackRestoreFinishedEvent(result: .success)
             } catch {

@@ -72,6 +72,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     func initialize() {
         initializeForceUpdateIfNeeded()
+        tryToRestoreAppstoreTransactionsToSubs()
     }
 
     func requestIdfa() {
@@ -546,6 +547,12 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     private func deleteDiscountNotification() {
         localNotificationService.clearPendingNotification(id: DiscountLocalNotification().id)
+    }
+
+    private func tryToRestoreAppstoreTransactionsToSubs() {
+        Task {
+           await newSubscriptionService.restoreAppstoreTransactionsToSubs()
+        }
     }
 }
 

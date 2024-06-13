@@ -516,7 +516,6 @@
 		A7FFD1832BD94183003055F0 /* NotificationCenterInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFD1822BD94183003055F0 /* NotificationCenterInitializer.swift */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 		ADC784EC2AFA83BD005F16A6 /* AppStudioNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784EB2AFA83BD005F16A6 /* AppStudioNavigation */; };
-		ADC784EF2AFA8559005F16A6 /* AppStudioSubscriptions in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784EE2AFA8559005F16A6 /* AppStudioSubscriptions */; };
 		ADC784F22AFA859C005F16A6 /* AppStudioABTesting in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784F12AFA859C005F16A6 /* AppStudioABTesting */; };
 		ADC784F42AFA859C005F16A6 /* AppStudioFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784F32AFA859C005F16A6 /* AppStudioFoundation */; };
 		ADC784F62AFA859C005F16A6 /* AppStudioUI in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784F52AFA859C005F16A6 /* AppStudioUI */; };
@@ -1084,7 +1083,6 @@
 				A00B4DAD2B7377980067A872 /* FacebookBasics in Frameworks */,
 				5675000B2ADE85FD009331CB /* FirebaseAnalytics in Frameworks */,
 				A04CF64A2BCFB3A200EDDEA3 /* AICoach in Frameworks */,
-				ADC784EF2AFA8559005F16A6 /* AppStudioSubscriptions in Frameworks */,
 				A00B4DAF2B7377980067A872 /* FacebookCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3060,7 +3058,6 @@
 				5675000E2ADE85FD009331CB /* FirebaseRemoteConfig */,
 				567500292ADE8763009331CB /* ABTesting */,
 				ADC784EB2AFA83BD005F16A6 /* AppStudioNavigation */,
-				ADC784EE2AFA8559005F16A6 /* AppStudioSubscriptions */,
 				ADC784F12AFA859C005F16A6 /* AppStudioABTesting */,
 				ADC784F32AFA859C005F16A6 /* AppStudioFoundation */,
 				ADC784F52AFA859C005F16A6 /* AppStudioUI */,
@@ -3139,7 +3136,6 @@
 				567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */,
 				ADC784EA2AFA83BD005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */,
-				ADC784ED2AFA8559005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */,
 				ADC784F02AFA859C005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */,
 				ADC784F72AFA86CC005F16A6 /* XCRemoteSwiftPackageReference "Moya" */,
 				5658F8BF2B34009700E010E9 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */,
@@ -4164,14 +4160,6 @@
 				version = 1.0.11;
 			};
 		};
-		ADC784ED2AFA8559005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.4;
-			};
-		};
 		ADC784F02AFA859C005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Common";
@@ -4271,11 +4259,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ADC784EA2AFA83BD005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */;
 			productName = AppStudioNavigation;
-		};
-		ADC784EE2AFA8559005F16A6 /* AppStudioSubscriptions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ADC784ED2AFA8559005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */;
-			productName = AppStudioSubscriptions;
 		};
 		ADC784F12AFA859C005F16A6 /* AppStudioABTesting */ = {
 			isa = XCSwiftPackageProductDependency;
