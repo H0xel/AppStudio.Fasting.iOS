@@ -36,5 +36,6 @@ private enum LateTimeInitializersKey: DependencyKey {
 }
 
 private enum AppInitializerServiceKey: DependencyKey {
-    static let liveValue = AppInitializerServiceImpl()
+    static let liveValue: AppInitializerService = AppInitializerServiceImpl()
+    static let previewValue: AppInitializerService = AppInitializerPreview()
 }

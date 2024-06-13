@@ -19,8 +19,9 @@ struct MealWeightView: View {
             Text(Localization.gram)
                 .foregroundStyle(Color.studioGreyText)
         }
+        .font(.poppins(.description))
         .frame(width: .width, height: .height)
-        .background(Color.studioGreyFillCard)
+        .background(Color.studioGreyFillProgress)
         .continiousCornerRadius(.cornerRadius)
         .border(configuration: .init(
             cornerRadius: .cornerRadius,
@@ -31,8 +32,8 @@ struct MealWeightView: View {
 }
 
 private extension CGFloat {
-    static let width: CGFloat = 72
-    static let height: CGFloat = 36
+    static let width: CGFloat = 80
+    static let height: CGFloat = 32
     static let cornerRadius: CGFloat = 8
     static let spacing: CGFloat = 4
     static let borderWidth: CGFloat = 2

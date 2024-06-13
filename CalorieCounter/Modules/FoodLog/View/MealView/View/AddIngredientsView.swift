@@ -18,16 +18,13 @@ struct AddIngredientsView: View {
                     .resizable()
                     .frame(width: .addButtonSmallPadding,
                            height: .addButtonSmallPadding)
-                    .font(.poppinsBold(.headerL))
-                    .foregroundStyle(Color.accentColor)
-                    .padding(.addButtonSmallPadding)
-                    .background(Color.studioGrayFillProgress)
                     .continiousCornerRadius(.cornerRadius)
-                    .padding(.vertical, .addButtonSmallPadding)
 
                 Text(.addIngredientTitle)
-                    .font(.poppins(.body))
+                    .font(.poppinsMedium(.description))
             }
+            .padding(.vertical, .verticalPadding)
+            .foregroundStyle(Color.studioBlackLight)
         }
     }
 }
@@ -37,8 +34,9 @@ private extension LocalizedStringKey {
 }
 
 private extension CGFloat {
+    static let verticalPadding: CGFloat = 6
     static let addButtonSpacing: CGFloat = 8
-    static let addButtonSmallPadding: CGFloat = 8
+    static let addButtonSmallPadding: CGFloat = 16
     static let cornerRadius: CGFloat = 20
 }
 

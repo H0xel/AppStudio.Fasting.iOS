@@ -16,14 +16,22 @@ struct IngredientView: View {
         HStack(spacing: .zero) {
             VStack(alignment: .leading, spacing: .titleSpacing) {
                 Text(viewModel.ingredient.nameWithBrand)
-                    .font(.poppins(.body))
+                    .lineLimit(2)
+                    .font(.poppins(.description))
                     .foregroundStyle(.accent)
+                    .lineSpacing(.lineSpacing)
                 HStack(spacing: .nutritionsSpacing) {
                     ForEach(NutritionType.allCases, id: \.self) { type in
                         NutritionView(amount: viewModel.ingredient.nutritionProfile.amount(for: type),
                                       configuration: .placeholderSmall(type: type),
                                       bordered: false)
                     }
+                    Group {
+                        Text("|")
+                        Text(viewModel.ingredient.weightWithUnits)
+                    }
+                    .font(.poppins(.description))
+                    .foregroundStyle(Color.studioGrayPlaceholder)
                 }
             }
             Spacer()
@@ -48,8 +56,9 @@ struct IngredientView: View {
 }
 
 private extension CGFloat {
-    static let titleSpacing: CGFloat = 6
-    static let nutritionsSpacing: CGFloat = 16
+    static let titleSpacing: CGFloat = 4
+    static let nutritionsSpacing: CGFloat = 12
+    static let lineSpacing: CGFloat = 3
     static let cornerRadius: CGFloat = 8
     static let borderWidth: CGFloat = 2
     static let verticalPadding: CGFloat = 12

@@ -124,7 +124,6 @@ class FoodLogInputViewModel: BaseViewModel<FoodLogInputOutput> {
             self.output(.hasSubscription(hasSubscription))
         case let .logType(type, isFocused):
             suggestionsState = .init(isPresented: isFocused, isKeyboardFocused: isFocused)
-//            isHistoryKeyboardFocused = isFocused
             changeLogType(to: type)
         case .onFocus:
             self.output(.onFocus)

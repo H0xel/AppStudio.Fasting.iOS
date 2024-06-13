@@ -81,6 +81,10 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         }
     }
 
+    var canShowWeightIcon: Bool {
+        ingredients.count == 1 && !meal.isQuickAdded
+    }
+
     func ingredientViewModel(ingredient: Ingredient) -> IngredientViewModel {
         .init(input: .init(
             ingredient: ingredient,

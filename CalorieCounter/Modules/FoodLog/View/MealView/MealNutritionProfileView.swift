@@ -11,6 +11,7 @@ struct MealNutritionProfileView: View {
 
     let profile: NutritionProfile
     let canShowNutritions: Bool
+    let weight: String?
 
     var body: some View {
         HStack(spacing: .spacing) {
@@ -18,6 +19,9 @@ struct MealNutritionProfileView: View {
                 NutritionView(amount: profile.amount(for: type),
                               configuration: configuration(for: type),
                               bordered: true)
+            }
+            if let weight {
+                WeightView(amount: weight)
             }
         }
     }
@@ -35,5 +39,5 @@ private extension CGFloat {
 }
 
 #Preview {
-    MealNutritionProfileView(profile: .empty, canShowNutritions: false)
+    MealNutritionProfileView(profile: .empty, canShowNutritions: false, weight: nil)
 }

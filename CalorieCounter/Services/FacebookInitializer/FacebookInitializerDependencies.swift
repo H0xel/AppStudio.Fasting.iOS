@@ -15,4 +15,5 @@ extension DependencyValues {
 
 private enum FacebookInitializerServiceKey: DependencyKey {
     static var liveValue: FacebookInitializerService = FacebookInitializerServiceImpl()
+    static var previewValue: FacebookInitializerService = FacebookInitializerServicePreview()
 }

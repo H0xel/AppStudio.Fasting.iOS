@@ -26,6 +26,12 @@ extension Ingredient {
         normalizedProfile.calculate(for: weight)
     }
 
+    var weightWithUnits: String {
+        let weight = String(format: "%.0f", weight)
+        let label = "Ingredient.weightLabel".localized()
+        return "\(weight) \(label)"
+    }
+
     static var mock: Ingredient {
         .init(name: "Egg",
               brandTitle: nil,

@@ -24,7 +24,8 @@ struct MealTypeView: View {
                         .padding(.bottom, hasMeal ? 0 : .verticalPadding)
                     if hasMeal {
                         MealNutritionProfileView(profile: record.nutritionProfile,
-                                                 canShowNutritions: hasSubscription)
+                                                 canShowNutritions: hasSubscription,
+                                                 weight: nil)
                             .padding(.top, .nutritionTopPadding)
                             .padding(.bottom, .nutritionBottomPadding)
                             .animation(nil, value: record.calories)

@@ -20,8 +20,6 @@ struct MealView: View {
                         if !viewModel.isHeaderHidden {
                             MealViewHeaderView(meal: viewModel.mealItem)
                         }
-                        MealNutritionProfileView(profile: viewModel.nutritionProfile,
-                                                 canShowNutritions: true)
                     }
                     Spacer()
                     if !viewModel.isQuickAdd {
@@ -35,13 +33,21 @@ struct MealView: View {
                 .padding(.leading, .leadingPadding)
                 .padding(.trailing, .trailingPadding)
 
+                MealNutritionProfileView(profile: viewModel.nutritionProfile,
+                                         canShowNutritions: true,
+                                         weight:  viewModel.canShowWeightIcon
+                                         ? viewModel.mealItem.weightWithUnits
+                                         : nil)
+                .padding(.leading, .leadingPadding)
+                .aligned(.left)
+
                 if !viewModel.ingredientPlaceholders.isEmpty {
                     ForEach(viewModel.ingredientPlaceholders, id: \.id) { placeholder in
                         IngredientPlaceholderView(placeholder: placeholder, onClose: {
                             viewModel.closeIngredientPlaceholder(with: placeholder.id)
                         })
-                        .padding(.leading, placeholder.notFound ? 0 : .leadingPadding)
-                        .padding(.trailing, placeholder.notFound ? 0 : .trailingPadding)
+                        .padding(.leading, placeholder.notFound ? .zero : .leadingPadding)
+                        .padding(.trailing, placeholder.notFound ? .zero : .trailingPadding)
                         .padding(.top, .spacing)
                     }
                 }
@@ -50,7 +56,7 @@ struct MealView: View {
                     ForEach(viewModel.ingredients, id: \.self) { ingredient in
                         IngredientView(viewModel: viewModel.ingredientViewModel(ingredient: ingredient))
                             .id(ingredient)
-                            .padding(.top, .spacing)
+                            .padding(.top, .ingredientSpacing)
                     }
                 }
 
@@ -69,10 +75,10 @@ struct MealView: View {
                     }
                 }
                 .padding(.horizontal, .addButtonHorizontalPadding)
-                .padding(.top, .verticalPadding)
+                .padding(.top, .addIngridientTopPadding)
             }
             .padding(.top, .topPadding)
-            .padding(.bottom, viewModel.ingredients.count > 1 ? .bottomPadding : .verticalPadding)
+            .padding(.bottom, .addIngridientBottomPadding)
             .background(.white)
             .onTapGesture {
                 viewModel.tapMeal()
@@ -101,17 +107,19 @@ private extension MealView {
 
 private extension CGFloat {
     static let topPadding: CGFloat = 12
-    static let bottomPadding: CGFloat = 20
+    static let addIngridientBottomPadding: CGFloat = 10
+    static let paddingWithOneIngridient: CGFloat = 10
     static let leadingPadding: CGFloat = 20
     static let trailingPadding: CGFloat = 12
     static let cornerRadius: CGFloat = 20
     static let titleSpacing: CGFloat = 10
     static let spacing: CGFloat = 20
+    static let ingredientSpacing: CGFloat = 16
     static let subTitleSpacing: CGFloat = 4
     static let titleBottomPadding: CGFloat = 4
     static let borderWidth: CGFloat = 2
-    static let verticalPadding: CGFloat = 12
-    static let addButtonHorizontalPadding: CGFloat = 16
+    static let addIngridientTopPadding: CGFloat = 10
+    static let addButtonHorizontalPadding: CGFloat = 20
     static let addButtonSpacing: CGFloat = 8
 }
 
@@ -122,13 +130,16 @@ extension Animation {
 }
 
 #Preview {
-    VStack {
-        MealView(viewModel: .init(
-            meal: .mock,
-            mealSelectionPublisher: Just("").eraseToAnyPublisher(),
-            hasSubscriptionPublisher: Just(true).eraseToAnyPublisher(),
-            router: .init(navigator: .init()),
-            output: { _ in }
-        ))
+    ZStack {
+        Color.red
+        VStack {
+            MealView(viewModel: .init(
+                meal: .mock,
+                mealSelectionPublisher: Just("").eraseToAnyPublisher(),
+                hasSubscriptionPublisher: Just(true).eraseToAnyPublisher(),
+                router: .init(navigator: .init()),
+                output: { _ in }
+            ))
+        }
     }
 }
