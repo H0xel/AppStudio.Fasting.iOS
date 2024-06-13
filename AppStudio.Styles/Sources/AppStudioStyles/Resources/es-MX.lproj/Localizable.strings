@@ -24,6 +24,7 @@
 "ProfileScreen.support" = "Soporte";
 "ProfileScreen.termsOfUse" = "Términos de uso";
 "ProfileScreen.privacyPolicy" = "Política de privacidad";
+"ProfileScreen.signInByEmail" = "Iniciar sesión por correo electrónico";
 
 "Onboarding.height.title" = "¿Cuál es tu estatura?";
 "Onboarding.birthdayTitle" = "¿Cuál es tu fecha de nacimiento?";

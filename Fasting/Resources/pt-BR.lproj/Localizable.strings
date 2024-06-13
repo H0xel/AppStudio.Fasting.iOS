@@ -443,3 +443,16 @@ horário de jejum";
 // MARK: - HalthOverviewScreen
 "HalthOverviewScreen.readyToFast" = "Pronto para jejuar?";
 "HalthOverviewScreen.nextFastIn" = "Próximo jejum em";
+
+//MARK: - W2W Login screen
+
+"W2W.onboarding.title" = "Já é usuário do Fasting App?";
+"W2W.onboarding.signIn" = "Entrar";
+"W2W.sign.title" = "Faça login com e-mail";
+"W2W.sign.description" = "Faça login com seu e-mail para desbloquear\ntodos os recursos";
+"W2W.onboarding.placeholderEmail" = "nome@mail.com";
+"W2W.error.invalidEmail" = "Formato de email inválido";
+"W2W.error.accountNotFound" = "Conta não encontrada";
+"W2W.error.internetConnection" = "Sem conexão com a internet. Tente novamente.";
+"W2W.profile.linkedEmail" = "Endereço de e-mail vinculado";
+"W2W.banner.activateSuccessfully" = "Conta ativada com sucesso";

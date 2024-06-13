@@ -440,3 +440,16 @@
 // MARK: - HalthOverviewScreen
 "HalthOverviewScreen.readyToFast" = "¿Todo listo para ayunar?";
 "HalthOverviewScreen.nextFastIn" = "Próximo ayuno en";
+
+//MARK: - W2W Login screen
+
+"W2W.onboarding.title" = "¿Ya eres usuario de la aplicación Fasting?";
+"W2W.onboarding.signIn" = "Iniciar sesión";
+"W2W.sign.title" = "Iniciar sesión con correo electrónico";
+"W2W.sign.description" = "Inicie sesión con su correo electrónico para desbloquear\ntodas las funciones";
+"W2W.onboarding.placeholderEmail" = "nombre@correo.com";
+"W2W.error.invalidEmail" = "Formato de correo inválido";
+"W2W.error.accountNotFound" = "Cuenta no encontrada";
+"W2W.error.internetConnection" = "Sin conexión a Internet. Intentar otra vez.";
+"W2W.profile.linkedEmail" = "Dirección de correo electrónico vinculada";
+"W2W.banner.activateSuccessfully" = "Cuenta activada exitosamente";
