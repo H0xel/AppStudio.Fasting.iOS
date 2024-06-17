@@ -38,6 +38,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.localNotificationService) private var localNotificationService
     @Dependency(\.onboardingApi) private var onboardingApi
     @Dependency(\.intercomService) private var intercomService
+    @Dependency(\.cloudStorage) private var cloudStorage
 
     @Published var currentTab: AppTab = .daily {
         willSet {
@@ -143,7 +144,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         router.onboardingScreen { [weak self] event in
             switch event {
             case .onboardingIsFinished:
-                self?.storageService.onboardingIsFinished = true
+                self?.cloudStorage.onboardingIsFinished = true
                 self?.fastingParametersInitializer.initialize()
                 DispatchQueue.main.async {
                     self?.router.popToRoot()
@@ -341,7 +342,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
                 if args.shouldShowForceUpdate {
                     this.rootScreen = .forceUpdate(args.appLink)
                 } else {
-                    this.rootScreen = this.storageService.onboardingIsFinished ? .fasting : .onboarding
+                    this.rootScreen = this.cloudStorage.onboardingIsFinished ? .fasting : .onboarding
                 }
             }
             .disposed(by: disposeBag)

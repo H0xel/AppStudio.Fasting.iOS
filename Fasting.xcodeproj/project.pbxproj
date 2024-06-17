@@ -379,6 +379,7 @@
 		A78535E82AF21F0900437F5E /* FastingBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */; };
 		A78676EF2B1DA61B002C2202 /* FastingInactiveStagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78676EE2B1DA61B002C2202 /* FastingInactiveStagesView.swift */; };
 		A78676F12B1DA68A002C2202 /* FastingInactiveStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78676F02B1DA68A002C2202 /* FastingInactiveStage.swift */; };
+		A7A1667E2C1F01C700DF6711 /* OnboardingLocalToCloudMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1667D2C1F01C700DF6711 /* OnboardingLocalToCloudMigration.swift */; };
 		A7A1AEA42AFE2C0A00B6211E /* Contexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1AEA32AFE2C0A00B6211E /* Contexts.swift */; };
 		A7A2E7192BF356300087D062 /* OnboardingDataApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2E7182BF356300087D062 /* OnboardingDataApi.swift */; };
 		A7A2E71B2BF3A4380087D062 /* HeightApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2E71A2BF3A4380087D062 /* HeightApi.swift */; };
@@ -811,6 +812,7 @@
 		A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingBackgroundModifier.swift; sourceTree = "<group>"; };
 		A78676EE2B1DA61B002C2202 /* FastingInactiveStagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInactiveStagesView.swift; sourceTree = "<group>"; };
 		A78676F02B1DA68A002C2202 /* FastingInactiveStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInactiveStage.swift; sourceTree = "<group>"; };
+		A7A1667D2C1F01C700DF6711 /* OnboardingLocalToCloudMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocalToCloudMigration.swift; sourceTree = "<group>"; };
 		A7A1AEA32AFE2C0A00B6211E /* Contexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contexts.swift; sourceTree = "<group>"; };
 		A7A2E7182BF356300087D062 /* OnboardingDataApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDataApi.swift; sourceTree = "<group>"; };
 		A7A2E71A2BF3A4380087D062 /* HeightApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightApi.swift; sourceTree = "<group>"; };
@@ -1511,6 +1513,7 @@
 		5675FFE82ADE84B4009331CB /* MigrationService */ = {
 			isa = PBXGroup;
 			children = (
+				A7A1667C2C1F01B300DF6711 /* Migrations */,
 				5675FFE92ADE84B4009331CB /* MigrationLaunchServiceImpl.swift */,
 				5675FFEA2ADE84B4009331CB /* AppMigrationsProvider.swift */,
 				5675FFEB2ADE84B4009331CB /* MigrationService.swift */,
@@ -2385,6 +2388,14 @@
 			path = Modifier;
 			sourceTree = "<group>";
 		};
+		A7A1667C2C1F01B300DF6711 /* Migrations */ = {
+			isa = PBXGroup;
+			children = (
+				A7A1667D2C1F01C700DF6711 /* OnboardingLocalToCloudMigration.swift */,
+			);
+			path = Migrations;
+			sourceTree = "<group>";
+		};
 		A7A38DDC2BC8224C003704C1 /* MultipleProductPaywall */ = {
 			isa = PBXGroup;
 			children = (
@@ -2940,6 +2951,7 @@
 				A70DBE492B0DD5A00067D7BD /* LaunchScreen.swift in Sources */,
 				56F64D7C2AE10EF20067FE05 /* RootInput.swift in Sources */,
 				A0255E782AFBD1D700221EC6 /* SubscriptionTarget.swift in Sources */,
+				A7A1667E2C1F01C700DF6711 /* OnboardingLocalToCloudMigration.swift in Sources */,
 				A78676F12B1DA68A002C2202 /* FastingInactiveStage.swift in Sources */,
 				A777D14F2B209ADB00B48F41 /* PersonalizedPaywallViewModel.swift in Sources */,
 				A7D01B872AF1102400C50C1F /* SetupFastingButton.swift in Sources */,
@@ -3477,7 +3489,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.2.6;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -3519,7 +3531,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

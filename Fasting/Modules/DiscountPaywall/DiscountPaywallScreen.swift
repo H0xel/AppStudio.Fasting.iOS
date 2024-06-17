@@ -47,6 +47,23 @@ struct DiscountPaywallScreen: View {
             }
             .padding(.horizontal, .buttonHorizontalPadding)
             .padding(.bottom, .buttonBottomPadding)
+
+            HStack(spacing: .zero) {
+                Spacer()
+                Button(action: viewModel.presentTermsOfUse, label: {
+                    Text("Paywall.termsOfUse")
+                        .font(.poppins(.description))
+                })
+                .foregroundStyle(Color.studioBlackLight)
+                Spacer()
+                Button(action: viewModel.presentPrivacyPolicy, label: {
+                    Text("Paywall.privacyPolicy")
+                        .font(.poppins(.description))
+                })
+                .foregroundStyle(Color.studioBlackLight)
+                Spacer()
+            }
+            .padding(.bottom, .buttonBottomPadding)
         }
         .navBarButton(placement: .navigationBarTrailing,
                       isVisible: true,
@@ -76,6 +93,7 @@ struct DiscountPaywallScreen: View {
 
 // MARK: - Layout properties
 private extension CGFloat {
+    static let spacing: CGFloat = 8
     static var buttonHorizontalPadding: CGFloat { 16 }
     static var buttonBottomPadding: CGFloat { 8 }
     static let tabBarRestoreButtonTrailingPadding: CGFloat = 16

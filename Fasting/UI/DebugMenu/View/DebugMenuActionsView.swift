@@ -64,6 +64,7 @@ struct DebugMenuActionsView: View {
         .foregroundColor(.red)
 
         Button("Reset onboarding") {
+            cloudStorage.onboardingIsFinished = false
             storageService.onboardingIsFinished = false
             onboardingService.reset()
         }

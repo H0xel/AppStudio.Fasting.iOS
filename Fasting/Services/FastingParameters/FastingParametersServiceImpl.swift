@@ -73,7 +73,7 @@ class FastingParametersServiceImpl: FastingParametersService {
 
 extension FastingParametersServiceImpl: AppInitializer {
     func initialize() {
-        guard storageService.onboardingIsFinished else { return }
+        guard cloudStorage.onboardingIsFinished else { return }
         Task { [unowned self] in
             let parameters = try await self.fastingParametersRepository.current()
             await update(interval: parameters.asInterval)

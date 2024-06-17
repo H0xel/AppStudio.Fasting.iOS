@@ -64,6 +64,27 @@ public struct MultipleProductPaywallScreen: View {
             }
             .padding(.horizontal, .horizontalPadding)
             .padding(.bottom, .bottomPadding)
+
+            HStack(spacing: .zero) {
+                Spacer()
+                Button(action: {
+                    action(.presentTermsOfUse)
+                }, label: {
+                    Text("ProfileScreen.termsOfUse".localized(bundle: .module))
+                        .font(.poppins(.description))
+                })
+                .foregroundStyle(Color.studioBlackLight)
+                Spacer()
+                Button(action: {
+                    action(.presentPrivacyPolicy)
+                }, label: {
+                    Text("ProfileScreen.privacyPolicy".localized(bundle: .module))
+                        .font(.poppins(.description))
+                })
+                .foregroundStyle(Color.studioBlackLight)
+                Spacer()
+            }
+            .padding(.bottom, .bottomPadding)
         }
         .onAppear {
             action(.appeared)
@@ -103,6 +124,8 @@ public extension MultipleProductPaywallScreen {
         case restore
         case subscribe
         case appeared
+        case presentTermsOfUse
+        case presentPrivacyPolicy
     }
 
     enum SourceType {

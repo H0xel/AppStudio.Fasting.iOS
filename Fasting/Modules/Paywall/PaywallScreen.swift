@@ -30,7 +30,8 @@ struct PaywallScreen: View {
 
             Spacer()
 
-            PaywallBottomInfoView(bottomInfo: viewModel.bottomInfo, onSaveTap: viewModel.subscribe)
+            PaywallBottomInfoView(bottomInfo: viewModel.bottomInfo,
+                                  action: viewModel.handle)
                 .background()
                 .padding(.bottom, Layout.verticalPadding)
                 .padding(.horizontal, Layout.horizontalPadding)

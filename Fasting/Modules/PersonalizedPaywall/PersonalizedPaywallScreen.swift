@@ -35,11 +35,27 @@ struct PersonalizedPaywallScreen: View {
                 Color.clear
                     .frame(height: Layout.bottomSpacing)
             }
-            VStack(spacing: .zero) {
+            VStack(spacing: Layout.spacing) {
                 AccentButton(title: .localizedString(Localization.continueTitle)) {
                     viewModel.subscribe()
                 }
                 .padding(.horizontal, Layout.bottomButtonHorizontalPadding)
+
+                HStack(spacing: .zero) {
+                    Spacer()
+                    Button(action: viewModel.presentTermsOfUse, label: {
+                        Text("Paywall.termsOfUse")
+                            .font(.poppins(.description))
+                    })
+                    .foregroundStyle(Color.studioBlackLight)
+                    Spacer()
+                    Button(action: viewModel.presentPrivacyPolicy, label: {
+                        Text("Paywall.privacyPolicy")
+                            .font(.poppins(.description))
+                    })
+                    .foregroundStyle(Color.studioBlackLight)
+                    Spacer()
+                }
             }
             .padding(.top, Layout.topButtonPadding)
             .padding(.bottom, Layout.buttonBottomPadding)
@@ -76,6 +92,7 @@ private extension PersonalizedPaywallScreen {
         static let buttonBottomPadding: CGFloat = UIScreen.isSmallDevice ? 10 : 0
         static let topButtonPadding: CGFloat = 10
         static var promotOfferBottomPadding: CGFloat = 8
+        static var spacing: CGFloat = 8
     }
 }
 

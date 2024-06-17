@@ -18,4 +18,11 @@ class PersonalizedPaywallRouter: BaseRouter {
     func presentProgressView() {
         present(banner: DimmedProgressBanner())
     }
+
+    func open(url: URL) {
+        let route = SafariRoute(url: url) { [weak self] in
+            self?.dismiss()
+        }
+        present(route: route)
+    }
 }
