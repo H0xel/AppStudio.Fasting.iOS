@@ -1,4 +1,1 @@
-- Release build CC 1.1.1
-- Telecom integration
-- API Nova
-- ATT fix
+- Release build CC 1.1.2
