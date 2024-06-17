@@ -349,6 +349,7 @@
 		A72C91AA2B95D28B007E2D3C /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A72C91A92B95D28B007E2D3C /* Poppins-Medium.ttf */; };
 		A72D45272B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D45262B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift */; };
 		A72D45292B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D45282B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift */; };
+		A73372BB2C202B4700A05698 /* PromotionSubscriptionMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73372BA2C202B4700A05698 /* PromotionSubscriptionMigration.swift */; };
 		A73F2CAA2BDBABAB005ADA82 /* NewSubscriptionInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F2CA92BDBABAB005ADA82 /* NewSubscriptionInitializer.swift */; };
 		A73F2CAC2BDBACA6005ADA82 /* NewAppStudioSubscriptions in Frameworks */ = {isa = PBXBuildFile; productRef = A73F2CAB2BDBACA6005ADA82 /* NewAppStudioSubscriptions */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
@@ -784,6 +785,7 @@
 		A72C91A92B95D28B007E2D3C /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		A72D45262B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCustomizationImpl+Discount.swift"; sourceTree = "<group>"; };
 		A72D45282B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuExperimentsView.swift; sourceTree = "<group>"; };
+		A73372BA2C202B4700A05698 /* PromotionSubscriptionMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionSubscriptionMigration.swift; sourceTree = "<group>"; };
 		A73F2CA92BDBABAB005ADA82 /* NewSubscriptionInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubscriptionInitializer.swift; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
@@ -2392,6 +2394,7 @@
 			isa = PBXGroup;
 			children = (
 				A7A1667D2C1F01C700DF6711 /* OnboardingLocalToCloudMigration.swift */,
+				A73372BA2C202B4700A05698 /* PromotionSubscriptionMigration.swift */,
 			);
 			path = Migrations;
 			sourceTree = "<group>";
@@ -2959,6 +2962,7 @@
 				564BE2C72B26E54E00FE35C2 /* OnboardingCalculationProccessPhases.swift in Sources */,
 				A02FC4772B9F386800019039 /* FastingProgressServiceDependencies.swift in Sources */,
 				A7A2E7192BF356300087D062 /* OnboardingDataApi.swift in Sources */,
+				A73372BB2C202B4700A05698 /* PromotionSubscriptionMigration.swift in Sources */,
 				A08449712B1A86AC00D30E04 /* FastingPhaseScreen.swift in Sources */,
 				A7A3973F2B720225003330C3 /* DiscountTimerElementView.swift in Sources */,
 				A0C8C1B22B1F01D800EB371C /* FastingPhaseTitleView.swift in Sources */,

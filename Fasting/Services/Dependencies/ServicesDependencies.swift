@@ -13,7 +13,10 @@ import UIKit
 
 extension DependencyValues {
     var migrations: [Migration] {
-        [OnboardingLocalToCloudMigration()]
+        [
+            OnboardingLocalToCloudMigration(),
+            PromotionSubscriptionMigration()
+        ]
     }
     var migrationLaunchService: MigrationLaunchService {
         self[MigrationLaunchServiceKey.self]

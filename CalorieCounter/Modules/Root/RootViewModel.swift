@@ -36,7 +36,6 @@ class RootViewModel: BaseViewModel<RootOutput> {
 
     func initialize() {
         initializeForceUpdateIfNeeded()
-        tryToRestoreAppstoreTransactionsToSubs()
     }
 
     func requestIdfa() {
@@ -92,12 +91,6 @@ class RootViewModel: BaseViewModel<RootOutput> {
                 }
             }
             .disposed(by: disposeBag)
-    }
-
-    private func tryToRestoreAppstoreTransactionsToSubs() {
-        Task {
-           await newSubscriptionService.restoreAppstoreTransactionsToSubs()
-        }
     }
 
     private func subscribeToActionTypeEvent() {

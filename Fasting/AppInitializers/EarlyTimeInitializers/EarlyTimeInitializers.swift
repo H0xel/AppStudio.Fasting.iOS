@@ -31,6 +31,7 @@ final class EarlyTimeInitializers: Initializers {
             CrashlyticsInitializer(),
             AppSyncServiceInitializer(),
             AccountProviderInitializer(),
+            NewSubscriptionInitializerService(),
             MobileDeviceDataProviderInitializer(),
             TrackerServiceInitializer(),
             NotificationCenterInitializer(),
