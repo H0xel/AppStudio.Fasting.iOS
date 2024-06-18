@@ -30,6 +30,8 @@
 "Paywall.renewsAt" = "Obtenez Plus pour %@";
 "Paywall.cancelAnyTime" = "Débloquez votre avantage maintenant !";
 "Paywall.savePercent" = "Moins %i%";
+"Paywall.termsOfUse" = "Conditions d'utilisation";
+"Paywall.privacyPolicy" = "Politique de confidentialité";
 
 "SubscriptionDuration.week" = "1 semaine";
 "SubscriptionDuration.month" = "1 mois";
