@@ -1,3 +1,1 @@
-- Early sub init in Fasting
-- One request to subs after bought subscription via Apple
-- Change init promotoion to migration (once per install in all lifecycle)
+- Fasting RC Build 1.2.7
