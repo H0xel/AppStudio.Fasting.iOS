@@ -20,8 +20,8 @@
 "Paywall.savePercent" = "Save %i%";
 "Paywall.reachYourWeightGoals" = "Ready to start\nyour journey?";
 "Paywall.tryForFree" = "Try 3 days for free, then %@";
-"Paywall.renewsAt" = "Cancel anytime. Renews at %@";
-"Paywall.cancelAnyTime" = "Cancel anytime";
+"Paywall.renewsAt" = "Get Plus for %@";
+"Paywall.cancelAnyTime" = "Unlock your advantage now!";
 "Paywall.unlockAdvanteges" = "Unlock your advantage now!";
 "Paywall.savePercent" = "Save %i%";
 
