@@ -25,6 +25,8 @@ sua jornada?";
 "Paywall.cancelAnyTime" = "Desbloqueie suas vantagens agora!";
 "Paywall.unlockAdvanteges" = "Desbloqueie suas vantagens agora!";
 "Paywall.savePercent" = "Poupe %i%";
+"Paywall.termsOfUse" = "Termos de uso";
+"Paywall.privacyPolicy" = "Política de privacidade";
 
 // MARK: Personalized Paywall
 "PersonalizedPaywall.headerTitle" = "Alcance o peso dos seus sonhos de %@ até %@";

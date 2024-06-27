@@ -90,6 +90,19 @@ class PaywallViewModel: BasePaywallViewModel<PaywallScreenOutput> {
         paywallAppeared()
     }
 
+    func handle(_ action: PaywallBottomInfoView.Action) {
+        switch action {
+        case .onSaveTap:
+            subscribe()
+        case .presentTermsOfUse:
+            guard let url = URL(string: GlobalConstants.termsOfUse) else { return }
+            router.open(url: url)
+        case .presentPrivacyPolicy:
+            guard let url = URL(string: GlobalConstants.privacyPolicy) else { return }
+            router.open(url: url)
+        }
+    }
+
     private func subscribeToStatus() {
         $status
             .sink(with: self) { this, status in

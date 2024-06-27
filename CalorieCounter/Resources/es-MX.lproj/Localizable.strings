@@ -24,6 +24,8 @@
 "Paywall.cancelAnyTime" = "¡Desbloquea tu beneficio ahora!";
 "Paywall.unlockAdvanteges" = "¡Desbloquea tu beneficio ahora!";
 "Paywall.savePercent" = "Ahorra %i%";
+"Paywall.termsOfUse" = "Términos de uso";
+"Paywall.privacyPolicy" = "Política de privacidad";
 
 // MARK: Personalized Paywall
 "PersonalizedPaywall.headerTitle" = "Alcanza tu peso ideal de %@ para el %@";
