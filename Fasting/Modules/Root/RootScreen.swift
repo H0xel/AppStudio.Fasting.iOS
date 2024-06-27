@@ -98,7 +98,7 @@ struct RootScreen: View {
     }
 
     private var fastingTabImage: Image {
-        viewModel.currentTab == .fasting ? .fastingTabBarItemActive : .fastingTabBarItemInactive
+        viewModel.currentTab == .fasting ? .init(.fastingActiveIcon) : .init(.fastingNonActiveIcon)
     }
 
     private var coachTabImage: Image {

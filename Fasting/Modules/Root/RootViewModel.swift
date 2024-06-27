@@ -120,12 +120,12 @@ class RootViewModel: BaseViewModel<RootOutput> {
         }
     }()
 
-    var healthProgressScreen: some View {
+    lazy var healthProgressScreen: some View = {
         router.healthProgressScreen(
             isMonetizationExpAvailablePublisher: $hasSubscription.map { !$0 }.eraseToAnyPublisher(),
             inputPublisher: progressInputSubject.eraseToAnyPublisher()
         ) { [weak self] output in self?.handle(healthProgressScreenOutput: output) }
-    }
+    }()
 
     @ViewBuilder
     func discountPaywall(input: DiscountPaywallInput) -> some View {

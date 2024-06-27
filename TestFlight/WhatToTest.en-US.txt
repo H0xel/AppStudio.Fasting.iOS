@@ -1,1 +1,2 @@
-- Fasting RC Build 1.2.7
+- Fasting Icon color fixes
+- Closed paywall from progress tab fix
