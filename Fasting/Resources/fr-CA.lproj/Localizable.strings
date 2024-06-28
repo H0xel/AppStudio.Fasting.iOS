@@ -448,7 +448,7 @@
 "W2W.onboarding.title" = "Vous êtes déjà utilisateur de l’application Fasting ?";
 "W2W.onboarding.signIn" = "Se connecter";
 "W2W.sign.title" = "Connectez-vous avec e-mail";
-"W2W.sign.description" = "Connectez-vous avec votre e-mail pour débloquer\ntoutes les fonctionnalités";
+"W2W.sign.description" = "Connectez-vous avec votre e-mail pour connecter\nvotre compte Web existant";
 "W2W.onboarding.placeholderEmail" = "nom@mail.com";
 "W2W.error.invalidEmail" = "Format d'email invalide";
 "W2W.error.accountNotFound" = "Compte non trouvé";

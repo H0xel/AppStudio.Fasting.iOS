@@ -451,7 +451,7 @@ horário de jejum";
 "W2W.onboarding.title" = "Já é usuário do Fasting App?";
 "W2W.onboarding.signIn" = "Entrar";
 "W2W.sign.title" = "Faça login com e-mail";
-"W2W.sign.description" = "Faça login com seu e-mail para desbloquear\ntodos os recursos";
+"W2W.sign.description" = "Faça login com seu e-mail para conectar\nsua conta da web existente";
 "W2W.onboarding.placeholderEmail" = "nome@mail.com";
 "W2W.error.invalidEmail" = "Formato de email inválido";
 "W2W.error.accountNotFound" = "Conta não encontrada";
