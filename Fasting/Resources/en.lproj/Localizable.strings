@@ -448,7 +448,7 @@
 "W2W.onboarding.title" = "Already a Fasting App user?";
 "W2W.onboarding.signIn" = "Sign In";
 "W2W.sign.title" = "Sign In with Email";
-"W2W.sign.description" = "Sign in with your email to unlock\nall features";
+"W2W.sign.description" = "Sign in with your email to connect\nyour existing web account";
 "W2W.onboarding.placeholderEmail" = "name@mail.com";
 "W2W.error.invalidEmail" = "Invalid email format";
 "W2W.error.accountNotFound" = "Account not found";
