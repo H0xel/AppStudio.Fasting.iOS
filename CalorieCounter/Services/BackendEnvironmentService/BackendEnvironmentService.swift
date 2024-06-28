@@ -8,6 +8,7 @@
 import Dependencies
 import MunicornFoundation
 import Combine
+import UIKit
 
 class BackendEnvironmentService: ObservableObject {
     @Published var currentEnvironment: BackendEnvironment = .production
@@ -17,6 +18,10 @@ class BackendEnvironmentService: ObservableObject {
     @Dependency(\.storageService) private var storageService
 
     init() {
+       if !UIDevice.current.isSandbox {
+           currentEnvironment = .production
+           return
+       }
         currentEnvironment = preferencesService.isStagingEnabled ? .staging : self.storageService.environment
     }
 

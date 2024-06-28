@@ -48,7 +48,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         router.presentAppStore(applink)
     }
 
-    var onboardingScreen: some View {
+    lazy var onboardingScreen: some View = {
         router.onboardingScreen { [weak self] event in
             switch event {
             case .onboardingIsFinished:
@@ -59,7 +59,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
                 }
             }
         }
-    }
+    }()
 
     var calorieCounterScreen: some View {
         router.tabBarScreen

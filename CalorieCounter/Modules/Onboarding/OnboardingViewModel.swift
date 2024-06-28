@@ -22,6 +22,7 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.profileCalculationServiceService) private var profileCalculationService
     @Dependency(\.userDataService) private var userDataService
+    @Dependency(\.newSubscriptionService) private var newSubscriptionService
 
     var router: OnboardingRouter!
     @Published var step: OnboardingFlowStep = .none
@@ -49,6 +50,8 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
     @Published var dietType: DietType?
     @Published var proteinLevel: ProteinLevel?
 
+    @Published private var hasSubscription = false
+
     let steps: [OnboardingFlowStep]
     let context: OnboardingContext
 
@@ -65,6 +68,7 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
             fillInitialData()
         }
         initialize()
+        newSubscriptionService.hasSubscription.assign(to: &$hasSubscription)
         subscribeToFatBurnChanges()
     }
 
@@ -297,7 +301,7 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
             guard let self else { return }
             switch output {
             case .startTapped:
-                if self.context == .onboarding {
+                if self.context == .onboarding, !hasSubscription {
                     self.presentPaywall()
                     return
                 }

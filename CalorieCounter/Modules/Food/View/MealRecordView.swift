@@ -13,13 +13,15 @@ struct MealRecordView: View {
 
     var body: some View {
         HStack(alignment: .bottom, spacing: .zero) {
-            Text(meal.mealItem.mealName)
+            Text(meal.mealItem.mealName.isEmpty ? LocalizedStringKey.quickAdd : meal.mealItem.mealName)
                 .font(.poppins(.body))
                 .foregroundStyle(.accent)
                 .padding(.trailing, .nameTrailingPadding)
-            Text("\(Int(meal.mealItem.weight)) \(String.gram)")
-                .foregroundStyle(Color.studioGreyPlaceholder)
-                .font(.poppins(.description))
+            if !meal.isQuickAdded {
+                Text("\(Int(meal.mealItem.weight)) \(String.gram)")
+                    .foregroundStyle(Color.studioGreyPlaceholder)
+                    .font(.poppins(.description))
+            }
             Spacer()
             Text("\(Int(meal.mealItem.nutritionProfile.calories))")
                 .font(.poppins(.body))
@@ -39,6 +41,7 @@ private extension CGFloat {
 
 private extension LocalizedStringKey {
     static let calories: LocalizedStringKey = "MealTypeView.calories"
+    static let quickAdd: String = NSLocalizedString("QuickAdd.title", comment: "")
 }
 
 private extension String {
