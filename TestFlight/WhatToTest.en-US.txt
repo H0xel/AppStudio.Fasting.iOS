@@ -1,1 +1,1 @@
-- Subscription Cache
+- Release build Fasting 1.2.8

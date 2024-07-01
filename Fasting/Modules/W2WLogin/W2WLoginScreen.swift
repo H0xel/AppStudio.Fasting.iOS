@@ -64,7 +64,7 @@ struct W2WLoginScreen: View {
             .padding(.bottom, .bottomPadding)
         }
         .padding(.horizontal, .horizontalPadding)
-        .navBarButton(content: Image.chevronLeft) {
+        .navBarButton(content: Image.chevronLeft.foregroundStyle(Color.studioBlackLight)) {
             viewModel.backButtonTapped()
         }
     }
