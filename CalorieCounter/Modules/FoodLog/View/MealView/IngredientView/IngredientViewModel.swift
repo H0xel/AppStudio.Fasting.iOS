@@ -14,6 +14,7 @@ struct IngredientViewInput {
     let ingredient: Ingredient
     let router: IngredientRouter
     let statePublisher: AnyPublisher<Ingredient?, Never>
+    let tappedWeightIngredientPublisher: AnyPublisher<Ingredient, Never>
 }
 
 enum IngredientOutput {
@@ -21,6 +22,7 @@ enum IngredientOutput {
     case weightTapped(Ingredient)
     case deleted(Ingredient)
     case updated(newIngredient: Ingredient, oldIngredient: Ingredient)
+    case direction(CustomKeyboardDirection)
     case notSelected
 }
 
@@ -34,6 +36,8 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
 
     @Dependency(\.trackerService) private var trackerService
     @Published var state: IngredientViewState = .notSelected
+    @Published private var editingWeight: Double?
+    @Published private var editingServing: MealServing?
 
     let ingredient: Ingredient
     private let router: IngredientRouter
@@ -43,6 +47,7 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
         self.ingredient = input.ingredient
         super.init(output: output)
         observeStateChange(publisher: input.statePublisher)
+        observeTappedWeightPublisher(publisher: input.tappedWeightIngredientPublisher)
     }
 
     var isTapped: Bool {
@@ -51,6 +56,14 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
 
     var isWeightTapped: Bool {
         state == .weightTapped
+    }
+
+    var displayWeight: Double {
+        editingWeight ?? ingredient.value.value
+    }
+
+    var displayServing: MealServing {
+        editingServing ?? ingredient.value.serving
     }
 
     func weightTapped() {
@@ -80,20 +93,31 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
             .dropFirst()
             .receive(on: DispatchQueue.main)
             .sink(with: self) { this, ingredient in
-                if ingredient != this.ingredient {
+                if ingredient?.name != this.ingredient.name {
                     this.state = .notSelected
                 }
             }
             .store(in: &cancellables)
     }
 
-    private func changeIngredientWeight(to newWeight: Double) {
-        guard Int(ingredient.weight) != Int(newWeight) else {
+    private func observeTappedWeightPublisher(publisher: AnyPublisher<Ingredient, Never>) {
+        publisher
+            .receive(on: DispatchQueue.main)
+            .sink(with: self) { this, ingredient in
+                if this.ingredient == ingredient {
+                    this.weightTapped()
+                }
+            }
+            .store(in: &cancellables)
+    }
+
+    private func changeIngredientWeight(result: CustomKeyboardResult) {
+        guard Int(ingredient.value.value) != Int(result.value) else {
             return
         }
-        let changedIngredient = ingredient.updated(newWeight: newWeight)
+        let changedIngredient = ingredient.updated(value: result.value, serving: result.serving)
         output(.updated(newIngredient: changedIngredient, oldIngredient: ingredient))
-        trackWeightChanged(newWeight: newWeight)
+        trackWeightChanged(newWeight: result.value)
     }
 
     private func presentIngredientDeleteBanner(ingredient: Ingredient) {
@@ -108,12 +132,34 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
     }
 
     private func presentWeightChangeBanner() {
-        router.presentChangeWeightBanner(title: ingredient.name,
-                                         initialWeight: ingredient.weight) { [weak self] weight in
-            self?.changeIngredientWeight(to: weight)
-            self?.clearSelection()
-        } onCancel: { [weak self] in
-            self?.clearSelection()
+        let input = CustomKeyboardInput(
+            title: ingredient.name,
+            text: "\(ingredient.value.value)",
+            style: .container,
+            servings: ingredient.value.servings,
+            currentServing: ingredient.value.serving,
+            isPresentedPublisher: $state.map { $0 != .notSelected }.eraseToAnyPublisher())
+        router.presentChangeWeightBanner(input: input) { [weak self] output in
+            self?.handle(customKeyboardOutput: output)
+        }
+    }
+
+    private func handle(customKeyboardOutput output: CustomKeyboardOutput) {
+        switch output {
+        case .valueChanged(let result):
+            editingWeight = result.value
+            editingServing = result.serving
+        case .add(let result):
+            changeIngredientWeight(result: result)
+            clearSelection()
+            editingWeight = nil
+            editingServing = nil
+        case .dismissed(let result):
+            changeIngredientWeight(result: result)
+            editingWeight = nil
+            editingServing = nil
+        case .direction(let direction):
+            self.output(.direction(direction))
         }
     }
 
@@ -124,7 +170,7 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
 
     private func trackWeightChanged(newWeight: CGFloat) {
         trackerService.track(.weightChanged(currentWeight: newWeight,
-                                            previousWeight: ingredient.weight,
+                                            previousWeight: ingredient.value.value,
                                             context: .ingredient))
     }
 }

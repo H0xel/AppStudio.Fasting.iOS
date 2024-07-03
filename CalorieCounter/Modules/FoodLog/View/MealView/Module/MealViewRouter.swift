@@ -48,15 +48,10 @@ class MealViewRouter: BaseRouter {
             actions: [openSettingsAction, cancelAction]))
     }
 
-    func presentChangeWeightBanner(title: String,
-                                   initialWeight: Double,
-                                   onWeightChange: @escaping (Double) -> Void,
-                                   onCancel: @escaping () -> Void) {
-        let banner = ChangeWeightBanner(title: title,
-                                        initialWeight: initialWeight,
-                                        onWeightChange: onWeightChange,
-                                        onCancel: onCancel)
-        present(banner: banner)
+    func presentChangeWeightBanner(input: CustomKeyboardInput,
+                                   output: @escaping ViewOutput<CustomKeyboardOutput>) {
+        let banner = CustomKeyboardBanner(input: input, output: output)
+        present(banner: banner, animation: .linear(duration: 0.2))
     }
 
     func presentBarcodeScanner(output: @escaping BarcodeOutputBlock) {

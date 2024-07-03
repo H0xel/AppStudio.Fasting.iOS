@@ -15,6 +15,7 @@ struct NutritionProfile: Codable, Hashable {
 }
 
 infix operator ++
+infix operator **
 
 extension NutritionProfile {
 
@@ -41,6 +42,10 @@ extension NutritionProfile {
                          carbohydrates: carbohydrates * weight / 100)
     }
 
+    func calculate(servingMultiplier: Double) -> NutritionProfile {
+        self ** servingMultiplier
+    }
+
     static func ++ (lhs: NutritionProfile, rhs: NutritionProfile) -> NutritionProfile {
         NutritionProfile(calories: lhs.calories + rhs.calories,
                          proteins: lhs.proteins + rhs.proteins,
@@ -48,7 +53,17 @@ extension NutritionProfile {
                          carbohydrates: lhs.carbohydrates + rhs.carbohydrates)
     }
 
-    static let empty = NutritionProfile(calories: 0, proteins: 0, fats: 0, carbohydrates: 0)
+    static func ** (lhs: NutritionProfile, multiplyValue: Double) -> NutritionProfile {
+        NutritionProfile(calories: lhs.calories * multiplyValue,
+                         proteins: lhs.proteins * multiplyValue,
+                         fats: lhs.fats * multiplyValue,
+                         carbohydrates: lhs.carbohydrates * multiplyValue)
+    }
+
+
+    static var empty: NutritionProfile {
+        .init(calories: 0, proteins: 0, fats: 0, carbohydrates: 0)
+    }
 
     static let mock = NutritionProfile(calories: 1756, proteins: 84, fats: 120, carbohydrates: 90)
 }

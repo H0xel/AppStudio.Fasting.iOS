@@ -32,12 +32,14 @@ struct SuggestedMealItemView: View {
                                       configuration: .placeholderSmall(type: type),
                                       bordered: false)
                     }
-                    Group {
-                        Text("|")
-                        Text(meal.mealItem.weightWithUnits)
+                    if let titleInGramms = meal.mealItem.value.title {
+                        Group {
+                            Text("|")
+                            Text(titleInGramms)
+                        }
+                        .font(.poppins(.description))
+                        .foregroundStyle(Color.studioGrayPlaceholder)
                     }
-                    .font(.poppins(.description))
-                    .foregroundStyle(Color.studioGrayPlaceholder)
                 }
             }
             Spacer()

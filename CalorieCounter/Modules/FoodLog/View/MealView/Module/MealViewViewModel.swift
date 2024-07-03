@@ -22,12 +22,16 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     @Published var mealSelectedState: MealSelectedState = .notSelected
     @Published var ingredientPlaceholders: [MealPlaceholder] = []
     @Published var hasSubscription: Bool = false
+    @Published var editingWeight: CustomKeyboardResult?
+    private let tappedIngredientSubject = CurrentValueSubject<Ingredient?, Never>(nil)
 
     private let router: MealViewRouter
 
     init(meal: Meal,
-         mealSelectionPublisher: AnyPublisher<String, Never>,
+         mealSelectionPublisher: AnyPublisher<String?, Never>,
          hasSubscriptionPublisher: AnyPublisher<Bool, Never>,
+         selectedIngredientPublisher: AnyPublisher<(String, Ingredient), Never>,
+         tappedWeightMealPublisher: AnyPublisher<String, Never>,
          router: MealViewRouter,
          output: @escaping ViewOutput<MealViewOutput>) {
         self.meal = meal
@@ -38,6 +42,12 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
             .assign(to: &$hasSubscription)
         observeMealSelectionPublisher(publisher: mealSelectionPublisher)
         observeMealSelectedState()
+        observeSelectedIngredient(publisher: selectedIngredientPublisher)
+        observeTappedWeightMealPublisher(publisher: tappedWeightMealPublisher)
+    }
+
+    var displayWeight: Double {
+        editingWeight?.value ?? meal.mealItem.value.value
     }
 
     var isTapped: Bool {
@@ -67,8 +77,9 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     }
 
     var isQuickAdd: Bool {
-        mealItem.creationType == .quickAdd
+        mealItem.type == .quickAdd
     }
+
 
     var ingredients: [Ingredient] {
         mealItem.ingredients
@@ -92,9 +103,13 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
             statePublisher: $mealSelectedState
                 .removeDuplicates()
                 .map { $0.ingredient }
-                .eraseToAnyPublisher()
+                .eraseToAnyPublisher(), 
+            tappedWeightIngredientPublisher: tappedIngredientSubject.compactMap { $0 }.eraseToAnyPublisher()
         )) { [weak self] output in
-            self?.handle(ingredientOutput: output)
+            guard let self else { return }
+            Task { [weak self] in
+                try await self?.handle(ingredientOutput: output)
+            }
         }
     }
 
@@ -105,18 +120,18 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
             return
         }
         mealSelectedState = .mealWeight
-        router.presentChangeWeightBanner(title: mealItem.mealName,
-                                         initialWeight: mealItem.weight) { [weak self] weight in
-            self?.changeMealWeight(to: weight)
-        } onCancel: { [weak self] in
-            self?.clearSelection()
+        router.presentChangeWeightBanner(input: customKeyboardInput) { [weak self] output in
+            guard let self else { return }
+            Task { [weak self] in
+                try await self?.handle(customKeyboardOutput: output)
+            }
         }
-        output(.banner(isPresented: true))
+        output(.banner(isBannerPresented: true, isKeyboardPresented: true))
     }
 
     func addIngredients() {
         mealSelectedState = .notSelected
-        output(.banner(isPresented: true))
+        output(.banner(isBannerPresented: true, isKeyboardPresented: false))
         router.presentAddIngredientBanner(meal: meal) { [weak self] ingredientName in
             guard let self else { return }
             clearSelection()
@@ -133,8 +148,8 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
 
     func clearSelection() {
         mealSelectedState = .notSelected
-        output(.banner(isPresented: false))
-        router.dismissBanner()
+        output(.banner(isBannerPresented: false, isKeyboardPresented: false))
+        router.dismissBanner(animation: .linear(duration: 0.5))
     }
 
     func tapMeal() {
@@ -145,7 +160,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         }
         mealSelectedState = .delete
         presentMealDeleteBanner(meal)
-        output(.banner(isPresented: true))
+        output(.banner(isBannerPresented: true, isKeyboardPresented: false))
     }
 
     func closeIngredientPlaceholder(with id: String) {
@@ -154,63 +169,115 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         }
     }
 
-    private func handle(ingredientOutput: IngredientOutput) {
+    private func observeSelectedIngredient(publisher: AnyPublisher<(String, Ingredient), Never>) {
+        publisher
+            .filter { [weak self] ingredient in ingredient.0 == self?.meal.id }
+            .receive(on: DispatchQueue.main)
+            .sink(with: self) { this, ingredient in
+                this.tappedIngredientSubject.send(ingredient.1)
+            }
+            .store(in: &cancellables)
+    }
+
+    @MainActor
+    private func handle(customKeyboardOutput output: CustomKeyboardOutput) async throws {
+        switch output {
+        case .valueChanged(let result):
+            editingWeight = result
+        case .add(let result):
+            editingWeight = nil
+            try await changeMealWeight(to: result)
+            clearSelection()
+        case .dismissed(let result):
+            editingWeight = nil
+            try await changeMealWeight(to: result)
+        case .direction(let direction):
+            try await changeKeyboardDirection(direction: direction)
+        }
+    }
+
+    @MainActor
+    private func handle(ingredientOutput: IngredientOutput) async throws {
         switch ingredientOutput {
         case .ingredientTapped(let ingredient):
             mealSelectedState = .ingredient(ingredient)
-            output(.banner(isPresented: true))
+            output(.banner(isBannerPresented: true, isKeyboardPresented: false))
         case .weightTapped(let ingredient):
             mealSelectedState = .ingredientWeight(ingredient)
-            output(.banner(isPresented: true))
+            output(.banner(isBannerPresented: true, isKeyboardPresented: true))
         case .deleted(let ingredient):
             let newIngredients = meal.mealItem.ingredients.filter { $0 != ingredient }
-            updateIngredients(newIngredients: newIngredients)
+            try await updateIngredients(newIngredients: newIngredients)
         case .updated(newIngredient: let newIngredient, oldIngredient: let oldIngredient):
             guard let index = ingredients.firstIndex(of: oldIngredient) else { return }
             var newIngredients = ingredients
             newIngredients[index] = newIngredient
-            updateIngredients(newIngredients: newIngredients)
+            try await updateIngredients(newIngredients: newIngredients)
         case .notSelected:
             clearSelection()
+        case .direction(let direction):
+            try await changeKeyboardDirection(direction: direction)
         }
     }
 
-    private func updateIngredients(newIngredients: [Ingredient]) {
+    @MainActor
+    private func changeKeyboardDirection(direction: CustomKeyboardDirection) async throws {
+        if let ingredient = mealSelectedState.ingredient,
+           let index = ingredients.firstIndex(of: ingredient) {
+            let nextIndex = direction == .up ? index - 1 : index + 1
+            if nextIndex < 0 {
+                weightTapped()
+                return
+            }
+            if nextIndex >= ingredients.count {
+                output(.selectedNext)
+                return
+            }
+            tappedIngredientSubject.send(ingredients[nextIndex])
+            return
+        }
+
+        if direction == .up {
+            output(.selectPrev)
+            return
+        }
+        if ingredients.count > 1 {
+            if let editingWeight {
+                try await changeMealWeight(to: editingWeight)
+                self.editingWeight = nil
+            }
+            tappedIngredientSubject.send(ingredients[0])
+            return
+        }
+        output(.selectedNext)
+    }
+
+    @MainActor
+    private func updateIngredients(newIngredients: [Ingredient]) async throws {
         let newMeal = meal.copyWith(ingredients: newIngredients)
-        updateMeal(newMeal)
+        try await updateMeal(newMeal)
         output(.mealUpdated(meal: newMeal))
     }
 
-    private func changeMealWeight(to newWeight: Double) {
-        guard Int(newWeight) != Int(mealItem.weight) else {
-            clearSelection()
+    @MainActor
+    private func changeMealWeight(to newWeight: CustomKeyboardResult) async throws {
+        if newWeight.value == mealItem.value.value, newWeight.serving == mealItem.value.serving {
             return
         }
-        let difference = mealItem.weight == 0 ? 0 : newWeight / mealItem.weight
-
-        let newIngredients = ingredients.map {
-            Ingredient(name: $0.name,
-                       brandTitle: $0.brandTitle,
-                       weight: difference != 0 ? $0.weight * difference : newWeight / Double(ingredients.count),
-                       normalizedProfile: $0.normalizedProfile)
-        }
-        let changedMeal = meal.copyWith(ingredients: newIngredients)
-        updateMeal(changedMeal)
+        let value = MealItemEditableValue(value: newWeight.value, serving: newWeight.serving, servings: [])
+        let changedMealItem = meal.mealItem.update(value: value)
+        let changedMeal = meal.copyWith(mealItem: changedMealItem)
+        try await updateMeal(changedMeal)
         output(.mealUpdated(meal: changedMeal))
-        clearSelection()
-        trackerService.track(.weightChanged(currentWeight: newWeight,
-                                            previousWeight: meal.mealItem.weight,
+        trackerService.track(.weightChanged(currentWeight: newWeight.value,
+                                            previousWeight: meal.mealItem.value.value,
                                             context: .meal))
     }
 
-    private func updateMeal(_ meal: Meal) {
-        Task { [weak self] in
-            guard let self else { return }
-            let meal = try await self.mealService.save(meal: meal)
-            await MainActor.run { [weak self] in
-                self?.meal = meal
-            }
-        }
+    @MainActor
+    private func updateMeal(_ meal: Meal) async throws {
+        let meal = try await mealService.save(meal: meal)
+        self.meal = meal
     }
 
     private func deleteMeal(_ meal: Meal) {
@@ -221,12 +288,24 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         }
     }
 
-    private func observeMealSelectionPublisher(publisher: AnyPublisher<String, Never>) {
+    private func observeMealSelectionPublisher(publisher: AnyPublisher<String?, Never>) {
         publisher
-            .filter { [weak self] id in id != self?.meal.id  }
             .receive(on: DispatchQueue.main)
-            .sink(with: self) { this, _ in
-                this.mealSelectedState = .notSelected
+            .sink(with: self) { this, id in
+                if id != this.meal.id {
+                    this.mealSelectedState = .notSelected
+                }
+            }
+            .store(in: &cancellables)
+    }
+
+    private func observeTappedWeightMealPublisher(publisher: AnyPublisher<String, Never>) {
+        publisher
+            .receive(on: DispatchQueue.main)
+            .sink(with: self) { this, id in
+                if id == this.meal.id {
+                    this.weightTapped()
+                }
             }
             .store(in: &cancellables)
     }
@@ -238,17 +317,38 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
                 this.output(.selected(this.meal.id))
             }
             .store(in: &cancellables)
+
+        $mealSelectedState
+            .receive(on: DispatchQueue.main)
+            .sink(with: self) { this, state in
+                this.output(.ingredientSelected(state.ingredient))
+            }
+            .store(in: &cancellables)
+    }
+
+    var currentServing: MealServing {
+        editingWeight?.serving ?? mealItem.value.serving
+    }
+
+    private var customKeyboardInput: CustomKeyboardInput {
+        CustomKeyboardInput(
+            title: mealItem.mealName,
+            text: "\(mealItem.value.value)",
+            style: .container, 
+            servings: mealItem.value.servings,
+            currentServing: currentServing,
+            isPresentedPublisher: $mealSelectedState.map { $0 != .notSelected }.eraseToAnyPublisher()
+        )
     }
 }
 
 // MARK: - Request Ingredients
 extension MealViewViewModel {
-
     private func requestIngredients(with text: String) async throws {
         let placeholder = await prepareIngredientPlaceholder(text: text)
         let ingredients = try await calorieCounterService.ingredients(request: text)
-        await removePlaceholderAndUpdateIngredients(placeholderId: placeholder.id,
-                                                    ingredients: ingredients + meal.mealItem.ingredients)
+        try await removePlaceholderAndUpdateIngredients(placeholderId: placeholder.id,
+                                                        ingredients: ingredients + meal.mealItem.ingredients)
     }
 
     private func searchIngredient(barcode: String) async throws {
@@ -258,8 +358,8 @@ extension MealViewViewModel {
             await setNotFoundForIngredientPlaceholder(placeholderId: placeholder.id)
             return
         }
-        await removePlaceholderAndUpdateIngredients(placeholderId: placeholder.id,
-                                                    ingredients: [ingredient] + meal.mealItem.ingredients)
+        try await removePlaceholderAndUpdateIngredients(placeholderId: placeholder.id,
+                                                        ingredients: [ingredient] + meal.mealItem.ingredients)
     }
 
     @MainActor
@@ -272,10 +372,10 @@ extension MealViewViewModel {
     }
 
     @MainActor
-    private func removePlaceholderAndUpdateIngredients(placeholderId: String, ingredients: [Ingredient]) {
+    private func removePlaceholderAndUpdateIngredients(placeholderId: String, ingredients: [Ingredient]) async throws {
         removeIngredientPlaceholder(placeholderId: placeholderId)
         let meal = meal.copyWith(ingredients: ingredients)
-        updateMeal(meal)
+        try await updateMeal(meal)
         output(.mealUpdated(meal: meal))
     }
 

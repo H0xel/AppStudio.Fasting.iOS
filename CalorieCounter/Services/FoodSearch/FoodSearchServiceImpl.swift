@@ -14,26 +14,31 @@ private let caloriesNutrientId: Int = 1008
 
 class FoodSearchServiceImpl: FoodSearchService {
     @Dependency(\.foodSearchApi) private var foodSearchApi
+    @Dependency(\.nutritionFoodSearchApi) private var nutritionFoodSearchApi
     @Dependency(\.foodSearchCacheService) private var foodSearchCacheService
 
     func search(barcode: String) async throws -> MealItem? {
+        guard let code = Int64(barcode) else {
+            return nil
+        }
         if let meal = try await foodSearchCacheService.cachedFood(of: barcode) {
             return meal
         }
-        guard let apiMeal = try await foodSearchApi.search(FoodSearchRequest(query: barcode))
-            .asMeal(fdcId: barcode) else {
+        guard let apiMeal = try await nutritionFoodSearchApi.search(code: code).asMeal else {
             return nil
         }
         try await foodSearchCacheService.cache(meal: apiMeal, for: barcode)
         return apiMeal
     }
 
-    func searchIngredient(barcode: String) async throws -> Ingredient? {
+    func searchIngredient(barcode: String) async throws -> MealItem? {
+        guard let code = Int64(barcode) else {
+            return nil
+        }
         if let ingredient = try await foodSearchCacheService.cachedIngredient(of: barcode) {
             return ingredient
         }
-        guard let apiIngredient = try await foodSearchApi.search(FoodSearchRequest(query: barcode))
-            .asIngredient(fdcId: barcode) else {
+        guard let apiIngredient = try await nutritionFoodSearchApi.search(code: code).asIngredientMealItem else {
             return nil
         }
         try await foodSearchCacheService.cache(ingredient: apiIngredient, for: barcode)
@@ -69,27 +74,28 @@ private extension FoodSearchResponse {
 
         return MealItem(
             id: UUID().uuidString,
+            type: .chatGPT,
             name: "",
             subTitle: nil,
+            notes: nil,
             ingredients: [
-                Ingredient(
+                .createIngredient(
                     name: name,
-                    brandTitle: brandName,
+                    brand: brandName,
                     weight: Double(weight),
-                    normalizedProfile: NutritionProfile(
+                    normalizedProfile: .init(
                         calories: calories,
                         proteins: protein,
                         fats: fat,
-                        carbohydrates: carbo
-                    )
+                        carbohydrates: carbo)
                 )
-            ], 
-            creationType: .chatGPT,
-            dateUpdated: .now
+            ],
+            servingMultiplier: 1.0,
+            servings: .defaultServings
         )
     }
 
-    func asIngredient(fdcId: String) -> Ingredient? {
+    func asIngredient(fdcId: String) -> MealItem? {
 
         guard let foods else {
             return nil
@@ -114,11 +120,11 @@ private extension FoodSearchResponse {
         // TODO: тут могут быть ml или g, надо будет обработать в будующем
         let weight = food.servingSize ?? 0
 
-        return Ingredient(
+        return MealItem.createIngredient(
             name: name,
-            brandTitle: brandName,
+            brand: brandName,
             weight: Double(weight),
-            normalizedProfile: NutritionProfile(
+            normalizedProfile: .init(
                 calories: calories,
                 proteins: protein,
                 fats: fat,

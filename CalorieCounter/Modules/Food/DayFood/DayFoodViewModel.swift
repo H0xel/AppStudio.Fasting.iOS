@@ -186,6 +186,7 @@ class DayFoodViewModel: BaseViewModel<DayFoodOutput> {
 
     private func observeSubscription() {
         subscriptionService.hasSubscription
+            .removeDuplicates()
             .assign(to: &$hasSubscription)
     }
 

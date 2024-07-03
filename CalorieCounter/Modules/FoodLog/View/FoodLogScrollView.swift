@@ -15,7 +15,7 @@ struct FoodLogScrollView: View {
 
     var body: some View {
         ScrollViewReader { reader in
-            ScrollView {
+            CustomKeyboardScrollView(isKeyboardPresented: viewModel.isKeyboardPresented, onScroll: viewModel.clear) {
                 Spacer(minLength: .topSpacing)
                     .id(topSpacerId)
                 LazyVStack(spacing: .spacing) {
@@ -23,7 +23,6 @@ struct FoodLogScrollView: View {
                         switch logItem {
                         case .meal(let meal):
                             MealView(viewModel: viewModel.mealViewModel(meal: meal))
-                                .id(meal)
                                 .id(meal.id)
                         case .placeholder(let placeholder):
                             MealPlaceholderView(text: placeholder.mealText)
@@ -34,12 +33,17 @@ struct FoodLogScrollView: View {
                         }
                     }
                 }
-                Spacer(minLength: .bottomSpacing)
+                Spacer(minLength: viewModel.isKeyboardPresented ? .zero : .bottomSpacing)
             }
             .scrollIndicators(.hidden)
             .scrollDismissesKeyboard(.immediately)
             .onChange(of: viewModel.selectedMealId) { id in
-                scrollTo(id, reader: reader, anchor: .center)
+                scrollTo(id, reader: reader)
+            }
+            .onChange(of: viewModel.selectedIngredient) { ingredient in
+                if let ingredient {
+                    scrollTo(ingredient, reader: reader, anchor: .init(x: 0, y: 0.15))
+                }
             }
             .onReceive(viewModel.scrollToTopPublisher) { _ in
                 scrollTo(topSpacerId, reader: reader)
@@ -48,18 +52,16 @@ struct FoodLogScrollView: View {
         }
     }
 
-    private func scrollTo<ID: Hashable>(_ id: ID, reader: ScrollViewProxy, anchor: UnitPoint = .center) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            withAnimation(.linear) {
-                reader.scrollTo(id, anchor: anchor)
-            }
+    private func scrollTo<ID: Hashable>(_ id: ID, reader: ScrollViewProxy, anchor: UnitPoint = .top) {
+        withAnimation(.linear) {
+            reader.scrollTo(id, anchor: anchor)
         }
     }
 }
 
 private extension CGFloat {
     static let topSpacing: CGFloat = 16
-    static let bottomSpacing: CGFloat = 183
+    static let bottomSpacing: CGFloat = 105
     static let spacing: CGFloat = 8
 }
 

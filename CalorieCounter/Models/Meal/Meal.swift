@@ -14,6 +14,7 @@ struct Meal: Hashable, Identifiable {
     let creationDate: Date
     let mealItem: MealItem
     var voting: MealVoting
+    var servingMultiplier: Double
 
     init(type: MealType, dayDate: Date, mealItem: MealItem, voting: MealVoting) {
         self.id = UUID().uuidString
@@ -22,6 +23,7 @@ struct Meal: Hashable, Identifiable {
         self.creationDate = .now
         self.mealItem = mealItem
         self.voting = voting
+        self.servingMultiplier = 1.0
     }
 
     init(id: String,
@@ -29,13 +31,15 @@ struct Meal: Hashable, Identifiable {
          dayDate: Date,
          creationDate: Date,
          mealItem: MealItem,
-         voting: MealVoting = .notVoted) {
+         voting: MealVoting = .notVoted,
+         servingMultiplier: Double = 1.0) {
         self.id = id
         self.type = type
         self.dayDate = dayDate
         self.creationDate = creationDate
         self.mealItem = mealItem
         self.voting = voting
+        self.servingMultiplier = servingMultiplier
     }
 }
 
@@ -49,7 +53,7 @@ extension Meal {
     }
 
     var isQuickAdded: Bool {
-        mealItem.creationType == .quickAdd
+        mealItem.type == .quickAdd
     }
 
     func copyWith(type: MealType) -> Meal {
@@ -58,16 +62,38 @@ extension Meal {
               dayDate: dayDate,
               creationDate: creationDate,
               mealItem: mealItem,
-              voting: voting)
+              voting: voting, 
+              servingMultiplier: servingMultiplier)
     }
 
-    func copyWith(ingredients: [Ingredient]) -> Meal {
+    func copyWith(ingredients: [MealItem]) -> Meal {
         .init(id: id,
               type: type,
               dayDate: dayDate,
               creationDate: creationDate,
               mealItem: mealItem.updated(ingredients: ingredients),
-              voting: voting)
+              voting: voting,
+              servingMultiplier: servingMultiplier)
+    }
+
+    func copyWith(name: String, normalizedProfile: NutritionProfile) -> Meal {
+        .init(id: id,
+              type: type,
+              dayDate: dayDate,
+              creationDate: creationDate,
+              mealItem: mealItem.updated(name: name, normalizedProfile: normalizedProfile),
+              voting: voting,
+              servingMultiplier: servingMultiplier)
+    }
+
+    func copyWith(mealItem: MealItem) -> Meal {
+        .init(id: id,
+              type: type,
+              dayDate: dayDate,
+              creationDate: creationDate,
+              mealItem: mealItem,
+              voting: voting,
+              servingMultiplier: servingMultiplier)
     }
 
     static var mock: Meal {

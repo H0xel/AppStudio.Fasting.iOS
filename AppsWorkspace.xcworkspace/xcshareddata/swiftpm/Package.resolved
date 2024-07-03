@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git",
       "state" : {
-        "branch" : "feature/ST2-640_initializer_without_view",
-        "revision" : "ad455145b85c6a7bc3aefab220e220a4d5e14129"
+        "revision" : "fca549facd162931fa55343beac633f4d2bd0147",
+        "version" : "1.0.13"
       }
     },
     {

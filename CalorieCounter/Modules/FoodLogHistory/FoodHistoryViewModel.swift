@@ -52,10 +52,6 @@ class FoodHistoryViewModel: BaseViewModel<FoodHistoryOutput> {
         output(.dismiss)
     }
 
-    func closeSuggestions() {
-        dismissSuggestionsSubject.send()
-    }
-
     private func presentPaywall(onSubscribe: (() -> Void)? = nil) {
         router.presentPaywall { [weak self] output in
             guard let self else { return }
@@ -99,6 +95,15 @@ class FoodHistoryViewModel: BaseViewModel<FoodHistoryOutput> {
             .receive(on: DispatchQueue.main)
             .sink(with: self) { this, _ in
                 this.output(.onFocus)
+            }
+            .store(in: &cancellables)
+
+        $suggestionsState
+            .receive(on: DispatchQueue.main)
+            .sink(with: self) { this, state in
+                if !state.isPresented, state.isKeyboardFocused {
+                    this.dismissSuggestionsSubject.send()
+                }
             }
             .store(in: &cancellables)
     }

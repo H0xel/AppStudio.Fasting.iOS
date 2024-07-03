@@ -6,17 +6,19 @@
 //
 
 import SwiftUI
+import AppStudioStyles
 
 struct MealWeightView: View {
 
     let weight: Double
+    let serving: MealServing
     let isTapped: Bool
 
     var body: some View {
         HStack(spacing: .spacing) {
-            Text("\(Int(weight))")
+            Text(serving == .gramms ? "\(String(format: "%.0f", weight))" : weight.withoutDecimalsIfNeeded)
                 .foregroundStyle(.accent)
-            Text(Localization.gram)
+            Text(serving.units(for: weight))
                 .foregroundStyle(Color.studioGreyText)
         }
         .font(.poppins(.description))
@@ -46,5 +48,5 @@ private extension MealWeightView {
 }
 
 #Preview {
-    MealWeightView(weight: 24, isTapped: true)
+    MealWeightView(weight: 24, serving: .gramms, isTapped: true)
 }

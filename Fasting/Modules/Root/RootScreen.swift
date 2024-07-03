@@ -64,6 +64,7 @@ struct RootScreen: View {
                         .tabItem {
                             tabBarLabelView(title: .progress, image: progressTabImage)
                         }
+
                     // uncommit after relsease 1.2.4
 //                    viewModel.exploreScreen
 //                        .tag(AppTab.explore)

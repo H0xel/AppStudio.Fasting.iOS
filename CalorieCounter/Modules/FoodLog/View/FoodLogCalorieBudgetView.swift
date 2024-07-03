@@ -15,14 +15,14 @@ struct FoodLogCalorieBudgetView: View {
         GeometryReader { geometry in
             HStack(spacing: .zero) {
                 Color.studioGreen
-                    .frame(width: geometry.size.width * fatProportion)
+                    .frame(minWidth: geometry.size.width * fatProportion)
                 Color.studioBlue
-                    .frame(width: geometry.size.width * carbsProportion)
+                    .frame(minWidth: geometry.size.width * carbsProportion)
                 Color.studioOrange
-                    .frame(width: geometry.size.width * proteinProportion)
+                    .frame(minWidth: geometry.size.width * proteinProportion)
             }
         }
-        .frame(height: 6)
+        .frame(height: .height)
     }
 
     var proteinProportion: CGFloat {

@@ -13,7 +13,7 @@ extension Meal: EntityMappable {
               let dayDate = entity.dayDate,
               let creationDate = entity.creationDate,
               let mealItemJson = entity.mealItemJson,
-              let mealItem = try? MealItem(json: mealItemJson),
+              let mealItem = (try? MealItem(json: mealItemJson)) ?? (try? OldMealItem(json: mealItemJson))?.asMeal,
               let type = MealType(rawValue: entity.type ?? "") else {
             throw CoreDataError.databaseWrongEntity
         }
@@ -24,6 +24,7 @@ extension Meal: EntityMappable {
         self.mealItem = mealItem
         self.creationDate = creationDate
         self.voting = MealVoting(rawValue: entity.voting) ?? .notVoted
+        self.servingMultiplier = entity.servingMultiplier <= 0 ? entity.servingMultiplier : 1.0
     }
 
     static var identifierName: String {
@@ -37,5 +38,6 @@ extension Meal: EntityMappable {
         entity.type = type.rawValue
         entity.mealItemJson = mealItem.json()
         entity.voting = voting.rawValue
+        entity.servingMultiplier = servingMultiplier
     }
 }

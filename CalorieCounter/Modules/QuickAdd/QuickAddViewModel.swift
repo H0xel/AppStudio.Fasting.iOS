@@ -48,24 +48,26 @@ class QuickAddViewModel: BaseViewModel<QuickAddOutput> {
     }
 
     private func fillData(meal: Meal?) {
-        guard let meal, meal.isQuickAdded, let ingredient = meal.mealItem.ingredients.first else {
+        guard let meal, meal.isQuickAdded else {
             return
         }
-        calories = ingredient.normalizedProfile.calories
-        proteins = ingredient.normalizedProfile.proteins
-        fats = ingredient.normalizedProfile.fats
-        carbs = ingredient.normalizedProfile.carbohydrates
-        foodName = ingredient.name
+        calories = meal.mealItem.normalizedProfile.calories
+        proteins = meal.mealItem.normalizedProfile.proteins
+        fats = meal.mealItem.normalizedProfile.fats
+        carbs = meal.mealItem.normalizedProfile.carbohydrates
+        foodName = meal.mealItem.name
         editedMeal = meal
     }
 
     private func createMeal() {
-        let mealItem = MealItem.quickAdded(
-            foodName: foodName,
-            nutritionProfile: .init(calories: calories,
-                                    proteins: proteins,
-                                    fats: fats,
-                                    carbohydrates: carbs)
+        let mealItem = MealItem.createQuickAdd(
+            name: foodName,
+            profile: .init(
+                calories: calories,
+                proteins: proteins,
+                fats: fats,
+                carbohydrates: carbs
+            )
         )
         let meal = Meal(
             id: UUID().uuidString,
@@ -87,19 +89,13 @@ class QuickAddViewModel: BaseViewModel<QuickAddOutput> {
             return
         }
         let savedMeal = meal.copyWith(
-            ingredients: [
-                .init(
-                    name: foodName,
-                    brandTitle: nil,
-                    weight: 100,
-                    normalizedProfile: .init(
-                        calories: calories,
-                        proteins: proteins,
-                        fats: fats,
-                        carbohydrates: carbs
-                    )
-                )
-            ]
+            name: foodName,
+            normalizedProfile: .init(
+                calories: calories,
+                proteins: proteins,
+                fats: fats,
+                carbohydrates: carbs
+            )
         )
         output(.updated(savedMeal))
     }

@@ -40,7 +40,7 @@ struct MealTypeView: View {
             }
             .foregroundStyle(.accent)
 
-            ForEach(record.meals) { meal in
+            ForEach(record.meals, id: \.self) { meal in
                 MealRecordView(meal: meal)
                     .padding(.bottom, meal == record.meals.last ?
                         .mealRecordBottomPadding * 2 :

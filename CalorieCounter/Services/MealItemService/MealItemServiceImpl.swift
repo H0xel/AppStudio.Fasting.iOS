@@ -28,7 +28,7 @@ class MealItemServiceImpl: MealItemService {
     }
 
     func save(_ mealItem: MealItem) async throws -> MealItem {
-        if let meal = try await mealItemRepository.mealItem(with: mealItem.mealName, type: mealItem.creationType) {
+        if let meal = try await mealItemRepository.mealItem(with: mealItem.mealName, type: mealItem.type) {
             return try await mealItemRepository.save(meal.updated(ingredients: mealItem.ingredients))
         }
         return try await mealItemRepository.save(mealItem.updated(name: mealItem.mealName))

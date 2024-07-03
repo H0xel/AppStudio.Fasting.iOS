@@ -40,7 +40,7 @@ struct NutritionView: View {
     }
 
     var intAmount: Int {
-        amount.isNaN ? 0 : Int(amount)
+        amount.isNaN ? 0 : Int(amount.rounded())
     }
 
     @ViewBuilder

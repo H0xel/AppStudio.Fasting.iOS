@@ -8,6 +8,6 @@
 protocol CalorieCounterCacheService {
     func cached(request: String) async throws -> [MealItem]?
     func set(meals: [MealItem], for request: String) async throws
-    func cached(request: String) async throws -> [Ingredient]?
-    func set(ingredients: [Ingredient], for request: String) async throws
+    func cachedIngredients(request: String) async throws -> [MealItem]?
+    func set(ingredients: [MealItem], for request: String) async throws
 }

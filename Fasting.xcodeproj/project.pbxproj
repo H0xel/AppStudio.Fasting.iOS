@@ -782,7 +782,7 @@
 		A729F9092BF4B50000875BB5 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = Localizable.strings; sourceTree = "<group>"; };
 		A729F92D2BF4B77C00875BB5 /* OnboardingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingResponse.swift; sourceTree = "<group>"; };
 		A729F9302BF4BC0200875BB5 /* OnboardingInitializerDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInitializerDependency.swift; sourceTree = "<group>"; };
-		A72C91A92B95D28B007E2D3C /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		A72C91A92B95D28B007E2D3C /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Medium.ttf"; path = "../../../CalorieCounter/Fonts/Poppins/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		A72D45262B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCustomizationImpl+Discount.swift"; sourceTree = "<group>"; };
 		A72D45282B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuExperimentsView.swift; sourceTree = "<group>"; };
 		A73372BA2C202B4700A05698 /* PromotionSubscriptionMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionSubscriptionMigration.swift; sourceTree = "<group>"; };
@@ -3680,8 +3680,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git";
 			requirement = {
-				branch = "feature/ST2-640_initializer_without_view";
-				kind = branch;
+				kind = exactVersion;
+				version = 1.0.13;
 			};
 		};
 		A758C6182C0DFEEA00F9DC3F /* XCRemoteSwiftPackageReference "intercom-ios-sp" */ = {

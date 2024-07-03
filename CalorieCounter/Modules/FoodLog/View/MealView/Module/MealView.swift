@@ -24,7 +24,9 @@ struct MealView: View {
                     Spacer()
                     if !viewModel.isQuickAdd {
                         Button(action: viewModel.weightTapped) {
-                            MealWeightView(weight: viewModel.mealItem.weight, isTapped: viewModel.isWeightTapped)
+                            MealWeightView(weight: viewModel.displayWeight,
+                                           serving: viewModel.currentServing,
+                                           isTapped: viewModel.isWeightTapped)
                         }
                     }
                 }
@@ -36,7 +38,7 @@ struct MealView: View {
                 MealNutritionProfileView(profile: viewModel.nutritionProfile,
                                          canShowNutritions: true,
                                          weight:  viewModel.canShowWeightIcon
-                                         ? viewModel.mealItem.weightWithUnits
+                                         ? viewModel.mealItem.value.title
                                          : nil)
                 .padding(.leading, .leadingPadding)
                 .aligned(.left)
@@ -130,16 +132,15 @@ extension Animation {
 }
 
 #Preview {
-    ZStack {
-        Color.red
-        VStack {
-            MealView(viewModel: .init(
-                meal: .mock,
-                mealSelectionPublisher: Just("").eraseToAnyPublisher(),
-                hasSubscriptionPublisher: Just(true).eraseToAnyPublisher(),
-                router: .init(navigator: .init()),
-                output: { _ in }
-            ))
-        }
+    VStack {
+        MealView(viewModel: .init(
+            meal: .mock,
+            mealSelectionPublisher: Just("").eraseToAnyPublisher(),
+            hasSubscriptionPublisher: Just(true).eraseToAnyPublisher(), 
+            selectedIngredientPublisher: Just(("", .mock)).eraseToAnyPublisher(), 
+            tappedWeightMealPublisher: Just("").eraseToAnyPublisher(),
+            router: .init(navigator: .init()),
+            output: { _ in }
+        ))
     }
 }

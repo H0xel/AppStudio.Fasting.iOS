@@ -10,4 +10,8 @@ import Foundation
 enum MealCreationType: Int, Codable {
     case chatGPT
     case quickAdd
+    case custom
+    case product
+    case recipe
+    case ingredient
 }

@@ -28,16 +28,16 @@ class FoodSearchCacheServiceImpl: FoodSearchCacheService {
         try await codableCacheRepository.clear(key: barcode, of: .foodSearch)
     }
 
-    func cachedIngredient(of barcode: String) async throws -> Ingredient? {
+    func cachedIngredient(of barcode: String) async throws -> MealItem? {
         guard let cachedValue = try await codableCacheRepository.value(key: barcode,
                                                                        of: .foodSearchIngredient,
                                                                        cacheInterval: .month) else {
             return nil
         }
-        return try Ingredient(json: cachedValue)
+        return try MealItem(json: cachedValue)
     }
 
-    func cache(ingredient: Ingredient, for barcode: String) async throws {
+    func cache(ingredient: MealItem, for barcode: String) async throws {
         if let jsonValue = ingredient.json() {
             _ = try await codableCacheRepository.set(key: barcode, value: jsonValue, for: .foodSearchIngredient)
         }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Ingredient: Codable, Hashable {
+struct OldIngredient: Codable, Hashable {
     let name: String
     let brandTitle: String?
     let weight: Double
@@ -21,54 +21,13 @@ struct Ingredient: Codable, Hashable {
     }
 }
 
+typealias Ingredient = MealItem
+
 extension Ingredient {
-    var nutritionProfile: NutritionProfile {
-        normalizedProfile.calculate(for: weight)
-    }
-
-    var weightWithUnits: String {
-        let weight = String(format: "%.0f", weight)
-        let label = "Ingredient.weightLabel".localized()
-        return "\(weight) \(label)"
-    }
-
-    static var mock: Ingredient {
-        .init(name: "Egg",
-              brandTitle: nil,
-              weight: 150.0,
-              normalizedProfile: NutritionProfile(calories: 220.0,
-                                                  proteins: 18.0,
-                                                  fats: 15.0,
-                                                  carbohydrates: 1.0).normalize(with: 150))
-    }
-
-    static var mockArray: [Ingredient] {
-        [
-            Ingredient(name: "Egg",
-                       brandTitle: nil,
-                       weight: 150.0,
-                       normalizedProfile: NutritionProfile(calories: 220.0,
-                                                           proteins: 18.0,
-                                                           fats: 15.0,
-                                                           carbohydrates: 1.0).normalize(with: 150)),
-            Ingredient(name: "Cheese",
-                       brandTitle: nil,
-                       weight: 20.0,
-                       normalizedProfile: NutritionProfile(calories: 80,
-                                                           proteins: 6.0,
-                                                           fats: 6.0,
-                                                           carbohydrates: 1.0).normalize(with: 20.0)),
-            Ingredient(name: "Ham",
-                       brandTitle: nil,
-                       weight: 30.0,
-                       normalizedProfile: NutritionProfile(calories: 30.0,
-                                                           proteins: 40.0,
-                                                           fats: 6.0,
-                                                           carbohydrates: 2.0).normalize(with: 30))
-        ]
-    }
-
-    func updated(newWeight: CGFloat) -> Ingredient {
-        .init(name: name, brandTitle: brandTitle, weight: newWeight, normalizedProfile: normalizedProfile)
+    var nameWithBrand: String {
+        if let brandTitle = subTitle {
+            return "\(name) by \(brandTitle)"
+        }
+        return name
     }
 }

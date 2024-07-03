@@ -11,6 +11,14 @@ import AppStudioUI
 import AppStudioServices
 
 class FoodLogRouter: BaseRouter {
+
+    let mealRouter: MealViewRouter
+
+    override init(navigator: Navigator) {
+        mealRouter = .init(navigator: navigator)
+        super.init(navigator: navigator)
+    }
+
     func presentMealTypePicker(currentMealType: MealType, onPick: @escaping (MealType) -> Void) {
         let route = MealTypePickerRoute(currentMealType: currentMealType) { [weak self] type in
             self?.dismiss()

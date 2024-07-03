@@ -26,17 +26,21 @@ struct IngredientView: View {
                                       configuration: .placeholderSmall(type: type),
                                       bordered: false)
                     }
-                    Group {
-                        Text("|")
-                        Text(viewModel.ingredient.weightWithUnits)
+                    if let titleinGramms = viewModel.ingredient.value.title {
+                        Group {
+                            Text("|")
+                            Text(titleinGramms)
+                        }
+                        .font(.poppins(.description))
+                        .foregroundStyle(Color.studioGrayPlaceholder)
                     }
-                    .font(.poppins(.description))
-                    .foregroundStyle(Color.studioGrayPlaceholder)
                 }
             }
             Spacer()
             Button(action: viewModel.weightTapped) {
-                MealWeightView(weight: viewModel.ingredient.weight, isTapped: viewModel.isWeightTapped)
+                MealWeightView(weight: viewModel.displayWeight,
+                               serving: viewModel.displayServing,
+                               isTapped: viewModel.isWeightTapped)
             }
         }
         .background(.white)
@@ -72,7 +76,8 @@ private extension CGFloat {
         IngredientView(viewModel: .init(
             input: .init(ingredient: .mock,
                          router: .init(navigator: .init()),
-                         statePublisher: Just(.mock).eraseToAnyPublisher()),
+                         statePublisher: Just(.mock).eraseToAnyPublisher(), 
+                         tappedWeightIngredientPublisher: Just(.mock).eraseToAnyPublisher()),
             output: { _ in }))
         IngredientPlaceholderView(placeholder: .init(mealText: ""), onClose: {})
     }

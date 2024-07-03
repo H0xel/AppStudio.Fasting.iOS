@@ -49,6 +49,16 @@ public extension Image {
         Image(systemName: "photo.fill")
     }
 
+    /// 􀆜
+    static var delete: Image {
+        Image(systemName: "delete.left.fill")
+    }
+
+    /// 􁚑
+    static var keyboardDown: Image {
+        Image(systemName: "keyboard.chevron.compact.down.fill")
+    }
+
     static var widgetInfo: Image {
         .init(.widgetInfo)
     }

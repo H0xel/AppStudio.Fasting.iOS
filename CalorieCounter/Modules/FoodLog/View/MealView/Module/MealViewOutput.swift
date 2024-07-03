@@ -10,8 +10,11 @@ import Foundation
 enum MealViewOutput {
     case mealUpdated(meal: Meal)
     case mealDeleted(meal: Meal)
-    case banner(isPresented: Bool)
+    case banner(isBannerPresented: Bool, isKeyboardPresented: Bool)
     case selected(String)
     case editQuickAdd(Meal)
     case hasSubscription(Bool)
+    case ingredientSelected(Ingredient?)
+    case selectedNext
+    case selectPrev
 }

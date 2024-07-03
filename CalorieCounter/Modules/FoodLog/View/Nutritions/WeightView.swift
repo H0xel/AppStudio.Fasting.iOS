@@ -12,7 +12,7 @@ struct WeightView: View {
 
     var body: some View {
         HStack(spacing: 4) {
-            Image(.weightIcon)
+            Image.weightIcon
             Text(amount)
         }
         .foregroundStyle(Color.studioBlackLight)

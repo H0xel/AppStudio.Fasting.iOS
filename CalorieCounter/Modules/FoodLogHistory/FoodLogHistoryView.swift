@@ -49,9 +49,6 @@ struct FoodLogHistoryView: View {
         }
         .onAppear {
             isFocused = viewModel.suggestionsState.isKeyboardFocused
-            if !viewModel.suggestionsState.isPresented {
-                viewModel.closeSuggestions()
-            }
         }
         .onChange(of: isPresented) { isPresented in
             if !isPresented {
@@ -112,7 +109,7 @@ private extension CGFloat {
 
 #Preview {
     FoodLogHistoryView(
-        logType: .history, 
+        logType: .history,
         isPresented: true,
         viewModel: .init(
             input: .init(

@@ -23,8 +23,8 @@ class CalorieCounterServiceImpl: CalorieCounterService {
         return meals
     }
 
-    func ingredients(request: String) async throws -> [Ingredient] {
-        if let cachedIngredients: [Ingredient] = try await calorieCounterCacheService.cached(request: request) {
+    func ingredients(request: String) async throws -> [MealItem] {
+        if let cachedIngredients: [MealItem] = try await calorieCounterCacheService.cachedIngredients(request: request) {
             return cachedIngredients
         }
 
@@ -36,26 +36,29 @@ class CalorieCounterServiceImpl: CalorieCounterService {
 }
 
 private extension ApiIngredient {
-    var asIngridient: Ingredient {
-        Ingredient(
+    var asIngridient: MealItem {
+        .createIngredient(
             name: name,
-            brandTitle: nil,
+            brand: nil,
             weight: weight,
-            normalizedProfile: NutritionProfile(calories: calories,
-                                                proteins: proteins,
-                                                fats: fats,
-                                                carbohydrates: carbohydrates).normalize(with: weight)
+            nutritionProfile: .init(calories: calories,
+                                    proteins: proteins,
+                                    fats: fats,
+                                    carbohydrates: carbohydrates)
         )
+
     }
 }
 
 private extension ApiMeal {
     var asMeal: MealItem {
-        MealItem(id: UUID().uuidString,
-                 name: ingredients.count == 1 ? "" : name,
-                 subTitle: nil,
-                 ingredients: ingredients.map { $0.asIngridient },
-                 creationType: .chatGPT,
-                 dateUpdated: .now)
+        MealItem(
+            id: UUID().uuidString,
+            type: .chatGPT,
+            name: ingredients.count == 1 ? "" : name,
+            ingredients: ingredients.map { $0.asIngridient },
+            servingMultiplier: 1.0, 
+            servings: .defaultServings
+        )
     }
 }

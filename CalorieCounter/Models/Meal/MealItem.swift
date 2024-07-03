@@ -9,65 +9,184 @@ import Foundation
 
 struct MealItem: Codable, Hashable {
     let id: String
+    let type: MealCreationType
+
+    // naming
     let name: String
-    let subTitle: String?
-    let ingredients: [Ingredient]
-    let creationType: MealCreationType
+    let subTitle: String? // brand title
+    let notes: String?
+
+    // content of meal
+    let ingredients: [MealItem]
+    let normalizedProfile: NutritionProfile
+    let additionInfo: MealAdditionalInfo?
+
+    // serving and weight
+    let totalWeight: Double?
+    var servingMultiplier: Double = 1.0
+    var serving: MealServing = .defaultServing
+    let servings: [MealServing]
     let dateUpdated: Date
 
     enum CodingKeys: CodingKey {
         case id
+        case type
         case name
         case subTitle
+        case notes
         case ingredients
-        case creationType
+        case normalizedProfile
+        case additionInfo
+
+        case totalWeight
+        case servingMultiplier
+        case serving
+        case servings
         case dateUpdated
     }
 
     init(id: String,
+         type: MealCreationType,
          name: String,
-         subTitle: String?,
-         ingredients: [Ingredient],
-         creationType: MealCreationType,
-         dateUpdated: Date) {
+         subTitle: String? = nil,
+         notes: String? = nil,
+         ingredients: [MealItem] = [],
+         normalizedProfile: NutritionProfile = .empty,
+         additionInfo: MealAdditionalInfo? = nil,
+         totalWeight: Double? = nil,
+         servingMultiplier: Double,
+         serving: MealServing = .defaultServing,
+         servings: [MealServing],
+         dateUpdated: Date = .now
+    ) {
         self.id = id
+        self.type = type
         self.name = name
         self.subTitle = subTitle
+        self.notes = notes
         self.ingredients = ingredients
-        self.creationType = creationType
+        self.normalizedProfile = normalizedProfile
+        self.additionInfo = additionInfo
+        self.totalWeight = totalWeight
+        self.servingMultiplier = servingMultiplier
+        self.serving = serving
+        self.servings = servings
         self.dateUpdated = dateUpdated
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
-        self.name = try container.decode(String.self, forKey: .name)
-        self.subTitle = try container.decodeIfPresent(String.self, forKey: .subTitle)
-        self.ingredients = try container.decode([Ingredient].self, forKey: .ingredients)
-        self.creationType = try container.decodeIfPresent(MealCreationType.self, forKey: .creationType) ?? .chatGPT
-        self.dateUpdated = try container.decodeIfPresent(Date.self, forKey: .dateUpdated) ?? .now
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.id, forKey: .id)
-        try container.encode(self.name, forKey: .name)
-        try container.encodeIfPresent(self.subTitle, forKey: .subTitle)
-        try container.encode(self.ingredients, forKey: .ingredients)
-        try container.encode(self.creationType, forKey: .creationType)
-        try container.encode(self.dateUpdated, forKey: .dateUpdated)
     }
 }
 
 extension MealItem {
-    var weight: Double {
-        ingredients.reduce(0) { $0 + $1.weight }
+
+    var value: MealItemEditableValue {
+        if ingredients.isEmpty {
+            return .init(value: serving.value(with: servingMultiplier),
+                         serving: serving,
+                         servings: servings)
+        }
+        if ingredients.count == 1 {
+            return ingredients[0].value
+        }
+        return .init(value: servingMultiplier,
+                     serving: .serving,
+                     servings: [])
     }
 
-    var weightWithUnits: String {
-        let weight = String(format: "%.0f", weight)
-        let label = "Ingredient.weightLabel".localized()
-        return "\(weight) \(label)"
+    func update(value: MealItemEditableValue) -> MealItem {
+        if ingredients.isEmpty {
+            return updated(value: value.value, serving: value.serving)
+        }
+        if ingredients.count == 1 {
+            return updated(ingredients: [ingredients[0].update(value: value)])
+        }
+        let offset = value.value / servingMultiplier
+        return updated(servingMultiplier: value.value, ingredients: ingredients.map {
+            $0.updated(value: $0.value.value * offset,
+                       serving: $0.serving)
+        })
+    }
+
+    func updated(value: Double, serving: MealServing) -> MealItem {
+        return .init(
+            id: id,
+            type: type,
+            name: name,
+            subTitle: subTitle,
+            notes: notes,
+            ingredients: ingredients,
+            normalizedProfile: normalizedProfile,
+            additionInfo: additionInfo,
+            totalWeight: totalWeight,
+            servingMultiplier: serving.multiplier(for: value),
+            serving: serving,
+            servings: servings,
+            dateUpdated: .now)
+    }
+
+    static func createIngredient(name: String,
+                                 brand: String? = nil,
+                                 weight: Double? = nil,
+                                 normalizedProfile: NutritionProfile) -> MealItem {
+        var multiplier: Double = 1.0
+        if let weight {
+            multiplier = weight / 100
+        }
+        return MealItem(
+            id: UUID().uuidString,
+            type: .ingredient,
+            name: name,
+            subTitle: brand,
+            normalizedProfile: normalizedProfile,
+            servingMultiplier: multiplier,
+            servings: .defaultServings,
+            dateUpdated: .now
+        )
+    }
+
+    func createIngredient(name: String,
+                          brand: String? = nil,
+                          weight: Double? = nil,
+                          normalizedProfile: NutritionProfile) -> MealItem {
+        var multiplier: Double = 1.0
+        if let weight {
+            multiplier = weight / 100
+        }
+        return MealItem(
+            id: id,
+            type: type,
+            name: name,
+            subTitle: brand ?? subTitle,
+            normalizedProfile: normalizedProfile,
+            servingMultiplier: multiplier,
+            servings: .defaultServings,
+            dateUpdated: .now
+        )
+    }
+
+    static func createQuickAdd(name: String, profile: NutritionProfile) -> MealItem {
+        MealItem(id: UUID().uuidString,
+                 type: .quickAdd,
+                 name: name,
+                 normalizedProfile: profile,
+                 servingMultiplier: 1.0,
+                 servings: .defaultServings,
+                 dateUpdated: .now)
+    }
+
+    static func createIngredient(
+        name: String,
+        brand: String? = nil, 
+        weight: Double,
+        nutritionProfile: NutritionProfile
+    ) -> MealItem {
+
+        MealItem(id: UUID().uuidString,
+                 type: .ingredient,
+                 name: name,
+                 subTitle: brand,
+                 normalizedProfile: nutritionProfile.normalize(with: weight),
+                 servingMultiplier: weight / 100,
+                 servings: .defaultServings,
+                 dateUpdated: .now)
     }
 
     var nameFromIngredients: String {
@@ -87,7 +206,7 @@ extension MealItem {
             return subTitle
         }
 
-        if ingredients.count == 1, let ingredientBrandTitle = ingredients.first?.brandTitle {
+        if ingredients.count == 1, let ingredientBrandTitle = ingredients.first?.subTitle {
             return ingredientBrandTitle
         }
 
@@ -100,7 +219,7 @@ extension MealItem {
         }
 
         if ingredients.count == 1, let ingredient = ingredients.first, !ingredient.name.isEmpty {
-            if let brandTitle = ingredient.brandTitle {
+            if let brandTitle = ingredient.subTitle {
                 return "\(ingredient.name) by \(brandTitle)"
             }
             return ingredient.name
@@ -109,75 +228,93 @@ extension MealItem {
     }
 
     var nutritionProfile: NutritionProfile {
-        ingredients.reduce(.empty) { $0 ++ $1.nutritionProfile }
+        if ingredients.isEmpty {
+            return normalizedProfile.calculate(servingMultiplier: servingMultiplier)
+        }
+        return ingredients.reduce(.empty) { $0 ++ $1.nutritionProfile }
     }
 
+    mutating func update(serving: MealServing) {
+        let prevServing = self.serving
+        guard let prevWeight = prevServing.weight, prevWeight > 0,
+              let newWeight = serving.weight, newWeight > 0 else {
+            self.serving = serving
+            return
+        }
+        let newMultiplier = self.servingMultiplier * prevWeight / newWeight
+        self.serving = serving
+        self.servingMultiplier = newMultiplier
+    }
+
+    func updated(name: String? = nil,
+                 servingMultiplier: Double? = nil,
+                 ingredients: [MealItem]? = nil,
+                 normalizedProfile: NutritionProfile? = nil) -> MealItem {
+        var isChanged = false
+        if let name, name != self.name {
+            isChanged = true
+        }
+        if let ingredients, ingredients != self.ingredients {
+            isChanged = true
+        }
+        return .init(
+            id: self.id,
+            type: self.type,
+            name: name ?? self.name,
+            subTitle: self.subTitle,
+            notes: self.notes,
+            ingredients: ingredients ?? self.ingredients,
+            normalizedProfile: normalizedProfile ?? self.normalizedProfile,
+            additionInfo: self.additionInfo,
+            totalWeight: self.totalWeight,
+            servingMultiplier: servingMultiplier ?? self.servingMultiplier,
+            serving: self.serving,
+            servings: self.servings,
+            dateUpdated: isChanged ? .now : self.dateUpdated
+        )
+    }
+}
+
+// MARK: - Mocks
+extension MealItem {
     static var mock: MealItem {
         .init(id: UUID().uuidString,
+              type: .chatGPT,
               name: "Omelette with ham and cheese",
-              subTitle: nil,
-              ingredients: Ingredient.mockArray,
-              creationType: .chatGPT,
+              ingredients: [.mockIngredient],
+              servingMultiplier: 1.5, // 150 gramm
+              servings: .defaultServings,
               dateUpdated: .now)
+    }
+
+    static var mockIngredient: MealItem {
+        MealItem.createIngredient(
+            name: "Egg",
+            weight: 150,
+            nutritionProfile: NutritionProfile(calories: 220.0,
+                                               proteins: 18.0,
+                                               fats: 15.0,
+                                               carbohydrates: 1.0)
+        )
     }
 
     static var mockWithSubTitle: MealItem {
         .init(id: UUID().uuidString,
+              type: .chatGPT,
               name: "Omelette with ham and cheese",
               subTitle: "Omelette Brand",
-              ingredients: [Ingredient.mock],
-              creationType: .chatGPT,
+              ingredients: [.mockIngredient],
+              servingMultiplier: 1.5, // 150 gramm
+              servings: .defaultServings,
               dateUpdated: .now)
     }
 
     static var mockQuickAdd: MealItem {
-        .init(id: UUID().uuidString,
-              name: "Omelette",
-              subTitle: nil,
-              ingredients: [Ingredient.mock],
-              creationType: .quickAdd,
-              dateUpdated: .now)
+        .createQuickAdd(name: "", profile: .init(calories: 11, proteins: 22, fats: 33, carbohydrates: 44))
     }
 
     static var mockQuickAddWithTitle: MealItem {
-        .init(id: UUID().uuidString,
-              name: "Omelette",
-              subTitle: nil,
-              ingredients: [Ingredient.mock],
-              creationType: .quickAdd,
-              dateUpdated: .now)
-    }
-
-    func updated(ingredients: [Ingredient]) -> MealItem {
-        .init(id: id,
-              name: name,
-              subTitle: subTitle,
-              ingredients: ingredients,
-              creationType: creationType,
-              dateUpdated: self.ingredients == ingredients ? dateUpdated : .now)
-    }
-
-    func updated(name: String) -> MealItem {
-        .init(id: id,
-              name: name,
-              subTitle: subTitle,
-              ingredients: ingredients,
-              creationType: creationType,
-              dateUpdated: dateUpdated)
-    }
-
-    static func quickAdded(foodName: String, nutritionProfile profile: NutritionProfile) -> MealItem {
-        .init(id: UUID().uuidString,
-              name: "",
-              subTitle: nil,
-              ingredients: [
-                .init(name: foodName,
-                      brandTitle: nil,
-                      weight: 100,
-                      normalizedProfile: profile)
-              ],
-              creationType: .quickAdd,
-              dateUpdated: .now)
+        .createQuickAdd(name: "Quick Add Mock", profile: .init(calories: 11, proteins: 22, fats: 33, carbohydrates: 44))
     }
 }
 

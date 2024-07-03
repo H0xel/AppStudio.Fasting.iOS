@@ -164,4 +164,8 @@ extension Image {
     static var points: Image {
         Image(.points)
     }
+
+    static var weightIcon: Image {
+        Image(.weightIcon)
+    }
 }

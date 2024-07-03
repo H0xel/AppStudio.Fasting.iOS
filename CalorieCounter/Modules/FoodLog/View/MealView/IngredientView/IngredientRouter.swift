@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppStudioUI
 import AppStudioNavigation
 
 class IngredientRouter: BaseRouter {
@@ -20,14 +21,8 @@ class IngredientRouter: BaseRouter {
         present(banner: banner)
     }
 
-    func presentChangeWeightBanner(title: String,
-                                   initialWeight: Double,
-                                   onWeightChange: @escaping (Double) -> Void,
-                                   onCancel: @escaping () -> Void) {
-        let banner = ChangeWeightBanner(title: title,
-                                        initialWeight: initialWeight,
-                                        onWeightChange: onWeightChange,
-                                        onCancel: onCancel)
-        present(banner: banner)
+    func presentChangeWeightBanner(input: CustomKeyboardInput, output: @escaping ViewOutput<CustomKeyboardOutput>) {
+        let banner = CustomKeyboardBanner(input: input, output: output)
+        present(banner: banner, animation: .linear(duration: 0.2))
     }
 }

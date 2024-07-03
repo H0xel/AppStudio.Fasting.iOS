@@ -26,17 +26,17 @@ class CalorieCounterCacheServiceImpl: CalorieCounterCacheService {
                                                  for: .calorieCounter)
     }
 
-    func cached(request: String) async throws -> [Ingredient]? {
+    func cachedIngredients(request: String) async throws -> [MealItem]? {
         guard let json = try await codableCacheRepository.value(key: request,
                                                                 of: .ingredients,
                                                                 cacheInterval: .month),
-              let ingredients = try? [Ingredient].init(json: json) else {
+              let ingredients = try? [MealItem].init(json: json) else {
             return nil
         }
         return ingredients
     }
 
-    func set(ingredients: [Ingredient], for request: String) async throws {
+    func set(ingredients: [MealItem], for request: String) async throws {
         _ = try await codableCacheRepository.set(key: request,
                                                  value: ingredients.json() ?? "",
                                                  for: .ingredients)

@@ -28,12 +28,16 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     @Published var logItems: [FoodLogItem] = []
     @Published var hasSubscription: Bool
     @Published var isBannerPresented = false
+    @Published var isKeyboardPresented = false
     @Published var selectedMealId: String?
+    @Published var selectedIngredient: Ingredient?
     let dayDate: Date
     private let context: FoodLogContext
     @Atomic private var mealsCountInDay: Int
     private let editQuickAddSubject = PassthroughSubject<Meal, Never>()
     private let scrollToTopSubject = PassthroughSubject<Void, Never>()
+    private let selectedWeightIngredientSubject = PassthroughSubject<(String, Ingredient), Never>()
+    private let tappedWeightMealSubject = PassthroughSubject<String, Never>()
 
     init(input: FoodLogInput, output: @escaping FoodLogOutputBlock) {
         mealType = input.mealType
@@ -82,9 +86,11 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     func mealViewModel(meal: Meal) -> MealViewViewModel {
         .init(
             meal: meal,
-            mealSelectionPublisher: $selectedMealId.compactMap { $0 }.eraseToAnyPublisher(), 
+            mealSelectionPublisher: $selectedMealId.eraseToAnyPublisher(), 
             hasSubscriptionPublisher: $hasSubscription.eraseToAnyPublisher(),
-            router: .init(navigator: router.navigator)
+            selectedIngredientPublisher: selectedWeightIngredientSubject.eraseToAnyPublisher(), 
+            tappedWeightMealPublisher: tappedWeightMealSubject.eraseToAnyPublisher(),
+            router: router.mealRouter
         ) { [weak self] output in
             self?.handle(mealViewOutput: output)
         }
@@ -110,6 +116,7 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
         case .appendPlaceholder(let mealPlaceholder):
             appendPlaceholder(mealPlaceholder)
         case .dismiss:
+            self.output(.closed)
             await router.dismiss()
         case .notFoundBarcode(let placeholderId):
             updateNotFoundBarcode(placeholderId: placeholderId)
@@ -153,14 +160,70 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
         case .mealDeleted(meal: let meal):
             logItems = logItems.filter { $0.meal?.id != meal.id }
             decrementMealsCount()
-        case .banner(let isPresented):
-            isBannerPresented = isPresented
+        case let .banner(isBannerPresented, isKeyboardPresented):
+            self.isBannerPresented = isBannerPresented
+            self.isKeyboardPresented = isKeyboardPresented
+            if !isBannerPresented {
+                selectedMealId = nil
+            }
         case .selected(let mealId):
             selectedMealId = mealId
         case .editQuickAdd(let meal):
             editQuickAddSubject.send(meal)
         case .hasSubscription(let hasSubscription):
             self.hasSubscription = hasSubscription
+        case .ingredientSelected(let ingredient):
+            selectedIngredient = ingredient
+        case .selectedNext:
+            selectNext()
+        case .selectPrev:
+            selectPrev()
+        }
+    }
+
+    func clear() {
+        isBannerPresented = false
+        isKeyboardPresented = false
+        selectedMealId = nil
+        selectedIngredient = nil
+        router.dismissBanner(animation: .linear(duration: 0.5))
+    }
+
+    private func selectNext() {
+        let meals = logItems.compactMap { $0.meal }
+        guard let id = selectedMealId,
+              var index = meals.firstIndex(where: { $0.id == id }) else {
+            return
+        }
+        while index + 1 < meals.count {
+            let meal = meals[index + 1]
+            if meal.isQuickAdded {
+                index += 1
+                continue
+            }
+            tappedWeightMealSubject.send(meal.id)
+            break
+        }
+    }
+
+    private func selectPrev() {
+        let meals = logItems.compactMap { $0.meal }
+        guard let id = selectedMealId,
+              var index = meals.firstIndex(where: { $0.id == id }) else {
+            return
+        }
+        while index - 1 >= 0 {
+            let meal = meals[index - 1]
+            if meal.isQuickAdded {
+                index -= 1
+                continue
+            }
+            if meal.mealItem.ingredients.count > 1, let last = meal.mealItem.ingredients.last {
+                selectedWeightIngredientSubject.send((meal.id, last))
+            } else {
+                tappedWeightMealSubject.send(meal.id)
+            }
+            break
         }
     }
 

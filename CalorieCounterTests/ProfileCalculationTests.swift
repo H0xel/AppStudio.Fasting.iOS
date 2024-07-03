@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import AppStudioModels
 @testable import CalorieCounter
 import Dependencies
 import AppStudioModels
