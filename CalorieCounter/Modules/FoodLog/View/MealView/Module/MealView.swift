@@ -10,6 +10,7 @@ import Combine
 
 struct MealView: View {
 
+    let meal: Meal
     @StateObject var viewModel: MealViewViewModel
 
     var body: some View {
@@ -95,6 +96,9 @@ struct MealView: View {
                 MealVotingView(viewModel: viewModel.votingViewModel)
             }
         }
+        .onChange(of: meal) { meal in
+            viewModel.assignMeal(meal)
+        }
     }
 }
 
@@ -133,14 +137,15 @@ extension Animation {
 
 #Preview {
     VStack {
-        MealView(viewModel: .init(
-            meal: .mock,
-            mealSelectionPublisher: Just("").eraseToAnyPublisher(),
-            hasSubscriptionPublisher: Just(true).eraseToAnyPublisher(), 
-            selectedIngredientPublisher: Just(("", .mock)).eraseToAnyPublisher(), 
-            tappedWeightMealPublisher: Just("").eraseToAnyPublisher(),
-            router: .init(navigator: .init()),
-            output: { _ in }
-        ))
+        MealView(meal: .mock,
+                 viewModel: .init(
+                    meal: .mock,
+                    mealSelectionPublisher: Just("").eraseToAnyPublisher(),
+                    hasSubscriptionPublisher: Just(true).eraseToAnyPublisher(),
+                    selectedIngredientPublisher: Just(("", .mock)).eraseToAnyPublisher(),
+                    tappedWeightMealPublisher: Just("").eraseToAnyPublisher(),
+                    router: .init(navigator: .init()),
+                    output: { _ in }
+                 ))
     }
 }

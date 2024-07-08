@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 struct FoodHistoryInput {
-    let mealType: MealType
+    let mealTypePublusher: AnyPublisher<MealType, Never>
     let dayDate: Date
     let suggestionsState: SuggestionsState
     let hasSubscription: Bool

@@ -26,6 +26,7 @@ class FoodHistoryViewModel: BaseViewModel<FoodHistoryOutput> {
     @Published var hasMeals: Bool = false
     @Published var mealRequest = ""
     @Published var hasSubscription: Bool
+    @Published var mealType: MealType = .breakfast
     private var dismissSuggestionsSubject = PassthroughSubject<Void, Never>()
     private var isBarcodeScanFinishedSuccess = false
     @Published var suggestionsState: SuggestionsState
@@ -42,6 +43,9 @@ class FoodHistoryViewModel: BaseViewModel<FoodHistoryOutput> {
         observeMealPublisher(publisher: input.mealPublisher)
         observeScannerPublisher(publisher: input.presentScannerPublusher)
         observeSuggestionsState()
+        input.mealTypePublusher
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$mealType)
     }
 
     func changeLogType(to type: LogType, isFocused: Bool) {
@@ -113,9 +117,9 @@ class FoodHistoryViewModel: BaseViewModel<FoodHistoryOutput> {
 extension FoodHistoryViewModel {
     var foodSuggestionsInput: FoodSuggestionsInput {
         .init(mealPublisher: input.mealPublisher,
-              mealType: input.mealType,
+              mealType: mealType,
               mealRequestPublisher: $mealRequest.eraseToAnyPublisher(),
-              isPresented: input.suggestionsState.isPresented,
+              isPresented: suggestionsState.isPresented,
               collapsePublisher: dismissSuggestionsSubject.eraseToAnyPublisher(),
               searchRequest: mealRequest)
     }
@@ -123,7 +127,7 @@ extension FoodHistoryViewModel {
     func handle(foodSuggestionsOutput output: FoodSuggestionsOutput) {
         switch output {
         case .add(let mealItem):
-            let meal = Meal(type: input.mealType,
+            let meal = Meal(type: mealType,
                             dayDate: input.dayDate,
                             mealItem: mealItem,
                             voting: .disabled)
@@ -150,7 +154,7 @@ extension FoodHistoryViewModel {
         let placeholder = MealPlaceholder(mealText: text)
         await appendPlaceholder(placeholder)
         trackerService.track(.entrySent)
-        let meals = try await meals(request: text, type: input.mealType)
+        let meals = try await meals(request: text, type: mealType)
         trackerService.track(.mealAdded(ingredientsCounts: meals.flatMap { $0.mealItem.ingredients }.count))
         output(.save(meals: meals, placeholderId: placeholder.id))
     }
@@ -210,7 +214,7 @@ extension FoodHistoryViewModel {
             output(.notFoundBarcode(placeholder.id))
             return
         }
-        let meals = [Meal(type: input.mealType, dayDate: input.dayDate, mealItem: mealItem, voting: .disabled)]
+        let meals = [Meal(type: mealType, dayDate: input.dayDate, mealItem: mealItem, voting: .disabled)]
         trackBarcodeScanned(isSucces: true, productName: mealItem.name)
         output(.save(meals: meals, placeholderId: placeholder.id))
     }

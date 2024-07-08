@@ -58,10 +58,6 @@ struct MealDeleteBanner: Banner {
     var transition: AnyTransition {
         .move(edge: .bottom)
     }
-
-    var animation: Animation? {
-        .bouncy
-    }
 }
 
 private extension MealDeleteBanner {

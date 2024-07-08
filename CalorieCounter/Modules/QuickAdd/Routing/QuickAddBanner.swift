@@ -28,8 +28,4 @@ struct QuickAddBanner: Banner {
     var transition: AnyTransition {
         .push(from: .bottom)
     }
-
-    var animation: Animation? {
-        .bouncy
-    }
 }

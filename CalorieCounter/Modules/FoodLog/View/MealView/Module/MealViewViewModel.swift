@@ -96,6 +96,10 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         ingredients.count == 1 && !meal.isQuickAdded
     }
 
+    func assignMeal(_ meal: Meal) {
+        self.meal = meal
+    }
+
     func ingredientViewModel(ingredient: Ingredient) -> IngredientViewModel {
         .init(input: .init(
             ingredient: ingredient,

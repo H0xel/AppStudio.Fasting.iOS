@@ -22,7 +22,7 @@ struct FoodLogScrollView: View {
                     ForEach(viewModel.logItems, id: \.id) { logItem in
                         switch logItem {
                         case .meal(let meal):
-                            MealView(viewModel: viewModel.mealViewModel(meal: meal))
+                            MealView(meal: meal, viewModel: viewModel.mealViewModel(meal: meal))
                                 .id(meal.id)
                         case .placeholder(let placeholder):
                             MealPlaceholderView(text: placeholder.mealText)

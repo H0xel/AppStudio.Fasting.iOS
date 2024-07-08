@@ -10,7 +10,7 @@ import AppStudioUI
 import Combine
 
 struct FoodLogInputViewInput {
-    let mealType: MealType
+    let mealTypePublisher: AnyPublisher<MealType, Never>
     let dayDate: Date
     let isKeyboardFocused: Bool
     let hasSubscription: Bool
@@ -36,6 +36,7 @@ class FoodLogInputViewModel: BaseViewModel<FoodLogInputOutput> {
     @Published var logType: LogType = .log
     @Published var quickAddMeal: Meal?
     @Published var suggestionsState: SuggestionsState
+    @Published var mealType: MealType = .breakfast
 
     let router: FoodLogRouter
     let input: FoodLogInputViewInput
@@ -50,12 +51,15 @@ class FoodLogInputViewModel: BaseViewModel<FoodLogInputOutput> {
                                  isKeyboardFocused: input.isKeyboardFocused)
         super.init(output: output)
         observeEditQuickAdd(publisher: input.editQuickAddPublisher)
+        input.mealTypePublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$mealType)
     }
 
     var historyViewModel: FoodHistoryViewModel {
         .init(
             input: .init(
-                mealType: input.mealType,
+                mealTypePublusher: $mealType.eraseToAnyPublisher(),
                 dayDate: input.dayDate,
                 suggestionsState: logType == .history ?
                     .init(isPresented: true, isKeyboardFocused: true) :
@@ -72,7 +76,7 @@ class FoodLogInputViewModel: BaseViewModel<FoodLogInputOutput> {
     var quickAddViewModel: QuickAddViewModel {
         .init(input: .init(
             meal: quickAddMeal,
-            mealType: input.mealType,
+            mealType: mealType,
             dayDate: input.dayDate)
         ) { [weak self] output in
             self?.handle(quickAddOutput: output)

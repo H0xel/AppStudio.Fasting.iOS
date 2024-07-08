@@ -28,6 +28,7 @@ struct FoodLogHistoryView: View {
                     output: viewModel.handle
                 )
             )
+            .id(viewModel.mealType)
             .aligned(.bottom)
             VStack(spacing: .zero) {
                 Spacer()
@@ -113,7 +114,7 @@ private extension CGFloat {
         isPresented: true,
         viewModel: .init(
             input: .init(
-                mealType: .breakfast,
+                mealTypePublusher: Just(.breakfast).eraseToAnyPublisher(),
                 dayDate: .now,
                 suggestionsState: .init(isPresented: true, isKeyboardFocused: true),
                 hasSubscription: false,

@@ -18,7 +18,7 @@ class MealViewRouter: BaseRouter {
                                       onCancel: onCancel,
                                       onDelete: onDelete,
                                       onEdit: onEdit)
-        present(banner: banner)
+        present(banner: banner, animation: .bouncy)
     }
 
     func presentAddIngredientBanner(meal: Meal,

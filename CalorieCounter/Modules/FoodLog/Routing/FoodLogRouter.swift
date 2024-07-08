@@ -41,7 +41,7 @@ class FoodLogRouter: BaseRouter {
 
     func presentQuickAddBanner(input: QuickAddInput, output: @escaping QuickAddOutputBlock) {
         let banner = QuickAddBanner(navigator: navigator, input: input, output: output)
-        present(banner: banner)
+        present(banner: banner, animation: .bouncy)
     }
 
     func presentCameraAccessAlert() {

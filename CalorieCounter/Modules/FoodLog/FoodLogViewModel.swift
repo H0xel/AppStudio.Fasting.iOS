@@ -68,7 +68,7 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
         .init(
             router: router,
             input: .init(
-                mealType: mealType,
+                mealTypePublisher: $mealType.eraseToAnyPublisher(),
                 dayDate: dayDate,
                 isKeyboardFocused: context.isKeyboardFocused,
                 hasSubscription: hasSubscription,

@@ -15,26 +15,32 @@ struct FoodLogCalorieBudgetView: View {
         GeometryReader { geometry in
             HStack(spacing: .zero) {
                 Color.studioGreen
-                    .frame(minWidth: geometry.size.width * fatProportion)
+                    .frame(width: geometry.size.width * fatProportion)
                 Color.studioBlue
-                    .frame(minWidth: geometry.size.width * carbsProportion)
+                    .frame(width: geometry.size.width * carbsProportion)
                 Color.studioOrange
-                    .frame(minWidth: geometry.size.width * proteinProportion)
+                    .frame(width: geometry.size.width * proteinProportion)
             }
         }
         .frame(height: .height)
     }
 
     var proteinProportion: CGFloat {
-        max(0, profile.proteins * NutritionProfileContent.protein.caloriesPerGramm / profile.calories)
+        max(0, profile.proteins * NutritionProfileContent.protein.caloriesPerGramm / caloriesSum)
     }
 
     var fatProportion: CGFloat {
-        max(0, profile.fats * NutritionProfileContent.fat.caloriesPerGramm / profile.calories)
+        max(0, profile.fats * NutritionProfileContent.fat.caloriesPerGramm / caloriesSum)
     }
 
     var carbsProportion: CGFloat {
-        max(0, profile.carbohydrates * NutritionProfileContent.carbohydrates.caloriesPerGramm / profile.calories)
+        max(0, profile.carbohydrates * NutritionProfileContent.carbohydrates.caloriesPerGramm / caloriesSum)
+    }
+
+    var caloriesSum: CGFloat {
+        profile.carbohydrates * NutritionProfileContent.carbohydrates.caloriesPerGramm +
+        profile.fats * NutritionProfileContent.fat.caloriesPerGramm +
+        profile.proteins * NutritionProfileContent.protein.caloriesPerGramm
     }
 }
 

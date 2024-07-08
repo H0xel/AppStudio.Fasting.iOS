@@ -43,7 +43,7 @@ struct FoodLogInputView: View {
         viewModel: .init(
             router: .init(navigator: .init()),
             input: .init(
-                mealType: .breakfast,
+                mealTypePublisher: Just(.breakfast).eraseToAnyPublisher(),
                 dayDate: .now,
                 isKeyboardFocused: true,
                 hasSubscription: false,
