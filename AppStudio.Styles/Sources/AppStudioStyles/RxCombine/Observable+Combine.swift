@@ -25,6 +25,12 @@ public extension ObservableConvertibleType {
     func asPublisher() -> AnyPublisher<Element, Swift.Error> {
         publisher
     }
+
+    func asPublisherWithoutError() -> AnyPublisher<Element, Never> {
+        publisher
+            .assertNoFailure()
+            .eraseToAnyPublisher()
+    }
 }
 
 /// A Publisher pushing RxSwift events to a Downstream Combine subscriber.

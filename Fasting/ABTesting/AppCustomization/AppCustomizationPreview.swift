@@ -9,8 +9,13 @@ import Foundation
 import RxRelay
 import RxSwift
 import AppStudioServices
+import Combine
 
 class AppCustomizationPreview: AppCustomization, ProductIdsService {
+    var isCustomNotificationAvailable: AnyPublisher<Bool, Never> {
+        Just(false).eraseToAnyPublisher()
+    }
+
 
     var isMonetizationExpAvailable: RxSwift.Observable<Bool> { .just(false) }
 

@@ -10,7 +10,7 @@ import HealthProgress
 import FastingWidget
 import AppStudioModels
 
-enum FastingStage: String, CaseIterable, Equatable, FastingWidgetPhase {
+enum FastingStage: String, CaseIterable, Equatable, FastingWidgetPhase, Codable {
     case sugarRises
     case sugarDrop
     case sugarNormal

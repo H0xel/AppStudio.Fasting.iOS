@@ -99,6 +99,11 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
         trackTapSupport()
     }
 
+    func openNotifications() {
+        router.pushNotificationScreen()
+        trackNotificationsScreenTap()
+    }
+
     func close() {
         router.dismiss()
     }
@@ -149,5 +154,9 @@ private extension ProfileViewModel {
 
     func trackTapSupport() {
         trackerService.track(.tapSupport)
+    }
+
+    func trackNotificationsScreenTap() {
+        trackerService.track(.tapSetUpNotifications(context: .settings))
     }
 }

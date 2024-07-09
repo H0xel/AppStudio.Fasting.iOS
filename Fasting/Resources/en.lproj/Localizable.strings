@@ -4,6 +4,7 @@
 "Button.cancel" = "Cancel";
 "TodayTitle" = "Today";
 "NextTitle" = "Next";
+"SkipTitle" = "Skip";
 
 // MARK: - RootScreen
 "RootScreen.TabBar.daily" = "Daily";
@@ -215,13 +216,13 @@
 "EndFastingEarlyScreen.hour.form2" = "%i hours";
 
 // MARK: - Local Notifications
-
+//
 "NotificationType.beforeStartOfFasting1.title" = "Nearly time to start fasting";
-"NotificationType.beforeStartOfFasting1.subtitle" = "Finish your meal before your fast begins in 1 hour.";
+"NotificationType.beforeStartOfFasting1.subtitle" = "Finish your meal before your fast begins in %@.";
 "NotificationType.beforeStartOfFasting2.title" = "Are you ready? 😎";
-"NotificationType.beforeStartOfFasting2.subtitle" = "Fasting begins in 1 hour!";
-"NotificationType.beforeStartOfFasting3.title" = "1 hour to go! ⏰";
-"NotificationType.beforeStartOfFasting3.subtitle" = "Fasting starts in an hour. Get ready!";
+"NotificationType.beforeStartOfFasting2.subtitle" = "Fasting begins in  %@!";
+"NotificationType.beforeStartOfFasting3.title" = "%@ to go! ⏰";
+"NotificationType.beforeStartOfFasting3.subtitle" = "Fasting starts in an %@. Get ready!";
 
 "NotificationType.startOfFasting1.title" = "It’s fasting time ⏰";
 "NotificationType.startOfFasting1.subtitle" = "Tap to start your timer.";
@@ -232,11 +233,10 @@
 
 
 "NotificationType.beforeEndOfFasting1.title" = "You almost made it! 🕐";
-"NotificationType.beforeEndOfFasting1.subtitle" = "Just 1 hour left to complete another successful fast. Keep it up!";
-"NotificationType.beforeEndOfFasting2.title" = "One More Hour";
-"NotificationType.beforeEndOfFasting2.subtitle" = "Only one hour left on this %i-hour fast. You've got this! 💪";
+"NotificationType.beforeEndOfFasting1.subtitle" = "Just %@ left to complete another successful fast. Keep it up!";
+"NotificationType.beforeEndOfFasting2.subtitle" = "Only %@ left on this %i-hour fast. You've got this! 💪";
 "NotificationType.beforeEndOfFasting3.title" = "Hang in there! 😃";
-"NotificationType.beforeEndOfFasting3.subtitle" = "You're almost done! Just one more hour of fasting to go!";
+"NotificationType.beforeEndOfFasting3.subtitle" = "You're almost done! Just %@ of fasting to go!";
 
 "NotificationType.endOfFasting1.title" = "Fasting completed!";
 "NotificationType.endOfFasting1.subtitle" = "You made it! 💪 Stop your timer, it’s time to eat!";
@@ -251,8 +251,36 @@
 "NotificationType.forgotToFinishFasting.title" = "Your fast is already over";
 "NotificationType.forgotToFinishFasting.subtitle" = "Wow! Are you still fasting? 🤯 Or just forgot to stop your timer?";
 
-"NotificationType.fatBurningPhaseInfos.title" = "You start to burn fat!";
-"NotificationType.fatBurningPhaseInfos.subtitle" = "Your body is now actively burning through its fat reserves.";
+"NotificationType.fatBurningPhaseInfos.title" = "You start to burn fat! 🔥";
+"NotificationType.fatBurningPhaseInfos.subtitle" = "Your body is now actively burning through its fat reserves..";
+
+"NotificationType.sugarRisesPhaseInfos.title" = "Blood sugar rises 🔺:";
+"NotificationType.sugarRisesPhaseInfos.subtitle" = "Glucose is released into your bloodstream as your body digests the last meal.";
+
+"NotificationType.sugarDropPhaseInfos.title" = "Blood sugar starts to go down 🔻";
+"NotificationType.sugarDropPhaseInfos.subtitle" = "Your blood sugar begins dropping slightly below its ordinary levels.";
+
+"NotificationType.sugarNormalPhaseInfos.title" = "Blood sugar is normal now! 🍏";
+"NotificationType.sugarNormalPhaseInfos.subtitle" = "Finally, your body evens out your blood sugar levels after your last meal.";
+
+"NotificationType.ketosisPhaseInfos.title" = "Your body is switching to ketosis ⚡";
+"NotificationType.ketosisPhaseInfos.subtitle" = "Energy supply from fat greatly increases as your liver starts to produce ketones.";
+
+"NotificationType.autophagyPhaseInfos.title" = "Autophagy begins 🧬";
+"NotificationType.autophagyPhaseInfos.subtitle" = "Your body starts going through the autophagy stage.";
+
+"NotificationType.hydrationReminders.title" = "Stay hydrated 💧";
+"NotificationType.hydrationReminders.1.subtitle" = "Keep your kidneys healthy with an extra glass of water today.";
+"NotificationType.hydrationReminders.2.subtitle" = "Keep your digestive system running smoothly with some water.";
+"NotificationType.hydrationReminders.3.subtitle" = "Drinking enough water keeps your mind sharp and clear.";
+"NotificationType.hydrationReminders.4.subtitle" = "Staying hydrated can do wanders for your skin.";
+"NotificationType.hydrationReminders.5.subtitle" = "Drink some water for an extra boost of energy.";
+"NotificationType.hydrationReminders.6.subtitle" = "Drinking water is essential for a healthy heart.";
+"NotificationType.hydrationReminders.7.subtitle" = "Water is vital for your muscles and joints—drink up!";
+"NotificationType.hydrationReminders.8.subtitle" = "Keep your metabolism active with a glass of water.";
+
+"NotificationType.weightInReminder.title" = "Time to weigh in";
+"NotificationType.weightInReminder.subtitle" = "Regular weigh-ins help you stay on track with your goal. 🌟";
 
 // MARK: Fasting Inactive Stage
 "FastingInactiveStage.prepareForFasting" = "How to prepare for fasting?";
@@ -455,3 +483,70 @@
 "W2W.error.internetConnection" = "No internet connection. Try again.";
 "W2W.profile.linkedEmail" = "Linked email address";
 "W2W.banner.activateSuccessfully" = "Account Activated Successfully";
+
+// MARK: - Notifications Screen
+
+"NotificationsScreen.title" = "Notifications";
+"NotificationsScreen.quite.title" = "Quiet Mode";
+"NotificationsScreen.quite.subtitle" = "Disable notifications during set hours";
+"NotificationsScreen.quite.from" = "From";
+"NotificationsScreen.quite.to" = "To";
+"NotificationsScreen.beforeStart" = "Before Start";
+"NotificationsScreen.beforeEnd" = "Before End";
+
+"NotificationsScreen.separatorText.reminders" = "Fasting Reminders";
+"NotificationsScreen.remindersStart.title" = "Start of Fast";
+"NotificationsScreen.remindersStart.subtitle" = "Get a reminder to start your fast";
+"NotificationsScreen.remindersEnd.title" = "End of Fast";
+"NotificationsScreen.remindersEnd.subtitle" = "Get a reminder at the end of your fast";
+"NotificationsScreen.advanceReminder.title" = "Advance Reminders";
+"NotificationsScreen.advanceReminder.subtitle" = "Get reminders in advance to prepare for fasting or eating";
+"NotificationsScreen.fastingStages.title" = "Stage Notifications";
+"NotificationsScreen.fastingStages.subtitle" = "Stay updated on your metabolic stages throughout your fasting journey";
+
+"NotificationPrior.thirtyMin" = "30 min prior";
+"NotificationPrior.oneHour" = "1 hour prior";
+"NotificationPrior.twoHour" = "2 hours prior";
+"NotificationPrior.threeHour" = "3 hours prior";
+
+"NotificationPrior.push.thirtyMin" = "30 min";
+"NotificationPrior.push.oneHour" = "1 hour";
+"NotificationPrior.push.twoHour" = "2 hours";
+"NotificationPrior.push.threeHour" = "3 hours";
+
+"NotificationPrior.pushTitle.thirtyMin" = "Thirty More Minutes";
+"NotificationPrior.pushTitle.oneHour" = "One More Hour";
+"NotificationPrior.pushTitle.twoHour" = "Two More Hours";
+"NotificationPrior.pushTitle.threeHour" = "Three More Hours";
+
+"NotificationsScreen.separatorText.stages" = "Fasting Stages";
+"NotificationsScreen.stage" = "stage";
+"NotificationsScreen.stages" = "stages";
+"NotificationsScreen.allStages" = "All stages";
+"NotificationsScreen.selectStages" = "Select Stages";
+
+
+"NotificationsScreen.weightIn.title" = "Remind Me to Weigh In";
+"NotificationsScreen.separatorText.weightInReminders" = "Weigh-In Reminders";
+"NotificationsScreen.time" = "Time";
+"NotificationsScreen.frequency" = "Frequency";
+"WeightFrequency.everyDay" = "Every day";
+"WeightFrequency.everyTwoDays" = "Every 2 days";
+"WeightFrequency.everyThreeDays" = "Every 3 days";
+"WeightFrequency.everySevenDays" = "Every 7 days";
+"WeightFrequency.everyFourteenDays" = "Every 14 days";
+
+"NotificationsScreen.separatorText.hydrationReminders" = "Hydration Reminders";
+"NotificationsScreen.hydrationReminders.title" = "Remind Me to Drink Water";
+"NotificationsScreen.startTime" = "Start time";
+"NotificationsScreen.endTime" = "End time";
+"HydrationFrequency.everyHour" = "Every hour";
+"HydrationFrequency.everyTwoHours" = "Every 2 hours";
+"HydrationFrequency.everyThreeHours" = "Every 3 hours";
+"HydrationFrequency.everyFourHours" = "Every 4 hours";
+"HydrationFrequency.everyFiveHours" = "Every 5 hours";
+"HydrationFrequency.everySixHours" = "Every 6 hours";
+
+"NotificationsAlert.title" = "Alert title";
+"NotificationsAlert.subtitle" = "Alert subtitle";
+"NotificationsAlert.openSettings" = "Open notifications settings";

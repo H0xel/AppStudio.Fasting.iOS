@@ -63,7 +63,12 @@ class SetupFastingViewModel: BaseViewModel<SetupFastingOutput> {
                 try await self.fastingParametersService.set(
                     fastingInterval: FastingInterval(start: self.startFastingDate, plan: self.plan)
                 )
-                await self.router.popToRoot()
+
+                if context == .profile {
+                    await router.pop(to: ProfileRoute.self)
+                } else {
+                    await self.router.popToRoot()
+                }
             }
         }
     }

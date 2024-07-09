@@ -101,6 +101,12 @@ public extension ProfileButtonInput {
               description: nil,
               image: nil)
     }
+
+    static var notifications: ProfileButtonInput {
+        .init(title: "ProfileScreen.notifications".localized(bundle: .module),
+              description: nil,
+              image: .init(.bell))
+    }
 }
 
 private extension ProfileButtonView {

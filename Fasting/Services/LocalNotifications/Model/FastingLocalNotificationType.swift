@@ -11,7 +11,7 @@ enum FastingLocalNotificationType {
     /// Conditions:
     ///  1. Fasting is Inactive
     ///  2. One hour before next fasting time
-    case beforeStartOfFasting
+    case beforeStartOfFasting(beforeTime: String)
 
     /// Conditions:
     ///  1. Fasting is Inactive
@@ -21,7 +21,7 @@ enum FastingLocalNotificationType {
     /// Conditions:
     ///  1. Fasting is Active
     ///  2. One hour before end of current fasting
-    case beforeEndOfFasting
+    case beforeEndOfFasting(prior: NotificationPrior, fastingDuration: Int)
 
     /// Conditions:
     ///  1. Fasting is Active
@@ -39,17 +39,37 @@ enum FastingLocalNotificationType {
     case forgotToFinishFasting
 
     ///  1. Fasting is Active
+    ///  2. sugar rises phase is started
+    case sugarRisesPhase
+
+    ///  1. Fasting is Active
+    ///  2. sugar drop phase is started
+    case sugarDropPhase
+
+    ///  1. Fasting is Active
+    ///  2. sugar normal phase is started
+    case sugarNormalPhase
+
+    ///  1. Fasting is Active
     ///  2. fat burning phase is started
     case fatBurningPhase
 
+    ///  1. Fasting is Active
+    ///  2.ketosis phase is started
+    case ketosisPhase
+
+    ///  1. Fasting is Active
+    ///  2. autophagy phase is started
+    case autophagyPhase
+
     private var messages: [FastingNotificationInfo] {
         switch self {
-        case .beforeStartOfFasting:
-            return .beforeStartOfFastingInfos
+        case let .beforeStartOfFasting(time):
+            return .beforeStartOfFastingInfos(timePushDescription: time)
         case .startOfFasting:
             return .startOfFastingInfos
-        case .beforeEndOfFasting:
-            return .beforeEndOfFastingInfos
+        case let .beforeEndOfFasting(prior, fastingDuration):
+            return .beforeEndOfFastingInfos(notificationPrior: prior, fastingDuration: fastingDuration)
         case .endOfFasting:
             return .endOfFastingInfos
         case .forgotToStartFasting:
@@ -58,6 +78,16 @@ enum FastingLocalNotificationType {
             return .forgotToFinishFastingInfos
         case .fatBurningPhase:
             return .fatBurningPhaseInfos
+        case .sugarRisesPhase:
+            return .sugarRisesPhaseInfos
+        case .sugarDropPhase:
+            return .sugarDropPhaseInfos
+        case .sugarNormalPhase:
+            return .sugarNormalPhaseInfos
+        case .ketosisPhase:
+            return .ketosisPhaseInfos
+        case .autophagyPhase:
+            return .autophagyPhaseInfos
         }
     }
 

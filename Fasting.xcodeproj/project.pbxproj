@@ -352,6 +352,7 @@
 		A73372BB2C202B4700A05698 /* PromotionSubscriptionMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73372BA2C202B4700A05698 /* PromotionSubscriptionMigration.swift */; };
 		A73F2CAA2BDBABAB005ADA82 /* NewSubscriptionInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F2CA92BDBABAB005ADA82 /* NewSubscriptionInitializer.swift */; };
 		A73F2CAC2BDBACA6005ADA82 /* NewAppStudioSubscriptions in Frameworks */ = {isa = PBXBuildFile; productRef = A73F2CAB2BDBACA6005ADA82 /* NewAppStudioSubscriptions */; };
+		A74115FA2C36DCA800A8D004 /* NotificationSectionDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74115F92C36DCA800A8D004 /* NotificationSectionDivider.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
 		A758C61A2C0DFEEA00F9DC3F /* Intercom in Frameworks */ = {isa = PBXBuildFile; productRef = A758C6192C0DFEEA00F9DC3F /* Intercom */; };
@@ -362,12 +363,14 @@
 		A76294372B21A4B300DAF93B /* PersonalizedStartWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76294362B21A4B300DAF93B /* PersonalizedStartWeightView.swift */; };
 		A76294392B21A50E00DAF93B /* PersonalizedWeightDifferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76294382B21A50D00DAF93B /* PersonalizedWeightDifferenceView.swift */; };
 		A762943B2B21A58C00DAF93B /* PersonalizedSpecialEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762943A2B21A58C00DAF93B /* PersonalizedSpecialEventView.swift */; };
+		A762EEA02C33EBE300783718 /* CustomNotificationsExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762EE9F2C33EBE300783718 /* CustomNotificationsExperiment.swift */; };
 		A76B46332C11A6FD00D97DEC /* W2WLoginInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B462D2C11A6FD00D97DEC /* W2WLoginInput.swift */; };
 		A76B46342C11A6FD00D97DEC /* W2WLoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B462E2C11A6FD00D97DEC /* W2WLoginRouter.swift */; };
 		A76B46352C11A6FD00D97DEC /* W2WLoginRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B462F2C11A6FD00D97DEC /* W2WLoginRoute.swift */; };
 		A76B46362C11A6FD00D97DEC /* W2WLoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B46302C11A6FD00D97DEC /* W2WLoginScreen.swift */; };
 		A76B46372C11A6FD00D97DEC /* W2WLoginOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B46312C11A6FD00D97DEC /* W2WLoginOutput.swift */; };
 		A76B46382C11A6FD00D97DEC /* W2WLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B46322C11A6FD00D97DEC /* W2WLoginViewModel.swift */; };
+		A76E4D832C21862B000BE1E1 /* NotificationToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E4D822C21862B000BE1E1 /* NotificationToggleView.swift */; };
 		A777D14A2B209ADB00B48F41 /* PersonalizedPaywallInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A777D1442B209ADB00B48F41 /* PersonalizedPaywallInput.swift */; };
 		A777D14B2B209ADB00B48F41 /* PersonalizedPaywallRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A777D1452B209ADB00B48F41 /* PersonalizedPaywallRouter.swift */; };
 		A777D14C2B209ADB00B48F41 /* PersonalizedPaywallRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A777D1462B209ADB00B48F41 /* PersonalizedPaywallRoute.swift */; };
@@ -380,8 +383,19 @@
 		A78535E82AF21F0900437F5E /* FastingBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */; };
 		A78676EF2B1DA61B002C2202 /* FastingInactiveStagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78676EE2B1DA61B002C2202 /* FastingInactiveStagesView.swift */; };
 		A78676F12B1DA68A002C2202 /* FastingInactiveStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78676F02B1DA68A002C2202 /* FastingInactiveStage.swift */; };
+		A7999CFE2C2AB719004D9C9B /* QuiteModeNotificationsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7999CFB2C2AB719004D9C9B /* QuiteModeNotificationsServiceImpl.swift */; };
+		A7999CFF2C2AB719004D9C9B /* QuiteModeNotificationsDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7999CFC2C2AB719004D9C9B /* QuiteModeNotificationsDependencies.swift */; };
+		A7999D002C2AB719004D9C9B /* QuiteModeNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7999CFD2C2AB719004D9C9B /* QuiteModeNotificationsService.swift */; };
+		A7999D022C2AB740004D9C9B /* AvailableIntervalsForNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7999D012C2AB740004D9C9B /* AvailableIntervalsForNotifications.swift */; };
+		A7A166752C1C334500DF6711 /* NotificationsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1666F2C1C334500DF6711 /* NotificationsInput.swift */; };
+		A7A166762C1C334500DF6711 /* NotificationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A166702C1C334500DF6711 /* NotificationsRouter.swift */; };
+		A7A166772C1C334500DF6711 /* NotificationsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A166712C1C334500DF6711 /* NotificationsRoute.swift */; };
+		A7A166782C1C334500DF6711 /* NotificationsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A166722C1C334500DF6711 /* NotificationsScreen.swift */; };
+		A7A166792C1C334500DF6711 /* NotificationsOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A166732C1C334500DF6711 /* NotificationsOutput.swift */; };
+		A7A1667A2C1C334500DF6711 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A166742C1C334500DF6711 /* NotificationsViewModel.swift */; };
 		A7A1667E2C1F01C700DF6711 /* OnboardingLocalToCloudMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1667D2C1F01C700DF6711 /* OnboardingLocalToCloudMigration.swift */; };
 		A7A1AEA42AFE2C0A00B6211E /* Contexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1AEA32AFE2C0A00B6211E /* Contexts.swift */; };
+		A7A20ADB2C3BE92F00DB6526 /* CollapsedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A20ADA2C3BE92F00DB6526 /* CollapsedType.swift */; };
 		A7A2E7192BF356300087D062 /* OnboardingDataApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2E7182BF356300087D062 /* OnboardingDataApi.swift */; };
 		A7A2E71B2BF3A4380087D062 /* HeightApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2E71A2BF3A4380087D062 /* HeightApi.swift */; };
 		A7A2E71D2BF3A4440087D062 /* WeightApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2E71C2BF3A4440087D062 /* WeightApi.swift */; };
@@ -439,6 +453,27 @@
 		A7D01B922AF115F200C50C1F /* NotificationOnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8C2AF115F200C50C1F /* NotificationOnboardingScreen.swift */; };
 		A7D01B932AF115F200C50C1F /* NotificationOnboardingOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8D2AF115F200C50C1F /* NotificationOnboardingOutput.swift */; };
 		A7D01B942AF115F200C50C1F /* NotificationOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D01B8E2AF115F200C50C1F /* NotificationOnboardingViewModel.swift */; };
+		A7D323972C218D5000AFAEF3 /* NotificationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323962C218D5000AFAEF3 /* NotificationPickerView.swift */; };
+		A7D3239C2C21971000AFAEF3 /* NotificationDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D3239B2C21971000AFAEF3 /* NotificationDatePickerView.swift */; };
+		A7D323A02C219C5200AFAEF3 /* QuiteModeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D3239F2C219C5200AFAEF3 /* QuiteModeSectionView.swift */; };
+		A7D323A22C219D4E00AFAEF3 /* NotificationSectionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323A12C219D4E00AFAEF3 /* NotificationSectionModifier.swift */; };
+		A7D323A42C21A16300AFAEF3 /* NotificationSeparatorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323A32C21A16300AFAEF3 /* NotificationSeparatorText.swift */; };
+		A7D323A62C21A49F00AFAEF3 /* FastingRemindersSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323A52C21A49F00AFAEF3 /* FastingRemindersSectionView.swift */; };
+		A7D323A92C21AC4800AFAEF3 /* NotificationPrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323A82C21AC4800AFAEF3 /* NotificationPrior.swift */; };
+		A7D323AB2C21AEFF00AFAEF3 /* FastingStagesSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323AA2C21AEFF00AFAEF3 /* FastingStagesSectionView.swift */; };
+		A7D323AD2C21B4EA00AFAEF3 /* WeightInSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323AC2C21B4EA00AFAEF3 /* WeightInSectionView.swift */; };
+		A7D323AF2C21B5AF00AFAEF3 /* WeightFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323AE2C21B5AF00AFAEF3 /* WeightFrequency.swift */; };
+		A7D323B12C21B9E400AFAEF3 /* HydrationFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323B02C21B9E400AFAEF3 /* HydrationFrequency.swift */; };
+		A7D323B32C21BAD100AFAEF3 /* HydrationSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323B22C21BAD100AFAEF3 /* HydrationSectionView.swift */; };
+		A7D323BB2C21BDE400AFAEF3 /* NotificationsForStagesInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323B52C21BDE400AFAEF3 /* NotificationsForStagesInput.swift */; };
+		A7D323BC2C21BDE400AFAEF3 /* NotificationsForStagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323B62C21BDE400AFAEF3 /* NotificationsForStagesRouter.swift */; };
+		A7D323BD2C21BDE400AFAEF3 /* NotificationsForStagesRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323B72C21BDE400AFAEF3 /* NotificationsForStagesRoute.swift */; };
+		A7D323BE2C21BDE400AFAEF3 /* NotificationsForStagesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323B82C21BDE400AFAEF3 /* NotificationsForStagesScreen.swift */; };
+		A7D323BF2C21BDE400AFAEF3 /* NotificationsForStagesOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323B92C21BDE400AFAEF3 /* NotificationsForStagesOutput.swift */; };
+		A7D323C02C21BDE400AFAEF3 /* NotificationsForStagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323BA2C21BDE400AFAEF3 /* NotificationsForStagesViewModel.swift */; };
+		A7D323C42C21BFF900AFAEF3 /* NotificationsForStagesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323C32C21BFF900AFAEF3 /* NotificationsForStagesHeaderView.swift */; };
+		A7D323C62C21C87B00AFAEF3 /* NotificationForStagesSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323C52C21C87B00AFAEF3 /* NotificationForStagesSelectionView.swift */; };
+		A7D323C82C22BC3900AFAEF3 /* NotificationBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D323C72C22BC3900AFAEF3 /* NotificationBottomView.swift */; };
 		A7DBD0902B3AB1C7003DCD10 /* QuickActionServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD08F2B3AB1C7003DCD10 /* QuickActionServiceImpl.swift */; };
 		A7DBD0922B3AB1DB003DCD10 /* QuickActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0912B3AB1DB003DCD10 /* QuickActionService.swift */; };
 		A7DBD0942B3AB20A003DCD10 /* QuickActionDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBD0932B3AB20A003DCD10 /* QuickActionDependencies.swift */; };
@@ -448,6 +483,11 @@
 		A7DF36832B1DE0FD009080C9 /* InActiveFastingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */; };
 		A7DF36852B1DE195009080C9 /* InActiveFastingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */; };
 		A7E0A1CA2B07418F005DA180 /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */; };
+		A7E51DE92C22D8F50042AAEA /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51DE82C22D8F50042AAEA /* NotificationSettings.swift */; };
+		A7E51DEB2C22E1880042AAEA /* CloudStorage+notificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51DEA2C22E1880042AAEA /* CloudStorage+notificationSettings.swift */; };
+		A7E51DFC2C22E2580042AAEA /* NotificationSettingsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51DF92C22E2580042AAEA /* NotificationSettingsServiceImpl.swift */; };
+		A7E51DFD2C22E2580042AAEA /* NotificationSettingsDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51DFA2C22E2580042AAEA /* NotificationSettingsDependencies.swift */; };
+		A7E51DFE2C22E2580042AAEA /* NotificationSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51DFB2C22E2580042AAEA /* NotificationSettingsService.swift */; };
 		A7E9CAC02BF6259200128ACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7E9CABE2BF6259200128ACA /* Localizable.strings */; };
 		A7E9CAC32BF63BEF00128ACA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7E9CAC52BF63BEF00128ACA /* InfoPlist.strings */; };
 		A7FFD1812BD8F067003055F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7FFD17F2BD8F067003055F0 /* Localizable.strings */; };
@@ -787,6 +827,7 @@
 		A72D45282B84DCAD00BC2E41 /* DebugMenuExperimentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuExperimentsView.swift; sourceTree = "<group>"; };
 		A73372BA2C202B4700A05698 /* PromotionSubscriptionMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionSubscriptionMigration.swift; sourceTree = "<group>"; };
 		A73F2CA92BDBABAB005ADA82 /* NewSubscriptionInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubscriptionInitializer.swift; sourceTree = "<group>"; };
+		A74115F92C36DCA800A8D004 /* NotificationSectionDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSectionDivider.swift; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
 		A75956EF2B172EBF00ECCAB0 /* SubscriptionPreviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPreviewService.swift; sourceTree = "<group>"; };
@@ -796,12 +837,14 @@
 		A76294362B21A4B300DAF93B /* PersonalizedStartWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedStartWeightView.swift; sourceTree = "<group>"; };
 		A76294382B21A50D00DAF93B /* PersonalizedWeightDifferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedWeightDifferenceView.swift; sourceTree = "<group>"; };
 		A762943A2B21A58C00DAF93B /* PersonalizedSpecialEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedSpecialEventView.swift; sourceTree = "<group>"; };
+		A762EE9F2C33EBE300783718 /* CustomNotificationsExperiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotificationsExperiment.swift; sourceTree = "<group>"; };
 		A76B462D2C11A6FD00D97DEC /* W2WLoginInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginInput.swift; sourceTree = "<group>"; };
 		A76B462E2C11A6FD00D97DEC /* W2WLoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginRouter.swift; sourceTree = "<group>"; };
 		A76B462F2C11A6FD00D97DEC /* W2WLoginRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginRoute.swift; sourceTree = "<group>"; };
 		A76B46302C11A6FD00D97DEC /* W2WLoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginScreen.swift; sourceTree = "<group>"; };
 		A76B46312C11A6FD00D97DEC /* W2WLoginOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginOutput.swift; sourceTree = "<group>"; };
 		A76B46322C11A6FD00D97DEC /* W2WLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginViewModel.swift; sourceTree = "<group>"; };
+		A76E4D822C21862B000BE1E1 /* NotificationToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationToggleView.swift; path = Fasting/Modules/Notifications/Views/ReusableViews/NotificationToggleView.swift; sourceTree = SOURCE_ROOT; };
 		A777D1442B209ADB00B48F41 /* PersonalizedPaywallInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedPaywallInput.swift; sourceTree = "<group>"; };
 		A777D1452B209ADB00B48F41 /* PersonalizedPaywallRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedPaywallRouter.swift; sourceTree = "<group>"; };
 		A777D1462B209ADB00B48F41 /* PersonalizedPaywallRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedPaywallRoute.swift; sourceTree = "<group>"; };
@@ -814,8 +857,19 @@
 		A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingBackgroundModifier.swift; sourceTree = "<group>"; };
 		A78676EE2B1DA61B002C2202 /* FastingInactiveStagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInactiveStagesView.swift; sourceTree = "<group>"; };
 		A78676F02B1DA68A002C2202 /* FastingInactiveStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInactiveStage.swift; sourceTree = "<group>"; };
+		A7999CFB2C2AB719004D9C9B /* QuiteModeNotificationsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuiteModeNotificationsServiceImpl.swift; sourceTree = "<group>"; };
+		A7999CFC2C2AB719004D9C9B /* QuiteModeNotificationsDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuiteModeNotificationsDependencies.swift; sourceTree = "<group>"; };
+		A7999CFD2C2AB719004D9C9B /* QuiteModeNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuiteModeNotificationsService.swift; sourceTree = "<group>"; };
+		A7999D012C2AB740004D9C9B /* AvailableIntervalsForNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableIntervalsForNotifications.swift; sourceTree = "<group>"; };
+		A7A1666F2C1C334500DF6711 /* NotificationsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsInput.swift; sourceTree = "<group>"; };
+		A7A166702C1C334500DF6711 /* NotificationsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsRouter.swift; sourceTree = "<group>"; };
+		A7A166712C1C334500DF6711 /* NotificationsRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsRoute.swift; sourceTree = "<group>"; };
+		A7A166722C1C334500DF6711 /* NotificationsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsScreen.swift; sourceTree = "<group>"; };
+		A7A166732C1C334500DF6711 /* NotificationsOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsOutput.swift; sourceTree = "<group>"; };
+		A7A166742C1C334500DF6711 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		A7A1667D2C1F01C700DF6711 /* OnboardingLocalToCloudMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocalToCloudMigration.swift; sourceTree = "<group>"; };
 		A7A1AEA32AFE2C0A00B6211E /* Contexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contexts.swift; sourceTree = "<group>"; };
+		A7A20ADA2C3BE92F00DB6526 /* CollapsedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsedType.swift; sourceTree = "<group>"; };
 		A7A2E7182BF356300087D062 /* OnboardingDataApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDataApi.swift; sourceTree = "<group>"; };
 		A7A2E71A2BF3A4380087D062 /* HeightApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightApi.swift; sourceTree = "<group>"; };
 		A7A2E71C2BF3A4440087D062 /* WeightApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightApi.swift; sourceTree = "<group>"; };
@@ -874,6 +928,27 @@
 		A7D01B8C2AF115F200C50C1F /* NotificationOnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingScreen.swift; sourceTree = "<group>"; };
 		A7D01B8D2AF115F200C50C1F /* NotificationOnboardingOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingOutput.swift; sourceTree = "<group>"; };
 		A7D01B8E2AF115F200C50C1F /* NotificationOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOnboardingViewModel.swift; sourceTree = "<group>"; };
+		A7D323962C218D5000AFAEF3 /* NotificationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPickerView.swift; sourceTree = "<group>"; };
+		A7D3239B2C21971000AFAEF3 /* NotificationDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDatePickerView.swift; sourceTree = "<group>"; };
+		A7D3239F2C219C5200AFAEF3 /* QuiteModeSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuiteModeSectionView.swift; sourceTree = "<group>"; };
+		A7D323A12C219D4E00AFAEF3 /* NotificationSectionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSectionModifier.swift; sourceTree = "<group>"; };
+		A7D323A32C21A16300AFAEF3 /* NotificationSeparatorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSeparatorText.swift; sourceTree = "<group>"; };
+		A7D323A52C21A49F00AFAEF3 /* FastingRemindersSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingRemindersSectionView.swift; sourceTree = "<group>"; };
+		A7D323A82C21AC4800AFAEF3 /* NotificationPrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPrior.swift; sourceTree = "<group>"; };
+		A7D323AA2C21AEFF00AFAEF3 /* FastingStagesSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingStagesSectionView.swift; sourceTree = "<group>"; };
+		A7D323AC2C21B4EA00AFAEF3 /* WeightInSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightInSectionView.swift; sourceTree = "<group>"; };
+		A7D323AE2C21B5AF00AFAEF3 /* WeightFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightFrequency.swift; sourceTree = "<group>"; };
+		A7D323B02C21B9E400AFAEF3 /* HydrationFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationFrequency.swift; sourceTree = "<group>"; };
+		A7D323B22C21BAD100AFAEF3 /* HydrationSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationSectionView.swift; sourceTree = "<group>"; };
+		A7D323B52C21BDE400AFAEF3 /* NotificationsForStagesInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsForStagesInput.swift; sourceTree = "<group>"; };
+		A7D323B62C21BDE400AFAEF3 /* NotificationsForStagesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsForStagesRouter.swift; sourceTree = "<group>"; };
+		A7D323B72C21BDE400AFAEF3 /* NotificationsForStagesRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsForStagesRoute.swift; sourceTree = "<group>"; };
+		A7D323B82C21BDE400AFAEF3 /* NotificationsForStagesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsForStagesScreen.swift; sourceTree = "<group>"; };
+		A7D323B92C21BDE400AFAEF3 /* NotificationsForStagesOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsForStagesOutput.swift; sourceTree = "<group>"; };
+		A7D323BA2C21BDE400AFAEF3 /* NotificationsForStagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsForStagesViewModel.swift; sourceTree = "<group>"; };
+		A7D323C32C21BFF900AFAEF3 /* NotificationsForStagesHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsForStagesHeaderView.swift; sourceTree = "<group>"; };
+		A7D323C52C21C87B00AFAEF3 /* NotificationForStagesSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationForStagesSelectionView.swift; sourceTree = "<group>"; };
+		A7D323C72C22BC3900AFAEF3 /* NotificationBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBottomView.swift; sourceTree = "<group>"; };
 		A7DBD08F2B3AB1C7003DCD10 /* QuickActionServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionServiceImpl.swift; sourceTree = "<group>"; };
 		A7DBD0912B3AB1DB003DCD10 /* QuickActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionService.swift; sourceTree = "<group>"; };
 		A7DBD0932B3AB20A003DCD10 /* QuickActionDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionDependencies.swift; sourceTree = "<group>"; };
@@ -883,6 +958,11 @@
 		A7DF36822B1DE0FD009080C9 /* InActiveFastingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingHeader.swift; sourceTree = "<group>"; };
 		A7DF36842B1DE195009080C9 /* InActiveFastingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InActiveFastingListView.swift; sourceTree = "<group>"; };
 		A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
+		A7E51DE82C22D8F50042AAEA /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
+		A7E51DEA2C22E1880042AAEA /* CloudStorage+notificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CloudStorage+notificationSettings.swift"; sourceTree = "<group>"; };
+		A7E51DF92C22E2580042AAEA /* NotificationSettingsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsServiceImpl.swift; sourceTree = "<group>"; };
+		A7E51DFA2C22E2580042AAEA /* NotificationSettingsDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsDependencies.swift; sourceTree = "<group>"; };
+		A7E51DFB2C22E2580042AAEA /* NotificationSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsService.swift; sourceTree = "<group>"; };
 		A7E9CABF2BF6259200128ACA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		A7E9CAC42BF63BEF00128ACA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7E9CAC62BF63BF400128ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1488,6 +1568,8 @@
 		5675FFD12ADE8358009331CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A7999CFA2C2AB6F2004D9C9B /* QuiteModeNotificationsService */,
+				A7E51DEC2C22E2200042AAEA /* NotificationSettingsService */,
 				A02155FE2BA0542C004DF16C /* CalendarProgressService */,
 				A0F093B42B9B530B00A91EFB /* FastingProgressService */,
 				A00B4DC42B7382170067A872 /* FacebookInitializer */,
@@ -1557,6 +1639,8 @@
 		56C28D682AE0FBFC0007E48D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A7D323B42C21BDCC00AFAEF3 /* NotificationsForStages */,
+				A7A1666E2C1C332A00DF6711 /* Notifications */,
 				A76B462C2C11A6CA00D97DEC /* W2WLogin */,
 				A7C026D12B1DB24E004C3D63 /* InActiveFastingArticle */,
 				A7A3972D2B71F683003330C3 /* DiscountPaywall */,
@@ -1981,6 +2065,7 @@
 				5675005C2ADFA97F009331CB /* PricingOngoingExperiment.swift */,
 				5675005D2ADFA97F009331CB /* SubscriptionInfo.swift */,
 				A7A3974D2B7345D9003330C3 /* DiscountPaywallExperiment.swift */,
+				A762EE9F2C33EBE300783718 /* CustomNotificationsExperiment.swift */,
 			);
 			path = PricingExperiment;
 			sourceTree = "<group>";
@@ -2350,6 +2435,15 @@
 			path = Routing;
 			sourceTree = "<group>";
 		};
+		A76E4D812C218618000BE1E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A7D3239E2C219C4100AFAEF3 /* ReusableViews */,
+				A7D3239D2C219C3600AFAEF3 /* Sections */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A777D1432B209AC300B48F41 /* PersonalizedPaywall */ = {
 			isa = PBXGroup;
 			children = (
@@ -2388,6 +2482,40 @@
 				A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */,
 			);
 			path = Modifier;
+			sourceTree = "<group>";
+		};
+		A7999CFA2C2AB6F2004D9C9B /* QuiteModeNotificationsService */ = {
+			isa = PBXGroup;
+			children = (
+				A7999D012C2AB740004D9C9B /* AvailableIntervalsForNotifications.swift */,
+				A7999CFB2C2AB719004D9C9B /* QuiteModeNotificationsServiceImpl.swift */,
+				A7999CFC2C2AB719004D9C9B /* QuiteModeNotificationsDependencies.swift */,
+				A7999CFD2C2AB719004D9C9B /* QuiteModeNotificationsService.swift */,
+			);
+			path = QuiteModeNotificationsService;
+			sourceTree = "<group>";
+		};
+		A7A1666E2C1C332A00DF6711 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				A7D323A72C21AC4100AFAEF3 /* Models */,
+				A76E4D812C218618000BE1E1 /* Views */,
+				A7A1667B2C1C334A00DF6711 /* Routing */,
+				A7A166722C1C334500DF6711 /* NotificationsScreen.swift */,
+				A7A166742C1C334500DF6711 /* NotificationsViewModel.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		A7A1667B2C1C334A00DF6711 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A7A1666F2C1C334500DF6711 /* NotificationsInput.swift */,
+				A7A166702C1C334500DF6711 /* NotificationsRouter.swift */,
+				A7A166712C1C334500DF6711 /* NotificationsRoute.swift */,
+				A7A166732C1C334500DF6711 /* NotificationsOutput.swift */,
+			);
+			path = Routing;
 			sourceTree = "<group>";
 		};
 		A7A1667C2C1F01B300DF6711 /* Migrations */ = {
@@ -2603,6 +2731,76 @@
 			path = Routing;
 			sourceTree = "<group>";
 		};
+		A7D3239D2C219C3600AFAEF3 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				A7D3239F2C219C5200AFAEF3 /* QuiteModeSectionView.swift */,
+				A7D323A12C219D4E00AFAEF3 /* NotificationSectionModifier.swift */,
+				A7D323A52C21A49F00AFAEF3 /* FastingRemindersSectionView.swift */,
+				A7D323AA2C21AEFF00AFAEF3 /* FastingStagesSectionView.swift */,
+				A7D323AC2C21B4EA00AFAEF3 /* WeightInSectionView.swift */,
+				A7D323B22C21BAD100AFAEF3 /* HydrationSectionView.swift */,
+				A74115F92C36DCA800A8D004 /* NotificationSectionDivider.swift */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		A7D3239E2C219C4100AFAEF3 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				A76E4D822C21862B000BE1E1 /* NotificationToggleView.swift */,
+				A7D323962C218D5000AFAEF3 /* NotificationPickerView.swift */,
+				A7D3239B2C21971000AFAEF3 /* NotificationDatePickerView.swift */,
+				A7D323A32C21A16300AFAEF3 /* NotificationSeparatorText.swift */,
+				A7D323C72C22BC3900AFAEF3 /* NotificationBottomView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		A7D323A72C21AC4100AFAEF3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A7D323A82C21AC4800AFAEF3 /* NotificationPrior.swift */,
+				A7D323AE2C21B5AF00AFAEF3 /* WeightFrequency.swift */,
+				A7D323B02C21B9E400AFAEF3 /* HydrationFrequency.swift */,
+				A7E51DE82C22D8F50042AAEA /* NotificationSettings.swift */,
+				A7E51DEA2C22E1880042AAEA /* CloudStorage+notificationSettings.swift */,
+				A7A20ADA2C3BE92F00DB6526 /* CollapsedType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A7D323B42C21BDCC00AFAEF3 /* NotificationsForStages */ = {
+			isa = PBXGroup;
+			children = (
+				A7D323C22C21BFEB00AFAEF3 /* Views */,
+				A7D323C12C21BEB100AFAEF3 /* Routing */,
+				A7D323B82C21BDE400AFAEF3 /* NotificationsForStagesScreen.swift */,
+				A7D323BA2C21BDE400AFAEF3 /* NotificationsForStagesViewModel.swift */,
+			);
+			path = NotificationsForStages;
+			sourceTree = "<group>";
+		};
+		A7D323C12C21BEB100AFAEF3 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A7D323B52C21BDE400AFAEF3 /* NotificationsForStagesInput.swift */,
+				A7D323B62C21BDE400AFAEF3 /* NotificationsForStagesRouter.swift */,
+				A7D323B72C21BDE400AFAEF3 /* NotificationsForStagesRoute.swift */,
+				A7D323B92C21BDE400AFAEF3 /* NotificationsForStagesOutput.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		A7D323C22C21BFEB00AFAEF3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A7D323C32C21BFF900AFAEF3 /* NotificationsForStagesHeaderView.swift */,
+				A7D323C52C21C87B00AFAEF3 /* NotificationForStagesSelectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A7DBD08E2B3AB1B7003DCD10 /* QuickActionService */ = {
 			isa = PBXGroup;
 			children = (
@@ -2620,6 +2818,16 @@
 				A7E0A1C92B07418F005DA180 /* WhatToTest.en-US.txt */,
 			);
 			path = TestFlight;
+			sourceTree = "<group>";
+		};
+		A7E51DEC2C22E2200042AAEA /* NotificationSettingsService */ = {
+			isa = PBXGroup;
+			children = (
+				A7E51DF92C22E2580042AAEA /* NotificationSettingsServiceImpl.swift */,
+				A7E51DFA2C22E2580042AAEA /* NotificationSettingsDependencies.swift */,
+				A7E51DFB2C22E2580042AAEA /* NotificationSettingsService.swift */,
+			);
+			path = NotificationSettingsService;
 			sourceTree = "<group>";
 		};
 		A7FFD17E2BD8F067003055F0 /* en.lproj */ = {
@@ -2845,11 +3053,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7E51DFD2C22E2580042AAEA /* NotificationSettingsDependencies.swift in Sources */,
 				A72230372AFB624300303D5D /* Date+LocaleTime.swift in Sources */,
 				563B8AC52B03AEFC00AF6BB7 /* FastingNotificationInfo.swift in Sources */,
 				A7DBD0922B3AB1DB003DCD10 /* QuickActionService.swift in Sources */,
 				56C28DC82AE109580007E48D /* AppCustomizationInitializer.swift in Sources */,
 				567500DB2ADFCDAC009331CB /* AccountApiImpl.swift in Sources */,
+				A7A1667A2C1C334500DF6711 /* NotificationsViewModel.swift in Sources */,
 				56C7E96A2B107CE7007B5937 /* FastingLimitService.swift in Sources */,
 				A084496F2B1A86AC00D30E04 /* FastingPhaseRouter.swift in Sources */,
 				A0881E672AEAC32500E38FF5 /* FastingRouter.swift in Sources */,
@@ -2878,6 +3088,7 @@
 				A7D01B732AF0D01E00C50C1F /* FastingPlanView.swift in Sources */,
 				56655B712AFCB6AB00508ED4 /* FastingHistoryServiceServiceImpl.swift in Sources */,
 				A75956F02B172EBF00ECCAB0 /* SubscriptionPreviewService.swift in Sources */,
+				A7D323B32C21BAD100AFAEF3 /* HydrationSectionView.swift in Sources */,
 				A0881E662AEAC32500E38FF5 /* FastingInput.swift in Sources */,
 				A07EAB372AFA56A200A46D7E /* EndFastingEarlyScreen.swift in Sources */,
 				566C24912AE8F80B00AEDB3C /* PaywallRouter.swift in Sources */,
@@ -2885,6 +3096,7 @@
 				A0CEE6282AEFE3FB0082B27F /* FastingServiceImpl.swift in Sources */,
 				56E223EF2B207E0500096664 /* OnboardingServiceImpl.swift in Sources */,
 				A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */,
+				A7D323A22C219D4E00AFAEF3 /* NotificationSectionModifier.swift in Sources */,
 				A05004772B20D94100820E45 /* OnboardingDatePickerView.swift in Sources */,
 				56655B682AFCB10900508ED4 /* FastingIntervalHistoryRepository.swift in Sources */,
 				A7A2E71D2BF3A4440087D062 /* WeightApi.swift in Sources */,
@@ -2895,12 +3107,15 @@
 				A0382D472AF544D9009CC579 /* SuccessIntervalButtonView.swift in Sources */,
 				A729F9312BF4BC0200875BB5 /* OnboardingInitializerDependency.swift in Sources */,
 				56C7E96C2B107F30007B5937 /* FastingFinishedCyclesLimitServiceImpl.swift in Sources */,
+				A7E51DEB2C22E1880042AAEA /* CloudStorage+notificationSettings.swift in Sources */,
 				56655B6C2AFCB46000508ED4 /* FastingIntervalHistoryRepositoryImpl.swift in Sources */,
 				A7D01B5D2AF0C82100C50C1F /* OnboardingInput.swift in Sources */,
 				567500EF2ADFD6BC009331CB /* AppSettingsProviderImpl.swift in Sources */,
+				A74115FA2C36DCA800A8D004 /* NotificationSectionDivider.swift in Sources */,
 				A777D14B2B209ADB00B48F41 /* PersonalizedPaywallRouter.swift in Sources */,
 				567500442ADFA67E009331CB /* AccountProviderPreview.swift in Sources */,
 				56E223DC2B20784D00096664 /* SpecialEvent.swift in Sources */,
+				A7999D022C2AB740004D9C9B /* AvailableIntervalsForNotifications.swift in Sources */,
 				567500D82ADFCDAC009331CB /* AppStudioApiSettingsProvider.swift in Sources */,
 				56E223D82B206BCE00096664 /* OnboardingData.swift in Sources */,
 				A7BD1CDB2B79B531009C1259 /* DiscountPaywallPinView.swift in Sources */,
@@ -2919,6 +3134,7 @@
 				A7A397392B71F6A6003330C3 /* DiscountPaywallViewModel.swift in Sources */,
 				566C24922AE8F80B00AEDB3C /* PaywallViewModel.swift in Sources */,
 				A0CEE61E2AEFE2F20082B27F /* FastingActiveState.swift in Sources */,
+				A7D323C42C21BFF900AFAEF3 /* NotificationsForStagesHeaderView.swift in Sources */,
 				56728A6C2B7207CE00652341 /* RemoteExperimentPlans.swift in Sources */,
 				567500DD2ADFCDAC009331CB /* ApiDependencies.swift in Sources */,
 				567500472ADFA67E009331CB /* AppStudioMobileDeviceDataProviderPreview.swift in Sources */,
@@ -2927,14 +3143,17 @@
 				567500AF2ADFBF52009331CB /* ServicesDependencies.swift in Sources */,
 				A063B1FE2AEC1E2E00084696 /* FastingStagesView.swift in Sources */,
 				A02787592AEAE4FB00844246 /* FastingTimeView.swift in Sources */,
+				A7D323972C218D5000AFAEF3 /* NotificationPickerView.swift in Sources */,
 				567500082ADE84B4009331CB /* MigrationServiceImpl.swift in Sources */,
 				A02FC4752B9F381B00019039 /* HealthOverviewInitializer+extensions.swift in Sources */,
+				A7A166792C1C334500DF6711 /* NotificationsOutput.swift in Sources */,
 				567500242ADE86C3009331CB /* ServiceBaseImpl.swift in Sources */,
 				A777D14C2B209ADB00B48F41 /* PersonalizedPaywallRoute.swift in Sources */,
 				567501092ADFD955009331CB /* IntercomUpdater.swift in Sources */,
 				A02787572AEAE4E700844246 /* FastingIntervalView.swift in Sources */,
 				567500DC2ADFCDAC009331CB /* AccountApi.swift in Sources */,
 				A0255E6E2AFBCE9D00221EC6 /* Account.swift in Sources */,
+				A7D323AB2C21AEFF00AFAEF3 /* FastingStagesSectionView.swift in Sources */,
 				A0CFE9E12BADE67B00DC1819 /* WeightGoalWidgetDatabaseInitializer+extensions.swift in Sources */,
 				56CB8E442BD639E300E7712C /* ExploreApiTarget.swift in Sources */,
 				A0881E682AEAC32500E38FF5 /* FastingRoute.swift in Sources */,
@@ -2948,7 +3167,9 @@
 				A0382D452AF544AA009CC579 /* SuccessIntervalView.swift in Sources */,
 				A0CEE6292AEFE3FB0082B27F /* FastingDependencies.swift in Sources */,
 				A7D01B6E2AF0CCF900C50C1F /* ChooseFastingPlanOutput.swift in Sources */,
+				A7D323C62C21C87B00AFAEF3 /* NotificationForStagesSelectionView.swift in Sources */,
 				53D900772AE67EE700FFEB7A /* PreferencesService.swift in Sources */,
+				A7D323BB2C21BDE400AFAEF3 /* NotificationsForStagesInput.swift in Sources */,
 				A7C026CF2B1DB235004C3D63 /* InActiveFastingArticleOutput.swift in Sources */,
 				5662DEC12B16144700C1637C /* FastingStagePoint.swift in Sources */,
 				A70DBE492B0DD5A00067D7BD /* LaunchScreen.swift in Sources */,
@@ -2957,6 +3178,8 @@
 				A7A1667E2C1F01C700DF6711 /* OnboardingLocalToCloudMigration.swift in Sources */,
 				A78676F12B1DA68A002C2202 /* FastingInactiveStage.swift in Sources */,
 				A777D14F2B209ADB00B48F41 /* PersonalizedPaywallViewModel.swift in Sources */,
+				A7D323C82C22BC3900AFAEF3 /* NotificationBottomView.swift in Sources */,
+				A7E51DFC2C22E2580042AAEA /* NotificationSettingsServiceImpl.swift in Sources */,
 				A7D01B872AF1102400C50C1F /* SetupFastingButton.swift in Sources */,
 				A70743632B21D0B400572A98 /* PersonalizedBulletPointsView.swift in Sources */,
 				564BE2C72B26E54E00FE35C2 /* OnboardingCalculationProccessPhases.swift in Sources */,
@@ -2974,6 +3197,8 @@
 				A76B46342C11A6FD00D97DEC /* W2WLoginRouter.swift in Sources */,
 				A78535E52AF1481900437F5E /* SnapCarousel.swift in Sources */,
 				A04272D02AE29E6F00754326 /* WithDebugMenuModifier.swift in Sources */,
+				A7A166762C1C334500DF6711 /* NotificationsRouter.swift in Sources */,
+				A7A166782C1C334500DF6711 /* NotificationsScreen.swift in Sources */,
 				A7D01B6A2AF0CCF900C50C1F /* ChooseFastingPlanInput.swift in Sources */,
 				A76294352B21A42500DAF93B /* PersonalizedSeparatorView.swift in Sources */,
 				A063B1FC2AEBD77000084696 /* BorderedButton.swift in Sources */,
@@ -2994,16 +3219,21 @@
 				A0382D342AF4EAF2009CC579 /* AppTab.swift in Sources */,
 				A0CEE6202AEFE2FD0082B27F /* InActiveFastingStage.swift in Sources */,
 				A7A397382B71F6A6003330C3 /* DiscountPaywallOutput.swift in Sources */,
+				A7D323B12C21B9E400AFAEF3 /* HydrationFrequency.swift in Sources */,
+				A7E51DE92C22D8F50042AAEA /* NotificationSettings.swift in Sources */,
 				A7A2E71B2BF3A4380087D062 /* HeightApi.swift in Sources */,
 				A04272CC2AE28DF600754326 /* DebugMenuInfoView.swift in Sources */,
 				A762943B2B21A58C00DAF93B /* PersonalizedSpecialEventView.swift in Sources */,
 				56C28DCC2AE109580007E48D /* Initializers.swift in Sources */,
 				A04272C92AE28D3D00754326 /* DebugMenuScreen.swift in Sources */,
 				567500CB2ADFCC54009331CB /* AccountSyncService.swift in Sources */,
+				A7D323BE2C21BDE400AFAEF3 /* NotificationsForStagesScreen.swift in Sources */,
 				A7A397432B720565003330C3 /* DiscountDescriptionView.swift in Sources */,
 				56E223FF2B21973400096664 /* OnboardingLoadingViewViewModel.swift in Sources */,
+				A7D323BD2C21BDE400AFAEF3 /* NotificationsForStagesRoute.swift in Sources */,
 				5675008C2ADFAA4A009331CB /* RestoreResult.swift in Sources */,
 				56B10ABB2AF0DFF9008FC07E /* Model.xcdatamodeld in Sources */,
+				A7D323A02C219C5200AFAEF3 /* QuiteModeSectionView.swift in Sources */,
 				56655B722AFCB6AB00508ED4 /* FastingHistoryServiceDependencies.swift in Sources */,
 				A095E3632B835E4C00E35B82 /* CoachStyles+extensions.swift in Sources */,
 				A7DBD0902B3AB1C7003DCD10 /* QuickActionServiceImpl.swift in Sources */,
@@ -3020,7 +3250,9 @@
 				567500CD2ADFCC54009331CB /* AppSyncService.swift in Sources */,
 				A0C8C1AE2B1DDB9D00EB371C /* FastingPhaseArticleParagraphView.swift in Sources */,
 				A0382D3C2AF4F03A009CC579 /* SuccessInput.swift in Sources */,
+				A7D3239C2C21971000AFAEF3 /* NotificationDatePickerView.swift in Sources */,
 				A0C8C1B62B1F789A00EB371C /* FastingStagesContext.swift in Sources */,
+				A7D323BF2C21BDE400AFAEF3 /* NotificationsForStagesOutput.swift in Sources */,
 				56C7E96E2B107F58007B5937 /* FastingLimitServiceDependencies.swift in Sources */,
 				A7C026CB2B1DB235004C3D63 /* InActiveFastingArticleInput.swift in Sources */,
 				A0CEE62E2AEFE4280082B27F /* FastingParametersServiceImpl.swift in Sources */,
@@ -3029,6 +3261,7 @@
 				A711E55F2BEE559C00AC81F9 /* OnboardingInitializer.swift in Sources */,
 				A7D01B602AF0C82100C50C1F /* OnboardingScreen.swift in Sources */,
 				A7D01B6B2AF0CCF900C50C1F /* ChooseFastingPlanRouter.swift in Sources */,
+				A7999CFE2C2AB719004D9C9B /* QuiteModeNotificationsServiceImpl.swift in Sources */,
 				A0C8C1AC2B1DD66000EB371C /* FastingPhaseArticleView.swift in Sources */,
 				56C28DC72AE109580007E48D /* LateTimeInitializers.swift in Sources */,
 				A711E55C2BEE50FF00AC81F9 /* NewSubscriptionInitializerDependency.swift in Sources */,
@@ -3036,7 +3269,9 @@
 				A76B46352C11A6FD00D97DEC /* W2WLoginRoute.swift in Sources */,
 				A72D45272B84D86100BC2E41 /* AppCustomizationImpl+Discount.swift in Sources */,
 				A7A3973D2B71FEFE003330C3 /* DiscountPaywallView.swift in Sources */,
+				A7999CFF2C2AB719004D9C9B /* QuiteModeNotificationsDependencies.swift in Sources */,
 				566C24942AE8F80B00AEDB3C /* PaywallScreenOutput.swift in Sources */,
+				A7D323AF2C21B5AF00AFAEF3 /* WeightFrequency.swift in Sources */,
 				563B8AC72B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift in Sources */,
 				A08449792B1A9A3800D30E04 /* FastingPhaseStartDescriptionView.swift in Sources */,
 				A0255E802AFBD25400221EC6 /* TelecomApiError.swift in Sources */,
@@ -3062,6 +3297,7 @@
 				A7A397412B720412003330C3 /* DiscountTimerView.swift in Sources */,
 				567500052ADE84B4009331CB /* MigrationService.swift in Sources */,
 				56E223FC2B21973400096664 /* OnboardingLoadingViewRoute.swift in Sources */,
+				A7A166772C1C334500DF6711 /* NotificationsRoute.swift in Sources */,
 				A711E5552BEE1D8A00AC81F9 /* OnboardingTarget.swift in Sources */,
 				567501062ADFD955009331CB /* IntercomServiceImpl.swift in Sources */,
 				564BE2C52B26E50E00FE35C2 /* OnboardingCalculationProccessData.swift in Sources */,
@@ -3080,6 +3316,7 @@
 				A7A38DE32BC8226B003704C1 /* MultiplePaywallInput.swift in Sources */,
 				A050046E2B2074F800820E45 /* OnboardingPreviousPageButton.swift in Sources */,
 				567500272ADE86C3009331CB /* ExecutionDispatchQueue.swift in Sources */,
+				A7E51DFE2C22E2580042AAEA /* NotificationSettingsService.swift in Sources */,
 				A7A397372B71F6A6003330C3 /* DiscountPaywallScreen.swift in Sources */,
 				567500502ADFA81D009331CB /* DataDependencies.swift in Sources */,
 				A0255E732AFBD02F00221EC6 /* PutAccountRequest.swift in Sources */,
@@ -3095,12 +3332,15 @@
 				A7A38DE52BC8226B003704C1 /* MultiplePaywallRoute.swift in Sources */,
 				56E223FD2B21973400096664 /* OnboardingLoadingViewScreen.swift in Sources */,
 				A7D01B5E2AF0C82100C50C1F /* OnboardingRouter.swift in Sources */,
+				A7A20ADB2C3BE92F00DB6526 /* CollapsedType.swift in Sources */,
 				567500E12ADFD298009331CB /* AppSyncServiceDependencies.swift in Sources */,
 				A7D01B7C2AF10A6D00C50C1F /* SetupFastingInput.swift in Sources */,
+				A76E4D832C21862B000BE1E1 /* NotificationToggleView.swift in Sources */,
 				563B8AC92B03AF8400AF6BB7 /* LocalNotificationDependencies.swift in Sources */,
 				A7A3974E2B7345D9003330C3 /* DiscountPaywallExperiment.swift in Sources */,
 				A7DBD09A2B3AB415003DCD10 /* QuickTypeInitializer.swift in Sources */,
 				A70DBE222B0B9F230067D7BD /* DebugFontView.swift in Sources */,
+				A7999D002C2AB719004D9C9B /* QuiteModeNotificationsService.swift in Sources */,
 				567500E42ADFD4E8009331CB /* StorageService.swift in Sources */,
 				566C249E2AE8F8FD00AEDB3C /* Image+Paywall.swift in Sources */,
 				56CB8E462BD79C4500E7712C /* ExploreApiImpl.swift in Sources */,
@@ -3113,6 +3353,7 @@
 				53D900792AE67EEF00FFEB7A /* PreferencesServiceImpl.swift in Sources */,
 				A7D01B912AF115F200C50C1F /* NotificationOnboardingRoute.swift in Sources */,
 				566C24962AE8F80B00AEDB3C /* PaywallTitleView.swift in Sources */,
+				A762EEA02C33EBE300783718 /* CustomNotificationsExperiment.swift in Sources */,
 				A07EAB352AFA56A200A46D7E /* EndFastingEarlyRouter.swift in Sources */,
 				53D900702AE631E400FFEB7A /* AppTemplateManager.swift in Sources */,
 				A7A38DE62BC8226B003704C1 /* MultiplePaywallScreen.swift in Sources */,
@@ -3120,6 +3361,7 @@
 				A05004722B20A18300820E45 /* OnboardingStartView.swift in Sources */,
 				5675009C2ADFAB69009331CB /* SubscriptionDelegateImpl.swift in Sources */,
 				A7D01B812AF10A6D00C50C1F /* SetupFastingViewModel.swift in Sources */,
+				A7D323C02C21BDE400AFAEF3 /* NotificationsForStagesViewModel.swift in Sources */,
 				564BE2CD2B26E80200FE35C2 /* OnboardingLoadingDescriptionView.swift in Sources */,
 				567500FA2ADFD8FB009331CB /* InstallationType.swift in Sources */,
 				A034F1392B88B9AC0066F724 /* CoachApiTarget.swift in Sources */,
@@ -3141,6 +3383,7 @@
 				A07D95952AE920A100D2C2E2 /* AppCustomizationImpl.swift in Sources */,
 				5662DECE2B1615F200C1637C /* Double+Extensions.swift in Sources */,
 				A0255E702AFBD00200221EC6 /* AccountTarget.swift in Sources */,
+				A7A166752C1C334500DF6711 /* NotificationsInput.swift in Sources */,
 				A04426302AF23DAE005400AE /* TimeInterval+extensions.swift in Sources */,
 				567500062ADE84B4009331CB /* Migration.swift in Sources */,
 				A7D01B932AF115F200C50C1F /* NotificationOnboardingOutput.swift in Sources */,
@@ -3155,6 +3398,7 @@
 				A7A38DE72BC8226B003704C1 /* MultiplePaywallOutput.swift in Sources */,
 				A0881E5C2AEAB7A800E38FF5 /* Image+icons.swift in Sources */,
 				A0255E7A2AFBD1F200221EC6 /* SubscriptionsApiImpl.swift in Sources */,
+				A7D323A62C21A49F00AFAEF3 /* FastingRemindersSectionView.swift in Sources */,
 				A76B46332C11A6FD00D97DEC /* W2WLoginInput.swift in Sources */,
 				A00B4DC82B7382170067A872 /* FacebookInitializerService.swift in Sources */,
 				A7D01B612AF0C82100C50C1F /* OnboardingOutput.swift in Sources */,
@@ -3162,15 +3406,18 @@
 				A7AD9C362B17359B006AE1C5 /* AppSyncServicePreview.swift in Sources */,
 				567500CC2ADFCC54009331CB /* AppSyncServiceImpl.swift in Sources */,
 				A04E933D2BC67CC900696462 /* CloseButtonView.swift in Sources */,
+				A7D323BC2C21BDE400AFAEF3 /* NotificationsForStagesRouter.swift in Sources */,
 				A711E5512BEE1D7100AC81F9 /* OnboardingApi.swift in Sources */,
 				A76294372B21A4B300DAF93B /* PersonalizedStartWeightView.swift in Sources */,
 				A0382D412AF4F03A009CC579 /* SuccessViewModel.swift in Sources */,
 				567501072ADFD955009331CB /* IntercomService.swift in Sources */,
 				A7A1AEA42AFE2C0A00B6211E /* Contexts.swift in Sources */,
+				A7D323A42C21A16300AFAEF3 /* NotificationSeparatorText.swift in Sources */,
 				564BE0BF2AF0F30400CE7F38 /* FastingParameters.swift in Sources */,
 				A084496E2B1A86AC00D30E04 /* FastingPhaseInput.swift in Sources */,
 				567500BB2ADFC9F2009331CB /* GlobalConstants.swift in Sources */,
 				A722FEA72B15B201001CD1A3 /* UIScreen+extensions.swift in Sources */,
+				A7D323A92C21AC4800AFAEF3 /* NotificationPrior.swift in Sources */,
 				563257152ADE57D80000F33C /* FastingApp.swift in Sources */,
 				56C28DCE2AE109580007E48D /* CrashlyticsInitializer.swift in Sources */,
 				A0255E752AFBD1A900221EC6 /* PutPushTokenRequest.swift in Sources */,
@@ -3221,6 +3468,7 @@
 				567500232ADE86C3009331CB /* Synchronized.swift in Sources */,
 				562654C32B6A7E2F006FC4AB /* AppCustomizationImpl+Pricing.swift in Sources */,
 				A0881E6B2AEAC32500E38FF5 /* FastingViewModel.swift in Sources */,
+				A7D323AD2C21B4EA00AFAEF3 /* WeightInSectionView.swift in Sources */,
 				56C28DD02AE109580007E48D /* TrackerServiceInitializer.swift in Sources */,
 				56655B622AFB693E00508ED4 /* ClosedRange+extentions.swift in Sources */,
 				5675010C2ADFD955009331CB /* IntercomDataStorageImpl.swift in Sources */,

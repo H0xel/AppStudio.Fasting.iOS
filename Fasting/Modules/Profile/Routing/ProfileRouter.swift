@@ -89,6 +89,17 @@ class ProfileRouter: BaseRouter {
         push(route: route)
     }
 
+    func pushNotificationScreen() {
+        let route = NotificationsRoute(navigator: navigator, input: .init(context: .settings)
+        ) { [weak self] outputEvent in
+            switch outputEvent {
+            case .close:
+                self?.navigator.dismiss()
+            }
+        }
+        push(route: route)
+    }
+
     private func sendEmailWithOpenUrl() {
         Task {
             guard let url = URL(string: GlobalConstants.contactEmail) else { return }

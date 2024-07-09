@@ -122,11 +122,37 @@ enum AnalyticEvent: MirrorEnum {
         oldEndTime: String,
         schedule: String
     )
-    // swiftlint:enable enum_case_associated_values_count
     // Quick action
     case tapNeedAssistance
 
     case afFirstSubscribe
+
+    // Notifications Settings
+
+    case tapSetUpNotifications(context: NotificationsInput.Context)
+    case skipNotificationsSetUp
+    case tapSaveNotificationsSettings
+    case notificationSettingsUpdated(
+        quietMode: Bool,
+        quietModeFrom: String,
+        quietModeTo: String,
+        startFast: Bool,
+        endFast: Bool,
+        advanceReminders: Bool,
+        beforeStart: String,
+        beforeEnd: String,
+        stageNotifications: Bool,
+        sugarRises: Bool,
+        sugarDrops: Bool,
+        fatBurning: Bool,
+        kethosis: Bool,
+        autofagy: Bool,
+        weighInReminders: Bool,
+        weighInFrequency: String,
+        waterReminders: Bool,
+        waterFrequency: String
+    )
+    // swiftlint:enable enum_case_associated_values_count
 }
 
 extension AnalyticEvent {
@@ -192,6 +218,10 @@ extension AnalyticEvent {
         case .birthdayChanged: return "Birthday changed"
         case .tapChangeHeight: return "Tap change height"
         case .heightChanged: return "Height changed"
+        case .tapSetUpNotifications: return "Tap set up notifications"
+        case .skipNotificationsSetUp: return "Tap skip notifications set up"
+        case .tapSaveNotificationsSettings: return "Tap save notification settings"
+        case .notificationSettingsUpdated: return "Notification settings updated"
         }
     }
 

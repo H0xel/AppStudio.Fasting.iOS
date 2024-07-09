@@ -29,6 +29,10 @@ class FastingParametersServiceImpl: FastingParametersService {
             .eraseToAnyPublisher()
     }
 
+    var fastingData: AnyPublisher<FastingData, Never> {
+        fastingIntervalTrigger.eraseToAnyPublisher()
+    }
+
     var isFastingProcess: Bool {
         get { cloudStorage.get(key: isFastingProcessKey, defaultValue: false) }
         set { cloudStorage.set(key: isFastingProcessKey, value: newValue)}
@@ -108,7 +112,7 @@ extension FastingParametersServiceImpl {
     }
 }
 
-private struct FastingData {
+struct FastingData {
     let interval: FastingInterval
     let isFastingProcess: Bool
 

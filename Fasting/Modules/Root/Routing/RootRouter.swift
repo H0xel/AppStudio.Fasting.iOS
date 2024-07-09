@@ -187,7 +187,7 @@ class RootRouter: BaseRouter {
             }
             return self.navigator(for: tab)
         }
-        navigator.present(banner: DimmedProgressBanner())
+        navigator.present(banner: DimmedProgressBanner(), animation: nil)
     }
 
     func dismissBanner(for tab: AppTab, isOnboarding: Bool) {
@@ -197,7 +197,7 @@ class RootRouter: BaseRouter {
             }
             return self.navigator(for: tab)
         }
-        navigator.dismissBanner()
+        navigator.dismissBanner(animation: nil)
     }
 
     private func sendEmailWithOpenUrl() {

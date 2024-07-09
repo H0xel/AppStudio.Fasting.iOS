@@ -53,6 +53,13 @@ struct DebugMenuExperimentsView: View {
                 )
                 experiments.append(.init(experimentName: discountExperimentValue,
                                          value: discExp))
+
+                let customNotificationExp = try await baseAppCustomization.remoteConfigValue(
+                    forKey: "exp_custom_notifications",
+                    defaultValue: "control"
+                )
+                experiments.append(.init(experimentName: "exp_custom_notifications",
+                                         value: customNotificationExp))
             }
         }
     }

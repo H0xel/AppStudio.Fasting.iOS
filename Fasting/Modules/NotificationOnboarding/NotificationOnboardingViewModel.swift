@@ -13,7 +13,10 @@ import Dependencies
 class NotificationOnboardingViewModel: BaseViewModel<NotificationOnboardingOutput> {
     @Dependency(\.storageService) private var storageService
     @Dependency(\.trackerService) private var trackerService
+    @Dependency(\.appCustomization) private var appCustomization
     var router: NotificationOnboardingRouter!
+
+    @Published private var isCustomNotificationScreenExperimentAvailable = false
 
     init(input: NotificationOnboardingInput, output: @escaping NotificationOnboardingOutputBlock) {
         super.init(output: output)
@@ -23,6 +26,7 @@ class NotificationOnboardingViewModel: BaseViewModel<NotificationOnboardingOutpu
     func notificationButtonTapped() {
         tapAllowNotification()
         requestAccess()
+        appCustomization.isCustomNotificationAvailable.assign(to: &$isCustomNotificationScreenExperimentAvailable)
     }
 
     private func requestAccess() {
@@ -30,6 +34,15 @@ class NotificationOnboardingViewModel: BaseViewModel<NotificationOnboardingOutpu
             trackPushAccessDialogShown()
             let isGranted = await requestAuthorization()
             trackPushAccessIsAnswered(isGranted: isGranted)
+
+            if isCustomNotificationScreenExperimentAvailable {
+                trackNotificationsScreenTap()
+                router.pushNotificationScreen { [weak self] in
+                    self?.output(.onboardingIsFinished)
+                }
+                return
+            }
+
             output(.onboardingIsFinished)
         }
     }
@@ -57,5 +70,9 @@ private extension NotificationOnboardingViewModel {
 
     func trackPushAccessIsAnswered(isGranted: Bool) {
         trackerService.track(.pushAccessAnswered(isGranted: isGranted))
+    }
+
+    func trackNotificationsScreenTap() {
+        trackerService.track(.tapSetUpNotifications(context: .onboarding))
     }
 }

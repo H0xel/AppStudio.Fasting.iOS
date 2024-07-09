@@ -21,6 +21,12 @@ struct ProfileScreen: View {
                     viewModel.changePlan()
                 }
 
+                ProfileButtonView(
+                    input: .notifications,
+                    action: viewModel.openNotifications
+                )
+                .continiousCornerRadius(.cornerRadius)
+
                 VStack(spacing: .zero) {
                     ProfileButtonView(input: .sex(sex: viewModel.sex),
                                       action: viewModel.changeSex)

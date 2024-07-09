@@ -14,4 +14,16 @@ class NotificationOnboardingRouter: BaseRouter {
                       output: @escaping NotificationOnboardingOutputBlock) -> Route {
         NotificationOnboardingRoute(navigator: navigator, input: input, output: output)
     }
+
+    func pushNotificationScreen(completion: @escaping () -> Void) {
+        let route = NotificationsRoute(navigator: navigator, input: .init(context: .onboarding)
+        ) { [weak self] outputEvent in
+            switch outputEvent {
+            case .close:
+                self?.navigator.dismiss()
+                completion()
+            }
+        }
+        push(route: route)
+    }
 }

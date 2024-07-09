@@ -47,3 +47,6 @@ extension CancelFastingContext: TrackerParam {
         return self.rawValue
     }
 }
+extension NotificationsInput.Context: TrackerParam {
+    var description: String { rawValue }
+}
