@@ -27,27 +27,6 @@ struct PaywallBottomInfoView: View {
                     .font(.poppins(.description))
             }
             .padding(.top, Layout.bottomTextTopPadding)
-
-            HStack(spacing: .zero) {
-                Spacer()
-                Button(action: {
-                    action(.presentTermsOfUse)
-                }, label: {
-                    Text("Paywall.termsOfUse")
-                        .font(.poppins(.description))
-                })
-                .foregroundStyle(Color.studioBlackLight)
-                Spacer()
-                Button(action: {
-                    action(.presentPrivacyPolicy)
-                }, label: {
-                    Text("Paywall.privacyPolicy")
-                        .font(.poppins(.description))
-                })
-                .foregroundStyle(Color.studioBlackLight)
-                Spacer()
-            }
-            .padding(.top, Layout.bottomTextTopPadding)
         }
     }
 }
@@ -55,8 +34,6 @@ struct PaywallBottomInfoView: View {
 extension PaywallBottomInfoView {
     enum Action {
         case onSaveTap
-        case presentTermsOfUse
-        case presentPrivacyPolicy
     }
 }
 

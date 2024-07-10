@@ -53,23 +53,6 @@ struct DiscountPaywallScreen: View {
             }
             .padding(.horizontal, .buttonHorizontalPadding)
             .padding(.bottom, .buttonBottomPadding)
-
-            HStack(spacing: .zero) {
-                Spacer()
-                Button(action: viewModel.presentTermsOfUse, label: {
-                    Text("Paywall.termsOfUse")
-                        .font(.poppins(.description))
-                })
-                .foregroundStyle(Color.studioBlackLight)
-                Spacer()
-                Button(action: viewModel.presentPrivacyPolicy, label: {
-                    Text("Paywall.privacyPolicy")
-                        .font(.poppins(.description))
-                })
-                .foregroundStyle(Color.studioBlackLight)
-                Spacer()
-            }
-            .padding(.bottom, .buttonBottomPadding)
         }
         .onAppear(perform: viewModel.appeared)
         .onChange(of: scenePhase) { newPhase in

@@ -24,6 +24,7 @@
 "ProfileScreen.support" = "Support";
 "ProfileScreen.termsOfUse" = "Terms of use";
 "ProfileScreen.privacyPolicy" = "Privacy policy";
+"ProfileScreen.termsAndConditions" = "Terms & Conditions";
 "ProfileScreen.signInByEmail" = "Sign In by Email";
 "ProfileScreen.notifications" = "Notifications";
 
@@ -76,3 +77,8 @@
 "DiscountPaywall.banner.get" = "Get";
 "DiscountPaywall.banner.off" = "OFF";
 "DiscountPaywall.banner.button" = "Save %@ now";
+
+// MARK: Onboarding Privacy and Terms
+
+"Onboarding.and" = " and ";
+"Onboarding.continuingYouAgree" = "By continuing you agree to the ";

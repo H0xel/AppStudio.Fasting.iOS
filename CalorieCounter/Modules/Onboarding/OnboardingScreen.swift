@@ -68,7 +68,7 @@ struct OnboardingScreen: View {
     var currentView: some View {
         switch viewModel.step {
         case .start:
-            OnboardingStartView(onTap: viewModel.nextStep)
+            OnboardingStartView(onTap: viewModel.handle)
         case .sex:
             OnboardingPickerView(title: Localization.sexTitle,
                                  description: Localization.sexDescription,

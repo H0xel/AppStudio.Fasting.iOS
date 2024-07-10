@@ -88,4 +88,11 @@ class OnboardingRouter: BaseRouter {
         }
         push(route: route)
     }
+
+    func open(url: URL) {
+        let route = SafariRoute(url: url) { [weak self] in
+            self?.dismiss()
+        }
+        present(route: route)
+    }
 }

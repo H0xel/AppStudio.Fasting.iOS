@@ -89,16 +89,6 @@ class DiscountPaywallViewModel: BasePaywallViewModel<DiscountPaywallOutput> {
             .store(in: &cancellables)
     }
 
-    func presentTermsOfUse() {
-        guard let url = URL(string: GlobalConstants.termsOfUse) else { return }
-        router.open(url: url)
-    }
-
-    func presentPrivacyPolicy() {
-        guard let url = URL(string: GlobalConstants.privacyPolicy) else { return }
-        router.open(url: url)
-    }
-
     private func subscribeToStatus() {
         $status
             .sink(with: self) { this, status in

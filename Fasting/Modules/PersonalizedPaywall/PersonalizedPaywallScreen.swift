@@ -40,22 +40,6 @@ struct PersonalizedPaywallScreen: View {
                     viewModel.subscribe()
                 }
                 .padding(.horizontal, Layout.bottomButtonHorizontalPadding)
-
-                HStack(spacing: .zero) {
-                    Spacer()
-                    Button(action: viewModel.presentTermsOfUse, label: {
-                        Text("Paywall.termsOfUse")
-                            .font(.poppins(.description))
-                    })
-                    .foregroundStyle(Color.studioBlackLight)
-                    Spacer()
-                    Button(action: viewModel.presentPrivacyPolicy, label: {
-                        Text("Paywall.privacyPolicy")
-                            .font(.poppins(.description))
-                    })
-                    .foregroundStyle(Color.studioBlackLight)
-                    Spacer()
-                }
             }
             .padding(.top, Layout.topButtonPadding)
             .padding(.bottom, Layout.buttonBottomPadding)

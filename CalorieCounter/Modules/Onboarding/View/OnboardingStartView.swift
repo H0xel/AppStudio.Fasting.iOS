@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import AppStudioStyles
 
 struct OnboardingStartView: View {
 
-    let onTap: () -> Void
+    let onTap: (Action) -> Void
 
     var body: some View {
         ZStack {
@@ -33,14 +34,34 @@ struct OnboardingStartView: View {
                         .font(.poppins(.headerL))
                         .padding(.bottom, Layout.textVerticalPadding)
                         .background()
-                    AccentButton(title: Localization.buttonTitle, action: onTap)
+                    AccentButton(title: Localization.buttonTitle) {
+                        onTap(.continueTap)
+                    }
+
+                    PrivacyAndTermsOnboardingView { event in
+                        switch event {
+                        case .privacyTapped:
+                            onTap(.privacyTapped)
+                        case .termsTapped:
+                            onTap(.termsTapped)
+                        }
+                    }
+                    .padding(.top, Layout.topPadding)
+
                 }
                 .padding(.horizontal, Layout.horizontalPadding)
-                .padding(.bottom, Layout.buttonBottomPadding)
                 .background()
             }
         }
         .frame(width: UIScreen.main.bounds.width)
+    }
+}
+
+extension OnboardingStartView {
+    enum Action {
+        case termsTapped
+        case privacyTapped
+        case continueTap
     }
 }
 
@@ -51,13 +72,13 @@ private extension OnboardingStartView {
     }
 
     enum Layout {
-        static let textVerticalPadding: CGFloat = 48
-        static let buttonBottomPadding: CGFloat = 58
+        static let textVerticalPadding: CGFloat = 24
         static let horizontalPadding: CGFloat = 32
         static let gradientHeight: CGFloat = 100
+        static let topPadding: CGFloat = 16
     }
 }
 
 #Preview {
-    OnboardingStartView {}
+    OnboardingStartView { _ in }
 }

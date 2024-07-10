@@ -66,14 +66,7 @@ struct OnboardingScreen: View {
     var currentView: some View {
         switch viewModel.step {
         case .start:
-            OnboardingStartView { action in
-                switch action {
-                case .getStartedTapped:
-                    viewModel.nextStep()
-                case .w2wSignIn:
-                    viewModel.w2wSignTapped()
-                }
-            }
+            OnboardingStartView(onTap: viewModel.handle)
         case .fastingGoal:
             OnboardingPickerView(title: Localization.fastingGoalTitle,
                                  description: Localization.fastingGoalSubtitle,

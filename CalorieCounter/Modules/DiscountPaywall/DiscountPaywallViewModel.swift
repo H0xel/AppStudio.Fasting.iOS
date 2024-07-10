@@ -75,16 +75,6 @@ class DiscountPaywallViewModel: BasePaywallViewModel<DiscountPaywallOutput> {
         timeInterval = interval
     }
 
-    func presentTermsOfUse() {
-        guard let url = URL(string: GlobalConstants.termsOfUse) else { return }
-        router.open(url: url)
-    }
-
-    func presentPrivacyPolicy() {
-        guard let url = URL(string: GlobalConstants.privacyPolicy) else { return }
-        router.open(url: url)
-    }
-
     private func startTimer() {
         Publishers.Merge(timer, Just(.now))
             .receive(on: DispatchQueue.main)

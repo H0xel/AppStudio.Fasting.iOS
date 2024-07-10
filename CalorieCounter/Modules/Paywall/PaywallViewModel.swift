@@ -94,12 +94,6 @@ class PaywallViewModel: BasePaywallViewModel<PaywallScreenOutput> {
         switch action {
         case .onSaveTap:
             subscribe()
-        case .presentTermsOfUse:
-            guard let url = URL(string: GlobalConstants.termsOfUse) else { return }
-            router.open(url: url)
-        case .presentPrivacyPolicy:
-            guard let url = URL(string: GlobalConstants.privacyPolicy) else { return }
-            router.open(url: url)
         }
     }
 

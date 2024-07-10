@@ -111,6 +111,27 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
         specialEvent = event
     }
 
+    func handle(_ event: OnboardingStartView.Action) {
+        switch event {
+
+        case .getStartedTapped:
+            nextStep()
+        case .w2wSignIn:
+            router.pushW2WLoginScreen { [weak self] output in
+                switch output {
+                case .onboardingIsFinished:
+                    self?.output(.onboardingIsFinished)
+                }
+            }
+        case .termsTapped:
+            guard let url = URL(string: GlobalConstants.termsOfUse) else { return }
+            router.open(url: url)
+        case .privacyTapped:
+            guard let url = URL(string: GlobalConstants.privacyPolicy) else { return }
+            router.open(url: url)
+        }
+    }
+
     func nextStep() {
         isMovingForward = true
         trackNextStep()
@@ -143,15 +164,6 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
         isMovingForward = false
         if let prevStep = OnboardingFlowStep(rawValue: step.rawValue - 1) {
             step = prevStep
-        }
-    }
-
-    func w2wSignTapped() {
-        router.pushW2WLoginScreen { [weak self] output in
-            switch output {
-            case .onboardingIsFinished:
-                self?.output(.onboardingIsFinished)
-            }
         }
     }
 

@@ -165,6 +165,19 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
         self.proteinLevel = proteinLevel
     }
 
+    func handle(_ event: OnboardingStartView.Action) {
+        switch event {
+        case .termsTapped:
+            guard let url = URL(string: GlobalConstants.termsOfUse) else { return }
+            router.open(url: url)
+        case .privacyTapped:
+            guard let url = URL(string: GlobalConstants.privacyPolicy) else { return }
+            router.open(url: url)
+        case .continueTap:
+            nextStep()
+        }
+    }
+
     func nextStep() {
         isMovingForward = true
         trackNextStep()
