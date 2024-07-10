@@ -133,6 +133,8 @@ enum AnalyticEvent: MirrorEnum {
 
     case tapNextDay(targetDate: String)
     case tapPreviousDay(targetDate: String)
+
+    case serverError(code: Int, message: String, details: String?, traceId: String?, path: String)
 }
 
 extension AnalyticEvent {
@@ -204,6 +206,7 @@ extension AnalyticEvent {
         case .feedbackSent: return "Feedback sent"
         case .tapNextDay: return "Tap next day"
         case .tapPreviousDay: return "Tap previous day"
+        case .serverError: return "Server error"
         }
     }
 
