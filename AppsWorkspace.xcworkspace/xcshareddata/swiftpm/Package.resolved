@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/abseil-cpp-binary.git",
       "state" : {
-        "revision" : "bfc0b6f81adc06ce5121eb23f628473638d67c5c",
-        "version" : "1.2022062300.0"
+        "revision" : "748c7837511d0e6a507737353af268484e1745e2",
+        "version" : "1.2024011601.1"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/amplitude/Amplitude-iOS.git",
       "state" : {
-        "revision" : "dca2c744336e651ee285011282b86accc2ce3704",
-        "version" : "8.17.2"
+        "revision" : "d4a71f3e06b5108696ca7b33567d0fc539597d82",
+        "version" : "8.18.3"
       }
     },
     {
@@ -37,12 +37,21 @@
       }
     },
     {
-      "identity" : "appsflyerframework",
+      "identity" : "app-check",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AppsFlyerSDK/AppsFlyerFramework.git",
+      "location" : "https://github.com/google/app-check.git",
       "state" : {
-        "revision" : "4591cd113ea1af6fa950479fadbce2f13bab8895",
-        "version" : "6.13.1"
+        "revision" : "3b62f154d00019ae29a71e9738800bb6f18b236d",
+        "version" : "10.19.2"
+      }
+    },
+    {
+      "identity" : "appsflyerframework-static",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AppsFlyerSDK/AppsFlyerFramework-Static",
+      "state" : {
+        "revision" : "19c1c5c476d431e381f35c8c99a2fe6435085207",
+        "version" : "6.14.0"
       }
     },
     {
@@ -50,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Analytics",
       "state" : {
-        "revision" : "7079c1fa488f8bdfb2a920b1122de52dad61d1e2",
-        "version" : "1.0.7"
+        "revision" : "667e316dd43853f1e9babfab8851193f5dbd5b8f",
+        "version" : "1.0.8"
       }
     },
     {
@@ -59,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Common",
       "state" : {
-        "revision" : "be0ba8b7340d8f7bba65e8f5ba22085b929f93ea",
-        "version" : "1.0.20"
+        "revision" : "99f2ed75027acb5811c2585a3f1a0e3123efd757",
+        "version" : "1.0.22"
       }
     },
     {
@@ -68,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git",
       "state" : {
-        "revision" : "fca549facd162931fa55343beac633f4d2bd0147",
-        "version" : "1.0.13"
+        "revision" : "d182abedfaf8c286bd660e84d3a99dc0134d4a9d",
+        "version" : "1.0.14"
       }
     },
     {
@@ -113,8 +122,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk.git",
       "state" : {
-        "revision" : "837d4af6ead57cec1fc38007892500d3139c7556",
-        "version" : "10.16.0"
+        "revision" : "888f0b6026e2441a69e3ee2ad5293c7a92031e62",
+        "version" : "10.23.1"
       }
     },
     {
@@ -122,8 +131,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleAppMeasurement.git",
       "state" : {
-        "revision" : "56f681586ff006a7982b53dc94082eea31971acf",
-        "version" : "10.16.0"
+        "revision" : "c7a5917ebe48d69f421aadf154ef3969c8b7f12d",
+        "version" : "10.23.1"
       }
     },
     {
@@ -149,8 +158,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/grpc-binary.git",
       "state" : {
-        "revision" : "a673bc2937fbe886dd1f99c401b01b6d977a9c98",
-        "version" : "1.49.1"
+        "revision" : "e9fad491d0673bdda7063a0341fb6b47a30c5359",
+        "version" : "1.62.2"
       }
     },
     {

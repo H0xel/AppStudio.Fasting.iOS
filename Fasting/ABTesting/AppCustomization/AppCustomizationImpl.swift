@@ -22,6 +22,7 @@ private let closePaywallButtonDelayKey = "close_paywall_button_delay"
 private let forceUpdateLink = "force_update_link"
 private let isLongOnboardingEnabledKey = "long_onboarding_enabled"
 private let fastingCyclesLimitKey = "fasting_cycles_limit"
+private let rateUsKey = "rate_us"
 
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
 
@@ -121,6 +122,10 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
             .map { try AvailableProducts(json: $0) }
             .retry(times: 3, withDelay: .seconds(1))
             .catchAndReturn(.empty)
+    }
+
+    func canShowRateUsDialog() async throws -> Bool {
+        try await remoteConfigValue(forKey: rateUsKey, defaultValue: false)
     }
 
     // TODO: Протестить на то чтобы в кэше не сохранялось

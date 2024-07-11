@@ -257,6 +257,9 @@
 		A05004722B20A18300820E45 /* OnboardingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05004712B20A18300820E45 /* OnboardingStartView.swift */; };
 		A05004752B20A60700820E45 /* OnboardingPickerOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05004742B20A60700820E45 /* OnboardingPickerOption.swift */; };
 		A05004772B20D94100820E45 /* OnboardingDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05004762B20D94100820E45 /* OnboardingDatePickerView.swift */; };
+		A056ACB02C3C9758005BD1B3 /* RateAppServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056ACAD2C3C9758005BD1B3 /* RateAppServiceImpl.swift */; };
+		A056ACB12C3C9758005BD1B3 /* RateAppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056ACAE2C3C9758005BD1B3 /* RateAppDependencies.swift */; };
+		A056ACB22C3C9758005BD1B3 /* RateAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056ACAF2C3C9758005BD1B3 /* RateAppService.swift */; };
 		A063B1F52AEBD0E800084696 /* StartFastingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */; };
 		A063B1F62AEBD0E800084696 /* StartFastingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F02AEBD0E800084696 /* StartFastingRouter.swift */; };
 		A063B1F72AEBD0E800084696 /* StartFastingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063B1F12AEBD0E800084696 /* StartFastingRoute.swift */; };
@@ -733,6 +736,9 @@
 		A05004712B20A18300820E45 /* OnboardingStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartView.swift; sourceTree = "<group>"; };
 		A05004742B20A60700820E45 /* OnboardingPickerOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPickerOption.swift; sourceTree = "<group>"; };
 		A05004762B20D94100820E45 /* OnboardingDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDatePickerView.swift; sourceTree = "<group>"; };
+		A056ACAD2C3C9758005BD1B3 /* RateAppServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppServiceImpl.swift; sourceTree = "<group>"; };
+		A056ACAE2C3C9758005BD1B3 /* RateAppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppDependencies.swift; sourceTree = "<group>"; };
+		A056ACAF2C3C9758005BD1B3 /* RateAppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppService.swift; sourceTree = "<group>"; };
 		A063B1EF2AEBD0E800084696 /* StartFastingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingInput.swift; sourceTree = "<group>"; };
 		A063B1F02AEBD0E800084696 /* StartFastingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingRouter.swift; sourceTree = "<group>"; };
 		A063B1F12AEBD0E800084696 /* StartFastingRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartFastingRoute.swift; sourceTree = "<group>"; };
@@ -1568,6 +1574,7 @@
 		5675FFD12ADE8358009331CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A056ACAC2C3C974A005BD1B3 /* RateAppService */,
 				A7999CFA2C2AB6F2004D9C9B /* QuiteModeNotificationsService */,
 				A7E51DEC2C22E2200042AAEA /* NotificationSettingsService */,
 				A02155FE2BA0542C004DF16C /* CalendarProgressService */,
@@ -2027,6 +2034,16 @@
 				A05004742B20A60700820E45 /* OnboardingPickerOption.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A056ACAC2C3C974A005BD1B3 /* RateAppService */ = {
+			isa = PBXGroup;
+			children = (
+				A056ACAD2C3C9758005BD1B3 /* RateAppServiceImpl.swift */,
+				A056ACAE2C3C9758005BD1B3 /* RateAppDependencies.swift */,
+				A056ACAF2C3C9758005BD1B3 /* RateAppService.swift */,
+			);
+			path = RateAppService;
 			sourceTree = "<group>";
 		};
 		A063B1EE2AEBD0C600084696 /* StartFasting */ = {
@@ -3093,6 +3110,9 @@
 				A07EAB372AFA56A200A46D7E /* EndFastingEarlyScreen.swift in Sources */,
 				566C24912AE8F80B00AEDB3C /* PaywallRouter.swift in Sources */,
 				56B10ABE2AF0E0AC008FC07E /* DatabaseInitializer.swift in Sources */,
+				A056ACB02C3C9758005BD1B3 /* RateAppServiceImpl.swift in Sources */,
+				A056ACB12C3C9758005BD1B3 /* RateAppDependencies.swift in Sources */,
+				A056ACB22C3C9758005BD1B3 /* RateAppService.swift in Sources */,
 				A0CEE6282AEFE3FB0082B27F /* FastingServiceImpl.swift in Sources */,
 				56E223EF2B207E0500096664 /* OnboardingServiceImpl.swift in Sources */,
 				A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */,
@@ -3873,7 +3893,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Analytics";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.7;
+				version = 1.0.8;
 			};
 		};
 		564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */ = {
@@ -3889,7 +3909,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = exactVersion;
-				version = 10.16.0;
+				version = 10.23.1;
 			};
 		};
 		567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */ = {
@@ -3921,7 +3941,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Common.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.20;
+				version = 1.0.22;
 			};
 		};
 		A0255E8F2AFBD3ED00221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */ = {
@@ -3929,7 +3949,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.13;
+				version = 1.0.14;
 			};
 		};
 		A758C6182C0DFEEA00F9DC3F /* XCRemoteSwiftPackageReference "intercom-ios-sp" */ = {

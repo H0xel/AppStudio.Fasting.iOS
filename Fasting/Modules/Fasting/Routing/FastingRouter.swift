@@ -87,7 +87,9 @@ class FastingRouter: BaseRouter {
         currentNavigator.present(route: route)
     }
 
-    func presentArticle(isMonetizationExpAvailable: Bool, for stage: FastingStage, output: @escaping FastingPhaseOutputBlock) {
+    func presentArticle(isMonetizationExpAvailable: Bool,
+                        for stage: FastingStage,
+                        output: @escaping FastingPhaseOutputBlock) {
         let route = FastingPhaseRoute(navigator: currentNavigator, input: .init(
             isMonetizationExpAvailable: isMonetizationExpAvailable,
             stage: stage), output: output)
@@ -96,5 +98,12 @@ class FastingRouter: BaseRouter {
 
     private var currentNavigator: Navigator {
         isWidgetPresented ? fastingWidgetNavigator : navigator
+    }
+
+    func presentRateUsDialog(output: @escaping ViewOutput<RateUsOutput>) {
+        let sheet = RateUsSheet(navigator: currentNavigator,
+                                input: .healthInput(reviewURL: GlobalConstants.appStoreReviewURL),
+                                output: output)
+        currentNavigator.present(sheet: sheet, detents: sheet.detents, showIndicator: sheet.showIndicators)
     }
 }

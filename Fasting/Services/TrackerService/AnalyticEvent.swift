@@ -127,6 +127,9 @@ enum AnalyticEvent: MirrorEnum {
 
     case afFirstSubscribe
 
+    case rateUsDialogShown
+    case rateUsDialogAnswered(rate: Int)
+
     case serverError(code: Int, message: String, details: String?, traceId: String?, path: String)
     // Notifications Settings
 
@@ -219,6 +222,8 @@ extension AnalyticEvent {
         case .birthdayChanged: return "Birthday changed"
         case .tapChangeHeight: return "Tap change height"
         case .heightChanged: return "Height changed"
+        case .rateUsDialogShown: return "Rate Us dialog shown"
+        case .rateUsDialogAnswered: return "Rate Us dialog answered"
         case .serverError: return "Server error"
         case .tapSetUpNotifications: return "Tap set up notifications"
         case .skipNotificationsSetUp: return "Tap skip notifications set up"

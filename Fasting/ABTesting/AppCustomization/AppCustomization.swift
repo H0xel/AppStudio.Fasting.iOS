@@ -23,6 +23,7 @@ protocol AppCustomization {
     func isLongOnboardingEnabled() async throws -> Bool
     func resetPricingExp()
     func resetDiscountExp()
+    func canShowRateUsDialog() async throws -> Bool
     // TODO: Протестить на то чтобы в кэше не сохранялось
 //    func shouldForceUpdate() async throws -> Bool
 }

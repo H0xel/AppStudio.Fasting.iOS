@@ -36,5 +36,7 @@ public enum GlobalConstants {
     public static let sandboxBaseAddress = "https://telecom.municorn.com/"
     public static let sandboxServicePath = "api/"
     public static let sandboxTimeout = 90.0
+
+    static let appStoreReviewURL = "https://apps.apple.com/us/app/calorie-counter-food-tracker/id6474290049?action=write-review"
 }
 // swiftlint:enable line_length

@@ -16,7 +16,7 @@ let package = Package(
             targets: ["AppStudioModels"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Common.git", exact: "1.0.20"),
+        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Common.git", exact: "1.0.22"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

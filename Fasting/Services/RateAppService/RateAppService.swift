@@ -1,14 +1,11 @@
 //  
 //  RateAppService.swift
-//  CalorieCounter
+//  Fasting
 //
-//  Created by Denis Khlopin on 17.04.2024.
+//  Created by Руслан Сафаргалеев on 09.07.2024.
 //
 
 protocol RateAppService {
-    func canShowRateAppWindow() async throws -> Bool
-    func rateAppWindowShown()
-
     var canShowAppStoreReviewDialog: Bool { get }
     func canShowRateUsDialog() async throws -> Bool
     func rateUsDialogShown()

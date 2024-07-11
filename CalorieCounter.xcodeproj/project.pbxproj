@@ -4286,7 +4286,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Analytics";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.7;
+				version = 1.0.8;
 			};
 		};
 		5658F8BF2B34009700E010E9 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */ = {
@@ -4302,7 +4302,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = exactVersion;
-				version = 10.16.0;
+				version = 10.23.1;
 			};
 		};
 		567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */ = {
@@ -4334,7 +4334,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Navigation";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.13;
+				version = 1.0.14;
 			};
 		};
 		ADC784F02AFA859C005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */ = {
@@ -4342,7 +4342,7 @@
 			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Common";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.20;
+				version = 1.0.22;
 			};
 		};
 		ADC784F72AFA86CC005F16A6 /* XCRemoteSwiftPackageReference "Moya" */ = {

@@ -15,15 +15,12 @@ struct CustomKeyboardBanner: Banner {
 
     var view: AnyView {
         CustomKeyboardScreen(viewModel: viewModel)
+            .transition(.asymmetric(insertion: .push(from: .bottom), removal: .push(from: .top)))
             .eraseToAnyView()
     }
 
     private var viewModel: CustomKeyboardViewModel {
         let viewModel = CustomKeyboardViewModel(input: input, output: output)
         return viewModel
-    }
-
-    var transition: AnyTransition {
-        .asymmetric(insertion: .push(from: .bottom), removal: .push(from: .top))
     }
 }

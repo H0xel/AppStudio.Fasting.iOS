@@ -63,4 +63,11 @@ class FoodRouter: BaseRouter {
             message: alertSubTitle,
             actions: [openSettingsAction, cancelAction]))
     }
+
+    func presentRateUsDialog(output: @escaping ViewOutput<RateUsOutput>) {
+        let sheet = RateUsSheet(navigator: navigator,
+                                input: .healthInput(reviewURL: GlobalConstants.appStoreReviewURL),
+                                output: output)
+        present(sheet: sheet)
+    }
 }

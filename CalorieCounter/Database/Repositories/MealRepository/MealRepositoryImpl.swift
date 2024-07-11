@@ -60,6 +60,13 @@ extension MealRepositoryImpl: MealRepository {
         return try await select(request: request)
     }
 
+    func firstMeal() async throws -> Meal? {
+        let request = Meal.request()
+        request.fetchLimit = 1
+        request.sortDescriptors = [.init(key: "creationDate", ascending: true)]
+        return try await select(request: request).first
+    }
+
     func allMeals() async throws -> [Meal] {
         try await selectAll()
     }

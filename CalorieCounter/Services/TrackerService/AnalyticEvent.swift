@@ -134,6 +134,9 @@ enum AnalyticEvent: MirrorEnum {
     case tapNextDay(targetDate: String)
     case tapPreviousDay(targetDate: String)
 
+    case rateUsDialogShown
+    case rateUsDialogAnswered(rate: Int)
+
     case serverError(code: Int, message: String, details: String?, traceId: String?, path: String)
 }
 
@@ -206,6 +209,8 @@ extension AnalyticEvent {
         case .feedbackSent: return "Feedback sent"
         case .tapNextDay: return "Tap next day"
         case .tapPreviousDay: return "Tap previous day"
+        case .rateUsDialogShown: return "Rate Us dialog shown"
+        case .rateUsDialogAnswered: return "Rate Us dialog answered"
         case .serverError: return "Server error"
         }
     }

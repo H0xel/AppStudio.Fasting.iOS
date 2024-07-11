@@ -15,6 +15,7 @@ struct QuickAddBanner: Banner {
 
     var view: AnyView {
         QuickAddView(viewModel: viewModel)
+            .transition(.push(from: .bottom))
             .eraseToAnyView()
     }
 
@@ -23,9 +24,5 @@ struct QuickAddBanner: Banner {
         let viewModel = QuickAddViewModel(input: input, output: output)
         viewModel.router = router
         return viewModel
-    }
-
-    var transition: AnyTransition {
-        .push(from: .bottom)
     }
 }

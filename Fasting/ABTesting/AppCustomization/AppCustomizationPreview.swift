@@ -48,4 +48,8 @@ class AppCustomizationPreview: AppCustomization, ProductIdsService {
     var paywallProductIds: RxSwift.Observable<[String]> { .just([]) }
 
     var onboardingPaywallProductIds: RxSwift.Observable<[String]> { .just([]) }
+
+    func canShowRateUsDialog() async throws -> Bool {
+        true
+    }
 }

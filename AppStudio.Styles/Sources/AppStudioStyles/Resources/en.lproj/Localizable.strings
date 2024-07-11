@@ -78,7 +78,16 @@
 "DiscountPaywall.banner.off" = "OFF";
 "DiscountPaywall.banner.button" = "Save %@ now";
 
-// MARK: Onboarding Privacy and Terms
+// MARK: RateUsInput
+"RateUsInput.title" = "How's your journey with us going?";
+"RateUsInput.tapToRate" = "Tap to rate";
+"RateUsInput.badFeedbackTitle" = "Thanks for your\nfeedback!";
+"RateUsInput.badFeedbackDesription" = "We’re sorry you’re not enjoying your experience. Please take a moment to tell us how we can improve.";
+"RateUsInput.badFeedbackButtonTitle" = "Tell Us More";
+"RateUsInput.goodFeedbackTitle" = "Thanks for your\nfeedback!";
+"RateUsInput.goodFeedbackDesription" = "Please leave a review in the App Store. This will help more customers discover us.";
+"RateUsInput.goodFeedbackButtonTitle" = "Leave a Review";
 
+// MARK: Onboarding Privacy and Terms
 "Onboarding.and" = " and ";
 "Onboarding.continuingYouAgree" = "By continuing you agree to the ";

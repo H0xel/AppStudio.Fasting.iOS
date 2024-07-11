@@ -15,4 +15,5 @@ protocol MealRepository {
     func mealObserver(dayDate: Date) -> MealObserver
     func meals(count: Int?) async throws -> [Meal]
     func allMeals() async throws -> [Meal]
+    func firstMeal() async throws -> Meal?
 }

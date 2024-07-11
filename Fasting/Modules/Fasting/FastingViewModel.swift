@@ -26,6 +26,9 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     @Dependency(\.newSubscriptionService) private var newSubscriptionService
     @Dependency(\.requestReviewService) private var requestReviewService
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
+    @Dependency(\.rateAppService) private var rateAppService
+    @Dependency(\.intercomService) private var intercomService
+    @Dependency(\.appCustomization) private var appCustomization
 
     var router: FastingRouter!
     @Published var fastingStatus: FastingStatus = .unknown
@@ -158,10 +161,6 @@ class FastingViewModel: BaseViewModel<FastingOutput> {
     private func startFasting( date: Date) {
         fastingService.startFasting(from: date)
         trackFastingStarted(startTime: date.description)
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.requestReviewService.requestAppStoreReview()
-        }
     }
 
     private func endFasting(context: String) {
@@ -319,6 +318,8 @@ extension FastingViewModel {
                 try await self?.finishFastingSuccessfully(fastingInterval: fastingInterval,
                                                           startDate: startDate,
                                                           endDate: endDate)
+
+                try await self?.presentRateAppIfNeeded()
             }
         }
     }
@@ -336,6 +337,42 @@ extension FastingViewModel {
         if interval >= 5 * .hour {
             fastingFinishedCyclesLimitService.increaseLimit(by: 1)
         }
+    }
+
+    private func presentRateAppIfNeeded() async throws {
+        if try await appCustomization.canShowRateUsDialog(), try await rateAppService.canShowRateUsDialog() {
+            try await Task.sleep(seconds: 1)
+            presentRateUsDialog()
+            rateAppService.rateUsDialogShown()
+            trackerService.track(.rateUsDialogShown)
+            return
+        }
+        if rateAppService.canShowAppStoreReviewDialog {
+            try await Task.sleep(seconds: 1)
+            requestReviewService.requestAppStoreReview()
+        }
+    }
+
+    private func presentRateUsDialog() {
+        router.presentRateUsDialog { [weak self] output in
+            guard let self else { return }
+            switch output {
+            case .presentSupport:
+                self.presentIntercome()
+            case .raiting(let raiting):
+                self.trackerService.track(.rateUsDialogAnswered(rate: raiting))
+                self.rateAppService.userRatedUs()
+            case .presentWriteReview:
+                break
+            }
+        }
+    }
+
+    private func presentIntercome() {
+        intercomService.presentIntercom()
+            .receive(on: DispatchQueue.main)
+            .sink { _ in }
+            .store(in: &cancellables)
     }
 
     private func presentEndFastingEarlyScreen(context: String) {

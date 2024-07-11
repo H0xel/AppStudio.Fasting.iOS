@@ -38,5 +38,7 @@ public enum GlobalConstants {
     public static let sandboxBaseAddress = "https://staging.telecom.municorn.com/"
     public static let sandboxServicePath = "api/"
     public static let sandboxTimeout = 90.0
+
+    static let appStoreReviewURL = "https://apps.apple.com/us/app/intermittent-fasting-tracker/id6470460463?action=write-review"
 }
 // swiftlint:enable line_length

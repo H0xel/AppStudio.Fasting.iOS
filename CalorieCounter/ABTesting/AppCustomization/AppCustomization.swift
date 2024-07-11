@@ -22,5 +22,6 @@ protocol AppCustomization {
     func isLongOnboardingEnabled() async throws -> Bool
     func resetPricingExp()
     func resetDiscountExp()
+    func canShowRateUsDialog() async throws -> Bool
     // TODO: - add app cutomization functions here
 }

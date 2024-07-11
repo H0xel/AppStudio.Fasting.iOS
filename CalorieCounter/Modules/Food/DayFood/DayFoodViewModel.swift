@@ -23,6 +23,9 @@ class DayFoodViewModel: BaseViewModel<DayFoodOutput> {
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.rateAppService) private var rateAppService
     @Dependency(\.userPropertyService) private var userPropertyService
+    @Dependency(\.intercomService) private var intercomService
+    @Dependency(\.requestReviewService) private var requestReviewService
+    @Dependency(\.appCustomization) private var appCustomization
 
     @Published var hasSubscription = false
     @Published var profile: NutritionProfile = .empty
@@ -94,6 +97,17 @@ class DayFoodViewModel: BaseViewModel<DayFoodOutput> {
             await MainActor.run {
                 presentRateApp()
             }
+            return
+        }
+        if try await appCustomization.canShowRateUsDialog(), try await rateAppService.canShowRateUsDialog() {
+            try await Task.sleep(seconds: 1)
+            presentRateUsDialog()
+            rateAppService.rateUsDialogShown()
+            trackerService.track(.rateUsDialogShown)
+            return
+        }
+        if rateAppService.canShowAppStoreReviewDialog {
+            requestReviewService.requestAppStoreReview()
         }
     }
 
@@ -107,6 +121,28 @@ class DayFoodViewModel: BaseViewModel<DayFoodOutput> {
                 self?.rateAppService.rateAppWindowShown()
             }
         }
+    }
+
+    private func presentRateUsDialog() {
+        router.presentRateUsDialog { [weak self] output in
+            guard let self else { return }
+            switch output {
+            case .presentSupport:
+                self.presentIntercome()
+            case .raiting(let raiting):
+                self.trackerService.track(.rateUsDialogAnswered(rate: raiting))
+                self.rateAppService.userRatedUs()
+            case .presentWriteReview:
+                break
+            }
+        }
+    }
+
+    private func presentIntercome() {
+        intercomService.presentIntercom()
+            .receive(on: DispatchQueue.main)
+            .sink { _ in }
+            .store(in: &cancellables)
     }
 
     private func foodLogInput(mealType: MealType, context: FoodLogContext) -> FoodLogInput {

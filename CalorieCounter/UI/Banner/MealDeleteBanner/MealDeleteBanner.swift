@@ -52,11 +52,8 @@ struct MealDeleteBanner: Banner {
         .padding(.top, 8)
         .background(.white)
         .aligned(.bottom)
+        .transition(.move(edge: .bottom))
         .eraseToAnyView()
-    }
-
-    var transition: AnyTransition {
-        .move(edge: .bottom)
     }
 }
 

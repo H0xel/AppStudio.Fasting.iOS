@@ -19,7 +19,6 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     @Dependency(\.freeUsageService) private var freeUsageService
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.userPropertyService) private var userPropertyService
-    @Dependency(\.requestReviewService) private var requestReviewService
     @Dependency(\.mealUsageService) private var mealUsageService
     @Dependency(\.cameraAccessService) private var cameraAccessService
 
@@ -143,11 +142,6 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     }
 
     func dismiss() {
-        #if !DEBUG
-        if !logItems.isEmpty {
-            requestReviewService.requestAppStoreReview()
-        }
-        #endif
         hideKeyboard()
         output(.closed)
         router.dismiss()
