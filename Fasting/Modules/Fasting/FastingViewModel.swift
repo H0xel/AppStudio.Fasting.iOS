@@ -348,8 +348,9 @@ extension FastingViewModel {
             return
         }
         if rateAppService.canShowAppStoreReviewDialog {
-            try await Task.sleep(seconds: 1)
-            requestReviewService.requestAppStoreReview()
+            await MainActor.run {
+                requestReviewService.requestAppStoreReview()
+            }
         }
     }
 

@@ -107,7 +107,9 @@ class DayFoodViewModel: BaseViewModel<DayFoodOutput> {
             return
         }
         if rateAppService.canShowAppStoreReviewDialog {
-            requestReviewService.requestAppStoreReview()
+            await MainActor.run {
+                requestReviewService.requestAppStoreReview()
+            }
         }
     }
 
