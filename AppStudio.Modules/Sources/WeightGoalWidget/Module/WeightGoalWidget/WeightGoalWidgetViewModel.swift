@@ -18,16 +18,16 @@ class WeightGoalWidgetViewModel: BaseViewModel<WeightGoalWidgetOutput> {
     var router: WeightGoalWidgetRouter!
     @Published var goal: WeightGoal = .empty
     @Published var currentWeight: WeightMeasure = .init(value: 0)
+    @Published var startWeight: WeightMeasure = .init(value: 0)
 
     init(input: WeightGoalWidgetInput, output: @escaping WeightGoalWidgetOutputBlock) {
         super.init(output: output)
         input.currentWeightPublisher
             .receive(on: DispatchQueue.main)
             .assign(to: &$currentWeight)
-    }
-
-    var startWeight: WeightMeasure {
-        goal.startWeight
+        input.startWeightPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$startWeight)
     }
 
     var goalWeight: WeightMeasure {
@@ -35,7 +35,7 @@ class WeightGoalWidgetViewModel: BaseViewModel<WeightGoalWidgetOutput> {
     }
 
     var progress: WeightMeasure {
-        .init(value: currentWeight.value - goal.start, units: goal.weightUnit)
+        .init(value: currentWeight.value - startWeight.value, units: goal.weightUnit)
     }
 
     var daysSinceStart: Int {
@@ -64,9 +64,7 @@ class WeightGoalWidgetViewModel: BaseViewModel<WeightGoalWidgetOutput> {
         guard newWeight.value > 0 else {
             return
         }
-        let goal = WeightGoal(goal: newWeight.value,
-                              start: currentWeight.value,
-                              weightUnit: newWeight.units)
+        let goal = WeightGoal(goal: newWeight.value, weightUnit: newWeight.units)
         Task { [weak self] in
             guard let self else { return }
             let newGoal = try await weightGoalService.save(goal)

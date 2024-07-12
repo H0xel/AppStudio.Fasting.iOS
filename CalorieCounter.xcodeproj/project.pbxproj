@@ -233,6 +233,7 @@
 		A01505292B31ABFA00EC34B5 /* NutritionProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01505282B31ABFA00EC34B5 /* NutritionProfile.swift */; };
 		A015052B2B31ACF400EC34B5 /* FoodLogNutritionProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A015052A2B31ACF400EC34B5 /* FoodLogNutritionProfileView.swift */; };
 		A01757022C08F48C00617F02 /* MealVotingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01757012C08F48C00617F02 /* MealVotingViewModel.swift */; };
+		A018A56B2C3FF97F009EE317 /* FoodSuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A56A2C3FF97F009EE317 /* FoodSuggestionsViewController.swift */; };
 		A01904B12BE3B93200505A9C /* MealItemRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01904AE2BE3B93200505A9C /* MealItemRepositoryImpl.swift */; };
 		A01904B22BE3B93200505A9C /* MealItemRepositoryDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01904AF2BE3B93200505A9C /* MealItemRepositoryDependencies.swift */; };
 		A01904B32BE3B93200505A9C /* MealItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01904B02BE3B93200505A9C /* MealItemRepository.swift */; };
@@ -790,6 +791,7 @@
 		A01505282B31ABFA00EC34B5 /* NutritionProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionProfile.swift; sourceTree = "<group>"; };
 		A015052A2B31ACF400EC34B5 /* FoodLogNutritionProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogNutritionProfileView.swift; sourceTree = "<group>"; };
 		A01757012C08F48C00617F02 /* MealVotingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealVotingViewModel.swift; sourceTree = "<group>"; };
+		A018A56A2C3FF97F009EE317 /* FoodSuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSuggestionsViewController.swift; sourceTree = "<group>"; };
 		A01904AE2BE3B93200505A9C /* MealItemRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealItemRepositoryImpl.swift; sourceTree = "<group>"; };
 		A01904AF2BE3B93200505A9C /* MealItemRepositoryDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealItemRepositoryDependencies.swift; sourceTree = "<group>"; };
 		A01904B02BE3B93200505A9C /* MealItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealItemRepository.swift; sourceTree = "<group>"; };
@@ -2052,12 +2054,11 @@
 		A00EF1A82BE27DC700F6CD58 /* FoodSuggestions */ = {
 			isa = PBXGroup;
 			children = (
+				A02106612C4102240030E6A3 /* View */,
+				A02106602C4102190030E6A3 /* FoodSuggestionsViewController */,
 				A00EF1A92BE27DD700F6CD58 /* FoodSuggestionsView.swift */,
 				A00EF1AB2BE27E0200F6CD58 /* FoodSuggestionsViewModel.swift */,
-				A01904CE2BE3D39100505A9C /* SuggestedMealItemView.swift */,
 				A01904D02BE3E05900505A9C /* SuggestedMeal.swift */,
-				A08887682BEBA5D000B6F87E /* FoodSuggestionsEmptyView.swift */,
-				A051A50F2BED106700BE384C /* FoodSearchEmptyView.swift */,
 			);
 			path = FoodSuggestions;
 			sourceTree = "<group>";
@@ -2156,6 +2157,24 @@
 			isa = PBXGroup;
 			children = (
 				A01E809C2B57FA6000AECD39 /* ProfileTargetWeightView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A02106602C4102190030E6A3 /* FoodSuggestionsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A018A56A2C3FF97F009EE317 /* FoodSuggestionsViewController.swift */,
+			);
+			path = FoodSuggestionsViewController;
+			sourceTree = "<group>";
+		};
+		A02106612C4102240030E6A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A01904CE2BE3D39100505A9C /* SuggestedMealItemView.swift */,
+				A08887682BEBA5D000B6F87E /* FoodSuggestionsEmptyView.swift */,
+				A051A50F2BED106700BE384C /* FoodSearchEmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3635,6 +3654,7 @@
 				A0D23B9F2B4BF0E2007C4654 /* FoodScreen.swift in Sources */,
 				A01904C42BE3BE7D00505A9C /* MealItemServiceImpl.swift in Sources */,
 				A01904C52BE3BE7D00505A9C /* MealItemDependencies.swift in Sources */,
+				A018A56B2C3FF97F009EE317 /* FoodSuggestionsViewController.swift in Sources */,
 				A01904C62BE3BE7D00505A9C /* MealItemService.swift in Sources */,
 				ADC7850F2AFA92A1005F16A6 /* TelecomApiProvider.swift in Sources */,
 				A0E57B882B591766000865ED /* DailyCalorieBudgetButtonsView.swift in Sources */,

@@ -20,7 +20,6 @@ extension WeightGoal: EntityMappable {
         self.dateCreated = dateCreate
         self.goal = entity.goal
         self.weightUnit = WeightUnit(rawValue: units) ?? .lb
-        self.start = entity.start
     }
 
     public func map(to entity: WeightGoalEntity) {
@@ -28,7 +27,6 @@ extension WeightGoal: EntityMappable {
         entity.dateCreated = dateCreated
         entity.goal = goal
         entity.weightUnit = weightUnit.rawValue
-        entity.start = start
     }
 
     public static var identifierName: String {

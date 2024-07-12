@@ -133,3 +133,9 @@ private extension CGFloat {
         )
     )
 }
+
+enum FoodSuggestionsSection {
+    case favorites
+    case history
+}
+

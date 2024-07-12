@@ -136,7 +136,6 @@ class OnboardingServiceImpl: OnboardingService, WaterIntakeService {
             let savedHistory = try await weightService.save(history: weightHistory)
 
             let weightGoal = WeightGoal(goal: data.desiredWeight.value,
-                                        start: savedHistory.trueWeightValue,
                                         weightUnit: data.desiredWeight.units)
             _ = try await weightGoalService.save(weightGoal)
         }

@@ -83,7 +83,8 @@ struct WeightGoalWidgetScreen_Previews: PreviewProvider {
             WeightGoalWidgetScreen(
                 viewModel: WeightGoalWidgetViewModel(
                     input: WeightGoalWidgetInput(
-                        currentWeightPublisher: Just(.init(value: 100)).eraseToAnyPublisher()
+                        currentWeightPublisher: Just(.init(value: 100)).eraseToAnyPublisher(),
+                        startWeightPublisher: Just(.init(value: 100)).eraseToAnyPublisher()
                     ),
                     output: { _ in }
                 )

@@ -95,7 +95,6 @@ let package = Package(
                 "WeightGoalWidget"
             ],
             resources: [
-//                .process("Resources")
                 .process("Resources/en.lproj/Localizable.strings"),
                 .process("Resources/es.lproj/Localizable.strings"),
                 .process("Resources/fr-CA.lproj/Localizable.strings"),

@@ -90,7 +90,9 @@ class NotificationsViewModel: BaseViewModel<NotificationsOutput> {
             let granted = try await UNUserNotificationCenter.current()
                 .requestAuthorization(options: [.alert, .sound, .badge])
             await UIApplication.shared.registerForRemoteNotifications()
-            notificationsIsGranted = granted
+            await MainActor.run {
+                notificationsIsGranted = granted
+            }
         }
     }
 

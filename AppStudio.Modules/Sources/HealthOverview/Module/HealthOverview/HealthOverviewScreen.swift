@@ -32,34 +32,10 @@ struct HealthOverviewScreen: View {
                         Spacer(minLength: .verticalSpacing)
                             .id(scrollTriggerId)
                         VStack(spacing: .spacing) {
-                            if viewModel.monetizationIsAvailable {
-                                if viewModel.monetizationIsAvailable {
-                                    if let discountInfo = viewModel.discountPaywallInfo {
-                                        DiscountBannerView(viewData: .init(
-                                            discount: "\(discountInfo.discount ?? 0)%",
-                                            timerInterval: viewModel.timerInterval,
-                                            type: discountInfo.paywallType == "discount_timer" ? .timer : .promotion)
-                                        ) { action in
-                                            switch action {
-                                            case .close:
-                                                viewModel.closeBannerTapped()
-                                            case .openPaywall:
-                                                viewModel.bannerTapped()
-                                            }
-                                        }
-                                    } else {
-                                        AllMonetizationBannerView(action: viewModel.presentPaywall)
-                                    }
-                                }
-                            }
-
-                            FastingWidgetView(day: day,
-                                              viewModel: viewModel.fastingWidgetViewModel)
-                            WaterCounterWidget(date: day,
-                                               viewModel: viewModel.waterCounterViewModel)
-
-                            WeightWidgetRoute(date: day,
-                                              viewModel: viewModel.weightWidgetViewModel)
+                            monetizationBannerView
+                            FastingWidgetView(day: day, viewModel: viewModel.fastingWidgetViewModel)
+                            WaterCounterWidget(date: day, viewModel: viewModel.waterCounterViewModel)
+                            WeightWidgetRoute(date: day, viewModel: viewModel.weightWidgetViewModel)
                         }
                         Spacer(minLength: .verticalSpacing)
                     }
@@ -83,6 +59,26 @@ struct HealthOverviewScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         .onAppearOnce {
             viewModel.appeared()
+        }
+    }
+
+    @ViewBuilder
+    private var monetizationBannerView: some View {
+        if viewModel.monetizationIsAvailable {
+            if viewModel.monetizationIsAvailable {
+                if let discountInfo = viewModel.discountPaywallInfo {
+                    DiscountBannerView(
+                        viewData: .init(
+                            discount: "\(discountInfo.discount ?? 0)%",
+                            timerInterval: viewModel.timerInterval,
+                            type: discountInfo.paywallType == "discount_timer" ? .timer : .promotion
+                        ),
+                        action: viewModel.handle
+                    )
+                } else {
+                    AllMonetizationBannerView(action: viewModel.presentPaywall)
+                }
+            }
         }
     }
 }

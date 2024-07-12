@@ -92,6 +92,7 @@ extension FastingParametersServiceImpl {
         await update(interval: parameters.asInterval)
     }
 
+    @MainActor
     private func update(interval: FastingInterval) async {
         fastingIntervalTrigger.send(
             FastingData(interval: interval,

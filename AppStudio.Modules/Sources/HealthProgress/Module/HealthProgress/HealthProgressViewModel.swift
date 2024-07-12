@@ -28,6 +28,7 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
     @Dependency(\.weightChartService) private var weightChartService
     @Dependency(\.weightService) private var weightService
     @Dependency(\.waterChartService) private var waterChartService
+    @Dependency(\.weightGoalService) private var weightGoalService
 
     var router: HealthProgressRouter!
     @Published var isBodyMassHintPresented = true
@@ -38,6 +39,7 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
     @Published var waterChartItems: [HealthProgressBarChartItem] = []
     @Published var weightChartItems: [LineChartItem] = []
     @Published var isMonetization = false
+    @Published private var weightGoalStartWeight: WeightMeasure?
 
     private var fastingChartHistoryItemsSubject = CurrentValueSubject<[FastingHistoryChartItem], Never>([])
     private var waterChartHistoryItemsSubject = CurrentValueSubject<[FastingHistoryChartItem], Never>([])
@@ -46,7 +48,6 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
     private var inputCancellable: AnyCancellable?
     private var defaultWeightUnits: WeightUnit = .lb
     private let inputHistoryPublisher: AnyPublisher<FastingHealthProgressInput, Never>
-
 
     init(isMonetizationExpAvailablePublisher: AnyPublisher<Bool, Never>,
          inputPublisher: AnyPublisher<FastingHealthProgressInput, Never>,
@@ -62,7 +63,8 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
     var weightGoalRoute: Route {
         WeightGoalWidgetRoute(
             navigator: router.navigator,
-            input: .init(currentWeightPublisher: currentWeightSubject.eraseToAnyPublisher()),
+            input: .init(currentWeightPublisher: currentWeightSubject.eraseToAnyPublisher(),
+                         startWeightPublisher: $weightGoalStartWeight.compactMap { $0 }.eraseToAnyPublisher()),
             output: { _ in }
         )
     }
@@ -135,10 +137,17 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
 
 
     func updateWeight() {
-        Task {
+        Task { [weak self] in
+            guard let self else { return }
             async let items = weightChartService.lastDaysItems(daysCount: 7)
             async let weight = weightService.history(byDate: .now)
             try await updateWeight(chartItems: items, currentWeight: weight)
+
+            let weightGoal = try await weightGoalService.currentGoal()
+            let weightGoalStartWeight = try await weightService.history(byDate: weightGoal.dateCreated)
+            await MainActor.run {
+                self.weightGoalStartWeight = weightGoalStartWeight?.trueWeight
+            }
         }
     }
 
@@ -245,19 +254,19 @@ class HealthProgressViewModel: BaseViewModel<HealthProgressOutput> {
         }
 
         router.pushFastingHistory(input: input) { [weak self] result in
-                switch result {
-                case .close:
-                    break
-                case .delete(let historyId):
-                    self?.output(.delete(historyId: historyId))
-                case .edit(let historyId):
-                    self?.output(.edit(historyId: historyId))
-                case .addHistory:
-                    self?.output(.addHistory)
-                case .updateWater:
-                    self?.updateWater()
-                }
+            switch result {
+            case .close:
+                break
+            case .delete(let historyId):
+                self?.output(.delete(historyId: historyId))
+            case .edit(let historyId):
+                self?.output(.edit(historyId: historyId))
+            case .addHistory:
+                self?.output(.addHistory)
+            case .updateWater:
+                self?.updateWater()
             }
+        }
     }
 }
 

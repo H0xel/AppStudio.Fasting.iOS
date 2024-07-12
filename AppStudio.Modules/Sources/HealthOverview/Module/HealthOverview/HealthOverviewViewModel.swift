@@ -120,7 +120,17 @@ class HealthOverviewViewModel: BaseViewModel<HealthOverviewOutput> {
 // MARK: DiscountExp
 
 extension HealthOverviewViewModel {
-    func bannerTapped() {
+
+    func handle(discountBannerAction action: DiscountBannerView.Action) {
+        switch action {
+        case .close:
+            closeBannerTapped()
+        case .openPaywall:
+            bannerTapped()
+        }
+    }
+
+    private func bannerTapped() {
         output(.showDiscountPaywall)
     }
 
@@ -134,7 +144,7 @@ extension HealthOverviewViewModel {
         timerInterval = interval
     }
 
-    func closeBannerTapped() {
+    private func closeBannerTapped() {
         discountPaywallTimerService.stopTimer()
     }
 
