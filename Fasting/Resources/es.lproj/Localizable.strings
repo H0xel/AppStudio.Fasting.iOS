@@ -4,6 +4,7 @@
 "Button.cancel" = "Cancelar";
 "TodayTitle" = "Hoy";
 "NextTitle" = "Siguiente";
+"SkipTitle" = "Omitir";
 
 // MARK: - RootScreen
 "RootScreen.TabBar.daily" = "A diario";
@@ -168,6 +169,7 @@
 
 "NotificationOnboarding.title" = "Mantente motivado con ayuda de las notificaciones";
 "NotificationOnboarding.button" = "Permitir las notificaciones";
+"NotificationOnboarding.button.exp" = "Configurar";
 
 // MARK: - Profile
 "ProfileScreen.navigationTitle" = "Perfil";
@@ -215,13 +217,13 @@
 "EndFastingEarlyScreen.hour.form2" = "%i horas";
 
 // MARK: - Local Notifications
-
+//
 "NotificationType.beforeStartOfFasting1.title" = "Ya casi es hora de comenzar el ayuno";
-"NotificationType.beforeStartOfFasting1.subtitle" = "Termina tu comida antes de empezar tu ayuno en 1 hora.";
+"NotificationType.beforeStartOfFasting1.subtitle" = "Termina tu comida antes de empezar tu ayuno en %@.";
 "NotificationType.beforeStartOfFasting2.title" = "¿Todo listo? 😎";
-"NotificationType.beforeStartOfFasting2.subtitle" = "¡El ayuno comienza en 1 hora!";
-"NotificationType.beforeStartOfFasting3.title" = "¡Falta 1 hora! ⏰";
-"NotificationType.beforeStartOfFasting3.subtitle" = "El ayuno comienza en una hora. ¡Prepárate!";
+"NotificationType.beforeStartOfFasting2.subtitle" = "¡El ayuno comienza en %@!";
+"NotificationType.beforeStartOfFasting3.title" = "¡Falta %@! ⏰";
+"NotificationType.beforeStartOfFasting3.subtitle" = "El ayuno comienza en una %@. ¡Prepárate!";
 
 "NotificationType.startOfFasting1.title" = "Es hora de ayunar ⏰";
 "NotificationType.startOfFasting1.subtitle" = "Pulsa para iniciar tu temporizador.";
@@ -232,11 +234,10 @@
 
 
 "NotificationType.beforeEndOfFasting1.title" = "¡Casi lo has logrado! 🕐";
-"NotificationType.beforeEndOfFasting1.subtitle" = "Solo falta 1 hora para completar otro ayuno exitoso. ¡Sigue así!";
-"NotificationType.beforeEndOfFasting2.title" = "Una hora más";
-"NotificationType.beforeEndOfFasting2.subtitle" = "Solo falta una hora en este ayuno de %i horas. ¡Puedes hacerlo! 💪";
+"NotificationType.beforeEndOfFasting1.subtitle" = "Solo falta %@ para completar otro ayuno exitoso. ¡Sigue así!";
+"NotificationType.beforeEndOfFasting2.subtitle" = "Solo falta %@ en este ayuno de %i horas. ¡Puedes hacerlo! 💪";
 "NotificationType.beforeEndOfFasting3.title" = "¡Aguanta! 😃";
-"NotificationType.beforeEndOfFasting3.subtitle" = "¡Casi has terminado! Solo te falta una hora más de ayuno.";
+"NotificationType.beforeEndOfFasting3.subtitle" = "¡Ya casi terminas! ¡Solo falta %@ de ayuno!";
 
 "NotificationType.endOfFasting1.title" = "¡Ayuno completado!";
 "NotificationType.endOfFasting1.subtitle" = "¡Lo lograste! 💪 ¡Detén el temporizador, es hora de comer!";
@@ -251,8 +252,36 @@
 "NotificationType.forgotToFinishFasting.title" = "Tu ayuno ya ha terminado";
 "NotificationType.forgotToFinishFasting.subtitle" = "¡Guau! ¿Sigues ayunando? 🤯 ¿O es que olvidaste detener tu temporizador?";
 
-"NotificationType.fatBurningPhaseInfos.title" = "¡Ya comienzas a quemar grasa!";
+"NotificationType.fatBurningPhaseInfos.title" = "¡Ya comienzas a quemar grasa! 🔥";
 "NotificationType.fatBurningPhaseInfos.subtitle" = "Ahora tu cuerpo está quemando activamente sus reservas de grasa.";
+
+"NotificationType.sugarRisesPhaseInfos.title" = "El nivel de azúcar en la sangre aumenta 🔺";
+"NotificationType.sugarRisesPhaseInfos.subtitle" = "La glucosa se libera en tu torrente sanguíneo mientras tu cuerpo digiere la última comida.";
+
+"NotificationType.sugarDropPhaseInfos.title" = "El nivel de azúcar en la sangre disminuye 🔻";
+"NotificationType.sugarDropPhaseInfos.subtitle" = "Tu nivel de azúcar en la sangre comienza a bajar ligeramente por debajo de sus niveles ordinarios.";
+
+"NotificationType.sugarNormalPhaseInfos.title" = "¡El nivel de azúcar en la sangre es normal ahora! 🍏";
+"NotificationType.sugarNormalPhaseInfos.subtitle" = "Finalmente, tu cuerpo nivela tus niveles de azúcar en la sangre después de tu última comida.";
+
+"NotificationType.ketosisPhaseInfos.title" = "Tu cuerpo está cambiando a cetosis ⚡";
+"NotificationType.ketosisPhaseInfos.subtitle" = "El suministro de energía a partir de la grasa aumenta significativamente a medida que tu hígado comienza a producir cetonas.";
+
+"NotificationType.autophagyPhaseInfos.title" = "Comienza la autofagia 🧬";
+"NotificationType.autophagyPhaseInfos.subtitle" = "Tu cuerpo comienza a pasar por la etapa de autofagia.";
+
+"NotificationType.hydrationReminders.title" = "Mantente hidratado 💧";
+"NotificationType.hydrationReminders.1.subtitle" = "Mantén tus riñones saludables con un vaso extra de agua hoy.";
+"NotificationType.hydrationReminders.2.subtitle" = "Mantén tu sistema digestivo funcionando sin problemas con un poco de agua.";
+"NotificationType.hydrationReminders.3.subtitle" = "Beber suficiente agua mantiene tu mente aguda y clara.";
+"NotificationType.hydrationReminders.4.subtitle" = "Mantenerte hidratado puede hacer maravillas por tu piel.";
+"NotificationType.hydrationReminders.5.subtitle" = "Bebe un poco de agua para un impulso extra de energía.";
+"NotificationType.hydrationReminders.6.subtitle" = "Beber agua es esencial para un corazón saludable.";
+"NotificationType.hydrationReminders.7.subtitle" = "El agua es vital para tus músculos y articulaciones—¡bebe!";
+"NotificationType.hydrationReminders.8.subtitle" = "Mantén tu metabolismo activo con un vaso de agua.";
+
+"NotificationType.weightInReminder.title" = "Hora de pesarse";
+"NotificationType.weightInReminder.subtitle" = "Pesarte regularmente te ayuda a mantenerte en el camino hacia tu objetivo. 🌟";
 
 // MARK: Fasting Inactive Stage
 "FastingInactiveStage.prepareForFasting" = "¿Cómo prepararse para el ayuno?";
@@ -445,7 +474,7 @@
 
 //MARK: - W2W Login screen
 
-"W2W.onboarding.title" = "¿Ya eres usuario de la aplicación Fasting?";
+"W2W.onboarding.title" = "¿Ya eres usuario de Ayuno Intermitente?";
 "W2W.onboarding.signIn" = "Iniciar sesión";
 "W2W.sign.title" = "Iniciar sesión con correo electrónico";
 "W2W.sign.description" = "Inicie sesión con su correo electrónico para conectar\nsu cuenta web existente";
@@ -455,3 +484,70 @@
 "W2W.error.internetConnection" = "Sin conexión a Internet. Intentar otra vez.";
 "W2W.profile.linkedEmail" = "Dirección de correo electrónico vinculada";
 "W2W.banner.activateSuccessfully" = "Cuenta activada exitosamente";
+
+// MARK: - Notifications Screen
+
+"NotificationsScreen.title" = "Notificaciones";
+"NotificationsScreen.quite.title" = "Modo silencio";
+"NotificationsScreen.quite.subtitle" = "Desactivar notificaciones durante horas establecidas";
+"NotificationsScreen.quite.from" = "De";
+"NotificationsScreen.quite.to" = "Para";
+"NotificationsScreen.beforeStart" = "Antes de empezar";
+"NotificationsScreen.beforeEnd" = "Antes de terminar";
+
+"NotificationsScreen.separatorText.reminders" = "Recordatorios de ayuno";
+"NotificationsScreen.remindersStart.title" = "Inicio del ayuno";
+"NotificationsScreen.remindersStart.subtitle" = "Recibe un recordatorio para empezar tu ayuno";
+"NotificationsScreen.remindersEnd.title" = "Fin del ayuno";
+"NotificationsScreen.remindersEnd.subtitle" = "Recibe un recordatorio al final de tu ayuno";
+"NotificationsScreen.advanceReminder.title" = "Recordatorios avanzados";
+"NotificationsScreen.advanceReminder.subtitle" = "Recibe recordatorios con anticipación para prepararte para el ayuno o la comida";
+"NotificationsScreen.fastingStages.title" = "Notificaciones de etapas";
+"NotificationsScreen.fastingStages.subtitle" = "Mantente informado sobre tus etapas metabólicas durante tu jornada de ayuno";
+
+"NotificationPrior.thirtyMin" = "30 min antes";
+"NotificationPrior.oneHour" = "1 hora antes";
+"NotificationPrior.twoHour" = "2 horas antes";
+"NotificationPrior.threeHour" = "3 horas antes";
+
+"NotificationPrior.push.thirtyMin" = "30 min";
+"NotificationPrior.push.oneHour" = "1 hora";
+"NotificationPrior.push.twoHour" = "2 horas";
+"NotificationPrior.push.threeHour" = "3 horas";
+
+"NotificationPrior.pushTitle.thirtyMin" = "Treinta minutos más";
+"NotificationPrior.pushTitle.oneHour" = "Una hora más";
+"NotificationPrior.pushTitle.twoHour" = "Dos horas más";
+"NotificationPrior.pushTitle.threeHour" = "Tres horas más";
+
+"NotificationsScreen.separatorText.stages" = "Etapas del ayuno";
+"NotificationsScreen.stage" = "etapa";
+"NotificationsScreen.stages" = "etapas";
+"NotificationsScreen.allStages" = "Todas las etapas";
+"NotificationsScreen.selectStages" = "Seleccionar etapas";
+
+
+"NotificationsScreen.weightIn.title" = "Recordarme que me pese";
+"NotificationsScreen.separatorText.weightInReminders" = "Recordatorios de peso";
+"NotificationsScreen.time" = "Hora";
+"NotificationsScreen.frequency" = "Frecuencia";
+"WeightFrequency.everyDay" = "Cada día";
+"WeightFrequency.everyTwoDays" = "Cada 2 días";
+"WeightFrequency.everyThreeDays" = "Cada 3 días";
+"WeightFrequency.everySevenDays" = "Cada 7 días";
+"WeightFrequency.everyFourteenDays" = "Cada 14 días";
+
+"NotificationsScreen.separatorText.hydrationReminders" = "Recordatorios de hidratación";
+"NotificationsScreen.hydrationReminders.title" = "Recordarme que beba agua";
+"NotificationsScreen.startTime" = "Hora de inicio";
+"NotificationsScreen.endTime" = "Hora final";
+"HydrationFrequency.everyHour" = "Cada hora";
+"HydrationFrequency.everyTwoHours" = "Cada 2 horas";
+"HydrationFrequency.everyThreeHours" = "Cada 3 horas";
+"HydrationFrequency.everyFourHours" = "Cada 4 horas";
+"HydrationFrequency.everyFiveHours" = "Cada 5 horas";
+"HydrationFrequency.everySixHours" = "Cada 6 horas";
+
+"NotificationsAlert.title" = "Título de alerta";
+"NotificationsAlert.subtitle" = "Subtítulo de alerta";
+"NotificationsAlert.openSettings" = "Abrir configuración de notificaciones";

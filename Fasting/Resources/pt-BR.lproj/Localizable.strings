@@ -4,6 +4,7 @@
 "Button.cancel" = "Cancelar";
 "TodayTitle" = "Hoje";
 "NextTitle" = "Próximo";
+"SkipTitle" = "Ignorar";
 
 // MARK: - RootScreen
 "RootScreen.TabBar.daily" = "Diário";
@@ -132,8 +133,8 @@ de jejuar?";
 
 "OnboardingService.paywallTitle" = "Alcance seu peso dos sonhos de %@ até %@";
 "OnboardingService.bulletWeight.title" = "Perca ~%@ até %@ %@!";
-"OnboardingService.bulletWeight.article.the" = "the";
-"OnboardingService.bulletWeight.article.your" = "your";
+"OnboardingService.bulletWeight.article.the" = "o";
+"OnboardingService.bulletWeight.article.your" = "seu";
 
 // MARK: Choose fasting plan
 
@@ -171,6 +172,7 @@ horário de jejum";
 
 "NotificationOnboarding.title" = "Fique motivado com notificações";
 "NotificationOnboarding.button" = "Permitir notificações";
+"NotificationOnboarding.button.exp" = "Configurar";
 
 // MARK: - Profile
 "ProfileScreen.navigationTitle" = "Perfil";
@@ -218,13 +220,13 @@ horário de jejum";
 "EndFastingEarlyScreen.hour.form2" = "%i horas";
 
 // MARK: - Local Notifications
-
+//
 "NotificationType.beforeStartOfFasting1.title" = "Quase na hora de começar o jejum";
-"NotificationType.beforeStartOfFasting1.subtitle" = "Termine sua refeição antes de seu jejum começar em 1 hora.";
+"NotificationType.beforeStartOfFasting1.subtitle" = "Termine sua refeição antes de seu jejum começar em %@.";
 "NotificationType.beforeStartOfFasting2.title" = "Está preparado? 😎";
-"NotificationType.beforeStartOfFasting2.subtitle" = "O jejum começa em 1 hora!";
-"NotificationType.beforeStartOfFasting3.title" = "Falta 1 hora! ⏰";
-"NotificationType.beforeStartOfFasting3.subtitle" = "O jejum começa em uma hora. Prepare-se!";
+"NotificationType.beforeStartOfFasting2.subtitle" = "O jejum começa em %@!";
+"NotificationType.beforeStartOfFasting3.title" = "%@ para ir! ⏰";
+"NotificationType.beforeStartOfFasting3.subtitle" = "O jejum começa em uma %@. Prepare-se!";
 
 "NotificationType.startOfFasting1.title" = "Hora de jejuar ⏰";
 "NotificationType.startOfFasting1.subtitle" = "Toque para iniciar seu cronômetro.";
@@ -235,11 +237,10 @@ horário de jejum";
 
 
 "NotificationType.beforeEndOfFasting1.title" = "Você quase conseguiu! 🕐";
-"NotificationType.beforeEndOfFasting1.subtitle" = "Falta apenas 1 hora para completar outro jejum bem-sucedido. Continue firme!";
-"NotificationType.beforeEndOfFasting2.title" = "Mais uma hora";
-"NotificationType.beforeEndOfFasting2.subtitle" = "Resta apenas uma hora neste jejum de %i horas. Você consegue! 💪";
+"NotificationType.beforeEndOfFasting1.subtitle" = "Falta apenas %@ para completar outro jejum bem-sucedido. Continue firme!";
+"NotificationType.beforeEndOfFasting2.subtitle" = "Resta apenas uma %@ neste jejum de %i horas. Você consegue! 💪";
 "NotificationType.beforeEndOfFasting3.title" = "Aguente firme! 😃";
-"NotificationType.beforeEndOfFasting3.subtitle" = "Você está quase lá! Só mais uma hora de jejum!";
+"NotificationType.beforeEndOfFasting3.subtitle" = "Você está quase lá! Só mais uma %@ de jejum!";
 
 "NotificationType.endOfFasting1.title" = "Jejum concluído!";
 "NotificationType.endOfFasting1.subtitle" = "Você conseguiu! 💪 Pare seu cronômetro, é hora de comer!";
@@ -254,8 +255,36 @@ horário de jejum";
 "NotificationType.forgotToFinishFasting.title" = "Seu jejum já acabou";
 "NotificationType.forgotToFinishFasting.subtitle" = "Uau! Você ainda está jejuando? 🤯 Ou apenas esqueceu de parar seu cronômetro?";
 
-"NotificationType.fatBurningPhaseInfos.title" = "Você começa a queimar gordura!";
+"NotificationType.fatBurningPhaseInfos.title" = "Você começa a queimar gordura! 🔥";
 "NotificationType.fatBurningPhaseInfos.subtitle" = "Seu corpo agora está ativamente queimando suas reservas de gordura.";
+
+"NotificationType.sugarRisesPhaseInfos.title" = "A glicose aumenta 🔺";
+"NotificationType.sugarRisesPhaseInfos.subtitle" = "A glicose é liberada em sua corrente sanguínea enquanto seu corpo digere a última refeição.";
+
+"NotificationType.sugarDropPhaseInfos.title" = "A glicose no sangue começa a diminuir 🔻";
+"NotificationType.sugarDropPhaseInfos.subtitle" = "Sua glicose no sangue começa a cair ligeiramente abaixo de seus níveis normais.";
+
+"NotificationType.sugarNormalPhaseInfos.title" = "Glicemia normal! 🍏";
+"NotificationType.sugarNormalPhaseInfos.subtitle" = "Finalmente, seu corpo nivela seus níveis de glicose no sangue após sua última refeição.";
+
+"NotificationType.ketosisPhaseInfos.title" = "Seu corpo está mudando para a cetose ⚡";
+"NotificationType.ketosisPhaseInfos.subtitle" = "O fornecimento de energia a partir de gordura aumenta significativamente enquanto seu fígado começa a produzir cetonas.";
+
+"NotificationType.autophagyPhaseInfos.title" = "Autofagia começa 🧬";
+"NotificationType.autophagyPhaseInfos.subtitle" = "Seu corpo começa a passar pelo estágio de autofagia.";
+
+"NotificationType.hydrationReminders.title" = "Mantenha-se hidratado 💧";
+"NotificationType.hydrationReminders.1.subtitle" = "Mantenha seus rins saudáveis com um copo extra de água hoje.";
+"NotificationType.hydrationReminders.2.subtitle" = "Mantenha seu sistema digestivo funcionando suavemente com um pouco de água.";
+"NotificationType.hydrationReminders.3.subtitle" = "Beber água suficiente mantém sua mente afiada e clara.";
+"NotificationType.hydrationReminders.4.subtitle" = "Manter-se hidratado pode fazer maravilhas para sua pele.";
+"NotificationType.hydrationReminders.5.subtitle" = "Beba um pouco de água para um impulso extra de energia.";
+"NotificationType.hydrationReminders.6.subtitle" = "Beber água é essencial para um coração saudável.";
+"NotificationType.hydrationReminders.7.subtitle" = "A água é vital para seus músculos e articulações—beba!";
+"NotificationType.hydrationReminders.8.subtitle" = "Mantenha seu metabolismo ativo com um copo de água.";
+
+"NotificationType.weightInReminder.title" = "Hora de se pesar";
+"NotificationType.weightInReminder.subtitle" = "Pesagens regulares ajudam você a se manter no caminho certo com seu objetivo. 🌟";
 
 // MARK: Fasting Inactive Stage
 "FastingInactiveStage.prepareForFasting" = "Como se preparar para o jejum?";
@@ -448,7 +477,7 @@ horário de jejum";
 
 //MARK: - W2W Login screen
 
-"W2W.onboarding.title" = "Já é usuário do Fasting App?";
+"W2W.onboarding.title" = "Já é usuário do Jejum Intermitente?";
 "W2W.onboarding.signIn" = "Entrar";
 "W2W.sign.title" = "Faça login com e-mail";
 "W2W.sign.description" = "Faça login com seu e-mail para conectar\nsua conta da web existente";
@@ -458,3 +487,70 @@ horário de jejum";
 "W2W.error.internetConnection" = "Sem conexão com a internet. Tente novamente.";
 "W2W.profile.linkedEmail" = "Endereço de e-mail vinculado";
 "W2W.banner.activateSuccessfully" = "Conta ativada com sucesso";
+
+// MARK: - Notifications Screen
+
+"NotificationsScreen.title" = "Notificações";
+"NotificationsScreen.quite.title" = "Modo Silencioso";
+"NotificationsScreen.quite.subtitle" = "Desativar notificações durante horas definidas";
+"NotificationsScreen.quite.from" = "De";
+"NotificationsScreen.quite.to" = "Para";
+"NotificationsScreen.beforeStart" = "Antes de começar";
+"NotificationsScreen.beforeEnd" = "Antes de acabar";
+
+"NotificationsScreen.separatorText.reminders" = "Lembretes de Jejum";
+"NotificationsScreen.remindersStart.title" = "Início do Jejum";
+"NotificationsScreen.remindersStart.subtitle" = "Receba um lembrete para iniciar seu jejum";
+"NotificationsScreen.remindersEnd.title" = "Fim do Jejum";
+"NotificationsScreen.remindersEnd.subtitle" = "Receba um lembrete no final do seu jejum";
+"NotificationsScreen.advanceReminder.title" = "Rapeis avances";
+"NotificationsScreen.advanceReminder.subtitle" = "Receber lembretes com antecedência para se preparar para jejum ou comer";
+"NotificationsScreen.fastingStages.title" = "Notificações de Estágio";
+"NotificationsScreen.fastingStages.subtitle" = "Fique atualizado sobre suas fases metabólicas ao longo de sua jornada de jejum";
+
+"NotificationPrior.thirtyMin" = "30 min antes";
+"NotificationPrior.oneHour" = "1 hora antes";
+"NotificationPrior.twoHour" = "2 horas antes";
+"NotificationPrior.threeHour" = "3 horas antes";
+
+"NotificationPrior.push.thirtyMin" = "30 min";
+"NotificationPrior.push.oneHour" = "1 hora";
+"NotificationPrior.push.twoHour" = "2 horas";
+"NotificationPrior.push.threeHour" = "3 horas";
+
+"NotificationPrior.pushTitle.thirtyMin" = "Mais trinta minutos";
+"NotificationPrior.pushTitle.oneHour" = "Mais uma hora";
+"NotificationPrior.pushTitle.twoHour" = "Mais duas horas";
+"NotificationPrior.pushTitle.threeHour" = "Mais três horas";
+
+"NotificationsScreen.separatorText.stages" = "Fases do Jejum";
+"NotificationsScreen.stage" = "estágio";
+"NotificationsScreen.stages" = "estágios";
+"NotificationsScreen.allStages" = "Todos estágios";
+"NotificationsScreen.selectStages" = "Selecionar estágios";
+
+
+"NotificationsScreen.weightIn.title" = "Lembrar-me de pesar";
+"NotificationsScreen.separatorText.weightInReminders" = "Lembretes de Pesagem";
+"NotificationsScreen.time" = "Horário";
+"NotificationsScreen.frequency" = "Frequência";
+"WeightFrequency.everyDay" = "Diariamente";
+"WeightFrequency.everyTwoDays" = "A cada 2 dias";
+"WeightFrequency.everyThreeDays" = "A cada 3 dias";
+"WeightFrequency.everySevenDays" = "A cada 7 dias";
+"WeightFrequency.everyFourteenDays" = "A cada 14 dias";
+
+"NotificationsScreen.separatorText.hydrationReminders" = "Lembretes de Hidratação";
+"NotificationsScreen.hydrationReminders.title" = "Lembrar-me de beber água";
+"NotificationsScreen.startTime" = "Horário de início";
+"NotificationsScreen.endTime" = "Horário de término";
+"HydrationFrequency.everyHour" = "A cada hora";
+"HydrationFrequency.everyTwoHours" = "A cada 2 horas";
+"HydrationFrequency.everyThreeHours" = "A cada 3 horas";
+"HydrationFrequency.everyFourHours" = "A cada 4 horas";
+"HydrationFrequency.everyFiveHours" = "A cada 5 horas";
+"HydrationFrequency.everySixHours" = "A cada 6 horas";
+
+"NotificationsAlert.title" = "Título do alerta";
+"NotificationsAlert.subtitle" = "Subtítulo do alerta";
+"NotificationsAlert.openSettings" = "Abrir configurações de notificações";

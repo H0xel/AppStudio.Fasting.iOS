@@ -89,7 +89,6 @@
 "GeneralQuestions.question45" = "¿Cuál es una comida saludable que puedo comer?";
 "GeneralQuestions.question46" = "¿Cuál es una idea de bocadillo saludable?";
 "GeneralQuestions.question47" = "¿Qué alimentos mejoran el rendimiento durante el ejercicio?";
-
 // MARK: - Suggested Questions (Keywords)
 "SuggestedQuestions.keyword1" = "ajustar";
 "SuggestedQuestions.keyword2" = "después";

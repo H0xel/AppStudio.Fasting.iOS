@@ -253,9 +253,9 @@
 "NotificationType.forgotToFinishFasting.subtitle" = "Wow! Are you still fasting? 🤯 Or just forgot to stop your timer?";
 
 "NotificationType.fatBurningPhaseInfos.title" = "You start to burn fat! 🔥";
-"NotificationType.fatBurningPhaseInfos.subtitle" = "Your body is now actively burning through its fat reserves..";
+"NotificationType.fatBurningPhaseInfos.subtitle" = "Your body is now actively burning through its fat reserves.";
 
-"NotificationType.sugarRisesPhaseInfos.title" = "Blood sugar rises 🔺:";
+"NotificationType.sugarRisesPhaseInfos.title" = "Blood sugar rises 🔺";
 "NotificationType.sugarRisesPhaseInfos.subtitle" = "Glucose is released into your bloodstream as your body digests the last meal.";
 
 "NotificationType.sugarDropPhaseInfos.title" = "Blood sugar starts to go down 🔻";

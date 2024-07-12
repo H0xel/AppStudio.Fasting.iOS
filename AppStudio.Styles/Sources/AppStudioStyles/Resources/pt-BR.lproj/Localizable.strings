@@ -24,7 +24,9 @@
 "ProfileScreen.support" = "Suporte";
 "ProfileScreen.termsOfUse" = "Termos de Uso";
 "ProfileScreen.privacyPolicy" = "Política de Privacidade";
+"ProfileScreen.termsAndConditions" = "Termos e Condições";
 "ProfileScreen.signInByEmail" = "Faça login com e-mail";
+"ProfileScreen.notifications" = "Notificações";
 
 "Onboarding.height.title" = "Qual é a sua altura?";
 "Onboarding.birthdayTitle" = "Quando é o seu aniversário?";
@@ -75,3 +77,17 @@
 "DiscountPaywall.banner.get" = "Obter";
 "DiscountPaywall.banner.off" = "DE DESCONTO";
 "DiscountPaywall.banner.button" = "Economize %@ agora";
+
+// MARK: RateUsInput
+"RateUsInput.title" = "Como está sua jornada conosco?";
+"RateUsInput.tapToRate" = "Toque para avaliar";
+"RateUsInput.badFeedbackTitle" = "Obrigado pelo seu\nfeedback!";
+"RateUsInput.badFeedbackDesription" = "Lamentamos que você não esteja aproveitando sua experiência. Por favor, reserve um momento para nos dizer como podemos melhorar.";
+"RateUsInput.badFeedbackButtonTitle" = "Conte-nos mais";
+"RateUsInput.goodFeedbackTitle" = "Obrigado pelo seu\nfeedback!";
+"RateUsInput.goodFeedbackDesription" = "Por favor, deixe uma avaliação na App Store. Isso ajudará mais clientes a nos descobrir.";
+"RateUsInput.goodFeedbackButtonTitle" = "Deixe uma Avaliação";
+
+// MARK: Onboarding Privacy and Terms
+"Onboarding.and" = " e ";
+"Onboarding.continuingYouAgree" = "Ao continuar, você concorda com os ";

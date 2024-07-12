@@ -4,6 +4,7 @@
 "Button.cancel" = "Annuler";
 "TodayTitle" = "Aujourd'hui";
 "NextTitle" = "Suivant";
+"SkipTitle" = "Ignorer";
 
 // MARK: - RootScreen
 "RootScreen.TabBar.daily" = "Quotidien";
@@ -168,6 +169,7 @@
 
 "NotificationOnboarding.title" = "Gardez la motivation avec des notifications";
 "NotificationOnboarding.button" = "Autoriser les notifications";
+"NotificationOnboarding.button.exp" = "Configurer";
 
 // MARK: - Profile
 "ProfileScreen.navigationTitle" = "Profil";
@@ -215,13 +217,13 @@
 "EndFastingEarlyScreen.hour.form2" = "%i heures";
 
 // MARK: - Local Notifications
-
+//
 "NotificationType.beforeStartOfFasting1.title" = "Presque l'heure de commencer à jeûner";
-"NotificationType.beforeStartOfFasting1.subtitle" = "Terminez votre repas avant que votre jeûne ne commence dans 1 heure.";
+"NotificationType.beforeStartOfFasting1.subtitle" = "Terminez votre repas avant que votre jeûne ne commence dans %@.";
 "NotificationType.beforeStartOfFasting2.title" = "Êtes-vous prêt? 😎";
-"NotificationType.beforeStartOfFasting2.subtitle" = "Le jeûne commence dans 1 heure!";
-"NotificationType.beforeStartOfFasting3.title" = "1 heure à tenir! ⏰";
-"NotificationType.beforeStartOfFasting3.subtitle" = "Le jeûne commence dans une heure. Préparez-vous!";
+"NotificationType.beforeStartOfFasting2.subtitle" = "Le jeûne commence dans  %@!";
+"NotificationType.beforeStartOfFasting3.title" = "%@ à emporter ! ⏰";
+"NotificationType.beforeStartOfFasting3.subtitle" = "Le jeûne commence dans %@. Préparez-vous !";
 
 "NotificationType.startOfFasting1.title" = "C'est l'heure de jeûner ⏰";
 "NotificationType.startOfFasting1.subtitle" = "Appuyez pour démarrer votre minuteur.";
@@ -232,11 +234,10 @@
 
 
 "NotificationType.beforeEndOfFasting1.title" = "Vous avez presque réussi! 🕐";
-"NotificationType.beforeEndOfFasting1.subtitle" = "Il reste juste 1 heure pour compléter un autre jeûne réussi. Continuez ainsi!";
-"NotificationType.beforeEndOfFasting2.title" = "Encore une heure";
-"NotificationType.beforeEndOfFasting2.subtitle" = "Il reste seulement une heure à ce jeûne de %i heures. Vous pouvez le faire! 💪";
+"NotificationType.beforeEndOfFasting1.subtitle" = "Il reste juste %@ pour compléter un autre jeûne réussi. Continuez ainsi !";
+"NotificationType.beforeEndOfFasting2.subtitle" = "Il ne reste plus que %@ de ce jeûne de %i heures. Tu peux le faire ! 💪";
 "NotificationType.beforeEndOfFasting3.title" = "Tenez bon! 😃";
-"NotificationType.beforeEndOfFasting3.subtitle" = "Vous avez presque terminé! Il reste juste une heure de jeûne!";
+"NotificationType.beforeEndOfFasting3.subtitle" = "Vous y êtes presque ! Il ne vous reste plus que %@ de jeûne à faire !";
 
 "NotificationType.endOfFasting1.title" = "Jeûne terminé!";
 "NotificationType.endOfFasting1.subtitle" = "Vous avez réussi! 💪 Arrêtez votre minuteur, il est temps de manger!";
@@ -251,8 +252,36 @@
 "NotificationType.forgotToFinishFasting.title" = "Votre jeûne est déjà terminé";
 "NotificationType.forgotToFinishFasting.subtitle" = "Incroyable! Vous jeûnez encore? 🤯 Ou vous avez juste oublié d'arrêter votre minuteur?";
 
-"NotificationType.fatBurningPhaseInfos.title" = "Vous commencez à brûler des graisses!";
+"NotificationType.fatBurningPhaseInfos.title" = "Vous commencez à brûler des graisses ! 🔥";
 "NotificationType.fatBurningPhaseInfos.subtitle" = "Votre corps est maintenant activement en train de brûler ses réserves de graisse.";
+
+"NotificationType.sugarRisesPhaseInfos.title" = "Le taux de sucre dans le sang augmente 🔺";
+"NotificationType.sugarRisesPhaseInfos.subtitle" = "Le glucose est libéré dans votre circulation sanguine lorsque votre corps digère le dernier repas.";
+
+"NotificationType.sugarDropPhaseInfos.title" = "La glycémie commence à baisser 🔻";
+"NotificationType.sugarDropPhaseInfos.subtitle" = "Votre glycémie commence à chuter légèrement en dessous de ses niveaux habituels.";
+
+"NotificationType.sugarNormalPhaseInfos.title" = "Le taux de sucre dans le sang est normal maintenant ! 🍏";
+"NotificationType.sugarNormalPhaseInfos.subtitle" = "Enfin, votre corps équilibre votre taux de sucre dans le sang après votre dernier repas.";
+
+"NotificationType.ketosisPhaseInfos.title" = "Votre corps passe en état de cétose ⚡";
+"NotificationType.ketosisPhaseInfos.subtitle" = "L'apport énergétique provenant des graisses augmente considérablement lorsque votre foie commence à produire des cétones.";
+
+"NotificationType.autophagyPhaseInfos.title" = "L'autophagie commence 🧬";
+"NotificationType.autophagyPhaseInfos.subtitle" = "Votre corps commence à entrer dans la phase d'autophagie.";
+
+"NotificationType.hydrationReminders.title" = "Restez hydraté 💧";
+"NotificationType.hydrationReminders.1.subtitle" = "Gardez vos reins en bonne santé avec un verre d'eau supplémentaire aujourd'hui.";
+"NotificationType.hydrationReminders.2.subtitle" = "Gardez votre système digestif en bon fonctionnement avec un peu d'eau.";
+"NotificationType.hydrationReminders.3.subtitle" = "Boire suffisamment d'eau garde votre esprit vif et clair.";
+"NotificationType.hydrationReminders.4.subtitle" = "Rester hydraté peut faire des merveilles pour votre peau.";
+"NotificationType.hydrationReminders.5.subtitle" = "Buvez de l'eau pour un regain d'énergie supplémentaire.";
+"NotificationType.hydrationReminders.6.subtitle" = "Boire de l'eau est essentiel pour un cœur en bonne santé.";
+"NotificationType.hydrationReminders.7.subtitle" = "L'eau est vitale pour vos muscles et vos articulations—buvez-en!";
+"NotificationType.hydrationReminders.8.subtitle" = "Maintenez votre métabolisme actif avec un verre d'eau.";
+
+"NotificationType.weightInReminder.title" = "Il est temps de se peser";
+"NotificationType.weightInReminder.subtitle" = "Les pesées régulières vous aident à rester sur la bonne voie pour atteindre votre objectif. 🌟";
 
 // MARK: Fasting Inactive Stage
 "FastingInactiveStage.prepareForFasting" = "Comment se préparer au jeûne?";
@@ -445,7 +474,7 @@
 
 //MARK: - W2W Login screen
 
-"W2W.onboarding.title" = "Vous êtes déjà utilisateur de l’application Fasting ?";
+"W2W.onboarding.title" = "Déjà utilisateur de Intermittent Fasting ?";
 "W2W.onboarding.signIn" = "Se connecter";
 "W2W.sign.title" = "Connectez-vous avec e-mail";
 "W2W.sign.description" = "Connectez-vous avec votre e-mail pour connecter\nvotre compte Web existant";
@@ -455,3 +484,70 @@
 "W2W.error.internetConnection" = "Pas de connexion Internet. Essayer à nouveau.";
 "W2W.profile.linkedEmail" = "Adresse e-mail liée";
 "W2W.banner.activateSuccessfully" = "Compte activé avec succès";
+
+// MARK: - Notifications Screen
+
+"NotificationsScreen.title" = "Notifications";
+"NotificationsScreen.quite.title" = "Mode silencieux";
+"NotificationsScreen.quite.subtitle" = "Désactiver les notifications pendant les heures définies";
+"NotificationsScreen.quite.from" = "De";
+"NotificationsScreen.quite.to" = "À";
+"NotificationsScreen.beforeStart" = "Avant de commencer";
+"NotificationsScreen.beforeEnd" = "Avant la fin";
+
+"NotificationsScreen.separatorText.reminders" = "Rappels de jeûne";
+"NotificationsScreen.remindersStart.title" = "Début du jeûne";
+"NotificationsScreen.remindersStart.subtitle" = "Recevez un rappel pour commencer votre jeûne";
+"NotificationsScreen.remindersEnd.title" = "Fin du jeûne";
+"NotificationsScreen.remindersEnd.subtitle" = "Recevez un rappel à la fin de votre jeûne";
+"NotificationsScreen.advanceReminder.title" = "Rappels avancés";
+"NotificationsScreen.advanceReminder.subtitle" = "Recevez des rappels à l'avance pour vous préparer à jeûner ou à manger";
+"NotificationsScreen.fastingStages.title" = "Notifications d'étape";
+"NotificationsScreen.fastingStages.subtitle" = "Restez informé de vos étapes métaboliques tout au long de votre parcours de jeûne";
+
+"NotificationPrior.thirtyMin" = "30 minutes avant";
+"NotificationPrior.oneHour" = "1 heure avant";
+"NotificationPrior.twoHour" = "2 heures avant";
+"NotificationPrior.threeHour" = "3 heures avant";
+
+"NotificationPrior.push.thirtyMin" = "30 minutes";
+"NotificationPrior.push.oneHour" = "1 heure";
+"NotificationPrior.push.twoHour" = "2 heures";
+"NotificationPrior.push.threeHour" = "3 heures";
+
+"NotificationPrior.pushTitle.thirtyMin" = "Encore trente minutes";
+"NotificationPrior.pushTitle.oneHour" = "Encore une heure";
+"NotificationPrior.pushTitle.twoHour" = "Encore deux heures";
+"NotificationPrior.pushTitle.threeHour" = "Encore trois heures";
+
+"NotificationsScreen.separatorText.stages" = "Les étapes du jeûne";
+"NotificationsScreen.stage" = "étape";
+"NotificationsScreen.stages" = "étapes";
+"NotificationsScreen.allStages" = "Toutes les étapes";
+"NotificationsScreen.selectStages" = "Sélectionnez les étapes";
+
+
+"NotificationsScreen.weightIn.title" = "Rappelez-moi de peser";
+"NotificationsScreen.separatorText.weightInReminders" = "Rappels de pesée";
+"NotificationsScreen.time" = "Temps";
+"NotificationsScreen.frequency" = "Fréquence";
+"WeightFrequency.everyDay" = "Tous les jours";
+"WeightFrequency.everyTwoDays" = "Tous les 2 jours";
+"WeightFrequency.everyThreeDays" = "Tous les 3 jours";
+"WeightFrequency.everySevenDays" = "Tous les 7 jours";
+"WeightFrequency.everyFourteenDays" = "Tous les 14 jours";
+
+"NotificationsScreen.separatorText.hydrationReminders" = "Rappels d'hydratation";
+"NotificationsScreen.hydrationReminders.title" = "Rappelle-moi de boire de l'eau";
+"NotificationsScreen.startTime" = "Heure de début";
+"NotificationsScreen.endTime" = "Heure de fin";
+"HydrationFrequency.everyHour" = "Toutes les heures";
+"HydrationFrequency.everyTwoHours" = "Toutes les 2 heures";
+"HydrationFrequency.everyThreeHours" = "Toutes les 3 heures";
+"HydrationFrequency.everyFourHours" = "Toutes les 4 heures";
+"HydrationFrequency.everyFiveHours" = "Toutes les 5 heures";
+"HydrationFrequency.everySixHours" = "Toutes les 6 heures";
+
+"NotificationsAlert.title" = "Titre de l'alerte";
+"NotificationsAlert.subtitle" = "Sous-titre de l'alerte";
+"NotificationsAlert.openSettings" = "Ouvrir les paramètres de notifications";

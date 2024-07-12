@@ -25,7 +25,7 @@
 "Paywall.unlockAdvanteges" = "Débloquez votre avantage maintenant!";
 "Paywall.savePercent" = "Moins %i%";
 "Paywall.termsOfUse" = "Conditions d'utilisation";
-"Paywall.privacyPolicy" = "Politique de confidentialité";
+"Paywall.privacyPolicy %@" = "[Politique de confidentialité](%@)";
 
 // MARK: Personalized Paywall
 "PersonalizedPaywall.headerTitle" = "Atteignez votre poids de rêve de %@ d'ici le %@";
