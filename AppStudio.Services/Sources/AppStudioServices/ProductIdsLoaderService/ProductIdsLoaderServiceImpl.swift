@@ -19,6 +19,11 @@ class ProductIdsLoaderServiceImpl: BaseAppCustomization, ProductIdsLoaderService
             return ids.localIds
         }
     }
+
+    func defaultProductIds(app: ProductIdsApp) ->  [String] {
+        app.defaultIds
+    }
+
 }
 
 struct AvailableProducts: Codable {

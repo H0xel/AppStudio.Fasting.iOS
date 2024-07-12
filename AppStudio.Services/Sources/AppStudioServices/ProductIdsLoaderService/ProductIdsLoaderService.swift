@@ -7,4 +7,5 @@
 
 public protocol ProductIdsLoaderService {
     func productsIds(ids: ProductIdsApp) -> [String]
+    func defaultProductIds(app: ProductIdsApp) -> [String]
 }

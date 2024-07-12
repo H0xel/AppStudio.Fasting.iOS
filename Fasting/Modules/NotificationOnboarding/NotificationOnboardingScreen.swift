@@ -22,7 +22,7 @@ struct NotificationOnboardingScreen: View {
             Image(.notification)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-            AccentButton(title: .localizedString(Localization.buttonTitle)) {
+            AccentButton(title: .localizedString(viewModel.title ?? Localization.buttonTitle)) {
                 viewModel.notificationButtonTapped()
             }
             .padding(.horizontal, Layout.horizontalPadding)

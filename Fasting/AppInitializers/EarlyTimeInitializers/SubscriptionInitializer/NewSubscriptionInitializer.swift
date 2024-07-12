@@ -20,7 +20,8 @@ final class NewSubscriptionInitializerService: AppInitializer {
             do {
                 let ids = productIdsLoaderService.productsIds(ids: .fasting)
                 try await subscriptionInitializerService.initialize(subscriptions: ids,
-                                                                    apiService: subscriptionApi)
+                                                                    apiService: subscriptionApi, 
+                                                                    timerMinuteInterval: nil)
             } catch {}
         }
     }

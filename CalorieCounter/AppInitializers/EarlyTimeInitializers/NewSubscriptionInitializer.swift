@@ -20,7 +20,8 @@ final class NewSubscriptionInitializerService: AppInitializer {
             do {
                 let ids = productIdsLoaderService.productsIds(ids: .calorieCounter)
                 try await subscriptionInitializerService.initialize(subscriptions: ids,
-                                                                    apiService: subscriptionApi)
+                                                                    apiService: subscriptionApi, 
+                                                                    timerMinuteInterval: nil)
             } catch {}
         }
     }

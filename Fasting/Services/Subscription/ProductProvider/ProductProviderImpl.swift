@@ -49,7 +49,7 @@ class ProductProviderImpl: ProductProvider, AppInitializer {
 
     // TODO: SETUP default product list
     var defaultProductIds: [String] {
-        [weeklyProductIdWithoutTrial]
+        []
     }
 
     var remoteExperimentsPlans: [RemoteExperimentPlans] = []

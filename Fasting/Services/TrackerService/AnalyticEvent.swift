@@ -127,6 +127,7 @@ enum AnalyticEvent: MirrorEnum {
 
     case afFirstSubscribe
 
+    case remoteConfigProductIsEmpty
     case rateUsDialogShown
     case rateUsDialogAnswered(rate: Int)
 
@@ -229,6 +230,7 @@ extension AnalyticEvent {
         case .skipNotificationsSetUp: return "Tap skip notifications set up"
         case .tapSaveNotificationsSettings: return "Tap save notification settings"
         case .notificationSettingsUpdated: return "Notification settings updated"
+        case .remoteConfigProductIsEmpty: return "Remote config products is empty"
         }
     }
 

@@ -36,7 +36,7 @@ class ProductProviderImpl: ProductProvider, AppInitializer {
     }
 
     var defaultProductIds: [String] {
-        [weeklyProductId, threeMonthsProductId, yearProductId]
+        []
     }
 
     var productItems: [ProductCatalogItem] = {

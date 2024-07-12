@@ -38,4 +38,21 @@ extension ProductIdsApp {
             ]
         }
     }
+
+    var defaultIds: [String] {
+        switch self {
+        case .fasting:
+            [
+                "com.municorn.Fasting.weekly_exp_7",
+                "com.municorn.Fasting.3monthly_exp_7",
+                "com.municorn.Fasting.yearly_exp_7"
+            ]
+        case .calorieCounter:
+            [
+                "com.municorn.CalorieCounter.weekly_exp_1",
+                "com.municorn.CalorieCounter.3monthly_exp_1",
+                "com.municorn.CalorieCounter.yearly_exp_1"
+            ]
+        }
+    }
 }

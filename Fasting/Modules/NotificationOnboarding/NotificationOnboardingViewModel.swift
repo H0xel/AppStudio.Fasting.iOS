@@ -17,16 +17,24 @@ class NotificationOnboardingViewModel: BaseViewModel<NotificationOnboardingOutpu
     var router: NotificationOnboardingRouter!
 
     @Published private var isCustomNotificationScreenExperimentAvailable = false
+    @Published private(set) var title: LocalizedStringKey?
 
     init(input: NotificationOnboardingInput, output: @escaping NotificationOnboardingOutputBlock) {
         super.init(output: output)
         trackAllowNotificationsScreenShown()
+        appCustomization.isCustomNotificationAvailable
+            .sink(with: self) { this, expIsAvailable in
+                this.title = expIsAvailable == true
+                ? "NotificationOnboarding.button.exp"
+                : "NotificationOnboarding.button"
+                this.isCustomNotificationScreenExperimentAvailable = expIsAvailable
+            }
+            .store(in: &cancellables)
     }
 
     func notificationButtonTapped() {
         tapAllowNotification()
         requestAccess()
-        appCustomization.isCustomNotificationAvailable.assign(to: &$isCustomNotificationScreenExperimentAvailable)
     }
 
     private func requestAccess() {

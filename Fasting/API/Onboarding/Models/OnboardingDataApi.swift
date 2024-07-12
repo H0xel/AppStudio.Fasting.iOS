@@ -44,30 +44,43 @@ extension OnboardingData {
 
         let weightMeasure: WeightMeasure = {
             if let kgWeight = api.weight?.kg {
-                return .init(value: CGFloat(kgWeight), units: .kg)
+                let weight = kgWeight == 0 ? 1 : kgWeight
+                return .init(value: CGFloat(weight), units: .kg)
             }
 
-            let lbsWeight = api.weight?.lbs ?? 0
+            var lbsWeight: Double {
+                let apiWeight = api.weight?.lbs ?? 0
+                return apiWeight == 0 ? 1 : apiWeight
+            }
 
             return .init(value: lbsWeight, units: .lb)
         }()
 
         let desiredWeightMeasure: WeightMeasure = {
             if let kgWeight = api.weightGoal?.kg {
-                return .init(value: kgWeight, units: .kg)
+                let weight = kgWeight == 0 ? 1 : kgWeight
+                return .init(value: weight, units: .kg)
             }
 
-            let lbsWeight = api.weightGoal?.lbs ?? 0
+            var lbsWeight: Double {
+                let apiWeight = api.weightGoal?.lbs ?? 0
+                return apiWeight == 0 ? 1 : apiWeight
+            }
 
             return .init(value: lbsWeight, units: .lb)
         }()
 
         let heightMeasure: HeightMeasure = {
             if let cmHeight = api.height?.cm {
-                return .init(value: CGFloat(cmHeight), units: .cm)
+                let height  = cmHeight == 0 ? 1 : cmHeight
+                return .init(value: CGFloat(height), units: .cm)
             }
 
-            let ftHeight = api.height?.ft ?? 0
+            var ftHeight: Double {
+                let apiHeight = api.height?.ft ?? 0
+                return apiHeight == 0 ? 1 : apiHeight
+            }
+
             let inchHeight = api.height?.inch ?? 0
 
             return .init(feet: ftHeight, inches: inchHeight)

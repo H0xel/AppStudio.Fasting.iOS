@@ -66,7 +66,7 @@
     {
       "identity" : "appstudio.ios.common",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/m-unicorn/AppStudio.iOS.Common",
+      "location" : "https://github.com/m-unicorn/AppStudio.iOS.Common.git",
       "state" : {
         "revision" : "99f2ed75027acb5811c2585a3f1a0e3123efd757",
         "version" : "1.0.22"
@@ -86,8 +86,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git",
       "state" : {
-        "revision" : "5a386d32d0630d4f1f0e7a0f54e2efe4dc70ea56",
-        "version" : "1.0.9"
+        "branch" : "feature/ST2-777_add_optional_timer_init",
+        "revision" : "0d37f83b11218ff7653757f900a73cbe706e61d7"
       }
     },
     {

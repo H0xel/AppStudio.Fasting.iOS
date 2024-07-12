@@ -1,1 +1,5 @@
-- Rate Us Dialog
+- Fix double subscription request to Subz
+- Добавил событие аналитики remoteConfigProductIsEmpty - "Remote config products is empty" чтобы отправлялось елси не прилетели айдишники с ремоут конфига
+- Убрал инициализацию ежеминутного таймера из фатсинга и кк
+- Пофиксил нейминг кнопки на экране нотификацией онбординга если попали под эксп то будет "Set up"
+- Добавил к событию remoteConfigProductIsEmpty возвращение дефолтных продуктов для CC и Fasting

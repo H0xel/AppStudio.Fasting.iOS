@@ -169,6 +169,7 @@
 
 "NotificationOnboarding.title" = "Stay Motivated with Notifications";
 "NotificationOnboarding.button" = "Allow notifications";
+"NotificationOnboarding.button.exp" = "Set Up";
 
 // MARK: - Profile
 "ProfileScreen.navigationTitle" = "Profile";

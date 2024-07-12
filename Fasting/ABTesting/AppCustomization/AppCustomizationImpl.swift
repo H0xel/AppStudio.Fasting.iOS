@@ -25,6 +25,9 @@ private let fastingCyclesLimitKey = "fasting_cycles_limit"
 private let rateUsKey = "rate_us"
 
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
+    @Dependency(\.trackerService) private var trackerService
+    @Dependency(\.productIdsLoaderService) private var productIdsLoaderService
+    private var remoteConfigProductIsEmptyTracked = false
 
     let productIdsRelay = BehaviorRelay<[String]>(value: [])
     let discountRelay = BehaviorRelay<DiscountPaywallInfo>(value: .empty)
@@ -87,6 +90,17 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     var paywallProductIds: Observable<[String]> {
         productIds
+            .distinctUntilChanged()
+            .map(with: self) { this, products in
+                if products.isEmpty {
+                    if !this.remoteConfigProductIsEmptyTracked {
+                        this.trackerService.track(.remoteConfigProductIsEmpty)
+                        this.remoteConfigProductIsEmptyTracked = true
+                    }
+                    return this.productIdsLoaderService.defaultProductIds(app: .fasting)
+                }
+                return products
+            }
     }
 
     var onboardingPaywallProductIds: Observable<[String]> {

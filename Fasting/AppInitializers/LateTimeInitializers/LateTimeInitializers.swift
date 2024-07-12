@@ -10,7 +10,6 @@ final class LateTimeInitializers: Initializers {
     @Dependency(\.productProviderInitializer) private var productProviderInitializer
     func initializers() -> [AppInitializer] {
         [
-            NewSubscriptionInitializerService(),
             AppCustomizationInitializer(),
             productProviderInitializer,
             IntercomInitializer()

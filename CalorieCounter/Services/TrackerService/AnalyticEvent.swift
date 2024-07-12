@@ -134,6 +134,7 @@ enum AnalyticEvent: MirrorEnum {
     case tapNextDay(targetDate: String)
     case tapPreviousDay(targetDate: String)
 
+    case remoteConfigProductIsEmpty
     case rateUsDialogShown
     case rateUsDialogAnswered(rate: Int)
 
@@ -209,6 +210,7 @@ extension AnalyticEvent {
         case .feedbackSent: return "Feedback sent"
         case .tapNextDay: return "Tap next day"
         case .tapPreviousDay: return "Tap previous day"
+        case .remoteConfigProductIsEmpty: return "Remote config products is empty"
         case .rateUsDialogShown: return "Rate Us dialog shown"
         case .rateUsDialogAnswered: return "Rate Us dialog answered"
         case .serverError: return "Server error"

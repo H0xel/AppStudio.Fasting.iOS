@@ -22,6 +22,9 @@ private let dayLogLimitKey = "log_limit"
 private let rateUsKey = "rate_us"
 
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
+    @Dependency(\.trackerService) private var trackerService
+    private var remoteConfigProductIsEmptyTracked = false
+    @Dependency(\.productIdsLoaderService) private var productIdsLoaderService
 
     let productIdsRelay = BehaviorRelay<[String]>(value: [])
     let disposeBag = DisposeBag()
@@ -69,6 +72,16 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     var paywallProductIds: Observable<[String]> {
         productIds
+            .map(with: self) { this, products in
+                if products.isEmpty {
+                    if !this.remoteConfigProductIsEmptyTracked {
+                        this.trackerService.track(.remoteConfigProductIsEmpty)
+                        this.remoteConfigProductIsEmptyTracked = true
+                    }
+                    return this.productIdsLoaderService.defaultProductIds(app: .calorieCounter)
+                }
+                return products
+            }
     }
 
     var forceUpdateAppVersion: Observable<String> {
