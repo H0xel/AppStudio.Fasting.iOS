@@ -477,7 +477,7 @@ horário de jejum";
 
 //MARK: - W2W Login screen
 
-"W2W.onboarding.title" = "Já é usuário do Jejum Intermitente?";
+"W2W.onboarding.title" = "Já é usuário do Fasting App?";
 "W2W.onboarding.signIn" = "Entrar";
 "W2W.sign.title" = "Faça login com e-mail";
 "W2W.sign.description" = "Faça login com seu e-mail para conectar\nsua conta da web existente";

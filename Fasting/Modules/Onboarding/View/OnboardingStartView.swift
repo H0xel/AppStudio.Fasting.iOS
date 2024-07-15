@@ -54,14 +54,10 @@ struct OnboardingStartView: View {
                     .foregroundStyle(Color.studioBlackLight)
                     .padding(.top, Layout.topW2WPadding)
 
-                    PrivacyAndTermsOnboardingView { event in
-                        switch event {
-                        case .privacyTapped:
-                            onTap(.privacyTapped)
-                        case .termsTapped:
-                            onTap(.termsTapped)
-                        }
-                    }
+                    PrivacyAndTermsOnboardingView(
+                        privacyUrl: GlobalConstants.privacyPolicy,
+                        termsUrl: GlobalConstants.termsOfUse
+                    )
                     .padding(.top, Layout.topTermsPadding)
                 }
                 .padding(.horizontal, Layout.horizontalPadding)

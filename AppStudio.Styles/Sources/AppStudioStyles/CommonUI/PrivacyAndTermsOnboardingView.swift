@@ -8,52 +8,37 @@
 import SwiftUI
 
 public struct PrivacyAndTermsOnboardingView: View {
-    let action: (Action) -> Void
+    let privacyUrl: String
+    let termsUrl: String
+    private var termsLocalizedString = AttributedString("Onboarding.continuingYouAgree".localized(bundle: .module))
 
-    public init(action: @escaping (Action) -> Void) {
-        self.action = action
+    public init(privacyUrl: String, termsUrl: String) {
+        self.privacyUrl = privacyUrl
+        self.termsUrl = termsUrl
+        var privacyPolicyTappableText = AttributedString("ProfileScreen.privacyPolicy".localized(bundle: .module))
+        privacyPolicyTappableText.link = URL(string: privacyUrl)
+        privacyPolicyTappableText.foregroundColor = Color.studioGrayText
+        privacyPolicyTappableText.underlineStyle = .single
+        termsLocalizedString.append(privacyPolicyTappableText)
+
+        termsLocalizedString.append(AttributedString("Onboarding.and".localized(bundle: .module)))
+
+        var termsAndConditionsTappableText = AttributedString("ProfileScreen.termsAndConditions"
+            .localized(bundle: .module))
+        termsAndConditionsTappableText.link = URL(string: termsUrl)
+        termsAndConditionsTappableText.foregroundColor = Color.studioGrayText
+        termsAndConditionsTappableText.underlineStyle = .single
+        termsLocalizedString.append(termsAndConditionsTappableText)
     }
 
     public var body: some View {
-        VStack(spacing: .spacing) {
-            HStack(alignment: .bottom, spacing: .textSpacing) {
-                Text("Onboarding.continuingYouAgree".localized(bundle: .module))
-                Button {
-                    action(.privacyTapped)
-                } label: {
-                    Text("ProfileScreen.privacyPolicy".localized(bundle: .module))
-                        .underline()
-                }
-            }
-
-            HStack(alignment: .bottom, spacing: .textSpacing) {
-                Text("Onboarding.and".localized(bundle: .module))
-                Button {
-                    action(.termsTapped)
-                } label: {
-                    Text("ProfileScreen.termsAndConditions".localized(bundle: .module))
-                        .underline()
-                }
-            }
-        }
-        .foregroundStyle(Color.studioGrayText)
-        .font(.poppins(.description))
-        .multilineTextAlignment(.center)
+        Text(termsLocalizedString)
+            .foregroundStyle(Color.studioGrayText)
+            .font(.poppins(.description))
+            .multilineTextAlignment(.center)
     }
-}
-
-public extension PrivacyAndTermsOnboardingView {
-    enum Action {
-        case privacyTapped
-        case termsTapped
-    }
-}
-
-private extension CGFloat {
-    static let spacing: CGFloat = 4
-    static let textSpacing: CGFloat = 2
 }
 
 #Preview {
-    PrivacyAndTermsOnboardingView() { _ in }
+    PrivacyAndTermsOnboardingView(privacyUrl: "", termsUrl: "")
 }

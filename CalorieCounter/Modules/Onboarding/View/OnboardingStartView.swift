@@ -38,14 +38,10 @@ struct OnboardingStartView: View {
                         onTap(.continueTap)
                     }
 
-                    PrivacyAndTermsOnboardingView { event in
-                        switch event {
-                        case .privacyTapped:
-                            onTap(.privacyTapped)
-                        case .termsTapped:
-                            onTap(.termsTapped)
-                        }
-                    }
+                    PrivacyAndTermsOnboardingView(
+                        privacyUrl: GlobalConstants.privacyPolicy,
+                        termsUrl: GlobalConstants.termsOfUse
+                    )
                     .padding(.top, Layout.topPadding)
 
                 }
