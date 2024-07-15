@@ -22,8 +22,8 @@
 "ProfileScreen.birthday.add" = "Add";
 "ProfileScreen.height" = "Height";
 "ProfileScreen.support" = "Support";
-"ProfileScreen.termsOfUse" = "Terms of use";
-"ProfileScreen.privacyPolicy" = "Privacy policy";
+"ProfileScreen.termsOfUse" = "Terms of Use";
+"ProfileScreen.privacyPolicy" = "Privacy Policy";
 "ProfileScreen.termsAndConditions" = "Terms & Conditions";
 "ProfileScreen.signInByEmail" = "Sign In by Email";
 "ProfileScreen.notifications" = "Notifications";

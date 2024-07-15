@@ -31,8 +31,8 @@
 "Paywall.renewsAt" = "Obtén Plus por %@";
 "Paywall.cancelAnyTime" = "¡Aprovecha tu ventaja ahora!";
 "Paywall.savePercent" = "Ahorra %i%";
-"Paywall.termsOfUse" = "Términos de uso";
-"Paywall.privacyPolicy" = "Política de privacidad";
+"Paywall.termsOfUse" = "Términos de Uso";
+"Paywall.privacyPolicy" = "Política de Privacidad";
 
 "SubscriptionDuration.week" = "1 semana";
 "SubscriptionDuration.month" = "1 mes";
@@ -474,8 +474,8 @@
 
 //MARK: - W2W Login screen
 
-"W2W.onboarding.title" = "¿Ya eres usuario de Ayuno Intermitente?";
-"W2W.onboarding.signIn" = "Iniciar sesión";
+"W2W.onboarding.title" = "¿Ya eres usuario de Fasting App?";
+"W2W.onboarding.signIn" = "Acceder";
 "W2W.sign.title" = "Iniciar sesión con correo electrónico";
 "W2W.sign.description" = "Inicie sesión con su correo electrónico para conectar\nsu cuenta web existente";
 "W2W.onboarding.placeholderEmail" = "nombre@correo.com";

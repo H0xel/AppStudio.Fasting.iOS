@@ -31,8 +31,8 @@
 "Paywall.renewsAt" = "Obtenez Plus pour %@";
 "Paywall.cancelAnyTime" = "Débloquez votre avantage maintenant!";
 "Paywall.savePercent" = "Moins %i%";
-"Paywall.termsOfUse" = "Conditions d'utilisation";
-"Paywall.privacyPolicy" = "Politique de confidentialité";
+"Paywall.termsOfUse" = "Conditions d'Utilisation";
+"Paywall.privacyPolicy" = "Politique de Confidentialité";
 
 "SubscriptionDuration.week" = "1 semaine";
 "SubscriptionDuration.month" = "1 mois";
@@ -474,8 +474,8 @@
 
 //MARK: - W2W Login screen
 
-"W2W.onboarding.title" = "Déjà utilisateur de Intermittent Fasting ?";
-"W2W.onboarding.signIn" = "Se connecter";
+"W2W.onboarding.title" = "Déjà utilisateur de Fasting App ?";
+"W2W.onboarding.signIn" = "Connexion";
 "W2W.sign.title" = "Connectez-vous avec e-mail";
 "W2W.sign.description" = "Connectez-vous avec votre e-mail pour connecter\nvotre compte Web existant";
 "W2W.onboarding.placeholderEmail" = "nom@mail.com";

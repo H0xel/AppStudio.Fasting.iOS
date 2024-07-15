@@ -24,8 +24,8 @@
 "Paywall.cancelAnyTime" = "¡Aprovecha tu ventaja ahora!";
 "Paywall.unlockAdvanteges" = "¡Aprovecha tu ventaja ahora!";
 "Paywall.savePercent" = "Ahorra %i%";
-"Paywall.termsOfUse" = "Términos de uso";
-"Paywall.privacyPolicy %@" = "[Política de privacidad](%@)";
+"Paywall.termsOfUse" = "Términos de Uso";
+"Paywall.privacyPolicy %@" = "[Política de Privacidad](%@)";
 
 // MARK: Personalized Paywall
 "PersonalizedPaywall.headerTitle" = "Alcanza tu peso ideal de %@ para el %@";
@@ -354,8 +354,8 @@
 // MARK: - Profile Screen
 "ProfileScreen.navTitle" = "Perfil";
 "ProfileScreen.support" = "Soporte";
-"ProfileScreen.termsOfUse" = "Términos de uso";
-"ProfileScreen.privacyPolicy" = "Política de privacidad";
+"ProfileScreen.termsOfUse" = "Términos de Uso";
+"ProfileScreen.privacyPolicy" = "Política de Privacidad";
 "ProfileScreen.changeGoal" = "Cambiar meta";
 "ProfileScreen.targetWeight" = "Peso meta";
 "ProfileScreen.calorieGoal" = "Meta diaria de calorías";

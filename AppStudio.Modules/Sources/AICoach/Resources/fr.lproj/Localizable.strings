@@ -10,7 +10,7 @@
 "CoachTermsOfUseView.termsOfUseText" = "%@ n'est pas responsable des dommages causés par l'utilisation des conseils de Nova. Nos partenaires IA peuvent surveiller les discussions pour identifier les abus. Votre utilisation est soumise à nos";
 "CoachTermsOfUseView.agree" = "J'accepte les conditions";
 "CoachTermsOfUseView.termsOfUse" = "Conditions d'utilisation";
-"CoachTermsOfUseView.privacyPolicy" = "Politique de confidentialité";
+"CoachTermsOfUseView.privacyPolicy" = "Politique de Confidentialité";
 
 // MARK: - Coach Screen
 "CoachScreen.initialMessage.termsNotAgree" = "Bonjour ! 🌟\n\nJe suis Nova, votre compagnon prête à vous soutenir et à vous inspirer tout au long de votre parcours de bien-être lorsque vous en avez besoin.||Abordons d'abord quelques points :";

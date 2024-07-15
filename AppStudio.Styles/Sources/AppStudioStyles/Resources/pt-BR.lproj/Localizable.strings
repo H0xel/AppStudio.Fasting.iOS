@@ -89,5 +89,5 @@
 "RateUsInput.goodFeedbackButtonTitle" = "Deixe uma Avaliação";
 
 // MARK: Onboarding Privacy and Terms
-"Onboarding.and" = " e ";
-"Onboarding.continuingYouAgree" = "Ao continuar, você concorda com os ";
+"Onboarding.and" = " e os ";
+"Onboarding.continuingYouAgree" = "Ao continuar, você aceita a ";

@@ -22,9 +22,9 @@
 "ProfileScreen.birthday.add" = "Ajouter";
 "ProfileScreen.height" = "Taille";
 "ProfileScreen.support" = "Assistance";
-"ProfileScreen.termsOfUse" = "Conditions d'utilisation";
-"ProfileScreen.privacyPolicy" = "Politique de confidentialité";
-"ProfileScreen.termsAndConditions" = "Termes et Conditions";
+"ProfileScreen.termsOfUse" = "Conditions d'Utilisation";
+"ProfileScreen.privacyPolicy" = "Politique de Confidentialité";
+"ProfileScreen.termsAndConditions" = "Conditions Générales";
 "ProfileScreen.signInByEmail" = "Connectez-vous par e-mail";
 "ProfileScreen.notifications" = "Notifications";
 
@@ -89,5 +89,5 @@
 "RateUsInput.goodFeedbackButtonTitle" = "Laisser un commentaire";
 
 // MARK: Onboarding Privacy and Terms
-"Onboarding.and" = " et ";
-"Onboarding.continuingYouAgree" = "En continuant, vous acceptez les ";
+"Onboarding.and" = " et les ";
+"Onboarding.continuingYouAgree" = "En continuant, vous acceptez la ";
