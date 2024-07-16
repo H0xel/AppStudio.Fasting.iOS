@@ -19,9 +19,10 @@ public class ExploreInitializer {
         ExploreApiKey.liveValue = exploreApi
         initializeImageDocumentService(iCloudContainerIdentifier: iCloudContainerIdentifier)
 
-        Task {
-            let articles = try await exploreService.loadArticles()
-        }
+        // TODO: раскомитить когда задача будет готова Димой
+//        Task {
+//            let articles = try await exploreService.loadArticles()
+//        }
     }
 
     private func initializeImageDocumentService(iCloudContainerIdentifier: String) {
