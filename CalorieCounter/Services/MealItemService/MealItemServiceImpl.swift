@@ -15,10 +15,6 @@ class MealItemServiceImpl: MealItemService {
         try await mealItemRepository.sortedMealItems()
     }
 
-    func mealItemBy(request: String) async throws -> [MealItem] {
-        try await mealItemRepository.mealItemBy(searchRequest: request)
-    }
-
     func mealItem(byName name: String, creationType: MealCreationType) async throws -> MealItem? {
         try await mealItemRepository.mealItem(with: name, type: creationType)
     }

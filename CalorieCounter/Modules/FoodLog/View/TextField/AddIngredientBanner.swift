@@ -7,20 +7,16 @@
 
 import SwiftUI
 import AppStudioNavigation
+import Combine
 
 struct AddIngredientBanner: Banner {
 
-    let meal: Meal
-    let onTap: (String) -> Void
-    let onBarcodeScan: (Bool) -> Void
-    let onDismissFocus: () -> Void
+    let mealPublisher: AnyPublisher<Meal, Never>
+    let output: (AddIngredientOutput) -> Void
 
     var view: AnyView {
-        AddIngredientTextField(meal: meal,
-                               onTap: onTap,
-                               onBarcodeScan: onBarcodeScan,
-                               onDismissFocus: onDismissFocus)
-        .aligned(.bottom)
-        .eraseToAnyView()
+        AddIngredientTextField(mealPublisher: mealPublisher, output: output)
+            .transition(.asymmetric(insertion: .identity, removal: .push(from: .top)))
+            .eraseToAnyView()
     }
 }

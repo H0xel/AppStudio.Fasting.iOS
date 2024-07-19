@@ -273,6 +273,8 @@
 		A036CE4D2B6021B600F902E9 /* FreeUsageServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CE4A2B6021B600F902E9 /* FreeUsageServiceImpl.swift */; };
 		A036CE4E2B6021B600F902E9 /* FreeUsageDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CE4B2B6021B600F902E9 /* FreeUsageDependencies.swift */; };
 		A036CE4F2B6021B600F902E9 /* FreeUsageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CE4C2B6021B600F902E9 /* FreeUsageService.swift */; };
+		A038D0302C483EBD00AD8DBD /* FoodSuggestionsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A038D02F2C483EBD00AD8DBD /* FoodSuggestionsInput.swift */; };
+		A038D0322C483ED100AD8DBD /* FoodSuggestionsOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A038D0312C483ED100AD8DBD /* FoodSuggestionsOutput.swift */; };
 		A041D5FC2B35A3A9009A98B7 /* MealDeleteBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041D5FB2B35A3A9009A98B7 /* MealDeleteBanner.swift */; };
 		A04272C92AE28D3D00754326 /* DebugMenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272C82AE28D3D00754326 /* DebugMenuScreen.swift */; };
 		A04272CC2AE28DF600754326 /* DebugMenuInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */; };
@@ -365,6 +367,8 @@
 		A0CD174A2C18A57E00F19D84 /* CustomKeyboardButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD17492C18A57E00F19D84 /* CustomKeyboardButtonView.swift */; };
 		A0CD174C2C18B9F500F19D84 /* CustomKeyboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD174B2C18B9F500F19D84 /* CustomKeyboardTextField.swift */; };
 		A0CD174E2C18BB3900F19D84 /* CustomKeyboardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD174D2C18BB3900F19D84 /* CustomKeyboardTextView.swift */; };
+		A0D0055D2C4156FA00BE854B /* FoodSuggestionsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0055C2C4156FA00BE854B /* FoodSuggestionsScrollView.swift */; };
+		A0D0055F2C4157DA00BE854B /* FoodSuggestionsScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0055E2C4157DA00BE854B /* FoodSuggestionsScrollViewModel.swift */; };
 		A0D23B9C2B4BF0E2007C4654 /* FoodInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D23B962B4BF0E2007C4654 /* FoodInput.swift */; };
 		A0D23B9D2B4BF0E2007C4654 /* FoodRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D23B972B4BF0E2007C4654 /* FoodRouter.swift */; };
 		A0D23B9E2B4BF0E2007C4654 /* FoodRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D23B982B4BF0E2007C4654 /* FoodRoute.swift */; };
@@ -832,6 +836,8 @@
 		A036CE4A2B6021B600F902E9 /* FreeUsageServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeUsageServiceImpl.swift; sourceTree = "<group>"; };
 		A036CE4B2B6021B600F902E9 /* FreeUsageDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeUsageDependencies.swift; sourceTree = "<group>"; };
 		A036CE4C2B6021B600F902E9 /* FreeUsageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeUsageService.swift; sourceTree = "<group>"; };
+		A038D02F2C483EBD00AD8DBD /* FoodSuggestionsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSuggestionsInput.swift; sourceTree = "<group>"; };
+		A038D0312C483ED100AD8DBD /* FoodSuggestionsOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSuggestionsOutput.swift; sourceTree = "<group>"; };
 		A041D5FB2B35A3A9009A98B7 /* MealDeleteBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDeleteBanner.swift; sourceTree = "<group>"; };
 		A04272C82AE28D3D00754326 /* DebugMenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuScreen.swift; sourceTree = "<group>"; };
 		A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuInfoView.swift; sourceTree = "<group>"; };
@@ -921,6 +927,8 @@
 		A0CD17492C18A57E00F19D84 /* CustomKeyboardButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKeyboardButtonView.swift; sourceTree = "<group>"; };
 		A0CD174B2C18B9F500F19D84 /* CustomKeyboardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKeyboardTextField.swift; sourceTree = "<group>"; };
 		A0CD174D2C18BB3900F19D84 /* CustomKeyboardTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKeyboardTextView.swift; sourceTree = "<group>"; };
+		A0D0055C2C4156FA00BE854B /* FoodSuggestionsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSuggestionsScrollView.swift; sourceTree = "<group>"; };
+		A0D0055E2C4157DA00BE854B /* FoodSuggestionsScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSuggestionsScrollViewModel.swift; sourceTree = "<group>"; };
 		A0D23B962B4BF0E2007C4654 /* FoodInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInput.swift; sourceTree = "<group>"; };
 		A0D23B972B4BF0E2007C4654 /* FoodRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRouter.swift; sourceTree = "<group>"; };
 		A0D23B982B4BF0E2007C4654 /* FoodRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRoute.swift; sourceTree = "<group>"; };
@@ -2054,8 +2062,9 @@
 		A00EF1A82BE27DC700F6CD58 /* FoodSuggestions */ = {
 			isa = PBXGroup;
 			children = (
+				A038D02E2C483EB300AD8DBD /* Model */,
+				A0D0055B2C4156F000BE854B /* FoodSuggestionsScrollView */,
 				A02106612C4102240030E6A3 /* View */,
-				A02106602C4102190030E6A3 /* FoodSuggestionsViewController */,
 				A00EF1A92BE27DD700F6CD58 /* FoodSuggestionsView.swift */,
 				A00EF1AB2BE27E0200F6CD58 /* FoodSuggestionsViewModel.swift */,
 				A01904D02BE3E05900505A9C /* SuggestedMeal.swift */,
@@ -2161,14 +2170,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A02106602C4102190030E6A3 /* FoodSuggestionsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				A018A56A2C3FF97F009EE317 /* FoodSuggestionsViewController.swift */,
-			);
-			path = FoodSuggestionsViewController;
-			sourceTree = "<group>";
-		};
 		A02106612C4102240030E6A3 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2206,6 +2207,15 @@
 				A712BE812B832EAA005504B1 /* FreeUsageServicePreview.swift */,
 			);
 			path = FreeUsageService;
+			sourceTree = "<group>";
+		};
+		A038D02E2C483EB300AD8DBD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A038D02F2C483EBD00AD8DBD /* FoodSuggestionsInput.swift */,
+				A038D0312C483ED100AD8DBD /* FoodSuggestionsOutput.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A04272C72AE28D2400754326 /* UI */ = {
@@ -2581,6 +2591,16 @@
 				A006058D2C17464C00D8CFDD /* FoodHistoryOutput.swift */,
 			);
 			path = FoodLogHistory;
+			sourceTree = "<group>";
+		};
+		A0D0055B2C4156F000BE854B /* FoodSuggestionsScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				A018A56A2C3FF97F009EE317 /* FoodSuggestionsViewController.swift */,
+				A0D0055C2C4156FA00BE854B /* FoodSuggestionsScrollView.swift */,
+				A0D0055E2C4157DA00BE854B /* FoodSuggestionsScrollViewModel.swift */,
+			);
+			path = FoodSuggestionsScrollView;
 			sourceTree = "<group>";
 		};
 		A0D23B952B4BF0D1007C4654 /* Food */ = {
@@ -3448,6 +3468,7 @@
 				5692C6812B59386B007A9E3A /* FoodSearchService.swift in Sources */,
 				AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */,
 				56D7B2B82B3D3FD1003B721D /* ProfileCalculationInput.swift in Sources */,
+				A038D0322C483ED100AD8DBD /* FoodSuggestionsOutput.swift in Sources */,
 				A01E80942B57E65000AECD39 /* ProfileScreen.swift in Sources */,
 				A0FE905F2B4EFCC90069AC4C /* TabBarRouter.swift in Sources */,
 				A72A7D812B31B031000677A2 /* PersonalizedDescriptionView.swift in Sources */,
@@ -3507,6 +3528,7 @@
 				A0E3CD392C0E125D00CED598 /* QuickAddBanner.swift in Sources */,
 				5692C6712B592E4A007A9E3A /* FoodSearchResponse.swift in Sources */,
 				A0D245B12B3CC35100B2048C /* MealPlaceholder.swift in Sources */,
+				A0D0055F2C4157DA00BE854B /* FoodSuggestionsScrollViewModel.swift in Sources */,
 				A01E809F2B582FCB00AECD39 /* AppearenceInitializer.swift in Sources */,
 				A70B6DC52B31B5620035EF96 /* SpecialEvent.swift in Sources */,
 				567500082ADE84B4009331CB /* MigrationServiceImpl.swift in Sources */,
@@ -3553,6 +3575,7 @@
 				ADC785052AFA923D005F16A6 /* SubscriptionTarget.swift in Sources */,
 				A07D95992AE9270600D2C2E2 /* AppCustomizationDependency.swift in Sources */,
 				56B23EBB2C2159E900A2BB64 /* NutritionFoodErrors.swift in Sources */,
+				A0D0055D2C4156FA00BE854B /* FoodSuggestionsScrollView.swift in Sources */,
 				A7E45C952B4EA75600935488 /* DailyCalorieBudgetOutput.swift in Sources */,
 				A7E45C892B4E9D1F00935488 /* OnboardingFastCalorieDescriptionView.swift in Sources */,
 				A04272CE2AE28F2C00754326 /* DebugMenuActionsView.swift in Sources */,
@@ -3629,6 +3652,7 @@
 				A740810D2B4BFD860041C0E4 /* OnboardingEstimatedExpenditureView.swift in Sources */,
 				566C24932AE8F80B00AEDB3C /* PaywallScreenInput.swift in Sources */,
 				A063D5BD2B33559F00594353 /* NutritionType.swift in Sources */,
+				A038D0302C483EBD00AD8DBD /* FoodSuggestionsInput.swift in Sources */,
 				566C24992AE8F80B00AEDB3C /* PaywallCancelView.swift in Sources */,
 				566C249A2AE8F80B00AEDB3C /* PaywallBottomInfoView.swift in Sources */,
 				A72A7D822B31B031000677A2 /* PersonalizedSeparatorView.swift in Sources */,

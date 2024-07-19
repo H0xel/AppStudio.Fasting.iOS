@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
+import Combine
 
 class MealViewRouter: BaseRouter {
     func presentDeleteBanner(editType: MealEditType,
@@ -21,14 +22,8 @@ class MealViewRouter: BaseRouter {
         present(banner: banner, animation: .bouncy)
     }
 
-    func presentAddIngredientBanner(meal: Meal,
-                                    onTap: @escaping (String) -> Void,
-                                    onBarcodeScan: @escaping (Bool) -> Void,
-                                    onDismissFocus: @escaping () -> Void) {
-        let route = AddIngredientBanner(meal: meal,
-                                        onTap: onTap,
-                                        onBarcodeScan: onBarcodeScan,
-                                        onDismissFocus: onDismissFocus)
+    func presentAddIngredientBanner(mealPublisher: AnyPublisher<Meal, Never>, output: @escaping (AddIngredientOutput) -> Void) {
+        let route = AddIngredientBanner(mealPublisher: mealPublisher, output: output)
         present(banner: route)
     }
 

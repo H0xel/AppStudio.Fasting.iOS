@@ -7,13 +7,16 @@
 
 import SwiftUI
 import AppStudioStyles
+import Combine
 
 struct SuggestedMealItemView: View {
 
     let meal: SuggestedMeal
-    let searchRequest: String
+    let searchRequestPublisher: AnyPublisher<String, Never>
     let isSelected: Bool
     let onTap: (MealItem) -> Void
+
+    @State private var searchRequest = ""
 
     var body: some View {
         HStack(spacing: .zero) {
@@ -25,6 +28,7 @@ struct SuggestedMealItemView: View {
             VStack(alignment: .leading, spacing: .verticalSpacing) {
 
                 AttributedText(text: text)
+                    .id(searchRequest)
 
                 HStack(spacing: .nutritionsSpacing) {
                     ForEach(NutritionType.allCases, id: \.self) { type in
@@ -52,6 +56,9 @@ struct SuggestedMealItemView: View {
                     plus
                 }
             }
+        }
+        .onReceive(searchRequestPublisher) { request in
+            searchRequest = request
         }
     }
 
@@ -120,22 +127,22 @@ private extension CGFloat {
     VStack {
         SuggestedMealItemView(meal: .init(icon: MealType.breakfast.image,
                                           mealItem: .mock),
-                              searchRequest: "Omelette",
+                              searchRequestPublisher: Just("Omelette").eraseToAnyPublisher(),
                               isSelected: true,
                               onTap: { _ in })
         SuggestedMealItemView(meal: .init(icon: MealType.lunch.image,
                                           mealItem: .mock),
-                              searchRequest: "Omelette",
+                              searchRequestPublisher: Just("Omelette").eraseToAnyPublisher(),
                               isSelected: true,
                               onTap: { _ in })
         SuggestedMealItemView(meal: .init(icon: MealType.snack.image,
                                           mealItem: .mock),
-                              searchRequest: "Omelette",
+                              searchRequestPublisher: Just("Omelette").eraseToAnyPublisher(),
                               isSelected: false,
                               onTap: { _ in })
         SuggestedMealItemView(meal: .init(icon: MealType.dinner.image,
                                           mealItem: .mock),
-                              searchRequest: "Omelette",
+                              searchRequestPublisher: Just("Omelette").eraseToAnyPublisher(),
                               isSelected: false,
                               onTap: { _ in })
     }

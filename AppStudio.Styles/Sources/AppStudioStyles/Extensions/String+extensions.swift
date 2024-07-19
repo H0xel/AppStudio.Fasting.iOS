@@ -22,4 +22,8 @@ public extension String {
     var withoutDecimalsIfNeeded: String {
         decimalFormatter.string(from: NSNumber(value: Double(self) ?? 0)) ?? self
     }
+
+    func firstIndex(of request: String) -> String.Index? {
+        range(of: request, options: .caseInsensitive)?.lowerBound
+    }
 }

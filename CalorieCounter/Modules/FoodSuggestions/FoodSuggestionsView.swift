@@ -16,15 +16,17 @@ struct FoodSuggestionsView: View {
     let isFocused: Bool
     let inputHeight: CGFloat
     let canShowFavorites: Bool
+    var minTopPadding: CGFloat = .minTopPadding
     @StateObject var viewModel: FoodSuggestionsViewModel
 
-    @State private var viewId = UUID()
     @State private var isDraging = false
+    @State private var dragScrollViewOffset: CGFloat = 0
+    @State private var contentOffset: CGFloat = .zero
+    @State private var isDraggingScrollView = false
+    @State private var isMealsEmpty = true
 
     var body: some View {
         currentView
-            .animation(.linear(duration: 0.2), value: viewModel.suggestedMeals)
-            .animation(.linear(duration: 0.2), value: viewModel.isSuggestionsPresented)
             .onChange(of: isFocused) { isFocused in
                 if isFocused {
                     viewModel.isSuggestionsPresented = true
@@ -33,26 +35,23 @@ struct FoodSuggestionsView: View {
             .onChange(of: viewModel.isSuggestionsPresented) { isSuggestionsPresented in
                 viewModel.toggleSuggestions(isPresented: isSuggestionsPresented)
             }
-            .onChange(of: viewModel.suggestedMeals) { _ in
-                viewId = .init()
-            }
-            .onChange(of: viewModel.searchRequest) { _ in
-                viewId = .init()
-            }
-            .onChange(of: viewModel.selectedItemIds) { _ in
-                viewId = .init()
-            }
             .onChange(of: canShowFavorites) { canShowFavorites in
                 viewModel.toggleFavorites(canShowFavorites: canShowFavorites)
+            }
+            .onAppear {
+                viewModel.toggleFavorites(canShowFavorites: canShowFavorites)
+            }
+            .onReceive(viewModel.mealsPublisher.map { $0.isEmpty }) { isEmpty in
+                isMealsEmpty = isEmpty
             }
     }
 
     @ViewBuilder
     var currentView: some View {
-        if !viewModel.suggestedMeals.isEmpty {
-            cardView
-        } else {
+        if isMealsEmpty {
             emptyView
+        } else {
+            cardView
         }
     }
 
@@ -72,30 +71,51 @@ struct FoodSuggestionsView: View {
             }
         }
         .modifier(DragableModifier(isCollapsed: !viewModel.isSuggestionsPresented,
-                                   minTopPadding: .minTopPadding,
+                                   minTopPadding: minTopPadding,
                                    bottomPadding: inputHeight,
                                    onChangeCollapsed: toggleCollapsed,
                                    onDraging: onDraging))
     }
 
     var cardView: some View {
-        DragableCardView(scrollViewOffset: $scrollOffset,
-                         isCollapsed: !viewModel.isSuggestionsPresented,
-                         viewId: viewId,
-                         minTopPadding: .minTopPadding,
-                         bottomPadding: inputHeight,
-                         onChangeCollapsed: toggleCollapsed) {
-            LazyVStack(spacing: .zero) {
-                ForEach(viewModel.suggestedMeals, id: \.self) { suggestedMeal in
-                    SuggestedMealItemView(meal: suggestedMeal,
-                                          searchRequest: viewModel.searchRequest,
-                                          isSelected: viewModel.isSelected(meal: suggestedMeal.mealItem),
-                                          onTap: viewModel.toggleSelection)
-                    .padding(.vertical, .itemVerticalPadding)
+        CardView {
+            FoodSuggestionsScrollView(
+                mealsPublisher: viewModel.mealsPublisher,
+                initialMealPublisher: viewModel.initialMealPublisher,
+                searchRequestPublisher: viewModel.$searchRequest.eraseToAnyPublisher(),
+                isDragging: $isDraggingScrollView,
+                dragOffset: $dragScrollViewOffset,
+                scrollOffset: $scrollOffset,
+                contentOffset: $contentOffset, 
+                output: viewModel.hadle
+            )
+        }
+        .modifier(DragableModifier(isCollapsed: !viewModel.isSuggestionsPresented,
+                                   minTopPadding: minTopPadding + contentOffset,
+                                   bottomPadding: inputHeight,
+                                   onChangeCollapsed: toggleCollapsed))
+        .onChange(of: isDraggingScrollView) { isDragging in
+            if !isDragging, contentOffset > 0 {
+                toggleCollapsed(contentOffset > 50)
+            }
+            if contentOffset <= 50 {
+                withAnimation(.bouncy) {
+                    dragScrollViewOffset = 0
+                    contentOffset = 0
                 }
             }
-            .padding(.horizontal, .horizontalPadding)
-            Spacer(minLength: inputHeight)
+        }
+        .onChange(of: dragScrollViewOffset) { newValue in
+            guard isDraggingScrollView else {
+                contentOffset = 0
+                dragScrollViewOffset = 0
+                return
+            }
+            contentOffset = max(0, contentOffset + newValue)
+        }
+        .onChange(of: viewModel.isSuggestionsPresented) { newValue in
+            dragScrollViewOffset = 0
+            contentOffset = 0
         }
     }
 
@@ -128,14 +148,9 @@ private extension CGFloat {
                          mealRequestPublisher: Just("").eraseToAnyPublisher(),
                          isPresented: true,
                          collapsePublisher: Just(()).eraseToAnyPublisher(),
-                         searchRequest: ""),
+                         searchRequest: "",
+                         showOnlyIngredients: false),
             output: { _ in }
         )
     )
 }
-
-enum FoodSuggestionsSection {
-    case favorites
-    case history
-}
-

@@ -8,7 +8,6 @@
 protocol MealItemService {
     func save(_ mealItem: MealItem) async throws -> MealItem
     func sortedMealItems() async throws -> [MealItem]
-    func mealItemBy(request: String) async throws -> [MealItem]
     func mealItem(byName name: String, creationType: MealCreationType) async throws -> MealItem?
     func mealItem(byId id: String) async throws -> MealItem?
     func delete(byId id: String) async throws

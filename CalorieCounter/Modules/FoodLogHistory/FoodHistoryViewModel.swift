@@ -121,7 +121,8 @@ extension FoodHistoryViewModel {
               mealRequestPublisher: $mealRequest.eraseToAnyPublisher(),
               isPresented: suggestionsState.isPresented,
               collapsePublisher: dismissSuggestionsSubject.eraseToAnyPublisher(),
-              searchRequest: mealRequest)
+              searchRequest: mealRequest,
+              showOnlyIngredients: false)
     }
 
     func handle(foodSuggestionsOutput output: FoodSuggestionsOutput) {

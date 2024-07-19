@@ -14,13 +14,6 @@ class MealItemRepositoryImpl: CoreDataBaseRepository<MealItem>, MealItemReposito
         super.init(coreDataService: coreDataService)
     }
 
-    func mealItemBy(searchRequest: String) async throws -> [MealItem] {
-        let request = MealItem.request()
-        request.predicate = .init(format: "name CONTAINS[c] %@", searchRequest.lowercased())
-        request.sortDescriptors = [.init(key: "dateUpdated", ascending: false)]
-        return try await select(request: request)
-    }
-
     func mealItem(with name: String, type: MealCreationType) async throws -> MealItem? {
         let request = MealItem.request()
         request.predicate = .init(format: "name = %@ AND creationType = %i", name, type.rawValue)

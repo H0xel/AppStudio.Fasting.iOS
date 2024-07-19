@@ -6,37 +6,111 @@
 //
 
 import SwiftUI
+import Combine
+import AppStudioNavigation
+
+enum AddIngredientOutput {
+    case search(String)
+    case scanBarcode(Bool)
+    case add(MealItem)
+    case remove(MealItem)
+    case dismiss
+}
 
 struct AddIngredientTextField: View {
 
-    let meal: Meal
-    let onTap: (String) -> Void
-    let onBarcodeScan: (Bool) -> Void
-    let onDismissFocus: () -> Void
+    let mealPublisher: AnyPublisher<Meal, Never>
+    let output: (AddIngredientOutput) -> Void
+
+    @State private var meal: Meal = .mock
     @State private var text = ""
     @FocusState private var isFocused: Bool
+    @State private var suggestionsScrollOffset: CGFloat = 0
+    private let requestSubject = CurrentValueSubject<String, Never>("")
+    private let collapsePublisher = PassthroughSubject<Void, Never>()
 
     var body: some View {
-        FoodLogTextField(text: $text,
-                         context: .addIngredients(meal),
-                         isDisableEditing: false,
-                         showTopBorder: false,
-                         isBarcodeShown: true,
-                         onTap: onTap,
-                         onBarcodeScan: onBarcodeScan)
-        .focused($isFocused)
-        .aligned(.bottom)
-        .onAppear {
-            isFocused = true
+        ZStack(alignment: .bottom) {
+            FoodSuggestionsView(
+                scrollOffset: $suggestionsScrollOffset,
+                isFocused: isFocused,
+                inputHeight: .inputHeight,
+                canShowFavorites: false,
+                minTopPadding: .minTopPadding,
+                viewModel: .init(
+                    input: foodSuggestionsInput,
+                    output: handle
+                )
+            )
+
+            FoodLogTextField(text: $text,
+                             context: .addIngredients(meal),
+                             isDisableEditing: false,
+                             showTopBorder: false,
+                             isBarcodeShown: true,
+                             onTap: search,
+                             onBarcodeScan: scanBarcode)
+            .focused($isFocused)
+            .background(.white)
+            .onAppear {
+                isFocused = true
+            }
+            .modifier(HideOnScrollModifier(scrollOffset: suggestionsScrollOffset,
+                                           canHide: true))
         }
-        .onChange(of: isFocused) { isFocused in
-            if !isFocused {
-                onDismissFocus()
+        .onChange(of: text) { newValue in
+            requestSubject.send(newValue)
+        }
+        .onReceive(mealPublisher) { meal in
+            self.meal = meal
+        }
+    }
+
+    private var foodSuggestionsInput: FoodSuggestionsInput {
+        .init(mealPublisher: mealItemsPublisher,
+              mealType: .breakfast,
+              mealRequestPublisher: requestSubject.eraseToAnyPublisher(),
+              isPresented: true,
+              collapsePublisher: collapsePublisher.eraseToAnyPublisher(),
+              searchRequest: text, 
+              showOnlyIngredients: true)
+    }
+
+    private var mealItemsPublisher: AnyPublisher<[MealItem], Never> {
+        mealPublisher
+            .map {
+                $0.mealItem.type == .ingredient ? [$0.mealItem] : $0.mealItem.ingredients
+            }
+            .eraseToAnyPublisher()
+    }
+
+    private func handle(foodSuggestionsOutput output: FoodSuggestionsOutput) {
+        switch output {
+        case .add(let mealItem):
+            self.output(.add(mealItem))
+        case .remove(let mealItem):
+            self.output(.remove(mealItem))
+        case .togglePresented(let isPresented):
+            if !isPresented {
+                self.output(.dismiss)
             }
         }
     }
+
+    private func search(_ text: String) {
+        output(.search(text))
+    }
+
+    private func scanBarcode(_ isAccessGranted: Bool) {
+        output(.scanBarcode(isAccessGranted))
+    }
+}
+
+private extension CGFloat {
+    static let inputHeight: CGFloat = 107
+    static let minTopPadding: CGFloat = 100
 }
 
 #Preview {
-    AddIngredientTextField(meal: .mock, onTap: { _ in }, onBarcodeScan: { _ in }, onDismissFocus: {})
+    AddIngredientTextField(mealPublisher: Just(.mock).eraseToAnyPublisher(), output: { _ in })
 }

@@ -91,6 +91,19 @@ extension MealItem {
                      servings: [])
     }
 
+    func convertIngredientToMealItem(with ingredients: [MealItem]) -> MealItem {
+        MealItem(
+            id: UUID().uuidString,
+            type: .chatGPT,
+            name: "",
+            ingredients: ingredients + [self],
+            servingMultiplier: 1,
+            serving: .serving,
+            servings: [],
+            dateUpdated: .now
+        )
+    }
+
     func update(value: MealItemEditableValue) -> MealItem {
         if ingredients.isEmpty {
             return updated(value: value.value, serving: value.serving)
