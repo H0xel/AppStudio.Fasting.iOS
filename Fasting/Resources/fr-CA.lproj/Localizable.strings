@@ -32,7 +32,7 @@
 "Paywall.cancelAnyTime" = "Débloquez votre avantage maintenant!";
 "Paywall.savePercent" = "Moins %i%";
 "Paywall.termsOfUse" = "Conditions d'Utilisation";
-"Paywall.privacyPolicy" = "Politique de Confidentialité";
+"Paywall.privacyPolicy" = "Politique de Confidentialité";
 
 "SubscriptionDuration.week" = "1 semaine";
 "SubscriptionDuration.month" = "1 mois";
