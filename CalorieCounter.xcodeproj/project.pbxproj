@@ -1074,6 +1074,7 @@
 		A75DA7292B9B31D300F6D796 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		A771AC872C070D6600640E5F /* NewSubscriptionInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubscriptionInitializer.swift; sourceTree = "<group>"; };
 		A771AC892C07137C00640E5F /* UsageLimitPaywallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageLimitPaywallViewModel.swift; sourceTree = "<group>"; };
+		A773A21F2C4FAEFE0027AD73 /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
 		A779820C2B3D64DD0015B37D /* BarcodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeInput.swift; sourceTree = "<group>"; };
 		A779820D2B3D64DD0015B37D /* BarcodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeRouter.swift; sourceTree = "<group>"; };
 		A779820E2B3D64DD0015B37D /* BarcodeRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeRoute.swift; sourceTree = "<group>"; };
@@ -4507,11 +4508,12 @@
 		5658F8C82B34039100E010E9 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				A773A21F2C4FAEFE0027AD73 /* Model 4.xcdatamodel */,
 				56563F8C2C1AC40A00CC7890 /* Model 3.xcdatamodel */,
 				A01904B82BE3BB4F00505A9C /* Model 2.xcdatamodel */,
 				5658F8C92B34039100E010E9 /* Model.xcdatamodel */,
 			);
-			currentVersion = 56563F8C2C1AC40A00CC7890 /* Model 3.xcdatamodel */;
+			currentVersion = A773A21F2C4FAEFE0027AD73 /* Model 4.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
