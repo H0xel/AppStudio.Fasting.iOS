@@ -1,14 +1,14 @@
 //
-//  PromotionSubscriptionMigration.swift
+//  PutReceiptMigrationForUsersWithActualSubscription.swift
 //  CalorieCounter
 //
-//  Created by Amakhin Ivan on 17.06.2024.
+//  Created by Amakhin Ivan on 31.07.2024.
 //
 
 import Dependencies
 import MunicornFoundation
 
-class PromotionSubscriptionMigration: Migration {
+class PutReceiptMigrationForUsersWithActualSubscription: Migration {
     @Dependency(\.newSubscriptionService) private var subscriptionService
 
     func migrate() async {

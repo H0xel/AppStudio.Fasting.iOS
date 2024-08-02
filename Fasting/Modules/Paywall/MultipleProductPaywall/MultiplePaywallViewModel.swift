@@ -17,6 +17,7 @@ class MultiplePaywallViewModel: BasePaywallViewModel<MultiplePaywallOutput> {
     @Dependency(\.newSubscriptionService) private var newSubscriptionService
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.productIdsService) private var productIdsService
+    @Dependency(\.accountProvider) private var accountProvider
 
     var router: MultiplePaywallRouter!
     @Published var selectedProduct: SubscriptionProduct?
@@ -26,6 +27,7 @@ class MultiplePaywallViewModel: BasePaywallViewModel<MultiplePaywallOutput> {
     init(input: MultiplePaywallInput, output: @escaping MultiplePaywallOutputBlock) {
         super.init(output: output)
         paywallContext = input.paywallContext
+        accountId = accountProvider.accountId
         subscribeToStatus()
         initializeRemoteSubscriptions()
     }

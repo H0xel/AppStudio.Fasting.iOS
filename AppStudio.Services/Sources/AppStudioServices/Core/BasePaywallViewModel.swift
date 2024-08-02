@@ -28,6 +28,7 @@ open class BasePaywallViewModel<OutputEventType>: BaseViewModel<OutputEventType>
 
     @Published public private(set) var subscriptions: [Product] = []
     public var paywallContext: PaywallContext?
+    public var accountId: String?
     @Dependency(\.cloudStorage) private var cloudStorage
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.analyticKeyStore) private var analyticKeyStore
@@ -40,7 +41,10 @@ open class BasePaywallViewModel<OutputEventType>: BaseViewModel<OutputEventType>
     }
 
     public func subscribe(id: String) {
-        guard let subscription = subscriptions.first(where: { $0.id == id }), let paywallContext else {
+        guard let subscription = subscriptions.first(where: { $0.id == id }),
+              let paywallContext,
+              let accountId,
+              let accountIDuuid = UUID(uuidString: accountId) else {
             return
         }
 
@@ -54,7 +58,8 @@ open class BasePaywallViewModel<OutputEventType>: BaseViewModel<OutputEventType>
         Task { @MainActor in
             do {
                 let purchaseResult = try await newSubscriptionService.purchase(subscription,
-                                                                               context: paywallContext.rawValue)
+                                                                               context: paywallContext.rawValue, 
+                                                                               accountId: accountIDuuid)
 
                 status = .hideProgress
                 if purchaseResult.isPurchased {

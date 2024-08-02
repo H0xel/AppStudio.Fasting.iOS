@@ -15,7 +15,7 @@ extension DependencyValues {
     var migrations: [Migration] {
         [
             MealtItemMigration(),
-            PromotionSubscriptionMigration()
+            PutReceiptMigrationForUsersWithActualSubscription()
         ]
     }
     var migrationLaunchService: MigrationLaunchService {

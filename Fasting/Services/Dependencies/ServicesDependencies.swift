@@ -15,7 +15,7 @@ extension DependencyValues {
     var migrations: [Migration] {
         [
             OnboardingLocalToCloudMigration(),
-            PromotionSubscriptionMigration()
+            PutReceiptMigrationForUsersWithActualSubscription()
         ]
     }
     var migrationLaunchService: MigrationLaunchService {

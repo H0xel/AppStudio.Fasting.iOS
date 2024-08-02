@@ -18,6 +18,7 @@ class UsageLimitPaywallViewModel: BasePaywallViewModel<PaywallScreenOutput> {
     @Dependency(\.newSubscriptionService) private var newSubscriptionService
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.productIdsService) private var productIdsService
+    @Dependency(\.accountProvider) private var accountProvider
 
     var router: PaywallRouter!
     @Published var selectedProduct: SubscriptionProduct?
@@ -27,6 +28,7 @@ class UsageLimitPaywallViewModel: BasePaywallViewModel<PaywallScreenOutput> {
     init(input: PaywallScreenInput, output: @escaping ViewOutput<PaywallScreenOutput>) {
         super.init(output: output)
         paywallContext = input.paywallContext
+        accountId = accountProvider.accountId
         subscribeToStatus()
         initializeRemoteSubscriptions()
     }

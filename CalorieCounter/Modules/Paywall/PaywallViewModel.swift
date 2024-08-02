@@ -29,11 +29,13 @@ class PaywallViewModel: BasePaywallViewModel<PaywallScreenOutput> {
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.productIdsService) private var productIdsService
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
+    @Dependency(\.accountProvider) private var accountProvider
 
     init(input: PaywallScreenInput, output: @escaping ViewOutput<PaywallScreenOutput>) {
         self.input = input
         super.init(output: output)
         paywallContext = context
+        accountId = accountProvider.accountId
         configureCloseButton()
         initializeRemoteSubscriptions()
         subscribeToStatus()

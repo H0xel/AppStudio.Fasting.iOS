@@ -38,8 +38,8 @@ class MigrationServiceImpl: ServiceBaseImpl, MigrationService {
                 allMigrations.append(contentsOf: self.appMigrationProvider.migrations)
 
                 for migration in allMigrations where !self.isMigrated(withId: migration.id) {
-                    await migration.migrate()
                     self.setAsMigrated(id: migration.id)
+                    await migration.migrate()
                 }
                 observer.onNext(())
                 observer.onCompleted()

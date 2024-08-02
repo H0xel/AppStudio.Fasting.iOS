@@ -1,1 +1,1 @@
-Release CC 1.1.6
+Subscription library updates

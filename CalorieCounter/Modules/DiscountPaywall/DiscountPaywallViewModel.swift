@@ -23,6 +23,7 @@ class DiscountPaywallViewModel: BasePaywallViewModel<DiscountPaywallOutput> {
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.productIdsService) private var productIdsService
+    @Dependency(\.accountProvider) private var accountProvider
 
     @Published var timeInterval: TimeInterval = .second
     @Published var paywallType: DiscountPaywallType = .empty
@@ -41,6 +42,7 @@ class DiscountPaywallViewModel: BasePaywallViewModel<DiscountPaywallOutput> {
         context = input.context
         super.init(output: output)
         paywallContext = input.context
+        accountId = accountProvider.accountId
         subscribeToStatus()
         initializeRemoteSubscriptions()
         updateTimer()

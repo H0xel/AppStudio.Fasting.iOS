@@ -86,8 +86,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git",
       "state" : {
-        "branch" : "feature/ST2-777_add_optional_timer_init",
-        "revision" : "0d37f83b11218ff7653757f900a73cbe706e61d7"
+        "revision" : "b527336afd80a79eaa9ff4ad3ffdcbe698515b1a",
+        "version" : "1.0.12"
       }
     },
     {

@@ -140,10 +140,6 @@ extension FastingLocalNotificationServiceImpl {
 
         let sugarRisesPhaseDate = startOfFasting.addingTimeInterval(.minute * 1)
 
-        print("jopa date now", Date.now)
-        print("jopa date startOfFasting", startOfFasting)
-        print("jopa date sugarRisesPhaseDate", sugarRisesPhaseDate)
-
         let sugarDropPhaseDate = startOfFasting.addingTimeInterval(.hour * 2)
 
         let sugarNormalPhaseDate = startOfFasting.addingTimeInterval(.hour * 8)

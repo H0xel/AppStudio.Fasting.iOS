@@ -20,6 +20,7 @@ class PersonalizedPaywallViewModel: BasePaywallViewModel<PersonalizedPaywallOutp
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
     @Dependency(\.newSubscriptionService) private var newSubscriptionService
+    @Dependency(\.accountProvider) private var accountProvider
 
     @Published var isTrialAvailable = false
     @Published var canDisplayCloseButton = false
@@ -36,6 +37,7 @@ class PersonalizedPaywallViewModel: BasePaywallViewModel<PersonalizedPaywallOutp
         self.input = input
         super.init(output: output)
         paywallContext = .onboarding
+        accountId = accountProvider.accountId
         configureCloseButton()
         initializeRemoteSubscriptions()
         subscribeToDiscountPaywallState()
