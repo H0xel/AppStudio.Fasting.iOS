@@ -1,1 +1,1 @@
-Subscription library updates
+Release build Fasting 1.2.10
