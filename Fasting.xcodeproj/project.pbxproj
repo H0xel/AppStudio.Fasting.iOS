@@ -366,7 +366,6 @@
 		A76294372B21A4B300DAF93B /* PersonalizedStartWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76294362B21A4B300DAF93B /* PersonalizedStartWeightView.swift */; };
 		A76294392B21A50E00DAF93B /* PersonalizedWeightDifferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76294382B21A50D00DAF93B /* PersonalizedWeightDifferenceView.swift */; };
 		A762943B2B21A58C00DAF93B /* PersonalizedSpecialEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762943A2B21A58C00DAF93B /* PersonalizedSpecialEventView.swift */; };
-		A762EEA02C33EBE300783718 /* CustomNotificationsExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762EE9F2C33EBE300783718 /* CustomNotificationsExperiment.swift */; };
 		A76B46332C11A6FD00D97DEC /* W2WLoginInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B462D2C11A6FD00D97DEC /* W2WLoginInput.swift */; };
 		A76B46342C11A6FD00D97DEC /* W2WLoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B462E2C11A6FD00D97DEC /* W2WLoginRouter.swift */; };
 		A76B46352C11A6FD00D97DEC /* W2WLoginRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76B462F2C11A6FD00D97DEC /* W2WLoginRoute.swift */; };
@@ -843,7 +842,6 @@
 		A76294362B21A4B300DAF93B /* PersonalizedStartWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedStartWeightView.swift; sourceTree = "<group>"; };
 		A76294382B21A50D00DAF93B /* PersonalizedWeightDifferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedWeightDifferenceView.swift; sourceTree = "<group>"; };
 		A762943A2B21A58C00DAF93B /* PersonalizedSpecialEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedSpecialEventView.swift; sourceTree = "<group>"; };
-		A762EE9F2C33EBE300783718 /* CustomNotificationsExperiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotificationsExperiment.swift; sourceTree = "<group>"; };
 		A76B462D2C11A6FD00D97DEC /* W2WLoginInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginInput.swift; sourceTree = "<group>"; };
 		A76B462E2C11A6FD00D97DEC /* W2WLoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginRouter.swift; sourceTree = "<group>"; };
 		A76B462F2C11A6FD00D97DEC /* W2WLoginRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoginRoute.swift; sourceTree = "<group>"; };
@@ -2082,7 +2080,6 @@
 				5675005C2ADFA97F009331CB /* PricingOngoingExperiment.swift */,
 				5675005D2ADFA97F009331CB /* SubscriptionInfo.swift */,
 				A7A3974D2B7345D9003330C3 /* DiscountPaywallExperiment.swift */,
-				A762EE9F2C33EBE300783718 /* CustomNotificationsExperiment.swift */,
 			);
 			path = PricingExperiment;
 			sourceTree = "<group>";
@@ -3373,7 +3370,6 @@
 				53D900792AE67EEF00FFEB7A /* PreferencesServiceImpl.swift in Sources */,
 				A7D01B912AF115F200C50C1F /* NotificationOnboardingRoute.swift in Sources */,
 				566C24962AE8F80B00AEDB3C /* PaywallTitleView.swift in Sources */,
-				A762EEA02C33EBE300783718 /* CustomNotificationsExperiment.swift in Sources */,
 				A07EAB352AFA56A200A46D7E /* EndFastingEarlyRouter.swift in Sources */,
 				53D900702AE631E400FFEB7A /* AppTemplateManager.swift in Sources */,
 				A7A38DE62BC8226B003704C1 /* MultiplePaywallScreen.swift in Sources */,
@@ -3763,7 +3759,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.10;
+				MARKETING_VERSION = 1.2.11;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -3805,7 +3801,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.10;
+				MARKETING_VERSION = 1.2.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

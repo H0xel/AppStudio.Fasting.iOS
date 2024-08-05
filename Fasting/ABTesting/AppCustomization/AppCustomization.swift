@@ -17,7 +17,6 @@ protocol AppCustomization {
     var discountPaywallExperiment: Observable<DiscountPaywallInfo?> { get }
     var allProductsObservable: Observable<AvailableProducts> { get }
     var fastingLimitCycles: Int { get }
-    var isCustomNotificationAvailable: AnyPublisher<Bool, Never> { get }
     func initialize()
     func closePaywallButtonDelay() async throws -> Int
     func isLongOnboardingEnabled() async throws -> Bool

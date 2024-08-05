@@ -31,7 +31,6 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     let productIdsRelay = BehaviorRelay<[String]>(value: [])
     let discountRelay = BehaviorRelay<DiscountPaywallInfo>(value: .empty)
-    private let customNotificationsRelay = BehaviorRelay<Bool>(value: false)
     @Published private var isCustomNotificationAvailableTrigger = false
     let disposeBag = DisposeBag()
 
@@ -47,11 +46,6 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     var appStoreLink: Observable<String> {
         remoteConfigValueObservable(forKey: forceUpdateLink, defaultValue: "")
-    }
-
-    var isCustomNotificationAvailable: AnyPublisher<Bool, Never> {
-        customNotificationsRelay
-            .asPublisherWithoutError()
     }
 
     var fastingLimitCycles: Int {
@@ -80,8 +74,6 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
         let discountExperimentName = await discountExperimentName()
         await register(experiment: DiscountPaywallExperiment(experimentName: discountExperimentName))
-
-        await register(experiment: CustomNotificationsExperiment())
     }
 
     var productIds: Observable<[String]> {
@@ -154,19 +146,6 @@ private extension AppCustomizationImpl {
     func configureExperimentsOnStartApp() {
         configurePricingExperiment()
         configureDiscountExperiment()
-
-        experimentValueObservable(forType: CustomNotificationsExperiment.self, defaultValue: .control)
-            .map {
-                if $0 == .control {
-                    throw PricingError.error
-                }
-                return $0 == .test
-            }
-            .observe(on: MainScheduler.asyncInstance)
-            .retry(times: 3, withDelay: .seconds(1))
-            .catchAndReturn(false)
-            .bind(to: customNotificationsRelay)
-            .disposed(by: disposeBag)
     }
 }
 
