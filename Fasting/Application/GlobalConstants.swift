@@ -10,12 +10,10 @@
 /// SETUP your global constants
 public enum GlobalConstants {
     // MARK: - Common Application Settings
-    // TODO: - Add information
     public static let applicationName = "fasting"
     public static let applicationPrefix = ""
     public static let appStoreURL = "https://apps.apple.com/us/app/APPSTORE_IDENTIFIER"
 
-    // TODO: - Add contactEmail, termsOfUse, privacyPolicy
     // MARK: - Contact and other info
     public static let contactEmail = "fasting-support@municorn.com"
     public static let termsOfUse = "https://telecom.municorn.com/terms?app=fasting"

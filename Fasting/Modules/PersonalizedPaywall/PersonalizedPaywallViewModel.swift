@@ -25,6 +25,7 @@ class PersonalizedPaywallViewModel: BasePaywallViewModel<PersonalizedPaywallOutp
     @Published var isTrialAvailable = false
     @Published var canDisplayCloseButton = false
     @Published private var discountPaywallInfo: DiscountPaywallInfo?
+    @Published private var isTrialPaywallExperimentAvailable = false
     let input: PersonalizedPaywallInput
 
     var router: PersonalizedPaywallRouter!
@@ -43,6 +44,7 @@ class PersonalizedPaywallViewModel: BasePaywallViewModel<PersonalizedPaywallOutp
         subscribeToDiscountPaywallState()
         subscribeForAvailableDiscountPaywall()
         subscribeToStatus()
+        subscribeToTrialExperiment()
     }
 
     private var headerDescription: String {
@@ -74,6 +76,11 @@ class PersonalizedPaywallViewModel: BasePaywallViewModel<PersonalizedPaywallOutp
     func close() {
         guard canDisplayCloseButton else { return }
         paywallClosed()
+
+        if isTrialPaywallExperimentAvailable {
+            output(.showTrialPaywall)
+            return
+        }
 
         if let discountPaywallInfo {
             output(.showDiscountPaywall(.init(context: .discountOnboarding, paywallInfo: discountPaywallInfo)))
@@ -155,6 +162,10 @@ class PersonalizedPaywallViewModel: BasePaywallViewModel<PersonalizedPaywallOutp
                 }
             }
             .disposed(by: disposeBag)
+    }
+
+    private func subscribeToTrialExperiment() {
+        appCustomization.isTrialPaywallExperimentAvailable.assign(to: &$isTrialPaywallExperimentAvailable)
     }
 
     private func configureCloseButton() {

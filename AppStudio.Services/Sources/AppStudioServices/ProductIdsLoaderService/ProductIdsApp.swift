@@ -27,7 +27,8 @@ extension ProductIdsApp {
                 "com.municorn.Fasting.weekly_exp_5",
                 "com.municorn.Fasting.weekly_exp_7",
                 "com.municorn.Fasting.3monthly_exp_7",
-                "com.municorn.Fasting.yearly_exp_7"
+                "com.municorn.Fasting.yearly_exp_7",
+                "com.municorn.Fasting.yearly_3d_trial_exp_7"
             ]
         case .calorieCounter:
             return [

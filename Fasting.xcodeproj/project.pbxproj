@@ -358,6 +358,13 @@
 		A74115FA2C36DCA800A8D004 /* NotificationSectionDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74115F92C36DCA800A8D004 /* NotificationSectionDivider.swift */; };
 		A749A0872AE67EAB0093C377 /* AnalyticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */; };
 		A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A0892AE6B6430093C377 /* TrackerService+track.swift */; };
+		A755E1CA2C6102BA00F5967C /* TrialPaywallInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A755E1C42C6102BA00F5967C /* TrialPaywallInput.swift */; };
+		A755E1CB2C6102BA00F5967C /* TrialPaywallRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A755E1C52C6102BA00F5967C /* TrialPaywallRouter.swift */; };
+		A755E1CC2C6102BA00F5967C /* TrialPaywallRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A755E1C62C6102BA00F5967C /* TrialPaywallRoute.swift */; };
+		A755E1CD2C6102BA00F5967C /* TrialPaywallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A755E1C72C6102BA00F5967C /* TrialPaywallScreen.swift */; };
+		A755E1CE2C6102BA00F5967C /* TrialPaywallOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A755E1C82C6102BA00F5967C /* TrialPaywallOutput.swift */; };
+		A755E1CF2C6102BA00F5967C /* TrialPaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A755E1C92C6102BA00F5967C /* TrialPaywallViewModel.swift */; };
+		A755E1D22C610B0E00F5967C /* TrialPaywallExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A755E1D12C610B0E00F5967C /* TrialPaywallExperiment.swift */; };
 		A758C61A2C0DFEEA00F9DC3F /* Intercom in Frameworks */ = {isa = PBXBuildFile; productRef = A758C6192C0DFEEA00F9DC3F /* Intercom */; };
 		A75956F02B172EBF00ECCAB0 /* SubscriptionPreviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75956EF2B172EBF00ECCAB0 /* SubscriptionPreviewService.swift */; };
 		A76294302B219E0B00DAF93B /* PersonalizedTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762942F2B219E0B00DAF93B /* PersonalizedTitleView.swift */; };
@@ -835,6 +842,13 @@
 		A74115F92C36DCA800A8D004 /* NotificationSectionDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSectionDivider.swift; sourceTree = "<group>"; };
 		A749A0862AE67EAB0093C377 /* AnalyticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticEvent.swift; sourceTree = "<group>"; };
 		A749A0892AE6B6430093C377 /* TrackerService+track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackerService+track.swift"; sourceTree = "<group>"; };
+		A755E1C42C6102BA00F5967C /* TrialPaywallInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialPaywallInput.swift; sourceTree = "<group>"; };
+		A755E1C52C6102BA00F5967C /* TrialPaywallRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialPaywallRouter.swift; sourceTree = "<group>"; };
+		A755E1C62C6102BA00F5967C /* TrialPaywallRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialPaywallRoute.swift; sourceTree = "<group>"; };
+		A755E1C72C6102BA00F5967C /* TrialPaywallScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialPaywallScreen.swift; sourceTree = "<group>"; };
+		A755E1C82C6102BA00F5967C /* TrialPaywallOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialPaywallOutput.swift; sourceTree = "<group>"; };
+		A755E1C92C6102BA00F5967C /* TrialPaywallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialPaywallViewModel.swift; sourceTree = "<group>"; };
+		A755E1D12C610B0E00F5967C /* TrialPaywallExperiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialPaywallExperiment.swift; sourceTree = "<group>"; };
 		A75956EF2B172EBF00ECCAB0 /* SubscriptionPreviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPreviewService.swift; sourceTree = "<group>"; };
 		A762942F2B219E0B00DAF93B /* PersonalizedTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedTitleView.swift; sourceTree = "<group>"; };
 		A76294312B219E2100DAF93B /* PersonalizedChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedChart.swift; sourceTree = "<group>"; };
@@ -1210,6 +1224,7 @@
 		566C24832AE8F80B00AEDB3C /* Paywall */ = {
 			isa = PBXGroup;
 			children = (
+				A755E1C32C6102AA00F5967C /* TrialPaywall */,
 				A7A38DDC2BC8224C003704C1 /* MultipleProductPaywall */,
 				566C249C2AE8F8E200AEDB3C /* Extensions */,
 				566C24862AE8F80B00AEDB3C /* Model */,
@@ -1363,6 +1378,7 @@
 				A72D45232B84D81000BC2E41 /* DiscountExperiment */,
 				A0497E8F2B28C35700F21FB0 /* TrialExperiment */,
 				A07D95A62AE946BF00D2C2E2 /* PricingExperiment */,
+				A755E1D12C610B0E00F5967C /* TrialPaywallExperiment.swift */,
 			);
 			path = Experiments;
 			sourceTree = "<group>";
@@ -2405,6 +2421,27 @@
 			path = TrackerService;
 			sourceTree = "<group>";
 		};
+		A755E1C32C6102AA00F5967C /* TrialPaywall */ = {
+			isa = PBXGroup;
+			children = (
+				A755E1D02C6102BE00F5967C /* Routing */,
+				A755E1C72C6102BA00F5967C /* TrialPaywallScreen.swift */,
+				A755E1C92C6102BA00F5967C /* TrialPaywallViewModel.swift */,
+			);
+			path = TrialPaywall;
+			sourceTree = "<group>";
+		};
+		A755E1D02C6102BE00F5967C /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A755E1C42C6102BA00F5967C /* TrialPaywallInput.swift */,
+				A755E1C52C6102BA00F5967C /* TrialPaywallRouter.swift */,
+				A755E1C62C6102BA00F5967C /* TrialPaywallRoute.swift */,
+				A755E1C82C6102BA00F5967C /* TrialPaywallOutput.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
 		A75956EE2B172EA300ECCAB0 /* SubcriptionService */ = {
 			isa = PBXGroup;
 			children = (
@@ -3119,6 +3156,12 @@
 				A7A2E71D2BF3A4440087D062 /* WeightApi.swift in Sources */,
 				AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */,
 				A7D01B942AF115F200C50C1F /* NotificationOnboardingViewModel.swift in Sources */,
+				A755E1CA2C6102BA00F5967C /* TrialPaywallInput.swift in Sources */,
+				A755E1CB2C6102BA00F5967C /* TrialPaywallRouter.swift in Sources */,
+				A755E1CC2C6102BA00F5967C /* TrialPaywallRoute.swift in Sources */,
+				A755E1CD2C6102BA00F5967C /* TrialPaywallScreen.swift in Sources */,
+				A755E1CE2C6102BA00F5967C /* TrialPaywallOutput.swift in Sources */,
+				A755E1CF2C6102BA00F5967C /* TrialPaywallViewModel.swift in Sources */,
 				A0881E6A2AEAC32500E38FF5 /* FastingOutput.swift in Sources */,
 				A0881E692AEAC32500E38FF5 /* FastingScreen.swift in Sources */,
 				A0382D472AF544D9009CC579 /* SuccessIntervalButtonView.swift in Sources */,
@@ -3416,6 +3459,7 @@
 				A0255E7A2AFBD1F200221EC6 /* SubscriptionsApiImpl.swift in Sources */,
 				A7D323A62C21A49F00AFAEF3 /* FastingRemindersSectionView.swift in Sources */,
 				A76B46332C11A6FD00D97DEC /* W2WLoginInput.swift in Sources */,
+				A755E1D22C610B0E00F5967C /* TrialPaywallExperiment.swift in Sources */,
 				A00B4DC82B7382170067A872 /* FacebookInitializerService.swift in Sources */,
 				A7D01B612AF0C82100C50C1F /* OnboardingOutput.swift in Sources */,
 				56655B6A2AFCB12A00508ED4 /* FastingIntervalHistory+Mappable.swift in Sources */,

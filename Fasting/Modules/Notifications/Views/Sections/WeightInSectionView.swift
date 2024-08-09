@@ -23,7 +23,7 @@ struct WeightInSectionView: View {
                 NotificationToggleView(isToggled: $isWeightToggled,
                                        notificationAccessIsGranted: notificationAccessIsGranted,
                                        isLocked: isLocked,
-                                       configuration: .remindToWeightIn, 
+                                       configuration: .remindToWeightIn,
                                        lockedToggleTapped: lockedToggleTapped)
                 .padding(.horizontal, .horizontalPadding)
 
@@ -44,7 +44,7 @@ struct WeightInSectionView: View {
                             isCollapsedType: $collapsedType,
                             title: "NotificationsScreen.frequency",
                             selections: WeightFrequency.allCases,
-                            isLocked: isLocked, 
+                            isLocked: isLocked,
                             type: .weighInFrequency
                         )
                         .padding(.horizontal, .horizontalPadding)
@@ -65,7 +65,7 @@ private extension CGFloat {
     WeightInSectionView(isWeightToggled: .constant(true),
                         timeToWeight: .constant(.now),
                         weightFrequency: .constant(.everyDay),
-                        collapsedType: .constant(.weighInTime), 
+                        collapsedType: .constant(.weighInTime),
                         notificationAccessIsGranted: false,
                         isLocked: false) { _ in}
 }

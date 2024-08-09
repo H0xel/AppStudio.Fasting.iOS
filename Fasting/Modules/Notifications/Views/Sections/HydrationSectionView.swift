@@ -74,7 +74,7 @@ private extension CGFloat {
     HydrationSectionView(isHydrationToggled: .constant(true),
                          timeToDrink: .constant(.now),
                          endTimeToDrink: .constant(.now),
-                         hydrationFrequency: .constant(.everyFiveHours), 
+                         hydrationFrequency: .constant(.everyFiveHours),
                          collapsedType: .constant(.advanceRemindersBeforeEnd),
                          notificationAccessIsGranted: false,
                          isLocked: false) { _ in }

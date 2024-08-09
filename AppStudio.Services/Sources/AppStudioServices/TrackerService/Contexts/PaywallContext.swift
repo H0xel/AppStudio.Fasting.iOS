@@ -32,6 +32,7 @@ public enum PaywallContext: String {
     case discountPush = "push_discount"
     case notificationSettings = "notification_settings"
     case onboardingNotificationSettings = "onboarding_notification_settings"
+    case trialOffer = "trial_offer"
 }
 
 extension PaywallContext: TrackerParam {

@@ -25,7 +25,7 @@ private let threeMonthlyExp7ProductId = "com.municorn.Fasting.3monthly_exp_7"
 private let yearlyExp7ProductId = "com.municorn.Fasting.yearly_exp_7"
 
 
-class ProductProviderImpl: ProductProvider, AppInitializer { 
+class ProductProviderImpl: ProductProvider, AppInitializer {
     @Dependency(\.productsLoaderService) private var productsLoaderService
     func initialize() {
 

@@ -12,4 +12,5 @@ enum PersonalizedPaywallOutput {
     case close
     case subscribed
     case showDiscountPaywall(DiscountPaywallInput)
+    case showTrialPaywall
 }

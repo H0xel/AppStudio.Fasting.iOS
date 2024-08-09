@@ -20,7 +20,7 @@ struct QuiteModeSectionView: View {
     var body: some View {
         VStack(spacing: .zero) {
             VStack(alignment: .leading, spacing: .zero) {
-                NotificationToggleView(isToggled: $isQuietModeToggled, 
+                NotificationToggleView(isToggled: $isQuietModeToggled,
                                        notificationAccessIsGranted: notificationAccessIsGranted,
                                        isLocked: isLocked,
                                        configuration: .quiteMode,
@@ -61,7 +61,7 @@ private extension CGFloat {
     QuiteModeSectionView(isQuietModeToggled: .constant(true),
                          fromTimeSelected: .constant(.now),
                          toTomeSelected: .constant(.now),
-                         isCollapsedType: .constant(.advanceRemindersBeforeEnd), 
+                         isCollapsedType: .constant(.advanceRemindersBeforeEnd),
                          notificationAccessIsGranted: false,
                          isLocked: false) { _ in }
 }

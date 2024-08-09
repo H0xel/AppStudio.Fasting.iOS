@@ -16,6 +16,7 @@ protocol AppCustomization {
     var appStoreLink: Observable<String> { get }
     var discountPaywallExperiment: Observable<DiscountPaywallInfo?> { get }
     var allProductsObservable: Observable<AvailableProducts> { get }
+    var isTrialPaywallExperimentAvailable: AnyPublisher<Bool, Never> { get }
     var fastingLimitCycles: Int { get }
     func initialize()
     func closePaywallButtonDelay() async throws -> Int

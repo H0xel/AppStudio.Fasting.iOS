@@ -91,3 +91,15 @@
 // MARK: Onboarding Privacy and Terms
 "Onboarding.and" = " and ";
 "Onboarding.continuingYouAgree" = "By continuing you agree to the ";
+
+// MARK: Trial Paywall
+"TrialPaywall.fasting.title" = "Not Sure Now?\nTry Fasting Tracker";
+"TrialPaywall.fasting.bullet1" = "Hit your weight goals";
+"TrialPaywall.fasting.bullet2" = "Feel more energetic";
+"TrialPaywall.fasting.bullet3" = "Improved metabolic health";
+"TrialPaywall.fasting.bullet4" = "Motivating personal insights";
+
+"TrialPaywall.forFree" = "for Free";
+"TrialPaywall.startFreeTrial" = "Start Free Trial";
+"TrialPaywall.pricePerYear" = "then %@/year";
+"TrialPaywall.trialPeriod" = "%@ free trial";

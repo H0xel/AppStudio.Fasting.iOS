@@ -52,7 +52,7 @@ private extension PaywallBottomInfoView {
 
 struct PaywallBottomInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        PaywallBottomInfoView(bottomInfo: "Paywall.cancelAnyTime") {_ in }
+        PaywallBottomInfoView(bottomInfo: "Paywall.cancelAnyTime") { _ in }
             .padding(.horizontal, 32)
     }
 }

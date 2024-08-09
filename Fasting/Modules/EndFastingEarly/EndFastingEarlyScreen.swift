@@ -13,7 +13,6 @@ struct EndFastingEarlyScreen: View {
 
     var body: some View {
         VStack(spacing: .zero) {
-            // TODO: - Заменить на картинку, когда она будет готова
             Image(.earlyEndFasting)
                 .frame(height: 186)
             Text(Localization.title)

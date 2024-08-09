@@ -27,6 +27,9 @@ class OnboardingRouter: BaseRouter {
             case let .showDiscountPaywall(input):
                 self?.navigator.dismiss()
                 self?.presentDiscountPaywall(input: input, output: output)
+            case .showTrialPaywall:
+                self?.navigator.dismiss()
+                self?.presentTrialPaywall(output: output)
             }
         }
         present(route: route)
@@ -64,7 +67,17 @@ class OnboardingRouter: BaseRouter {
         present(route: route)
     }
 
-    func pushChooseFastingScreen(context: ChooseFastingPlanInput.Context, output: @escaping ChooseFastingPlanOutputBlock) {
+    func presentTrialPaywall(output: @escaping ChooseFastingPlanOutputBlock) {
+        let route = TrialPaywallRoute(navigator: navigator, input: .init()) { [weak self] _ in
+            self?.pushChooseFastingScreen(context: .onboarding, output: output)
+        }
+        present(route: route)
+    }
+
+    func pushChooseFastingScreen(
+        context: ChooseFastingPlanInput.Context,
+        output: @escaping ChooseFastingPlanOutputBlock
+    ) {
         let route = ChooseFastingPlanRoute(navigator: navigator, input: .init(context: context), output: output)
         push(route: route)
     }

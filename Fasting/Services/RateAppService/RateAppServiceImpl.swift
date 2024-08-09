@@ -53,4 +53,3 @@ private extension CloudStorage {
         set { set(key: userDidRateUsKey, value: newValue) }
     }
 }
-

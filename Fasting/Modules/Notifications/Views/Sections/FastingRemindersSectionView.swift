@@ -64,7 +64,7 @@ struct FastingRemindersSectionView: View {
                             isCollapsedType: $isCollapsedType,
                             title: "NotificationsScreen.beforeStart",
                             selections: NotificationPrior.allCases,
-                            isLocked: isLocked, 
+                            isLocked: isLocked,
                             type: .advanceRemindersBeforeStart
                         )
                         .padding(.horizontal, .horizontalPadding)
@@ -103,7 +103,7 @@ private extension CGFloat {
             endToFastToggled: .constant(true),
             advanceRemindersToggled: .constant(true),
             beforeStartPriorSelection: .constant(.oneHour),
-            beforeEndPriorSelection: .constant(.oneHour), 
+            beforeEndPriorSelection: .constant(.oneHour),
             isCollapsedType: .constant(.advanceRemindersBeforeEnd),
             notificationAccessIsGranted: false,
             isLocked: false,

@@ -159,4 +159,3 @@ class TelecomApiProvider<Target: TelecomTargetType> {
                                           path: "\(target.method) \(target.path)"))
     }
 }
-

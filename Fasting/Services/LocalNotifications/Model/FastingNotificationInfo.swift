@@ -132,8 +132,6 @@ extension FastingNotificationInfo {
 
 
 extension Int {
-    static private var lastRandomValue: Int = 0
-
     static func random(range: ClosedRange<Int>) -> Int {
         let randomValue = random(in: range)
 
@@ -144,4 +142,6 @@ extension Int {
 
         return random(in: range)
     }
+
+    static private var lastRandomValue: Int = 0
 }

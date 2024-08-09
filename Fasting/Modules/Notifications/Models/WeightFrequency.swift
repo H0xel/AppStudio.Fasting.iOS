@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WeightFrequency: String, CaseIterable, Hashable, CustomStringConvertible, Codable  {
+enum WeightFrequency: String, CaseIterable, Hashable, CustomStringConvertible, Codable {
     case everyDay
     case everyTwoDays
     case everyThreeDays

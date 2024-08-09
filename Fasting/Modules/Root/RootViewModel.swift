@@ -61,6 +61,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     init(router: RootRouter, input: RootInput, output: @escaping RootOutputBlock) {
         self.router = router
         super.init(output: output)
+        initializeHasSubscription()
         initilizeFastingViewModel()
         initialize()
         initializePaywallTab()
@@ -360,8 +361,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         .asDriver()
         .drive(with: self) { this, args in
             let (hasSubscription, discountPaywallInfo) = args
-            this.changeCurrentTabOnLaunch(hasSubscription: hasSubscription, isMonetizationAvailable: true)
-            this.hasSubscription = hasSubscription
+            this.currentTab = .daily
 
             if let discountPaywallInfo {
                 this.discountPaywallTimerService.registerPaywall(info: discountPaywallInfo)
@@ -374,24 +374,9 @@ class RootViewModel: BaseViewModel<RootOutput> {
         .disposed(by: disposeBag)
     }
 
-
-    private func changeCurrentTabOnLaunch(hasSubscription: Bool, isMonetizationAvailable: Bool) {
-        //  TODO: - Пока закомментировал
-        //        if hasSubscription {
-        currentTab = .daily
-        //            return
-        //        }
-        //        if !firstLaunchService.isFirstTimeLaunch {
-        //            currentTab = isMonetizationAvailable ? .daily : .paywall
-        //        }
+    private func initializeHasSubscription() {
+        newSubscriptionService.hasSubscription.assign(to: &$hasSubscription)
     }
-//    private func changeCurrentTabOnLaunch(hasSubscription: Bool) {
-//        if hasSubscription {
-//            currentTab = .daily
-//            return
-//        }
-//
-//    }
 
     private func subscribeToActionTypeEvent() {
         $rootScreen

@@ -71,7 +71,7 @@ struct StartFastingScreen_Previews: PreviewProvider {
             output: { _ in })
         viewModel.router = .init(navigator: .init())
 
-        return FastingScreen(viewModel: .init(input: .init(isMonetizationAvailable: Just(false).eraseToAnyPublisher()), 
+        return FastingScreen(viewModel: .init(input: .init(isMonetizationAvailable: Just(false).eraseToAnyPublisher()),
                                               output: { _ in }))
             .sheet(isPresented: .constant(true)) {
                 ModernNavigationView {
