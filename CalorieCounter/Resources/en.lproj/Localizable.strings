@@ -338,7 +338,7 @@
 "CaloriesBudgetHeaderView.kcalOverTitle" = "kcal over";
 
 // MARK: = NotFoundMealPlaceholderView
-"NotFoundMealPlaceholderView.title" = "No Food Found for the Barcode";
+"NotFoundMealPlaceholderView.title" = "Oops, No Food Found for the Barcode";
 "IngredientPlaceholderView.notFound" = "Nothing found with this barcode";
 
 // MARK: - UsageLimitPaywallScreen

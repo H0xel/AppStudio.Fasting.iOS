@@ -13,7 +13,7 @@ struct NotFoundMealPlaceholderView: View {
     var body: some View {
         VStack(spacing: .spacing) {
             Text(Localization.title)
-                .foregroundStyle(Color.studioGrayText)
+                .foregroundStyle(Color.studioBlackLight)
                 .font(.poppinsMedium(.body))
 
             Text(barcode)
