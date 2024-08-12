@@ -11,4 +11,5 @@ enum FoodSuggestionsOutput {
     case add(MealItem)
     case remove(MealItem)
     case togglePresented(isPresented: Bool)
+    case present(MealItem)
 }

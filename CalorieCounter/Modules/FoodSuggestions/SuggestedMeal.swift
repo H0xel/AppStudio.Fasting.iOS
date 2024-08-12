@@ -6,13 +6,44 @@
 //
 
 import SwiftUI
+enum SuggestedMealType: Equatable, Hashable {
+    case favorite(MealType)
+    case history
+    case foodSearch
+
+    var sortedScore: Double {
+        switch self {
+        case .favorite:
+            1000
+        case .history:
+            500
+        case .foodSearch:
+            0
+        }
+    }
+}
 
 struct SuggestedMeal: Identifiable, Equatable, Hashable {
-    let icon: Image
+    let type: SuggestedMealType
     let mealItem: MealItem
 
     var id: String {
         mealItem.id
+    }
+
+    var icon: Image {
+        switch type {
+        case .favorite(let mealType):
+            mealType.image
+        case .history:
+            mealItem.suggestionIcon
+        case .foodSearch:
+            .init(.logFoodSearch)
+        }
+    }
+
+    func score(for request: String) -> Double {
+        mealItem.searchScore(for: request) + type.sortedScore
     }
 
     func hash(into hasher: inout Hasher) {
@@ -22,10 +53,23 @@ struct SuggestedMeal: Identifiable, Equatable, Hashable {
 
 extension SuggestedMeal {
     static func mock(mealType: MealType) -> SuggestedMeal {
-        .init(icon: mealType.image, mealItem: .mock)
+        .init(type: .favorite(mealType), mealItem: .mock)
     }
 
     static var mockLog: SuggestedMeal {
-        .init(icon: .init(.logItemsSuggest), mealItem: .mock)
+        .init(type: .history, mealItem: .mock)
+    }
+}
+
+private extension MealItem {
+    var suggestionIcon: Image {
+        switch type {
+        case .chatGPT, .quickAdd, .custom, .ingredient, .needToUpdateBrand:
+                .init(.logItemsSuggest)
+        case .product:
+                .init(.customFoodSuggest)
+        case .recipe:
+                .init(.recipeSuggest)
+        }
     }
 }

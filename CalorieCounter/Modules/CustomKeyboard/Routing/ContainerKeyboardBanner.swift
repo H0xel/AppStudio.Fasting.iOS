@@ -8,7 +8,7 @@
 import SwiftUI
 import AppStudioNavigation
 
-struct CustomKeyboardBanner: Banner {
+struct ContainerKeyboardBanner: Banner {
 
     let input: CustomKeyboardInput
     let output: CustomKeyboardOutputBlock
@@ -19,8 +19,8 @@ struct CustomKeyboardBanner: Banner {
             .eraseToAnyView()
     }
 
-    private var viewModel: CustomKeyboardViewModel {
-        let viewModel = CustomKeyboardViewModel(input: input, output: output)
+    private var viewModel: ContainerKeyboardViewModel {
+        let viewModel = ContainerKeyboardViewModel(input: input, output: output)
         return viewModel
     }
 }

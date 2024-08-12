@@ -33,8 +33,10 @@ class FoodSuggestionsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: .cellId, for: indexPath) as? FoodSuggestionsCellView
         cell?.contentConfiguration = UIHostingConfiguration {
             SuggestedMealItemView(meal: meal,
-                                  searchRequestPublisher: self.viewModel.$searchRequest.eraseToAnyPublisher(),
+                                  searchRequestPublisher: self.viewModel.searchRequestPublisher,
                                   isSelected: self.viewModel.isSelected(meal: meal.mealItem)) { meal in
+                self.viewModel.select(meal)
+            } onPlusTap: { meal in
                 self.viewModel.toggleSelection(meal)
             }
             .padding(.vertical, .itemVerticalPadding)
@@ -53,7 +55,8 @@ class FoodSuggestionsViewController: UITableViewController {
     }
 
     private func configureViewModel() {
-        viewModel.mealsPublisher
+        viewModel.mealPublisher
+            .receive(on: DispatchQueue.main)
             .sink(with: self) { this, meals in
                 this.updateMeals(meals)
             }
@@ -104,10 +107,6 @@ extension FoodSuggestionsViewController {
 
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         false
-    }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -18,9 +18,9 @@ struct CustomKeyboardRoute: Route {
             .eraseToAnyView()
     }
 
-    private var viewModel: CustomKeyboardViewModel {
+    private var viewModel: ContainerKeyboardViewModel {
         let router = CustomKeyboardRouter(navigator: navigator)
-        let viewModel = CustomKeyboardViewModel(input: input, output: output)
+        let viewModel = ContainerKeyboardViewModel(input: input, output: output)
         viewModel.router = router
         return viewModel
     }

@@ -17,6 +17,7 @@ struct DebugMenuActionsView: View {
     @Dependency(\.userDataService) private var userDataService
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
     @Dependency(\.localNotificationService) private var localNotificationService
+    @Dependency(\.foodSearchCacheService) private var foodSearchCacheService
 
     @State private var currentEnvironment: BackendEnvironment
     @State private var isSubscriptionEnabled: Bool
@@ -78,6 +79,12 @@ struct DebugMenuActionsView: View {
                                                                       hour: nextStartingDate.hour,
                                                                       minute: nextStartingDate.minute,
                                                                       second: nextStartingDate.second))
+            }
+        }
+
+        Button("Clear cache of  API requests") {
+            Task {
+                try await foodSearchCacheService.clearAllCache()
             }
         }
     }

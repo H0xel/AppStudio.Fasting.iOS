@@ -11,6 +11,7 @@ import Combine
 enum FoodSuggestionsScrollViewOutput {
     case add(MealItem)
     case remove(MealItem)
+    case present(MealItem)
 }
 
 struct FoodSuggestionsScrollView: UIViewControllerRepresentable {
@@ -48,6 +49,8 @@ struct FoodSuggestionsScrollView: UIViewControllerRepresentable {
             self.output(.add(mealItem))
         case .remove(let mealItem):
             self.output(.remove(mealItem))
+        case .present(let mealItem):
+            self.output(.present(mealItem))
         }
     }
 

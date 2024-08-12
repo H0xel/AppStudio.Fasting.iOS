@@ -6,8 +6,10 @@
 //
 
 protocol MealUsageService {
-    func sortedUsage(count: Int, mealType: MealType) async throws -> [MealUsage]
     func incrementUsage(_ mealItem: MealItem, mealType: MealType) async throws -> MealUsage
     func decrementUsage(_ mealItem: MealItem, mealType: MealType) async throws
-    func favoriteMealItems(count: Int, mealType: MealType) async throws -> [MealItem]
+    func favoriteMealItems(from mealItemIds: [String],
+                           count: Int,
+                           mealType: MealType) async throws -> [MealItem]
+    func delete(byMealItemId id: String) async throws
 }

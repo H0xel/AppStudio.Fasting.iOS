@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Dependencies
 
 enum FoodSuggestionsViewControllerOutput {
     case scrollViewDidScroll(UIScrollView)
@@ -14,29 +15,27 @@ enum FoodSuggestionsViewControllerOutput {
     case scrollViewEndScrolling
     case add(MealItem)
     case remove(MealItem)
+    case present(MealItem)
 }
 
 class FoodSuggestionsScrollViewModel {
 
-    @Published var searchRequest = ""
-    @Published private var mealsSubject: [SuggestedMeal] = []
+    let mealPublisher: AnyPublisher<[SuggestedMeal], Never>
+    let searchRequestPublisher: AnyPublisher<String, Never>
     private var selectedItemIds: Set<String> = []
     private var output: ((FoodSuggestionsViewControllerOutput) -> Void)?
     private let reloadSubject = PassthroughSubject<Void, Never>()
     private var cancellables = Set<AnyCancellable>()
+    @Dependency(\.foodSearchService) private var foodSearchService
 
     init(mealsPublisher: AnyPublisher<[SuggestedMeal], Never>,
          initialMealsPublisher: AnyPublisher<[MealItem], Never>,
          searchRequestPublisher: AnyPublisher<String, Never>,
          output: @escaping (FoodSuggestionsViewControllerOutput) -> Void) {
         self.output = output
-        observeSuggestedMeals(mealsPublisher: mealsPublisher)
+        mealPublisher = mealsPublisher
+        self.searchRequestPublisher = searchRequestPublisher
         obserSelectedItemsIds(initialMealsPublisher: initialMealsPublisher)
-        observeSearchRequest(searchRequestPublisher: searchRequestPublisher)
-    }
-
-    var mealsPublisher: AnyPublisher<[SuggestedMeal], Never> {
-        $mealsSubject.eraseToAnyPublisher()
     }
 
     var reloadPublisher: AnyPublisher<Void, Never> {
@@ -53,6 +52,22 @@ class FoodSuggestionsScrollViewModel {
             output?(.add(mealItem))
         } else {
             output?(.remove(mealItem))
+        }
+    }
+
+    func select(_ mealItem: MealItem) {
+        let foodSearchService = foodSearchService
+        switch mealItem.type {
+        case .needToUpdateBrand:
+            Task {
+                let brandedMealItem = try await foodSearchService.searchBranded(brandFoodId: mealItem.brandFoodId ?? "") ?? mealItem
+                DispatchQueue.main.async { [weak self] in
+                    self?.output?(.present(brandedMealItem))
+                }
+            }
+            break
+        default:
+            output?(.present(mealItem))
         }
     }
 
@@ -79,17 +94,5 @@ class FoodSuggestionsScrollViewModel {
                 this.reloadSubject.send()
             }
             .store(in: &cancellables)
-    }
-
-    private func observeSuggestedMeals(mealsPublisher: AnyPublisher<[SuggestedMeal], Never>) {
-        mealsPublisher
-            .receive(on: DispatchQueue.main)
-            .assign(to: &$mealsSubject)
-    }
-
-    private func observeSearchRequest(searchRequestPublisher: AnyPublisher<String, Never>) {
-        searchRequestPublisher
-            .receive(on: DispatchQueue.main)
-            .assign(to: &$searchRequest)
     }
 }

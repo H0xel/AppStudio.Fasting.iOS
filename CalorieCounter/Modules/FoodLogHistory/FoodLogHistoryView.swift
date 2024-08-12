@@ -22,11 +22,8 @@ struct FoodLogHistoryView: View {
                 scrollOffset: $suggestionsScrollOffset,
                 isFocused: isFocused,
                 inputHeight: inputHeight,
-                canShowFavorites: logType == .log,
-                viewModel: .init(
-                    input: viewModel.foodSuggestionsInput,
-                    output: viewModel.handle
-                )
+                logType: logType,
+                viewModel: viewModel.foodSuggestionsViewModel
             )
             .id(viewModel.mealType)
             .aligned(.bottom)
@@ -58,14 +55,14 @@ struct FoodLogHistoryView: View {
         }
     }
 
-    var canShowChips: Bool {
+    private var canShowChips: Bool {
         if logType == .log {
             return viewModel.suggestionsState.isPresented || viewModel.suggestionsState.isKeyboardFocused
         }
         return true
     }
 
-    var inputHeight: CGFloat {
+    private var inputHeight: CGFloat {
         if logType == .log {
             return canShowChips ? 124 : 80
         }

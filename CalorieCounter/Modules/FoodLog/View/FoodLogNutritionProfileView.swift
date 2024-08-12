@@ -34,7 +34,7 @@ struct FoodLogNutritionProfileView: View {
         guard hasSubscription || type == .calories else {
             return .hidden(type: type)
         }
-        return profile == .empty ? .greyStrokeLarge(type: type) : .coloredLarge(type: type)
+        return .coloredLarge(type: type)
     }
 }
 

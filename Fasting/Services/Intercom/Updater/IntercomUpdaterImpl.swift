@@ -5,8 +5,6 @@
 //  Created by Konstantin Golenkov on 25.08.2023.
 //
 // swiftlint:disable orphaned_doc_comment
-// swiftlint:disable comment_spacing
-// swiftlint:disable mark
 
 /// INTERCOM: DISABLED!!!
 /// To connect an intercom,

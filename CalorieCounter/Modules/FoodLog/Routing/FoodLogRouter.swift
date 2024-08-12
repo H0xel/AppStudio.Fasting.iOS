@@ -44,6 +44,26 @@ class FoodLogRouter: BaseRouter {
         present(banner: banner, animation: .bouncy)
     }
 
+    func presentCustomFood(context: CustomFoodInput.Context, onSaved: @escaping (MealItem) -> Void) {
+        let route = CustomFoodRoute(navigator: navigator, input: .init(context: context), output: { [weak self] event in
+            switch event {
+            case let .save(mealItem):
+                self?.navigator.pop(to: FoodLogRoute.self)
+                onSaved(mealItem)
+            case .edit:
+                break
+            }
+        })
+        present(route: route)
+    }
+
+    func presentCustomProduct(mealItem: MealItem, output: @escaping CustomProductOutputBlock) {
+        let route = CustomProductRoute(navigator: navigator,
+                                       input: .init(mealItem: mealItem),
+                                       output: output)
+        present(route: route)
+    }
+
     func presentCameraAccessAlert() {
         let alertTitle = NSLocalizedString("CameraAlert.title" , comment: "")
         let alertSubTitle = NSLocalizedString("CameraAlert.subtitle" , comment: "")

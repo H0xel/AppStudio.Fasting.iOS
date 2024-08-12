@@ -50,6 +50,9 @@ extension MealItem: EntityMappable {
         let servs = try? [MealServing].init(json: entity.servingsJson ?? "")
         self.servings = servs ?? .defaultServings
         self.dateUpdated = entity.dateUpdated ?? .now
+        self.brandFoodId = entity.brandFoodId
+        self.amountPer = entity.hasAmountPer ? entity.amountPer : nil
+        self.barCode = entity.barCode
     }
 
     func map(to entity: MealItemEntity) {
@@ -102,6 +105,18 @@ extension MealItem: EntityMappable {
 
         entity.servingsJson = servings.json()
         entity.dateUpdated = dateUpdated
+        entity.brandFoodId = brandFoodId
+
+        if let amountPer {
+            entity.amountPer = amountPer
+            entity.hasAmountPer = true
+        } else {
+            entity.hasAmountPer = false
+        }
+
+        if let barCode {
+            entity.barCode = barCode
+        }
     }
 
     static var identifierName: String {

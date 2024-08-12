@@ -115,7 +115,14 @@ class FoodHistoryViewModel: BaseViewModel<FoodHistoryOutput> {
 
 // MARK: - Suggestions
 extension FoodHistoryViewModel {
-    var foodSuggestionsInput: FoodSuggestionsInput {
+
+    var foodSuggestionsViewModel: FoodSuggestionsViewModel {
+        .init(input: foodSuggestionsInput) { [weak self] output in
+            self?.handle(foodSuggestionsOutput: output)
+        }
+    }
+
+    private var foodSuggestionsInput: FoodSuggestionsInput {
         .init(mealPublisher: input.mealPublisher,
               mealType: mealType,
               mealRequestPublisher: $mealRequest.eraseToAnyPublisher(),
@@ -125,19 +132,54 @@ extension FoodHistoryViewModel {
               showOnlyIngredients: false)
     }
 
-    func handle(foodSuggestionsOutput output: FoodSuggestionsOutput) {
+    private func handle(foodSuggestionsOutput output: FoodSuggestionsOutput) {
         switch output {
         case .add(let mealItem):
-            let meal = Meal(type: mealType,
-                            dayDate: input.dayDate,
-                            mealItem: mealItem,
-                            voting: .disabled)
-            mealRequest = ""
-            self.output(.insert(meal))
+            insertMeal(mealItem)
         case .remove(let mealItem):
             self.output(.remove(mealItem))
         case .togglePresented(let isPresented):
             suggestionsState = .init(isPresented: isPresented, isKeyboardFocused: isPresented)
+        case .present(let mealItem):
+            router.presentCustomProduct(mealItem: mealItem) { [weak self] output in
+                self?.handle(customProductOutput: output)
+            }
+        }
+    }
+
+    private func handle(customProductOutput output: CustomProductOutput) {
+        switch output {
+        case .add(let mealItem):
+            insertMeal(mealItem)
+            router.dismiss()
+        case .log(let mealItem):
+            insertMeal(mealItem)
+            router.dismiss(FoodLogRoute.self)
+        }
+    }
+
+    private func insertMeal(_ mealItem: MealItem) {
+        mealRequest = ""
+        switch mealItem.type {
+        case .needToUpdateBrand:
+
+            let foodSearchService = foodSearchService
+            Task {
+                let brandMealItem = try await foodSearchService.searchBranded(brandFoodId: mealItem.brandFoodId ?? "") ?? mealItem
+                let meal = Meal(type: mealType,
+                                dayDate: input.dayDate,
+                                mealItem: brandMealItem,
+                                voting: .disabled)
+                DispatchQueue.main.async { [weak self] in
+                    self?.output(.insert(meal))
+                }
+            }
+        default:
+            let meal = Meal(type: mealType,
+                            dayDate: input.dayDate,
+                            mealItem: mealItem,
+                            voting: .disabled)
+            self.output(.insert(meal))
         }
     }
 }
@@ -168,7 +210,6 @@ extension FoodHistoryViewModel {
 
 // MARK: - Barcode
 extension FoodHistoryViewModel {
-
     func barcodeScan(accessGranted: Bool) {
         guard accessGranted else {
             router.presentCameraAccessAlert()

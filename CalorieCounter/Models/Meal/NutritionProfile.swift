@@ -19,6 +19,14 @@ infix operator **
 
 extension NutritionProfile {
 
+    var isEmpty: Bool {
+        proteins == 0 && fats == 0 && carbohydrates == 0
+    }
+
+    var hasOnlyCalories: Bool {
+        calories > 0 && proteins == 0 && fats == 0 && carbohydrates == 0
+    }
+
     func amount(for type: NutritionType) -> Double {
         switch type {
         case .proteins: proteins
@@ -33,6 +41,13 @@ extension NutritionProfile {
                          proteins: weight == 0 ? 0 : proteins * 100 / weight,
                          fats: weight == 0 ? 0 : fats * 100 / weight,
                          carbohydrates: weight == 0 ? 0 : carbohydrates * 100 / weight)
+    }
+
+    func normalize(with servingSize: Double, amountPer: Double) -> NutritionProfile {
+        NutritionProfile(calories: amountPer == 0 ? 0 : calories * (servingSize / amountPer),
+                         proteins: amountPer == 0 ? 0 : proteins * (servingSize / amountPer),
+                         fats: amountPer == 0 ? 0 : fats * (servingSize / amountPer),
+                         carbohydrates: amountPer == 0 ? 0 : carbohydrates * (servingSize / amountPer))
     }
 
     func calculate(for weight: Double) -> NutritionProfile {

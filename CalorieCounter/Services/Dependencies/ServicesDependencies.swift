@@ -15,6 +15,7 @@ extension DependencyValues {
     var migrations: [Migration] {
         [
             MealtItemMigration(),
+            IngredientsMigration(),
             PutReceiptMigrationForUsersWithActualSubscription()
         ]
     }

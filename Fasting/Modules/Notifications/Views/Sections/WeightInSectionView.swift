@@ -67,5 +67,5 @@ private extension CGFloat {
                         weightFrequency: .constant(.everyDay),
                         collapsedType: .constant(.weighInTime),
                         notificationAccessIsGranted: false,
-                        isLocked: false) { _ in}
+                        isLocked: false) { _ in }
 }

@@ -9,20 +9,42 @@ import SwiftUI
 import AppStudioStyles
 
 struct MealWeightView: View {
-
-    let weight: Double
+    let type: MealWeightType
     let serving: MealServing
     let isTapped: Bool
+    let withoutDecimalIfNeeded: Bool
+    let weightColor: Color
+    let width: CGFloat
+
+    init(type: MealWeightType,
+         serving: MealServing,
+         isTapped: Bool,
+         withoutDecimalIfNeeded: Bool = false,
+         weightColor: Color = Color.studioBlackLight,
+         width: CGFloat = .width) {
+        self.type = type
+        self.serving = serving
+        self.withoutDecimalIfNeeded = withoutDecimalIfNeeded
+        self.weightColor = weightColor
+        self.isTapped = isTapped
+        self.width = width
+    }
 
     var body: some View {
         HStack(spacing: .spacing) {
-            Text(serving == .gramms ? "\(String(format: "%.0f", weight))" : weight.withoutDecimalsIfNeeded)
-                .foregroundStyle(.accent)
-            Text(serving.units(for: weight))
-                .foregroundStyle(Color.studioGreyText)
+            switch type {
+            case .text(let string):
+                Text(string)
+                    .foregroundStyle(weightColor)
+            case .weight(let weight):
+                Text(convertedWeight(weight: weight))
+                    .foregroundStyle(weightColor)
+                Text(serving.units(for: weight))
+                    .foregroundStyle(Color.studioGreyText)
+            }
         }
         .font(.poppins(.description))
-        .frame(width: .width, height: .height)
+        .frame(width: width, height: .height)
         .background(Color.studioGreyFillProgress)
         .continiousCornerRadius(.cornerRadius)
         .border(configuration: .init(
@@ -30,6 +52,22 @@ struct MealWeightView: View {
             color: .accent,
             lineWidth: isTapped ? .borderWidth : 0)
         )
+    }
+
+    private func convertedWeight(weight: Double) -> String {
+        if withoutDecimalIfNeeded {
+            return weight.withoutDecimalsIfNeeded
+        }
+        return serving == .gramms
+        ? "\(String(format: "%.0f", weight))"
+        : weight.withoutDecimalsIfNeeded
+    }
+}
+
+extension MealWeightView {
+    enum MealWeightType {
+        case text(String)
+        case weight(Double)
     }
 }
 
@@ -48,5 +86,5 @@ private extension MealWeightView {
 }
 
 #Preview {
-    MealWeightView(weight: 24, serving: .gramms, isTapped: true)
+    MealWeightView(type: .weight(24), serving: .gramms, isTapped: true)
 }

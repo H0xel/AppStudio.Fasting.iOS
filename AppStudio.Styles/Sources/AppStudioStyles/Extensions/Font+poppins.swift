@@ -51,12 +51,15 @@ public extension Font {
         case body = 15
         /// Size: 13
         case description = 13
+        /// Size: 11
+        case mini = 11
 
         var isBold: Bool {
             switch self {
             case .buttonText: return false
             case .body: return false
             case .description: return false
+            case .mini: return false
             default: return true
             }
         }

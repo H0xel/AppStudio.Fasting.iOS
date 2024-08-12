@@ -8,7 +8,15 @@
 class NutritionFoodSearchApiImpl: NutritionFoodSearchApi {
     private let provider = TelecomApiProvider<NutritionFoodSearchTarget>()
 
+    func search(query: String) async throws -> [NutritionFood] {
+        try await provider.request(.searchText(query: query))
+    }
+    
+    func search(brandFoodId: String) async throws -> NutritionFood {
+        try await provider.request(.searchBrand(brandFoodId: brandFoodId))
+    }
+
     func search(code: Int64) async throws -> NutritionFood {
-        try await provider.request(.search(upc: code))
+        try await provider.request(.searchBarcode(upc: code))
     }
 }

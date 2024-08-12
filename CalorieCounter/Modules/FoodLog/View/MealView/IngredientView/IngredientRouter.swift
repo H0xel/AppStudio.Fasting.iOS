@@ -21,8 +21,8 @@ class IngredientRouter: BaseRouter {
         present(banner: banner, animation: .bouncy)
     }
 
-    func presentChangeWeightBanner(input: CustomKeyboardInput, output: @escaping ViewOutput<CustomKeyboardOutput>) {
-        let banner = CustomKeyboardBanner(input: input, output: output)
+    func presentChangeWeightBanner(input: CustomKeyboardInput, output: @escaping ViewOutput<ContainerKeyboardOutput>) {
+        let banner = ContainerKeyboardBanner(input: input, output: output)
         present(banner: banner, animation: .linear(duration: 0.2))
     }
 }

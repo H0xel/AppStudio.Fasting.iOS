@@ -59,11 +59,11 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
     }
 
     var displayWeight: Double {
-        editingWeight ?? ingredient.value.value
+        editingWeight ?? ingredient.weight
     }
 
     var displayServing: MealServing {
-        editingServing ?? ingredient.value.serving
+        editingServing ?? ingredient.serving
     }
 
     func weightTapped() {
@@ -112,7 +112,7 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
     }
 
     private func changeIngredientWeight(result: CustomKeyboardResult) {
-        guard Int(ingredient.value.value) != Int(result.value) else {
+        guard Int(ingredient.weight) != Int(result.value) else {
             return
         }
         let changedIngredient = ingredient.updated(value: result.value, serving: result.serving)
@@ -134,17 +134,16 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
     private func presentWeightChangeBanner() {
         let input = CustomKeyboardInput(
             title: ingredient.name,
-            text: "\(ingredient.value.value)",
-            style: .container,
-            servings: ingredient.value.servings,
-            currentServing: ingredient.value.serving,
+            text: "\(ingredient.weight)",
+            servings: ingredient.servings,
+            currentServing: ingredient.serving,
             isPresentedPublisher: $state.map { $0 != .notSelected }.eraseToAnyPublisher())
         router.presentChangeWeightBanner(input: input) { [weak self] output in
             self?.handle(customKeyboardOutput: output)
         }
     }
 
-    private func handle(customKeyboardOutput output: CustomKeyboardOutput) {
+    private func handle(customKeyboardOutput output: ContainerKeyboardOutput) {
         switch output {
         case .valueChanged(let result):
             editingWeight = result.value
@@ -170,7 +169,7 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
 
     private func trackWeightChanged(newWeight: CGFloat) {
         trackerService.track(.weightChanged(currentWeight: newWeight,
-                                            previousWeight: ingredient.value.value,
+                                            previousWeight: ingredient.weight,
                                             context: .ingredient))
     }
 }

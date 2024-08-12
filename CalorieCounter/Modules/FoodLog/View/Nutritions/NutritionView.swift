@@ -32,15 +32,21 @@ struct NutritionView: View {
                     .foregroundStyle(Color.studioGreyStrokeFill)
                     .font(configuration.crownFont)
             } else {
-                Text("\(intAmount)")
+                Text(amountText)
                     .foregroundStyle(configuration.amountColor)
             }
         }
         .font(configuration.font)
     }
 
-    var intAmount: Int {
-        amount.isNaN ? 0 : Int(amount.rounded())
+    var amountText: String {
+        if amount.isNaN {
+            return "0"
+        }
+        if amount < 1 {
+            return amount.withoutDecimalsIfNeeded
+        }
+        return "\(Int(amount.rounded()))"
     }
 
     @ViewBuilder

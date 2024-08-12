@@ -6,6 +6,8 @@
 "NextTitle" = "Next";
 "StartTitle" = "Start";
 "OkTitle" = "Ok";
+"CloseTitle" = "Close";
+"CreateFoodTitle" = "Create Food";
 
 // MARK: - Paywall Screen
 "Paywall.title" = "Paywall Title";
@@ -336,7 +338,7 @@
 "CaloriesBudgetHeaderView.kcalOverTitle" = "kcal over";
 
 // MARK: = NotFoundMealPlaceholderView
-"NotFoundMealPlaceholderView.title" = "Nothing found with this barcode";
+"NotFoundMealPlaceholderView.title" = "No Food Found for the Barcode";
 "IngredientPlaceholderView.notFound" = "Nothing found with this barcode";
 
 // MARK: - UsageLimitPaywallScreen
@@ -391,14 +393,19 @@
 "MealVoting.title.dislike" = "Thanks! We'll work on it.";
 
 // MARK: - FoodSuggestionsEmptyView
-"FoodSuggestionsEmptyView.title" = "No entries yet";
-"FoodSuggestionsEmptyView.subtitle" = "Start logging to view history";
+"FoodSuggestionsEmptyView.history.title" = "No entries yet";
+"FoodSuggestionsEmptyView.history.subtitle" = "Start logging to view history";
+
+"FoodSuggestionsEmptyView.food.title" = "No Custom Food Yet";
+"FoodSuggestionsEmptyView.food.subtitle" = "Create a new custom food to see it here";
 
 // MARK: -
 "LogType.log" = "Log";
 "LogType.history" = "History";
 "LogType.quickAdd" = "Quick Add";
 "LogType.addRecipe" = "Add Recipe";
+"LogType.newFood" = "New Food";
+"LogType.food" = "My Food";
 
 // MARK: - FoodSearchEmptyView
 "FoodSearchEmptyView.title.tap" = "Tap";
@@ -420,3 +427,33 @@
 "CameraAlert.title" = "\"Calorie Counter\" \nWould Like to Access the Camera";
 "CameraAlert.subtitle" = "Allow camera access in the settings to scan barcodes.";
 "CameraAlert.openSettings" = "Open application settings";
+
+// MARK: Custom
+
+"CustomFood.textfield.foodName" = "Food Name";
+"CustomFood.textfield.brandName" = "Brand Name";
+"CustomFood.textfield.optional" = "Optional";
+"CustomFood.textfield.nutritionFacts" = "Nutrition Facts";
+"CustomFood.textfield.servingSize" = "Serving Size";
+"CustomFood.textfield.servingName" = "Serving Name";
+"CustomFood.textfield.servingExample" = "For example, 2 × slices";
+"CustomFood.textfield.amountPer" = "Amount per";
+"CustomFood.textfield.calories" = "Calories";
+"CustomFood.textfield.fat" = "Fat";
+"CustomFood.textfield.protein" = "Protein";
+"CustomFood.textfield.carbs" = "Carbs";
+"CustomFood.addBarcode" = "Add Barcode";
+"CustomFood.replace" = "Replace";
+"CustomFood.delete" = "Delete";
+
+"WeightUnit.gramm" = "g";
+"CustomProductScreen.howMuchToAdd" = "How much to add?";
+"CustomFood.amountPer %@" = "Amount per serving · %@";
+
+// MARK: - Toolbar
+"Toolbar.copyAndCreateNew" = "Duplicate";
+"Toolbar.edit" = "Edit";
+"Toolbar.remove" = "Delete";
+
+"CustomFood.amountPer %@" = "Amount per serving · %@";
+"CustomFood.copy" = "(copy)";

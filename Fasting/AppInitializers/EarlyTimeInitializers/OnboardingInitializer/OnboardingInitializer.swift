@@ -44,7 +44,7 @@ final class OnboardingInitializer: AppInitializer {
 private let userWithOnboardingApiKey = "AppStudio.userWithOnboardingApiKey"
 extension CloudStorage {
     var userWithOnboardingApi: Bool {
-        set { set(key: userWithOnboardingApiKey, value: newValue) }
         get { get(key: userWithOnboardingApiKey, defaultValue: false) }
+        set { set(key: userWithOnboardingApiKey, value: newValue) }
     }
 }

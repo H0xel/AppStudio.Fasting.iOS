@@ -12,41 +12,38 @@ enum LogType: String {
     case history
     case quickAdd
     case addRecipe
+    case newFood
+    case food
 }
 
 extension LogType {
     var selectedColor: Color {
         switch self {
-        case .log, .quickAdd, .addRecipe:
-            Color.studioBlackLight
-        case .history:
-            Color.studioGreen
+        case .log, .quickAdd, .addRecipe, .newFood:
+                .studioBlackLight
+        case .history: 
+                .studioGreen
+        case .food: 
+                .studioOrange
         }
     }
 
     var image: Image? {
         switch self {
-        case .log, .quickAdd, .addRecipe:
+        case .log, .quickAdd, .addRecipe, .newFood:
             nil
-        case .history:
-            .logHistory
+        case .history: 
+                .logHistory
+        case .food: 
+                .init(.customProductIcon)
         }
     }
 
     var title: String {
-        switch self {
-        case .log:
-            NSLocalizedString("LogType.log", comment: "Log")
-        case .history:
-            NSLocalizedString("LogType.history", comment: "History")
-        case .quickAdd:
-            NSLocalizedString("LogType.quickAdd", comment: "Quick Add")
-        case .addRecipe:
-            NSLocalizedString("LogType.addRecipe", comment: "Add Recipe")
-        }
+        "LogType.\(rawValue)".localized()
     }
 
     var hasSeparator: Bool {
-        self == .history
+        self == .food
     }
 }

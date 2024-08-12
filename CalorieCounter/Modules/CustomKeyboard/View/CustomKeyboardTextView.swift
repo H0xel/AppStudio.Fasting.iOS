@@ -10,6 +10,7 @@ import SwiftUI
 struct CustomKeyboardTextView: View {
 
     @Binding var isTextSelected: Bool
+    @Binding var isFocused: Bool
     let text: String
     let units: String
     let grammsValue: String?
@@ -24,9 +25,11 @@ struct CustomKeyboardTextView: View {
                     .foregroundStyle(Color.studioBlackLight)
                     .multilineTextAlignment(.leading)
                     .lineLimit(1)
-                Color.studioBlackLight
-                    .frame(width: .cursorWidth, height: .cursorHeight)
-                    .opacity(isCursorPresented ? 1 : 0)
+                if isFocused {
+                    Color.studioBlackLight
+                        .frame(width: .cursorWidth, height: .cursorHeight)
+                        .opacity(isCursorPresented ? 1 : 0)
+                }
             }
             .background {
                 if isTextSelected {
@@ -48,7 +51,6 @@ struct CustomKeyboardTextView: View {
                         .foregroundStyle(Color.studioGreyPlaceholder)
                         .lineLimit(1)
                         .truncationMode(.tail)
-
                 }
             }
         }
@@ -71,6 +73,12 @@ struct CustomKeyboardTextView: View {
         .onTapGesture {
             isTextSelected = false
         }
+        .simultaneousGesture(
+            TapGesture()
+                .onEnded { _ in
+                    isFocused = true
+                }
+        )
     }
 }
 
@@ -85,5 +93,9 @@ private extension CGFloat {
 }
 
 #Preview {
-    CustomKeyboardTextView(isTextSelected: .constant(true), text: "150", units: "g", grammsValue: "85 g")
+    CustomKeyboardTextView(isTextSelected: .constant(true),
+                           isFocused: .constant(true),
+                           text: "150",
+                           units: "g",
+                           grammsValue: "85 g")
 }

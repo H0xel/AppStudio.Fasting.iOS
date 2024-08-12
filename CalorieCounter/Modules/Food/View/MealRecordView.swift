@@ -37,7 +37,7 @@ struct MealRecordView: View {
                                       fontSize: 15)
         result.append(name)
         if !meal.isQuickAdded {
-            let servingTitle = attributedTextPart(part: "   \(meal.mealItem.value.servingTitle)",
+            let servingTitle = attributedTextPart(part: "   \(meal.mealItem.servingTitle)",
                                                   color: .studioGreyPlaceholder,
                                                   fontSize: 13)
             result.append(servingTitle)

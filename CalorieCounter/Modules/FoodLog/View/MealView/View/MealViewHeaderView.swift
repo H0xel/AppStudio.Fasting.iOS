@@ -17,7 +17,7 @@ struct MealViewHeaderView: View {
                 .font(.poppinsBold(.buttonText))
                 .lineLimit(2)
                 .foregroundStyle(.accent)
-            if let subTitle = meal.brandSubtitle {
+            if let subTitle = meal.brandSubtitle, !subTitle.trim.isEmpty {
                 Text(subTitle)
                     .font(.poppins(.body))
                     .foregroundStyle(.accent)

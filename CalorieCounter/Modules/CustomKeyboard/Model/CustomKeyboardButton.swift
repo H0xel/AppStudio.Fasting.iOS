@@ -17,6 +17,7 @@ enum CustomKeyboardButton: Hashable {
     case collapse
     case log
     case add
+    case number
 
     var text: String? {
         switch self {
@@ -29,6 +30,7 @@ enum CustomKeyboardButton: Hashable {
         case .collapse: nil
         case .log: "FoodLogScreen.log".localized()
         case .add: "MealTypeView.add".localized()
+        case .number: nil
         }
     }
 
@@ -43,6 +45,7 @@ enum CustomKeyboardButton: Hashable {
         case .collapse: .keyboardDown
         case .log: nil
         case .add: nil
+        case .number: nil
         }
     }
 }

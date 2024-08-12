@@ -16,19 +16,32 @@ class FoodSearchServiceImpl: FoodSearchService {
     @Dependency(\.foodSearchApi) private var foodSearchApi
     @Dependency(\.nutritionFoodSearchApi) private var nutritionFoodSearchApi
     @Dependency(\.foodSearchCacheService) private var foodSearchCacheService
+    @Dependency(\.mealItemService) private var mealItemService
 
     func search(barcode: String) async throws -> MealItem? {
         guard let code = Int64(barcode) else {
             return nil
         }
+
+        if let meal = try await mealItemService.mealItem(byBarcode: barcode) {
+            return meal
+        }
+
         if let meal = try await foodSearchCacheService.cachedFood(of: barcode) {
             return meal
         }
-        guard let apiMeal = try await nutritionFoodSearchApi.search(code: code).asMeal else {
+
+        do {
+            guard let apiMeal = try await nutritionFoodSearchApi.search(code: code).asMeal else {
+                return nil
+            }
+
+            try await foodSearchCacheService.cache(meal: apiMeal, for: barcode)
+            return apiMeal
+        } catch {
+            try await Task.sleep(seconds: 2)
             return nil
         }
-        try await foodSearchCacheService.cache(meal: apiMeal, for: barcode)
-        return apiMeal
     }
 
     func searchIngredient(barcode: String) async throws -> MealItem? {
@@ -43,6 +56,62 @@ class FoodSearchServiceImpl: FoodSearchService {
         }
         try await foodSearchCacheService.cache(ingredient: apiIngredient, for: barcode)
         return apiIngredient
+    }
+
+    func searchText(query: String) async throws -> [MealItem] {
+        guard query.count >= 3 else {
+            return []
+        }
+        if let foods = try await foodSearchCacheService.cachedFoods(of: query) {
+            let updated = try await updateBrandedTypes(of: foods)
+            if updated.isUpdated {
+                try await foodSearchCacheService.cache(foods: updated.items, for: query)
+            }
+            return updated.items
+        }
+        let meals = try await nutritionFoodSearchApi.search(query: query).compactMap { $0.asIngredientMealItem }
+
+        let updated = try await updateBrandedTypes(of: meals)
+
+        try await foodSearchCacheService.cache(foods: updated.items, for: query)
+
+        return updated.items
+    }
+
+    func searchBranded(brandFoodId: String) async throws -> MealItem? {
+        guard !brandFoodId.isEmpty else {
+            return nil
+        }
+
+        if let cached = try await foodSearchCacheService.cachedBrandFood(of: brandFoodId) {
+            return cached
+        }
+        
+        if let brandFood = try await nutritionFoodSearchApi.search(brandFoodId: brandFoodId).asIngredientMealItem {
+            try await foodSearchCacheService.cache(brandFood: brandFood, for: brandFoodId)
+
+            return brandFood
+        }
+        return nil
+    }
+
+    func updateBrandedTypes(of meals: [MealItem]) async throws -> (items: [MealItem], isUpdated: Bool) {
+        var updated = [MealItem]()
+        var isUpdated = false
+        for meal in meals {
+            if let brandFoodId = meal.brandFoodId {
+                if let brandedMeal = try await foodSearchCacheService.cachedBrandFood(of: brandFoodId) {
+                    updated.append(brandedMeal)
+                    isUpdated = true
+                    continue
+                }
+                updated.append(meal.updated(type: .needToUpdateBrand))
+                continue
+            }
+            updated.append(meal)
+        }
+
+        return (items: updated, isUpdated: isUpdated)
     }
 }
 

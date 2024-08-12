@@ -10,6 +10,7 @@ import SwiftUI
 struct CustomKeyboardTextField: View {
 
     @Binding var isTextSelected: Bool
+    @Binding var isFocused: Bool
     let title: String
     let text: String
     let units: String
@@ -22,7 +23,8 @@ struct CustomKeyboardTextField: View {
                 .font(.poppins(.description))
                 .padding(.leading, .titleLeadingPadding)
                 .aligned(.left)
-            CustomKeyboardTextView(isTextSelected: $isTextSelected,
+            CustomKeyboardTextView(isTextSelected: $isTextSelected, 
+                                   isFocused: $isFocused,
                                    text: text,
                                    units: units,
                                    grammsValue: grammsValue)
@@ -42,6 +44,7 @@ private extension CGFloat {
 
 #Preview {
     CustomKeyboardTextField(isTextSelected: .constant(false),
+                            isFocused: .constant(true),
                             title: "Eggs",
                             text: "",
                             units: "g",

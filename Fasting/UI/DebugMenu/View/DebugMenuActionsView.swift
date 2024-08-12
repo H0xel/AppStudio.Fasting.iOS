@@ -11,7 +11,6 @@ import AICoach
 import WeightWidget
 import AppStudioServices
 import AppStudioABTesting
-import FirebaseRemoteConfig
 
 struct DebugMenuActionsView: View {
 

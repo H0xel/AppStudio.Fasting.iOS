@@ -85,7 +85,7 @@ enum W2WError: String {
 private let userWithOnboardingApiKey = "AppStudio.w2wUserKey"
 extension CloudStorage {
     var w2wUserEmail: String? {
-        get { get(key: userWithOnboardingApiKey) }
         set { set(key: userWithOnboardingApiKey, value: newValue) }
+        get { get(key: userWithOnboardingApiKey) }
     }
 }

@@ -49,7 +49,7 @@ struct MealDeleteBanner: Banner {
                 .frame(width: 56)
         }
         .font(.poppins(.buttonText))
-        .padding(.top, 8)
+        .padding(.top, .spacing)
         .background(.white)
         .aligned(.bottom)
         .transition(.move(edge: .bottom))

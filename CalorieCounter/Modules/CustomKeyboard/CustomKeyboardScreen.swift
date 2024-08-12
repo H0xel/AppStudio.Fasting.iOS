@@ -1,4 +1,4 @@
-//  
+//
 //  CustomKeyboardScreen.swift
 //  CalorieCounter
 //
@@ -11,39 +11,46 @@ import AppStudioStyles
 import Combine
 import AudioToolbox
 
-struct CustomKeyboardScreen: View {
-    @ObservedObject var viewModel: CustomKeyboardViewModel
+struct CustomKeyboardScreen<Output>: View {
+    @ObservedObject var viewModel: CustomKeyboardViewModel<Output>
     @State private var feedbackGenerator: UIImpactFeedbackGenerator?
 
     var body: some View {
         VStack(spacing: .zero) {
             CustomKeyboardTextField(isTextSelected: $viewModel.isTextSelected,
+                                    isFocused: $viewModel.isFocused,
                                     title: viewModel.title,
                                     text: viewModel.displayText,
                                     units: viewModel.units,
                                     grammsValue: viewModel.grammsValue)
-            if !viewModel.mealServings.isEmpty {
-                CustomKeyboardServingsView(currentServing: viewModel.currentServing,
-                                           servings: viewModel.mealServings,
-                                           onChange: viewModel.changeServing)
-                .padding(.bottom, .servingsBottomPadding)
-                .background(.white)
+            if viewModel.isFocused {
+                VStack(spacing: .zero) {
+                    if !viewModel.mealServings.isEmpty {
+                        CustomKeyboardServingsView(currentServing: viewModel.currentServing,
+                                                   servings: viewModel.mealServings,
+                                                   onChange: viewModel.changeServing)
+                        .padding(.bottom, .servingsBottomPadding)
+                        .background(.white)
+                    }
+                    HStack(spacing: .spacing) {
+                        numbersStack(numbers: [1, 4, 7], bottomButton: viewModel.style.bottomLeftButton)
+                        numbersStack(numbers: [2, 5, 8, 0])
+                        numbersStack(numbers: [3, 6, 9], bottomButton: viewModel.style.bottomRightButton)
+                        rightButtons
+                    }
+                    .padding(.spacing)
+                    .background(Color.studioGreyStrokeFill)
+                }
+                .transition(.asymmetric(insertion: .push(from: .bottom),
+                                        removal: .push(from: .top)))
             }
-
-            HStack(spacing: .spacing) {
-                numbersStack(numbers: [1, 4, 7], bottomButton: viewModel.style.bottomLeftButton)
-                numbersStack(numbers: [2, 5, 8, 0])
-                numbersStack(numbers: [3, 6, 9], bottomButton: viewModel.style.bottomRightButton)
-                rightButtons
-            }
-            .padding(.spacing)
-            .background(Color.studioGreyStrokeFill)
         }
         .modifier(TopBorderModifier())
         .aligned(.bottom)
         .onAppear {
             vibrate()
         }
+        .animation(.linear(duration: 0.15), value: viewModel.isFocused)
     }
 
     private var rightButtons: some View {
@@ -93,10 +100,9 @@ private extension CGFloat {
 struct CustomKeyboardScreen_Previews: PreviewProvider {
     static var previews: some View {
         CustomKeyboardScreen(
-            viewModel: CustomKeyboardViewModel(
+            viewModel: ContainerKeyboardViewModel(
                 input: CustomKeyboardInput(title: "Eggs",
                                            text: "",
-                                           style: .container,
                                            servings: [],
                                            currentServing: .init(weight: 100, measure: "g", quantity: 100),
                                            isPresentedPublisher: Just(true).eraseToAnyPublisher()),

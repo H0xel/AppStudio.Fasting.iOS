@@ -22,7 +22,8 @@ class MealViewRouter: BaseRouter {
         present(banner: banner, animation: .bouncy)
     }
 
-    func presentAddIngredientBanner(mealPublisher: AnyPublisher<Meal, Never>, output: @escaping (AddIngredientOutput) -> Void) {
+    func presentAddIngredientBanner(mealPublisher: AnyPublisher<Meal, Never>,
+                                    output: @escaping (AddIngredientOutput) -> Void) {
         let route = AddIngredientBanner(mealPublisher: mealPublisher, output: output)
         present(banner: route)
     }
@@ -44,8 +45,8 @@ class MealViewRouter: BaseRouter {
     }
 
     func presentChangeWeightBanner(input: CustomKeyboardInput,
-                                   output: @escaping ViewOutput<CustomKeyboardOutput>) {
-        let banner = CustomKeyboardBanner(input: input, output: output)
+                                   output: @escaping ViewOutput<ContainerKeyboardOutput>) {
+        let banner = ContainerKeyboardBanner(input: input, output: output)
         present(banner: banner, animation: .linear(duration: 0.2))
     }
 
@@ -58,6 +59,13 @@ class MealViewRouter: BaseRouter {
         let route = UsagePaywallRoute(navigator: navigator,
                                       context: .barcodeScanner,
                                       output: output)
+        present(route: route)
+    }
+
+    func presentCustomProduct(mealItem: MealItem, output: @escaping CustomProductOutputBlock) {
+        let route = CustomProductRoute(navigator: navigator,
+                                       input: .init(mealItem: mealItem),
+                                       output: output)
         present(route: route)
     }
 }

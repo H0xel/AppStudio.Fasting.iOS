@@ -75,7 +75,7 @@ public enum WaterUnits: String {
         "WaterUnits.unitsGlobalTitle.\(rawValue)".localized(bundle: .module)
     }
 
-    var unitsTitle: String {
+    public var unitsTitle: String {
         "WaterUnits.unitsTitle.\(rawValue)".localized(bundle: .module)
     }
 

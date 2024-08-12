@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppStudioUI
 
 public struct BackButton: View {
 
@@ -14,6 +15,13 @@ public struct BackButton: View {
     public var body: some View {
         Image.chevronLeft
             .foregroundStyle(Color.studioBlackLight)
+    }
+}
+
+public extension View {
+    func backButton(action: @escaping () -> Void) -> some View {
+        self
+            .navBarButton(content: BackButton(), action: action)
     }
 }
 

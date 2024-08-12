@@ -34,7 +34,7 @@ struct CustomKeyboardButtonView: View {
 
     private var font: Font {
         switch button {
-        case .delete, .up, .down, .done, .collapse, .add, .log:
+        case .delete, .up, .down, .done, .collapse, .add, .log, .number:
                 .poppinsMedium(.body)
         case .dot:
                 .poppinsBold(.buttonText)
@@ -47,7 +47,7 @@ struct CustomKeyboardButtonView: View {
         switch button {
         case .delete:
             1155
-        case .up, .down, .done, .collapse, .log,.add:
+        case .up, .down, .done, .collapse, .log,.add, .number:
             1156
         case .dot, .slash:
             1104

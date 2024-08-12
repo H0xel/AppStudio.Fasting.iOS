@@ -8,6 +8,7 @@
 import Foundation
 import AppStudioUI
 import Combine
+import Dependencies
 
 struct FoodLogInputViewInput {
     let mealTypePublisher: AnyPublisher<MealType, Never>
@@ -32,6 +33,8 @@ enum FoodLogInputOutput {
 }
 
 class FoodLogInputViewModel: BaseViewModel<FoodLogInputOutput> {
+
+    @Dependency(\.mealItemService) private var mealItemService
 
     @Published var logType: LogType = .log
     @Published var quickAddMeal: Meal?
@@ -100,9 +103,8 @@ class FoodLogInputViewModel: BaseViewModel<FoodLogInputOutput> {
         case .updated(let meal):
             output(.update(meal))
         case .logType(let type):
-            suggestionsState = .init(isPresented: false, isKeyboardFocused: true)
             quickAddMeal = nil
-            changeLogType(to: type)
+            changeLogType(to: type, isFocused: true)
         case .close:
             suggestionsState = .init(isPresented: true, isKeyboardFocused: true)
             quickAddMeal = nil
@@ -127,11 +129,22 @@ class FoodLogInputViewModel: BaseViewModel<FoodLogInputOutput> {
         case .hasSubscription(let hasSubscription):
             self.output(.hasSubscription(hasSubscription))
         case let .logType(type, isFocused):
-            suggestionsState = .init(isPresented: isFocused, isKeyboardFocused: isFocused)
-            changeLogType(to: type)
+            changeLogType(to: type, isFocused: isFocused)
         case .onFocus:
             self.output(.onFocus)
+        case .present(let mealItem):
+            presentProduct(mealItem: mealItem)
         }
+    }
+
+    private func changeLogType(to type: LogType, isFocused: Bool) {
+        suggestionsState = .init(isPresented: isFocused, isKeyboardFocused: isFocused)
+        if type == .newFood {
+            changeLogType(to: .log)
+            presentCustomFood()
+            return
+        }
+        changeLogType(to: type)
     }
 
     private func observeEditQuickAdd(publisher: AnyPublisher<Meal, Never>) {
@@ -142,5 +155,41 @@ class FoodLogInputViewModel: BaseViewModel<FoodLogInputOutput> {
                 this.changeLogType(to: .quickAdd)
             }
             .store(in: &cancellables)
+    }
+
+    private func presentCustomFood() {
+        router.presentCustomFood(context: .create) { [weak self] mealItem in
+            guard let self else { return }
+            Task { [weak self] in
+                guard let self else { return }
+                let savedMealItem = try await self.mealItemService.save(mealItem)
+                presentProduct(mealItem: savedMealItem)
+            }
+        }
+    }
+
+    private func presentProduct(mealItem: MealItem) {
+        router.presentCustomProduct(mealItem: mealItem) { [weak self] output in
+            self?.handle(customProductOutput: output)
+        }
+    }
+
+    private func handle(customProductOutput output: CustomProductOutput) {
+        switch output {
+        case .add(let mealItem):
+            insertMeal(mealItem)
+            router.dismiss()
+        case .log(let mealItem):
+            insertMeal(mealItem)
+            router.dismiss(FoodLogRoute.self)
+        }
+    }
+
+    private func insertMeal(_ mealItem: MealItem) {
+        let meal = Meal(type: mealType,
+                        dayDate: input.dayDate,
+                        mealItem: mealItem,
+                        voting: .disabled)
+        self.output(.insert(meal))
     }
 }

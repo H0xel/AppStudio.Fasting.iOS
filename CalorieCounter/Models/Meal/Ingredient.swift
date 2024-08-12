@@ -30,4 +30,11 @@ extension Ingredient {
         }
         return name
     }
+
+    var nameDotBrand: String {
+        if let brandTitle = subTitle {
+            return "\(name.capitalized)  ·  \(brandTitle.capitalized )"
+        }
+        return name.capitalized
+    }
 }

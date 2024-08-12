@@ -46,7 +46,6 @@ private extension ApiIngredient {
                                     fats: fats,
                                     carbohydrates: carbohydrates)
         )
-
     }
 }
 
@@ -58,7 +57,8 @@ private extension ApiMeal {
             name: ingredients.count == 1 ? "" : name,
             ingredients: ingredients.map { $0.asIngridient },
             servingMultiplier: 1.0, 
-            servings: .defaultServings
+            serving: ingredients.count == 1 ? .defaultServing : .serving,
+            servings: ingredients.count == 1 ? .defaultServings : [.serving]
         )
     }
 }

@@ -24,14 +24,14 @@ struct FoodLogInputView: View {
     @ViewBuilder
     var view: some View {
         switch viewModel.logType {
-        case .log, .history:
+        case .log, .history, .food:
             FoodLogHistoryView(logType: viewModel.logType,
                                isPresented: isPresented,
                                viewModel: viewModel.historyViewModel)
         case .quickAdd:
             QuickAddView(viewModel: viewModel.quickAddViewModel)
                 .opacity(viewModel.logType == .quickAdd ? 1 : 0)
-        case .addRecipe:
+        case .addRecipe, .newFood:
             Color.clear.frame(height: 1)
         }
     }

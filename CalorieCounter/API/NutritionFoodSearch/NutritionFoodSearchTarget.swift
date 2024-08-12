@@ -9,29 +9,28 @@ import Foundation
 import Moya
 
 enum NutritionFoodSearchTarget {
-    case search(upc: Int64)
+    case searchBarcode(upc: Int64)
+    case searchText(query: String)
+    case searchBrand(brandFoodId: String)
 }
 
 extension NutritionFoodSearchTarget: TelecomTargetType {
     var path: String {
         switch self {
-        case .search(let upc):
+        case .searchBarcode(let upc):
             "CalorieCounter/Nutrition/search/upc/\(upc)"
+        case .searchText(let query):
+            "CalorieCounter/Nutrition/search/full-text/\(query)"
+        case .searchBrand(let brandFoodId):
+            "CalorieCounter/Nutrition/search/branded/\(brandFoodId)"
         }
-
     }
 
     var method: Moya.Method {
-        switch self {
-        case .search:
-                .get
-        }
+        .get
     }
 
     var task: Moya.Task {
-        switch self {
-        case .search:
-            Moya.Task.requestPlain
-        }
+        Moya.Task.requestPlain
     }
 }

@@ -15,7 +15,7 @@ struct FoodSuggestionsView: View {
     @Binding var scrollOffset: CGFloat
     let isFocused: Bool
     let inputHeight: CGFloat
-    let canShowFavorites: Bool
+    let logType: LogType
     var minTopPadding: CGFloat = .minTopPadding
     @StateObject var viewModel: FoodSuggestionsViewModel
 
@@ -35,11 +35,11 @@ struct FoodSuggestionsView: View {
             .onChange(of: viewModel.isSuggestionsPresented) { isSuggestionsPresented in
                 viewModel.toggleSuggestions(isPresented: isSuggestionsPresented)
             }
-            .onChange(of: canShowFavorites) { canShowFavorites in
-                viewModel.toggleFavorites(canShowFavorites: canShowFavorites)
+            .onChange(of: logType) { logType in
+                viewModel.changeLogType(to: logType)
             }
             .onAppear {
-                viewModel.toggleFavorites(canShowFavorites: canShowFavorites)
+                viewModel.changeLogType(to: logType)
             }
             .onReceive(viewModel.mealsPublisher.map { $0.isEmpty }) { isEmpty in
                 isMealsEmpty = isEmpty
@@ -58,7 +58,7 @@ struct FoodSuggestionsView: View {
     var emptyView: some View {
         CardView {
             if viewModel.searchRequest.isEmpty {
-                FoodSuggestionsEmptyView()
+                FoodSuggestionsEmptyView(logType: viewModel.logType)
                     .offset(y: -inputHeight / 2)
                     .aligned(.centerVerticaly)
                     .aligned(.centerHorizontaly)
@@ -141,7 +141,7 @@ private extension CGFloat {
         scrollOffset: .constant(0),
         isFocused: false,
         inputHeight: 121,
-        canShowFavorites: true,
+        logType: .log,
         viewModel: .init(
             input: .init(mealPublisher: Just([]).eraseToAnyPublisher(),
                          mealType: .breakfast,

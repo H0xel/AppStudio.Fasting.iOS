@@ -22,6 +22,7 @@ struct BarcodeScreen: View {
                 action: viewModel.close,
                 label: {
                     Image.close
+                        .foregroundStyle(Color.studioBlackLight)
                         .padding(Layout.buttonPadding)
                 }
             )

@@ -25,7 +25,7 @@ struct StartFastingInput {
     let context: Context
     let kind: Kind
 }
-
+// swiftlint:disable function_parameter_count
 extension StartFastingInput {
     static func startFasting(context: Context,
                              isActiveState: Bool,

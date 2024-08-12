@@ -73,11 +73,11 @@ struct StartFastingScreen_Previews: PreviewProvider {
 
         return FastingScreen(viewModel: .init(input: .init(isMonetizationAvailable: Just(false).eraseToAnyPublisher()),
                                               output: { _ in }))
-            .sheet(isPresented: .constant(true)) {
-                ModernNavigationView {
-                    StartFastingScreen(viewModel: viewModel)
-                }
-                .presentationDetents([.height(474)])
+        .sheet(isPresented: .constant(true)) {
+            ModernNavigationView {
+                StartFastingScreen(viewModel: viewModel)
             }
+            .presentationDetents([.height(474)])
+        }
     }
 }

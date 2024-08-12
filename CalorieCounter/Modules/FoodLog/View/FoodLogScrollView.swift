@@ -27,8 +27,13 @@ struct FoodLogScrollView: View {
                         case .placeholder(let placeholder):
                             MealPlaceholderView(text: placeholder.mealText)
                         case .notFoundBarcode(let placeholder):
-                            NotFoundMealPlaceholderView {
-                                viewModel.remove(placeholder: placeholder)
+                            NotFoundMealPlaceholderView(barcode: placeholder.mealText) { action in
+                                switch action {
+                                case .close:
+                                    viewModel.remove(placeholder: placeholder)
+                                case .createFood(let barcode):
+                                    viewModel.openCustomFoodWithBarcode(barcode: barcode, placeHolderID: placeholder.id)
+                                }
                             }
                         }
                     }

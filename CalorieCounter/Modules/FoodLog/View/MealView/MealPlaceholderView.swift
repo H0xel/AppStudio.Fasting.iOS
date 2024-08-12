@@ -56,7 +56,7 @@ private extension CGFloat {
 
 #Preview {
     VStack {
-        NotFoundMealPlaceholderView() {}
+        NotFoundMealPlaceholderView(barcode: "123445") {_ in }
         MealPlaceholderView(text: "3 egg omelette with ham, cheese")
         MealPlaceholderView(text: "3 egg omelette with ham, cheese")
     }

@@ -15,22 +15,13 @@ let package = Package(
             targets: ["AppStudioStyles"]),
     ], 
     dependencies: [
-        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git", exact: "1.0.14"),
-        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Common.git", exact: "1.0.22"),
-        .package(url: "https://github.com/m-unicorn/iOS.MunicornFoundation.git", exact: "1.2.12"),
-        .package(url: "https://github.com/ReactiveX/RxSwift.git", exact: "6.6.0"),
         .package(path: "AppStudio.Models")
     ],
     targets: [
         .target(
             name: "AppStudioStyles",
             dependencies: [
-                .product(name: "MunicornFoundation", package: "iOS.MunicornFoundation"),
-                .product(name: "AppStudioUI", package: "AppStudio.iOS.Common"),
-                .product(name: "AppStudioFoundation", package: "AppStudio.iOS.Common"),
-                .product(name: "AppStudioModels", package: "AppStudio.Models"),
-                .product(name: "AppStudioNavigation", package: "AppStudio.iOS.Navigation"),
-                .product(name: "RxSwift", package: "RxSwift"),
+                .product(name: "AppStudioModels", package: "AppStudio.Models")
             ],
             resources: [
                 .process("Resources/Color.xcassets")

@@ -28,10 +28,12 @@ class MealUsageRepositoryImpl: CoreDataBaseRepository<MealUsage>, MealUsageRepos
         return try await select(request: request).first
     }
 
-    func sortedUsage(count: Int, mealType: MealType) async throws -> [MealUsage] {
+    func sortedUsage(count: Int,
+                     mealType: MealType,
+                     from mealItemIds: [String]) async throws -> [MealUsage] {
         let request = MealUsage.request()
         request.fetchLimit = count
-        request.predicate = .init(format: "mealType = %@", mealType.rawValue)
+        request.predicate = .init(format: "mealType = %@ AND mealId IN %@", mealType.rawValue, mealItemIds)
         request.sortDescriptors = [.init(key: "usage", ascending: false)]
         return try await select(request: request)
     }

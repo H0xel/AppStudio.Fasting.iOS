@@ -8,6 +8,7 @@
 import SwiftUI
 import AppStudioStyles
 import Combine
+import WaterCounter
 
 struct SuggestedMealItemView: View {
 
@@ -15,8 +16,17 @@ struct SuggestedMealItemView: View {
     let searchRequestPublisher: AnyPublisher<String, Never>
     let isSelected: Bool
     let onTap: (MealItem) -> Void
+    let onPlusTap: (MealItem) -> Void
 
     @State private var searchRequest = ""
+
+    private var nutritionTypes: [NutritionType] {
+        meal.mealItem.nutritionProfile.hasOnlyCalories 
+        ? [.calories]
+        : meal.mealItem.nutritionProfile.isEmpty
+        ? [.calories]
+        : NutritionType.allCases
+    }
 
     var body: some View {
         HStack(spacing: .zero) {
@@ -26,29 +36,15 @@ struct SuggestedMealItemView: View {
                 .frame(width: .imageWidth, height: .imageWidth)
                 .padding(.trailing, .imageSpacing)
             VStack(alignment: .leading, spacing: .verticalSpacing) {
-
                 AttributedText(text: text)
                     .id(searchRequest)
-
-                HStack(spacing: .nutritionsSpacing) {
-                    ForEach(NutritionType.allCases, id: \.self) { type in
-                        NutritionView(amount: meal.mealItem.nutritionProfile.amount(for: type),
-                                      configuration: .placeholderSmall(type: type),
-                                      bordered: false)
-                    }
-                    if let titleInGramms = meal.mealItem.value.title {
-                        Group {
-                            Text("|")
-                            Text(titleInGramms)
-                        }
-                        .font(.poppins(.description))
-                        .foregroundStyle(Color.studioGrayPlaceholder)
-                    }
-                }
+                NutritionProfileWithWeightView(profile: meal.mealItem.nutritionProfile,
+                                               weight: titleWithMeasure,
+                                               nutritionTypes: nutritionTypes)
             }
             Spacer()
             Button {
-                onTap(meal.mealItem)
+                onPlusTap(meal.mealItem)
             } label: {
                 if isSelected {
                     checkmark
@@ -60,6 +56,29 @@ struct SuggestedMealItemView: View {
         .onReceive(searchRequestPublisher) { request in
             searchRequest = request
         }
+        .onTapGesture {
+            onTap(meal.mealItem)
+        }
+    }
+
+    private var titleWithMeasure: String? {
+        if meal.mealItem.ingredients.count > 1 {
+            return nil
+        }
+        if let weight = meal.mealItem.servings
+            .first(where: { $0.measure == WaterUnits.liters.unitsTitle })?
+            .quantity
+            .withoutDecimalsIfNeeded {
+            return weight + " " + WaterUnits.liters.unitsTitle
+        }
+
+        if let gText = meal.mealItem.servings
+            .first(where: { $0.measure == MealServing.gramms.measure })?
+            .weight?
+            .withoutDecimalsIfNeeded {
+            return gText + " " + MealServing.gramms.measure
+        }
+        return meal.mealItem.servingTitle
     }
 
     private var text: NSAttributedString {
@@ -74,7 +93,11 @@ struct SuggestedMealItemView: View {
     }
 
     private func attributedTextPart(part: String) -> NSAttributedString {
-        let fontName = part.lowercased() == searchRequest.lowercased() ? "Poppins-SemiBold" : "Poppins-Regular"
+
+        let fontName = requestWords.contains(part.lowercased())
+        ? "Poppins-SemiBold"
+        : "Poppins-Regular"
+
         let textAttributes: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.font: UIFont(name: fontName, size: 13) ?? .systemFont(ofSize: 13),
             NSAttributedString.Key.foregroundColor: UIColor(.studioBlackLight)
@@ -82,15 +105,41 @@ struct SuggestedMealItemView: View {
         return NSAttributedString(string: part, attributes: textAttributes)
     }
 
+    private var requestWords: Set<String> {
+        let searchRequest = searchRequest
+            .replacingOccurrences(of: ",", with: " ")
+            .replacingOccurrences(of: ", ", with: " ")
+            .replacingOccurrences(of: ".", with: " ")
+            .replacingOccurrences(of: "-", with: " ")
+            .lowercased()
+
+        return Set(searchRequest.split(separator: " ").map { String($0) })
+    }
+
     private var parts: [String] {
-        let name = meal.mealItem.name.replacingOccurrences(
-            of: searchRequest,
-            with: "***\(searchRequest)***",
-            options: [.caseInsensitive]
-        )
-        return name.split(separator: "***").enumerated().map {
-            $0.0 == 0 ? .init($0.1.capitalized) : .init($0.1.lowercased())
+        var name = meal.mealItem.nameDotBrand
+
+        requestWords.forEach { searchWord in
+            if name.contains(searchWord.capitalized) {
+                name = name
+                    .replacingOccurrences(
+                        of: searchWord,
+                        with: "***\(searchWord.capitalized)***",
+                        options: [.caseInsensitive]
+                    )
+
+            } else {
+                name = name
+                    .replacingOccurrences(
+                        of: searchWord,
+                        with: "***\(searchWord)***",
+                        options: [.caseInsensitive]
+                    )
+            }
+
         }
+        return name.split(separator: "***")
+            .map { String($0) }
     }
 
     private var plus: some View {
@@ -119,32 +168,35 @@ private extension CGFloat {
     static let imageSpacing: CGFloat = 12
     static let imageWidth: CGFloat = 32
     static let verticalSpacing: CGFloat = 4
-    static let nutritionsSpacing: CGFloat = 12
     static let buttonWidth: CGFloat = 24
 }
 
 #Preview {
     VStack {
-        SuggestedMealItemView(meal: .init(icon: MealType.breakfast.image,
+        SuggestedMealItemView(meal: .init(type: .favorite(MealType.breakfast),
                                           mealItem: .mock),
                               searchRequestPublisher: Just("Omelette").eraseToAnyPublisher(),
                               isSelected: true,
-                              onTap: { _ in })
-        SuggestedMealItemView(meal: .init(icon: MealType.lunch.image,
+                              onTap: { _ in },
+                              onPlusTap: { _ in })
+        SuggestedMealItemView(meal: .init(type: .favorite(MealType.lunch),
                                           mealItem: .mock),
                               searchRequestPublisher: Just("Omelette").eraseToAnyPublisher(),
                               isSelected: true,
-                              onTap: { _ in })
-        SuggestedMealItemView(meal: .init(icon: MealType.snack.image,
+                              onTap: { _ in },
+                              onPlusTap: { _ in })
+        SuggestedMealItemView(meal: .init(type: .favorite(MealType.snack),
                                           mealItem: .mock),
                               searchRequestPublisher: Just("Omelette").eraseToAnyPublisher(),
                               isSelected: false,
-                              onTap: { _ in })
-        SuggestedMealItemView(meal: .init(icon: MealType.dinner.image,
+                              onTap: { _ in },
+                              onPlusTap: { _ in })
+        SuggestedMealItemView(meal: .init(type: .favorite(MealType.dinner),
                                           mealItem: .mock),
                               searchRequestPublisher: Just("Omelette").eraseToAnyPublisher(),
                               isSelected: false,
-                              onTap: { _ in })
+                              onTap: { _ in },
+                              onPlusTap: { _ in })
     }
     .padding(.horizontal, 16)
 }

@@ -58,14 +58,6 @@ struct LogChipsButton: View {
                     : .init(cornerRadius: .cornerRadius, color: .separator, lineWidth: .borderLineWidth)
                 )
                 .contentShape(Rectangle())
-                .padding(.trailing, .trailingPadding)
-
-                if type.hasSeparator {
-                    Rectangle()
-                        .stroke(lineWidth: .borderLineWidth / 2)
-                        .foregroundStyle(Color.separator)
-                        .frame(width: .borderLineWidth, height: .separatorLength)
-                }
             }
         }
     }

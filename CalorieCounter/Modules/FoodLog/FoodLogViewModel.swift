@@ -22,6 +22,8 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     @Dependency(\.mealUsageService) private var mealUsageService
     @Dependency(\.cameraAccessService) private var cameraAccessService
 
+    @Dependency(\.mealItemService) private var mealItemService
+
     var router: FoodLogRouter!
     @Published var mealType: MealType
     @Published var logItems: [FoodLogItem] = []
@@ -139,6 +141,13 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
 
     func remove(placeholder: MealPlaceholder) {
         logItems.removeAll { $0.placeholderId == placeholder.id }
+    }
+
+    @MainActor
+    func openCustomFoodWithBarcode(barcode: String, placeHolderID: String) {
+        router.presentCustomFood(context: .barcode(barcode: barcode)) { [weak self] mealItem in
+            self?.updateNotFoundBarcodeToMeal(placeholderId: placeHolderID, mealItem: mealItem)
+        }
     }
 
     func dismiss() {
@@ -284,6 +293,22 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
         if let index = logItems.firstIndex(where: { $0.placeholderId == placeholderId }),
             case let .placeholder(placeholder) = logItems[index] {
             logItems.replaceSubrange(index...index, with: [.notFoundBarcode(placeholder)])
+            return
+        }
+    }
+
+    @MainActor
+    private func updateNotFoundBarcodeToMeal(placeholderId: String, mealItem: MealItem) {
+        if let index = logItems.firstIndex(where: { $0.placeholderId == placeholderId }) {
+           let meal = Meal(type: mealType,
+                           dayDate: .now,
+                           mealItem: mealItem,
+                           voting: .disabled)
+           logItems.replaceSubrange(index...index, with: [.meal(meal)])
+
+            Task {
+                try await mealService.save(meal: meal)
+            }
             return
         }
     }

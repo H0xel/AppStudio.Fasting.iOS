@@ -24,7 +24,9 @@ struct MealServing: Codable, Hashable {
             self.pluralMeasure = pluralMeasure
         }
     }
+}
 
+extension MealServing {
     func units(for value: Double) -> String {
         guard let pluralMeasure else {
             return measure
@@ -33,16 +35,6 @@ struct MealServing: Codable, Hashable {
             return measure
         }
         return pluralMeasure
-    }
-}
-
-extension MealServing {
-
-    var unitsPer100Gramm: Double? {
-        if let weight {
-            return 100 * quantity / weight
-        }
-        return nil
     }
 
     func gramms(value: Double) -> Double? {
@@ -57,7 +49,7 @@ extension MealServing {
             let multiplier = valueInGramms / 100
             return multiplier
         } else {
-            return value / quantity 
+            return value / quantity
         }
     }
 
@@ -68,6 +60,22 @@ extension MealServing {
         return multiplier * quantity
     }
 
+    func convert(value: Double, to serving: MealServing) -> Double {
+        let weightInGramms = (value / quantity) * (weight ?? 1)
+        let result = (weightInGramms / (serving.weight ?? 1)) * serving.quantity
+        return result
+    }
+
+    private var unitsPer100Gramm: Double? {
+        if let weight {
+            return 100 * quantity / weight
+        }
+        return nil
+    }
+}
+
+// MARK: - static values
+extension MealServing {
     static var gramms: MealServing {
         .init(weight: 100, measure: "g", quantity: 100)
     }
@@ -90,19 +98,6 @@ extension MealServing {
 
     static var serving: MealServing {
         .init(weight: nil, measure: "serving", quantity: 1, pluralMeasure: "servings")
-    }
-
-    func weight(for desiredQuantity: Double) -> Double? {
-        if let weight {
-            return (desiredQuantity * weight) / quantity
-        }
-        return nil
-    }
-
-    func convert(value: Double, to serving: MealServing) -> Double {
-        let weightInGramms = (value / quantity) * (weight ?? 1)
-        let result = (weightInGramms / (serving.weight ?? 1)) * serving.quantity
-        return result
     }
 }
 

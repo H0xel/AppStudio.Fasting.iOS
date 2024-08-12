@@ -15,6 +15,7 @@ enum AddIngredientOutput {
     case add(MealItem)
     case remove(MealItem)
     case dismiss
+    case present(MealItem)
 }
 
 struct AddIngredientTextField: View {
@@ -35,7 +36,7 @@ struct AddIngredientTextField: View {
                 scrollOffset: $suggestionsScrollOffset,
                 isFocused: isFocused,
                 inputHeight: .inputHeight,
-                canShowFavorites: false,
+                logType: .history,
                 minTopPadding: .minTopPadding,
                 viewModel: .init(
                     input: foodSuggestionsInput,
@@ -94,6 +95,8 @@ struct AddIngredientTextField: View {
             if !isPresented {
                 self.output(.dismiss)
             }
+        case .present(let mealItem):
+            self.output(.present(mealItem))
         }
     }
 

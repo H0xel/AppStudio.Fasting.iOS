@@ -41,5 +41,5 @@ private extension CGFloat {
 }
 
 #Preview {
-    NotificationBottomView() { _ in }
+    NotificationBottomView { _ in }
 }

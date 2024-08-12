@@ -25,9 +25,25 @@ class MealItemRepositoryImpl: CoreDataBaseRepository<MealItem>, MealItemReposito
         try await object(byId: id)
     }
 
+    func mealItem(byBarcode barcode: String, type: MealCreationType) async throws -> MealItem? {
+        let request = MealItem.request()
+        request.predicate = .init(format: "barCode = %@ AND creationType = %i", barcode, type.rawValue)
+        request.fetchLimit = 1
+        return try await select(request: request).first
+    }
+
     func sortedMealItems() async throws -> [MealItem] {
         let request = MealItem.request()
         request.sortDescriptors = [.init(key: "dateUpdated", ascending: false)]
         return try await select(request: request)
+    }
+
+    func mealItemObserver() -> MealItemObserver {
+        @Dependency(\.coreDataService) var coreDataService
+        let observer = MealItemObserver(coreDataService: coreDataService)
+        let request = MealItem.request()
+        request.sortDescriptors = [.init(key: "dateUpdated", ascending: false)]
+        observer.fetch(request: request)
+        return observer
     }
 }

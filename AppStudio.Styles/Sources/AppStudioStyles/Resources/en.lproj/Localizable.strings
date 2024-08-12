@@ -78,6 +78,17 @@
 "DiscountPaywall.banner.off" = "OFF";
 "DiscountPaywall.banner.button" = "Save %@ now";
 
+
+// MARK: BottomSheet Configutaion
+"BottomActionSheetConfiguration.discard.title" = "Discard changes?";
+"BottomActionSheetConfiguration.discard.subtitle" = "This food will not be saved";
+"BottomActionSheetConfiguration.discard.leftButtonTitle" = "Keep Editing";
+"BottomActionSheetConfiguration.discard.rightButtonTitle" = "Discard";
+
+"BottomActionSheetConfiguration.barcode.title" = "Delete Barcode?";
+"BottomActionSheetConfiguration.barcode.leftButtonTitle" = "Cancel";
+"BottomActionSheetConfiguration.barcode.rightButtonTitle" = "Delete";
+
 // MARK: RateUsInput
 "RateUsInput.title" = "How's your journey with us going?";
 "RateUsInput.tapToRate" = "Tap to rate";

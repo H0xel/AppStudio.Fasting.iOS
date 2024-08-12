@@ -17,7 +17,6 @@
 		563257192ADE57D90000F33C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 563257182ADE57D90000F33C /* Assets.xcassets */; };
 		5632571C2ADE57D90000F33C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5632571B2ADE57D90000F33C /* Preview Assets.xcassets */; };
 		563257262ADE57DA0000F33C /* AppStudioTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563257252ADE57DA0000F33C /* AppStudioTemplateTests.swift */; };
-		563257FD2ADE61E30000F33C /* AppStudioAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 563257FC2ADE61E30000F33C /* AppStudioAnalytics */; };
 		563B8ABC2B01F6E300AF6BB7 /* FastingLocalNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8ABB2B01F6E300AF6BB7 /* FastingLocalNotificationService.swift */; };
 		563B8ABE2B034D5C00AF6BB7 /* FastingNotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8ABD2B034D5C00AF6BB7 /* FastingNotificationTests.swift */; };
 		563B8AC12B03AE9600AF6BB7 /* FastingLocalNotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8AC02B03AE9600AF6BB7 /* FastingLocalNotificationType.swift */; };
@@ -26,9 +25,6 @@
 		563B8AC72B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8AC62B03AF3900AF6BB7 /* FastingLocalNotificationServiceImpl.swift */; };
 		563B8AC92B03AF8400AF6BB7 /* LocalNotificationDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8AC82B03AF8400AF6BB7 /* LocalNotificationDependencies.swift */; };
 		563B8ACF2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B8ACE2B04AB3000AF6BB7 /* NotificationCenterInitializer.swift */; };
-		564BE0B42AF0E99F00CE7F38 /* MunicornAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 564BE0B32AF0E99F00CE7F38 /* MunicornAPI */; };
-		564BE0B62AF0E99F00CE7F38 /* MunicornCoreData in Frameworks */ = {isa = PBXBuildFile; productRef = 564BE0B52AF0E99F00CE7F38 /* MunicornCoreData */; };
-		564BE0B82AF0E99F00CE7F38 /* MunicornFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 564BE0B72AF0E99F00CE7F38 /* MunicornFoundation */; };
 		564BE0BA2AF0F18300CE7F38 /* DatabaseDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0B92AF0F18300CE7F38 /* DatabaseDependencies.swift */; };
 		564BE0BF2AF0F30400CE7F38 /* FastingParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0BE2AF0F30400CE7F38 /* FastingParameters.swift */; };
 		564BE0C12AF0F31600CE7F38 /* FastingParameters+Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BE0C02AF0F31600CE7F38 /* FastingParameters+Mappable.swift */; };
@@ -81,15 +77,11 @@
 		567500062ADE84B4009331CB /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFEC2ADE84B4009331CB /* Migration.swift */; };
 		567500072ADE84B4009331CB /* MigrationLaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFED2ADE84B4009331CB /* MigrationLaunchService.swift */; };
 		567500082ADE84B4009331CB /* MigrationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFEE2ADE84B4009331CB /* MigrationServiceImpl.swift */; };
-		5675000B2ADE85FD009331CB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5675000A2ADE85FD009331CB /* FirebaseAnalytics */; };
-		5675000D2ADE85FD009331CB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5675000C2ADE85FD009331CB /* FirebaseCrashlytics */; };
-		5675000F2ADE85FD009331CB /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 5675000E2ADE85FD009331CB /* FirebaseRemoteConfig */; };
 		567500232ADE86C3009331CB /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500182ADE86C3009331CB /* Synchronized.swift */; };
 		567500242ADE86C3009331CB /* ServiceBaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500192ADE86C3009331CB /* ServiceBaseImpl.swift */; };
 		567500252ADE86C3009331CB /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675001A2ADE86C3009331CB /* Atomic.swift */; };
 		567500262ADE86C3009331CB /* ConcurrentDispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675001C2ADE86C3009331CB /* ConcurrentDispatchQueue.swift */; };
 		567500272ADE86C3009331CB /* ExecutionDispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675001D2ADE86C3009331CB /* ExecutionDispatchQueue.swift */; };
-		5675002A2ADE8763009331CB /* ABTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 567500292ADE8763009331CB /* ABTesting */; };
 		567500412ADFA67E009331CB /* ProvidersDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500322ADFA67E009331CB /* ProvidersDependencies.swift */; };
 		567500422ADFA67E009331CB /* AccountProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500342ADFA67E009331CB /* AccountProviderImpl.swift */; };
 		567500432ADFA67E009331CB /* AccountProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567500352ADFA67E009331CB /* AccountProvider.swift */; };
@@ -191,10 +183,6 @@
 		A008A82F2AF117540011A261 /* FastingProgressLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008A82E2AF117540011A261 /* FastingProgressLabelView.swift */; };
 		A008A8312AF14C0B0011A261 /* Animation+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008A8302AF14C0B0011A261 /* Animation+extensions.swift */; };
 		A00A73482B9631790038A001 /* HealthProgress in Frameworks */ = {isa = PBXBuildFile; productRef = A00A73472B9631790038A001 /* HealthProgress */; };
-		A00B4DBD2B73817F0067A872 /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = A00B4DBC2B73817F0067A872 /* FacebookAEM */; };
-		A00B4DBF2B73817F0067A872 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = A00B4DBE2B73817F0067A872 /* FacebookBasics */; };
-		A00B4DC12B73817F0067A872 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = A00B4DC02B73817F0067A872 /* FacebookCore */; };
-		A00B4DC32B73817F0067A872 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = A00B4DC22B73817F0067A872 /* FacebookLogin */; };
 		A00B4DC82B7382170067A872 /* FacebookInitializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC52B7382170067A872 /* FacebookInitializerService.swift */; };
 		A00B4DC92B7382170067A872 /* FacebookInitializerDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC62B7382170067A872 /* FacebookInitializerDependencies.swift */; };
 		A00B4DCA2B7382170067A872 /* FacebookInitializerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC72B7382170067A872 /* FacebookInitializerServiceImpl.swift */; };
@@ -202,7 +190,6 @@
 		A0178F522B91CBC800069BEA /* AICoach in Frameworks */ = {isa = PBXBuildFile; productRef = A0178F512B91CBC800069BEA /* AICoach */; };
 		A02156002BA05450004DF16C /* CalendarProgressServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02155FF2BA05450004DF16C /* CalendarProgressServiceImpl.swift */; };
 		A02156022BA054C2004DF16C /* CalendarProgressServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02156012BA054C2004DF16C /* CalendarProgressServiceDependencies.swift */; };
-		A0255E6C2AFBAA9A00221EC6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A0255E6B2AFBAA9A00221EC6 /* Moya */; };
 		A0255E6E2AFBCE9D00221EC6 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E6D2AFBCE9D00221EC6 /* Account.swift */; };
 		A0255E702AFBD00200221EC6 /* AccountTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E6F2AFBD00200221EC6 /* AccountTarget.swift */; };
 		A0255E732AFBD02F00221EC6 /* PutAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E722AFBD02F00221EC6 /* PutAccountRequest.swift */; };
@@ -213,10 +200,6 @@
 		A0255E802AFBD25400221EC6 /* TelecomApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E7F2AFBD25400221EC6 /* TelecomApiError.swift */; };
 		A0255E822AFBD27600221EC6 /* TelecomApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E812AFBD27600221EC6 /* TelecomApiProvider.swift */; };
 		A0255E842AFBD29400221EC6 /* TelecomTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E832AFBD29400221EC6 /* TelecomTargetType.swift */; };
-		A0255E8A2AFBD3C000221EC6 /* AppStudioABTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A0255E892AFBD3C000221EC6 /* AppStudioABTesting */; };
-		A0255E8C2AFBD3C000221EC6 /* AppStudioFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = A0255E8B2AFBD3C000221EC6 /* AppStudioFoundation */; };
-		A0255E8E2AFBD3C000221EC6 /* AppStudioUI in Frameworks */ = {isa = PBXBuildFile; productRef = A0255E8D2AFBD3C000221EC6 /* AppStudioUI */; };
-		A0255E912AFBD3ED00221EC6 /* AppStudioNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = A0255E902AFBD3ED00221EC6 /* AppStudioNavigation */; };
 		A02787542AEADC5200844246 /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02787532AEADC5200844246 /* AccentButton.swift */; };
 		A02787572AEAE4E700844246 /* FastingIntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02787562AEAE4E700844246 /* FastingIntervalView.swift */; };
 		A02787592AEAE4FB00844246 /* FastingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02787582AEAE4FB00844246 /* FastingTimeView.swift */; };
@@ -1004,35 +987,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5675002A2ADE8763009331CB /* ABTesting in Frameworks */,
-				A758C61A2C0DFEEA00F9DC3F /* Intercom in Frameworks */,
-				563257FD2ADE61E30000F33C /* AppStudioAnalytics in Frameworks */,
-				A0255E8A2AFBD3C000221EC6 /* AppStudioABTesting in Frameworks */,
-				A0255E6C2AFBAA9A00221EC6 /* Moya in Frameworks */,
-				A0255E8E2AFBD3C000221EC6 /* AppStudioUI in Frameworks */,
 				A006031B2BA3159C0011FF75 /* FastingWidget in Frameworks */,
-				A0255E912AFBD3ED00221EC6 /* AppStudioNavigation in Frameworks */,
 				56CB8E482BD79C5E00E7712C /* Explore in Frameworks */,
 				568E69762BA1973C003DECAF /* WaterCounter in Frameworks */,
 				A0DAAF762BA320F500BDE42D /* AppStudioStyles in Frameworks */,
-				A00B4DBD2B73817F0067A872 /* FacebookAEM in Frameworks */,
-				A00B4DC12B73817F0067A872 /* FacebookCore in Frameworks */,
 				A0159BE72BA32C4000CEB32E /* WeightWidget in Frameworks */,
-				564BE0B82AF0E99F00CE7F38 /* MunicornFoundation in Frameworks */,
 				A0C16DE92BB2DD3200D64B4C /* AppStudioServices in Frameworks */,
 				A0006CD62B98BFE40091EB3B /* HealthOverview in Frameworks */,
 				A04253DC2BA1EBAE00F1007A /* AppStudioModels in Frameworks */,
-				564BE0B42AF0E99F00CE7F38 /* MunicornAPI in Frameworks */,
-				564BE0B62AF0E99F00CE7F38 /* MunicornCoreData in Frameworks */,
 				A063F0F32BADD58F005B50D3 /* WeightGoalWidget in Frameworks */,
 				A73F2CAC2BDBACA6005ADA82 /* NewAppStudioSubscriptions in Frameworks */,
 				A00A73482B9631790038A001 /* HealthProgress in Frameworks */,
-				5675000D2ADE85FD009331CB /* FirebaseCrashlytics in Frameworks */,
-				A0255E8C2AFBD3C000221EC6 /* AppStudioFoundation in Frameworks */,
-				A00B4DC32B73817F0067A872 /* FacebookLogin in Frameworks */,
-				A00B4DBF2B73817F0067A872 /* FacebookBasics in Frameworks */,
-				5675000F2ADE85FD009331CB /* FirebaseRemoteConfig in Frameworks */,
-				5675000B2ADE85FD009331CB /* FirebaseAnalytics in Frameworks */,
 				A0178F522B91CBC800069BEA /* AICoach in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2928,23 +2893,6 @@
 			);
 			name = Fasting;
 			packageProductDependencies = (
-				563257FC2ADE61E30000F33C /* AppStudioAnalytics */,
-				5675000A2ADE85FD009331CB /* FirebaseAnalytics */,
-				5675000C2ADE85FD009331CB /* FirebaseCrashlytics */,
-				5675000E2ADE85FD009331CB /* FirebaseRemoteConfig */,
-				567500292ADE8763009331CB /* ABTesting */,
-				A0255E6B2AFBAA9A00221EC6 /* Moya */,
-				A0255E892AFBD3C000221EC6 /* AppStudioABTesting */,
-				A0255E8B2AFBD3C000221EC6 /* AppStudioFoundation */,
-				A0255E8D2AFBD3C000221EC6 /* AppStudioUI */,
-				A0255E902AFBD3ED00221EC6 /* AppStudioNavigation */,
-				564BE0B32AF0E99F00CE7F38 /* MunicornAPI */,
-				564BE0B52AF0E99F00CE7F38 /* MunicornCoreData */,
-				564BE0B72AF0E99F00CE7F38 /* MunicornFoundation */,
-				A00B4DBC2B73817F0067A872 /* FacebookAEM */,
-				A00B4DBE2B73817F0067A872 /* FacebookBasics */,
-				A00B4DC02B73817F0067A872 /* FacebookCore */,
-				A00B4DC22B73817F0067A872 /* FacebookLogin */,
 				A0178F512B91CBC800069BEA /* AICoach */,
 				A0006CD52B98BFE40091EB3B /* HealthOverview */,
 				A00A73472B9631790038A001 /* HealthProgress */,
@@ -2957,7 +2905,6 @@
 				A0C16DE82BB2DD3200D64B4C /* AppStudioServices */,
 				56CB8E472BD79C5E00E7712C /* Explore */,
 				A73F2CAB2BDBACA6005ADA82 /* NewAppStudioSubscriptions */,
-				A758C6192C0DFEEA00F9DC3F /* Intercom */,
 			);
 			productName = AppStudioTemplate;
 			productReference = 563257112ADE57D80000F33C /* Fasting.app */;
@@ -3017,15 +2964,6 @@
 			);
 			mainGroup = 563257082ADE57D80000F33C;
 			packageReferences = (
-				563257FB2ADE61E30000F33C /* XCRemoteSwiftPackageReference "AppStudio.iOS" */,
-				567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */,
-				A0255E6A2AFBAA9A00221EC6 /* XCRemoteSwiftPackageReference "Moya" */,
-				A0255E882AFBD3C000221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Common" */,
-				A0255E8F2AFBD3ED00221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */,
-				564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */,
-				A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
-				A758C6182C0DFEEA00F9DC3F /* XCRemoteSwiftPackageReference "intercom-ios-sp" */,
 			);
 			productRefGroup = 563257122ADE57D80000F33C /* Products */;
 			projectDirPath = "";
@@ -3953,122 +3891,7 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		563257FB2ADE61E30000F33C /* XCRemoteSwiftPackageReference "AppStudio.iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Analytics";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.8;
-			};
-		};
-		564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:m-unicorn/iOS.MunicornFoundation.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.2.12;
-			};
-		};
-		567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = exactVersion;
-				version = 10.23.1;
-			};
-		};
-		567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/m-unicorn/iOS.ABTesting.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.6;
-			};
-		};
-		A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
-			requirement = {
-				kind = exactVersion;
-				version = 17.0.2;
-			};
-		};
-		A0255E6A2AFBAA9A00221EC6 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya.git";
-			requirement = {
-				kind = exactVersion;
-				version = 15.0.3;
-			};
-		};
-		A0255E882AFBD3C000221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Common" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Common.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.22;
-			};
-		};
-		A0255E8F2AFBD3ED00221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.14;
-			};
-		};
-		A758C6182C0DFEEA00F9DC3F /* XCRemoteSwiftPackageReference "intercom-ios-sp" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/intercom/intercom-ios-sp";
-			requirement = {
-				kind = exactVersion;
-				version = 17.1.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		563257FC2ADE61E30000F33C /* AppStudioAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 563257FB2ADE61E30000F33C /* XCRemoteSwiftPackageReference "AppStudio.iOS" */;
-			productName = AppStudioAnalytics;
-		};
-		564BE0B32AF0E99F00CE7F38 /* MunicornAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */;
-			productName = MunicornAPI;
-		};
-		564BE0B52AF0E99F00CE7F38 /* MunicornCoreData */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */;
-			productName = MunicornCoreData;
-		};
-		564BE0B72AF0E99F00CE7F38 /* MunicornFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 564BE0B22AF0E99F00CE7F38 /* XCRemoteSwiftPackageReference "iOS.MunicornFoundation" */;
-			productName = MunicornFoundation;
-		};
-		5675000A2ADE85FD009331CB /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		5675000C2ADE85FD009331CB /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
-		5675000E2ADE85FD009331CB /* FirebaseRemoteConfig */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseRemoteConfig;
-		};
-		567500292ADE8763009331CB /* ABTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */;
-			productName = ABTesting;
-		};
 		568E69752BA1973C003DECAF /* WaterCounter */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WaterCounter;
@@ -4089,26 +3912,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = HealthProgress;
 		};
-		A00B4DBC2B73817F0067A872 /* FacebookAEM */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookAEM;
-		};
-		A00B4DBE2B73817F0067A872 /* FacebookBasics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookBasics;
-		};
-		A00B4DC02B73817F0067A872 /* FacebookCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookCore;
-		};
-		A00B4DC22B73817F0067A872 /* FacebookLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A00B4DBB2B73817F0067A872 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookLogin;
-		};
 		A0159BE62BA32C4000CEB32E /* WeightWidget */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WeightWidget;
@@ -4116,31 +3919,6 @@
 		A0178F512B91CBC800069BEA /* AICoach */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AICoach;
-		};
-		A0255E6B2AFBAA9A00221EC6 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A0255E6A2AFBAA9A00221EC6 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-		A0255E892AFBD3C000221EC6 /* AppStudioABTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A0255E882AFBD3C000221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Common" */;
-			productName = AppStudioABTesting;
-		};
-		A0255E8B2AFBD3C000221EC6 /* AppStudioFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A0255E882AFBD3C000221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Common" */;
-			productName = AppStudioFoundation;
-		};
-		A0255E8D2AFBD3C000221EC6 /* AppStudioUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A0255E882AFBD3C000221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Common" */;
-			productName = AppStudioUI;
-		};
-		A0255E902AFBD3ED00221EC6 /* AppStudioNavigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A0255E8F2AFBD3ED00221EC6 /* XCRemoteSwiftPackageReference "AppStudio.iOS.Navigation" */;
-			productName = AppStudioNavigation;
 		};
 		A04253DB2BA1EBAE00F1007A /* AppStudioModels */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -4161,11 +3939,6 @@
 		A73F2CAB2BDBACA6005ADA82 /* NewAppStudioSubscriptions */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NewAppStudioSubscriptions;
-		};
-		A758C6192C0DFEEA00F9DC3F /* Intercom */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A758C6182C0DFEEA00F9DC3F /* XCRemoteSwiftPackageReference "intercom-ios-sp" */;
-			productName = Intercom;
 		};
 /* End XCSwiftPackageProductDependency section */
 

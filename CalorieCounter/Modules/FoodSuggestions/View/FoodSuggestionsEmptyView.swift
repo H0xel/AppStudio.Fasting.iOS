@@ -8,19 +8,51 @@
 import SwiftUI
 
 struct FoodSuggestionsEmptyView: View {
+
+    let logType: LogType
+
     var body: some View {
         VStack(spacing: .zero) {
-            Image(.logItemsSuggest)
+            logType.emptyViewImage
                 .resizable()
                 .frame(width: .imageWidth, height: .imageWidth)
                 .padding(.bottom, .imageSpacing)
-            Text(.title)
+            Text(logType.emptyViewTitle)
                 .font(.poppinsMedium(.body))
                 .foregroundStyle(Color.studioGreyText)
                 .padding(.bottom, .titleSpacing)
-            Text(.subtitle)
+            Text(logType.emptyViewSutitle)
                 .font(.poppins(.description))
                 .foregroundStyle(Color.studioGreyPlaceholder)
+        }
+    }
+}
+
+private extension LogType {
+    var emptyViewImage: Image {
+        switch self {
+        case .log, .history, .quickAdd, .addRecipe, .newFood:
+            Image(.logItemsSuggest)
+        case .food:
+            Image(.customFoodSuggest)
+        }
+    }
+
+    var emptyViewTitle: LocalizedStringKey {
+        switch self {
+        case .log, .history, .quickAdd, .addRecipe, .newFood:
+            "FoodSuggestionsEmptyView.history.title"
+        case .food:
+            "FoodSuggestionsEmptyView.food.title"
+        }
+    }
+
+    var emptyViewSutitle: LocalizedStringKey {
+        switch self {
+        case .log, .history, .quickAdd, .addRecipe, .newFood:
+            "FoodSuggestionsEmptyView.history.subtitle"
+        case .food:
+            "FoodSuggestionsEmptyView.food.subtitle"
         }
     }
 }
@@ -37,5 +69,5 @@ private extension CGFloat {
 }
 
 #Preview {
-    FoodSuggestionsEmptyView()
+    FoodSuggestionsEmptyView(logType: .history)
 }

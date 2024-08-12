@@ -14,4 +14,5 @@ enum MealCreationType: Int, Codable {
     case product
     case recipe
     case ingredient
+    case needToUpdateBrand
 }

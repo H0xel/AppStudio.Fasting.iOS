@@ -11,6 +11,7 @@ import Foundation
 struct NutritionFood: Codable {
     let foodName: String
     let brandName: String?
+    let brandedFoodId: String?
     let servingQuantity: Double
     let servingUnit: String
     let servingWeightGrams: Double?
@@ -33,11 +34,7 @@ struct NutritionFood: Codable {
 
 extension NutritionFood {
     var asIngredientMealItem: MealItem? {
-        var nutritionProfile: NutritionProfile = .empty
-
-        if let calories, let protein, let carbohydrate, let fat {
-            nutritionProfile = .init(calories: calories, proteins: protein, fats: fat, carbohydrates: carbohydrate)
-        }
+        let nutritionProfile: NutritionProfile = .init(calories: calories ?? 0, proteins: protein ?? 0, fats: fat ?? 0, carbohydrates: carbohydrate ?? 0)
 
         let serving = MealServing(
             weight: servingWeightGrams,
@@ -45,11 +42,14 @@ extension NutritionFood {
             quantity: servingQuantity
         )
 
+        let multiplier = serving.multiplier(for: 1.0 * serving.quantity)
+
         let result = MealItem(
             id: UUID().uuidString,
             type: .ingredient,
             name: foodName,
             subTitle: brandName,
+            brandFoodId: brandedFoodId,
             notes: nil,
             ingredients: [],
             normalizedProfile: nutritionProfile.normalize(with: servingWeightGrams ?? 100),
@@ -62,7 +62,7 @@ extension NutritionFood {
                 potassium: potassium
             ),
             totalWeight: nil,
-            servingMultiplier: serving.multiplier(for: 1.0 * serving.quantity),
+            servingMultiplier: multiplier,
             serving: serving,
             servings: altMeasures.asServings,
             dateUpdated: .now
@@ -79,6 +79,7 @@ extension NutritionFood {
             type: .custom,
             name: "",
             subTitle: nil,
+            brandFoodId: brandedFoodId,
             notes: nil,
             ingredients: [ingredient],
             normalizedProfile: .empty,

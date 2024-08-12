@@ -47,7 +47,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     }
 
     var displayWeight: Double {
-        editingWeight?.value ?? meal.mealItem.value.value
+        editingWeight?.value ?? meal.mealItem.weight
     }
 
     var isTapped: Bool {
@@ -159,6 +159,24 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
             try await removeIngredient(mealItem: mealItem)
         case .dismiss:
             clearSelection()
+        case .present(let mealItem):
+            router.presentCustomProduct(mealItem: mealItem) { [weak self] output in
+                self?.handle(customProductOutput: output)
+            }
+        }
+    }
+
+    private func handle(customProductOutput output: CustomProductOutput) {
+        Task { @MainActor in
+            switch output {
+            case .add(let mealItem):
+                try await addIngredient(mealItem: mealItem)
+                await router.dismiss()
+                clearSelection()
+            case .log(let mealItem):
+                try await addIngredient(mealItem: mealItem)
+                await router.dismiss(FoodLogRoute.self)
+            }
         }
     }
 
@@ -187,7 +205,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
 
     @MainActor
     private func addIngredient(mealItem: MealItem) async throws {
-        if self.mealItem.type == .ingredient {
+        if self.mealItem.type == .ingredient{
             let newMealItem = self.mealItem.convertIngredientToMealItem(with: [mealItem])
             let meal = meal.copyWith(mealItem: newMealItem)
             try await updateWithNewIngredietns(meal: meal)
@@ -200,7 +218,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
 
     @MainActor
     private func removeIngredient(mealItem: MealItem) async throws {
-        if self.mealItem.id == mealItem.id, self.mealItem.type == .ingredient {
+        if self.mealItem.id == mealItem.id, self.mealItem.type == .ingredient{
             clearSelection()
             self.deleteMeal(meal)
             trackerService.track(.elementDeleted(context: .ingredient))
@@ -229,7 +247,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     }
 
     @MainActor
-    private func handle(customKeyboardOutput output: CustomKeyboardOutput) async throws {
+    private func handle(customKeyboardOutput output: ContainerKeyboardOutput) async throws {
         switch output {
         case .valueChanged(let result):
             editingWeight = result
@@ -310,16 +328,15 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
 
     @MainActor
     private func changeMealWeight(to newWeight: CustomKeyboardResult) async throws {
-        if newWeight.value == mealItem.value.value, newWeight.serving == mealItem.value.serving {
+        if newWeight.value == mealItem.weight, newWeight.serving == mealItem.serving {
             return
         }
-        let value = MealItemEditableValue(value: newWeight.value, serving: newWeight.serving, servings: [])
-        let changedMealItem = meal.mealItem.update(value: value)
+        let changedMealItem = meal.mealItem.updated(value: newWeight.value, serving: newWeight.serving)
         let changedMeal = meal.copyWith(mealItem: changedMealItem)
         try await updateMeal(changedMeal)
         output(.mealUpdated(meal: changedMeal))
         trackerService.track(.weightChanged(currentWeight: newWeight.value,
-                                            previousWeight: meal.mealItem.value.value,
+                                            previousWeight: meal.mealItem.weight,
                                             context: .meal))
     }
 
@@ -376,15 +393,14 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     }
 
     var currentServing: MealServing {
-        editingWeight?.serving ?? mealItem.value.serving
+        editingWeight?.serving ?? mealItem.serving
     }
 
     private var customKeyboardInput: CustomKeyboardInput {
         CustomKeyboardInput(
             title: mealItem.mealName,
-            text: "\(mealItem.value.value)",
-            style: .container, 
-            servings: mealItem.value.servings,
+            text: "\(mealItem.weight)",
+            servings: mealItem.servings,
             currentServing: currentServing,
             isPresentedPublisher: $mealSelectedState.map { $0 != .notSelected }.eraseToAnyPublisher()
         )

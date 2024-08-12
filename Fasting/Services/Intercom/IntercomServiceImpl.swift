@@ -6,7 +6,6 @@
 //
 
 // swiftlint:disable orphaned_doc_comment
-// swiftlint:disable comment_spacing
 
 /// INTERCOM: DISABLED!!!
 /// To connect an intercom,

@@ -26,7 +26,7 @@ struct IngredientView: View {
                                       configuration: .placeholderSmall(type: type),
                                       bordered: false)
                     }
-                    if let titleinGramms = viewModel.ingredient.value.title {
+                    if let titleinGramms = viewModel.ingredient.grammsTitle {
                         Group {
                             Text("|")
                             Text(titleinGramms)
@@ -38,7 +38,7 @@ struct IngredientView: View {
             }
             Spacer()
             Button(action: viewModel.weightTapped) {
-                MealWeightView(weight: viewModel.displayWeight,
+                MealWeightView(type: .weight(viewModel.displayWeight),
                                serving: viewModel.displayServing,
                                isTapped: viewModel.isWeightTapped)
             }

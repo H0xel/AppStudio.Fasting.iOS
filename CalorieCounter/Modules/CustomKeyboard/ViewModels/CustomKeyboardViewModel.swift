@@ -10,9 +10,8 @@ import AppStudioUI
 import Foundation
 import Combine
 
-class CustomKeyboardViewModel: BaseViewModel<CustomKeyboardOutput> {
+class CustomKeyboardViewModel<Output>: BaseViewModel<Output> {
     var router: CustomKeyboardRouter!
-    var style: CustomKeyboardStyle
     @Published var isTextSelected: Bool
     @Published var currentServing: MealServing
     @Published var textBeforeSlash = ""
@@ -20,9 +19,9 @@ class CustomKeyboardViewModel: BaseViewModel<CustomKeyboardOutput> {
     let title: String
     @Published private var isSlashAdded = false
     let mealServings: [MealServing]
+    @Published var isFocused = true
 
-    init(input: CustomKeyboardInput, output: @escaping CustomKeyboardOutputBlock) {
-        style = input.style
+    init(input: CustomKeyboardInput, output: @escaping ViewOutput<Output>) {
         title = input.title
         isTextSelected = !input.text.isEmpty
         currentServing = input.currentServing
@@ -31,6 +30,20 @@ class CustomKeyboardViewModel: BaseViewModel<CustomKeyboardOutput> {
         initialize(text: input.text)
         observeIsPresentedPublisher(pubisher: input.isPresentedPublisher)
         observeServing()
+    }
+
+    var style: CustomKeyboardStyle {
+        fatalError("should be define in subclass!")
+    }
+
+    func handle(button: CustomKeyboardButton, result: CustomKeyboardResult) {
+        fatalError("should be implement in subclass")
+    }
+
+    func servingChanged(result: CustomKeyboardResult) {
+    }
+
+    func dismissed(result: CustomKeyboardResult) {
     }
 
     var grammsValue: String? {
@@ -64,28 +77,24 @@ class CustomKeyboardViewModel: BaseViewModel<CustomKeyboardOutput> {
 
     func numberTapped(_ number: Int) {
         appendNextSymbol(symbol: "\(number)")
+        handle(button: .number, result: result)
     }
 
     func buttonTapped(_ button: CustomKeyboardButton) {
         switch button {
         case .delete:
             remove()
-            valueChanged()
-        case .up:
-            output(.direction(.up))
-        case .down:
-            output(.direction(.down))
-        case .done, .log, .add:
-            sendResult()
+        case .up, .down, .done, .log, .add, .number:
+            break
         case .dot:
             appendNextSymbol(symbol: ".")
-            valueChanged()
         case .slash:
             appendSlash()
-            valueChanged()
         case .collapse:
-            break
+            isFocused = false
+            isTextSelected = false
         }
+        handle(button: button, result: result)
     }
 
     private func appendSlash() {
@@ -100,7 +109,6 @@ class CustomKeyboardViewModel: BaseViewModel<CustomKeyboardOutput> {
         if isTextSelected {
             clearText()
             isTextSelected = false
-            valueChanged()
         }
         var newValue = targetText + symbol
         if newValue == "00" {
@@ -122,7 +130,6 @@ class CustomKeyboardViewModel: BaseViewModel<CustomKeyboardOutput> {
         let result = newValue.isEmpty ? "0" : newValue
         if Double(result) != nil  {
             assignText(text: result)
-            valueChanged()
         }
     }
 
@@ -159,6 +166,7 @@ class CustomKeyboardViewModel: BaseViewModel<CustomKeyboardOutput> {
 
     private func initialize(text: String) {
         guard !text.isEmpty else { return }
+
         let parts = text.components(separatedBy: "/")
         textBeforeSlash = parts.first?.withoutDecimalsIfNeeded ?? ""
         if parts.count > 1 {
@@ -175,17 +183,9 @@ class CustomKeyboardViewModel: BaseViewModel<CustomKeyboardOutput> {
                 if !this.displayText.isEmpty {
                     this.isTextSelected = true
                 }
-                this.output(.valueChanged(this.result))
+                this.servingChanged(result: this.result)
             }
             .store(in: &cancellables)
-    }
-
-    private func sendResult() {
-        output(.add(result))
-    }
-
-    private func valueChanged() {
-        output(.valueChanged(result))
     }
 
     private func observeIsPresentedPublisher(pubisher: AnyPublisher<Bool, Never>) {
@@ -193,8 +193,8 @@ class CustomKeyboardViewModel: BaseViewModel<CustomKeyboardOutput> {
             .filter { !$0 }
             .removeDuplicates()
             .receive(on: DispatchQueue.main)
-            .sink(with: self) { this, isPresented in
-                this.output(.dismissed(this.result))
+            .sink(with: self) { this, _ in
+                this.dismissed(result: this.result)
             }
             .store(in: &cancellables)
     }

@@ -25,7 +25,7 @@ struct MealView: View {
                     Spacer()
                     if !viewModel.isQuickAdd {
                         Button(action: viewModel.weightTapped) {
-                            MealWeightView(weight: viewModel.displayWeight,
+                            MealWeightView(type: .weight(viewModel.displayWeight),
                                            serving: viewModel.currentServing,
                                            isTapped: viewModel.isWeightTapped)
                         }
@@ -39,7 +39,7 @@ struct MealView: View {
                 MealNutritionProfileView(profile: viewModel.nutritionProfile,
                                          canShowNutritions: true,
                                          weight:  viewModel.canShowWeightIcon
-                                         ? viewModel.mealItem.value.title
+                                         ? viewModel.mealItem.grammsTitle
                                          : nil)
                 .padding(.leading, .leadingPadding)
                 .aligned(.left)
@@ -55,7 +55,7 @@ struct MealView: View {
                     }
                 }
 
-                if viewModel.ingredients.count > 1 {
+                if canShowIngredients {
                     ForEach(viewModel.ingredients, id: \.self) { ingredient in
                         IngredientView(viewModel: viewModel.ingredientViewModel(ingredient: ingredient))
                             .id(ingredient)
@@ -99,6 +99,10 @@ struct MealView: View {
         .onChange(of: meal) { meal in
             viewModel.assignMeal(meal)
         }
+    }
+
+    var canShowIngredients: Bool {
+        viewModel.ingredients.count > 1
     }
 }
 

@@ -59,6 +59,11 @@ public extension Image {
         Image(systemName: "keyboard.chevron.compact.down.fill")
     }
 
+    /// 􀍠
+    static var ellipsis: Image {
+        Image(systemName: "ellipsis")
+    }
+
     static var widgetInfo: Image {
         .init(.widgetInfo)
     }
