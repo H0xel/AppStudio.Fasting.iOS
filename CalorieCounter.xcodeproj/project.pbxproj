@@ -518,6 +518,10 @@
 		A77982162B3D64DD0015B37D /* BarcodeOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77982102B3D64DD0015B37D /* BarcodeOutput.swift */; };
 		A77982172B3D64DD0015B37D /* BarcodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77982112B3D64DD0015B37D /* BarcodeViewModel.swift */; };
 		A779821A2B3D65070015B37D /* BarcodeVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77982192B3D65070015B37D /* BarcodeVIew.swift */; };
+		A78A3FF12C6389BB00B1940F /* RootInitializationDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3FED2C6389BB00B1940F /* RootInitializationDependencies.swift */; };
+		A78A3FF22C6389BB00B1940F /* RootInitializationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3FEE2C6389BB00B1940F /* RootInitializationService.swift */; };
+		A78A3FF32C6389BB00B1940F /* RootInitializationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3FEF2C6389BB00B1940F /* RootInitializationServiceImpl.swift */; };
+		A78A3FF72C6495A000B1940F /* RootSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3FF62C6495A000B1940F /* RootSetup.swift */; };
 		A79789312B2AF5E200205170 /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A79789302B2AF5E200205170 /* WhatToTest.en-US.txt */; };
 		A79EEAFC2B85E4AD006EFD94 /* AppCustomizationImpl+Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79EEAFB2B85E4AD006EFD94 /* AppCustomizationImpl+Discount.swift */; };
 		A79EEAFE2B85E4E2006EFD94 /* DebugMenuExperimentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79EEAFD2B85E4E2006EFD94 /* DebugMenuExperimentsView.swift */; };
@@ -1082,6 +1086,10 @@
 		A77982102B3D64DD0015B37D /* BarcodeOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeOutput.swift; sourceTree = "<group>"; };
 		A77982112B3D64DD0015B37D /* BarcodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewModel.swift; sourceTree = "<group>"; };
 		A77982192B3D65070015B37D /* BarcodeVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeVIew.swift; sourceTree = "<group>"; };
+		A78A3FED2C6389BB00B1940F /* RootInitializationDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInitializationDependencies.swift; sourceTree = "<group>"; };
+		A78A3FEE2C6389BB00B1940F /* RootInitializationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInitializationService.swift; sourceTree = "<group>"; };
+		A78A3FEF2C6389BB00B1940F /* RootInitializationServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInitializationServiceImpl.swift; sourceTree = "<group>"; };
+		A78A3FF62C6495A000B1940F /* RootSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSetup.swift; sourceTree = "<group>"; };
 		A79789302B2AF5E200205170 /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
 		A79EEAFB2B85E4AD006EFD94 /* AppCustomizationImpl+Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCustomizationImpl+Discount.swift"; sourceTree = "<group>"; };
 		A79EEAFD2B85E4E2006EFD94 /* DebugMenuExperimentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuExperimentsView.swift; sourceTree = "<group>"; };
@@ -1918,6 +1926,7 @@
 		56C28D762AE0FE8B0007E48D /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				A78A3FF02C6389BB00B1940F /* RootInitializationService */,
 				56F64D792AE10EF20067FE05 /* RootScreen.swift */,
 				56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */,
 				56F64D762AE10EF20067FE05 /* RootInput.swift */,
@@ -3104,6 +3113,17 @@
 			path = Routing;
 			sourceTree = "<group>";
 		};
+		A78A3FF02C6389BB00B1940F /* RootInitializationService */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3FED2C6389BB00B1940F /* RootInitializationDependencies.swift */,
+				A78A3FEE2C6389BB00B1940F /* RootInitializationService.swift */,
+				A78A3FEF2C6389BB00B1940F /* RootInitializationServiceImpl.swift */,
+				A78A3FF62C6495A000B1940F /* RootSetup.swift */,
+			);
+			path = RootInitializationService;
+			sourceTree = "<group>";
+		};
 		A797892F2B2AF5E200205170 /* TestFlight */ = {
 			isa = PBXGroup;
 			children = (
@@ -3583,6 +3603,7 @@
 				5675010A2ADFD955009331CB /* IntercomUpdaterImpl.swift in Sources */,
 				A70B6DEC2B31B7FA0035EF96 /* OnboardingCalculationProccessData.swift in Sources */,
 				567500432ADFA67E009331CB /* AccountProvider.swift in Sources */,
+				A78A3FF32C6389BB00B1940F /* RootInitializationServiceImpl.swift in Sources */,
 				A771AC882C070D6600640E5F /* NewSubscriptionInitializer.swift in Sources */,
 				56F64D802AE10EF20067FE05 /* RootOutput.swift in Sources */,
 				A0FE90622B4EFCC90069AC4C /* TabBarOutput.swift in Sources */,
@@ -3772,6 +3793,7 @@
 				56322AA92B74E7FA00F64D3B /* ProductsLoaderDependencies.swift in Sources */,
 				567500ED2ADFD6A0009331CB /* AppSettingsProvider.swift in Sources */,
 				A01E80882B57B32600AECD39 /* UserDataDependencies.swift in Sources */,
+				A78A3FF22C6389BB00B1940F /* RootInitializationService.swift in Sources */,
 				A051A5102BED106700BE384C /* FoodSearchEmptyView.swift in Sources */,
 				A712BE992B834CA6005504B1 /* DiscountPaywallPinView.swift in Sources */,
 				A091B4A62B32102000140B36 /* FoodLogScrollView.swift in Sources */,
@@ -3845,6 +3867,7 @@
 				53D900742AE652DD00FFEB7A /* PreferencesInitializer.swift in Sources */,
 				A779821A2B3D65070015B37D /* BarcodeVIew.swift in Sources */,
 				A0BD3D8F2C0F5E1200324A67 /* QuickAddNutritionsView.swift in Sources */,
+				A78A3FF12C6389BB00B1940F /* RootInitializationDependencies.swift in Sources */,
 				A05E68CB2B308B8B00282F9C /* CaloriesCalculateResponse.swift in Sources */,
 				ADC784FB2AFA918D005F16A6 /* AccountTarget.swift in Sources */,
 				5658E4642BEDE4FF0094317E /* MealEditType.swift in Sources */,
@@ -3935,6 +3958,7 @@
 				A02E20B42B681D8400E3F259 /* EnvironmentValues+extensions.swift in Sources */,
 				A731D42D2C19AAEE008AC261 /* WeightView.swift in Sources */,
 				567500252ADE86C3009331CB /* Atomic.swift in Sources */,
+				A78A3FF72C6495A000B1940F /* RootSetup.swift in Sources */,
 				A712BE9E2B834CA6005504B1 /* DiscountPaywallInput.swift in Sources */,
 				567500C72ADFCC54009331CB /* SyncServiceBaseImpl.swift in Sources */,
 				A05E68E12B30B10C00282F9C /* FoodLogRoute.swift in Sources */,

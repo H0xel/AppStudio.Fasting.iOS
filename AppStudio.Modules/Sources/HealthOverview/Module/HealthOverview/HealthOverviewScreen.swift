@@ -65,19 +65,17 @@ struct HealthOverviewScreen: View {
     @ViewBuilder
     private var monetizationBannerView: some View {
         if viewModel.monetizationIsAvailable {
-            if viewModel.monetizationIsAvailable {
-                if let discountInfo = viewModel.discountPaywallInfo {
-                    DiscountBannerView(
-                        viewData: .init(
-                            discount: "\(discountInfo.discount ?? 0)%",
-                            timerInterval: viewModel.timerInterval,
-                            type: discountInfo.paywallType == "discount_timer" ? .timer : .promotion
-                        ),
-                        action: viewModel.handle
-                    )
-                } else {
-                    AllMonetizationBannerView(action: viewModel.presentPaywall)
-                }
+            if let discountInfo = viewModel.discountPaywallInfo {
+                DiscountBannerView(
+                    viewData: .init(
+                        discount: "\(discountInfo.discount ?? 0)%",
+                        timerInterval: viewModel.timerInterval,
+                        type: discountInfo.paywallType == "discount_timer" ? .timer : .promotion
+                    ),
+                    action: viewModel.handle
+                )
+            } else {
+                AllMonetizationBannerView(action: viewModel.presentPaywall)
             }
         }
     }

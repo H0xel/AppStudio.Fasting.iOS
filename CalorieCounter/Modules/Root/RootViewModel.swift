@@ -20,6 +20,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.quickActionTypeServiceService) private var quickActionTypeServiceService
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.newSubscriptionService) private var newSubscriptionService
+    @Dependency(\.rootInitializationService) private var rootInitializationService
 
     @Published var rootScreen: RootScreen = .launchScreen
     @Published var inAppPurchaseIsLoading = false
@@ -35,7 +36,12 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
 
     func initialize() {
-        initializeForceUpdateIfNeeded()
+        rootInitializationService.rootSetup
+            .receive(on: DispatchQueue.main)
+            .sink(with: self) { this, setup in
+                this.rootScreen = setup.rootScreen
+            }
+            .store(in: &cancellables)
     }
 
     func requestIdfa() {
@@ -71,26 +77,6 @@ class RootViewModel: BaseViewModel<RootOutput> {
             return
         }
         inAppPurchaseIsLoading = false
-    }
-
-    private func initializeForceUpdateIfNeeded() {
-        appCustomization.forceUpdateAppVersion
-            .flatMap(with: self) { this, version -> Observable<(shouldShowForceUpdate: Bool, appLink: String)> in
-                this.appCustomization.appStoreLink.map {
-                    (shouldShowForceUpdate: !Bundle.lessOrEqualToCurrentVersion(version), appLink: $0)
-                }
-            }
-            .distinctUntilChanged(at: \.shouldShowForceUpdate)
-            .asDriver()
-            .delay(.seconds(3))
-            .drive(with: self) { this, args in
-                if args.shouldShowForceUpdate {
-                    this.rootScreen = .forceUpdate(args.appLink)
-                } else {
-                    this.rootScreen = this.cloudStorage.onboardingIsFinished ? .calorieCounter : .onboarding
-                }
-            }
-            .disposed(by: disposeBag)
     }
 
     private func subscribeToActionTypeEvent() {

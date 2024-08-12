@@ -66,7 +66,7 @@
     {
       "identity" : "appstudio.ios.common",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/m-unicorn/AppStudio.iOS.Common.git",
+      "location" : "https://github.com/m-unicorn/AppStudio.iOS.Common",
       "state" : {
         "revision" : "99f2ed75027acb5811c2585a3f1a0e3123efd757",
         "version" : "1.0.22"
@@ -86,8 +86,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git",
       "state" : {
-        "revision" : "b527336afd80a79eaa9ff4ad3ffdcbe698515b1a",
-        "version" : "1.0.12"
+        "revision" : "ca33a0faa84c2fa7d903df92028083fd26131e8c",
+        "version" : "1.0.13"
       }
     },
     {

@@ -342,6 +342,9 @@
 		A71C4BCF2BF7343B005C2BF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A71C4BC92BF7343B005C2BF6 /* Localizable.strings */; };
 		A71C4BD02BF7343B005C2BF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A71C4BCC2BF7343B005C2BF6 /* Localizable.strings */; };
 		A71CEB772B7DF40A0056C99A /* AppInitializerServicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71CEB762B7DF40A0056C99A /* AppInitializerServicePreview.swift */; };
+		A71EBEE12C6369DC00B05945 /* RootInitializationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71EBEDE2C6369DC00B05945 /* RootInitializationServiceImpl.swift */; };
+		A71EBEE22C6369DC00B05945 /* RootInitializationDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71EBEDF2C6369DC00B05945 /* RootInitializationDependencies.swift */; };
+		A71EBEE32C6369DC00B05945 /* RootInitializationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71EBEE02C6369DC00B05945 /* RootInitializationService.swift */; };
 		A72230372AFB624300303D5D /* Date+LocaleTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72230362AFB624300303D5D /* Date+LocaleTime.swift */; };
 		A722FEA72B15B201001CD1A3 /* UIScreen+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */; };
 		A729F90E2BF4B50000875BB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A729F9022BF4B50000875BB5 /* Localizable.strings */; };
@@ -392,6 +395,7 @@
 		A78535E82AF21F0900437F5E /* FastingBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */; };
 		A78676EF2B1DA61B002C2202 /* FastingInactiveStagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78676EE2B1DA61B002C2202 /* FastingInactiveStagesView.swift */; };
 		A78676F12B1DA68A002C2202 /* FastingInactiveStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78676F02B1DA68A002C2202 /* FastingInactiveStage.swift */; };
+		A78A3FF52C6491D100B1940F /* RootSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3FF42C6491D100B1940F /* RootSetup.swift */; };
 		A7999CFE2C2AB719004D9C9B /* QuiteModeNotificationsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7999CFB2C2AB719004D9C9B /* QuiteModeNotificationsServiceImpl.swift */; };
 		A7999CFF2C2AB719004D9C9B /* QuiteModeNotificationsDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7999CFC2C2AB719004D9C9B /* QuiteModeNotificationsDependencies.swift */; };
 		A7999D002C2AB719004D9C9B /* QuiteModeNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7999CFD2C2AB719004D9C9B /* QuiteModeNotificationsService.swift */; };
@@ -827,6 +831,9 @@
 		A71C4BD22BF73465005C2BF6 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A71C4BD32BF73466005C2BF6 /* es-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-US"; path = "es-US.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A71CEB762B7DF40A0056C99A /* AppInitializerServicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializerServicePreview.swift; sourceTree = "<group>"; };
+		A71EBEDE2C6369DC00B05945 /* RootInitializationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInitializationServiceImpl.swift; sourceTree = "<group>"; };
+		A71EBEDF2C6369DC00B05945 /* RootInitializationDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInitializationDependencies.swift; sourceTree = "<group>"; };
+		A71EBEE02C6369DC00B05945 /* RootInitializationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInitializationService.swift; sourceTree = "<group>"; };
 		A72230362AFB624300303D5D /* Date+LocaleTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+LocaleTime.swift"; sourceTree = "<group>"; };
 		A722FEA62B15B201001CD1A3 /* UIScreen+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+extensions.swift"; sourceTree = "<group>"; };
 		A729F9032BF4B50000875BB5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
@@ -875,6 +882,7 @@
 		A78535E72AF21F0900437F5E /* FastingBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingBackgroundModifier.swift; sourceTree = "<group>"; };
 		A78676EE2B1DA61B002C2202 /* FastingInactiveStagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInactiveStagesView.swift; sourceTree = "<group>"; };
 		A78676F02B1DA68A002C2202 /* FastingInactiveStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingInactiveStage.swift; sourceTree = "<group>"; };
+		A78A3FF42C6491D100B1940F /* RootSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSetup.swift; sourceTree = "<group>"; };
 		A7999CFB2C2AB719004D9C9B /* QuiteModeNotificationsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuiteModeNotificationsServiceImpl.swift; sourceTree = "<group>"; };
 		A7999CFC2C2AB719004D9C9B /* QuiteModeNotificationsDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuiteModeNotificationsDependencies.swift; sourceTree = "<group>"; };
 		A7999CFD2C2AB719004D9C9B /* QuiteModeNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuiteModeNotificationsService.swift; sourceTree = "<group>"; };
@@ -1687,6 +1695,7 @@
 		56C28D762AE0FE8B0007E48D /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				A71EBEDD2C6369C000B05945 /* RootInitializationService */,
 				A0CEE6112AEFCF210082B27F /* Routing */,
 				56F64D792AE10EF20067FE05 /* RootScreen.swift */,
 				56F64D7B2AE10EF20067FE05 /* RootViewModel.swift */,
@@ -2360,6 +2369,17 @@
 				A71C4BCC2BF7343B005C2BF6 /* Localizable.strings */,
 			);
 			path = "es-419.lproj";
+			sourceTree = "<group>";
+		};
+		A71EBEDD2C6369C000B05945 /* RootInitializationService */ = {
+			isa = PBXGroup;
+			children = (
+				A71EBEDE2C6369DC00B05945 /* RootInitializationServiceImpl.swift */,
+				A71EBEDF2C6369DC00B05945 /* RootInitializationDependencies.swift */,
+				A71EBEE02C6369DC00B05945 /* RootInitializationService.swift */,
+				A78A3FF42C6491D100B1940F /* RootSetup.swift */,
+			);
+			path = RootInitializationService;
 			sourceTree = "<group>";
 		};
 		A729F8FB2BF4B50000875BB5 /* es.lproj */ = {
@@ -3156,6 +3176,9 @@
 				A7A2E71D2BF3A4440087D062 /* WeightApi.swift in Sources */,
 				AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */,
 				A7D01B942AF115F200C50C1F /* NotificationOnboardingViewModel.swift in Sources */,
+				A71EBEE12C6369DC00B05945 /* RootInitializationServiceImpl.swift in Sources */,
+				A71EBEE22C6369DC00B05945 /* RootInitializationDependencies.swift in Sources */,
+				A71EBEE32C6369DC00B05945 /* RootInitializationService.swift in Sources */,
 				A755E1CA2C6102BA00F5967C /* TrialPaywallInput.swift in Sources */,
 				A755E1CB2C6102BA00F5967C /* TrialPaywallRouter.swift in Sources */,
 				A755E1CC2C6102BA00F5967C /* TrialPaywallRoute.swift in Sources */,
@@ -3258,6 +3281,7 @@
 				A78535E52AF1481900437F5E /* SnapCarousel.swift in Sources */,
 				A04272D02AE29E6F00754326 /* WithDebugMenuModifier.swift in Sources */,
 				A7A166762C1C334500DF6711 /* NotificationsRouter.swift in Sources */,
+				A78A3FF52C6491D100B1940F /* RootSetup.swift in Sources */,
 				A7A166782C1C334500DF6711 /* NotificationsScreen.swift in Sources */,
 				A7D01B6A2AF0CCF900C50C1F /* ChooseFastingPlanInput.swift in Sources */,
 				A76294352B21A42500DAF93B /* PersonalizedSeparatorView.swift in Sources */,

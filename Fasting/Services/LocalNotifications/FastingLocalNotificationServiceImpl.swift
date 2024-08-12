@@ -82,7 +82,8 @@ extension FastingLocalNotificationServiceImpl {
                 stageDate: beforeEndOfFastingDate,
                 type: .beforeEndOfFasting(prior: settings.beforeEndPriorSelection,
                                           fastingDuration: Int(interval.plan.duration.hours)),
-                availableInterval: availableInterval) {
+                availableInterval: availableInterval,
+                hasSubscription: true) {
             notifications.append(beforeEndOfFastingNotifications)
         }
 
@@ -90,7 +91,8 @@ extension FastingLocalNotificationServiceImpl {
            let endOfFastingNotifications = tryToRegisterNotification(
             stageDate: endOfFastingDate,
             type: .endOfFasting,
-            availableInterval: availableInterval) {
+            availableInterval: availableInterval, 
+            hasSubscription: true) {
             notifications.append(endOfFastingNotifications)
         }
 
@@ -98,7 +100,8 @@ extension FastingLocalNotificationServiceImpl {
             stageDate: forgotToFinishFastingDate,
             type: .forgotToFinishFasting,
             availableInterval: availableInterval,
-            repeatCount: 3) {
+            repeatCount: 3, 
+            hasSubscription: true) {
             notifications.append(forgotToFinishFastingNotifications)
         }
 
@@ -155,14 +158,16 @@ extension FastingLocalNotificationServiceImpl {
         if settings.selectedFastingStages.contains(.sugarRises),
            let sugarRisesStage = tryToRegisterNotification(stageDate: sugarRisesPhaseDate,
                                                            type: .sugarRisesPhase,
-                                                           availableInterval: availableInterval) {
+                                                           availableInterval: availableInterval,
+                                                           hasSubscription: hasSubscription) {
             notifications.append(sugarRisesStage)
         }
 
         if settings.selectedFastingStages.contains(.sugarDrop),
            let sugarDropStage = tryToRegisterNotification(stageDate: sugarDropPhaseDate,
                                                           type: .sugarDropPhase,
-                                                          availableInterval: availableInterval) {
+                                                          availableInterval: availableInterval,
+                                                          hasSubscription: hasSubscription) {
             notifications.append(sugarDropStage)
         }
 
@@ -170,28 +175,32 @@ extension FastingLocalNotificationServiceImpl {
         if settings.selectedFastingStages.contains(.sugarNormal),
            let sugarNormalStage = tryToRegisterNotification(stageDate: sugarNormalPhaseDate,
                                                             type: .sugarNormalPhase,
-                                                            availableInterval: availableInterval) {
+                                                            availableInterval: availableInterval,
+                                                            hasSubscription: hasSubscription) {
             notifications.append(sugarNormalStage)
         }
 
         if settings.selectedFastingStages.contains(.burning),
            let burningStage = tryToRegisterNotification(stageDate: fatBurningPhaseDate,
                                                         type: .fatBurningPhase,
-                                                        availableInterval: availableInterval) {
+                                                        availableInterval: availableInterval,
+                                                        hasSubscription: hasSubscription) {
             notifications.append(burningStage)
         }
 
         if settings.selectedFastingStages.contains(.ketosis),
            let ketosisStage = tryToRegisterNotification(stageDate: ketosisPhaseDate,
                                                         type: .ketosisPhase,
-                                                        availableInterval: availableInterval) {
+                                                        availableInterval: availableInterval,
+                                                        hasSubscription: hasSubscription) {
             notifications.append(ketosisStage)
         }
 
         if settings.selectedFastingStages.contains(.autophagy),
            let autographyStage = tryToRegisterNotification(stageDate: autophagyPhaseDate,
                                                            type: .autophagyPhase,
-                                                           availableInterval: availableInterval) {
+                                                           availableInterval: availableInterval, 
+                                                           hasSubscription: hasSubscription) {
             notifications.append(autographyStage)
         }
 
@@ -216,16 +225,17 @@ extension FastingLocalNotificationServiceImpl {
                 stageDate: beforeStartOfFastingDate,
                 type: .beforeStartOfFasting(beforeTime: settings.beforeStartPriorSelection.pushDescription),
                 availableInterval: availableInterval,
-                repeatCount: 3) {
+                repeatCount: 3, 
+                hasSubscription: true) {
             notifications.append(beforeStartOfFastingNotifications)
         }
 
-        if settings.startToFastToggled,
-           let startOfFastingNotification = tryToRegisterNotification(
+        if settings.startToFastToggled, let startOfFastingNotification = tryToRegisterNotification(
                stageDate: startOfFastingDate,
                type: .startOfFasting,
                availableInterval: availableInterval,
-               repeatCount: 3) {
+               repeatCount: 3, 
+               hasSubscription: true) {
             notifications.append(startOfFastingNotification)
         }
 
@@ -233,7 +243,8 @@ extension FastingLocalNotificationServiceImpl {
             stageDate: forgotToStartFastingDate,
             type: .forgotToStartFasting,
             availableInterval: availableInterval,
-            repeatCount: 3) {
+            repeatCount: 3,
+            hasSubscription: true) {
             notifications.append(forgotToFinishFastingNotifications)
         }
 
@@ -251,7 +262,8 @@ extension FastingLocalNotificationServiceImpl {
         stageDate: Date,
         type: FastingLocalNotificationType,
         availableInterval: AvailableIntervalsForNotifications,
-        repeatCount: Int = 1
+        repeatCount: Int = 1,
+        hasSubscription: Bool
     ) -> FastingNotifications? {
         guard let settings = cloudStorage.notificationSettings, hasSubscription else { return nil }
         let notification = type

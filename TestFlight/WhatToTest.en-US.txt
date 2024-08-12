@@ -1,1 +1,2 @@
-Trial paywall
+- Root initialization
+- Fix local push without sub in fasting

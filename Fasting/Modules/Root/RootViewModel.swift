@@ -39,6 +39,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.onboardingApi) private var onboardingApi
     @Dependency(\.intercomService) private var intercomService
     @Dependency(\.cloudStorage) private var cloudStorage
+    @Dependency(\.rootInitializationService) private var rootInitializationService
 
     @Published var currentTab: AppTab = .daily {
         willSet {
@@ -64,7 +65,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
         initializeHasSubscription()
         initilizeFastingViewModel()
         initialize()
-        initializePaywallTab()
+        initializeDiscountExp()
         subscribeToActionTypeEvent()
         subscribeForAvailableDiscountPaywall()
         observeCurrentTab()
@@ -73,7 +74,22 @@ class RootViewModel: BaseViewModel<RootOutput> {
     }
 
     func initialize() {
-        initializeForceUpdateIfNeeded()
+        newSubscriptionService.hasSubscription
+            .dropFirst()
+            .removeDuplicates()
+            .assign(to: &$hasSubscription)
+
+        rootInitializationService
+            .rootSetup
+            .receive(on: DispatchQueue.main)
+            .sink(with: self) { this, setup in
+                this.hasSubscription = setup.hasSubscription
+                if setup.hasSubscription {
+                    this.deleteDiscountNotification()
+                }
+                this.rootScreen = setup.rootScreen
+            }
+            .store(in: &cancellables)
     }
 
     func requestIdfa() {
@@ -328,50 +344,21 @@ class RootViewModel: BaseViewModel<RootOutput> {
         }
     }
 
-    private func initializeForceUpdateIfNeeded() {
-        appCustomization.forceUpdateAppVersion
-            .flatMap(with: self) { this, version -> Observable<(shouldShowForceUpdate: Bool, appLink: String)> in
-                this.appCustomization.appStoreLink.map {
-                    (shouldShowForceUpdate: !Bundle.lessOrEqualToCurrentVersion(version), appLink: $0)
-                }
-            }
-            .distinctUntilChanged(at: \.shouldShowForceUpdate)
-            .asDriver()
-            .delay(.seconds(3))
-            .drive(with: self) { this, args in
-                if args.shouldShowForceUpdate {
-                    this.rootScreen = .forceUpdate(args.appLink)
-                } else {
-                    this.rootScreen = this.cloudStorage.onboardingIsFinished ? .fasting : .onboarding
-                }
-            }
-            .disposed(by: disposeBag)
-    }
-
     private func subscribeForAvailableDiscountPaywall() {
         discountPaywallTimerService.discountAvailable
             .assign(to: &$discountPaywallInfo)
     }
 
-    private func initializePaywallTab() {
-        Observable.combineLatest(
-            newSubscriptionService.hasSubscription.asObservable().distinctUntilChanged(),
-            appCustomization.discountPaywallExperiment.distinctUntilChanged()
-        )
-        .asDriver()
-        .drive(with: self) { this, args in
-            let (hasSubscription, discountPaywallInfo) = args
-            this.currentTab = .daily
-
-            if let discountPaywallInfo {
-                this.discountPaywallTimerService.registerPaywall(info: discountPaywallInfo)
+    private func initializeDiscountExp() {
+        appCustomization.discountPaywallExperiment
+            .distinctUntilChanged()
+            .asDriver()
+            .drive(with: self) { this, discountPaywallInfo in
+                if let discountPaywallInfo {
+                    this.discountPaywallTimerService.registerPaywall(info: discountPaywallInfo)
+                }
             }
-
-            if hasSubscription {
-                this.deleteDiscountNotification()
-            }
-        }
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
     }
 
     private func initializeHasSubscription() {
