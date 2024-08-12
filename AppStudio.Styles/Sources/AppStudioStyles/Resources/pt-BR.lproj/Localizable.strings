@@ -78,6 +78,17 @@
 "DiscountPaywall.banner.off" = "DE DESCONTO";
 "DiscountPaywall.banner.button" = "Economize %@ agora";
 
+
+// MARK: BottomSheet Configutaion
+"BottomActionSheetConfiguration.discard.title" = "Descartar alterações?";
+"BottomActionSheetConfiguration.discard.subtitle" = "Esta comida não será salva";
+"BottomActionSheetConfiguration.discard.leftButtonTitle" = "Continue editando";
+"BottomActionSheetConfiguration.discard.rightButtonTitle" = "Descartar";
+
+"BottomActionSheetConfiguration.barcode.title" = "Excluir código de barras?";
+"BottomActionSheetConfiguration.barcode.leftButtonTitle" = "Cancelar";
+"BottomActionSheetConfiguration.barcode.rightButtonTitle" = "Excluir";
+
 // MARK: RateUsInput
 "RateUsInput.title" = "Como está sua jornada conosco?";
 "RateUsInput.tapToRate" = "Toque para avaliar";
@@ -91,3 +102,15 @@
 // MARK: Onboarding Privacy and Terms
 "Onboarding.and" = " e os ";
 "Onboarding.continuingYouAgree" = "Ao continuar, você aceita a ";
+
+// MARK: Trial Paywall
+"TrialPaywall.fasting.title" = "Não tem certeza agora?\nExperimente o Fasting Tracker";
+"TrialPaywall.fasting.bullet1" = "Alcance suas metas de peso";
+"TrialPaywall.fasting.bullet2" = "Sinta-se mais energético";
+"TrialPaywall.fasting.bullet3" = "Melhoria da saúde metabólica";
+"TrialPaywall.fasting.bullet4" = "Insights pessoais motivacionais";
+
+"TrialPaywall.forFree" = "de graça";
+"TrialPaywall.startFreeTrial" = "Comece o teste gratuito";
+"TrialPaywall.pricePerYear" = "então %@/ano";
+"TrialPaywall.trialPeriod" = "%@ teste gratuito";

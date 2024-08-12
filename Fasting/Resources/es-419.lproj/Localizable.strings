@@ -548,6 +548,6 @@
 "HydrationFrequency.everyFiveHours" = "Cada 5 horas";
 "HydrationFrequency.everySixHours" = "Cada 6 horas";
 
-"NotificationsAlert.title" = "Título de la alerta";
-"NotificationsAlert.subtitle" = "Subtítulo de la alerta";
+"NotificationsAlert.title" = "”Fasting Tracker” \ndesea enviarte notificaciones";
+"NotificationsAlert.subtitle" = "Activa las notificaciones en la configuración para recibir recordatorios";
 "NotificationsAlert.openSettings" = "Abrir configuración de notificaciones";

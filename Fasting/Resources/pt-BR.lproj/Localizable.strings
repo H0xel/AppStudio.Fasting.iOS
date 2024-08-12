@@ -551,6 +551,6 @@ horário de jejum";
 "HydrationFrequency.everyFiveHours" = "A cada 5 horas";
 "HydrationFrequency.everySixHours" = "A cada 6 horas";
 
-"NotificationsAlert.title" = "Título do alerta";
-"NotificationsAlert.subtitle" = "Subtítulo do alerta";
+"NotificationsAlert.title" = "”Fasting Tracker” \ngostaria de enviar notificações para você";
+"NotificationsAlert.subtitle" = "Ative as notificações nas configurações para receber lembretes";
 "NotificationsAlert.openSettings" = "Abrir configurações de notificações";

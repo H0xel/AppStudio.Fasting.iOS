@@ -6,6 +6,8 @@
 "NextTitle" = "Próximo";
 "StartTitle" = "Iniciar";
 "OkTitle" = "Ok";
+"CloseTitle" = "Fechar";
+"CreateFoodTitle" = "Criar comida";
 
 // MARK: - Paywall Screen
 "Paywall.title" = "Título do Paywall";
@@ -340,7 +342,7 @@ Seu plano está pronto";
 "CaloriesBudgetHeaderView.kcalOverTitle" = "kcal excedentes";
 
 // MARK: = NotFoundMealPlaceholderView
-"NotFoundMealPlaceholderView.title" = "Nada encontrado com este código de barras";
+"NotFoundMealPlaceholderView.title" = "Ops, nenhum alimento encontrado para o código de barras";
 "IngredientPlaceholderView.notFound" = "Nada encontrado com este código de barras";
 
 // MARK: - UsageLimitPaywallScreen
@@ -395,14 +397,19 @@ Seu plano está pronto";
 "MealVoting.title.dislike" = "Obrigado! Vamos trabalhar nisso.";
 
 // MARK: - FoodSuggestionsEmptyView
-"FoodSuggestionsEmptyView.title" = "Nenhuma entrada ainda";
-"FoodSuggestionsEmptyView.subtitle" = "Comece a registrar para ver o histórico";
+"FoodSuggestionsEmptyView.history.title" = "Nenhuma entrada ainda";
+"FoodSuggestionsEmptyView.history.subtitle" = "Comece a registrar para ver o histórico";
+
+"FoodSuggestionsEmptyView.food.title" = "Nenhuma comida personalizada ainda";
+"FoodSuggestionsEmptyView.food.subtitle" = "Crie um novo alimento personalizado para vê-lo aqui";
 
 // MARK: -
 "LogType.log" = "Registrar";
 "LogType.history" = "História";
 "LogType.quickAdd" = "Adição rápida";
 "LogType.addRecipe" = "Adicionar receita";
+"LogType.newFood" = "Nova comida";
+"LogType.food" = "Minha comida";
 
 // MARK: - FoodSearchEmptyView
 "FoodSearchEmptyView.title.tap" = "Toque";
@@ -424,3 +431,33 @@ Seu plano está pronto";
 "CameraAlert.title" = "\"Calorie Counter\" \nGostaria de acessar a câmera";
 "CameraAlert.subtitle" = "Permita acesso à câmera nas configurações para escanear códigos de barras.";
 "CameraAlert.openSettings" = "Abrir configurações do aplicativo";
+
+// MARK: Custom
+
+"CustomFood.textfield.foodName" = "Nome da comida";
+"CustomFood.textfield.brandName" = "Marca";
+"CustomFood.textfield.optional" = "Opcional";
+"CustomFood.textfield.nutritionFacts" = "Informações Nutricionais";
+"CustomFood.textfield.servingSize" = "Tamanho da porção";
+"CustomFood.textfield.servingName" = "Nome da porção";
+"CustomFood.textfield.servingExample" = "Por exemplo, 2 × fatias";
+"CustomFood.textfield.amountPer" = "Quantidade por";
+"CustomFood.textfield.calories" = "Calorias";
+"CustomFood.textfield.fat" = "Gordura";
+"CustomFood.textfield.protein" = "Proteína";
+"CustomFood.textfield.carbs" = "Carboidratos";
+"CustomFood.addBarcode" = "Adicionar código de barras";
+"CustomFood.replace" = "Substituir";
+"CustomFood.delete" = "Excluir";
+
+"WeightUnit.gramm" = "g";
+"CustomProductScreen.howMuchToAdd" = "Quanto adicionar?";
+"CustomFood.amountPer %@" = "Quantidade por porção · %@";
+
+// MARK: - Toolbar
+"Toolbar.copyAndCreateNew" = "Duplicado";
+"Toolbar.edit" = "Editar";
+"Toolbar.remove" = "Excluir";
+
+"CustomFood.amountPer %@" = "Quantidade por porção · %@";
+"CustomFood.copy" = "(cópia)";
