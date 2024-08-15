@@ -272,6 +272,53 @@ extension MealItem {
         return name
     }
 
+    /// возвращает 1 или 2 заголовка, в зависимости от текущего сервинга и юнита (г или мл)
+    var servingTitles: [String] {
+        let defaultResult = [value.servingTitle]
+        // для еды без ингредиентов
+        if ingredients.isEmpty {
+            let mlServing = servings.first { $0.measure == MealServing.ml.measure }
+            let grammServing = servings.first { $0.measure == MealServing.gramms.measure }
+            if serving.weight != nil {
+                if serving.measure == MealServing.gramms.measure {
+                    return [value.servingTitle]
+                }
+                if let totalValueWeight = serving.gramms(value: value.value) {
+                    return ["\(value.servingTitle)",
+                            "\(totalValueWeight.withoutDecimalsIfNeeded) \(MealServing.gramms.measure)"]
+                }
+                return defaultResult
+            }
+
+            if let mlServing {
+                return serving.measure == MealServing.ml.measure
+                ? defaultResult
+                : ["\(value.servingTitle)",
+                   "\(serving.convert(value: value.value, to: mlServing)) \(mlServing.measure)"]
+            }
+            return defaultResult
+        }
+
+        // для одного ингредиента
+        if let ingredient = ingredients.first, ingredients.count == 1 {
+            return ingredient.servingTitles
+        }
+
+        // для еды с несколькими ингредиентами
+        // ищем общий вес всех ингредиентов, откидывая ингры без веса
+        let totalIngredientsWeight = ingredients.reduce(into: 0.0) { partialResult, ingredient in
+            let weight = ingredient.serving.gramms(value: ingredient.value.value) ?? 0.0
+            partialResult += weight
+        }
+
+        if totalIngredientsWeight > 0 {
+            return ["\(value.servingTitle)",
+                    "\(totalIngredientsWeight.withoutDecimalsIfNeeded) \(MealServing.gramms.measure)"]
+        }
+        // при необходимости можно заморочиться и сделать подсчет мл для ингредиентов
+        return defaultResult
+    }
+
     var nutritionProfile: NutritionProfile {
         if !ingredients.isEmpty {
             return ingredients.reduce(.empty) { $0 ++ $1.nutritionProfile }

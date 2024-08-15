@@ -92,6 +92,10 @@ extension MealServing {
         .init(weight: 237, measure: "fl oz", quantity: 8)
     }
 
+    static var ml: MealServing {
+        .init(weight: nil, measure: "ml", quantity: 100)
+    }
+
     static var defaultServing: MealServing {
         gramms
     }
