@@ -274,17 +274,16 @@ extension MealItem {
 
     /// возвращает 1 или 2 заголовка, в зависимости от текущего сервинга и юнита (г или мл)
     var servingTitles: [String] {
-        let defaultResult = [value.servingTitle]
+        let defaultResult = [servingTitle]
         // для еды без ингредиентов
         if ingredients.isEmpty {
             let mlServing = servings.first { $0.measure == MealServing.ml.measure }
-            let grammServing = servings.first { $0.measure == MealServing.gramms.measure }
             if serving.weight != nil {
                 if serving.measure == MealServing.gramms.measure {
-                    return [value.servingTitle]
+                    return [servingTitle]
                 }
-                if let totalValueWeight = serving.gramms(value: value.value) {
-                    return ["\(value.servingTitle)",
+                if let totalValueWeight = serving.gramms(value: weight) {
+                    return ["\(servingTitle)",
                             "\(totalValueWeight.withoutDecimalsIfNeeded) \(MealServing.gramms.measure)"]
                 }
                 return defaultResult
@@ -293,8 +292,8 @@ extension MealItem {
             if let mlServing {
                 return serving.measure == MealServing.ml.measure
                 ? defaultResult
-                : ["\(value.servingTitle)",
-                   "\(serving.convert(value: value.value, to: mlServing)) \(mlServing.measure)"]
+                : ["\(servingTitle)",
+                   "\(serving.convert(value: weight, to: mlServing)) \(mlServing.measure)"]
             }
             return defaultResult
         }
@@ -307,12 +306,12 @@ extension MealItem {
         // для еды с несколькими ингредиентами
         // ищем общий вес всех ингредиентов, откидывая ингры без веса
         let totalIngredientsWeight = ingredients.reduce(into: 0.0) { partialResult, ingredient in
-            let weight = ingredient.serving.gramms(value: ingredient.value.value) ?? 0.0
+            let weight = ingredient.serving.gramms(value: ingredient.weight) ?? 0.0
             partialResult += weight
         }
 
         if totalIngredientsWeight > 0 {
-            return ["\(value.servingTitle)",
+            return ["\(servingTitle)",
                     "\(totalIngredientsWeight.withoutDecimalsIfNeeded) \(MealServing.gramms.measure)"]
         }
         // при необходимости можно заморочиться и сделать подсчет мл для ингредиентов
