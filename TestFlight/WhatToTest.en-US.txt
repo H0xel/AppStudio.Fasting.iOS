@@ -1,3 +1,1 @@
-- Custom food screen CC
-- Root initialization
-- Fix local push without sub in fasting
+Release build fasting 1.2.11
