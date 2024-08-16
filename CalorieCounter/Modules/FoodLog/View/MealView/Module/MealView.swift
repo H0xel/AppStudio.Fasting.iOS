@@ -24,10 +24,11 @@ struct MealView: View {
                     }
                     Spacer()
                     if !viewModel.isQuickAdd {
-                        Button(action: viewModel.weightTapped) {
-                            MealWeightView(type: .weight(viewModel.displayWeight),
-                                           serving: viewModel.currentServing,
-                                           isTapped: viewModel.isWeightTapped)
+                        MealWeightView(isTextSelected: $viewModel.isWeightTextSelected, 
+                                       type: .text(viewModel.displayWeight),
+                                       serving: viewModel.currentServing,
+                                       isTapped: viewModel.isWeightTapped) {
+                            viewModel.weightTapped()
                         }
                     }
                 }

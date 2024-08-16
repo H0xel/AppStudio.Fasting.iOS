@@ -36,8 +36,8 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
 
     @Dependency(\.trackerService) private var trackerService
     @Published var state: IngredientViewState = .notSelected
-    @Published private var editingWeight: Double?
-    @Published private var editingServing: MealServing?
+    @Published var isWeightTextSelected = false
+    @Published private var editingResult: CustomKeyboardResult?
 
     let ingredient: Ingredient
     private let router: IngredientRouter
@@ -58,12 +58,12 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
         state == .weightTapped
     }
 
-    var displayWeight: Double {
-        editingWeight ?? ingredient.weight
+    var displayWeight: String {
+        editingResult?.displayText ?? ingredient.weight.withoutDecimalsIfNeeded
     }
 
     var displayServing: MealServing {
-        editingServing ?? ingredient.serving
+        editingResult?.serving ?? ingredient.serving
     }
 
     func weightTapped() {
@@ -95,6 +95,7 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
             .sink(with: self) { this, ingredient in
                 if ingredient?.name != this.ingredient.name {
                     this.state = .notSelected
+                    this.isWeightTextSelected = false
                 }
             }
             .store(in: &cancellables)
@@ -106,6 +107,7 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
             .sink(with: self) { this, ingredient in
                 if this.ingredient == ingredient {
                     this.weightTapped()
+                    this.isWeightTextSelected = true
                 }
             }
             .store(in: &cancellables)
@@ -137,7 +139,9 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
             text: "\(ingredient.weight)",
             servings: ingredient.servings,
             currentServing: ingredient.serving,
-            isPresentedPublisher: $state.map { $0 != .notSelected }.eraseToAnyPublisher())
+            isPresentedPublisher: $state.map { $0 != .notSelected }.eraseToAnyPublisher(),
+            shouldShowTextField: false, 
+            isTextSelectedPublisher: $isWeightTextSelected.eraseToAnyPublisher())
         router.presentChangeWeightBanner(input: input) { [weak self] output in
             self?.handle(customKeyboardOutput: output)
         }
@@ -146,17 +150,14 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
     private func handle(customKeyboardOutput output: ContainerKeyboardOutput) {
         switch output {
         case .valueChanged(let result):
-            editingWeight = result.value
-            editingServing = result.serving
+            editingResult = result
         case .add(let result):
             changeIngredientWeight(result: result)
             clearSelection()
-            editingWeight = nil
-            editingServing = nil
+            editingResult = nil
         case .dismissed(let result):
             changeIngredientWeight(result: result)
-            editingWeight = nil
-            editingServing = nil
+            editingResult = nil
         case .direction(let direction):
             self.output(.direction(direction))
         }

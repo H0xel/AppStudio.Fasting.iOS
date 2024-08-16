@@ -9,39 +9,39 @@ import SwiftUI
 import AppStudioStyles
 
 struct MealWeightView: View {
+
+    @Binding var isTextSelected: Bool
     let type: MealWeightType
     let serving: MealServing
     let isTapped: Bool
     let withoutDecimalIfNeeded: Bool
     let weightColor: Color
     let width: CGFloat
+    let onTap: () -> Void
 
-    init(type: MealWeightType,
+    init(isTextSelected: Binding<Bool>,
+         type: MealWeightType,
          serving: MealServing,
          isTapped: Bool,
          withoutDecimalIfNeeded: Bool = false,
          weightColor: Color = Color.studioBlackLight,
-         width: CGFloat = .width) {
+         width: CGFloat = .width,
+         onTap: @escaping () -> Void) {
+        self._isTextSelected = isTextSelected
         self.type = type
         self.serving = serving
         self.withoutDecimalIfNeeded = withoutDecimalIfNeeded
         self.weightColor = weightColor
         self.isTapped = isTapped
         self.width = width
+        self.onTap = onTap
     }
 
     var body: some View {
         HStack(spacing: .spacing) {
-            switch type {
-            case .text(let string):
-                Text(string)
-                    .foregroundStyle(weightColor)
-            case .weight(let weight):
-                Text(convertedWeight(weight: weight))
-                    .foregroundStyle(weightColor)
-                Text(serving.units(for: weight))
-                    .foregroundStyle(Color.studioGreyText)
-            }
+            TextWithCursorView(isTextSelected: $isTextSelected, text: weight, isFocused: isTapped)
+            Text(servingTitle)
+                .foregroundStyle(Color.studioGreyText)
         }
         .font(.poppins(.description))
         .frame(width: width, height: .height)
@@ -52,6 +52,35 @@ struct MealWeightView: View {
             color: .accent,
             lineWidth: isTapped ? .borderWidth : 0)
         )
+        .onChange(of: weight) { text in
+            isTextSelected = false
+        }
+        .onTapGesture {
+            if isTextSelected {
+                isTextSelected = false
+                return
+            }
+            onTap()
+            isTextSelected = true
+        }
+    }
+
+    private var servingTitle: String {
+        switch type {
+        case .text(let text):
+            serving.units(for: Double(text) ?? 1)
+        case .weight(let weight):
+            serving.units(for: weight)
+        }
+    }
+
+    private var weight: String {
+        switch type {
+        case .text(let text):
+            text
+        case .weight(let weight):
+            convertedWeight(weight: weight)
+        }
     }
 
     private func convertedWeight(weight: Double) -> String {
@@ -86,5 +115,5 @@ private extension MealWeightView {
 }
 
 #Preview {
-    MealWeightView(type: .weight(24), serving: .gramms, isTapped: true)
+    MealWeightView(isTextSelected: .constant(true), type: .weight(24), serving: .gramms, isTapped: true) {}
 }

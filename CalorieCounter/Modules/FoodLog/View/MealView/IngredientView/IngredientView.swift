@@ -37,10 +37,11 @@ struct IngredientView: View {
                 }
             }
             Spacer()
-            Button(action: viewModel.weightTapped) {
-                MealWeightView(type: .weight(viewModel.displayWeight),
-                               serving: viewModel.displayServing,
-                               isTapped: viewModel.isWeightTapped)
+            MealWeightView(isTextSelected: $viewModel.isWeightTextSelected,
+                           type: .text(viewModel.displayWeight),
+                           serving: viewModel.displayServing,
+                           isTapped: viewModel.isWeightTapped) {
+                viewModel.weightTapped()
             }
         }
         .background(.white)

@@ -15,23 +15,27 @@ struct CustomKeyboardTextField: View {
     let text: String
     let units: String
     let grammsValue: String?
+    let isPresented: Bool
 
     var body: some View {
         VStack(spacing: .verticalSpacing) {
-            Text(title)
-                .foregroundStyle(Color.studioGreyText)
-                .font(.poppins(.description))
-                .padding(.leading, .titleLeadingPadding)
-                .aligned(.left)
-            CustomKeyboardTextView(isTextSelected: $isTextSelected, 
-                                   isFocused: $isFocused,
-                                   text: text,
-                                   units: units,
-                                   grammsValue: grammsValue)
+            if isPresented {
+                Text(title)
+                    .foregroundStyle(Color.studioGreyText)
+                    .font(.poppins(.description))
+                    .padding(.leading, .titleLeadingPadding)
+                    .aligned(.left)
+                CustomKeyboardTextView(isTextSelected: $isTextSelected,
+                                       isFocused: $isFocused,
+                                       text: text,
+                                       units: units,
+                                       grammsValue: grammsValue)
+            }
         }
-        .padding(.padding)
+        .frame(maxWidth: .infinity)
+        .padding(isPresented ? .all : .top, .padding)
         .background(.white)
-        .corners([.topLeft, .topRight], with: .cornerRadius)
+        .corners([.topLeft, .topRight], with: isPresented ? .cornerRadius : .zero)
     }
 }
 
@@ -48,5 +52,6 @@ private extension CGFloat {
                             title: "Eggs",
                             text: "",
                             units: "g",
-                            grammsValue: nil)
+                            grammsValue: nil, 
+                            isPresented: true)
 }

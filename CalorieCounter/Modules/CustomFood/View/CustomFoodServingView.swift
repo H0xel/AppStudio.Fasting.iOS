@@ -16,16 +16,20 @@ struct CustomFoodServingView: View {
                 Text("CustomFood.textfield.servingSize")
                     .font(.poppins(.description))
                 Spacer()
-                Button(action: { viewModel.selectedField = .servingSize },
-                       label: {
-                    MealWeightView(type: .weight(viewModel.customFoodViewData.servingSize),
-                                   serving: viewModel.customFoodViewData.selectedServing,
-                                   isTapped: viewModel.selectedField == .servingSize,
-                                   withoutDecimalIfNeeded: true,
-                                   weightColor: !viewModel.changedFields.contains(.servingSize)
-                                   ? Color.studioGrayText
-                                   : Color.studioBlackLight)
-                })
+                MealWeightView(isTextSelected: .init(get: {
+                    viewModel.isInputTextSelected && viewModel.selectedField == .servingSize
+                }, set: { isSelected in
+                    viewModel.isInputTextSelected = isSelected
+                }),
+                               type: .weight(viewModel.customFoodViewData.servingSize),
+                               serving: viewModel.customFoodViewData.selectedServing,
+                               isTapped: viewModel.selectedField == .servingSize,
+                               withoutDecimalIfNeeded: true,
+                               weightColor: !viewModel.changedFields.contains(.servingSize)
+                               ? Color.studioGrayText
+                               : Color.studioBlackLight) {
+                    viewModel.selectedField = .servingSize
+                }
             }
             .padding(.vertical, .verticalPadding)
             .id(CustomFoodField.servingSize)
@@ -41,30 +45,40 @@ struct CustomFoodServingView: View {
                 
                 Spacer()
                 
-                Button(action: { viewModel.selectedField = .servingAmount }, label: {
-                    MealWeightView(type: .weight(viewModel.customFoodViewData.servingAmount),
-                                   serving: .init(weight: nil, measure: "", quantity: 1),
-                                   isTapped: viewModel.selectedField == .servingAmount,
-                                   weightColor: !viewModel.changedFields.contains(.servingAmount)
-                                   ? Color.studioGrayText
-                                   : Color.studioBlackLight,
-                                   width: .width)
-                    .id(CustomFoodField.servingAmount)
-                })
+                MealWeightView(isTextSelected: .init(get: {
+                    viewModel.isInputTextSelected && viewModel.selectedField == .servingAmount
+                }, set: { isSelected in
+                    viewModel.isInputTextSelected = isSelected
+                }),
+                               type: .weight(viewModel.customFoodViewData.servingAmount),
+                               serving: .init(weight: nil, measure: "", quantity: 1),
+                               isTapped: viewModel.selectedField == .servingAmount,
+                               weightColor: !viewModel.changedFields.contains(.servingAmount)
+                               ? Color.studioGrayText
+                               : Color.studioBlackLight,
+                               width: .width) {
+                    viewModel.selectedField = .servingAmount
+                }
+                .id(CustomFoodField.servingAmount)
 
                 Text("×")
                     .font(.poppins(.description))
                     .padding(.horizontal, .xHorizontalPadding)
 
-                Button(action: { viewModel.selectedField = .servingName }, label: {
-                    MealWeightView(type: .text(viewModel.customFoodViewData.servingName),
-                                   serving: .init(weight: nil, measure: "", quantity: 1),
-                                   isTapped: viewModel.selectedField == .servingName,
-                                   weightColor: !viewModel.changedFields.contains(.servingName)
-                                   ? Color.studioGrayText
-                                   : Color.studioBlackLight)
-                    .id(CustomFoodField.servingName)
-                })
+                MealWeightView(isTextSelected: .init(get: {
+                    viewModel.isInputTextSelected && viewModel.selectedField == .servingName
+                }, set: { isSelected in
+                    viewModel.isInputTextSelected = isSelected
+                }),
+                               type: .text(viewModel.customFoodViewData.servingName),
+                               serving: .init(weight: nil, measure: "", quantity: 1),
+                               isTapped: viewModel.selectedField == .servingName,
+                               weightColor: !viewModel.changedFields.contains(.servingName)
+                               ? Color.studioGrayText
+                               : Color.studioBlackLight) {
+                    viewModel.selectedField = .servingName
+                }
+                .id(CustomFoodField.servingName)
             }
             .padding(.top, .topPadding)
             .padding(.bottom, .bottomPadding)
@@ -89,5 +103,7 @@ private extension CGFloat {
 }
 
 #Preview {
-    CustomFoodServingView(viewModel: .init(input: .init(context: .create), output: { _ in }))
+    CustomFoodServingView(viewModel: .init(router: .init(navigator: .init()),
+                                           input: .init(context: .create),
+                                           output: { _ in }))
 }

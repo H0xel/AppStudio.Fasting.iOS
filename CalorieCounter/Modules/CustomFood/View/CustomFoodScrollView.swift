@@ -37,7 +37,8 @@ struct CustomFoodScrollView: View {
                             CustomFoodAmountView(
                                 configuration: .amount,
                                 selectedField: $viewModel.selectedField,
-                                weight: $viewModel.customFoodViewData.amountPer,
+                                weight: $viewModel.customFoodViewData.amountPer, 
+                                isTextSelected: $viewModel.isInputTextSelected,
                                 selectedServing: viewModel.customFoodViewData.selectedServing,
                                 fieldType: .amountPer,
                                 isInitialWeight: !viewModel.changedFields.contains(.amountPer))
@@ -47,6 +48,7 @@ struct CustomFoodScrollView: View {
                                 configuration: .calories,
                                 selectedField: $viewModel.selectedField,
                                 weight: $viewModel.customFoodViewData.calories,
+                                isTextSelected: $viewModel.isInputTextSelected,
                                 selectedServing: .init(weight: nil, measure: "kcal", quantity: 1),
                                 fieldType: .calories,
                                 isInitialWeight: !viewModel.changedFields.contains(.calories))
@@ -56,6 +58,7 @@ struct CustomFoodScrollView: View {
                                 configuration: .fat,
                                 selectedField: $viewModel.selectedField,
                                 weight: $viewModel.customFoodViewData.fat,
+                                isTextSelected: $viewModel.isInputTextSelected,
                                 fieldType: .fat,
                                 isInitialWeight: !viewModel.changedFields.contains(.fat))
                             .id(CustomFoodField.fat)
@@ -64,6 +67,7 @@ struct CustomFoodScrollView: View {
                                 configuration: .carbs,
                                 selectedField: $viewModel.selectedField,
                                 weight: $viewModel.customFoodViewData.carbs,
+                                isTextSelected: $viewModel.isInputTextSelected,
                                 fieldType: .carbs,
                                 isInitialWeight: !viewModel.changedFields.contains(.carbs))
                             .id(CustomFoodField.carbs)
@@ -72,6 +76,7 @@ struct CustomFoodScrollView: View {
                                 configuration: .protein,
                                 selectedField: $viewModel.selectedField,
                                 weight: $viewModel.customFoodViewData.protein,
+                                isTextSelected: $viewModel.isInputTextSelected,
                                 fieldType: .protein,
                                 isInitialWeight: !viewModel.changedFields.contains(.protein))
                             .id(CustomFoodField.protein)
@@ -123,5 +128,7 @@ private extension CGFloat {
 }
 
 #Preview {
-    CustomFoodScrollView(viewModel: .init(input: .init(context: .create), output: { _ in }))
+    CustomFoodScrollView(viewModel: .init(router: .init(navigator: .init()),
+                                          input: .init(context: .create),
+                                          output: { _ in }))
 }

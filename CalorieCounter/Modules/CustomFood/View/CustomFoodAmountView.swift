@@ -11,6 +11,7 @@ struct CustomFoodAmountView: View {
     let configuration: Configuration
     @Binding var selectedField: CustomFoodField
     @Binding var weight: Double
+    @Binding var isTextSelected: Bool
     let selectedServing: MealServing
     let fieldType: CustomFoodField
     let isInitialWeight: Bool
@@ -18,6 +19,7 @@ struct CustomFoodAmountView: View {
     init(configuration: Configuration,
          selectedField: Binding<CustomFoodField>,
          weight: Binding<Double>,
+         isTextSelected: Binding<Bool>,
          selectedServing: MealServing = .gramms,
          fieldType: CustomFoodField,
          isInitialWeight: Bool) {
@@ -27,6 +29,7 @@ struct CustomFoodAmountView: View {
         self.selectedServing = selectedServing
         self.fieldType = fieldType
         self.isInitialWeight = isInitialWeight
+        self._isTextSelected = isTextSelected
     }
 
     var body: some View {
@@ -34,13 +37,18 @@ struct CustomFoodAmountView: View {
             Text(configuration.title)
                 .font(configuration.font)
             Spacer()
-            Button(action: { selectedField = fieldType }, label: {
-                MealWeightView(type: .weight(weight),
-                               serving: selectedServing,
-                               isTapped: selectedField == fieldType,
-                               withoutDecimalIfNeeded: true,
-                               weightColor: isInitialWeight ? Color.studioGreyText : Color.studioBlackLight)
-            })
+            MealWeightView(isTextSelected: .init(get: {
+                isTextSelected && selectedField == fieldType
+            }, set: { isSelected in
+                isTextSelected = isSelected
+            }),
+                           type: .weight(weight),
+                           serving: selectedServing,
+                           isTapped: selectedField == fieldType,
+                           withoutDecimalIfNeeded: true,
+                           weightColor: isInitialWeight ? Color.studioGreyText : Color.studioBlackLight) {
+                selectedField = fieldType
+            }
         }
         .padding(.vertical, .verticalPadding)
         .padding(.leading, .leadingPadding)
@@ -86,7 +94,9 @@ private extension CGFloat {
 #Preview {
     CustomFoodAmountView(
         configuration: .amount,
-        selectedField: .constant(.servingName), weight: .constant(0),
+        selectedField: .constant(.servingName),
+        weight: .constant(0), 
+        isTextSelected: .constant(true),
         fieldType: .amountPer,
         isInitialWeight: false
     )

@@ -266,7 +266,6 @@
 		A0223C882B5EBDD5009A77D5 /* UsageLimitPaywallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0223C872B5EBDD5009A77D5 /* UsageLimitPaywallScreen.swift */; };
 		A02536142C19F04D004F3101 /* CustomKeyboardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02536132C19F04D004F3101 /* CustomKeyboardScrollView.swift */; };
 		A02536162C19FF1B004F3101 /* ContainerKeyboardBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02536152C19FF1B004F3101 /* ContainerKeyboardBanner.swift */; };
-		A02D2F862C243FC0004BDBFD /* MealItemEditableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D2F852C243FC0004BDBFD /* MealItemEditableValue.swift */; };
 		A02E20B42B681D8400E3F259 /* EnvironmentValues+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02E20B32B681D8400E3F259 /* EnvironmentValues+extensions.swift */; };
 		A036CE442B5FD9EC00F902E9 /* UsagePaywallRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CE432B5FD9EC00F902E9 /* UsagePaywallRoute.swift */; };
 		A036CE482B5FEE3200F902E9 /* GetPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CE472B5FEE3200F902E9 /* GetPlusButton.swift */; };
@@ -334,6 +333,7 @@
 		A063D5BF2B3358F800594353 /* MealNutritionProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063D5BE2B3358F800594353 /* MealNutritionProfileView.swift */; };
 		A06961D12BC96E55008043A4 /* DayFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06961D02BC96E55008043A4 /* DayFoodView.swift */; };
 		A06961D42BC96EBE008043A4 /* DayFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06961D32BC96EBE008043A4 /* DayFoodViewModel.swift */; };
+		A06CDEAB2C6EC8D60024C6FD /* TextWithCursorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CDEAA2C6EC8D60024C6FD /* TextWithCursorView.swift */; };
 		A0729A802B4D535A002336CF /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0729A7F2B4D535A002336CF /* SnapCarousel.swift */; };
 		A0729A822B4D548C002336CF /* MealTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0729A812B4D548C002336CF /* MealTypeView.swift */; };
 		A0729A842B4D5E19002336CF /* AddMealButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0729A832B4D5E19002336CF /* AddMealButton.swift */; };
@@ -869,7 +869,6 @@
 		A0223C872B5EBDD5009A77D5 /* UsageLimitPaywallScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageLimitPaywallScreen.swift; sourceTree = "<group>"; };
 		A02536132C19F04D004F3101 /* CustomKeyboardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKeyboardScrollView.swift; sourceTree = "<group>"; };
 		A02536152C19FF1B004F3101 /* ContainerKeyboardBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerKeyboardBanner.swift; sourceTree = "<group>"; };
-		A02D2F852C243FC0004BDBFD /* MealItemEditableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealItemEditableValue.swift; sourceTree = "<group>"; };
 		A02E20B32B681D8400E3F259 /* EnvironmentValues+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+extensions.swift"; sourceTree = "<group>"; };
 		A036CE432B5FD9EC00F902E9 /* UsagePaywallRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsagePaywallRoute.swift; sourceTree = "<group>"; };
 		A036CE472B5FEE3200F902E9 /* GetPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlusButton.swift; sourceTree = "<group>"; };
@@ -936,6 +935,7 @@
 		A063D5BE2B3358F800594353 /* MealNutritionProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealNutritionProfileView.swift; sourceTree = "<group>"; };
 		A06961D02BC96E55008043A4 /* DayFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFoodView.swift; sourceTree = "<group>"; };
 		A06961D32BC96EBE008043A4 /* DayFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFoodViewModel.swift; sourceTree = "<group>"; };
+		A06CDEAA2C6EC8D60024C6FD /* TextWithCursorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWithCursorView.swift; sourceTree = "<group>"; };
 		A0729A7F2B4D535A002336CF /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 		A0729A812B4D548C002336CF /* MealTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypeView.swift; sourceTree = "<group>"; };
 		A0729A832B4D5E19002336CF /* AddMealButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealButton.swift; sourceTree = "<group>"; };
@@ -2394,6 +2394,7 @@
 				A0CD174B2C18B9F500F19D84 /* CustomKeyboardTextField.swift */,
 				A0CD174D2C18BB3900F19D84 /* CustomKeyboardTextView.swift */,
 				A05151472C19AFF90058C396 /* CustomKeyboardServingsView.swift */,
+				A06CDEAA2C6EC8D60024C6FD /* TextWithCursorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3270,8 +3271,8 @@
 				A7B0E1862C3E6B180079697D /* BarcodeImageView.swift */,
 			);
 			path = View;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		A78A3FF02C6389BB00B1940F /* RootInitializationService */ = {
 			isa = PBXGroup;
 			children = (
@@ -3744,6 +3745,7 @@
 				53D900772AE67EE700FFEB7A /* PreferencesService.swift in Sources */,
 				5692C66A2B58F7FB007A9E3A /* FoodSearchApi.swift in Sources */,
 				5658F8CA2B34039100E010E9 /* Model.xcdatamodeld in Sources */,
+				A06CDEAB2C6EC8D60024C6FD /* TextWithCursorView.swift in Sources */,
 				A05E68FA2B30E61A00282F9C /* FoodLogEmptyView.swift in Sources */,
 				A0F97ECB2C52512300BDD8A1 /* ToolbarCloseButton.swift in Sources */,
 				A712BE822B832EAA005504B1 /* FreeUsageServicePreview.swift in Sources */,
@@ -4417,7 +4419,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = 1.1.9;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -4461,7 +4463,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = 1.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.CalorieCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

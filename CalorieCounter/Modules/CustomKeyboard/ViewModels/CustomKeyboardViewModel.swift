@@ -17,6 +17,7 @@ class CustomKeyboardViewModel<Output>: BaseViewModel<Output> {
     @Published var textBeforeSlash = ""
     @Published var textAfterSlash = ""
     let title: String
+    let shouldShowTextField: Bool
     @Published private var isSlashAdded = false
     let mealServings: [MealServing]
     @Published var isFocused = true
@@ -26,10 +27,14 @@ class CustomKeyboardViewModel<Output>: BaseViewModel<Output> {
         isTextSelected = !input.text.isEmpty
         currentServing = input.currentServing
         mealServings = input.servings
+        shouldShowTextField = input.shouldShowTextField
         super.init(output: output)
         initialize(text: input.text)
         observeIsPresentedPublisher(pubisher: input.isPresentedPublisher)
         observeServing()
+        input.isTextSelectedPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$isTextSelected)
     }
 
     var style: CustomKeyboardStyle {

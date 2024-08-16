@@ -69,6 +69,7 @@ struct CustomFoodScreen_Previews: PreviewProvider {
         NavigationView {
             CustomFoodScreen(
                 viewModel: CustomFoodViewModel(
+                    router: .init(navigator: .init()), 
                     input: CustomFoodInput(context: .create),
                     output: { _ in }
                 )

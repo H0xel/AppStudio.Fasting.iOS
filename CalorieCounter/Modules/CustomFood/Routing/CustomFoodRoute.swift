@@ -20,8 +20,7 @@ struct CustomFoodRoute: Route {
 
     private var viewModel: CustomFoodViewModel {
         let router = CustomFoodRouter(navigator: navigator)
-        let viewModel = CustomFoodViewModel(input: input, output: output)
-        viewModel.router = router
+        let viewModel = CustomFoodViewModel(router: router, input: input, output: output)
         return viewModel
     }
 }

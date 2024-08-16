@@ -13,4 +13,6 @@ struct CustomKeyboardInput {
     let servings: [MealServing]
     let currentServing: MealServing
     let isPresentedPublisher: AnyPublisher<Bool, Never>
+    let shouldShowTextField: Bool
+    let isTextSelectedPublisher: AnyPublisher<Bool, Never>
 }

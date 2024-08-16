@@ -15,11 +15,12 @@ class CustomFoodViewModel: BaseViewModel<CustomFoodOutput> {
     @Dependency(\.cameraAccessService) private var cameraAccessService
     @Dependency(\.mealItemService) private var mealItemService
 
-    var router: CustomFoodRouter!
+    let router: CustomFoodRouter
 
     @Published var isKeyboardPresented = false
     @Published var selectedField: CustomFoodField = .none
     @Published var customFoodViewData: CustomFoodViewData
+    @Published var isInputTextSelected = false
     @Published private var amountPerFieldWasFocused: Double = 0
     @Published private var servingSizeFieldWasFocused: Double = 0
     @Published private(set) var changedFields: Set<CustomFoodField> = []
@@ -53,7 +54,8 @@ class CustomFoodViewModel: BaseViewModel<CustomFoodOutput> {
 
     private let context: CustomFoodInput.Context
 
-    init(input: CustomFoodInput, output: @escaping CustomFoodOutputBlock) {
+    init(router: CustomFoodRouter, input: CustomFoodInput, output: @escaping CustomFoodOutputBlock) {
+        self.router = router
         context = input.context
         switch input.context {
         case .create:
@@ -139,6 +141,7 @@ class CustomFoodViewModel: BaseViewModel<CustomFoodOutput> {
                     this.clear()
                 case .customNumpad:
                     this.presentWeightChangeBanner(selectedField: selectedField)
+                    this.isInputTextSelected = true
                 case .customText:
                     this.presentTextChangeBanner(selectedField: selectedField)
                 }
@@ -264,7 +267,10 @@ private extension CustomFoodViewModel {
             text: customFoodFieldToKeyboardText(selectedField),
             servings: selectedField.canShowServings ? customFoodViewData.servings : [],
             currentServing: getServing(selectedField),
-            isPresentedPublisher: $isKeyboardPresented.eraseToAnyPublisher())
+            isPresentedPublisher: $isKeyboardPresented.eraseToAnyPublisher(),
+            shouldShowTextField: false,
+            isTextSelectedPublisher: $isInputTextSelected.eraseToAnyPublisher()
+        )
 
         router.presentChangeWeightBanner(input: input) { [weak self] output in
             self?.handle(customKeyboardOutput: output)

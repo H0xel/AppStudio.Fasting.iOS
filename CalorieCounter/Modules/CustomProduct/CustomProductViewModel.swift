@@ -108,7 +108,9 @@ class CustomProductViewModel: BaseViewModel<CustomProductOutput> {
             text: keyboardResult.displayText,
             servings: mealItem.canShowServings ? mealItem.servings : [],
             currentServing: serving,
-            isPresentedPublisher: Just(true).eraseToAnyPublisher()
+            isPresentedPublisher: Just(true).eraseToAnyPublisher(),
+            shouldShowTextField: true,
+            isTextSelectedPublisher: Just(!keyboardResult.displayText.isEmpty).eraseToAnyPublisher()
         )
         router.presentKeyboard(input: input, animation: animation) { [weak self] output in
             self?.handle(customKeyboardOutput: output)

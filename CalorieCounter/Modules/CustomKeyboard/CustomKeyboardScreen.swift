@@ -17,12 +17,15 @@ struct CustomKeyboardScreen<Output>: View {
 
     var body: some View {
         VStack(spacing: .zero) {
-            CustomKeyboardTextField(isTextSelected: $viewModel.isTextSelected,
-                                    isFocused: $viewModel.isFocused,
-                                    title: viewModel.title,
-                                    text: viewModel.displayText,
-                                    units: viewModel.units,
-                                    grammsValue: viewModel.grammsValue)
+            if viewModel.shouldShowTextField || !viewModel.mealServings.isEmpty {
+                CustomKeyboardTextField(isTextSelected: $viewModel.isTextSelected,
+                                        isFocused: $viewModel.isFocused,
+                                        title: viewModel.title,
+                                        text: viewModel.displayText,
+                                        units: viewModel.units,
+                                        grammsValue: viewModel.grammsValue,
+                                        isPresented: viewModel.shouldShowTextField)
+            }
             if viewModel.isFocused {
                 VStack(spacing: .zero) {
                     if !viewModel.mealServings.isEmpty {
@@ -45,7 +48,7 @@ struct CustomKeyboardScreen<Output>: View {
                                         removal: .push(from: .top)))
             }
         }
-        .modifier(TopBorderModifier())
+        .modifier(TopBorderModifier(cornerRadius: viewModel.shouldShowTextField ? .cornerRadius : .zero))
         .aligned(.bottom)
         .onAppear {
             vibrate()
@@ -95,6 +98,7 @@ struct CustomKeyboardScreen<Output>: View {
 private extension CGFloat {
     static let spacing: CGFloat = 6
     static let servingsBottomPadding: CGFloat = 10
+    static let cornerRadius: CGFloat = 20
 }
 
 struct CustomKeyboardScreen_Previews: PreviewProvider {
@@ -105,7 +109,9 @@ struct CustomKeyboardScreen_Previews: PreviewProvider {
                                            text: "",
                                            servings: [],
                                            currentServing: .init(weight: 100, measure: "g", quantity: 100),
-                                           isPresentedPublisher: Just(true).eraseToAnyPublisher()),
+                                           isPresentedPublisher: Just(true).eraseToAnyPublisher(),
+                                           shouldShowTextField: true, 
+                                           isTextSelectedPublisher: Just(true).eraseToAnyPublisher()),
                 output: { _ in }
             )
         )

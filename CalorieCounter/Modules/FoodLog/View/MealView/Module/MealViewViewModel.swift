@@ -23,6 +23,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     @Published var ingredientPlaceholders: [MealPlaceholder] = []
     @Published var hasSubscription: Bool = false
     @Published var editingWeight: CustomKeyboardResult?
+    @Published var isWeightTextSelected = false
     private let tappedIngredientSubject = CurrentValueSubject<Ingredient?, Never>(nil)
 
     private let router: MealViewRouter
@@ -46,8 +47,8 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         observeTappedWeightMealPublisher(publisher: tappedWeightMealPublisher)
     }
 
-    var displayWeight: Double {
-        editingWeight?.value ?? meal.mealItem.weight
+    var displayWeight: String {
+        editingWeight?.displayText ?? meal.mealItem.weight.withoutDecimalsIfNeeded
     }
 
     var isTapped: Bool {
@@ -388,6 +389,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
             .receive(on: DispatchQueue.main)
             .sink(with: self) { this, state in
                 this.output(.ingredientSelected(state.ingredient))
+                this.isWeightTextSelected = state == .mealWeight
             }
             .store(in: &cancellables)
     }
@@ -400,9 +402,11 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         CustomKeyboardInput(
             title: mealItem.mealName,
             text: "\(mealItem.weight)",
-            servings: mealItem.servings,
+            servings: mealItem.servings.count > 1 ? mealItem.servings : [],
             currentServing: currentServing,
-            isPresentedPublisher: $mealSelectedState.map { $0 != .notSelected }.eraseToAnyPublisher()
+            isPresentedPublisher: $mealSelectedState.map { $0 != .notSelected }.eraseToAnyPublisher(),
+            shouldShowTextField: false,
+            isTextSelectedPublisher: $isWeightTextSelected.eraseToAnyPublisher()
         )
     }
 }
