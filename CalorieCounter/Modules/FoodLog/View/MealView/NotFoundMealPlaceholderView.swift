@@ -15,6 +15,7 @@ struct NotFoundMealPlaceholderView: View {
             Text(Localization.title)
                 .foregroundStyle(Color.studioBlackLight)
                 .font(.poppinsMedium(.body))
+                .multilineTextAlignment(.center)
 
             Text(barcode)
                 .foregroundStyle(Color.studioGreyPlaceholder)

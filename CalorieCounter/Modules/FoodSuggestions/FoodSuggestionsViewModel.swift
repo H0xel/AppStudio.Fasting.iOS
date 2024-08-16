@@ -149,6 +149,7 @@ class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
 
     func changeLogType(to logType: LogType) {
         self.logType = logType
+        isSuggestionsPresented = true
     }
 
     func hadle(foodSuggestionsScrollViewOutput output: FoodSuggestionsScrollViewOutput) {

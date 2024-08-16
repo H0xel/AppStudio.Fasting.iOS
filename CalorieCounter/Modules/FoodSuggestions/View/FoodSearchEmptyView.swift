@@ -16,13 +16,14 @@ struct FoodSearchEmptyView: View {
                 .font(.title2)
             HStack(spacing: .titleSpacing) {
                 Text(.tap)
-                    .font(.poppinsMedium(.body))
-                Image.sparkles
-                    .font(.subheadline.weight(.medium))
-                    .offset(y: .emojiOffset)
+                    .font(.poppinsMedium(.body)) +
+                Text(" ") +
+                Text(Image.sparkles) +
+                Text(" ") +
                 Text(.toUse)
                     .font(.poppinsMedium(.body))
             }
+            .multilineTextAlignment(.center)
             .foregroundStyle(Color.studioGreyText)
         }
     }

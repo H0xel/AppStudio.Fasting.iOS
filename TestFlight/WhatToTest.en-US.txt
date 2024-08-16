@@ -1,1 +1,1 @@
-Release build fasting 1.2.11
+Release candidate CC 1.1.8

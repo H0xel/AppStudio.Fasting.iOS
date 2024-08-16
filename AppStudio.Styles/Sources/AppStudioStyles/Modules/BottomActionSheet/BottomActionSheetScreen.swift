@@ -26,7 +26,7 @@ struct BottomActionSheetScreen: View {
                 Button(viewModel.configuration.leftButtonTitle, action: viewModel.leftButtonTapped)
                     .font(.poppins(.buttonText))
                     .foregroundStyle(Color.black)
-                    .padding(.vertical, .leftButtonVerticalPadding)
+                    .frame(height: .buttonHeight)
                     .continiousCornerRadius(.cornerRadius)
                     .aligned(.centerHorizontaly)
                     .border(configuration: .init(cornerRadius: .cornerRadius, color: Color.studioGreyStrokeFill))
@@ -34,7 +34,7 @@ struct BottomActionSheetScreen: View {
                 Button(viewModel.configuration.rightButtonTitle, action: viewModel.rightButtonTapped)
                     .font(.poppins(.buttonText))
                     .foregroundStyle(Color.white)
-                    .padding(.vertical, .rightButtonVerticalPadding)
+                    .frame(height: .buttonHeight)
                     .aligned(.centerHorizontaly)
                     .background(Color.studioBlackLight)
                     .continiousCornerRadius(.cornerRadius)
@@ -58,6 +58,8 @@ private extension CGFloat {
 
     static let horizontalPadding: CGFloat = 24
     static let topPadding: CGFloat = 40
+
+    static let buttonHeight: CGFloat = 64
 }
 
 
