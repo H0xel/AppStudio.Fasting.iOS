@@ -11,7 +11,6 @@ import Combine
 import WaterCounter
 
 struct SuggestedMealItemView: View {
-
     let meal: SuggestedMeal
     let searchRequestPublisher: AnyPublisher<String, Never>
     let isSelected: Bool
@@ -65,6 +64,9 @@ struct SuggestedMealItemView: View {
         if meal.mealItem.ingredients.count > 1 {
             return nil
         }
+        if meal.mealItem.ingredients.count == 1 {
+            return meal.mealItem.ingredients[0].servingTitle
+        }
         if let weight = meal.mealItem.servings
             .first(where: { $0.measure == WaterUnits.liters.unitsTitle })?
             .quantity
@@ -72,10 +74,10 @@ struct SuggestedMealItemView: View {
             return weight + " " + WaterUnits.liters.unitsTitle
         }
 
-        if let gText = meal.mealItem.servings
+        if let gWeight = meal.mealItem.servings
             .first(where: { $0.measure == MealServing.gramms.measure })?
-            .weight?
-            .withoutDecimalsIfNeeded {
+            .weight {
+            let gText = (gWeight * meal.mealItem.servingMultiplier).withoutDecimalsIfNeeded
             return gText + " " + MealServing.gramms.measure
         }
         return meal.mealItem.servingTitle
@@ -93,7 +95,6 @@ struct SuggestedMealItemView: View {
     }
 
     private func attributedTextPart(part: String) -> NSAttributedString {
-
         let fontName = requestWords.contains(part.lowercased())
         ? "Poppins-SemiBold"
         : "Poppins-Regular"
@@ -118,7 +119,6 @@ struct SuggestedMealItemView: View {
 
     private var parts: [String] {
         var name = meal.mealItem.nameDotBrand
-
         requestWords.forEach { searchWord in
             if name.contains(searchWord.capitalized) {
                 name = name
@@ -127,7 +127,6 @@ struct SuggestedMealItemView: View {
                         with: "***\(searchWord.capitalized)***",
                         options: [.caseInsensitive]
                     )
-
             } else {
                 name = name
                     .replacingOccurrences(
@@ -136,7 +135,6 @@ struct SuggestedMealItemView: View {
                         options: [.caseInsensitive]
                     )
             }
-
         }
         return name.split(separator: "***")
             .map { String($0) }

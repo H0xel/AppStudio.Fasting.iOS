@@ -10,12 +10,12 @@ import Foundation
 enum MealSelectedState: Equatable {
     case notSelected
     case delete
-    case ingredient(Ingredient)
-    case ingredientWeight(Ingredient)
+    case ingredient(IngredientStruct)
+    case ingredientWeight(IngredientStruct)
     case mealWeight
     case addIngredients
 
-    var ingredient: Ingredient? {
+    var ingredient: IngredientStruct? {
         switch self {
         case .notSelected, .delete, .mealWeight, .addIngredients:
             nil

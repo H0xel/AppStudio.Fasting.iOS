@@ -16,7 +16,7 @@ class MealUsageServiceImpl: MealUsageService {
     func incrementUsage(_ mealItem: MealItem, mealType: MealType) async throws -> MealUsage {
         for ingredient in mealItem.ingredients {
             let item = try await mealItemService
-                .mealItem(byName: ingredient.mealName, creationType: ingredient.type) ?? ingredient
+                .mealItem(byName: ingredient.name, creationType: .ingredient) ?? ingredient.mealItem
             _ = try await incrementUsage(item, mealType: mealType)
         }
         if let usage = try await mealUsageRepository.usage(byMealId: mealItem.id, type: mealType) {
@@ -33,7 +33,7 @@ class MealUsageServiceImpl: MealUsageService {
 
         for ingredient in mealItem.ingredients {
             let item = try await mealItemService
-                .mealItem(byName: ingredient.mealName, creationType: ingredient.type) ?? ingredient
+                .mealItem(byName: ingredient.name, creationType: .ingredient) ?? ingredient.mealItem
             _ = try await decrementUsage(item, mealType: mealType)
         }
 
@@ -50,7 +50,7 @@ class MealUsageServiceImpl: MealUsageService {
 
         try await mealUsageRepository.delete(byId: decrementedUsage.id)
 
-        guard mealItem.canBeDeletedOnZeroUsage else {
+        guard mealItem.type == .chatGPT || mealItem.type == .ingredient else {
             return
         }
         let otherUsages = usages.filter { $0.id != decrementedUsage.id }

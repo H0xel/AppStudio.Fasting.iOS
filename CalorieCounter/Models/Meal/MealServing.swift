@@ -36,6 +36,15 @@ extension MealServing {
         }
         return pluralMeasure
     }
+}
+
+extension MealServing {
+    func grammsTitle(weight: Double) -> String? {
+        if let gramms = gramms(value: weight) {
+            return "\(gramms.withoutDecimalsIfNeeded) \(MealServing.gramms.units(for: weight))"
+        }
+        return nil
+    }
 
     func gramms(value: Double) -> Double? {
         if let weight {
@@ -78,6 +87,10 @@ extension MealServing {
 extension MealServing {
     static var gramms: MealServing {
         .init(weight: 100, measure: "g", quantity: 100)
+    }
+
+    static var milliliters: MealServing {
+        .init(weight: 100, measure: "ml", quantity: 100)
     }
 
     static var ounces: MealServing {

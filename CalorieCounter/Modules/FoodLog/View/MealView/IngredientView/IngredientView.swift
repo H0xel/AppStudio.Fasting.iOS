@@ -74,12 +74,17 @@ private extension CGFloat {
 
 #Preview {
     VStack {
-        IngredientView(viewModel: .init(
-            input: .init(ingredient: .mock,
-                         router: .init(navigator: .init()),
-                         statePublisher: Just(.mock).eraseToAnyPublisher(), 
-                         tappedWeightIngredientPublisher: Just(.mock).eraseToAnyPublisher()),
-            output: { _ in }))
+        IngredientView(
+            viewModel: .init(
+                input: .init(
+                    ingredient: .mock,
+                    router: .init(navigator: .init()),
+                    statePublisher: Just(.mock).eraseToAnyPublisher(),
+                    tappedWeightIngredientPublisher: Just(.mock).eraseToAnyPublisher()
+                ),
+                output: { _ in }
+            )
+        )
         IngredientPlaceholderView(placeholder: .init(mealText: ""), onClose: {})
     }
 }

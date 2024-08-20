@@ -11,17 +11,17 @@ import Dependencies
 import Combine
 
 struct IngredientViewInput {
-    let ingredient: Ingredient
+    let ingredient: IngredientStruct
     let router: IngredientRouter
-    let statePublisher: AnyPublisher<Ingredient?, Never>
-    let tappedWeightIngredientPublisher: AnyPublisher<Ingredient, Never>
+    let statePublisher: AnyPublisher<IngredientStruct?, Never>
+    let tappedWeightIngredientPublisher: AnyPublisher<IngredientStruct, Never>
 }
 
 enum IngredientOutput {
-    case ingredientTapped(Ingredient)
-    case weightTapped(Ingredient)
-    case deleted(Ingredient)
-    case updated(newIngredient: Ingredient, oldIngredient: Ingredient)
+    case ingredientTapped(IngredientStruct)
+    case weightTapped(IngredientStruct)
+    case deleted(IngredientStruct)
+    case updated(newIngredient: IngredientStruct, oldIngredient: IngredientStruct)
     case direction(CustomKeyboardDirection)
     case notSelected
 }
@@ -39,7 +39,7 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
     @Published var isWeightTextSelected = false
     @Published private var editingResult: CustomKeyboardResult?
 
-    let ingredient: Ingredient
+    let ingredient: IngredientStruct
     private let router: IngredientRouter
 
     init(input: IngredientViewInput, output: @escaping ViewOutput<IngredientOutput>) {
@@ -88,7 +88,7 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
         presentIngredientDeleteBanner(ingredient: ingredient)
     }
 
-    private func observeStateChange(publisher: AnyPublisher<Ingredient?, Never>) {
+    private func observeStateChange(publisher: AnyPublisher<IngredientStruct?, Never>) {
         publisher
             .dropFirst()
             .receive(on: DispatchQueue.main)
@@ -101,7 +101,7 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
             .store(in: &cancellables)
     }
 
-    private func observeTappedWeightPublisher(publisher: AnyPublisher<Ingredient, Never>) {
+    private func observeTappedWeightPublisher(publisher: AnyPublisher<IngredientStruct, Never>) {
         publisher
             .receive(on: DispatchQueue.main)
             .sink(with: self) { this, ingredient in
@@ -122,7 +122,7 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
         trackWeightChanged(newWeight: result.value)
     }
 
-    private func presentIngredientDeleteBanner(ingredient: Ingredient) {
+    private func presentIngredientDeleteBanner(ingredient: IngredientStruct) {
         router.presentDeleteBanner(editType: .deleteIngredient) { [weak self] in
             self?.clearSelection()
         } onDelete: { [weak self] in

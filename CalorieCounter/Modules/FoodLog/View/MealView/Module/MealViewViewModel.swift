@@ -17,21 +17,22 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     @Dependency(\.mealUsageService) private var mealUsageService
     @Dependency(\.calorieCounterService) private var calorieCounterService
     @Dependency(\.foodSearchService) private var foodSearchService
+    @Dependency(\.mealItemService) private var mealItemService
 
     @Published var meal: Meal
     @Published var mealSelectedState: MealSelectedState = .notSelected
     @Published var ingredientPlaceholders: [MealPlaceholder] = []
     @Published var hasSubscription: Bool = false
     @Published var editingWeight: CustomKeyboardResult?
+    private let tappedIngredientSubject = CurrentValueSubject<IngredientStruct?, Never>(nil)
     @Published var isWeightTextSelected = false
-    private let tappedIngredientSubject = CurrentValueSubject<Ingredient?, Never>(nil)
 
     private let router: MealViewRouter
 
     init(meal: Meal,
          mealSelectionPublisher: AnyPublisher<String?, Never>,
          hasSubscriptionPublisher: AnyPublisher<Bool, Never>,
-         selectedIngredientPublisher: AnyPublisher<(String, Ingredient), Never>,
+         selectedIngredientPublisher: AnyPublisher<(String, IngredientStruct), Never>,
          tappedWeightMealPublisher: AnyPublisher<String, Never>,
          router: MealViewRouter,
          output: @escaping ViewOutput<MealViewOutput>) {
@@ -82,7 +83,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     }
 
 
-    var ingredients: [Ingredient] {
+    var ingredients: [IngredientStruct] {
         mealItem.ingredients
     }
 
@@ -101,7 +102,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         self.meal = meal
     }
 
-    func ingredientViewModel(ingredient: Ingredient) -> IngredientViewModel {
+    func ingredientViewModel(ingredient: IngredientStruct) -> IngredientViewModel {
         .init(input: .init(
             ingredient: ingredient,
             router: .init(navigator: router.navigator),
@@ -154,14 +155,14 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         case .scanBarcode(let isAccesGranted):
             clearSelection()
             barcodeScan(accessGranted: isAccesGranted)
-        case .add(let mealItem):
-            try await addIngredient(mealItem: mealItem)
-        case .remove(let mealItem):
-            try await removeIngredient(mealItem: mealItem)
+        case .add(let ingredient):
+            try await addIngredient(ingredient)
+        case .remove(let ingredient):
+            try await removeIngredient(mealItem: ingredient)
         case .dismiss:
             clearSelection()
-        case .present(let mealItem):
-            router.presentCustomProduct(mealItem: mealItem) { [weak self] output in
+        case .present(let ingredient):
+            router.presentCustomProduct(mealItem: ingredient.mealItem) { [weak self] output in
                 self?.handle(customProductOutput: output)
             }
         }
@@ -171,11 +172,11 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         Task { @MainActor in
             switch output {
             case .add(let mealItem):
-                try await addIngredient(mealItem: mealItem)
+                try await addIngredient(IngredientStruct(mealItem: mealItem))
                 await router.dismiss()
                 clearSelection()
             case .log(let mealItem):
-                try await addIngredient(mealItem: mealItem)
+                try await addIngredient(IngredientStruct(mealItem: mealItem))
                 await router.dismiss(FoodLogRoute.self)
             }
         }
@@ -205,20 +206,33 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     }
 
     @MainActor
-    private func addIngredient(mealItem: MealItem) async throws {
-        if self.mealItem.type == .ingredient{
-            let newMealItem = self.mealItem.convertIngredientToMealItem(with: [mealItem])
+    private func addIngredient(_ ingredient: IngredientStruct) async throws {
+        if self.mealItem.type == .ingredient {
+            let newMealItem = self.mealItem.convertIngredientToMealItem(with: [ingredient])
             let meal = meal.copyWith(mealItem: newMealItem)
             try await updateWithNewIngredietns(meal: meal)
             _ = try await mealUsageService.incrementUsage(newMealItem, mealType: meal.type)
             return
         }
-        let meal = meal.copyWith(ingredients: [mealItem] + ingredients)
+        if mealItem.type == .product {
+            let newMealItem = MealItem(id: UUID().uuidString,
+                                       type: .chatGPT,
+                                       name: "",
+                                       ingredients: [ingredient, IngredientStruct(mealItem: self.mealItem)],
+                                       servingMultiplier: 1, 
+                                       serving: .serving,
+                                       servings: [])
+            let meal = meal.copyWith(mealItem: newMealItem)
+            try await updateCustomProduct(meal)
+            _ = try await mealUsageService.incrementUsage(newMealItem, mealType: meal.type)
+            return
+        }
+        let meal = meal.copyWith(ingredients: [ingredient] + ingredients)
         try await updateWithNewIngredietns(meal: meal)
     }
 
     @MainActor
-    private func removeIngredient(mealItem: MealItem) async throws {
+    private func removeIngredient(mealItem: IngredientStruct) async throws {
         if self.mealItem.id == mealItem.id, self.mealItem.type == .ingredient{
             clearSelection()
             self.deleteMeal(meal)
@@ -237,7 +251,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         self.output(.mealUpdated(meal: meal))
     }
 
-    private func observeSelectedIngredient(publisher: AnyPublisher<(String, Ingredient), Never>) {
+    private func observeSelectedIngredient(publisher: AnyPublisher<(String, IngredientStruct), Never>) {
         publisher
             .filter { [weak self] ingredient in ingredient.0 == self?.meal.id }
             .receive(on: DispatchQueue.main)
@@ -321,7 +335,15 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     }
 
     @MainActor
-    private func updateIngredients(newIngredients: [Ingredient]) async throws {
+    private func updateIngredients(newIngredients: [IngredientStruct]) async throws {
+        if newIngredients.count == 1 {
+            try await mealUsageService.decrementUsage(meal.mealItem, mealType: meal.type)
+            let ingredient = try await mealItemService.mealItem(byId: newIngredients[0].mealItem.id)
+            let newMeal = meal.copyWith(mealItem: ingredient ?? newIngredients[0].mealItem)
+            try await updateMeal(newMeal)
+            output(.mealUpdated(meal: newMeal))
+            return
+        }
         let newMeal = meal.copyWith(ingredients: newIngredients)
         try await updateMeal(newMeal)
         output(.mealUpdated(meal: newMeal))
@@ -334,17 +356,25 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         }
         let changedMealItem = meal.mealItem.updated(value: newWeight.value, serving: newWeight.serving)
         let changedMeal = meal.copyWith(mealItem: changedMealItem)
-        try await updateMeal(changedMeal)
-        output(.mealUpdated(meal: changedMeal))
         trackerService.track(.weightChanged(currentWeight: newWeight.value,
                                             previousWeight: meal.mealItem.weight,
                                             context: .meal))
+        try await updateMeal(changedMeal)
+        output(.mealUpdated(meal: changedMeal))
     }
 
     @MainActor
     private func updateMeal(_ meal: Meal) async throws {
         let meal = try await mealService.save(meal: meal)
         self.meal = meal
+    }
+
+    @MainActor
+    private func updateCustomProduct(_ meal: Meal) async throws {
+        _ = try await mealItemService.forceSave(meal.mealItem)
+        let meal = try await mealService.saveWithoutMealItem(meal: meal)
+        self.meal = meal
+        self.output(.mealUpdated(meal: meal))
     }
 
     private func deleteMeal(_ meal: Meal) {
@@ -439,13 +469,27 @@ extension MealViewViewModel {
     }
 
     @MainActor
-    private func removePlaceholderAndUpdateIngredients(placeholderId: String, ingredients: [Ingredient]) async throws {
+    private func removePlaceholderAndUpdateIngredients(placeholderId: String,
+                                                       ingredients: [IngredientStruct]) async throws {
         removeIngredientPlaceholder(placeholderId: placeholderId)
         if self.mealItem.type == .ingredient {
             let newMealItem = self.mealItem.convertIngredientToMealItem(with: ingredients)
             let meal = meal.copyWith(mealItem: newMealItem)
             _ = try await mealUsageService.incrementUsage(newMealItem, mealType: meal.type)
             try await updateWithNewIngredietns(meal: meal)
+            return
+        }
+        if mealItem.type == .product {
+            let newMealItem = MealItem(id: UUID().uuidString,
+                                       type: .chatGPT,
+                                       name: "",
+                                       ingredients: ingredients + [IngredientStruct(mealItem: self.mealItem)],
+                                       servingMultiplier: 1,
+                                       serving: .serving,
+                                       servings: [])
+            let meal = meal.copyWith(mealItem: newMealItem)
+            try await updateCustomProduct(meal)
+            _ = try await mealUsageService.incrementUsage(newMealItem, mealType: meal.type)
             return
         }
         let meal = meal.copyWith(ingredients: ingredients + mealItem.ingredients)

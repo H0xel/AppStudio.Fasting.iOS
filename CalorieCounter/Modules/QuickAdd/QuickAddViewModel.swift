@@ -60,15 +60,24 @@ class QuickAddViewModel: BaseViewModel<QuickAddOutput> {
     }
 
     private func createMeal() {
-        let mealItem = MealItem.createQuickAdd(
-            name: foodName,
-            profile: .init(
-                calories: calories,
-                proteins: proteins,
-                fats: fats,
-                carbohydrates: carbs
-            )
+
+        let profile = NutritionProfile(
+            calories: calories,
+            proteins: proteins,
+            fats: fats,
+            carbohydrates: carbs
         )
+
+        let mealItem = MealItem(
+            id: UUID().uuidString,
+            type: .quickAdd,
+            name: foodName,
+            normalizedProfile: profile,
+            servingMultiplier: 1.0,
+            servings: .defaultServings,
+            dateUpdated: .now
+        )
+
         let meal = Meal(
             id: UUID().uuidString,
             type: mealType,

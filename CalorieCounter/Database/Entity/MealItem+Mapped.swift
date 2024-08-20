@@ -25,7 +25,8 @@ extension MealItem: EntityMappable {
         if let oldIngredients = try? [OldIngredient](json: entity.ingredients ?? "") {
             ingredients = oldIngredients.asMealArray
         } else {
-            ingredients = (try? [MealItem](json: entity.ingredients ?? "")) ?? []
+            let ingredients = (try? [MealItem](json: entity.ingredients ?? "")) ?? []
+            self.ingredients = ingredients.map { IngredientStruct(mealItem: $0) }
         }
 
         self.normalizedProfile = .init(calories: entity.normalizedProfileCalories,
@@ -63,7 +64,7 @@ extension MealItem: EntityMappable {
         entity.subtitle = subTitle
         entity.notes = notes
 
-        entity.ingredients = ingredients.json()
+        entity.ingredients = ingredients.map { $0.mealItem }.json()
 
         entity.normalizedProfileCalories = normalizedProfile.calories
         entity.normalizedProfileProteins = normalizedProfile.proteins

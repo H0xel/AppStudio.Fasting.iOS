@@ -79,7 +79,7 @@ extension OldIngredient {
 }
 
 extension Array where Element == OldIngredient {
-    var asMealArray: [MealItem] {
-        self.map { $0.asMeal }
+    var asMealArray: [IngredientStruct] {
+        self.map { IngredientStruct(mealItem: $0.asMeal) }
     }
 }

@@ -81,7 +81,7 @@ extension NutritionFood {
             subTitle: nil,
             brandFoodId: brandedFoodId,
             notes: nil,
-            ingredients: [ingredient],
+            ingredients: [IngredientStruct(mealItem: ingredient)],
             normalizedProfile: .empty,
             additionInfo: nil,
             totalWeight: nil,

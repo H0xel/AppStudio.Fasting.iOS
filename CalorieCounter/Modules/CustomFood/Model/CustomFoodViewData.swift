@@ -171,9 +171,8 @@ private extension MealItem {
         let selectedServing = MealServing(weight: servingSize,
                                           measure: grViewData.servingName,
                                           quantity: grViewData.servingAmount)
-
         serving = selectedServing
-        servingMultiplier = serving.multiplier(for: 1.0 * serving.quantity)
+        servingMultiplier = selectedServing.multiplier(for: selectedServing.quantity)
 
         var servings = [selectedServing]
 

@@ -14,4 +14,5 @@ protocol MealItemService {
     func delete(byId id: String) async throws
     func mealItemObserver() -> MealItemObserver
     func update(mealItem: MealItem) async throws -> MealItem
+    func forceSave(_ mealItem: MealItem) async throws -> MealItem
 }

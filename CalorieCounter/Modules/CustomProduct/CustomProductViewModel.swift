@@ -43,7 +43,7 @@ class CustomProductViewModel: BaseViewModel<CustomProductOutput> {
         mealItem.brandSubtitle
     }
 
-    var ingredients: [MealItem] {
+    var ingredients: [IngredientStruct] {
         mealItem.ingredients
     }
 

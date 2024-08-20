@@ -13,7 +13,6 @@ import Combine
 
 class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
 
-    @Dependency(\.calorieCounterService) private var calorieCounterService
     @Dependency(\.mealService) private var mealService
     @Dependency(\.foodSearchService) private var foodSearchService
     @Dependency(\.freeUsageService) private var freeUsageService
@@ -31,13 +30,13 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     @Published var isBannerPresented = false
     @Published var isKeyboardPresented = false
     @Published var selectedMealId: String?
-    @Published var selectedIngredient: Ingredient?
+    @Published var selectedIngredient: IngredientStruct?
     let dayDate: Date
     private let context: FoodLogContext
     @Atomic private var mealsCountInDay: Int
     private let editQuickAddSubject = PassthroughSubject<Meal, Never>()
     private let scrollToTopSubject = PassthroughSubject<Void, Never>()
-    private let selectedWeightIngredientSubject = PassthroughSubject<(String, Ingredient), Never>()
+    private let selectedWeightIngredientSubject = PassthroughSubject<(String, IngredientStruct), Never>()
     private let tappedWeightMealSubject = PassthroughSubject<String, Never>()
 
     init(input: FoodLogInput, output: @escaping FoodLogOutputBlock) {

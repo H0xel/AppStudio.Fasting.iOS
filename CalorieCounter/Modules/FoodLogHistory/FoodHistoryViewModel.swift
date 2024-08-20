@@ -162,7 +162,6 @@ extension FoodHistoryViewModel {
         mealRequest = ""
         switch mealItem.type {
         case .needToUpdateBrand:
-
             let foodSearchService = foodSearchService
             Task {
                 let brandMealItem = try await foodSearchService.searchBranded(brandFoodId: mealItem.brandFoodId ?? "") ?? mealItem

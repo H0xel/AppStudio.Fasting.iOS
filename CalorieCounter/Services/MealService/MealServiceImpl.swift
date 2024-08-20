@@ -19,6 +19,10 @@ class MealServiceImpl: MealService {
         return try await mealRepository.save(meal: meal)
     }
 
+    func saveWithoutMealItem(meal: Meal) async throws -> Meal {
+        try await mealRepository.save(meal: meal)
+    }
+
     func save(meals: [Meal]) async throws {
         for meal in meals {
             _ = try await save(meal: meal)

@@ -10,7 +10,7 @@ import AppStudioStyles
 
 struct CustomProductIngredientsView: View {
 
-    let ingredients: [MealItem]
+    let ingredients: [IngredientStruct]
     let servingMultiplier: Double
 
     var body: some View {
@@ -42,12 +42,12 @@ struct CustomProductIngredientsView: View {
         }
     }
 
-    private func servingValue(ingredient: MealItem) -> String {
+    private func servingValue(ingredient: IngredientStruct) -> String {
         let weight = ingredient.weight * servingMultiplier
         return "\(weight.withoutDecimalsIfNeeded) \(ingredient.serving.units(for: weight))"
     }
 
-    private func servingWeight(ingredient: MealItem) -> String {
+    private func servingWeight(ingredient: IngredientStruct) -> String {
         if let gramms = ingredient.serving.gramms(value: ingredient.weight) {
             let weight = gramms * servingMultiplier
             return "\(weight.withoutDecimalsIfNeeded) \(MealServing.gramms.measure)"
@@ -63,7 +63,6 @@ private extension CGFloat {
 }
 
 #Preview {
-    CustomProductIngredientsView(ingredients: [.mockIngredient, .mockIngredient], 
-                                 servingMultiplier: 1)
+    CustomProductIngredientsView(ingredients: [.mock, .mock], servingMultiplier: 1)
         .padding(.horizontal, 16)
 }

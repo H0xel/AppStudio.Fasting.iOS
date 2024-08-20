@@ -44,18 +44,18 @@ class FoodSearchServiceImpl: FoodSearchService {
         }
     }
 
-    func searchIngredient(barcode: String) async throws -> MealItem? {
+    func searchIngredient(barcode: String) async throws -> IngredientStruct? {
         guard let code = Int64(barcode) else {
             return nil
         }
         if let ingredient = try await foodSearchCacheService.cachedIngredient(of: barcode) {
-            return ingredient
+            return IngredientStruct(mealItem: ingredient)
         }
         guard let apiIngredient = try await nutritionFoodSearchApi.search(code: code).asIngredientMealItem else {
             return nil
         }
         try await foodSearchCacheService.cache(ingredient: apiIngredient, for: barcode)
-        return apiIngredient
+        return IngredientStruct(mealItem: apiIngredient)
     }
 
     func searchText(query: String) async throws -> [MealItem] {
@@ -141,6 +141,11 @@ private extension FoodSearchResponse {
         // TODO: тут могут быть ml или g, надо будет обработать в будующем
         let weight = food.servingSize ?? 0
 
+        let profile = NutritionProfile(calories: calories,
+                                       proteins: protein,
+                                       fats: fat,
+                                       carbohydrates: carbo)
+
         return MealItem(
             id: UUID().uuidString,
             type: .chatGPT,
@@ -148,23 +153,17 @@ private extension FoodSearchResponse {
             subTitle: nil,
             notes: nil,
             ingredients: [
-                .createIngredient(
-                    name: name,
-                    brand: brandName,
-                    weight: Double(weight),
-                    normalizedProfile: .init(
-                        calories: calories,
-                        proteins: protein,
-                        fats: fat,
-                        carbohydrates: carbo)
-                )
+                IngredientStruct(name: name,
+                                 brandTitle: brandName,
+                                 weight: Double(weight),
+                                 normalizedProfile: profile)
             ],
             servingMultiplier: 1.0,
             servings: .defaultServings
         )
     }
 
-    func asIngredient(fdcId: String) -> MealItem? {
+    func asIngredient(fdcId: String) -> IngredientStruct? {
 
         guard let foods else {
             return nil
@@ -189,16 +188,14 @@ private extension FoodSearchResponse {
         // TODO: тут могут быть ml или g, надо будет обработать в будующем
         let weight = food.servingSize ?? 0
 
-        return MealItem.createIngredient(
-            name: name,
-            brand: brandName,
-            weight: Double(weight),
-            normalizedProfile: .init(
-                calories: calories,
-                proteins: protein,
-                fats: fat,
-                carbohydrates: carbo
-            )
-        )
+        let profile = NutritionProfile(calories: calories,
+                                       proteins: protein,
+                                       fats: fat,
+                                       carbohydrates: carbo)
+
+        return IngredientStruct(name: name,
+                                brandTitle: brandName,
+                                weight: Double(weight),
+                                normalizedProfile: profile)
     }
 }

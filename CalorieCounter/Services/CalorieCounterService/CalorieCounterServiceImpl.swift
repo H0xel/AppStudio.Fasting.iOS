@@ -13,38 +13,38 @@ class CalorieCounterServiceImpl: CalorieCounterService {
     @Dependency(\.calorieCounterCacheService) private var calorieCounterCacheService
 
     func food(request: String) async throws -> [MealItem] {
-        if let cachedMeals: [MealItem] = try await calorieCounterCacheService.cached(request: request) {
+        if let cachedMeals: [MealItem] = try await calorieCounterCacheService.cached(request: request),
+           !cachedMeals.isEmpty {
             return cachedMeals
         }
-
         let meals = try await calorieCounterApi.food(request: request).meals.map { $0.asMeal }
         try await calorieCounterCacheService.set(meals: meals, for: request)
-
         return meals
     }
 
-    func ingredients(request: String) async throws -> [MealItem] {
-        if let cachedIngredients: [MealItem] = try await calorieCounterCacheService.cachedIngredients(request: request) {
-            return cachedIngredients
+    func ingredients(request: String) async throws -> [IngredientStruct] {
+        if let cachedIngredients: [MealItem] = try await calorieCounterCacheService
+            .cachedIngredients(request: request) {
+            return cachedIngredients.map { IngredientStruct(mealItem: $0) }
         }
-
-        let ingredients = try await calorieCounterApi.ingredients(request: request).ingredients.map { $0.asIngridient }
+        let ingredients = try await calorieCounterApi.ingredients(request: request)
+            .ingredients.map { $0.asIngridient.mealItem }
         try await calorieCounterCacheService.set(ingredients: ingredients, for: request)
 
-        return ingredients
+        return ingredients.map { IngredientStruct(mealItem: $0) }
     }
 }
 
 private extension ApiIngredient {
-    var asIngridient: MealItem {
-        .createIngredient(
+    var asIngridient: IngredientStruct {
+        IngredientStruct(
             name: name,
-            brand: nil,
+            brandTitle: nil,
             weight: weight,
-            nutritionProfile: .init(calories: calories,
-                                    proteins: proteins,
-                                    fats: fats,
-                                    carbohydrates: carbohydrates)
+            normalizedProfile: .init(calories: calories,
+                                     proteins: proteins,
+                                     fats: fats,
+                                     carbohydrates: carbohydrates)
         )
     }
 }
@@ -56,7 +56,7 @@ private extension ApiMeal {
             type: .chatGPT,
             name: ingredients.count == 1 ? "" : name,
             ingredients: ingredients.map { $0.asIngridient },
-            servingMultiplier: 1.0, 
+            servingMultiplier: 1.0,
             serving: ingredients.count == 1 ? .defaultServing : .serving,
             servings: ingredients.count == 1 ? .defaultServings : [.serving]
         )

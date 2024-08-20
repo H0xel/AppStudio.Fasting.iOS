@@ -12,7 +12,7 @@ struct MealViewInput {
     let ingredientPlaceholders: [MealPlaceholder]
     let isTapped: Bool
     let isWeightTapped: Bool
-    let tappedIngredient: Ingredient?
-    let tappedWeightIngredient: Ingredient?
+    let tappedIngredient: IngredientStruct?
+    let tappedWeightIngredient: IngredientStruct?
     let voting: MealVoting?
 }

@@ -7,5 +7,5 @@
 
 protocol CalorieCounterService {
     func food(request: String) async throws -> [MealItem]
-    func ingredients(request: String) async throws -> [MealItem]
+    func ingredients(request: String) async throws -> [IngredientStruct]
 }

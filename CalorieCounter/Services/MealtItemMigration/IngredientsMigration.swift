@@ -22,8 +22,8 @@ class IngredientsMigration: Migration {
             let ingredients = meal.mealItem.ingredients
             for ingredient in ingredients {
                 let mealItem = (try? await mealItemService
-                    .mealItem(byName: ingredient.mealName, creationType: ingredient.type))
-                ?? ingredient.withReplacedEmptyId
+                    .mealItem(byName: ingredient.name, creationType: .ingredient))
+                ?? ingredient.updated(id: ingredient.id.isEmpty ? UUID().uuidString : ingredient.id).mealItem
                 _ = try? await mealItemService.save(mealItem)
                 _ = try? await mealUsageService.incrementUsage(mealItem, mealType: meal.type)
                 await Task.yield()

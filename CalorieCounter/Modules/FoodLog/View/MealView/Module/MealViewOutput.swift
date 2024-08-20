@@ -14,7 +14,7 @@ enum MealViewOutput {
     case selected(String)
     case editQuickAdd(Meal)
     case hasSubscription(Bool)
-    case ingredientSelected(Ingredient?)
+    case ingredientSelected(IngredientStruct?)
     case selectedNext
     case selectPrev
 }

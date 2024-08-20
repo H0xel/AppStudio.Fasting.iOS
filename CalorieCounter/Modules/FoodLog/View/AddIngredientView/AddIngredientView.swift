@@ -12,10 +12,10 @@ import AppStudioNavigation
 enum AddIngredientOutput {
     case search(String)
     case scanBarcode(Bool)
-    case add(MealItem)
-    case remove(MealItem)
+    case add(IngredientStruct)
+    case remove(IngredientStruct)
     case dismiss
-    case present(MealItem)
+    case present(IngredientStruct)
 }
 
 struct AddIngredientTextField: View {
@@ -80,7 +80,7 @@ struct AddIngredientTextField: View {
     private var mealItemsPublisher: AnyPublisher<[MealItem], Never> {
         mealPublisher
             .map {
-                $0.mealItem.type == .ingredient ? [$0.mealItem] : $0.mealItem.ingredients
+                $0.mealItem.type == .ingredient ? [$0.mealItem] : $0.mealItem.ingredients.map { $0.mealItem }
             }
             .eraseToAnyPublisher()
     }
@@ -88,15 +88,15 @@ struct AddIngredientTextField: View {
     private func handle(foodSuggestionsOutput output: FoodSuggestionsOutput) {
         switch output {
         case .add(let mealItem):
-            self.output(.add(mealItem))
+            self.output(.add(IngredientStruct(mealItem: mealItem)))
         case .remove(let mealItem):
-            self.output(.remove(mealItem))
+            self.output(.remove(IngredientStruct(mealItem: mealItem)))
         case .togglePresented(let isPresented):
             if !isPresented {
                 self.output(.dismiss)
             }
         case .present(let mealItem):
-            self.output(.present(mealItem))
+            self.output(.present(IngredientStruct(mealItem: mealItem)))
         }
     }
 

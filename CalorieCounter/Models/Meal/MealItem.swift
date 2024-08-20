@@ -18,7 +18,7 @@ struct MealItem: Codable, Hashable {
     let notes: String?
 
     // content of meal
-    let ingredients: [MealItem]
+    let ingredients: [IngredientStruct]
     let amountPer: Double?
     let normalizedProfile: NutritionProfile
     let additionInfo: MealAdditionalInfo?
@@ -62,7 +62,7 @@ struct MealItem: Codable, Hashable {
          subTitle: String? = nil,
          brandFoodId: String? = nil,
          notes: String? = nil,
-         ingredients: [MealItem] = [],
+         ingredients: [IngredientStruct] = [],
          amountPer: Double? = nil,
          normalizedProfile: NutritionProfile = .empty,
          additionInfo: MealAdditionalInfo? = nil,
@@ -94,15 +94,11 @@ struct MealItem: Codable, Hashable {
 
 extension MealItem {
 
-
     var weight: Double {
-        if ingredients.isEmpty {
-            return serving.value(with: servingMultiplier)
-        }
         if ingredients.count == 1 {
             return ingredients[0].weight
         }
-        return servingMultiplier * serving.quantity
+        return serving.value(with: servingMultiplier)
     }
 
     var servingTitle: String {
@@ -110,19 +106,26 @@ extension MealItem {
     }
 
     var grammsTitle: String? {
-        if let gramms = serving.gramms(value: weight) {
-            return "\(gramms.withoutDecimalsIfNeeded) \(MealServing.gramms.units(for: weight))"
-        }
-        return nil
+        serving.grammsTitle(weight: weight)
     }
 
-    func convertIngredientToMealItem(with ingredients: [MealItem]) -> MealItem {
+    var nameDotBrand: String {
+        if let brandTitle = subTitle {
+            return "\(name.capitalized)  ·  \(brandTitle.capitalized )"
+        }
+        if name.isEmpty {
+            return nameFromIngredients
+        }
+        return name.capitalized
+    }
+
+    func convertIngredientToMealItem(with ingredients: [IngredientStruct]) -> MealItem {
         MealItem(
             id: UUID().uuidString,
             type: .chatGPT,
             name: "",
             brandFoodId: nil,
-            ingredients: ingredients + [self],
+            ingredients: ingredients + [IngredientStruct(mealItem: self)],
             servingMultiplier: 1,
             serving: .serving,
             servings: [],
@@ -131,105 +134,16 @@ extension MealItem {
     }
 
     func updated(value: Double, serving: MealServing) -> MealItem {
+        let servingMultiplier = serving.multiplier(for: value)
         if ingredients.isEmpty {
-            return updateWeight(value: value, serving: serving)
+            return updated(serving: serving, servingMultiplier: servingMultiplier)
         }
-
         if ingredients.count == 1 {
-            return ingredients[0].updateWeight(value: value, serving: serving)
+            return ingredients[0].updated(value: value, serving: serving).mealItem
         }
-        let servingMultiplier = value / serving.quantity
         return updated(serving: serving, servingMultiplier: servingMultiplier, ingredients: ingredients.map {
-            $0.updated(value: ($0.weight / $0.servingMultiplier) * servingMultiplier,
-                       serving: $0.serving)
+            $0.updated(value: $0.weight * servingMultiplier, serving: $0.serving)
         })
-    }
-
-    private func updateWeight(value: Double, serving: MealServing) -> MealItem {
-        .init(
-            id: id,
-            type: type,
-            name: name,
-            subTitle: subTitle,
-            brandFoodId: brandFoodId,
-            notes: notes,
-            ingredients: ingredients,
-            amountPer: amountPer,
-            normalizedProfile: normalizedProfile,
-            additionInfo: additionInfo,
-            totalWeight: totalWeight,
-            servingMultiplier: serving.multiplier(for: value),
-            serving: serving,
-            servings: servings,
-            barCode: barCode,
-            dateUpdated: .now)
-    }
-
-    static func createIngredient(name: String,
-                                 brand: String? = nil,
-                                 weight: Double? = nil,
-                                 normalizedProfile: NutritionProfile) -> MealItem {
-        var multiplier: Double = 1.0
-        if let weight {
-            multiplier = weight / 100
-        }
-        return MealItem(
-            id: UUID().uuidString,
-            type: .ingredient,
-            name: name,
-            subTitle: brand,
-            normalizedProfile: normalizedProfile,
-            servingMultiplier: multiplier,
-            servings: .defaultServings,
-            dateUpdated: .now
-        )
-    }
-
-    func createIngredient(name: String,
-                          brand: String? = nil,
-                          weight: Double? = nil,
-                          normalizedProfile: NutritionProfile) -> MealItem {
-        var multiplier: Double = 1.0
-        if let weight {
-            multiplier = weight / 100
-        }
-        return MealItem(
-            id: id,
-            type: type,
-            name: name,
-            subTitle: brand ?? subTitle,
-            normalizedProfile: normalizedProfile,
-            servingMultiplier: multiplier,
-            servings: .defaultServings,
-            dateUpdated: .now
-        )
-    }
-
-    static func createQuickAdd(name: String, profile: NutritionProfile) -> MealItem {
-        MealItem(id: UUID().uuidString,
-                 type: .quickAdd,
-                 name: name,
-                 normalizedProfile: profile,
-                 servingMultiplier: 1.0,
-                 servings: .defaultServings,
-                 dateUpdated: .now)
-    }
-
-    static func createIngredient(
-        name: String,
-        brand: String? = nil, 
-        weight: Double,
-        nutritionProfile: NutritionProfile
-    ) -> MealItem {
-
-        MealItem(id: UUID().uuidString,
-                 type: .ingredient,
-                 name: name,
-                 subTitle: brand,
-                 normalizedProfile: nutritionProfile.normalize(with: weight),
-                 servingMultiplier: weight / 100,
-                 servings: .defaultServings,
-                 dateUpdated: .now)
     }
 
     var nameFromIngredients: String {
@@ -249,7 +163,7 @@ extension MealItem {
             return subTitle
         }
 
-        if ingredients.count == 1, let ingredientBrandTitle = ingredients.first?.subTitle {
+        if ingredients.count == 1, let ingredientBrandTitle = ingredients.first?.brandTitle {
             return ingredientBrandTitle
         }
 
@@ -264,7 +178,7 @@ extension MealItem {
             return nameFromIngredients
         }
         if ingredients.count == 1, let ingredient = ingredients.first, !ingredient.name.isEmpty {
-            if let brandTitle = ingredient.subTitle {
+            if let brandTitle = ingredient.brandTitle, !brandTitle.isEmpty {
                 return "\(ingredient.name) by \(brandTitle)"
             }
             return ingredient.name
@@ -319,63 +233,10 @@ extension MealItem {
     }
 
     var nutritionProfile: NutritionProfile {
-        if !ingredients.isEmpty {
-            return ingredients.reduce(.empty) { $0 ++ $1.nutritionProfile }
+        if ingredients.isEmpty {
+            return normalizedProfile.calculate(servingMultiplier: servingMultiplier)
         }
-        if type == .product {
-            let customNutrition = normalizedProfile.calculate(servingMultiplier: servingMultiplier)
-            let ingredientsNutrition = ingredients.reduce(.empty) { $0 ++ $1.nutritionProfile }
-
-            return .init(
-                calories: customNutrition.calories + ingredientsNutrition.calories,
-                proteins: customNutrition.proteins + ingredientsNutrition.proteins,
-                fats: customNutrition.fats + ingredientsNutrition.fats,
-                carbohydrates: customNutrition.carbohydrates + ingredientsNutrition.carbohydrates
-            )
-        }
-        return normalizedProfile.calculate(servingMultiplier: servingMultiplier)
-    }
-
-    var customProductServingQuantity: Double? {
-        servings[safe: 0]?.quantity
-    }
-
-    var canBeDeletedOnZeroUsage: Bool {
-        if type == .chatGPT || type == .ingredient {
-            return true
-        }
-        return false
-    }
-
-    var withReplacedEmptyId: MealItem {
-        .init(id: id.isEmpty ? UUID().uuidString : id,
-              type: type,
-              name: name,
-              subTitle: subTitle,
-              brandFoodId: brandFoodId,
-              notes: notes,
-              ingredients: ingredients,
-              amountPer: amountPer,
-              normalizedProfile: normalizedProfile,
-              additionInfo: additionInfo,
-              totalWeight: totalWeight,
-              servingMultiplier: servingMultiplier,
-              serving: serving,
-              servings: servings,
-              barCode: barCode,
-              dateUpdated: dateUpdated)
-    }
-
-    mutating func update(serving: MealServing) {
-        let prevServing = self.serving
-        guard let prevWeight = prevServing.weight, prevWeight > 0,
-              let newWeight = serving.weight, newWeight > 0 else {
-            self.serving = serving
-            return
-        }
-        let newMultiplier = self.servingMultiplier * prevWeight / newWeight
-        self.serving = serving
-        self.servingMultiplier = newMultiplier
+        return ingredients.reduce(.empty) { $0 ++ $1.nutritionProfile }
     }
 
     func updated(id: String? = nil,
@@ -383,7 +244,7 @@ extension MealItem {
                  name: String? = nil,
                  serving: MealServing? = nil,
                  servingMultiplier: Double? = nil,
-                 ingredients: [MealItem]? = nil,
+                 ingredients: [IngredientStruct]? = nil,
                  normalizedProfile: NutritionProfile? = nil) -> MealItem {
         var isChanged = false
         if let type, type != self.type {
@@ -478,21 +339,10 @@ extension MealItem {
         .init(id: UUID().uuidString,
               type: .chatGPT,
               name: "Omelette with ham and cheese",
-              ingredients: [.mockIngredient],
+              ingredients: [.mock],
               servingMultiplier: 1.5, // 150 gramm
               servings: .defaultServings,
               dateUpdated: .now)
-    }
-
-    static var mockIngredient: MealItem {
-        MealItem.createIngredient(
-            name: "Egg",
-            weight: 150,
-            nutritionProfile: NutritionProfile(calories: 220.0,
-                                               proteins: 18.0,
-                                               fats: 15.0,
-                                               carbohydrates: 1.0)
-        )
     }
 
     static var mockWithSubTitle: MealItem {
@@ -500,18 +350,10 @@ extension MealItem {
               type: .chatGPT,
               name: "Omelette with ham and cheese",
               subTitle: "Omelette Brand",
-              ingredients: [.mockIngredient],
+              ingredients: [.mock],
               servingMultiplier: 1.5, // 150 gramm
               servings: .defaultServings,
               dateUpdated: .now)
-    }
-
-    static var mockQuickAdd: MealItem {
-        .createQuickAdd(name: "", profile: .init(calories: 11, proteins: 22, fats: 33, carbohydrates: 44))
-    }
-
-    static var mockQuickAddWithTitle: MealItem {
-        .createQuickAdd(name: "Quick Add Mock", profile: .init(calories: 11, proteins: 22, fats: 33, carbohydrates: 44))
     }
 }
 

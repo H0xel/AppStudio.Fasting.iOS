@@ -34,7 +34,7 @@ class MealItemServiceImpl: MealItemService {
     func save(_ mealItem: MealItem) async throws -> MealItem {
         if mealItem.ingredients.count > 1 {
             for ingredient in mealItem.ingredients {
-                _ = try await save(ingredient)
+                _ = try await save(ingredient.mealItem)
             }
         }
         if let barcode = mealItem.barCode,
@@ -45,6 +45,10 @@ class MealItemServiceImpl: MealItemService {
             return try await saveMealItem(current: meal, updated: mealItem)
         }
         return try await mealItemRepository.save(mealItem.updated(name: mealItem.mealName))
+    }
+
+    func forceSave(_ mealItem: MealItem) async throws -> MealItem {
+        try await mealItemRepository.save(mealItem)
     }
 
     func delete(byId id: String) async throws {

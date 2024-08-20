@@ -66,7 +66,7 @@ extension Meal {
               servingMultiplier: servingMultiplier)
     }
 
-    func copyWith(ingredients: [MealItem]) -> Meal {
+    func copyWith(ingredients: [IngredientStruct]) -> Meal {
         .init(id: id,
               type: type,
               dayDate: dayDate,

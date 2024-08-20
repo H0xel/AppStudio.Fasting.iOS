@@ -7,7 +7,7 @@
 
 protocol FoodSearchService {
     func search(barcode: String) async throws -> MealItem?
-    func searchIngredient(barcode: String) async throws -> MealItem?
+    func searchIngredient(barcode: String) async throws -> IngredientStruct?
 
     func searchText(query: String) async throws -> [MealItem]
     func searchBranded(brandFoodId: String) async throws -> MealItem?
