@@ -125,6 +125,7 @@ public struct OnboardingSegmentedView<Segment: OnboardingPickerOption>: View {
                             .background(segment == currentSegment ? Color.studioGrayFillProgress : nil)
                             .continiousCornerRadius(Layout.segmentCornerRadius)
                             .padding(Layout.segmentInnerPadding)
+                            .foregroundStyle(Color.studioBlackLight)
                     })
                 }
             }

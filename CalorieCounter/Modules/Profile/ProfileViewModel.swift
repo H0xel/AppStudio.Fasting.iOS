@@ -137,7 +137,7 @@ class ProfileViewModel: BaseViewModel<ProfileOutput> {
         router.presentChageGoal(steps: steps) { [weak self] output in
             switch output {
             case .onboardingIsFinished:
-                self?.router.popToRoot()
+                self?.router.pop(to: ProfileRoute.self)
                 self?.switchTabBar(isHidden: false)
                 self?.output(.updateProfile)
                 DispatchQueue.main.async {

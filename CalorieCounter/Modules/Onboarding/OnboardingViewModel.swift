@@ -182,6 +182,8 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
         isMovingForward = true
         trackNextStep()
 
+        let steps = filteredSteps
+
         guard let currentStepIndex = steps.firstIndex(of: step),
               currentStepIndex + 1 < steps.count else {
             finishOnboarding()
@@ -196,12 +198,6 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
             trackerService.track(.tdeeShown(tdee: estimatedKcal))
             estimatedExpenditureKcal = "\(Int(estimatedKcal).formattedCaloriesString)"
         }
-
-        if nextStep == .desiredWeight {
-            step = calorieGoal == .maintain ? .dietType : nextStep
-            return
-        }
-
         if nextStep == .fastCalorieBurn {
             let ranges = profileCalculationService.calculateSpeedRange(
                 initialData: initialData,
@@ -219,21 +215,26 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
     func prevStep() {
         isMovingForward = false
 
+        let steps = filteredSteps
+
         guard let currentStepIndex = steps.firstIndex(of: step),
               currentStepIndex - 1 >= 0 else {
             return
         }
         let prevStep = steps[currentStepIndex - 1]
-
-        if prevStep == .fastCalorieBurn, calorieGoal == .maintain {
-            step = .calorieGoal
-            return
-        }
         step = prevStep
     }
 
     func dismiss() {
         output(.onboardingIsFinished)
+    }
+
+    private var filteredSteps: [OnboardingFlowStep] {
+        var steps = steps
+        if calorieGoal == .maintain {
+            steps = steps.filter { $0 != .desiredWeight && $0 != .fastCalorieBurn }
+        }
+        return steps
     }
 
     private var initialData: ProfileCalculationInitialData {
@@ -251,8 +252,9 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
     }
 
     private var profileCalculationGoalData: ProfileCalculationGoalData {
-        .init(targetWeight: .init(value: desiredWeight, units: weightUnit),
-              calorieGoal: calorieGoal ?? .lose
+        let weight = calorieGoal == .maintain ? currentWeight : desiredWeight
+        return .init(targetWeight: .init(value: weight, units: weightUnit),
+                     calorieGoal: calorieGoal ?? .lose
         )
     }
 
