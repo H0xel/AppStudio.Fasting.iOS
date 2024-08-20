@@ -13,4 +13,5 @@ protocol MealItemRepository {
     func save(_ mealItem: MealItem) async throws -> MealItem
     func delete(byId id: String) async throws
     func mealItemObserver() -> MealItemObserver
+    func deleteAll() async throws
 }

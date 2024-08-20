@@ -24,6 +24,7 @@ struct NutritionProfileWithWeightView: View {
                 Group {
                     Text("|")
                     Text(weight)
+                        .lineLimit(1)
                 }
                 .font(.poppins(.description))
                 .foregroundStyle(Color.studioGrayPlaceholder)

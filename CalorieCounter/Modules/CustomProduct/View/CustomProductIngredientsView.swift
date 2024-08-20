@@ -19,10 +19,13 @@ struct CustomProductIngredientsView: View {
                 DashedLine(dashPattern: [1, 2])
                     .foregroundStyle(Color.studioGreyStrokeFill)
                 VStack(alignment: .leading, spacing: .verticalSpacing) {
-                    HStack(spacing: .zero) {
+                    HStack(alignment: .top, spacing: .zero) {
                         Text(ingredient.name)
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
                         Spacer()
                         Text(servingValue(ingredient: ingredient))
+                            .lineLimit(1)
                     }
                     .foregroundStyle(Color.studioBlackLight)
                     .font(.poppins(.description))

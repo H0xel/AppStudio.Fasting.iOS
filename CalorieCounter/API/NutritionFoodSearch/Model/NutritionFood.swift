@@ -47,8 +47,8 @@ extension NutritionFood {
         let result = MealItem(
             id: UUID().uuidString,
             type: .ingredient,
-            name: foodName,
-            subTitle: brandName,
+            name: foodName.capitalized,
+            subTitle: brandName?.capitalized,
             brandFoodId: brandedFoodId,
             notes: nil,
             ingredients: [],

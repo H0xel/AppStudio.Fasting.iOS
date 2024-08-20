@@ -11,12 +11,13 @@ enum FoodLogItem: Hashable {
     case meal(Meal)
     case placeholder(MealPlaceholder)
     case notFoundBarcode(MealPlaceholder)
+    case notFoundAISearch(MealPlaceholder)
 
     var placeholderId: String? {
         switch self {
         case .meal:
             return nil
-        case .placeholder(let mealPlaceholder), .notFoundBarcode(let mealPlaceholder):
+        case .placeholder(let mealPlaceholder), .notFoundBarcode(let mealPlaceholder), .notFoundAISearch(let mealPlaceholder):
             return mealPlaceholder.id
         }
     }
@@ -25,7 +26,7 @@ enum FoodLogItem: Hashable {
         switch self {
         case .meal(let meal):
             return meal.id
-        case .placeholder(let mealPlaceholder), .notFoundBarcode(let mealPlaceholder):
+        case .placeholder(let mealPlaceholder), .notFoundBarcode(let mealPlaceholder), .notFoundAISearch(let mealPlaceholder):
             return mealPlaceholder.id
         }
     }
@@ -34,7 +35,7 @@ enum FoodLogItem: Hashable {
         switch self {
         case .meal(let meal):
             return meal
-        case .placeholder, .notFoundBarcode:
+        case .placeholder, .notFoundBarcode, .notFoundAISearch:
             return nil
         }
     }

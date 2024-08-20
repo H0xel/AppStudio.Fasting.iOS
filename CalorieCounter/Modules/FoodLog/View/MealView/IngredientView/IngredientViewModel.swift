@@ -114,9 +114,6 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
     }
 
     private func changeIngredientWeight(result: CustomKeyboardResult) {
-        guard Int(ingredient.weight) != Int(result.value) else {
-            return
-        }
         let changedIngredient = ingredient.updated(value: result.value, serving: result.serving)
         output(.updated(newIngredient: changedIngredient, oldIngredient: ingredient))
         trackWeightChanged(newWeight: result.value)
@@ -151,6 +148,7 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
         switch output {
         case .valueChanged(let result):
             editingResult = result
+            isWeightTextSelected = false
         case .add(let result):
             changeIngredientWeight(result: result)
             clearSelection()
@@ -160,6 +158,9 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
             editingResult = nil
         case .direction(let direction):
             self.output(.direction(direction))
+        case .servingChanged(let result):
+            editingResult = result
+            isWeightTextSelected = true
         }
     }
 

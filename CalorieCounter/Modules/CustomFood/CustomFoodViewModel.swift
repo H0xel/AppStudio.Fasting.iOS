@@ -152,24 +152,36 @@ class CustomFoodViewModel: BaseViewModel<CustomFoodOutput> {
     private func handle(customKeyboardOutput output: ContainerKeyboardOutput) {
         switch output {
         case .valueChanged(let result):
-            if selectedField == .amountPer || selectedField == .servingSize {
-                customFoodViewData.selectedServing = result.serving
-            }
-            setKeyboardValueToCustomField(selectedField, keyboardResult: result)
+            keyboardValueChanged(result: result)
+            isInputTextSelected = false
+        case .servingChanged(let result):
+            keyboardValueChanged(result: result)
+            isInputTextSelected = true
         case .add, .dismissed:
             clear()
         case .direction(let direction):
-            switch direction {
-            case .up:
-                if selectedField.previous() != .none {
-                    selectedField = selectedField.previous()
-                }
-            case .down:
-                if selectedField.next() != .none {
-                    selectedField = selectedField.next()
-                }
+            keyboardDirectionChanged(direction: direction)
+        }
+    }
+
+    private func keyboardDirectionChanged(direction: CustomKeyboardDirection) {
+        switch direction {
+        case .up:
+            if selectedField.previous() != .none {
+                selectedField = selectedField.previous()
+            }
+        case .down:
+            if selectedField.next() != .none {
+                selectedField = selectedField.next()
             }
         }
+    }
+
+    private func keyboardValueChanged(result: CustomKeyboardResult) {
+        if selectedField == .amountPer || selectedField == .servingSize {
+            customFoodViewData.selectedServing = result.serving
+        }
+        setKeyboardValueToCustomField(selectedField, keyboardResult: result)
     }
 
     private func setKeyboardValueToCustomField(_ selectedField: CustomFoodField, keyboardResult: CustomKeyboardResult) {

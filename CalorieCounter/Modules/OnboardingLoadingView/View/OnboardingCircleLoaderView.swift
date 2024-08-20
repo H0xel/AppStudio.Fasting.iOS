@@ -9,20 +9,23 @@ import SwiftUI
 
 struct OnboardingCircleLoaderView: View {
     let progress: CGFloat
+    var fillColor: Color = .white
+    var circleSize: CGFloat = Layout.circleSize
+    var borderWidth: CGFloat = Layout.circleBorderWidth
 
     var body: some View {
         ZStack {
             Circle()
                 .stroke(Color.black.opacity(0.1),
-                        style: StrokeStyle(lineWidth: Layout.circleBorderWidth,
+                        style: StrokeStyle(lineWidth: borderWidth,
                                            lineCap: .square))
 
             Circle()
                 .trim(from: 0, to: progress)
-                .stroke(Color.white, style: StrokeStyle(lineWidth: Layout.circleBorderWidth, lineCap: .square))
-                .frame(width: Layout.circleSize, height: Layout.circleSize, alignment: .center)
+                .stroke(fillColor, style: StrokeStyle(lineWidth: borderWidth, lineCap: .square))
+                .frame(width: circleSize, height: circleSize, alignment: .center)
         }
-        .frame(width: Layout.circleSize, height: Layout.circleSize, alignment: .center)
+        .frame(width: circleSize, height: circleSize, alignment: .center)
         .rotationEffect(.degrees(Layout.correctedAngle))
     }
 }
@@ -37,9 +40,9 @@ private extension OnboardingCircleLoaderView {
 
 struct OnboardingCircleLoaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ZStack {
-            Color.red
-            OnboardingCircleLoaderView(progress: 0.3)
-        }
+        OnboardingCircleLoaderView(progress: 0.3,
+                                   fillColor: .black,
+                                   circleSize: 52,
+                                   borderWidth: 2)
     }
 }

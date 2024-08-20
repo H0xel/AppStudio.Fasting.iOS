@@ -37,25 +37,6 @@ struct MealItem: Codable, Hashable {
     let barCode: String?
     let dateUpdated: Date
 
-    enum CodingKeys: CodingKey {
-        case id
-        case type
-        case name
-        case subTitle
-        case notes
-        case ingredients
-        case normalizedProfile
-        case additionInfo
-        case totalWeight
-        case servingMultiplier
-        case serving
-        case servings
-        case dateUpdated
-        case brandFoodId
-        case barCode
-        case amountPer
-    }
-
     init(id: String,
          type: MealCreationType,
          name: String,
@@ -106,7 +87,7 @@ extension MealItem {
     }
 
     var grammsTitle: String? {
-        serving.grammsTitle(weight: weight)
+        mealServing.grammsTitle(weight: weight)
     }
 
     var nameDotBrand: String {
@@ -134,15 +115,22 @@ extension MealItem {
     }
 
     func updated(value: Double, serving: MealServing) -> MealItem {
-        let servingMultiplier = serving.multiplier(for: value)
+        let prevMultiplier = self.servingMultiplier
+        let isPrevMultiplierZero = prevMultiplier == 0
+        let servingMultiplier = isPrevMultiplierZero ? serving.multiplier(for: serving.quantity) : serving.multiplier(for: value)
+        let rate: Double = isPrevMultiplierZero ? 0.0 : servingMultiplier / prevMultiplier
+
         if ingredients.isEmpty {
             return updated(serving: serving, servingMultiplier: servingMultiplier)
         }
         if ingredients.count == 1 {
-            return ingredients[0].updated(value: value, serving: serving).mealItem
+            let ingredients = [ingredients[0].updated(value: value, serving: serving)]
+            return updated(ingredients: ingredients)
         }
         return updated(serving: serving, servingMultiplier: servingMultiplier, ingredients: ingredients.map {
-            $0.updated(value: $0.weight * servingMultiplier, serving: $0.serving)
+            $0.updated(servingMultiplier: isPrevMultiplierZero
+                       ? $0.serving.multiplier(for: $0.serving.quantity)
+                       : $0.servingMultiplier * rate)
         })
     }
 
@@ -186,8 +174,21 @@ extension MealItem {
         return name
     }
 
-    /// возвращает 1 или 2 заголовка, в зависимости от текущего сервинга и юнита (г или мл)
-    var servingTitles: [String] {
+    var mealServing: MealServing {
+        if ingredients.count == 1, let ingredient = ingredients.first {
+            return ingredient.serving
+        }
+        return serving
+    }
+
+    var mealServings: [MealServing] {
+        if ingredients.count == 1, let ingredient = ingredients.first {
+            return ingredient.servings
+        }
+        return servings
+    }
+
+    func customServingTitles(serving: MealServing, servings: [MealServing]) -> [String] {
         let defaultResult = [servingTitle]
         // для еды без ингредиентов
         if ingredients.isEmpty {
@@ -207,7 +208,7 @@ extension MealItem {
                 return serving.measure == MealServing.ml.measure
                 ? defaultResult
                 : ["\(servingTitle)",
-                   "\(serving.convert(value: weight, to: mlServing)) \(mlServing.measure)"]
+                   "\(serving.convert(value: weight, to: mlServing).withoutDecimalsIfNeeded) \(mlServing.measure)"]
             }
             return defaultResult
         }
@@ -232,6 +233,11 @@ extension MealItem {
         return defaultResult
     }
 
+    /// возвращает 1 или 2 заголовка, в зависимости от текущего сервинга и юнита (г или мл)
+    var servingTitles: [String] {
+        customServingTitles(serving: serving, servings: servings)
+    }
+
     var nutritionProfile: NutritionProfile {
         if ingredients.isEmpty {
             return normalizedProfile.calculate(servingMultiplier: servingMultiplier)
@@ -245,7 +251,8 @@ extension MealItem {
                  serving: MealServing? = nil,
                  servingMultiplier: Double? = nil,
                  ingredients: [IngredientStruct]? = nil,
-                 normalizedProfile: NutritionProfile? = nil) -> MealItem {
+                 normalizedProfile: NutritionProfile? = nil,
+                 forceDateUpdated: Date? = nil) -> MealItem {
         var isChanged = false
         if let type, type != self.type {
             isChanged = true
@@ -275,7 +282,7 @@ extension MealItem {
             serving: serving ?? self.serving,
             servings: self.servings,
             barCode: barCode,
-            dateUpdated: isChanged ? .now : self.dateUpdated
+            dateUpdated: forceDateUpdated ?? (isChanged ? .now : self.dateUpdated)
         )
     }
 
@@ -286,7 +293,7 @@ extension MealItem {
         }
         let nameScore = calcScore(of: mealName, for: request)
 
-        return max(nameScore, brandScore)
+        return max(nameScore, brandScore) + (brandFoodId?.isEmpty == false ? 0.0 : 1.0)
     }
 
     private func calcScore(of srting: String, for request: String) -> Double {
@@ -314,14 +321,18 @@ extension MealItem {
         var matchedWords: Double = 0
 
         for requestWord in requestWords {
+            var containScores = [Double]()
             for (index, word) in words.enumerated() {
                 if word.contains(requestWord) {
                     let matchPercentage = Double(requestWord.count) / Double(word.count) * 100.0
                     let positionBonus: Double = word.starts(with: requestWord) ? 50.0 : 0.0
                     let wordPositionBonus: Double = index < 3 ? positionBonuses[index] : 0.0
                     matchedWords += 1
-                    score += matchPercentage + positionBonus + wordPositionBonus
+                    containScores.append(matchPercentage + positionBonus + wordPositionBonus)
                 }
+            }
+            if !containScores.isEmpty {
+                score += containScores.reduce(into: 0.0, { $0 += $1}) / Double(containScores.count)
             }
         }
 

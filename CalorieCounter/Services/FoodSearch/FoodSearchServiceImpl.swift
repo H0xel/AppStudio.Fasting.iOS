@@ -69,7 +69,7 @@ class FoodSearchServiceImpl: FoodSearchService {
             }
             return updated.items
         }
-        let meals = try await nutritionFoodSearchApi.search(query: query).compactMap { $0.asIngredientMealItem }
+        let meals = try await nutritionFoodSearchApi.search(query: query).compactMap { $0.asIngredientMealItem?.updated(type: .chatGPT) }
 
         let updated = try await updateBrandedTypes(of: meals)
 

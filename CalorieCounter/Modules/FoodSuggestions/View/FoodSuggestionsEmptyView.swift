@@ -17,11 +17,11 @@ struct FoodSuggestionsEmptyView: View {
                 .resizable()
                 .frame(width: .imageWidth, height: .imageWidth)
                 .padding(.bottom, .imageSpacing)
-            Text(logType.emptyViewTitle)
+            logType.emptyViewTitleText
                 .font(.poppinsMedium(.body))
                 .foregroundStyle(Color.studioGreyText)
                 .padding(.bottom, .titleSpacing)
-            Text(logType.emptyViewSutitle)
+            logType.emptyViewSubtitleText
                 .font(.poppins(.description))
                 .foregroundStyle(Color.studioGreyPlaceholder)
         }
@@ -31,23 +31,59 @@ struct FoodSuggestionsEmptyView: View {
 private extension LogType {
     var emptyViewImage: Image {
         switch self {
-        case .log, .history, .quickAdd, .addRecipe, .newFood:
+        case .history, .quickAdd, .addRecipe, .newFood:
             Image(.logItemsSuggest)
+        case .log:
+            Image(.logFoodWhite)
         case .food:
             Image(.customFoodSuggest)
         }
     }
 
-    var emptyViewTitle: LocalizedStringKey {
+    var emptyViewTitleText: Text? {
         switch self {
-        case .log, .history, .quickAdd, .addRecipe, .newFood:
+        case .log:
+            emptyLogTitle
+        default:
+            Text(emptyViewTitle)
+        }
+    }
+
+    var emptyViewSubtitleText: Text? {
+        switch self {
+        case .log:
+            nil
+        default:
+            Text(emptyViewSubtitle)
+        }
+    }
+
+    private var emptyViewTitle: LocalizedStringKey {
+        switch self {
+        case .log:
+            ""
+        case .history, .quickAdd, .addRecipe, .newFood:
             "FoodSuggestionsEmptyView.history.title"
         case .food:
             "FoodSuggestionsEmptyView.food.title"
         }
     }
 
-    var emptyViewSutitle: LocalizedStringKey {
+    private var emptyLogTitle: Text {
+        let text = LocalizedStringKey.emptyLogSubtitle
+        let parts = text.split(separator: "%@")
+
+        if parts.count == 1 {
+            return Text(text)
+        }
+
+        if parts.count == 2 {
+            return Text(parts[0]) + Text(Image.sparkles) + Text(parts[1])
+        }
+        return Text(text)
+    }
+
+    private var emptyViewSubtitle: LocalizedStringKey {
         switch self {
         case .log, .history, .quickAdd, .addRecipe, .newFood:
             "FoodSuggestionsEmptyView.history.subtitle"
@@ -58,6 +94,7 @@ private extension LogType {
 }
 
 private extension LocalizedStringKey {
+    static let emptyLogSubtitle = NSLocalizedString("FoodSuggestionsEmptyView.log.subtitle", comment: "")
     static let title: LocalizedStringKey = "FoodSuggestionsEmptyView.title"
     static let subtitle: LocalizedStringKey = "FoodSuggestionsEmptyView.subtitle"
 }

@@ -85,6 +85,6 @@ private extension CGFloat {
                 output: { _ in }
             )
         )
-        IngredientPlaceholderView(placeholder: .init(mealText: ""), onClose: {})
+        IngredientPlaceholderView(placeholder: .init(mealText: "", type: .ai), onClose: {})
     }
 }

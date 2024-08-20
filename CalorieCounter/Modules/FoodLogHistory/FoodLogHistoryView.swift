@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import AppStudioUI
 
 struct FoodLogHistoryView: View {
 
@@ -15,6 +16,8 @@ struct FoodLogHistoryView: View {
     @StateObject var viewModel: FoodHistoryViewModel
     @State private var suggestionsScrollOffset: CGFloat = 0
     @FocusState private var isFocused: Bool
+    @State private var numberOfLines = 1
+
 
     var body: some View {
         ZStack {
@@ -28,8 +31,10 @@ struct FoodLogHistoryView: View {
             .id(viewModel.mealType)
             .aligned(.bottom)
             VStack(spacing: .zero) {
-                Spacer()
                 textFieldView
+                    .onViewHeightPreferenceKeyChange { height in
+                        numberOfLines = Int((height / .lineHeight).rounded(.up))
+                    }
                 if canShowChips {
                     LogChipsView(logType: logType) { type in
                         viewModel.changeLogType(to: type, isFocused: isFocused)
@@ -38,6 +43,7 @@ struct FoodLogHistoryView: View {
                     }
                 }
             }
+            .aligned(.bottom)
             .modifier(HideOnScrollModifier(scrollOffset: suggestionsScrollOffset,
                                            canHide: !isFocused && viewModel.suggestionsState.isPresented))
         }
@@ -63,10 +69,11 @@ struct FoodLogHistoryView: View {
     }
 
     private var inputHeight: CGFloat {
+        let extraLinesHeight = CGFloat(numberOfLines - 1) * .lineHeight
         if logType == .log {
-            return canShowChips ? 124 : 80
+            return (canShowChips ? 124 : 80) + extraLinesHeight
         }
-        return 124
+        return 124 + extraLinesHeight
     }
 
     private var textFieldView: some View {
@@ -103,6 +110,7 @@ struct FoodLogHistoryView: View {
 private extension CGFloat {
     static let logButtonTrailingPadding: CGFloat = 10
     static let doneButtonOffset: CGFloat = -65
+    static let lineHeight: CGFloat = 23
 }
 
 #Preview {

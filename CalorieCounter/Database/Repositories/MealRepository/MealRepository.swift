@@ -16,4 +16,5 @@ protocol MealRepository {
     func meals(count: Int?) async throws -> [Meal]
     func allMeals() async throws -> [Meal]
     func firstMeal() async throws -> Meal?
+    func deleteAll() async throws
 }

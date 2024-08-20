@@ -28,6 +28,7 @@ enum FoodLogInputOutput {
     case appendPlaceholder(MealPlaceholder)
     case dismiss
     case notFoundBarcode(String)
+    case notFoundAISearch(String)
     case hasSubscription(Bool)
     case onFocus
 }
@@ -134,6 +135,8 @@ class FoodLogInputViewModel: BaseViewModel<FoodLogInputOutput> {
             self.output(.onFocus)
         case .present(let mealItem):
             presentProduct(mealItem: mealItem)
+        case .notFoundAISearch(let placeholderId):
+            self.output(.notFoundAISearch(placeholderId))
         }
     }
 

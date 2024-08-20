@@ -32,7 +32,7 @@ class ContainerKeyboardViewModel: CustomKeyboardViewModel<ContainerKeyboardOutpu
     }
 
     override func servingChanged(result: CustomKeyboardResult) {
-        output(.valueChanged(result))
+        output(.servingChanged(result))
     }
 
     override func dismissed(result: CustomKeyboardResult) {

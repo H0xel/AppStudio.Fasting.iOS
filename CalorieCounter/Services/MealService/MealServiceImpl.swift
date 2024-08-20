@@ -44,4 +44,8 @@ class MealServiceImpl: MealService {
     func allMeals() async throws -> [Meal] {
         try await mealRepository.allMeals()
     }
+
+    func deleteAll() async throws {
+        try await mealRepository.deleteAll()
+    }
 }

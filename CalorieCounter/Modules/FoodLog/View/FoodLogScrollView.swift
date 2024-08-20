@@ -35,6 +35,10 @@ struct FoodLogScrollView: View {
                                     viewModel.openCustomFoodWithBarcode(barcode: barcode, placeHolderID: placeholder.id)
                                 }
                             }
+                        case .notFoundAISearch(let placeholder):
+                            NotFoundAISearchPlaceholderView(request: placeholder.mealText) {
+                                viewModel.remove(placeholder: placeholder)
+                            }
                         }
                     }
                 }

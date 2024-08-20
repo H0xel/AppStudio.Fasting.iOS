@@ -27,51 +27,33 @@ struct FoodLogTextField: View {
     let onBarcodeScan: (Bool) -> Void
 
     @FocusState private var isFocused: Bool
+    @State private var numberOfLines = 1
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             if let mealName {
-                HStack(spacing: .titleSpacing) {
-                    Text(headerTitle)
-                        .font(.poppins(.description))
-                        .foregroundStyle(Color.studioGreyText)
-
-                    Text(mealName)
-                        .font(.poppinsBold(.description))
-                        .lineLimit(1)
-                        .foregroundStyle(Color.studioGreyText)
-                }
-                .padding(.leading, .titleLeadingPadding)
-                .padding(.bottom, .titleBottomPadding)
+                FoodLogTextFieldTitleView(mealName: mealName)
             }
             HStack(alignment: .bottom, spacing: .spacing) {
-                HStack(alignment: .center, spacing: .spacing) {
-                    TextField(
-                        "",
-                        text: .init(get: { text },
-                                    set: { text in
-                                        self.text = text
-                                    }),
-                        prompt: Text(promt)
-                            .foregroundColor(.studioGreyPlaceholder),
-                        axis: .vertical
-                    )
+                BindingTextField(text: $text, placeholder: promt)
+                    .withViewHeightPreferenceKey
                     .focused($isFocused)
                     .submitLabel(.return)
-                    .modifier(NoNewLineTextFieldModifier(text: $text, onSubmit: log))
+                    .modifier(NoNewLineTextFieldModifier(availableNumberOfLines: 5,
+                                                         text: $text,
+                                                         onSubmit: log))
                     .font(.poppins(.body))
                     .lineLimit(5)
                     .padding(.vertical, .emptyStateVerticalPadding)
-                }
-                .padding(.horizontal, .emptyStateHorizontalPadding)
-                .background(Color.studioGreyFillProgress)
-                .continiousCornerRadius(.textfieldCornerRadius)
-                .disabled(isDisableEditing)
-                .onTapGesture {
-                    if isDisableEditing {
-                        onTap("")
+                    .padding(.horizontal, .emptyStateHorizontalPadding)
+                    .background(Color.studioGreyFillProgress)
+                    .continiousCornerRadius(numberOfLines > 1 ? .textfieldMultilineCornerRadius : .textfieldCornerRadius)
+                    .disabled(isDisableEditing)
+                    .onTapGesture {
+                        if isDisableEditing {
+                            onTap("")
+                        }
                     }
-                }
                 if !text.isEmpty {
                     FoodLogTextFieldButton(isAccent: true, image: .sparkles, onTap: log)
                 } else if isBarcodeShown {
@@ -89,10 +71,9 @@ struct FoodLogTextField: View {
         .background(.white)
         .corners([.topLeft, .topRight], with: showTopBorder ? .cornerRadius : .zero)
         .modifier(TopBorderModifier(color: showTopBorder ? .studioGreyStrokeFill : .clear))
-    }
-
-    private var headerTitle: String {
-        Localization.newIngredientsTitle
+        .onViewHeightPreferenceKeyChange { height in
+            numberOfLines = Int((height / .textLineHeight).rounded(.up))
+        }
     }
 
     private var mealName: String? {
@@ -111,10 +92,6 @@ struct FoodLogTextField: View {
         }
     }
 
-    private var isEmptyState: Bool {
-        !isFocused && text.isEmpty || isDisableEditing
-    }
-
     private func log() {
         onTap(text)
         text = ""
@@ -122,29 +99,20 @@ struct FoodLogTextField: View {
 }
 
 private extension CGFloat {
-    static let verticalPadding: CGFloat = 20
-    static let leadingPadding: CGFloat = 24
-    static let notFocusedLeadingPadding: CGFloat = 0
-    static let trailingPadding: CGFloat = 16
     static let cornerRadius: CGFloat = 20
     static let textfieldCornerRadius: CGFloat = 56
+    static let textfieldMultilineCornerRadius: CGFloat = 16
     static let spacing: CGFloat = 4
-    static let arrowBottomPadding: CGFloat = 14
     static let emptyStateVerticalPadding: CGFloat = 12
     static let emptyStatePadding: CGFloat = 10
     static let emptyStateHorizontalPadding: CGFloat = 16
-    static let emptyStateCornerRadius: CGFloat = 56
-    static let titleSpacing: CGFloat = 4
-    static let titleLeadingPadding: CGFloat = 16
-    static let titleBottomPadding: CGFloat = 8
+    static let textLineHeight: CGFloat = 23
 }
 
 private extension FoodLogTextField {
     enum Localization {
         static let placeholder: LocalizedStringKey = "FoodLogScreen.textFieldPlaceholder"
-        static let notFocusedPlaceholder = NSLocalizedString( "FoodLogScreen.notFocuesedTextFieldPlaceholder",
-                                                              comment: "")
-        static let newIngredientsTitle = NSLocalizedString( "FoodLogScreen.newIngredientsTitle", comment: "")
+        static let notFocusedPlaceholder = "FoodLogScreen.notFocuesedTextFieldPlaceholder".localized()
     }
 }
 
@@ -152,7 +120,6 @@ private extension FoodLogTextField {
     VStack(spacing: 0) {
         ZStack {
             Color.yellow
-
             FoodLogTextField(text: .constant(""), isBarcodeShown: true, onTap: { _ in }, onBarcodeScan: { _ in })
         }
         ZStack {

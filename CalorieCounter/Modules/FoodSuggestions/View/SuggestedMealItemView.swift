@@ -20,11 +20,9 @@ struct SuggestedMealItemView: View {
     @State private var searchRequest = ""
 
     private var nutritionTypes: [NutritionType] {
-        meal.mealItem.nutritionProfile.hasOnlyCalories 
-        ? [.calories]
-        : meal.mealItem.nutritionProfile.isEmpty
-        ? [.calories]
-        : NutritionType.allCases
+        meal.type != .foodSearch || !meal.mealItem.nutritionProfile.isEmpty 
+        ? NutritionType.allCases
+        : [.calories]
     }
 
     var body: some View {
@@ -35,6 +33,8 @@ struct SuggestedMealItemView: View {
                 .frame(width: .imageWidth, height: .imageWidth)
                 .padding(.trailing, .imageSpacing)
             VStack(alignment: .leading, spacing: .verticalSpacing) {
+                // MARK: - сделать сборку для Димы с отображением коэффицента сортировки
+                // Text("Score: \(meal.score(for: searchRequest)) ")
                 AttributedText(text: text)
                     .id(searchRequest)
                 NutritionProfileWithWeightView(profile: meal.mealItem.nutritionProfile,
@@ -61,26 +61,17 @@ struct SuggestedMealItemView: View {
     }
 
     private var titleWithMeasure: String? {
-        if meal.mealItem.ingredients.count > 1 {
+        var titles = meal.mealItem.servingTitles
+
+        guard let firstTitle = titles.first else {
             return nil
         }
-        if meal.mealItem.ingredients.count == 1 {
-            return meal.mealItem.ingredients[0].servingTitle
-        }
-        if let weight = meal.mealItem.servings
-            .first(where: { $0.measure == WaterUnits.liters.unitsTitle })?
-            .quantity
-            .withoutDecimalsIfNeeded {
-            return weight + " " + WaterUnits.liters.unitsTitle
-        }
+        titles.removeFirst()
 
-        if let gWeight = meal.mealItem.servings
-            .first(where: { $0.measure == MealServing.gramms.measure })?
-            .weight {
-            let gText = (gWeight * meal.mealItem.servingMultiplier).withoutDecimalsIfNeeded
-            return gText + " " + MealServing.gramms.measure
+        if let secondTitle = titles.first {
+            return "\(secondTitle), \(firstTitle)"
         }
-        return meal.mealItem.servingTitle
+        return firstTitle
     }
 
     private var text: NSAttributedString {

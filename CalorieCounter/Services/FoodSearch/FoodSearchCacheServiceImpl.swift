@@ -14,6 +14,8 @@ class FoodSearchCacheServiceImpl: FoodSearchCacheService {
         try await codableCacheRepository.clearAll(of: .foodSearchIngredient)
         try await codableCacheRepository.clearAll(of: .foodsTextSearch)
         try await codableCacheRepository.clearAll(of: .brandedFood)
+        try await codableCacheRepository.clearAll(of: .aiFood)
+        try await codableCacheRepository.clearAll(of: .aiNutrients)
     }
 
     func cachedFood(of barcode: String) async throws -> MealItem? {

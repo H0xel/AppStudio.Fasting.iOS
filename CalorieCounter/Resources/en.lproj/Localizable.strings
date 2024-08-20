@@ -340,6 +340,7 @@
 // MARK: = NotFoundMealPlaceholderView
 "NotFoundMealPlaceholderView.title" = "Oops, No Food Found for the Barcode";
 "IngredientPlaceholderView.notFound" = "Nothing found with this barcode";
+"IngredientPlaceholderView.notFoundAI" = "AI Couldn't Recognize Your Food";
 
 // MARK: - UsageLimitPaywallScreen
 "UsageLimitPaywallScreen.unlockAllFeatures" = "Unlock\nall features";
@@ -398,6 +399,7 @@
 
 "FoodSuggestionsEmptyView.food.title" = "No Custom Food Yet";
 "FoodSuggestionsEmptyView.food.subtitle" = "Create a new custom food to see it here";
+"FoodSuggestionsEmptyView.log.subtitle" = "Start typing to search for food\nor tap %@ to use AI recognition.";
 
 // MARK: -
 "LogType.log" = "Log";
@@ -408,8 +410,10 @@
 "LogType.food" = "My Food";
 
 // MARK: - FoodSearchEmptyView
-"FoodSearchEmptyView.title.tap" = "Tap";
-"FoodSearchEmptyView.title.toUse" = "to use AI recognition";
+"FoodSearchEmptyView.title.tapToUse" = "Tap %@ to use AI recognition";
+
+// MARK: - FoodSearchLoadingView
+"FoodSearchLoadingView.title.loading" = "Loading...";
 
 // MARK: - Quick Add
 "QuickAdd.protein" = "Protein";
@@ -457,3 +461,8 @@
 
 "CustomFood.amountPer %@" = "Amount per serving · %@";
 "CustomFood.copy" = "(copy)";
+
+// MARK: - NotFoundAISearchPlaceholderView
+"NotFoundAISearchPlaceholderView.title.part1" = "Oops, AI";
+"NotFoundAISearchPlaceholderView.title.part2" = "Couldn't Recognize";
+"NotFoundAISearchPlaceholderView.title.part3" = "Your Food";

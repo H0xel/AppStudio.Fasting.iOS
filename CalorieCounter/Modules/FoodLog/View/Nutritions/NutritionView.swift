@@ -44,7 +44,7 @@ struct NutritionView: View {
             return "0"
         }
         if amount < 1 {
-            return amount.withoutDecimalsIfNeeded
+            return amount.withOneFractionIfNeeded
         }
         return "\(Int(amount.rounded()))"
     }

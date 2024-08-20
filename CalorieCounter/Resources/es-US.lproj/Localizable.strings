@@ -408,8 +408,7 @@
 "LogType.food" = "Mi comida";
 
 // MARK: - FoodSearchEmptyView
-"FoodSearchEmptyView.title.tap" = "Toca";
-"FoodSearchEmptyView.title.toUse" = "para usar el reconocimiento de IA";
+"FoodSearchEmptyView.title.tapToUse" = "Toca %@ para usar el reconocimiento de IA";
 
 // MARK: - Quick Add
 "QuickAdd.protein" = "Proteína";

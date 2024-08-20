@@ -18,6 +18,8 @@ struct DebugMenuActionsView: View {
     @Dependency(\.discountPaywallTimerService) private var discountPaywallTimerService
     @Dependency(\.localNotificationService) private var localNotificationService
     @Dependency(\.foodSearchCacheService) private var foodSearchCacheService
+    @Dependency(\.mealService) private var mealService
+    @Dependency(\.mealItemService) private var mealItemService
 
     @State private var currentEnvironment: BackendEnvironment
     @State private var isSubscriptionEnabled: Bool
@@ -85,6 +87,12 @@ struct DebugMenuActionsView: View {
         Button("Clear cache of  API requests") {
             Task {
                 try await foodSearchCacheService.clearAllCache()
+            }
+        }
+        Button("Delete all food from DB") {
+            Task {
+                try await mealService.deleteAll()
+                try await mealItemService.deleteAll()
             }
         }
     }

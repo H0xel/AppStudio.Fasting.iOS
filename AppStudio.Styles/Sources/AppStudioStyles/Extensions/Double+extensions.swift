@@ -11,4 +11,8 @@ public extension Double {
     var withoutDecimalsIfNeeded: String {
         decimalFormatter.string(from: NSNumber(value: self)) ?? .init(format: "%.0f", "\(self)")
     }
+
+    var withOneFractionIfNeeded: String {
+        decimalFormatterWithOneFraction.string(from: NSNumber(value: self)) ?? .init(format: "%.0f", "\(self)")
+    }
 }

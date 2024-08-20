@@ -44,7 +44,7 @@ class CustomProductViewModel: BaseViewModel<CustomProductOutput> {
     }
 
     var ingredients: [IngredientStruct] {
-        mealItem.ingredients
+        mealItem.ingredients.count > 1 ? mealItem.ingredients : []
     }
 
     var nutritionProfile: NutritionProfile {
@@ -63,8 +63,8 @@ class CustomProductViewModel: BaseViewModel<CustomProductOutput> {
     }
 
     var mlValue: Double? {
-        if let quantity = mealItem.servings.first(where: { $0.measure == WaterUnits.liters.unitsTitle })?.quantity {
-            return quantity * keyboardResult.servingMultiplier
+        if let mlServing = mealItem.mealServings.first(where: { $0.measure == WaterUnits.liters.unitsTitle }) {
+            return serving.convert(value: servingValue, to: mlServing)
         }
         return nil
     }
@@ -95,7 +95,7 @@ class CustomProductViewModel: BaseViewModel<CustomProductOutput> {
     }
 
     private func configureKeyboardResult(mealItem: MealItem) {
-        let serving = mealItem.type == .product || mealItem.ingredients.count <= 1 ? mealItem.serving : .serving
+        let serving = mealItem.type == .product || mealItem.ingredients.count <= 1 ? mealItem.mealServing : .serving
         let value = serving.value(with: mealItem.servingMultiplier)
         keyboardResult = .init(displayText: "\(value)",
                                value: value,
@@ -106,7 +106,7 @@ class CustomProductViewModel: BaseViewModel<CustomProductOutput> {
         let input = CustomKeyboardInput(
             title: "CustomProductScreen.howMuchToAdd".localized(),
             text: keyboardResult.displayText,
-            servings: mealItem.canShowServings ? mealItem.servings : [],
+            servings: mealItem.canShowServings ? mealItem.mealServings : [],
             currentServing: serving,
             isPresentedPublisher: Just(true).eraseToAnyPublisher(),
             shouldShowTextField: true,
@@ -205,7 +205,7 @@ class CustomProductViewModel: BaseViewModel<CustomProductOutput> {
 
 private extension MealItem {
     var canShowServings: Bool {
-        if servings.count < 2 {
+        if mealServings.count < 2 {
             return false
         }
         if ingredients.count <= 1 {

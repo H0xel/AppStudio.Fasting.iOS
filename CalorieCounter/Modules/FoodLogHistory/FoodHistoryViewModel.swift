@@ -193,11 +193,15 @@ extension FoodHistoryViewModel {
     }
 
     private func requestMeal(text: String) async throws {
-        let placeholder = MealPlaceholder(mealText: text)
+        let placeholder = MealPlaceholder(mealText: text, type: .ai)
         await appendPlaceholder(placeholder)
         trackerService.track(.entrySent)
-        let meals = try await meals(request: text, type: mealType)
+        let meals: [Meal] = (try? await meals(request: text, type: mealType)) ?? []
         trackerService.track(.mealAdded(ingredientsCounts: meals.flatMap { $0.mealItem.ingredients }.count))
+        if meals.isEmpty {
+            output(.notFoundAISearch(placeholder.id))
+            return
+        }
         output(.save(meals: meals, placeholderId: placeholder.id))
     }
 
@@ -247,7 +251,7 @@ extension FoodHistoryViewModel {
     }
 
     private func searchMeal(barcode: String) async throws {
-        let placeholder = MealPlaceholder(mealText: barcode)
+        let placeholder = MealPlaceholder(mealText: barcode, type: .barcode)
         await appendPlaceholder(placeholder)
 
         guard let mealItem = try await foodSearchService.search(barcode: barcode) else {

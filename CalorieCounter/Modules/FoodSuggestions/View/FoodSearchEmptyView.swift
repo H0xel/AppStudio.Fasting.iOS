@@ -14,24 +14,30 @@ struct FoodSearchEmptyView: View {
             Image.sparkles
                 .foregroundStyle(Color.studioBlackLight)
                 .font(.title2)
-            HStack(spacing: .titleSpacing) {
-                Text(.tap)
-                    .font(.poppinsMedium(.body)) +
-                Text(" ") +
-                Text(Image.sparkles) +
-                Text(" ") +
-                Text(.toUse)
-                    .font(.poppinsMedium(.body))
-            }
-            .multilineTextAlignment(.center)
+
+            emptyText
+            .font(.poppinsMedium(.body))
             .foregroundStyle(Color.studioGreyText)
         }
+    }
+
+    var emptyText: Text {
+        let text = LocalizedStringKey.tapToUse
+        let parts = text.split(separator: "%@")
+
+        if parts.count == 1 {
+            return Text(text)
+        }
+
+        if parts.count == 2 {
+            return Text(parts[0]) + Text(Image.sparkles) + Text(parts[1])
+        }
+        return Text(text)
     }
 }
 
 private extension LocalizedStringKey {
-    static let tap: LocalizedStringKey = "FoodSearchEmptyView.title.tap"
-    static let toUse: LocalizedStringKey = "FoodSearchEmptyView.title.toUse"
+    static let tapToUse = NSLocalizedString("FoodSearchEmptyView.title.tapToUse", comment: "")
 }
 
 private extension CGFloat {

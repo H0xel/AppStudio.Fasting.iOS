@@ -15,11 +15,28 @@ struct NutritionFoodMeasure: Codable {
 
 extension  NutritionFoodMeasure {
     var asServing: MealServing {
-        .init(weight: servingWeight, measure: measure, quantity: quantity ?? servingWeight ?? 1)
+        if servingWeight != nil {
+            if measure == MealServing.ounces.measure {
+                return MealServing.ounces
+            }
+            if measure == MealServing.pounds.measure {
+                return MealServing.pounds
+            }
+        }
+
+        return .init(weight: servingWeight, measure: measure, quantity: quantity ?? servingWeight ?? 1)
     }
 }
 extension Array where Element == NutritionFoodMeasure {
     var asServings: [MealServing] {
-        self.map { $0.asServing }
+        var uniqueMeasures = Set<String>()
+        return self.map { $0.asServing }
+            .filter {
+                if uniqueMeasures.contains($0.measure) {
+                    return false
+                }
+                uniqueMeasures.insert($0.measure)
+                return true
+        }
     }
 }

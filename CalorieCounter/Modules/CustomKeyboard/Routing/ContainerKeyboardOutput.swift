@@ -28,4 +28,5 @@ enum ContainerKeyboardOutput {
     case add(CustomKeyboardResult)
     case dismissed(CustomKeyboardResult)
     case direction(CustomKeyboardDirection)
+    case servingChanged(CustomKeyboardResult)
 }

@@ -33,7 +33,7 @@ class MealItemServiceImpl: MealItemService {
 
     func save(_ mealItem: MealItem) async throws -> MealItem {
         if mealItem.ingredients.count > 1 {
-            for ingredient in mealItem.ingredients {
+            for ingredient in mealItem.ingredients.reversed() {
                 _ = try await save(ingredient.mealItem)
             }
         }
@@ -44,7 +44,7 @@ class MealItemServiceImpl: MealItemService {
         if let meal = try await mealItemRepository.mealItem(with: mealItem.mealName, type: mealItem.type) {
             return try await saveMealItem(current: meal, updated: mealItem)
         }
-        return try await mealItemRepository.save(mealItem.updated(name: mealItem.mealName))
+        return try await mealItemRepository.save(mealItem.updated(name: mealItem.mealName, forceDateUpdated: .now))
     }
 
     func forceSave(_ mealItem: MealItem) async throws -> MealItem {
@@ -65,5 +65,9 @@ class MealItemServiceImpl: MealItemService {
         }
         let updatedMeal = current.updated(ingredients: updatedIngredients)
         return try await mealItemRepository.save(updatedMeal)
+    }
+
+    func deleteAll() async throws {
+        try await mealItemRepository.deleteAll()
     }
 }

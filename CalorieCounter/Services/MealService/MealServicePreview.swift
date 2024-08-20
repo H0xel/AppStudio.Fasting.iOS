@@ -9,6 +9,8 @@ import Foundation
 import Dependencies
 
 class MealServicePreview: MealService {
+    func deleteAll() async throws {}
+
     func saveWithoutMealItem(meal: Meal) async throws -> Meal {
         .mock
     }

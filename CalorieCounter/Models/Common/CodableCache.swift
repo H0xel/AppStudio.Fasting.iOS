@@ -31,4 +31,6 @@ enum CodableCacheType: Int16 {
     case foodSearchIngredient
     case foodsTextSearch
     case brandedFood
+    case aiFood
+    case aiNutrients
 }

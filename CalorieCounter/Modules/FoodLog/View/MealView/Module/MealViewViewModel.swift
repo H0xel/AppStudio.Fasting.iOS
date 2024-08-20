@@ -95,7 +95,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     }
 
     var canShowWeightIcon: Bool {
-        ingredients.count == 1 && !meal.isQuickAdded
+        ingredients.count <= 1 && !meal.isQuickAdded
     }
 
     func assignMeal(_ meal: Meal) {
@@ -266,6 +266,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         switch output {
         case .valueChanged(let result):
             editingWeight = result
+            isWeightTextSelected = false
         case .add(let result):
             editingWeight = nil
             try await changeMealWeight(to: result)
@@ -275,6 +276,9 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
             try await changeMealWeight(to: result)
         case .direction(let direction):
             try await changeKeyboardDirection(direction: direction)
+        case .servingChanged(let result):
+            editingWeight = result
+            isWeightTextSelected = true
         }
     }
 
@@ -425,14 +429,14 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     }
 
     var currentServing: MealServing {
-        editingWeight?.serving ?? mealItem.serving
+        editingWeight?.serving ?? mealItem.mealServing
     }
 
     private var customKeyboardInput: CustomKeyboardInput {
         CustomKeyboardInput(
             title: mealItem.mealName,
             text: "\(mealItem.weight)",
-            servings: mealItem.servings.count > 1 ? mealItem.servings : [],
+            servings: mealItem.mealServings.count > 1 ? mealItem.mealServings : [],
             currentServing: currentServing,
             isPresentedPublisher: $mealSelectedState.map { $0 != .notSelected }.eraseToAnyPublisher(),
             shouldShowTextField: false,
@@ -444,13 +448,17 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
 // MARK: - Request Ingredients
 extension MealViewViewModel {
     private func requestIngredients(with text: String) async throws {
-        let placeholder = await prepareIngredientPlaceholder(text: text)
-        let ingredients = try await calorieCounterService.ingredients(request: text)
+        let placeholder = await prepareIngredientPlaceholder(text: text, type: .ai)
+        let ingredients: [IngredientStruct] = (try? await calorieCounterService.ingredients(request: text)) ?? []
+        if ingredients.isEmpty {
+            await setNotFoundForIngredientPlaceholder(placeholderId: placeholder.id)
+            return
+        }
         try await removePlaceholderAndUpdateIngredients(placeholderId: placeholder.id, ingredients: ingredients)
     }
 
     private func searchIngredient(barcode: String) async throws {
-        let placeholder = await prepareIngredientPlaceholder(text: barcode)
+        let placeholder = await prepareIngredientPlaceholder(text: barcode, type: .barcode)
         guard let ingredient = try await foodSearchService.searchIngredient(barcode: barcode) else {
             trackBarcodeScanned(isSucces: false, productName: nil)
             await setNotFoundForIngredientPlaceholder(placeholderId: placeholder.id)
@@ -460,9 +468,9 @@ extension MealViewViewModel {
     }
 
     @MainActor
-    private func prepareIngredientPlaceholder(text: String) -> MealPlaceholder {
+    private func prepareIngredientPlaceholder(text: String, type: MealPlaceholderType) -> MealPlaceholder {
         router.dismissBanner()
-        let placeholder = MealPlaceholder(mealText: text)
+        let placeholder = MealPlaceholder(mealText: text, type: type)
         ingredientPlaceholders.append(placeholder)
         trackerService.track(.entrySent)
         return placeholder

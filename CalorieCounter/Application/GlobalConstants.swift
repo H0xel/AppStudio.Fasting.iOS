@@ -33,7 +33,7 @@ public enum GlobalConstants {
     public static let productionTimeout = 90.0
 
     // MARK: Sandbox server
-    public static let sandboxBaseAddress = "https://telecom.municorn.com/"
+    public static let sandboxBaseAddress = "https://staging.telecom.municorn.com/"
     public static let sandboxServicePath = "api/"
     public static let sandboxTimeout = 90.0
 

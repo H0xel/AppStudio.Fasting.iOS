@@ -36,10 +36,10 @@ struct FoodSuggestionsView: View {
                 viewModel.toggleSuggestions(isPresented: isSuggestionsPresented)
             }
             .onChange(of: logType) { logType in
-                viewModel.changeLogType(to: logType)
+                viewModel.changeLogType(to: logType, isInitial: false)
             }
             .onAppear {
-                viewModel.changeLogType(to: logType)
+                viewModel.changeLogType(to: logType, isInitial: true)
             }
             .onReceive(viewModel.mealsPublisher.map { $0.isEmpty }) { isEmpty in
                 isMealsEmpty = isEmpty
@@ -63,11 +63,19 @@ struct FoodSuggestionsView: View {
                     .aligned(.centerVerticaly)
                     .aligned(.centerHorizontaly)
             } else {
-                FoodSearchEmptyView()
-                    .offset(y: -inputHeight / 2)
-                    .aligned(.centerVerticaly)
-                    .aligned(.centerHorizontaly)
-                    .opacity(isDraging || viewModel.isSuggestionsPresented ? 1 : 0)
+                if viewModel.isTaskLoading {
+                    FoodSearchLoadingView()
+                        .offset(y: -inputHeight / 2)
+                        .aligned(.centerVerticaly)
+                        .aligned(.centerHorizontaly)
+                        .opacity(isDraging || viewModel.isSuggestionsPresented ? 1 : 0)
+                } else {
+                    FoodSearchEmptyView()
+                        .offset(y: -inputHeight / 2)
+                        .aligned(.centerVerticaly)
+                        .aligned(.centerHorizontaly)
+                        .opacity(isDraging || viewModel.isSuggestionsPresented ? 1 : 0)
+                }
             }
         }
         .modifier(DragableModifier(isCollapsed: !viewModel.isSuggestionsPresented,

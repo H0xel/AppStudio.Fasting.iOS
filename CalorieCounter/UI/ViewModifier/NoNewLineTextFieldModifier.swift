@@ -10,12 +10,18 @@ import AppStudioUI
 
 struct NoNewLineTextFieldModifier: ViewModifier {
 
+    let availableNumberOfLines: Int
     @Binding var text: String
     let onSubmit: () -> Void
 
     func body(content: Content) -> some View {
         content
             .onChange(of: text) { newValue in
+                let numberOfLines = newValue.components(separatedBy: "\n").count - 1
+                if numberOfLines < availableNumberOfLines {
+                    return
+                }
+
                 guard let index = newValue.lastIndex(of: "\n") else {
                     return
                 }
@@ -31,5 +37,5 @@ struct NoNewLineTextFieldModifier: ViewModifier {
 
 #Preview {
     Text("Hello, world!")
-        .modifier(NoNewLineTextFieldModifier(text: .constant("Hello"), onSubmit: {}))
+        .modifier(NoNewLineTextFieldModifier(availableNumberOfLines: 5, text: .constant("Hello"), onSubmit: {}))
 }

@@ -32,6 +32,9 @@ class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
     private let showOnlyIngredients: Bool
     private var mealItemObserver: MealItemObserver?
     private var mealItemCancellable: AnyCancellable?
+    @Published private var taskCount = 0
+    var isTaskLoading: Bool { taskCount > 0 }
+
 
     init(input: FoodSuggestionsInput,
          output: @escaping ViewOutput<FoodSuggestionsOutput>) {
@@ -43,10 +46,7 @@ class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
         observeMealItems()
         observeRequest(publisher: input.mealRequestPublisher)
         observeCollapsePublisher(input.collapsePublisher)
-        //--------------------------------
-        // TODO: - раскомментировать для включения поиска еды из Nutrition API
-        // observeSearchFoods()
-        //________________________________
+         observeSearchFoods()
     }
 
     var mealsPublisher: AnyPublisher<[SuggestedMeal], Never> {
@@ -67,7 +67,6 @@ class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
 
     func observeSearchFoods() {
         Publishers.CombineLatest($searchRequest, $logType)
-            .debounce(for: 0.5, scheduler: DispatchQueue.main)
             .sink(with: self) { this, requestAndType in
                 let query = requestAndType.0
                 let type = requestAndType.1
@@ -83,8 +82,8 @@ class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
                 this.lastSearchRequest = query
 
                 if isDuplicate { return }
-
                 Task {
+                    await this.incrementTaskCount(by: 1)
                     do {
                         let foods = try await this.foodSearchService.searchText(query: query)
                         await MainActor.run {
@@ -93,50 +92,15 @@ class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
                     } catch {
                         assertionFailure("foodSearchService.searchText(query = \(query)")
                     }
+                    await this.incrementTaskCount(by: -1)
                 }
             }
             .store(in: &cancellables)
     }
 
-    var foodSearchPublisher: AnyPublisher<[SuggestedMeal], Never> {
-        let foodSearchService = foodSearchService
-
-        let foodSearchPublisher: AnyPublisher<[SuggestedMeal], Never> = $searchRequest
-            .filter { [weak self] in $0.count >= 3 && self?.logType == .log }
-            .debounce(for: 0.5, scheduler: DispatchQueue.main)
-            .removeDuplicates(by: { last, new in
-                last != new
-            })
-            .receive(on: DispatchQueue.main)
-            .flatMap(with: self) { this, query in
-                return Future { promise in
-                    Task {
-                        do {
-                            let foods = try await foodSearchService.searchText(query: query)
-                            let result = foods.map { SuggestedMeal(type: .foodSearch, mealItem: $0) }
-                            DispatchQueue.main.async {
-                                promise(.success(result))
-                            }
-                        } catch {
-                            assertionFailure("foodSearchService.searchText(query = \(query)")
-                        }
-                    }
-                }
-            }
-            .eraseToAnyPublisher()
-
-        let emptyFoodSearchPublisher: AnyPublisher<[SuggestedMeal], Never> = $searchRequest
-            .filter { $0.count < 3 }
-            .map { _ in [] }
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-
-        let foodSearchAllPublisher = Publishers.Merge(emptyFoodSearchPublisher, foodSearchPublisher)
-            .eraseToAnyPublisher()
-
-        return Publishers.CombineLatest(foodSearchAllPublisher, $logType)
-            .map { $0.0 }
-            .eraseToAnyPublisher()
+    @MainActor
+    private func incrementTaskCount(by: Int) {
+        taskCount += by
     }
 
     func toggleSuggestions(isPresented: Bool) {
@@ -147,9 +111,11 @@ class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
         output(.togglePresented(isPresented: isPresented))
     }
 
-    func changeLogType(to logType: LogType) {
+    func changeLogType(to logType: LogType, isInitial: Bool) {
         self.logType = logType
-        isSuggestionsPresented = true
+        if !isInitial {
+            isSuggestionsPresented = true
+        }
     }
 
     func hadle(foodSuggestionsScrollViewOutput output: FoodSuggestionsScrollViewOutput) {

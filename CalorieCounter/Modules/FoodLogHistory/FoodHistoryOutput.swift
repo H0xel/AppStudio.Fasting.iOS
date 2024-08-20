@@ -14,6 +14,7 @@ enum FoodHistoryOutput {
     case appendPlaceholder(MealPlaceholder)
     case dismiss
     case notFoundBarcode(String)
+    case notFoundAISearch(String)
     case hasSubscription(Bool)
     case logType(type: LogType, isFocused: Bool)
     case onFocus

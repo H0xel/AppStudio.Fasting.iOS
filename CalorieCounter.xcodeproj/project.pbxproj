@@ -12,6 +12,12 @@
 		53D900742AE652DD00FFEB7A /* PreferencesInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D900732AE652DD00FFEB7A /* PreferencesInitializer.swift */; };
 		53D900772AE67EE700FFEB7A /* PreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D900762AE67EE700FFEB7A /* PreferencesService.swift */; };
 		53D900792AE67EEF00FFEB7A /* PreferencesServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D900782AE67EEF00FFEB7A /* PreferencesServiceImpl.swift */; };
+		560630F82C65F2CC001DC9D2 /* AIFoodSearchApiImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560630F52C65F2CC001DC9D2 /* AIFoodSearchApiImpl.swift */; };
+		560630F92C65F2CC001DC9D2 /* AIFoodSearchApiDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560630F62C65F2CC001DC9D2 /* AIFoodSearchApiDependencies.swift */; };
+		560630FA2C65F2CC001DC9D2 /* AIFoodSearchApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560630F72C65F2CC001DC9D2 /* AIFoodSearchApi.swift */; };
+		560630FC2C65F374001DC9D2 /* AIFoodSearchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560630FB2C65F374001DC9D2 /* AIFoodSearchTarget.swift */; };
+		560630FF2C65F69D001DC9D2 /* AIFoodSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560630FE2C65F69D001DC9D2 /* AIFoodSearchResult.swift */; };
+		560631012C65F6AA001DC9D2 /* AIFoodSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560631002C65F6AA001DC9D2 /* AIFoodSearchRequest.swift */; };
 		560A91842B4D560000CE6D96 /* CaloriesBudgetHeaderRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A91832B4D560000CE6D96 /* CaloriesBudgetHeaderRingView.swift */; };
 		560A91862B4D573D00CE6D96 /* CaloriesBudgetHeaderLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A91852B4D573C00CE6D96 /* CaloriesBudgetHeaderLabelView.swift */; };
 		560A91882B4D580200CE6D96 /* CaloriesBudgetHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A91872B4D580200CE6D96 /* CaloriesBudgetHeaderView.swift */; };
@@ -32,6 +38,7 @@
 		56261AE12C1B05F400BCC534 /* MealAdditionalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56261AE02C1B05F400BCC534 /* MealAdditionalInfo.swift */; };
 		56261AE32C1B061600BCC534 /* MealServing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56261AE22C1B061600BCC534 /* MealServing.swift */; };
 		562654C12B68E426006FC4AB /* IngredientPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562654C02B68E426006FC4AB /* IngredientPlaceholderView.swift */; };
+		5628C9282C6C82A300B3C05A /* NotFoundAISearchPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5628C9272C6C82A300B3C05A /* NotFoundAISearchPlaceholderView.swift */; };
 		56322AA92B74E7FA00F64D3B /* ProductsLoaderDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56322AA22B74E7FA00F64D3B /* ProductsLoaderDependencies.swift */; };
 		56322AAA2B74E7FA00F64D3B /* ProductsLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56322AA32B74E7FA00F64D3B /* ProductsLoaderService.swift */; };
 		56322AAB2B74E7FA00F64D3B /* ProductsLoaderServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56322AA42B74E7FA00F64D3B /* ProductsLoaderServiceImpl.swift */; };
@@ -132,6 +139,7 @@
 		5675010A2ADFD955009331CB /* IntercomUpdaterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567501022ADFD955009331CB /* IntercomUpdaterImpl.swift */; };
 		5675010B2ADFD955009331CB /* IntercomDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567501042ADFD955009331CB /* IntercomDataStorage.swift */; };
 		5675010C2ADFD955009331CB /* IntercomDataStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567501052ADFD955009331CB /* IntercomDataStorageImpl.swift */; };
+		5675D1B02C730DB200E8CAC7 /* FoodSearchLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D1AF2C730DB200E8CAC7 /* FoodSearchLoadingView.swift */; };
 		5675FFA82ADE7FF8009331CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675FFA72ADE7FF8009331CB /* AppDelegate.swift */; };
 		5692C6682B58F7FB007A9E3A /* FoodSearchApiImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5692C6652B58F7FB007A9E3A /* FoodSearchApiImpl.swift */; };
 		5692C6692B58F7FB007A9E3A /* FoodSearchApiDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5692C6662B58F7FB007A9E3A /* FoodSearchApiDependencies.swift */; };
@@ -183,6 +191,7 @@
 		56C28DD62AE109580007E48D /* AppSyncServiceInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C28DC42AE109580007E48D /* AppSyncServiceInitializer.swift */; };
 		56C338C42B67C1C6006490D9 /* IngredientsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C338C32B67C1C6006490D9 /* IngredientsResponse.swift */; };
 		56C338C62B68C530006490D9 /* MealSelectedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C338C52B68C530006490D9 /* MealSelectedState.swift */; };
+		56C94F572C69E97800C72924 /* AINutrientsSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C94F562C69E97800C72924 /* AINutrientsSearchRequest.swift */; };
 		56D7B2B32B3D3FA0003B721D /* ProfileCalculationServiceServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7B2B02B3D3FA0003B721D /* ProfileCalculationServiceServiceImpl.swift */; };
 		56D7B2B42B3D3FA0003B721D /* ProfileCalculationServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7B2B12B3D3FA0003B721D /* ProfileCalculationServiceDependencies.swift */; };
 		56D7B2B52B3D3FA0003B721D /* ProfileCalculationServiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7B2B22B3D3FA0003B721D /* ProfileCalculationServiceService.swift */; };
@@ -274,6 +283,7 @@
 		A036CE4F2B6021B600F902E9 /* FreeUsageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036CE4C2B6021B600F902E9 /* FreeUsageService.swift */; };
 		A038D0302C483EBD00AD8DBD /* FoodSuggestionsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A038D02F2C483EBD00AD8DBD /* FoodSuggestionsInput.swift */; };
 		A038D0322C483ED100AD8DBD /* FoodSuggestionsOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A038D0312C483ED100AD8DBD /* FoodSuggestionsOutput.swift */; };
+		A03F52672C73973100A2F48E /* FoodLogTextFieldTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F52662C73973100A2F48E /* FoodLogTextFieldTitleView.swift */; };
 		A041D5FC2B35A3A9009A98B7 /* MealDeleteBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041D5FB2B35A3A9009A98B7 /* MealDeleteBanner.swift */; };
 		A04272C92AE28D3D00754326 /* DebugMenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272C82AE28D3D00754326 /* DebugMenuScreen.swift */; };
 		A04272CC2AE28DF600754326 /* DebugMenuInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */; };
@@ -610,6 +620,12 @@
 		53D900732AE652DD00FFEB7A /* PreferencesInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesInitializer.swift; sourceTree = "<group>"; };
 		53D900762AE67EE700FFEB7A /* PreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesService.swift; sourceTree = "<group>"; };
 		53D900782AE67EEF00FFEB7A /* PreferencesServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesServiceImpl.swift; sourceTree = "<group>"; };
+		560630F52C65F2CC001DC9D2 /* AIFoodSearchApiImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFoodSearchApiImpl.swift; sourceTree = "<group>"; };
+		560630F62C65F2CC001DC9D2 /* AIFoodSearchApiDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFoodSearchApiDependencies.swift; sourceTree = "<group>"; };
+		560630F72C65F2CC001DC9D2 /* AIFoodSearchApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFoodSearchApi.swift; sourceTree = "<group>"; };
+		560630FB2C65F374001DC9D2 /* AIFoodSearchTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFoodSearchTarget.swift; sourceTree = "<group>"; };
+		560630FE2C65F69D001DC9D2 /* AIFoodSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFoodSearchResult.swift; sourceTree = "<group>"; };
+		560631002C65F6AA001DC9D2 /* AIFoodSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFoodSearchRequest.swift; sourceTree = "<group>"; };
 		560A91832B4D560000CE6D96 /* CaloriesBudgetHeaderRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesBudgetHeaderRingView.swift; sourceTree = "<group>"; };
 		560A91852B4D573C00CE6D96 /* CaloriesBudgetHeaderLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesBudgetHeaderLabelView.swift; sourceTree = "<group>"; };
 		560A91872B4D580200CE6D96 /* CaloriesBudgetHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesBudgetHeaderView.swift; sourceTree = "<group>"; };
@@ -630,6 +646,7 @@
 		56261AE02C1B05F400BCC534 /* MealAdditionalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealAdditionalInfo.swift; sourceTree = "<group>"; };
 		56261AE22C1B061600BCC534 /* MealServing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealServing.swift; sourceTree = "<group>"; };
 		562654C02B68E426006FC4AB /* IngredientPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientPlaceholderView.swift; sourceTree = "<group>"; };
+		5628C9272C6C82A300B3C05A /* NotFoundAISearchPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundAISearchPlaceholderView.swift; sourceTree = "<group>"; };
 		56322AA22B74E7FA00F64D3B /* ProductsLoaderDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsLoaderDependencies.swift; sourceTree = "<group>"; };
 		56322AA32B74E7FA00F64D3B /* ProductsLoaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsLoaderService.swift; sourceTree = "<group>"; };
 		56322AA42B74E7FA00F64D3B /* ProductsLoaderServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsLoaderServiceImpl.swift; sourceTree = "<group>"; };
@@ -728,6 +745,7 @@
 		567501022ADFD955009331CB /* IntercomUpdaterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntercomUpdaterImpl.swift; sourceTree = "<group>"; };
 		567501042ADFD955009331CB /* IntercomDataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntercomDataStorage.swift; sourceTree = "<group>"; };
 		567501052ADFD955009331CB /* IntercomDataStorageImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntercomDataStorageImpl.swift; sourceTree = "<group>"; };
+		5675D1AF2C730DB200E8CAC7 /* FoodSearchLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchLoadingView.swift; sourceTree = "<group>"; };
 		5675FFA72ADE7FF8009331CB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5675FFE92ADE84B4009331CB /* MigrationLaunchServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationLaunchServiceImpl.swift; sourceTree = "<group>"; };
 		5675FFEA2ADE84B4009331CB /* AppMigrationsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMigrationsProvider.swift; sourceTree = "<group>"; };
@@ -785,6 +803,7 @@
 		56C28DC42AE109580007E48D /* AppSyncServiceInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSyncServiceInitializer.swift; sourceTree = "<group>"; };
 		56C338C32B67C1C6006490D9 /* IngredientsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsResponse.swift; sourceTree = "<group>"; };
 		56C338C52B68C530006490D9 /* MealSelectedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSelectedState.swift; sourceTree = "<group>"; };
+		56C94F562C69E97800C72924 /* AINutrientsSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AINutrientsSearchRequest.swift; sourceTree = "<group>"; };
 		56D7B2B02B3D3FA0003B721D /* ProfileCalculationServiceServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCalculationServiceServiceImpl.swift; sourceTree = "<group>"; };
 		56D7B2B12B3D3FA0003B721D /* ProfileCalculationServiceDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCalculationServiceDependencies.swift; sourceTree = "<group>"; };
 		56D7B2B22B3D3FA0003B721D /* ProfileCalculationServiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCalculationServiceService.swift; sourceTree = "<group>"; };
@@ -877,6 +896,7 @@
 		A036CE4C2B6021B600F902E9 /* FreeUsageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeUsageService.swift; sourceTree = "<group>"; };
 		A038D02F2C483EBD00AD8DBD /* FoodSuggestionsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSuggestionsInput.swift; sourceTree = "<group>"; };
 		A038D0312C483ED100AD8DBD /* FoodSuggestionsOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSuggestionsOutput.swift; sourceTree = "<group>"; };
+		A03F52662C73973100A2F48E /* FoodLogTextFieldTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogTextFieldTitleView.swift; sourceTree = "<group>"; };
 		A041D5FB2B35A3A9009A98B7 /* MealDeleteBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDeleteBanner.swift; sourceTree = "<group>"; };
 		A04272C82AE28D3D00754326 /* DebugMenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuScreen.swift; sourceTree = "<group>"; };
 		A04272CB2AE28DF600754326 /* DebugMenuInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuInfoView.swift; sourceTree = "<group>"; };
@@ -1232,6 +1252,28 @@
 				53D900782AE67EEF00FFEB7A /* PreferencesServiceImpl.swift */,
 			);
 			path = PreferencesService;
+			sourceTree = "<group>";
+		};
+		560630F42C65F27B001DC9D2 /* AIFoodSearch */ = {
+			isa = PBXGroup;
+			children = (
+				560630FD2C65F67A001DC9D2 /* Model */,
+				560630F72C65F2CC001DC9D2 /* AIFoodSearchApi.swift */,
+				560630F52C65F2CC001DC9D2 /* AIFoodSearchApiImpl.swift */,
+				560630F62C65F2CC001DC9D2 /* AIFoodSearchApiDependencies.swift */,
+				560630FB2C65F374001DC9D2 /* AIFoodSearchTarget.swift */,
+			);
+			path = AIFoodSearch;
+			sourceTree = "<group>";
+		};
+		560630FD2C65F67A001DC9D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				560631002C65F6AA001DC9D2 /* AIFoodSearchRequest.swift */,
+				560630FE2C65F69D001DC9D2 /* AIFoodSearchResult.swift */,
+				56C94F562C69E97800C72924 /* AINutrientsSearchRequest.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		561961B62B356A4200B95FC9 /* MealService */ = {
@@ -1683,6 +1725,7 @@
 		567500CE2ADFCCDE009331CB /* API */ = {
 			isa = PBXGroup;
 			children = (
+				560630F42C65F27B001DC9D2 /* AIFoodSearch */,
 				A04CF6442BCFB22800EDDEA3 /* AICoachApi */,
 				56B23EAE2C2155B700A2BB64 /* NutritionFoodSearch */,
 				5692C6642B58F7DD007A9E3A /* FoodSearch */,
@@ -2276,6 +2319,7 @@
 				A08887682BEBA5D000B6F87E /* FoodSuggestionsEmptyView.swift */,
 				A051A50F2BED106700BE384C /* FoodSearchEmptyView.swift */,
 				A0BF3E572C62AD2A003B0A71 /* NutritionProfileWithWeightView.swift */,
+				5675D1AF2C730DB200E8CAC7 /* FoodSearchLoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2581,6 +2625,7 @@
 				A063D5BE2B3358F800594353 /* MealNutritionProfileView.swift */,
 				A0586D802B347BBF00C05D48 /* MealPlaceholderView.swift */,
 				5624BE992B5FC2EA00B94D54 /* NotFoundMealPlaceholderView.swift */,
+				5628C9272C6C82A300B3C05A /* NotFoundAISearchPlaceholderView.swift */,
 			);
 			path = MealView;
 			sourceTree = "<group>";
@@ -2825,6 +2870,7 @@
 				A05E68FB2B30EEFE00282F9C /* FoodLogTextField.swift */,
 				A006ED3D2BFF023100AFCF49 /* ChangeWeightButton.swift */,
 				A08BB4082C07B59E00AC4347 /* AddIngredientBanner.swift */,
+				A03F52662C73973100A2F48E /* FoodLogTextFieldTitleView.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -3667,6 +3713,7 @@
 				56322AAD2B74E7FA00F64D3B /* RemoteProducts.swift in Sources */,
 				A77E37822C3D691200AE0653 /* CustomFoodScrollView.swift in Sources */,
 				A06961D42BC96EBE008043A4 /* DayFoodViewModel.swift in Sources */,
+				56C94F572C69E97800C72924 /* AINutrientsSearchRequest.swift in Sources */,
 				5675FFA82ADE7FF8009331CB /* AppDelegate.swift in Sources */,
 				A01904B52BE3BAA800505A9C /* MealUsage.swift in Sources */,
 				A0BF94A62BCEA353006147E4 /* DayFoodInput.swift in Sources */,
@@ -3757,6 +3804,7 @@
 				A77B15852C4662FF00E48BF1 /* CustomFoodViewData.swift in Sources */,
 				560A918A2B4D5AC900CE6D96 /* Numeric+Extensions.swift in Sources */,
 				A015052B2B31ACF400EC34B5 /* FoodLogNutritionProfileView.swift in Sources */,
+				A03F52672C73973100A2F48E /* FoodLogTextFieldTitleView.swift in Sources */,
 				A0E7D1452B615B6C001ED31F /* ContainerOpenContext.swift in Sources */,
 				A01505292B31ABFA00EC34B5 /* NutritionProfile.swift in Sources */,
 				5692C6852B5973ED007A9E3A /* FoodSearchCriteria.swift in Sources */,
@@ -3832,6 +3880,7 @@
 				567500CD2ADFCC54009331CB /* AppSyncService.swift in Sources */,
 				A77982152B3D64DD0015B37D /* BarcodeScreen.swift in Sources */,
 				A71CEB7B2B7DFEB10056C99A /* AppInitializerServicePreview.swift in Sources */,
+				560631012C65F6AA001DC9D2 /* AIFoodSearchRequest.swift in Sources */,
 				A72A7D912B31B031000677A2 /* OnboardingStartView.swift in Sources */,
 				A70B6DF52B31B86E0035EF96 /* Date+LocaleTime.swift in Sources */,
 				A77E378C2C3E659B00AE0653 /* CustomFoodButton.swift in Sources */,
@@ -3868,6 +3917,7 @@
 				A7E45C9E2B4FCC7B00935488 /* DailyCalorieBudgetDescriptionView.swift in Sources */,
 				5658E46D2BEDF2930094317E /* QuickAddInput.swift in Sources */,
 				5692C6972B5A5483007A9E3A /* CodableCacheRepositoryImpl.swift in Sources */,
+				5675D1B02C730DB200E8CAC7 /* FoodSearchLoadingView.swift in Sources */,
 				A70B6DD52B31B6680035EF96 /* AccentButton.swift in Sources */,
 				A01E80952B57E65000AECD39 /* ProfileOutput.swift in Sources */,
 				567501062ADFD955009331CB /* IntercomServiceImpl.swift in Sources */,
@@ -3976,6 +4026,7 @@
 				A70B6DC82B31B5620035EF96 /* OnboardingCalculatedData.swift in Sources */,
 				A72A7D932B31B031000677A2 /* OnboardingRouter.swift in Sources */,
 				A70B6DEF2B31B7FA0035EF96 /* OnboardingLoadingAnimationBackgroundView.swift in Sources */,
+				560630FF2C65F69D001DC9D2 /* AIFoodSearchResult.swift in Sources */,
 				A01E80962B57E65000AECD39 /* ProfileViewModel.swift in Sources */,
 				A712BEB12B834D9E005504B1 /* DiscountPaywallExperiment.swift in Sources */,
 				567500412ADFA67E009331CB /* ProvidersDependencies.swift in Sources */,
@@ -4044,6 +4095,7 @@
 				56C28DCE2AE109580007E48D /* CrashlyticsInitializer.swift in Sources */,
 				5675008D2ADFAA4A009331CB /* Account.swift in Sources */,
 				A7EE496F2C1845650043F922 /* FacebookInitializerServicePreview.swift in Sources */,
+				5628C9282C6C82A300B3C05A /* NotFoundAISearchPlaceholderView.swift in Sources */,
 				A72A7D4B2B304C9E000677A2 /* PreviewSubscriptionService.swift in Sources */,
 				567500A12ADFAB69009331CB /* SubscriptionDependencies.swift in Sources */,
 				A01757022C08F48C00617F02 /* MealVotingViewModel.swift in Sources */,
@@ -4144,11 +4196,15 @@
 				5692C67F2B59386B007A9E3A /* FoodSearchServiceImpl.swift in Sources */,
 				A77982142B3D64DD0015B37D /* BarcodeRoute.swift in Sources */,
 				A7E45C942B4EA75600935488 /* DailyCalorieBudgetScreen.swift in Sources */,
+				560630FC2C65F374001DC9D2 /* AIFoodSearchTarget.swift in Sources */,
 				A05E68C42B307FCA00282F9C /* CalorieCounterApiImpl.swift in Sources */,
 				56D7B2BF2B3D46DC003B721D /* ExerciseActivity.swift in Sources */,
 				A70B6E0E2B32DD710035EF96 /* NotificationOnboardingOutput.swift in Sources */,
 				A72A7D7F2B31B031000677A2 /* PersonalizedBulletPointsView.swift in Sources */,
 				A0E7D1472B615FBC001ED31F /* BarcodeScannerOpenContext.swift in Sources */,
+				560630F82C65F2CC001DC9D2 /* AIFoodSearchApiImpl.swift in Sources */,
+				560630F92C65F2CC001DC9D2 /* AIFoodSearchApiDependencies.swift in Sources */,
+				560630FA2C65F2CC001DC9D2 /* AIFoodSearchApi.swift in Sources */,
 				A00EF1AC2BE27E0200F6CD58 /* FoodSuggestionsViewModel.swift in Sources */,
 				5692C6752B592E85007A9E3A /* FoodSearchSortOrder.swift in Sources */,
 				A09B22612C4EE9AD0068C769 /* ContainerKeyboardViewModel.swift in Sources */,

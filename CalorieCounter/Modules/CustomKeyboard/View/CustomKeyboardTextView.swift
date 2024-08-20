@@ -23,12 +23,13 @@ struct CustomKeyboardTextView: View {
                 }
             Text(units)
                 .foregroundStyle(Color.studioGreyPlaceholder)
+                .lineLimit(1)
             Spacer()
             if let grammsValue {
-                HStack(spacing: 8) {
+                HStack(spacing: .grammsSpacing) {
                     Circle()
                         .fill(Color.studioGreyPlaceholder)
-                        .frame(width: 4)
+                        .frame(width: .dotWidth)
                     Text(grammsValue)
                         .foregroundStyle(Color.studioGreyPlaceholder)
                         .lineLimit(1)
@@ -62,6 +63,8 @@ private extension CGFloat {
     static let cursorWidth: CGFloat = 1.5
     static let cursorHeight: CGFloat = 24
     static let cornerRadius: CGFloat = 56
+    static let dotWidth: CGFloat = 4
+    static let grammsSpacing: CGFloat = 8
 }
 
 #Preview {

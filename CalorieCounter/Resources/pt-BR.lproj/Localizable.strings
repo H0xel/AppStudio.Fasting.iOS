@@ -412,8 +412,7 @@ Seu plano está pronto";
 "LogType.food" = "Minha comida";
 
 // MARK: - FoodSearchEmptyView
-"FoodSearchEmptyView.title.tap" = "Toque";
-"FoodSearchEmptyView.title.toUse" = "para usar o reconhecimento de IA";
+"FoodSearchEmptyView.title.tapToUse" = "Toque %@ para usar o reconhecimento de IA";
 
 // MARK: - Quick Add
 "QuickAdd.protein" = "Proteína";

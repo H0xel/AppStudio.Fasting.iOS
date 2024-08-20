@@ -12,9 +12,45 @@ class CalorieCounterServiceImpl: CalorieCounterService {
     @Dependency(\.calorieCounterApi) private var calorieCounterApi
     @Dependency(\.calorieCounterCacheService) private var calorieCounterCacheService
 
+    @Dependency(\.aiFoodSearchApi) private var aiFoodSearchApi
+
+    private var isEnglishLanguage: Bool {
+        "en" == Locale.current.identifier.split(separator: "_").first ?? "en"
+    }
+
     func food(request: String) async throws -> [MealItem] {
-        if let cachedMeals: [MealItem] = try await calorieCounterCacheService.cached(request: request),
-           !cachedMeals.isEmpty {
+        guard isEnglishLanguage else {
+            return try await oldFood(request: request)
+        }
+
+        if let cachedMeals: [MealItem] = try await calorieCounterCacheService.cached(request: request) {
+            return cachedMeals
+        }
+
+        let meals = try await aiFoodSearchApi.search(foodDescription: request).asMealItems
+        try await calorieCounterCacheService.set(meals: meals, for: request)
+        return meals
+    }
+
+    func ingredients(request: String) async throws -> [IngredientStruct] {
+        guard isEnglishLanguage else {
+            return try await oldIingredients(request: request)
+        }
+
+        if let cachedIngredients: [MealItem] = try await calorieCounterCacheService.cachedIngredients(request: request) {
+            return cachedIngredients.map { IngredientStruct(mealItem: $0)}
+        }
+
+        let ingredients = try await aiFoodSearchApi.nutrients(query: request).compactMap { $0.asIngredientMealItem }
+
+        try await calorieCounterCacheService.set(ingredients: ingredients, for: request)
+
+        return ingredients.map { IngredientStruct(mealItem: $0)}
+    }
+
+
+    func oldFood(request: String) async throws -> [MealItem] {
+        if let cachedMeals: [MealItem] = try await calorieCounterCacheService.cached(request: request) {
             return cachedMeals
         }
         let meals = try await calorieCounterApi.food(request: request).meals.map { $0.asMeal }
@@ -22,10 +58,9 @@ class CalorieCounterServiceImpl: CalorieCounterService {
         return meals
     }
 
-    func ingredients(request: String) async throws -> [IngredientStruct] {
-        if let cachedIngredients: [MealItem] = try await calorieCounterCacheService
-            .cachedIngredients(request: request) {
-            return cachedIngredients.map { IngredientStruct(mealItem: $0) }
+    func oldIingredients(request: String) async throws -> [IngredientStruct] {
+        if let cachedIngredients: [MealItem] = try await calorieCounterCacheService.cachedIngredients(request: request) {
+            return cachedIngredients.map { IngredientStruct(mealItem: $0)}
         }
         let ingredients = try await calorieCounterApi.ingredients(request: request)
             .ingredients.map { $0.asIngridient.mealItem }

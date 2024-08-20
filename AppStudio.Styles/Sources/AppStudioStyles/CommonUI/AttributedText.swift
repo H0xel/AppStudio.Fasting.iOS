@@ -10,15 +10,17 @@ import SwiftUI
 public struct AttributedText: View {
 
     private let text: NSAttributedString
+    private let useDynamicHeight: Bool
     @State private var textWidth: CGFloat = 0
 
-    public init(text: NSAttributedString) {
+    public init(text: NSAttributedString, useDynamicHeight: Bool = true) {
         self.text = text
+        self.useDynamicHeight = useDynamicHeight
     }
 
     public var body: some View {
         AttributedTextView(text: text)
-            .frame(height: text.height(forWidth: textWidth))
+            .frame(height: useDynamicHeight ? text.height(forWidth: textWidth) : nil)
             .withViewWidthPreferenceKey
             .onViewWidthPreferenceKeyChange { newWidth in
                 textWidth = newWidth

@@ -40,9 +40,11 @@ struct MealWeightView: View {
     var body: some View {
         HStack(spacing: .spacing) {
             TextWithCursorView(isTextSelected: $isTextSelected, text: weight, isFocused: isTapped)
+                .layoutPriority(1)
             Text(servingTitle)
                 .foregroundStyle(Color.studioGreyText)
         }
+        .padding(.horizontal, .horizontalPadding)
         .font(.poppins(.description))
         .frame(width: width, height: .height)
         .background(Color.studioGreyFillProgress)
@@ -52,9 +54,6 @@ struct MealWeightView: View {
             color: .accent,
             lineWidth: isTapped ? .borderWidth : 0)
         )
-        .onChange(of: weight) { text in
-            isTextSelected = false
-        }
         .onTapGesture {
             if isTextSelected {
                 isTextSelected = false
@@ -106,6 +105,7 @@ private extension CGFloat {
     static let cornerRadius: CGFloat = 8
     static let spacing: CGFloat = 4
     static let borderWidth: CGFloat = 2
+    static let horizontalPadding: CGFloat = 6
 }
 
 private extension MealWeightView {

@@ -17,7 +17,7 @@ struct IngredientPlaceholderView: View {
     var body: some View {
         if placeholder.notFound {
             HStack(spacing: .zero) {
-                Text(Localization.notFoundTitle)
+                Text(placeholder.type == .barcode ? Localization.notFoundTitle : Localization.notFoundAITitle)
                     .font(.poppins(.body))
                     .foregroundStyle(.accent)
 
@@ -73,6 +73,8 @@ private extension IngredientPlaceholderView {
     enum Localization {
         static let notFoundTitle = NSLocalizedString("IngredientPlaceholderView.notFound",
                                                      comment: "Nothing found with this barcode")
+        static let notFoundAITitle = NSLocalizedString("IngredientPlaceholderView.notFoundAI",
+                                                     comment: "Nothing found with this barcode")
     }
 }
 
@@ -90,7 +92,7 @@ private extension CGFloat {
 
 #Preview {
     VStack {
-        IngredientPlaceholderView(placeholder: .init(mealText: "aed"), onClose: {})
-        IngredientPlaceholderView(placeholder: .init(mealText: "aed", notFound: true), onClose: {})
+        IngredientPlaceholderView(placeholder: .init(mealText: "aed", type: .ai), onClose: {})
+        IngredientPlaceholderView(placeholder: .init(mealText: "aed", type: .ai, notFound: true), onClose: {})
     }
 }

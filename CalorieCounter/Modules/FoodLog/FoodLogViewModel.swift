@@ -14,7 +14,6 @@ import Combine
 class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
 
     @Dependency(\.mealService) private var mealService
-    @Dependency(\.foodSearchService) private var foodSearchService
     @Dependency(\.freeUsageService) private var freeUsageService
     @Dependency(\.trackerService) private var trackerService
     @Dependency(\.userPropertyService) private var userPropertyService
@@ -58,7 +57,7 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
             switch $1 {
             case .meal(let meal):
                 return $0 ++ meal.mealItem.nutritionProfile
-            case .placeholder, .notFoundBarcode:
+            case .placeholder, .notFoundBarcode, .notFoundAISearch:
                 return $0
             }
         }
@@ -127,6 +126,8 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
             update(meal: meal)
         case .onFocus:
             scrollToTopSubject.send()
+        case .notFoundAISearch(let placeholderId):
+            updateNotFoundAISearch(placeholderId: placeholderId)
         }
     }
 
@@ -284,6 +285,15 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
         }
         if self.mealType == mealType {
             logItems.insert(contentsOf: meals.map { .meal($0) }, at: 0)
+        }
+    }
+
+    @MainActor
+    private func updateNotFoundAISearch(placeholderId: String) {
+        if let index = logItems.firstIndex(where: { $0.placeholderId == placeholderId }),
+            case let .placeholder(placeholder) = logItems[index] {
+            logItems.replaceSubrange(index...index, with: [.notFoundAISearch(placeholder)])
+            return
         }
     }
 

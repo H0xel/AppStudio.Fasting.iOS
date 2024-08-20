@@ -42,6 +42,7 @@ struct CustomKeyboardServingsView: View {
                 Spacer(minLength: .spacerLength)
             }
         }
+        .scrollIndicators(.hidden)
     }
 }
 

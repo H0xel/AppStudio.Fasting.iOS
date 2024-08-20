@@ -14,7 +14,7 @@ struct MealRecordView: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: .zero) {
-            AttributedText(text: text)
+            AttributedText(text: text, useDynamicHeight: false)
             Spacer()
             HStack(alignment: .center, spacing: .zero) {
                 Text("\(Int(meal.mealItem.nutritionProfile.calories))")
@@ -37,7 +37,8 @@ struct MealRecordView: View {
                                       fontSize: 15)
         result.append(name)
         if !meal.isQuickAdded {
-            let servingTitle = attributedTextPart(part: "   \(meal.mealItem.servingTitle)",
+            let itemServingTitle = meal.mealItem.servingTitles[0]
+            let servingTitle = attributedTextPart(part: "   \(itemServingTitle)",
                                                   color: .studioGreyPlaceholder,
                                                   fontSize: 13)
             result.append(servingTitle)
