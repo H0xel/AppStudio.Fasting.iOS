@@ -139,6 +139,7 @@ enum AnalyticEvent: MirrorEnum {
     case rateUsDialogAnswered(rate: Int)
 
     case serverError(code: Int, message: String, details: String?, traceId: String?, path: String)
+    case nutritionError(context: String)
 }
 
 extension AnalyticEvent {
@@ -214,6 +215,7 @@ extension AnalyticEvent {
         case .rateUsDialogShown: return "Rate Us dialog shown"
         case .rateUsDialogAnswered: return "Rate Us dialog answered"
         case .serverError: return "Server error"
+        case .nutritionError: return "Nutrition error"
         }
     }
 

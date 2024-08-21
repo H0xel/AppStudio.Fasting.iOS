@@ -15,4 +15,12 @@ public extension Double {
     var withOneFractionIfNeeded: String {
         decimalFormatterWithOneFraction.string(from: NSNumber(value: self)) ?? .init(format: "%.0f", "\(self)")
     }
+
+    func isOutOfRange() -> Bool {
+        if self < Double(Int.min) || self > Double(Int.max){
+            return true
+        }
+
+        return false
+    }
 }

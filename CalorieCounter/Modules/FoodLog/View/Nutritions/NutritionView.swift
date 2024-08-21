@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Dependencies
+import AppStudioStyles
 
 struct NutritionView: View {
+    @Dependency(\.trackerService) private var trackerService
 
     let amount: Double
     let configuration: Configuration
@@ -43,6 +46,17 @@ struct NutritionView: View {
         if amount.isNaN {
             return "0"
         }
+        
+        if amount.isInfinite {
+            trackerService.track(.nutritionError(context: "infinite"))
+            return "-"
+        }
+
+        if amount.isOutOfRange() {
+            trackerService.track(.nutritionError(context: "outOfRange"))
+            return "-"
+        }
+
         if amount < 1 {
             return amount.withOneFractionIfNeeded
         }
