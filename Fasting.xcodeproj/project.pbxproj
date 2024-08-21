@@ -188,6 +188,7 @@
 		A00B4DCA2B7382170067A872 /* FacebookInitializerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B4DC72B7382170067A872 /* FacebookInitializerServiceImpl.swift */; };
 		A0159BE72BA32C4000CEB32E /* WeightWidget in Frameworks */ = {isa = PBXBuildFile; productRef = A0159BE62BA32C4000CEB32E /* WeightWidget */; };
 		A0178F522B91CBC800069BEA /* AICoach in Frameworks */ = {isa = PBXBuildFile; productRef = A0178F512B91CBC800069BEA /* AICoach */; };
+		A02035AF2C75DEDC0088DC88 /* W2WNeedHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02035AE2C75DEDC0088DC88 /* W2WNeedHelpView.swift */; };
 		A02156002BA05450004DF16C /* CalendarProgressServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02155FF2BA05450004DF16C /* CalendarProgressServiceImpl.swift */; };
 		A02156022BA054C2004DF16C /* CalendarProgressServiceDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02156012BA054C2004DF16C /* CalendarProgressServiceDependencies.swift */; };
 		A0255E6E2AFBCE9D00221EC6 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0255E6D2AFBCE9D00221EC6 /* Account.swift */; };
@@ -351,7 +352,6 @@
 		A755E1CE2C6102BA00F5967C /* TrialPaywallOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A755E1C82C6102BA00F5967C /* TrialPaywallOutput.swift */; };
 		A755E1CF2C6102BA00F5967C /* TrialPaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A755E1C92C6102BA00F5967C /* TrialPaywallViewModel.swift */; };
 		A755E1D22C610B0E00F5967C /* TrialPaywallExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A755E1D12C610B0E00F5967C /* TrialPaywallExperiment.swift */; };
-		A758C61A2C0DFEEA00F9DC3F /* Intercom in Frameworks */ = {isa = PBXBuildFile; productRef = A758C6192C0DFEEA00F9DC3F /* Intercom */; };
 		A75956F02B172EBF00ECCAB0 /* SubscriptionPreviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75956EF2B172EBF00ECCAB0 /* SubscriptionPreviewService.swift */; };
 		A76294302B219E0B00DAF93B /* PersonalizedTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762942F2B219E0B00DAF93B /* PersonalizedTitleView.swift */; };
 		A76294322B219E2100DAF93B /* PersonalizedChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76294312B219E2100DAF93B /* PersonalizedChart.swift */; };
@@ -678,6 +678,7 @@
 		A00B4DC52B7382170067A872 /* FacebookInitializerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInitializerService.swift; sourceTree = "<group>"; };
 		A00B4DC62B7382170067A872 /* FacebookInitializerDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInitializerDependencies.swift; sourceTree = "<group>"; };
 		A00B4DC72B7382170067A872 /* FacebookInitializerServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInitializerServiceImpl.swift; sourceTree = "<group>"; };
+		A02035AE2C75DEDC0088DC88 /* W2WNeedHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WNeedHelpView.swift; sourceTree = "<group>"; };
 		A02155FF2BA05450004DF16C /* CalendarProgressServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarProgressServiceImpl.swift; sourceTree = "<group>"; };
 		A02156012BA054C2004DF16C /* CalendarProgressServiceDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarProgressServiceDependencies.swift; sourceTree = "<group>"; };
 		A0255E6D2AFBCE9D00221EC6 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -2456,6 +2457,7 @@
 				A76B46392C11A70800D97DEC /* Routing */,
 				A76B46302C11A6FD00D97DEC /* W2WLoginScreen.swift */,
 				A76B46322C11A6FD00D97DEC /* W2WLoginViewModel.swift */,
+				A02035AE2C75DEDC0088DC88 /* W2WNeedHelpView.swift */,
 			);
 			path = W2WLogin;
 			sourceTree = "<group>";
@@ -3463,6 +3465,7 @@
 				567500262ADE86C3009331CB /* ConcurrentDispatchQueue.swift in Sources */,
 				A0F90D712BA4AF760019C5D7 /* WeightWidgetDatabaseInitializer+extensions.swift in Sources */,
 				A749A08A2AE6B6430093C377 /* TrackerService+track.swift in Sources */,
+				A02035AF2C75DEDC0088DC88 /* W2WNeedHelpView.swift in Sources */,
 				564BE0BA2AF0F18300CE7F38 /* DatabaseDependencies.swift in Sources */,
 				A0CEE6252AEFE3E30082B27F /* FastingService.swift in Sources */,
 				A7D01B7E2AF10A6D00C50C1F /* SetupFastingRoute.swift in Sources */,
@@ -3765,7 +3768,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.11;
+				MARKETING_VERSION = 1.2.12;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -3807,7 +3810,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.11;
+				MARKETING_VERSION = 1.2.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

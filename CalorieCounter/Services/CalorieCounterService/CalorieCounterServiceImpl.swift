@@ -23,7 +23,8 @@ class CalorieCounterServiceImpl: CalorieCounterService {
             return try await oldFood(request: request)
         }
 
-        if let cachedMeals: [MealItem] = try await calorieCounterCacheService.cached(request: request) {
+        if let cachedMeals: [MealItem] = try await calorieCounterCacheService.cached(request: request),
+           !cachedMeals.isEmpty {
             return cachedMeals
         }
 
@@ -37,7 +38,8 @@ class CalorieCounterServiceImpl: CalorieCounterService {
             return try await oldIingredients(request: request)
         }
 
-        if let cachedIngredients: [MealItem] = try await calorieCounterCacheService.cachedIngredients(request: request) {
+        if let cachedIngredients: [MealItem] = try await calorieCounterCacheService.cachedIngredients(request: request),
+           !cachedIngredients.isEmpty {
             return cachedIngredients.map { IngredientStruct(mealItem: $0)}
         }
 
@@ -50,7 +52,8 @@ class CalorieCounterServiceImpl: CalorieCounterService {
 
 
     func oldFood(request: String) async throws -> [MealItem] {
-        if let cachedMeals: [MealItem] = try await calorieCounterCacheService.cached(request: request) {
+        if let cachedMeals: [MealItem] = try await calorieCounterCacheService.cached(request: request),
+           !cachedMeals.isEmpty {
             return cachedMeals
         }
         let meals = try await calorieCounterApi.food(request: request).meals.map { $0.asMeal }
@@ -59,7 +62,8 @@ class CalorieCounterServiceImpl: CalorieCounterService {
     }
 
     func oldIingredients(request: String) async throws -> [IngredientStruct] {
-        if let cachedIngredients: [MealItem] = try await calorieCounterCacheService.cachedIngredients(request: request) {
+        if let cachedIngredients: [MealItem] = try await calorieCounterCacheService.cachedIngredients(request: request),
+           !cachedIngredients.isEmpty {
             return cachedIngredients.map { IngredientStruct(mealItem: $0)}
         }
         let ingredients = try await calorieCounterApi.ingredients(request: request)

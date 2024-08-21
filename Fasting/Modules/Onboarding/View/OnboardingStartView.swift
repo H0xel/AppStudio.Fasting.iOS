@@ -66,6 +66,9 @@ struct OnboardingStartView: View {
             }
         }
         .frame(width: UIScreen.main.bounds.width)
+        .navBarButton(placement: .topBarTrailing,
+                      content: W2WNeedHelpView(),
+                      action: { onTap(.intercome) })
     }
 }
 
@@ -75,6 +78,7 @@ extension OnboardingStartView {
         case w2wSignIn
         case termsTapped
         case privacyTapped
+        case intercome
     }
 }
 

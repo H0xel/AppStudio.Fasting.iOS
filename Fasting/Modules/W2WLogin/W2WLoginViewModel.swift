@@ -28,6 +28,7 @@ class W2WLoginViewModel: BaseViewModel<W2WLoginOutput> {
     @Dependency(\.onboardingService) private var onboardingService
     @Dependency(\.cloudStorage) private var cloudStorage
     @Dependency(\.newSubscriptionService) private var newSubscriptionService
+    @Dependency(\.intercomService) private var intercomService
 
     private let context: W2WLoginInput.Context
 
@@ -40,6 +41,12 @@ class W2WLoginViewModel: BaseViewModel<W2WLoginOutput> {
 
     func backButtonTapped() {
         output(.close)
+    }
+
+    func presentIntercome() {
+        intercomService.presentIntercom()
+            .sink { _ in }
+            .store(in: &cancellables)
     }
 
     func signInTapped() {
@@ -85,7 +92,7 @@ enum W2WError: String {
 private let userWithOnboardingApiKey = "AppStudio.w2wUserKey"
 extension CloudStorage {
     var w2wUserEmail: String? {
-        set { set(key: userWithOnboardingApiKey, value: newValue) }
         get { get(key: userWithOnboardingApiKey) }
+        set { set(key: userWithOnboardingApiKey, value: newValue) }
     }
 }

@@ -9,6 +9,11 @@ import SwiftUI
 
 public extension Image {
 
+    /// 􀁜
+    static var questionCircle: Image {
+        Image(systemName: "questionmark.circle")
+    }
+
     /// 􀆉
     static var chevronLeft: Image {
         Image(systemName: "chevron.left")

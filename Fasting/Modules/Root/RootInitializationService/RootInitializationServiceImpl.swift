@@ -46,7 +46,6 @@ class RootInitializationServiceImpl: RootInitializationService {
         if shouldShowForceUpdate {
             return .forceUpdate(forceUpdateLink)
         }
-
         return cloudStorage.onboardingIsFinished ? .fasting : .onboarding
     }
 }

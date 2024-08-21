@@ -67,6 +67,9 @@ struct W2WLoginScreen: View {
         .navBarButton(content: Image.chevronLeft.foregroundStyle(Color.studioBlackLight)) {
             viewModel.backButtonTapped()
         }
+        .navBarButton(placement: .topBarTrailing,
+                      content: W2WNeedHelpView(),
+                      action: viewModel.presentIntercome)
     }
 }
 

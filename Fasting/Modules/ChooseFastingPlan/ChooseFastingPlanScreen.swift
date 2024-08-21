@@ -14,7 +14,7 @@ struct ChooseFastingPlanScreen: View {
 
     var body: some View {
         VStack(spacing: .zero) {
-            Text(viewModel.context == .onboarding ?
+            Text(viewModel.context == .onboarding || viewModel.context == .w2wOnboarding ?
                     Localization.titleOnboarding :
                     Localization.title)
                 .font(.adaptivePoppins(font: .headerL, smallDeviceFont: .headerM))

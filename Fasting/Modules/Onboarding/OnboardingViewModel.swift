@@ -21,6 +21,7 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
     @Dependency(\.onboardingService) private var onboardingService
     @Dependency(\.newSubscriptionService) private var newSubscriptionService
     @Dependency(\.cloudStorage) private var cloudStorage
+    @Dependency(\.intercomService) private var intercomService
 
     var router: OnboardingRouter!
     @Published var step: OnboardingFlowStep = .none
@@ -113,7 +114,6 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
 
     func handle(_ event: OnboardingStartView.Action) {
         switch event {
-
         case .getStartedTapped:
             nextStep()
         case .w2wSignIn:
@@ -129,6 +129,10 @@ class OnboardingViewModel: BaseViewModel<OnboardingOutput> {
         case .privacyTapped:
             guard let url = URL(string: GlobalConstants.privacyPolicy) else { return }
             router.open(url: url)
+        case .intercome:
+            intercomService.presentIntercom()
+                .sink { _ in }
+                .store(in: &cancellables)
         }
     }
 
