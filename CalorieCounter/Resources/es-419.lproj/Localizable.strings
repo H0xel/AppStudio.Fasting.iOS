@@ -340,6 +340,7 @@
 // MARK: = NotFoundMealPlaceholderView
 "NotFoundMealPlaceholderView.title" = "Ups, no se encontró comida para el código de barras";
 "IngredientPlaceholderView.notFound" = "No se encontró nada con este código de barras";
+"IngredientPlaceholderView.notFoundAI" = "La IA no pudo reconocer tu comida";
 
 // MARK: - UsageLimitPaywallScreen
 "UsageLimitPaywallScreen.unlockAllFeatures" = "Desbloquear\ntodas las funciones";
@@ -398,6 +399,7 @@
 
 "FoodSuggestionsEmptyView.food.title" = "Aún no hay comida personalizada";
 "FoodSuggestionsEmptyView.food.subtitle" = "Crea una nueva comida personalizada para verla aquí";
+"FoodSuggestionsEmptyView.log.subtitle" = "Comience a escribir para buscar comida\no toque %@ para usar el reconocimiento de IA.";
 
 // MARK: -
 "LogType.log" = "Registrar";
@@ -408,7 +410,10 @@
 "LogType.food" = "Mi comida";
 
 // MARK: - FoodSearchEmptyView
-"FoodSearchEmptyView.title.tapToUse" = "Toca %@ para usar el reconocimiento de IA";
+"FoodSearchEmptyView.title.tapToUse" = "Pulsa %@ para usar el reconocimiento de IA";
+
+// MARK: - FoodSearchLoadingView
+"FoodSearchLoadingView.title.loading" = "Cargando...";
 
 // MARK: - Quick Add
 "QuickAdd.protein" = "Proteína";
@@ -456,3 +461,8 @@
 
 "CustomFood.amountPer %@" = "Cantidad por porción · %@";
 "CustomFood.copy" = "(copiar)";
+
+// MARK: - NotFoundAISearchPlaceholderView
+"NotFoundAISearchPlaceholderView.title.part1" = "Ups, la IA";
+"NotFoundAISearchPlaceholderView.title.part2" = "no pudo reconocer";
+"NotFoundAISearchPlaceholderView.title.part3" = "tu comida";

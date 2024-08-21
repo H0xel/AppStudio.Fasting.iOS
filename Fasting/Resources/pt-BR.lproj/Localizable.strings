@@ -487,6 +487,7 @@ horário de jejum";
 "W2W.error.internetConnection" = "Sem conexão com a internet. Tente novamente.";
 "W2W.profile.linkedEmail" = "Endereço de e-mail vinculado";
 "W2W.banner.activateSuccessfully" = "Conta ativada com sucesso";
+"W2W.needHelp" = "Precisa de ajuda";
 
 // MARK: - Notifications Screen
 

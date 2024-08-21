@@ -484,6 +484,7 @@
 "W2W.error.internetConnection" = "Sin conexión a Internet. Intentar otra vez.";
 "W2W.profile.linkedEmail" = "Dirección de correo electrónico vinculada";
 "W2W.banner.activateSuccessfully" = "Cuenta activada exitosamente";
+"W2W.needHelp" = "Necesitas ayuda";
 
 // MARK: - Notifications Screen
 
