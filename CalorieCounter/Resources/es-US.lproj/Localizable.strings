@@ -399,7 +399,7 @@
 
 "FoodSuggestionsEmptyView.food.title" = "Aún no hay comida personalizada";
 "FoodSuggestionsEmptyView.food.subtitle" = "Crea una nueva comida personalizada para verla aquí";
-"FoodSuggestionsEmptyView.log.subtitle" = "Comience a escribir para buscar comida\no toque %@ para usar el reconocimiento de IA.";
+"FoodSuggestionsEmptyView.log.subtitle" = "Comience a escribir para buscar comida\no presione %@ para reconocimiento por IA";
 
 // MARK: -
 "LogType.log" = "Registrar";

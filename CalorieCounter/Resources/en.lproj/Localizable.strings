@@ -399,7 +399,7 @@
 
 "FoodSuggestionsEmptyView.food.title" = "No Custom Food Yet";
 "FoodSuggestionsEmptyView.food.subtitle" = "Create a new custom food to see it here";
-"FoodSuggestionsEmptyView.log.subtitle" = "Start typing to search for food\nor tap %@ to use AI recognition.";
+"FoodSuggestionsEmptyView.log.subtitle" = "Start typing to search for food\nor tap %@ to use AI recognition";
 
 // MARK: -
 "LogType.log" = "Log";

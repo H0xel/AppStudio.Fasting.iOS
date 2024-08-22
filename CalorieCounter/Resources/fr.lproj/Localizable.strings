@@ -399,7 +399,7 @@
 
 "FoodSuggestionsEmptyView.food.title" = "Pas encore de nourriture personnalisée";
 "FoodSuggestionsEmptyView.food.subtitle" = "Créez un nouvel aliment personnalisé pour le voir ici";
-"FoodSuggestionsEmptyView.log.subtitle" = "Commencez à taper pour rechercher de la nourriture\nou appuyez sur %@ pour utiliser la reconnaissance IA.";
+"FoodSuggestionsEmptyView.log.subtitle" = "Tapez pour rechercher de la nourriture\nou appuyez sur %@ pour la reconnaissance par IA";
 
 // MARK: -
 "LogType.log" = "Journal";

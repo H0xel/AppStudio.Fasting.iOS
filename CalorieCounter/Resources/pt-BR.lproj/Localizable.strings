@@ -403,7 +403,7 @@ Seu plano está pronto";
 
 "FoodSuggestionsEmptyView.food.title" = "Nenhuma comida personalizada ainda";
 "FoodSuggestionsEmptyView.food.subtitle" = "Crie um novo alimento personalizado para vê-lo aqui";
-"FoodSuggestionsEmptyView.log.subtitle" = "Comece a digitar para procurar comida\nou toque em %@ para usar o reconhecimento de IA.";
+"FoodSuggestionsEmptyView.log.subtitle" = "Comece a digitar para procurar comida\nou pressione %@ para reconhecimento por IA";
 
 // MARK: -
 "LogType.log" = "Registrar";
