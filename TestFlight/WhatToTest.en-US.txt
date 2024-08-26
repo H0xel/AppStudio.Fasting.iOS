@@ -1,1 +1,1 @@
-- Release candidate 1.2.0 CC
+- Release candidate Fasting 1.2.12
