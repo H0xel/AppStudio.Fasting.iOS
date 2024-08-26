@@ -21,6 +21,7 @@ struct FoodSuggestionsEmptyView: View {
                 .font(.poppinsMedium(.body))
                 .foregroundStyle(Color.studioGreyText)
                 .padding(.bottom, .titleSpacing)
+                .multilineTextAlignment(.center)
             logType.emptyViewSubtitleText
                 .font(.poppins(.description))
                 .foregroundStyle(Color.studioGreyPlaceholder)

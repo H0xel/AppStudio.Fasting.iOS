@@ -46,7 +46,7 @@ class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
         observeMealItems()
         observeRequest(publisher: input.mealRequestPublisher)
         observeCollapsePublisher(input.collapsePublisher)
-         observeSearchFoods()
+        observeSearchFoods()
     }
 
     var mealsPublisher: AnyPublisher<[SuggestedMeal], Never> {
@@ -71,8 +71,7 @@ class FoodSuggestionsViewModel: BaseViewModel<FoodSuggestionsOutput> {
                 let query = requestAndType.0
                 let type = requestAndType.1
 
-
-                if type != .log || query.count < 3 {
+                if (type != .log && type != .history) || query.count < 3 {
                     this.searchFoods = []
                     this.lastSearchRequest = ""
                     return

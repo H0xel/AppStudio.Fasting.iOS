@@ -1,1 +1,1 @@
-- new AI Flow
+- Release candidate 1.2.0 CC

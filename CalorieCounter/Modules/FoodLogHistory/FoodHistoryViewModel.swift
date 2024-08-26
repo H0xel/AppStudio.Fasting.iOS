@@ -159,7 +159,9 @@ extension FoodHistoryViewModel {
     }
 
     private func insertMeal(_ mealItem: MealItem) {
-        mealRequest = ""
+        Task {
+            await eraseTextField()
+        }
         switch mealItem.type {
         case .needToUpdateBrand:
             let foodSearchService = foodSearchService
@@ -188,6 +190,8 @@ extension FoodHistoryViewModel {
     func logMeal(text: String) {
         Task { [weak self] in
             guard let self else { return }
+
+            await eraseTextField()
             try await requestMeal(text: text)
         }
     }
@@ -269,6 +273,11 @@ extension FoodHistoryViewModel {
         dismissSuggestionsSubject.send()
         suggestionsState = .init(isPresented: false, isKeyboardFocused: true)
         output(.appendPlaceholder(placeholder))
+    }
+
+    @MainActor
+    private func eraseTextField() {
+        mealRequest = ""
     }
 }
 
