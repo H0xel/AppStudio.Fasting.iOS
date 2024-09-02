@@ -1,1 +1,1 @@
-- Release candidate Fasting 1.2.13
+- Release candidate fasting 1.2.14

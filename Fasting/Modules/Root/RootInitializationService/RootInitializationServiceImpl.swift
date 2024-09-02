@@ -14,21 +14,31 @@ class RootInitializationServiceImpl: RootInitializationService {
     @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.newSubscriptionService) private var newSubscriptionService
     @Dependency(\.cloudStorage) private var cloudStorage
+    @Dependency(\.w2WLoadingService) private var w2WLoadingService
 
     var rootSetup: AnyPublisher<RootSetup, Never> {
         newSubscriptionService.hasSubscription
             .dropFirst()
-            .combineLatest(forceUpdateObservable.asPublisherWithoutError())
+            .combineLatest(forceUpdateObservable.asPublisherWithoutError(), isW2WLoaded)
             .prefix(1)
             .map(with: self) { this, args in
-                let arguments = (hasSubscription: args.0, forceUpdateArgs: args.1)
+                let arguments = (hasSubscription: args.0, forceUpdateArgs: args.1, w2wLoaded: args.2)
+                arguments.w2wLoaded
                 return RootSetup(
                     rootScreen: this.rootScreen(
                         shouldShowForceUpdate: arguments.forceUpdateArgs.shouldShowForceUpdate,
                         forceUpdateLink: arguments.forceUpdateArgs.appLink
                     ),
-                    hasSubscription: arguments.hasSubscription)
+                    hasSubscription: arguments.hasSubscription,
+                    w2wLoaded: arguments.w2wLoaded
+                )
             }
+            .eraseToAnyPublisher()
+    }
+
+    private var isW2WLoaded: AnyPublisher<Bool, Never> {
+        w2WLoadingService.isLoaded
+            .filter { $0 == true }
             .eraseToAnyPublisher()
     }
 

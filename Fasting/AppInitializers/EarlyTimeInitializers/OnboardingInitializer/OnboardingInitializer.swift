@@ -16,6 +16,7 @@ final class OnboardingInitializer: AppInitializer {
     @Dependency(\.onboardingService) private var onboardingService
     @Dependency(\.userPropertyService) private var userPropertyService
     @Dependency(\.newSubscriptionService) private var newSubscriptionService
+    @Dependency(\.w2WLoadingService) private var w2WLoadingService
 
     func initialize() {
         Task {
@@ -26,6 +27,7 @@ final class OnboardingInitializer: AppInitializer {
                 cloudStorage.userWithOnboardingApi = true
                 tryToRestoreSubscriptionFromW2W()
             }
+            w2WLoadingService.setLoaded()
         }
     }
 

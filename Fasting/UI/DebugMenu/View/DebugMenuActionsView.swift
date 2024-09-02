@@ -70,6 +70,7 @@ struct DebugMenuActionsView: View {
 
         Button("Reset w2w email") {
             cloudStorage.w2wUserEmail = nil
+            cloudStorage.userWithOnboardingApi = false
         }
 
         Button("Reset discount paywall timer") {

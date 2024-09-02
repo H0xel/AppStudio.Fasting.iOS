@@ -10,4 +10,5 @@ import Foundation
 struct RootSetup {
     let rootScreen: RootViewModel.RootScreen
     let hasSubscription: Bool
+    let w2wLoaded: Bool
 }

@@ -486,6 +486,9 @@
 		A7E51DFE2C22E2580042AAEA /* NotificationSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51DFB2C22E2580042AAEA /* NotificationSettingsService.swift */; };
 		A7E9CAC02BF6259200128ACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7E9CABE2BF6259200128ACA /* Localizable.strings */; };
 		A7E9CAC32BF63BEF00128ACA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7E9CAC52BF63BEF00128ACA /* InfoPlist.strings */; };
+		A7F986072C7F82F400FC76CD /* W2WLoadingServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F986042C7F82F400FC76CD /* W2WLoadingServiceImpl.swift */; };
+		A7F986082C7F82F400FC76CD /* W2WLoadingDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F986052C7F82F400FC76CD /* W2WLoadingDependencies.swift */; };
+		A7F986092C7F82F400FC76CD /* W2WLoadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F986062C7F82F400FC76CD /* W2WLoadingService.swift */; };
 		A7FFD1812BD8F067003055F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7FFD17F2BD8F067003055F0 /* Localizable.strings */; };
 		AD58D4D52AE7BC5800FE49F5 /* AccountIdProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */; };
 /* End PBXBuildFile section */
@@ -979,6 +982,9 @@
 		A7E9CAC72BF63BFA00128ACA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7E9CAC82BF63BFB00128ACA /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A7E9CAC92BF63BFB00128ACA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		A7F986042C7F82F400FC76CD /* W2WLoadingServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoadingServiceImpl.swift; sourceTree = "<group>"; };
+		A7F986052C7F82F400FC76CD /* W2WLoadingDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoadingDependencies.swift; sourceTree = "<group>"; };
+		A7F986062C7F82F400FC76CD /* W2WLoadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WLoadingService.swift; sourceTree = "<group>"; };
 		A7FFD1802BD8F067003055F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		AD58D4D42AE7BC5800FE49F5 /* AccountIdProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountIdProviderImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2383,6 +2389,7 @@
 		A729F92F2BF4BBEB00875BB5 /* OnboardingInitializer */ = {
 			isa = PBXGroup;
 			children = (
+				A7F986032C7F82DF00FC76CD /* W2WLoadingService */,
 				A711E55E2BEE559C00AC81F9 /* OnboardingInitializer.swift */,
 				A729F9302BF4BC0200875BB5 /* OnboardingInitializerDependency.swift */,
 			);
@@ -2866,6 +2873,16 @@
 				A7E51DFB2C22E2580042AAEA /* NotificationSettingsService.swift */,
 			);
 			path = NotificationSettingsService;
+			sourceTree = "<group>";
+		};
+		A7F986032C7F82DF00FC76CD /* W2WLoadingService */ = {
+			isa = PBXGroup;
+			children = (
+				A7F986042C7F82F400FC76CD /* W2WLoadingServiceImpl.swift */,
+				A7F986052C7F82F400FC76CD /* W2WLoadingDependencies.swift */,
+				A7F986062C7F82F400FC76CD /* W2WLoadingService.swift */,
+			);
+			path = W2WLoadingService;
 			sourceTree = "<group>";
 		};
 		A7FFD17E2BD8F067003055F0 /* en.lproj */ = {
@@ -3375,6 +3392,9 @@
 				A7D01B5F2AF0C82100C50C1F /* OnboardingRoute.swift in Sources */,
 				A08449702B1A86AC00D30E04 /* FastingPhaseRoute.swift in Sources */,
 				53D900792AE67EEF00FFEB7A /* PreferencesServiceImpl.swift in Sources */,
+				A7F986072C7F82F400FC76CD /* W2WLoadingServiceImpl.swift in Sources */,
+				A7F986082C7F82F400FC76CD /* W2WLoadingDependencies.swift in Sources */,
+				A7F986092C7F82F400FC76CD /* W2WLoadingService.swift in Sources */,
 				A7D01B912AF115F200C50C1F /* NotificationOnboardingRoute.swift in Sources */,
 				566C24962AE8F80B00AEDB3C /* PaywallTitleView.swift in Sources */,
 				A07EAB352AFA56A200A46D7E /* EndFastingEarlyRouter.swift in Sources */,
@@ -3768,7 +3788,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.13;
+				MARKETING_VERSION = 1.2.14;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-Xlinker",
 					"-no_warn_duplicate_libraries",
@@ -3810,7 +3830,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.13;
+				MARKETING_VERSION = 1.2.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.municorn.Fasting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
