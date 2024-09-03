@@ -8,23 +8,37 @@
 import SwiftUI
 import AppStudioNavigation
 import AppStudioUI
+import AppStudioServices
 
 struct RootScreen: View {
     @StateObject var viewModel: RootViewModel
 
     var body: some View {
-        VStack {
-            Text(Localization.title)
-                .withDebugMenu()
-            Button("Show Paywall Template") {
-                viewModel.showPaywall()
-            }
-            .padding()
-        }
+        currentView
         .onDidBecomeActiveNotification { _ in
             viewModel.requestIdfa()
         }
+        .withInAppPurchase(status: viewModel.handle)
         .withDebugMenu()
+    }
+
+    @ViewBuilder
+    private var currentView: some View {
+        switch viewModel.rootScreen {
+        case let .forceUpdate(link):
+            ForceUpdateScreen(theme: .init()) {
+                viewModel.openAppStore(link)
+            }
+        case .launchScreen:
+            Text("launchScreen")
+        case .onboarding:
+            Text("onboarding")
+        case .periodTracker:
+            Text("periodTracker")
+        }
+        if viewModel.isProcessingSubscription {
+            DimmedProgressBanner().view
+        }
     }
 }
 

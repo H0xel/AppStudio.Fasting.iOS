@@ -14,8 +14,17 @@ import RxSwift
 import Dependencies
 
 private let requiredAppVersionKey = "force_update_version"
+private let forceUpdateLink = "force_update_link"
 
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
+    var forceUpdateAppVersion: Observable<String> {
+        remoteConfigValueObservable(forKey: requiredAppVersionKey, defaultValue: Bundle.appVersion)
+    }
+
+    var appStoreLink: Observable<String> {
+        remoteConfigValueObservable(forKey: forceUpdateLink, defaultValue: "")
+    }
+
 
     private let productIdsRelay = BehaviorRelay<[String]>(value: [])
     private let disposeBag = DisposeBag()
@@ -51,12 +60,6 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     var paywallProductIds: Observable<[String]> {
         productIds
-    }
-
-    func shouldForceUpdate() async throws -> Bool {
-        let requierdVersion: String = try await remoteConfigValue(forKey: requiredAppVersionKey,
-                                                                  defaultValue: Bundle.appVersion)
-        return !Bundle.lessOrEqualToCurrentVersion(requierdVersion)
     }
 }
 

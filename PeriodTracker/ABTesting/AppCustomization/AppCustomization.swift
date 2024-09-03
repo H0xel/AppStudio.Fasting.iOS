@@ -7,9 +7,11 @@
 
 import Foundation
 import AppStudioABTesting
+import RxSwift
 
 protocol AppCustomization {
+    var forceUpdateAppVersion: Observable<String> { get }
+    var appStoreLink: Observable<String> { get }
     func initialize()
-    func shouldForceUpdate() async throws -> Bool
     // TODO: - add app cutomization functions here
 }

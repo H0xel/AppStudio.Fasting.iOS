@@ -8,42 +8,56 @@
 import AppStudioNavigation
 import AppStudioUI
 import Dependencies
+import SwiftUI
+import NewAppStudioSubscriptions
 
 class RootViewModel: BaseViewModel<RootOutput> {
-
-    @Dependency(\.appCustomization) private var appCustomization
     @Dependency(\.idfaRequestService) private var idfaRequestService
+    @Dependency(\.rootInitializationService) private var rootInitializationService
 
     var router: RootRouter!
+    @Published private(set) var rootScreen: RootScreen = .launchScreen
+    @Published private(set) var isProcessingSubscription = false
+    @Published private(set) var hasSubscription = false
 
     init(input: RootInput, output: @escaping RootOutputBlock) {
         super.init(output: output)
         initialize()
-        // initialization code here
+    }
+
+    func handle(status: inAppPurchaseStatus) {
+        if status.isLoading {
+            isProcessingSubscription = true
+            return
+        }
+        isProcessingSubscription = false
     }
 
     private func initialize() {
-        Task { [weak self] in
-            guard let self else { return }
-            let shouldForceUpdate = try await self.appCustomization.shouldForceUpdate()
-            if shouldForceUpdate {
-                self.presentForceUpdateScreen()
+        rootInitializationService
+            .rootSetup
+            .receive(on: DispatchQueue.main)
+            .sink(with: self) { this, setup in
+                this.hasSubscription = setup.hasSubscription
+                this.rootScreen = setup.rootScreen
             }
-        }
+            .store(in: &cancellables)
+    }
+}
+
+extension RootViewModel {
+    enum RootScreen: Equatable {
+        case launchScreen
+        case periodTracker
+        case onboarding
+        case forceUpdate(String)
     }
 }
 
 // MARK: Routing
 extension RootViewModel {
-    func showPaywall() {
-        router.presentPaywall()
-    }
-
-    private func presentForceUpdateScreen() {
-        let banner = ForceUpdateBanner { [weak self] in
-            self?.router.presentAppStore()
-        }
-        router.present(banner: banner)
+    func openAppStore(_ applink: String) {
+        router.presentAppStore(applink)
     }
 
     func requestIdfa() {

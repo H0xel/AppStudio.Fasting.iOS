@@ -7,13 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		563257FD2ADE61E30000F33C /* AppStudioAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 563257FC2ADE61E30000F33C /* AppStudioAnalytics */; };
-		5675000B2ADE85FD009331CB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5675000A2ADE85FD009331CB /* FirebaseAnalytics */; };
-		5675000D2ADE85FD009331CB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5675000C2ADE85FD009331CB /* FirebaseCrashlytics */; };
-		5675000F2ADE85FD009331CB /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 5675000E2ADE85FD009331CB /* FirebaseRemoteConfig */; };
-		5675002A2ADE8763009331CB /* ABTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 567500292ADE8763009331CB /* ABTesting */; };
 		A76CD4232B1606DC00A9D4FE /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76CD4222B1606DC00A9D4FE /* WhatToTest.en-US.txt */; };
-		A7A8FA142C86F7BE00560E63 /* NewAppStudioSubscriptions in Frameworks */ = {isa = PBXBuildFile; productRef = A7A8FA132C86F7BE00560E63 /* NewAppStudioSubscriptions */; };
 		A7CBABDF2C870B8700D4DFD3 /* AppStudioTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0A2C870B8700D4DFD3 /* AppStudioTemplateTests.swift */; };
 		A7CBABE02C870B8700D4DFD3 /* AppCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0C2C870B8700D4DFD3 /* AppCustomization.swift */; };
 		A7CBABE12C870B8700D4DFD3 /* AppCustomizationDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0D2C870B8700D4DFD3 /* AppCustomizationDependency.swift */; };
@@ -160,11 +154,14 @@
 		A7CBAC6E2C870B8700D4DFD3 /* DebugMenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBABD72C870B8700D4DFD3 /* DebugMenuScreen.swift */; };
 		A7CBAC6F2C870B8700D4DFD3 /* BaseViewModel+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBABD92C870B8700D4DFD3 /* BaseViewModel+ErrorHandling.swift */; };
 		A7CBAC702C870B8700D4DFD3 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBABDB2C870B8700D4DFD3 /* ErrorHandling.swift */; };
-		ADC784EC2AFA83BD005F16A6 /* AppStudioNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784EB2AFA83BD005F16A6 /* AppStudioNavigation */; };
-		ADC784F22AFA859C005F16A6 /* AppStudioABTesting in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784F12AFA859C005F16A6 /* AppStudioABTesting */; };
-		ADC784F42AFA859C005F16A6 /* AppStudioFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784F32AFA859C005F16A6 /* AppStudioFoundation */; };
-		ADC784F62AFA859C005F16A6 /* AppStudioUI in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784F52AFA859C005F16A6 /* AppStudioUI */; };
-		ADC784F92AFA86CC005F16A6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = ADC784F82AFA86CC005F16A6 /* Moya */; };
+		A7CBAC792C8746FA00D4DFD3 /* RootInitializationDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAC742C8746FA00D4DFD3 /* RootInitializationDependencies.swift */; };
+		A7CBAC7A2C8746FA00D4DFD3 /* RootInitializationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAC752C8746FA00D4DFD3 /* RootInitializationService.swift */; };
+		A7CBAC7B2C8746FA00D4DFD3 /* RootInitializationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAC762C8746FA00D4DFD3 /* RootInitializationServiceImpl.swift */; };
+		A7CBAC7C2C8746FA00D4DFD3 /* RootSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAC772C8746FA00D4DFD3 /* RootSetup.swift */; };
+		A7CBAC7F2C874B2B00D4DFD3 /* AppStudio.Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = A7CBAC7E2C874B2B00D4DFD3 /* AppStudio.Dependencies */; };
+		A7CBAC812C874B2B00D4DFD3 /* AppStudioModels in Frameworks */ = {isa = PBXBuildFile; productRef = A7CBAC802C874B2B00D4DFD3 /* AppStudioModels */; };
+		A7CBAC832C874B2B00D4DFD3 /* AppStudioServices in Frameworks */ = {isa = PBXBuildFile; productRef = A7CBAC822C874B2B00D4DFD3 /* AppStudioServices */; };
+		A7CBAC852C874B2B00D4DFD3 /* AppStudioStyles in Frameworks */ = {isa = PBXBuildFile; productRef = A7CBAC842C874B2B00D4DFD3 /* AppStudioStyles */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -328,6 +325,10 @@
 		A7CBABD92C870B8700D4DFD3 /* BaseViewModel+ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseViewModel+ErrorHandling.swift"; sourceTree = "<group>"; };
 		A7CBABDB2C870B8700D4DFD3 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		A7CBABDD2C870B8700D4DFD3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7CBAC742C8746FA00D4DFD3 /* RootInitializationDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInitializationDependencies.swift; sourceTree = "<group>"; };
+		A7CBAC752C8746FA00D4DFD3 /* RootInitializationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInitializationService.swift; sourceTree = "<group>"; };
+		A7CBAC762C8746FA00D4DFD3 /* RootInitializationServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInitializationServiceImpl.swift; sourceTree = "<group>"; };
+		A7CBAC772C8746FA00D4DFD3 /* RootSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootSetup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,17 +336,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADC784F62AFA859C005F16A6 /* AppStudioUI in Frameworks */,
-				ADC784EC2AFA83BD005F16A6 /* AppStudioNavigation in Frameworks */,
-				ADC784F42AFA859C005F16A6 /* AppStudioFoundation in Frameworks */,
-				5675002A2ADE8763009331CB /* ABTesting in Frameworks */,
-				563257FD2ADE61E30000F33C /* AppStudioAnalytics in Frameworks */,
-				ADC784F92AFA86CC005F16A6 /* Moya in Frameworks */,
-				5675000D2ADE85FD009331CB /* FirebaseCrashlytics in Frameworks */,
-				ADC784F22AFA859C005F16A6 /* AppStudioABTesting in Frameworks */,
-				A7A8FA142C86F7BE00560E63 /* NewAppStudioSubscriptions in Frameworks */,
-				5675000F2ADE85FD009331CB /* FirebaseRemoteConfig in Frameworks */,
-				5675000B2ADE85FD009331CB /* FirebaseAnalytics in Frameworks */,
+				A7CBAC852C874B2B00D4DFD3 /* AppStudioStyles in Frameworks */,
+				A7CBAC812C874B2B00D4DFD3 /* AppStudioModels in Frameworks */,
+				A7CBAC832C874B2B00D4DFD3 /* AppStudioServices in Frameworks */,
+				A7CBAC7F2C874B2B00D4DFD3 /* AppStudio.Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,10 +646,8 @@
 		A7CBAB612C870B8700D4DFD3 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				A7CBAB5B2C870B8700D4DFD3 /* RootInput.swift */,
-				A7CBAB5C2C870B8700D4DFD3 /* RootOutput.swift */,
-				A7CBAB5D2C870B8700D4DFD3 /* RootRoute.swift */,
-				A7CBAB5E2C870B8700D4DFD3 /* RootRouter.swift */,
+				A7CBAC7D2C8747BE00D4DFD3 /* Routing */,
+				A7CBAC782C8746FA00D4DFD3 /* RootInitializationService */,
 				A7CBAB5F2C870B8700D4DFD3 /* RootScreen.swift */,
 				A7CBAB602C870B8700D4DFD3 /* RootViewModel.swift */,
 			);
@@ -1067,6 +1059,28 @@
 			path = PeriodTracker;
 			sourceTree = "<group>";
 		};
+		A7CBAC782C8746FA00D4DFD3 /* RootInitializationService */ = {
+			isa = PBXGroup;
+			children = (
+				A7CBAC742C8746FA00D4DFD3 /* RootInitializationDependencies.swift */,
+				A7CBAC752C8746FA00D4DFD3 /* RootInitializationService.swift */,
+				A7CBAC762C8746FA00D4DFD3 /* RootInitializationServiceImpl.swift */,
+				A7CBAC772C8746FA00D4DFD3 /* RootSetup.swift */,
+			);
+			path = RootInitializationService;
+			sourceTree = "<group>";
+		};
+		A7CBAC7D2C8747BE00D4DFD3 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A7CBAB5B2C870B8700D4DFD3 /* RootInput.swift */,
+				A7CBAB5C2C870B8700D4DFD3 /* RootOutput.swift */,
+				A7CBAB5D2C870B8700D4DFD3 /* RootRoute.swift */,
+				A7CBAB5E2C870B8700D4DFD3 /* RootRouter.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1086,17 +1100,10 @@
 			);
 			name = PeriodTracker;
 			packageProductDependencies = (
-				563257FC2ADE61E30000F33C /* AppStudioAnalytics */,
-				5675000A2ADE85FD009331CB /* FirebaseAnalytics */,
-				5675000C2ADE85FD009331CB /* FirebaseCrashlytics */,
-				5675000E2ADE85FD009331CB /* FirebaseRemoteConfig */,
-				567500292ADE8763009331CB /* ABTesting */,
-				ADC784EB2AFA83BD005F16A6 /* AppStudioNavigation */,
-				ADC784F12AFA859C005F16A6 /* AppStudioABTesting */,
-				ADC784F32AFA859C005F16A6 /* AppStudioFoundation */,
-				ADC784F52AFA859C005F16A6 /* AppStudioUI */,
-				ADC784F82AFA86CC005F16A6 /* Moya */,
-				A7A8FA132C86F7BE00560E63 /* NewAppStudioSubscriptions */,
+				A7CBAC7E2C874B2B00D4DFD3 /* AppStudio.Dependencies */,
+				A7CBAC802C874B2B00D4DFD3 /* AppStudioModels */,
+				A7CBAC822C874B2B00D4DFD3 /* AppStudioServices */,
+				A7CBAC842C874B2B00D4DFD3 /* AppStudioStyles */,
 			);
 			productName = AppStudioTemplate;
 			productReference = 563257112ADE57D80000F33C /* PeriodTracker.app */;
@@ -1149,13 +1156,6 @@
 			);
 			mainGroup = 563257082ADE57D80000F33C;
 			packageReferences = (
-				563257FB2ADE61E30000F33C /* XCRemoteSwiftPackageReference "AppStudio.iOS" */,
-				567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */,
-				ADC784EA2AFA83BD005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */,
-				ADC784ED2AFA8559005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */,
-				ADC784F02AFA859C005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */,
-				ADC784F72AFA86CC005F16A6 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 563257122ADE57D80000F33C /* Products */;
 			projectDirPath = "";
@@ -1258,6 +1258,7 @@
 				A7CBAC6F2C870B8700D4DFD3 /* BaseViewModel+ErrorHandling.swift in Sources */,
 				A7CBAC152C870B8700D4DFD3 /* RestoreResult.swift in Sources */,
 				A7CBAC5A2C870B8700D4DFD3 /* ProductIdsService.swift in Sources */,
+				A7CBAC792C8746FA00D4DFD3 /* RootInitializationDependencies.swift in Sources */,
 				A7CBABE92C870B8700D4DFD3 /* AccountApiImpl.swift in Sources */,
 				A7CBABF22C870B8700D4DFD3 /* TelecomError.swift in Sources */,
 				A7CBAC3E2C870B8700D4DFD3 /* MailSenderServiceImpl.swift in Sources */,
@@ -1274,6 +1275,7 @@
 				A7CBAC422C870B8700D4DFD3 /* AppWillEnterForegroundMessage.swift in Sources */,
 				A7CBAC592C870B8700D4DFD3 /* ProductProviderImpl.swift in Sources */,
 				A7CBABF42C870B8700D4DFD3 /* TelecomTargetType.swift in Sources */,
+				A7CBAC7A2C8746FA00D4DFD3 /* RootInitializationService.swift in Sources */,
 				A7CBAC2C2C870B8700D4DFD3 /* Atomic.swift in Sources */,
 				A7CBAC672C870B8700D4DFD3 /* AppSyncServicePreview.swift in Sources */,
 				A7CBAC1D2C870B8700D4DFD3 /* AccountIdProviderImpl.swift in Sources */,
@@ -1337,6 +1339,7 @@
 				A7CBAC362C870B8700D4DFD3 /* IntercomDataStorage.swift in Sources */,
 				A7CBABFE2C870B8700D4DFD3 /* EarlyTimeInitializers.swift in Sources */,
 				A7CBAC512C870B8700D4DFD3 /* MigrationLaunchService.swift in Sources */,
+				A7CBAC7C2C8746FA00D4DFD3 /* RootSetup.swift in Sources */,
 				A7CBAC632C870B8700D4DFD3 /* AccountSyncServiceImpl.swift in Sources */,
 				A7CBAC442C870B8700D4DFD3 /* FinishTransactionMessage.swift in Sources */,
 				A7CBAC392C870B8700D4DFD3 /* IntercomUpdater.swift in Sources */,
@@ -1355,6 +1358,7 @@
 				A7CBAC502C870B8700D4DFD3 /* Migration.swift in Sources */,
 				A7CBAC372C870B8700D4DFD3 /* IntercomDataStorageImpl.swift in Sources */,
 				A7CBAC0B2C870B8700D4DFD3 /* GlobalConstants.swift in Sources */,
+				A7CBAC7B2C8746FA00D4DFD3 /* RootInitializationServiceImpl.swift in Sources */,
 				A7CBAC3F2C870B8700D4DFD3 /* AppActivationMessage.swift in Sources */,
 				A7CBAC2B2C870B8700D4DFD3 /* ExecutionDispatchQueue.swift in Sources */,
 				A7CBAC042C870B8700D4DFD3 /* IntercomInitializer.swift in Sources */,
@@ -1669,120 +1673,22 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		563257FB2ADE61E30000F33C /* XCRemoteSwiftPackageReference "AppStudio.iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Analytics";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.9;
-			};
-		};
-		567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = exactVersion;
-				version = 10.29.0;
-			};
-		};
-		567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/m-unicorn/iOS.ABTesting.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.6;
-			};
-		};
-		ADC784EA2AFA83BD005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Navigation";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.15;
-			};
-		};
-		ADC784ED2AFA8559005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.13;
-			};
-		};
-		ADC784F02AFA859C005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/m-unicorn/AppStudio.iOS.Common";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.27;
-			};
-		};
-		ADC784F72AFA86CC005F16A6 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya";
-			requirement = {
-				kind = exactVersion;
-				version = 15.0.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		563257FC2ADE61E30000F33C /* AppStudioAnalytics */ = {
+		A7CBAC7E2C874B2B00D4DFD3 /* AppStudio.Dependencies */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 563257FB2ADE61E30000F33C /* XCRemoteSwiftPackageReference "AppStudio.iOS" */;
-			productName = AppStudioAnalytics;
+			productName = AppStudio.Dependencies;
 		};
-		5675000A2ADE85FD009331CB /* FirebaseAnalytics */ = {
+		A7CBAC802C874B2B00D4DFD3 /* AppStudioModels */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
+			productName = AppStudioModels;
 		};
-		5675000C2ADE85FD009331CB /* FirebaseCrashlytics */ = {
+		A7CBAC822C874B2B00D4DFD3 /* AppStudioServices */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
+			productName = AppStudioServices;
 		};
-		5675000E2ADE85FD009331CB /* FirebaseRemoteConfig */ = {
+		A7CBAC842C874B2B00D4DFD3 /* AppStudioStyles */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 567500092ADE85FD009331CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseRemoteConfig;
-		};
-		567500292ADE8763009331CB /* ABTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 567500282ADE8763009331CB /* XCRemoteSwiftPackageReference "iOS.ABTesting" */;
-			productName = ABTesting;
-		};
-		A7A8FA132C86F7BE00560E63 /* NewAppStudioSubscriptions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ADC784ED2AFA8559005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */;
-			productName = NewAppStudioSubscriptions;
-		};
-		ADC784EB2AFA83BD005F16A6 /* AppStudioNavigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ADC784EA2AFA83BD005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */;
-			productName = AppStudioNavigation;
-		};
-		ADC784F12AFA859C005F16A6 /* AppStudioABTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ADC784F02AFA859C005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */;
-			productName = AppStudioABTesting;
-		};
-		ADC784F32AFA859C005F16A6 /* AppStudioFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ADC784F02AFA859C005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */;
-			productName = AppStudioFoundation;
-		};
-		ADC784F52AFA859C005F16A6 /* AppStudioUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ADC784F02AFA859C005F16A6 /* XCRemoteSwiftPackageReference "AppStudio.iOS" */;
-			productName = AppStudioUI;
-		};
-		ADC784F82AFA86CC005F16A6 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ADC784F72AFA86CC005F16A6 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
+			productName = AppStudioStyles;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

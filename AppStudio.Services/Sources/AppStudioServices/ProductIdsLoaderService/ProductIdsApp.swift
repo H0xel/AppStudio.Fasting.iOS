@@ -10,6 +10,7 @@ import Foundation
 public enum ProductIdsApp {
     case fasting
     case calorieCounter
+    case periodTracker
 }
 
 extension ProductIdsApp {
@@ -37,6 +38,9 @@ extension ProductIdsApp {
                 "com.municorn.CalorieCounter.yearly_exp_1",
                 "com.municorn.CalorieCounter.weekly_exp_2"
             ]
+        case .periodTracker:
+            return [
+            ]
         }
     }
 
@@ -54,6 +58,8 @@ extension ProductIdsApp {
                 "com.municorn.CalorieCounter.3monthly_exp_1",
                 "com.municorn.CalorieCounter.yearly_exp_1"
             ]
+        case .periodTracker:
+            []
         }
     }
 }

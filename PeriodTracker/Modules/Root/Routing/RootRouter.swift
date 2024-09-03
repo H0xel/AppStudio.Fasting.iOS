@@ -12,11 +12,9 @@ import Dependencies
 class RootRouter: BaseRouter {
     @Dependency(\.openURL) private var openURL
 
-    func presentPaywall() {}
-
-    func presentAppStore() {
+    func presentAppStore(_ appLink: String) {
         Task {
-            guard let url = URL(string: GlobalConstants.appStoreURL) else {
+            guard let url = URL(string: appLink) else {
                 return
             }
             await openURL(url)
