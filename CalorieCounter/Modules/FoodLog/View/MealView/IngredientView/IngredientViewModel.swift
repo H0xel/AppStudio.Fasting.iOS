@@ -137,7 +137,7 @@ class IngredientViewModel: BaseViewModel<IngredientOutput> {
             servings: ingredient.servings,
             currentServing: ingredient.serving,
             isPresentedPublisher: $state.map { $0 != .notSelected }.eraseToAnyPublisher(),
-            shouldShowTextField: false, 
+            shouldShowTextField: false,
             isTextSelectedPublisher: $isWeightTextSelected.eraseToAnyPublisher())
         router.presentChangeWeightBanner(input: input) { [weak self] output in
             self?.handle(customKeyboardOutput: output)

@@ -65,7 +65,6 @@ class FoodSuggestionsScrollViewModel {
                     self?.output?(.present(brandedMealItem))
                 }
             }
-            break
         default:
             output?(.present(mealItem))
         }

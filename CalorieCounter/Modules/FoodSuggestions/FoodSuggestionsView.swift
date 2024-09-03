@@ -94,7 +94,7 @@ struct FoodSuggestionsView: View {
                 isDragging: $isDraggingScrollView,
                 dragOffset: $dragScrollViewOffset,
                 scrollOffset: $scrollOffset,
-                contentOffset: $contentOffset, 
+                contentOffset: $contentOffset,
                 output: viewModel.hadle
             )
         }
@@ -121,7 +121,7 @@ struct FoodSuggestionsView: View {
             }
             contentOffset = max(0, contentOffset + newValue)
         }
-        .onChange(of: viewModel.isSuggestionsPresented) { newValue in
+        .onChange(of: viewModel.isSuggestionsPresented) { _ in
             dragScrollViewOffset = 0
             contentOffset = 0
         }

@@ -18,7 +18,7 @@ struct FoodScreen: View {
 
     var body: some View {
         ZStack {
-            SwipeDaysView(viewModel: viewModel.swipeDaysViewModel) { tabDate, currentDate  in
+            SwipeDaysView(viewModel: viewModel.swipeDaysViewModel) { tabDate, _ in
                 DayFoodView(
                     viewModel: .init(input: viewModel.dayFoodInput(date: tabDate),
                                      output: viewModel.handle),

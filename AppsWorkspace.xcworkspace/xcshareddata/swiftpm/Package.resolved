@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Analytics",
       "state" : {
-        "revision" : "667e316dd43853f1e9babfab8851193f5dbd5b8f",
-        "version" : "1.0.8"
+        "revision" : "4167e3bd43c39352ba96d11fa0a65211615313e7",
+        "version" : "1.0.9"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Common",
       "state" : {
-        "revision" : "772c7755b9d77de4e243e738d97bea09271798a0",
-        "version" : "1.0.23"
+        "revision" : "528bb4a06cd59b365a5bffc3fcdb77ce009aa36e",
+        "version" : "1.0.27"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git",
       "state" : {
-        "revision" : "d182abedfaf8c286bd660e84d3a99dc0134d4a9d",
-        "version" : "1.0.14"
+        "revision" : "a0273c32d5f97fdda7dd9bfae6635e1e89d5722c",
+        "version" : "1.0.15"
       }
     },
     {
@@ -122,8 +122,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk.git",
       "state" : {
-        "revision" : "888f0b6026e2441a69e3ee2ad5293c7a92031e62",
-        "version" : "10.23.1"
+        "revision" : "eca84fd638116dd6adb633b5a3f31cc7befcbb7d",
+        "version" : "10.29.0"
       }
     },
     {
@@ -131,8 +131,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleAppMeasurement.git",
       "state" : {
-        "revision" : "c7a5917ebe48d69f421aadf154ef3969c8b7f12d",
-        "version" : "10.23.1"
+        "revision" : "fe727587518729046fc1465625b9afd80b5ab361",
+        "version" : "10.28.0"
       }
     },
     {

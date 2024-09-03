@@ -27,7 +27,7 @@ struct CustomTextKeyboardScreen: View {
                                     title: viewModel.title,
                                     text: viewModel.text,
                                     units: "",
-                                    grammsValue: nil, 
+                                    grammsValue: nil,
                                     isPresented: true)
             TextField("", text: $text)
                 .submitLabel(.next)

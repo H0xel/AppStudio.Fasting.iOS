@@ -360,8 +360,8 @@ extension FastingViewModel {
             switch output {
             case .presentSupport:
                 self.presentIntercome()
-            case .raiting(let raiting):
-                self.trackerService.track(.rateUsDialogAnswered(rate: raiting))
+            case .rating(let rating):
+                self.trackerService.track(.rateUsDialogAnswered(rate: rating))
                 self.rateAppService.userRatedUs()
             case .presentWriteReview:
                 break

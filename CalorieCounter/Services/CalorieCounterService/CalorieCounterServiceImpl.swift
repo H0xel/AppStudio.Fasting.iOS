@@ -40,14 +40,14 @@ class CalorieCounterServiceImpl: CalorieCounterService {
 
         if let cachedIngredients: [MealItem] = try await calorieCounterCacheService.cachedIngredients(request: request),
            !cachedIngredients.isEmpty {
-            return cachedIngredients.map { IngredientStruct(mealItem: $0)}
+            return cachedIngredients.map { IngredientStruct(mealItem: $0) }
         }
 
         let ingredients = try await aiFoodSearchApi.nutrients(query: request).compactMap { $0.asIngredientMealItem }
 
         try await calorieCounterCacheService.set(ingredients: ingredients, for: request)
 
-        return ingredients.map { IngredientStruct(mealItem: $0)}
+        return ingredients.map { IngredientStruct(mealItem: $0) }
     }
 
 
@@ -64,7 +64,7 @@ class CalorieCounterServiceImpl: CalorieCounterService {
     func oldIingredients(request: String) async throws -> [IngredientStruct] {
         if let cachedIngredients: [MealItem] = try await calorieCounterCacheService.cachedIngredients(request: request),
            !cachedIngredients.isEmpty {
-            return cachedIngredients.map { IngredientStruct(mealItem: $0)}
+            return cachedIngredients.map { IngredientStruct(mealItem: $0) }
         }
         let ingredients = try await calorieCounterApi.ingredients(request: request)
             .ingredients.map { $0.asIngridient.mealItem }

@@ -8,7 +8,7 @@
 import SwiftUI
 struct DoubleValidateSettings {
     let tail: Int = 2
-    let min: Double =  -1 * .infinity
+    let min: Double = -1 * .infinity
     let max: Double = .infinity
 }
 

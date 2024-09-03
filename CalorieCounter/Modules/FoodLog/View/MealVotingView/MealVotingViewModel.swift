@@ -40,7 +40,7 @@ class MealVotingViewModel: BaseViewModel<Meal> {
 
     func startVotingTimer() {
         if votingTimer == nil {
-            votingTimer = Timer.scheduledTimer(withTimeInterval: .second, repeats: true) { [weak self] timer in
+            votingTimer = Timer.scheduledTimer(withTimeInterval: .second, repeats: true) { [weak self] _ in
                 self?.decreaseVotingTime()
                 self?.checkVotings()
             }
@@ -106,4 +106,3 @@ class MealVotingViewModel: BaseViewModel<Meal> {
         }
     }
 }
-

@@ -61,7 +61,7 @@ private extension CGFloat {
             .init(type: .dinner, dayDate: .now, mealItem: .mock, voting: .disabled)
         ],
         hasSubscription: false,
-        onSubscribeTap: {}, 
+        onSubscribeTap: {},
         bannerAction: { _ in }
     )
     .padding(.vertical, 10)

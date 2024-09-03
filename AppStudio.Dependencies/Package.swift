@@ -16,10 +16,10 @@ let package = Package(
     ],
     dependencies: [
         // Internal municorn dependencies
-        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Common.git", exact: "1.0.23"),
+        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Common.git", exact: "1.0.27"),
         .package(url: "https://github.com/m-unicorn/iOS.MunicornFoundation.git", exact: "1.2.12"),
-        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Analytics.git", exact: "1.0.8"),
-        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git", exact: "1.0.14"),
+        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Analytics.git", exact: "1.0.9"),
+        .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Navigation.git", exact: "1.0.15"),
         .package(url: "https://github.com/m-unicorn/iOS.ABTesting.git", exact: "1.0.6"),
         .package(url: "https://github.com/m-unicorn/AppStudio.iOS.Subscriptions.git", exact: "1.0.13"),
         //  External dependencies
@@ -29,7 +29,7 @@ let package = Package(
         .package(url: "https://github.com/gonzalezreal/swift-markdown-ui", from: "2.3.0"),
         .package(url: "https://github.com/Moya/Moya.git", exact: "15.0.3"),
         .package(url: "https://github.com/facebook/facebook-ios-sdk.git", exact: "17.0.2"),
-        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", exact: "10.23.1")
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", exact: "10.29.0")
     ],
     targets: [
         .target(

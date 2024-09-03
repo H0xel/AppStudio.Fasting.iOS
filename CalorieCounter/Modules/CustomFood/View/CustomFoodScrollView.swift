@@ -37,7 +37,7 @@ struct CustomFoodScrollView: View {
                             CustomFoodAmountView(
                                 configuration: .amount,
                                 selectedField: $viewModel.selectedField,
-                                weight: $viewModel.customFoodViewData.amountPer, 
+                                weight: $viewModel.customFoodViewData.amountPer,
                                 isTextSelected: $viewModel.isInputTextSelected,
                                 selectedServing: viewModel.customFoodViewData.selectedServing,
                                 fieldType: .amountPer,

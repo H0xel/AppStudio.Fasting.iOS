@@ -9,7 +9,6 @@ import XCTest
 import AppStudioModels
 @testable import CalorieCounter
 import Dependencies
-import AppStudioModels
 
 final class ProfileCalculationTests: XCTestCase {
     @Dependency(\.profileCalculationServiceService) var profileCalculationServiceService

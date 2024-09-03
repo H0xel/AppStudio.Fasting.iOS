@@ -9,7 +9,7 @@ import Foundation
 import AppStudioUI
 
 public extension RateUsInput {
-    static func healthInput(reviewURL: String) -> RateUsInput {
+    static func healthInput(reviewURL: URL) -> RateUsInput {
         .init(
             title: "RateUsInput.title".localized(bundle: .module),
             tapToRate: "RateUsInput.tapToRate".localized(bundle: .module),
@@ -21,7 +21,7 @@ public extension RateUsInput {
             goodFeedbackButtonTitle: "RateUsInput.goodFeedbackButtonTitle".localized(bundle: .module),
             buttonFont: .poppins(.buttonText),
             titleFont: .poppins(.headerM),
-            reviewURL: URL(string: reviewURL)
+            reviewURL: reviewURL
         )
     }
 }

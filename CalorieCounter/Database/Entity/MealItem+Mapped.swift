@@ -21,7 +21,7 @@ extension MealItem: EntityMappable {
         self.name = name
         self.subTitle = entity.subtitle
         self.notes = entity.notes
-        
+
         if let oldIngredients = try? [OldIngredient](json: entity.ingredients ?? "") {
             ingredients = oldIngredients.asMealArray
         } else {

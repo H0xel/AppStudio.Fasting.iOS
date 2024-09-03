@@ -117,7 +117,7 @@ class DayFoodViewModel: BaseViewModel<DayFoodOutput> {
     private func presentRateApp() {
         router.presentRateApp { [weak self] output in
             switch output {
-            case .rate(let stars, let comment):
+            case let .rate(stars, comment):
                 self?.trackFeedback(stars: stars, feedback: comment)
             case .close:
                 self?.rateAppService.rateAppWindowShown()
@@ -131,8 +131,8 @@ class DayFoodViewModel: BaseViewModel<DayFoodOutput> {
             switch output {
             case .presentSupport:
                 self.presentIntercome()
-            case .raiting(let raiting):
-                self.trackerService.track(.rateUsDialogAnswered(rate: raiting))
+            case .rating(let rating):
+                self.trackerService.track(.rateUsDialogAnswered(rate: rating))
                 self.rateAppService.userRatedUs()
             case .presentWriteReview:
                 break

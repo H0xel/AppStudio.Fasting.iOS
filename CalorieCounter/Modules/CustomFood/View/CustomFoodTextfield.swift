@@ -41,7 +41,7 @@ struct CustomFoodTextfield: View {
             }
         }
         .onChange(of: selectedField) { output in
-            if output.keyboardType == .text  {
+            if output.keyboardType == .text {
                 focusField = output
             } else {
                 focusField = nil

@@ -64,7 +64,7 @@ class FoodSearchCacheServiceImpl: FoodSearchCacheService {
         }
         return try [MealItem](json: cachedValue)
     }
-    
+
     func cache(foods: [MealItem], for query: String) async throws {
         if let jsonValue = foods.json() {
             _ = try await codableCacheRepository.set(key: query, value: jsonValue, for: .foodsTextSearch)

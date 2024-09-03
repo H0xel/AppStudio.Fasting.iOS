@@ -86,7 +86,7 @@ class FoodViewModel: BaseViewModel<FoodOutput> {
     func presentProfile() {
         router.presentProfile { [weak self] output in
             switch output {
-            case .switchTabBar(let isHidden):
+            case .switchTabBar:
                 break
             case .updateProfile:
                 self?.updateProfileSubject.send()

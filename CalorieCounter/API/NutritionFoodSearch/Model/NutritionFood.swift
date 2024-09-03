@@ -34,7 +34,12 @@ struct NutritionFood: Codable {
 
 extension NutritionFood {
     var asIngredientMealItem: MealItem? {
-        let nutritionProfile: NutritionProfile = .init(calories: calories ?? 0, proteins: protein ?? 0, fats: fat ?? 0, carbohydrates: carbohydrate ?? 0)
+        let nutritionProfile: NutritionProfile = .init(
+            calories: calories ?? 0,
+            proteins: protein ?? 0,
+            fats: fat ?? 0,
+            carbohydrates: carbohydrate ?? 0
+        )
 
         let serving = MealServing(
             weight: servingWeightGrams,

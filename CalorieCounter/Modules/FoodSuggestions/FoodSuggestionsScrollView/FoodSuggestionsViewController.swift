@@ -21,14 +21,16 @@ class FoodSuggestionsViewController: UITableViewController {
         self.viewModel = viewModel
         super.init(style: .plain)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private var cancellables = Set<AnyCancellable>()
 
-    lazy var source: UITableViewDiffableDataSource<FoodSuggestionsSection, SuggestedMeal> = .init(tableView: tableView) { [weak self] (tableView, indexPath, meal) -> UITableViewCell? in
+    lazy var source: UITableViewDiffableDataSource<FoodSuggestionsSection, SuggestedMeal> = .init(
+        tableView: tableView
+    ) { [weak self] tableView, indexPath, meal -> UITableViewCell? in
         guard let self else { return nil }
         let cell = tableView.dequeueReusableCell(withIdentifier: .cellId, for: indexPath) as? FoodSuggestionsCellView
         cell?.contentConfiguration = UIHostingConfiguration {
@@ -118,8 +120,8 @@ extension FoodSuggestionsViewController {
     }
 
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView,
-                                   withVelocity velocity: CGPoint,
-                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+                                            withVelocity velocity: CGPoint,
+                                            targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         viewModel.scrollViewEndScrolling()
     }
 

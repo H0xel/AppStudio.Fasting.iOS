@@ -24,7 +24,6 @@ struct FoodNavigationView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: .profileButtonWidth, height: .profileButtonWidth)
-
                 }
                 .padding(.leading, .leadingPadding)
                 .aligned(.left)

@@ -1,6 +1,10 @@
 included:
   - Fasting
   - FastingTests
+  - CalorieCounter
+  - CalorieCounterTests
+  - PeriodTracker
+  - PeriodTrackerTests
 excluded:
   - Pods
 

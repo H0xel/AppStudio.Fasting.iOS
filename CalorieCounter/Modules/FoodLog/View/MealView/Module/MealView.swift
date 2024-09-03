@@ -14,7 +14,7 @@ struct MealView: View {
     @StateObject var viewModel: MealViewViewModel
 
     var body: some View {
-        VStack(spacing: .zero){
+        VStack(spacing: .zero) {
             VStack(spacing: .zero) {
                 HStack(alignment: .top, spacing: .zero) {
                     VStack(alignment: .leading, spacing: .titleSpacing) {
@@ -24,7 +24,7 @@ struct MealView: View {
                     }
                     Spacer()
                     if !viewModel.isQuickAdd {
-                        MealWeightView(isTextSelected: $viewModel.isWeightTextSelected, 
+                        MealWeightView(isTextSelected: $viewModel.isWeightTextSelected,
                                        type: .text(viewModel.displayWeight),
                                        serving: viewModel.currentServing,
                                        isTapped: viewModel.isWeightTapped) {
@@ -39,7 +39,7 @@ struct MealView: View {
 
                 MealNutritionProfileView(profile: viewModel.nutritionProfile,
                                          canShowNutritions: true,
-                                         weight:  viewModel.canShowWeightIcon
+                                         weight: viewModel.canShowWeightIcon
                                          ? viewModel.mealItem.grammsTitle
                                          : nil)
                 .padding(.leading, .leadingPadding)

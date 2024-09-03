@@ -19,4 +19,3 @@ final class AppInitializerPreview: AppInitializerService {
 
     private func lateInitializersInitialization() {}
 }
-

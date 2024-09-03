@@ -46,7 +46,7 @@ struct NutritionView: View {
         if amount.isNaN {
             return "0"
         }
-        
+
         if amount.isInfinite {
             trackerService.track(.nutritionError(context: "infinite"))
             return "-"

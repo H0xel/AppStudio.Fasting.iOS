@@ -76,4 +76,3 @@ enum CustomFoodField: String, CaseIterable {
         }
     }
 }
-

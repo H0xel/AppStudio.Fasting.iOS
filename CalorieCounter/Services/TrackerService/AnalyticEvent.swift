@@ -8,6 +8,7 @@
 import AppStudioAnalytics
 import AppStudioServices
 
+// swiftlint:disable enum_case_associated_values_count
 enum AnalyticEvent: MirrorEnum {
     case launch(firstTime: Bool, afId: String?)
 
@@ -20,13 +21,11 @@ enum AnalyticEvent: MirrorEnum {
                       afId: String?)
     case tapRestorePurchases(context: PaywallContext, afId: String?)
     case paywallShown(context: PaywallContext, afId: String?)
-    // swiftlint:disable enum_case_associated_values_count
     case purchaseFinished(context: PaywallContext,
                           result: String,
                           message: String,
                           productId: String,
                           afId: String?)
-    // swiftlint:enable enum_case_associated_values_count
     case restoreFinished(context: PaywallContext, result: RestoreResult, afId: String?)
 
     // Onboarding
@@ -35,7 +34,6 @@ enum AnalyticEvent: MirrorEnum {
     case tapAllowNotifications
     case pushAccessDialogShown
     case pushAccessAnswered(isGranted: Bool)
-    // swiftlint:disable enum_case_associated_values_count
     case onboardingFinished(
         tdee: Double,
         calorieBudget: Double,
@@ -48,7 +46,6 @@ enum AnalyticEvent: MirrorEnum {
         goalRate: Double,
         goalUnits: String
     )
-    // swiftlint:enable enum_case_associated_values_count
     case sexAnswered(sex: String)
     case birthdayAnswered(date: String)
     case heightAnswered(height: Double, units: String)
@@ -60,17 +57,14 @@ enum AnalyticEvent: MirrorEnum {
     case exerciseFrequencyAnswered(excerciseFrequency: String, context: OnboardingContext)
     case trainingTypeAnswered(trainingType: String, context: OnboardingContext)
     case goalAnswered(goal: String, context: OnboardingContext)
-    // swiftlint:disable enum_case_associated_values_count
     case goalRateAnswered(goalRate: Double,
                           units: String,
                           achievementDate: String,
                           calorieBudget: Double,
                           context: OnboardingContext)
-    // swiftlint:enable enum_case_associated_values_count
     case tdeeShown(tdee: Double)
     case preferredDietAnswered(diet: String, context: OnboardingContext)
     case proteinLevelAnswered(proteinLevel: String, context: OnboardingContext)
-    // swiftlint:disable enum_case_associated_values_count
     case dietPlanShown(
         tdee: Double,
         goal: String,
@@ -85,7 +79,6 @@ enum AnalyticEvent: MirrorEnum {
         diet: String,
         context: OnboardingContext
     )
-    // swiftlint:enable enum_case_associated_values_count
 
     // Quick action
     case tapNeedAssistance
@@ -141,6 +134,7 @@ enum AnalyticEvent: MirrorEnum {
     case serverError(code: Int, message: String, details: String?, traceId: String?, path: String)
     case nutritionError(context: String)
 }
+// swiftlint:enable enum_case_associated_values_count
 
 extension AnalyticEvent {
     var name: String {

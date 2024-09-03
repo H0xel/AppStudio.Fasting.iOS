@@ -49,10 +49,10 @@ class FoodRouter: BaseRouter {
     }
 
     func presentCameraAccessAlert() {
-        let alertTitle = NSLocalizedString("CameraAlert.title" , comment: "")
-        let alertSubTitle = NSLocalizedString("CameraAlert.subtitle" , comment: "")
-        let openSettingTitle = NSLocalizedString("CameraAlert.openSettings" , comment: "")
-        let cancelButtonTitle = NSLocalizedString("Button.cancel" , comment: "")
+        let alertTitle = NSLocalizedString("CameraAlert.title", comment: "")
+        let alertSubTitle = NSLocalizedString("CameraAlert.subtitle", comment: "")
+        let openSettingTitle = NSLocalizedString("CameraAlert.openSettings", comment: "")
+        let cancelButtonTitle = NSLocalizedString("Button.cancel", comment: "")
         let openSettingsAction = DialogAction(title: openSettingTitle, role: nil, image: nil) {
             guard let settingsAppURL = URL(string: UIApplication.openSettingsURLString) else { return }
             UIApplication.shared.open(settingsAppURL, options: [:])
@@ -65,8 +65,9 @@ class FoodRouter: BaseRouter {
     }
 
     func presentRateUsDialog(output: @escaping ViewOutput<RateUsOutput>) {
+        guard let url = URL(string: GlobalConstants.appStoreReviewURL) else { return }
         let sheet = RateUsSheet(navigator: navigator,
-                                input: .healthInput(reviewURL: GlobalConstants.appStoreReviewURL),
+                                input: .healthInput(reviewURL: url),
                                 output: output)
         present(sheet: sheet)
     }

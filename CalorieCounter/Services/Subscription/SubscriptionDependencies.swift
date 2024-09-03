@@ -40,7 +40,7 @@ private enum AppStudioSubscriptionDelegateKey: DependencyKey {
 }
 
 private enum ProductProviderKey: DependencyKey {
-    static var liveValue: ProductProviderImpl = ProductProviderImpl()
-    static var testValue: ProductProviderImpl = ProductProviderImpl()
-    static var previewValue: ProductProviderImpl = ProductProviderImpl()
+    static var liveValue = ProductProviderImpl()
+    static var testValue = ProductProviderImpl()
+    static var previewValue = ProductProviderImpl()
 }

@@ -27,6 +27,7 @@ extension  NutritionFoodMeasure {
         return .init(weight: servingWeight, measure: measure, quantity: quantity ?? servingWeight ?? 1)
     }
 }
+
 extension Array where Element == NutritionFoodMeasure {
     var asServings: [MealServing] {
         var uniqueMeasures = Set<String>()
@@ -37,6 +38,6 @@ extension Array where Element == NutritionFoodMeasure {
                 }
                 uniqueMeasures.insert($0.measure)
                 return true
-        }
+            }
     }
 }

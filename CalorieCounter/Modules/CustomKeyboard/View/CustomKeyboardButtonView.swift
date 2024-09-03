@@ -47,7 +47,7 @@ struct CustomKeyboardButtonView: View {
         switch button {
         case .delete:
             1155
-        case .up, .down, .done, .collapse, .log,.add, .number:
+        case .up, .down, .done, .collapse, .log, .add, .number:
             1156
         case .dot, .slash:
             1104

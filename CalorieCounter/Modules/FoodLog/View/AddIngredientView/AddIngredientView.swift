@@ -73,7 +73,7 @@ struct AddIngredientTextField: View {
               mealRequestPublisher: requestSubject.eraseToAnyPublisher(),
               isPresented: true,
               collapsePublisher: collapsePublisher.eraseToAnyPublisher(),
-              searchRequest: text, 
+              searchRequest: text,
               showOnlyIngredients: true)
     }
 

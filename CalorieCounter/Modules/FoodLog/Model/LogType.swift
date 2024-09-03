@@ -21,9 +21,9 @@ extension LogType {
         switch self {
         case .log, .quickAdd, .addRecipe, .newFood:
                 .studioBlackLight
-        case .history: 
+        case .history:
                 .studioGreen
-        case .food: 
+        case .food:
                 .studioOrange
         }
     }
@@ -32,9 +32,9 @@ extension LogType {
         switch self {
         case .log, .quickAdd, .addRecipe, .newFood:
             nil
-        case .history: 
+        case .history:
                 .logHistory
-        case .food: 
+        case .food:
                 .init(.customProductIcon)
         }
     }

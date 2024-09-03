@@ -44,7 +44,7 @@ class ProductProviderImpl: ProductProvider, AppInitializer {
             ProductCatalogItem(productId: weeklyProductId, duration: .week, isTrial: false),
             ProductCatalogItem(productId: threeMonthsProductId, duration: .threeMonth, isTrial: false),
             ProductCatalogItem(productId: yearProductId, duration: .year, isTrial: false),
-            ProductCatalogItem(productId: weeklyProductIdSecondExp, duration: .week, isTrial: false),
+            ProductCatalogItem(productId: weeklyProductIdSecondExp, duration: .week, isTrial: false)
         ]
     }()
 }

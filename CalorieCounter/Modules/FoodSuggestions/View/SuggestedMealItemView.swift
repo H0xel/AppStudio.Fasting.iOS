@@ -20,7 +20,7 @@ struct SuggestedMealItemView: View {
     @State private var searchRequest = ""
 
     private var nutritionTypes: [NutritionType] {
-        meal.type != .foodSearch || !meal.mealItem.nutritionProfile.isEmpty 
+        meal.type != .foodSearch || !meal.mealItem.nutritionProfile.isEmpty
         ? NutritionType.allCases
         : [.calories]
     }

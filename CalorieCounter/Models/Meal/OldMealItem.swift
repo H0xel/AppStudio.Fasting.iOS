@@ -27,8 +27,7 @@ struct OldMealItem: Codable, Hashable {
 
 extension OldMealItem {
     var asMeal: MealItem {
-        let totalWeight = ingredients.reduce(0) { $0 + $1.weight }
-        return MealItem(id: id,
+        MealItem(id: id,
                  type: creationType,
                  name: name,
                  subTitle: subTitle,

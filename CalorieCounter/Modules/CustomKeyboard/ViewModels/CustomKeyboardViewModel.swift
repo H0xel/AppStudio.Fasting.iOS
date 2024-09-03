@@ -133,7 +133,7 @@ class CustomKeyboardViewModel<Output>: BaseViewModel<Output> {
             _ = newValue.removeFirst()
         }
         let result = newValue.isEmpty ? "0" : newValue
-        if Double(result) != nil  {
+        if Double(result) != nil {
             assignText(text: result)
         }
     }

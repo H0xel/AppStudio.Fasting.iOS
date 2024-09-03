@@ -13,7 +13,7 @@ enum MealVoting: Int16 {
     case dislike
     case disabled
 
-    var buttonTitle: String {        
+    var buttonTitle: String {
         switch self {
         case .notVoted:
             "MealVoting.title.notVoted".localized(bundle: .main)
@@ -48,4 +48,3 @@ enum MealVoting: Int16 {
         }
     }
 }
-

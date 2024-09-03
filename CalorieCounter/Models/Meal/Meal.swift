@@ -62,7 +62,7 @@ extension Meal {
               dayDate: dayDate,
               creationDate: creationDate,
               mealItem: mealItem,
-              voting: voting, 
+              voting: voting,
               servingMultiplier: servingMultiplier)
     }
 

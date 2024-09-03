@@ -24,14 +24,14 @@ struct NutritionFoodInternalServerError: Codable {
 
 enum NutritionFoodErrorCode: Int16, Codable {
     case wrongParameters = 1
-    case AuthenticationFailed = 2
-    case NotFound = 3
-    case OperationIsNotAllowed = 4
-    case InternalError = 10
-    case NoSubscription = 20
-    case NotEnoughSubscriptionLevel = 21
-    case NoAvailablePhoneNumbers = 30
-    case PhoneNumberProvisionAlreadyCompleted = 31
+    case authenticationFailed = 2
+    case notFound = 3
+    case operationIsNotAllowed = 4
+    case internalError = 10
+    case noSubscription = 20
+    case notEnoughSubscriptionLevel = 21
+    case noAvailablePhoneNumbers = 30
+    case phoneNumberProvisionAlreadyCompleted = 31
 }
 
 struct NutritionFoodError: Codable {

@@ -23,7 +23,7 @@ class FoodHistoryViewModel: BaseViewModel<FoodHistoryOutput> {
     @Dependency(\.calorieCounterService) private var calorieCounterService
     @Dependency(\.foodSearchService) private var foodSearchService
     @Dependency(\.cameraAccessService) private var cameraAccessService
-    @Published var hasMeals: Bool = false
+    @Published var hasMeals = false
     @Published var mealRequest = ""
     @Published var hasSubscription: Bool
     @Published var mealType: MealType = .breakfast

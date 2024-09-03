@@ -132,7 +132,7 @@ extension Image {
     static var thumbUp: Image {
         Image("thumbUp")
     }
-    
+
     static var thumbUpFilled: Image {
         Image("thumbUpFilled")
     }

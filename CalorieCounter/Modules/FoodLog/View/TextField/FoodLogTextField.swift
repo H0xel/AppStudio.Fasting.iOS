@@ -47,7 +47,10 @@ struct FoodLogTextField: View {
                     .padding(.vertical, .emptyStateVerticalPadding)
                     .padding(.horizontal, .emptyStateHorizontalPadding)
                     .background(Color.studioGreyFillProgress)
-                    .continiousCornerRadius(numberOfLines > 1 ? .textfieldMultilineCornerRadius : .textfieldCornerRadius)
+                    .continiousCornerRadius(numberOfLines > 1 
+                                            ? .textfieldMultilineCornerRadius
+                                            : .textfieldCornerRadius
+                    )
                     .disabled(isDisableEditing)
                     .onTapGesture {
                         if isDisableEditing {

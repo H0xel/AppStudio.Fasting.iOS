@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:PeriodTracker.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:CalorieCounter.xcodeproj">
    </FileRef>
    <FileRef

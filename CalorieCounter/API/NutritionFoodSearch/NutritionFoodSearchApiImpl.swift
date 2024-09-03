@@ -11,7 +11,7 @@ class NutritionFoodSearchApiImpl: NutritionFoodSearchApi {
     func search(query: String) async throws -> [NutritionFood] {
         try await provider.request(.searchText(query: query))
     }
-    
+
     func search(brandFoodId: String) async throws -> NutritionFood {
         try await provider.request(.searchBrand(brandFoodId: brandFoodId))
     }

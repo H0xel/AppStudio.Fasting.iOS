@@ -48,7 +48,7 @@ class CustomProductViewModel: BaseViewModel<CustomProductOutput> {
     }
 
     var nutritionProfile: NutritionProfile {
-        if mealItem.ingredients.count > 0 {
+        if !mealItem.ingredients.isEmpty {
             return mealItem.nutritionProfile.calculate(servingMultiplier: keyboardResult.servingMultiplier)
         }
         return mealItem.normalizedProfile.calculate(servingMultiplier: keyboardResult.servingMultiplier)

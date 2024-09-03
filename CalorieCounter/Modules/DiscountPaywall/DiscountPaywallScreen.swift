@@ -86,7 +86,7 @@ struct DiscountPaywallScreen_Previews: PreviewProvider {
                 viewModel: DiscountPaywallViewModel(
                     input: .init(context: .discountMain, paywallInfo: .init(
                         name: "",
-                        productId: "", 
+                        productId: "",
                         delayTimeInHours: nil,
                         paywallType: "",
                         renewOfferTime: nil,

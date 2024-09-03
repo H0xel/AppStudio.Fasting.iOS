@@ -69,12 +69,12 @@ struct DebugMenuActionsView: View {
             fatalError("Crash for testing crashlytics")
         }
         .foregroundColor(.red)
-        
+
         Button("Register discount notification push 15 sec") {
             Task {
                 let nextStartingDate = Date().addingTimeInterval(.second * 15)
-                
-                try await localNotificationService.register(DiscountLocalNotification(), 
+
+                try await localNotificationService.register(DiscountLocalNotification(),
                                                             at: .init(year: nextStartingDate.year,
                                                                       month: nextStartingDate.month,
                                                                       day: nextStartingDate.day,

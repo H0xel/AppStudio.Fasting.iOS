@@ -95,7 +95,7 @@ private extension CGFloat {
     CustomFoodAmountView(
         configuration: .amount,
         selectedField: .constant(.servingName),
-        weight: .constant(0), 
+        weight: .constant(0),
         isTextSelected: .constant(true),
         fieldType: .amountPer,
         isInitialWeight: false

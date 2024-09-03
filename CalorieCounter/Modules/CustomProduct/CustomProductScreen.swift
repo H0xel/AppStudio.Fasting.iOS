@@ -20,7 +20,7 @@ struct CustomProductScreen: View {
                     CustomProductTitleView(productName: viewModel.productName,
                                            brandName: viewModel.brandName)
                     CustomProductNutritionView(nutritionProfile: viewModel.nutritionProfile)
-                    CustomProductServingView(serving: viewModel.serving, 
+                    CustomProductServingView(serving: viewModel.serving,
                                              servingValue: viewModel.servingValue,
                                              mlValue: viewModel.mlValue)
 
@@ -36,7 +36,7 @@ struct CustomProductScreen: View {
         .animation(.linear(duration: 0.15), value: viewModel.isToolbarPresented)
         .closeButton(action: viewModel.dismiss)
         .navBarButton(
-            placement: .topBarTrailing, 
+            placement: .topBarTrailing,
             isVisible: viewModel.canShowSettings,
             content: Image.ellipsis
                 .foregroundStyle(settingsButtonColor)
@@ -66,7 +66,7 @@ struct CustomProductScreen_Previews: PreviewProvider {
         ModernNavigationView {
             CustomProductScreen(
                 viewModel: CustomProductViewModel(
-                    input: CustomProductInput(mealItem: .mock), 
+                    input: CustomProductInput(mealItem: .mock),
                     router: .init(navigator: .init()),
                     output: { _ in }
                 )

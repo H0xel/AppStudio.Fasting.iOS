@@ -154,12 +154,12 @@ extension IngredientStruct {
         IngredientStruct(
             id: id,
             name: name,
-            brandTitle: brandTitle, 
+            brandTitle: brandTitle,
             brandFoodId: brandFoodId,
             serving: serving,
             servings: servings,
             servingMultiplier: serving.multiplier(for: value),
-            normalizedProfile: normalizedProfile, 
+            normalizedProfile: normalizedProfile,
             dateUpdated: .now
         )
     }

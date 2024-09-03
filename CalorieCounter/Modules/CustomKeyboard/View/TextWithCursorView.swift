@@ -13,7 +13,7 @@ struct TextWithCursorView: View {
     let text: String
     let isFocused: Bool
 
-    @State private var isCursorPresented: Bool = false
+    @State private var isCursorPresented = false
 
     var body: some View {
         HStack(spacing: .zero) {

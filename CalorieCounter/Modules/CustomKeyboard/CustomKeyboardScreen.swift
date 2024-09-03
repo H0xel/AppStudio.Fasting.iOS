@@ -110,7 +110,7 @@ struct CustomKeyboardScreen_Previews: PreviewProvider {
                                            servings: [],
                                            currentServing: .init(weight: 100, measure: "g", quantity: 100),
                                            isPresentedPublisher: Just(true).eraseToAnyPublisher(),
-                                           shouldShowTextField: true, 
+                                           shouldShowTextField: true,
                                            isTextSelectedPublisher: Just(true).eraseToAnyPublisher()),
                 output: { _ in }
             )

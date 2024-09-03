@@ -34,7 +34,7 @@ struct CustomFoodServingView: View {
             .padding(.vertical, .verticalPadding)
             .id(CustomFoodField.servingSize)
 
-            
+
             HStack(spacing: .zero) {
                 VStack(alignment: .leading, spacing: .spacing) {
                     Text("CustomFood.textfield.servingName")
@@ -42,9 +42,9 @@ struct CustomFoodServingView: View {
                         .foregroundStyle(Color.studioGreyText)
                 }
                 .font(.poppins(.description))
-                
+
                 Spacer()
-                
+
                 MealWeightView(isTextSelected: .init(get: {
                     viewModel.isInputTextSelected && viewModel.selectedField == .servingAmount
                 }, set: { isSelected in

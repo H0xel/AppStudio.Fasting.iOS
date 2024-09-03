@@ -1,0 +1,15 @@
+
+"Paywall.title" = "Paywall Title";
+"Paywall.noPaymentNow" = "No payments title";
+"Paywall.cancelTitle" = "Cancel";
+"Paywall.cancelSubtitle" = "Cancel subtitle description";
+"Paywall.Continue" = "Continue";
+"Paywall.restore" = "Restore";
+"Paywall.headerTitle" = "Paywall Header Title";
+"Paywall.headerDescription" = "Paywall Header Description";
+"Paywall.headerBottomTitle" = "Paywall Header Bottom Title";
+"Paywall.savePercent" = "Save percent";
+"Error.Network.message" = "Please verify your internet connection and retry.";
+"Error.Network.title" = "No Internet Connection";
+"Error.Unknonw.title" = "Something Wrong";
+"Error.Unknown.message" = "Try again or restart the app";

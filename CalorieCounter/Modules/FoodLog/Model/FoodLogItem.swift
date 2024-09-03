@@ -17,16 +17,18 @@ enum FoodLogItem: Hashable {
         switch self {
         case .meal:
             return nil
-        case .placeholder(let mealPlaceholder), .notFoundBarcode(let mealPlaceholder), .notFoundAISearch(let mealPlaceholder):
+        case .placeholder(let mealPlaceholder), .notFoundBarcode(let mealPlaceholder),
+                .notFoundAISearch(let mealPlaceholder):
             return mealPlaceholder.id
         }
     }
-    
+
     var id: String {
         switch self {
         case .meal(let meal):
             return meal.id
-        case .placeholder(let mealPlaceholder), .notFoundBarcode(let mealPlaceholder), .notFoundAISearch(let mealPlaceholder):
+        case .placeholder(let mealPlaceholder), .notFoundBarcode(let mealPlaceholder),
+                .notFoundAISearch(let mealPlaceholder):
             return mealPlaceholder.id
         }
     }

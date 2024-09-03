@@ -101,8 +101,9 @@ class FastingRouter: BaseRouter {
     }
 
     func presentRateUsDialog(output: @escaping ViewOutput<RateUsOutput>) {
+        guard let url = URL(string: GlobalConstants.appStoreReviewURL) else { return }
         let sheet = RateUsSheet(navigator: currentNavigator,
-                                input: .healthInput(reviewURL: GlobalConstants.appStoreReviewURL),
+                                input: .healthInput(reviewURL: url),
                                 output: output)
         currentNavigator.present(sheet: sheet, detents: sheet.detents, showIndicator: sheet.showIndicators)
     }

@@ -25,14 +25,17 @@ class CustomFoodRouter: BaseRouter {
         present(banner: banner, animation: .linear(duration: 0.2))
     }
 
-    func presentChangeTextBanner(input: CustomTextKeyboardInput, output: @escaping ViewOutput<CustomTextKeyboardOutput>) {
+    func presentChangeTextBanner(
+        input: CustomTextKeyboardInput,
+        output: @escaping ViewOutput<CustomTextKeyboardOutput>
+    ) {
         let banner = CustomTextKeyboardBanner(input: input, output: output)
         present(banner: banner, animation: .linear(duration: 0.2))
     }
 
     func presentBottomSheet(configuration: BottomActionSheetConfiguration, completion: @escaping () -> Void) {
         let router = BottomActionSheetRoute(
-            navigator: navigator, 
+            navigator: navigator,
             input: .init(configuration: configuration
             ),
             output: { [weak self] event in

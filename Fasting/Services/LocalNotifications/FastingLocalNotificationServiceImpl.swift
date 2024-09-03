@@ -91,7 +91,7 @@ extension FastingLocalNotificationServiceImpl {
            let endOfFastingNotifications = tryToRegisterNotification(
             stageDate: endOfFastingDate,
             type: .endOfFasting,
-            availableInterval: availableInterval, 
+            availableInterval: availableInterval,
             hasSubscription: true) {
             notifications.append(endOfFastingNotifications)
         }
@@ -100,7 +100,7 @@ extension FastingLocalNotificationServiceImpl {
             stageDate: forgotToFinishFastingDate,
             type: .forgotToFinishFasting,
             availableInterval: availableInterval,
-            repeatCount: 3, 
+            repeatCount: 3,
             hasSubscription: true) {
             notifications.append(forgotToFinishFastingNotifications)
         }
@@ -199,7 +199,7 @@ extension FastingLocalNotificationServiceImpl {
         if settings.selectedFastingStages.contains(.autophagy),
            let autographyStage = tryToRegisterNotification(stageDate: autophagyPhaseDate,
                                                            type: .autophagyPhase,
-                                                           availableInterval: availableInterval, 
+                                                           availableInterval: availableInterval,
                                                            hasSubscription: hasSubscription) {
             notifications.append(autographyStage)
         }
@@ -225,7 +225,7 @@ extension FastingLocalNotificationServiceImpl {
                 stageDate: beforeStartOfFastingDate,
                 type: .beforeStartOfFasting(beforeTime: settings.beforeStartPriorSelection.pushDescription),
                 availableInterval: availableInterval,
-                repeatCount: 3, 
+                repeatCount: 3,
                 hasSubscription: true) {
             notifications.append(beforeStartOfFastingNotifications)
         }
@@ -234,7 +234,7 @@ extension FastingLocalNotificationServiceImpl {
                stageDate: startOfFastingDate,
                type: .startOfFasting,
                availableInterval: availableInterval,
-               repeatCount: 3, 
+               repeatCount: 3,
                hasSubscription: true) {
             notifications.append(startOfFastingNotification)
         }

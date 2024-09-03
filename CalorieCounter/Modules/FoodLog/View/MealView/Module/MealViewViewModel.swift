@@ -22,7 +22,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
     @Published var meal: Meal
     @Published var mealSelectedState: MealSelectedState = .notSelected
     @Published var ingredientPlaceholders: [MealPlaceholder] = []
-    @Published var hasSubscription: Bool = false
+    @Published var hasSubscription = false
     @Published var editingWeight: CustomKeyboardResult?
     private let tappedIngredientSubject = CurrentValueSubject<IngredientStruct?, Never>(nil)
     @Published var isWeightTextSelected = false
@@ -109,7 +109,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
             statePublisher: $mealSelectedState
                 .removeDuplicates()
                 .map { $0.ingredient }
-                .eraseToAnyPublisher(), 
+                .eraseToAnyPublisher(),
             tappedWeightIngredientPublisher: tappedIngredientSubject.compactMap { $0 }.eraseToAnyPublisher()
         )) { [weak self] output in
             guard let self else { return }
@@ -219,7 +219,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
                                        type: .chatGPT,
                                        name: "",
                                        ingredients: [ingredient, IngredientStruct(mealItem: self.mealItem)],
-                                       servingMultiplier: 1, 
+                                       servingMultiplier: 1,
                                        serving: .serving,
                                        servings: [])
             let meal = meal.copyWith(mealItem: newMealItem)
@@ -233,7 +233,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
 
     @MainActor
     private func removeIngredient(mealItem: IngredientStruct) async throws {
-        if self.mealItem.id == mealItem.id, self.mealItem.type == .ingredient{
+        if self.mealItem.id == mealItem.id, self.mealItem.type == .ingredient {
             clearSelection()
             self.deleteMeal(meal)
             trackerService.track(.elementDeleted(context: .ingredient))
@@ -294,7 +294,7 @@ class MealViewViewModel: BaseViewModel<MealViewOutput> {
         case .deleted(let ingredient):
             let newIngredients = meal.mealItem.ingredients.filter { $0 != ingredient }
             try await updateIngredients(newIngredients: newIngredients)
-        case .updated(newIngredient: let newIngredient, oldIngredient: let oldIngredient):
+        case let .updated(newIngredient, oldIngredient):
             guard let index = ingredients.firstIndex(of: oldIngredient) else { return }
             var newIngredients = ingredients
             newIngredients[index] = newIngredient

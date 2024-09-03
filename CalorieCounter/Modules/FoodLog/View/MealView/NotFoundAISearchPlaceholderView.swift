@@ -27,7 +27,6 @@ struct NotFoundAISearchPlaceholderView: View {
                     .foregroundStyle(Color.studioBlackLight)
                     Text(Localization.part3)
                         .font(.poppinsMedium(.body))
-
                 }
                 .foregroundStyle(Color.studioBlackLight)
 

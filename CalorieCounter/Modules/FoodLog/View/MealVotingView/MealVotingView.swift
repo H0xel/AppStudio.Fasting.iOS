@@ -52,7 +52,6 @@ struct MealVotingView: View {
                     .padding(.bottom, .borderPadding)
                     .padding(.horizontal, .borderPadding)
             }
-
         )
         .offset(y: -.offset)
 

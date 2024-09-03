@@ -52,6 +52,6 @@ private extension CGFloat {
                             title: "Eggs",
                             text: "",
                             units: "g",
-                            grammsValue: nil, 
+                            grammsValue: nil,
                             isPresented: true)
 }

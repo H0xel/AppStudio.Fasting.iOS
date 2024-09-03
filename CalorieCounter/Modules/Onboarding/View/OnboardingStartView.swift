@@ -43,7 +43,6 @@ struct OnboardingStartView: View {
                         termsUrl: GlobalConstants.termsOfUse
                     )
                     .padding(.top, Layout.topPadding)
-
                 }
                 .padding(.horizontal, Layout.horizontalPadding)
                 .background()

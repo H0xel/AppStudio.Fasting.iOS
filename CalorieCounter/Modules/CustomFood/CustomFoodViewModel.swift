@@ -70,7 +70,7 @@ class CustomFoodViewModel: BaseViewModel<CustomFoodOutput> {
         case .duplicate(let mealItem):
             let mealItem = mealItem.updated(
                 id: UUID().uuidString,
-                name: mealItem.name  + " " + "CustomFood.copy".localized()
+                name: mealItem.name + " " + "CustomFood.copy".localized()
             )
             customFoodViewData = .duplicate(mealItem: mealItem)
             customFoodViewDataCopy = .duplicate(mealItem: mealItem)
@@ -95,7 +95,7 @@ class CustomFoodViewModel: BaseViewModel<CustomFoodOutput> {
     }
 
     func dismiss() {
-        if hasNoUpdates  {
+        if hasNoUpdates {
             router.dismiss()
             return
         }

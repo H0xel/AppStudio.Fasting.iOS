@@ -13,7 +13,7 @@ struct BarcodeRoute: Route {
     let navigator: Navigator
     let input: BarcodeInput
     let output: BarcodeOutputBlock
-    
+
     var view: AnyView {
         BarcodeScreen(viewModel: viewModel)
             .eraseToAnyView()

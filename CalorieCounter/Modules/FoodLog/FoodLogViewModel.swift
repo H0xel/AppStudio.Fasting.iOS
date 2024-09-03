@@ -85,9 +85,9 @@ class FoodLogViewModel: BaseViewModel<FoodLogOutput> {
     func mealViewModel(meal: Meal) -> MealViewViewModel {
         .init(
             meal: meal,
-            mealSelectionPublisher: $selectedMealId.eraseToAnyPublisher(), 
+            mealSelectionPublisher: $selectedMealId.eraseToAnyPublisher(),
             hasSubscriptionPublisher: $hasSubscription.eraseToAnyPublisher(),
-            selectedIngredientPublisher: selectedWeightIngredientSubject.eraseToAnyPublisher(), 
+            selectedIngredientPublisher: selectedWeightIngredientSubject.eraseToAnyPublisher(),
             tappedWeightMealPublisher: tappedWeightMealSubject.eraseToAnyPublisher(),
             router: router.mealRouter
         ) { [weak self] output in

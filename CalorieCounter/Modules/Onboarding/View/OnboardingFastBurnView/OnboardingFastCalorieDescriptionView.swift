@@ -63,8 +63,8 @@ private enum Localization {
 
     static var averageDailyCalories = NSLocalizedString("OnboardingEstimatedExpenditureView.averageDaily",
                                                         comment: "")
-    static var estimatedAchievementDate =  NSLocalizedString("OnboardingEstimatedExpenditureView.estimatedAchievementDate",
-                                                             comment: "")
+    static var estimatedAchievementDate = NSLocalizedString("OnboardingEstimatedExpenditureView.estimatedAchievementDate",
+                                                            comment: "")
 }
 
 private extension CGFloat {

@@ -109,7 +109,7 @@ extension CloudStorage {
     }
 
     var pricingExperimentProductIds: [String]? {
-        get { get(key: pricingExperimentProductIdsKey, defaultValue: nil)}
-        set { set(key: pricingExperimentProductIdsKey, value: newValue)}
+        get { get(key: pricingExperimentProductIdsKey, defaultValue: nil) }
+        set { set(key: pricingExperimentProductIdsKey, value: newValue) }
     }
 }

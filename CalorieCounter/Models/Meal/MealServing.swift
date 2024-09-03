@@ -94,7 +94,7 @@ extension MealServing {
     }
 
     static var ounces: MealServing {
-        .init(weight:  28.3495, measure: "oz", quantity: 1.0)
+        .init(weight: 28.3495, measure: "oz", quantity: 1.0)
     }
 
     static var pounds: MealServing {

@@ -29,7 +29,7 @@ struct CustomFoodViewData: Equatable {
     var selectedServing: MealServing
     var servings: [MealServing]
 
-    static func ==(lhs: CustomFoodViewData, rhs: CustomFoodViewData) -> Bool {
+    static func==(lhs: CustomFoodViewData, rhs: CustomFoodViewData) -> Bool {
         return lhs.foodNameText == rhs.foodNameText
         && lhs.brandNameText == rhs.brandNameText
         && lhs.servingSize == rhs.servingSize
@@ -225,7 +225,7 @@ extension CustomFoodViewData {
         )
     }
 
-    static private func duplicateComplexMealItem(mealItem: MealItem) -> CustomFoodViewData {
+    private static func duplicateComplexMealItem(mealItem: MealItem) -> CustomFoodViewData {
         var nutritionProfile = mealItem.nutritionProfile
         if let amountPer = mealItem.amountPer {
             nutritionProfile = nutritionProfile.calculate(servingMultiplier: amountPer)
@@ -251,7 +251,7 @@ extension CustomFoodViewData {
         )
     }
 
-    static private func duplicateProduct(mealItem: MealItem) -> CustomFoodViewData {
+    private static func duplicateProduct(mealItem: MealItem) -> CustomFoodViewData {
         let mlServing = mealItem.servings.first(where: { $0.measure == mlTitle })
         let grammServing = mealItem.servings.first(where: { $0.measure != grammTitle })
 
@@ -289,7 +289,7 @@ extension CustomFoodViewData {
 }
 
 extension CustomFoodViewData {
-    static func initial(barcode: String? = nil) ->  CustomFoodViewData {
+    static func initial(barcode: String? = nil) -> CustomFoodViewData {
         .init(id: UUID().uuidString,
               foodNameText: "",
               brandNameText: "",

@@ -34,7 +34,6 @@ struct CustomProductIngredientsView: View {
                         weight: servingWeight(ingredient: ingredient),
                         nutritionTypes: NutritionType.allCases
                     )
-
                 }
                 .padding(.vertical, .verticalPadding)
             }

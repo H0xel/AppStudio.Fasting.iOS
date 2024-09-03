@@ -37,10 +37,8 @@ struct CustomFoodScreen: View {
         .navBarButton(content: Image.xmarkUnfilled
             .resizable()
             .frame(width: .closeButtonFrame, height: .closeButtonFrame)
-            .foregroundStyle(Color.studioBlackLight)) {
-                viewModel.dismiss()
-            }
-        .toolbar(.visible, for: .navigationBar)
+            .foregroundStyle(Color.studioBlackLight)) { viewModel.dismiss() }
+            .toolbar(.visible, for: .navigationBar)
     }
 
     private var navigationTitleView: some View {
@@ -69,7 +67,7 @@ struct CustomFoodScreen_Previews: PreviewProvider {
         NavigationView {
             CustomFoodScreen(
                 viewModel: CustomFoodViewModel(
-                    router: .init(navigator: .init()), 
+                    router: .init(navigator: .init()),
                     input: CustomFoodInput(context: .create),
                     output: { _ in }
                 )

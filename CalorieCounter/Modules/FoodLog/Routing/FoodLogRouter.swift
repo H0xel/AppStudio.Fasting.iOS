@@ -65,10 +65,10 @@ class FoodLogRouter: BaseRouter {
     }
 
     func presentCameraAccessAlert() {
-        let alertTitle = NSLocalizedString("CameraAlert.title" , comment: "")
-        let alertSubTitle = NSLocalizedString("CameraAlert.subtitle" , comment: "")
-        let openSettingTitle = NSLocalizedString("CameraAlert.openSettings" , comment: "")
-        let cancelButtonTitle = NSLocalizedString("Button.cancel" , comment: "")
+        let alertTitle = NSLocalizedString("CameraAlert.title", comment: "")
+        let alertSubTitle = NSLocalizedString("CameraAlert.subtitle", comment: "")
+        let openSettingTitle = NSLocalizedString("CameraAlert.openSettings", comment: "")
+        let cancelButtonTitle = NSLocalizedString("Button.cancel", comment: "")
         let openSettingsAction = DialogAction(title: openSettingTitle, role: nil, image: nil) {
             guard let settingsAppURL = URL(string: UIApplication.openSettingsURLString) else { return }
             UIApplication.shared.open(settingsAppURL, options: [:])

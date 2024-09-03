@@ -54,8 +54,6 @@ private extension CGFloat {
     static let timerInterval: CGFloat = 0.01
 }
 
-
-
 #Preview {
     FoodSearchLoadingView()
 }

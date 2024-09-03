@@ -69,7 +69,8 @@ class FoodSearchServiceImpl: FoodSearchService {
             }
             return updated.items
         }
-        let meals = try await nutritionFoodSearchApi.search(query: query).compactMap { $0.asIngredientMealItem?.updated(type: .chatGPT) }
+        let meals = try await nutritionFoodSearchApi.search(query: query)
+            .compactMap { $0.asIngredientMealItem?.updated(type: .chatGPT) }
 
         let updated = try await updateBrandedTypes(of: meals)
 
@@ -86,7 +87,7 @@ class FoodSearchServiceImpl: FoodSearchService {
         if let cached = try await foodSearchCacheService.cachedBrandFood(of: brandFoodId) {
             return cached
         }
-        
+
         if let brandFood = try await nutritionFoodSearchApi.search(brandFoodId: brandFoodId).asIngredientMealItem {
             try await foodSearchCacheService.cache(brandFood: brandFood, for: brandFoodId)
 

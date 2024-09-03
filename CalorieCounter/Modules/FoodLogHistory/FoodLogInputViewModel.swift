@@ -72,9 +72,7 @@ class FoodLogInputViewModel: BaseViewModel<FoodLogInputOutput> {
                 presentScannerPublusher: presentScannerPublisher.eraseToAnyPublisher(),
                 mealPublisher: input.mealPublisher
             ),
-            router: router) { [weak self] output in
-                self?.handle(foodHistoryOutput: output)
-            }
+            router: router) { [weak self] output in self?.handle(foodHistoryOutput: output) }
     }
 
     var quickAddViewModel: QuickAddViewModel {
@@ -117,7 +115,7 @@ class FoodLogInputViewModel: BaseViewModel<FoodLogInputOutput> {
         switch output {
         case .insert(let meal):
             self.output(.insert(meal))
-        case .save(let meals, let placeholderId):
+        case let .save(meals, placeholderId):
             self.output(.save(meals: meals, placeholderId: placeholderId))
         case .remove(let mealItem):
             self.output(.remove(mealItem))

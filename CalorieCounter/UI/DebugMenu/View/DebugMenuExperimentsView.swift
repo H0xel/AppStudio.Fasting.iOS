@@ -36,8 +36,10 @@ struct DebugMenuExperimentsView: View {
                     forKey: "exp_pricing_active",
                     defaultValue: "non in experiment")
 
-                experiments.append(.init(experimentName: "exp_pricing_active",
-                                         value: pricingExperimentValue.isEmpty ? "pricing_default" : pricingExperimentValue))
+                experiments.append(.init(
+                    experimentName: "exp_pricing_active",
+                    value: pricingExperimentValue.isEmpty ? "pricing_default" : pricingExperimentValue
+                ))
 
                 let discountExperimentValue = try await baseAppCustomization.remoteConfigValue(
                     forKey: "discount_active",
@@ -66,4 +68,3 @@ private struct DebugExperiment: Identifiable {
     let experimentName: String
     let value: String
 }
-
