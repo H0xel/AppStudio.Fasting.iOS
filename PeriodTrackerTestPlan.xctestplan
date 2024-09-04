@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "FD6616EE-C93B-4AC5-8252-4BF210862E77",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:PeriodTracker.xcodeproj",
+        "identifier" : "563257202ADE57DA0000F33C",
+        "name" : "PeriodTrackerTests"
+      }
+    }
+  ],
+  "version" : 1
+}

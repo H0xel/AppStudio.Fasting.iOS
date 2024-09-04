@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56B23A9F2C883FF600B07526 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B23A9E2C883FF600B07526 /* ModelTests.swift */; };
 		A76CD4232B1606DC00A9D4FE /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76CD4222B1606DC00A9D4FE /* WhatToTest.en-US.txt */; };
-		A7CBABDF2C870B8700D4DFD3 /* AppStudioTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0A2C870B8700D4DFD3 /* AppStudioTemplateTests.swift */; };
 		A7CBABE02C870B8700D4DFD3 /* AppCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0C2C870B8700D4DFD3 /* AppCustomization.swift */; };
 		A7CBABE12C870B8700D4DFD3 /* AppCustomizationDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0D2C870B8700D4DFD3 /* AppCustomizationDependency.swift */; };
 		A7CBABE22C870B8700D4DFD3 /* AppCustomizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0E2C870B8700D4DFD3 /* AppCustomizationImpl.swift */; };
@@ -177,8 +177,9 @@
 /* Begin PBXFileReference section */
 		563257112ADE57D80000F33C /* PeriodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeriodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		563257212ADE57DA0000F33C /* PeriodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeriodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56B23A9D2C883F0B00B07526 /* PeriodTrackerTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PeriodTrackerTestPlan.xctestplan; sourceTree = "<group>"; };
+		56B23A9E2C883FF600B07526 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		A76CD4222B1606DC00A9D4FE /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
-		A7CBAB0A2C870B8700D4DFD3 /* AppStudioTemplateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStudioTemplateTests.swift; sourceTree = "<group>"; };
 		A7CBAB0C2C870B8700D4DFD3 /* AppCustomization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCustomization.swift; sourceTree = "<group>"; };
 		A7CBAB0D2C870B8700D4DFD3 /* AppCustomizationDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCustomizationDependency.swift; sourceTree = "<group>"; };
 		A7CBAB0E2C870B8700D4DFD3 /* AppCustomizationImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCustomizationImpl.swift; sourceTree = "<group>"; };
@@ -356,6 +357,7 @@
 		563257082ADE57D80000F33C = {
 			isa = PBXGroup;
 			children = (
+				56B23A9D2C883F0B00B07526 /* PeriodTrackerTestPlan.xctestplan */,
 				A7CBABDE2C870B8700D4DFD3 /* PeriodTracker */,
 				A7CBAB0B2C870B8700D4DFD3 /* PeriodTrackerTests */,
 				A76CD4212B1606DC00A9D4FE /* TestFlight */,
@@ -391,7 +393,7 @@
 		A7CBAB0B2C870B8700D4DFD3 /* PeriodTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				A7CBAB0A2C870B8700D4DFD3 /* AppStudioTemplateTests.swift */,
+				56B23A9E2C883FF600B07526 /* ModelTests.swift */,
 			);
 			path = PeriodTrackerTests;
 			sourceTree = "<group>";
@@ -1142,6 +1144,7 @@
 					};
 					563257202ADE57DA0000F33C = {
 						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1540;
 						TestTargetID = 563257102ADE57D80000F33C;
 					};
 				};
@@ -1251,7 +1254,6 @@
 				A7CBAC322C870B8700D4DFD3 /* FirstLaunchService.swift in Sources */,
 				A7CBABF02C870B8700D4DFD3 /* SubscriptionTarget.swift in Sources */,
 				A7CBAC202C870B8700D4DFD3 /* AccountProviderPreview.swift in Sources */,
-				A7CBABDF2C870B8700D4DFD3 /* AppStudioTemplateTests.swift in Sources */,
 				A7CBAC2F2C870B8700D4DFD3 /* AppSyncServiceDependencies.swift in Sources */,
 				A7CBAC622C870B8700D4DFD3 /* AccountSyncService.swift in Sources */,
 				A7CBAC662C870B8700D4DFD3 /* AppSyncServiceImpl.swift in Sources */,
@@ -1392,6 +1394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56B23A9F2C883FF600B07526 /* ModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
