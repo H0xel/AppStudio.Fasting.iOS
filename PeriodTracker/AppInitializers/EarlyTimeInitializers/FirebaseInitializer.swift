@@ -10,7 +10,6 @@ import FirebaseCore
 final class FirebaseInitializer: AppInitializer {
 
     func initialize() {
-        guard !AppTemplateManager.isAppTemplate else { return }
         FirebaseApp.configure()
     }
 }
