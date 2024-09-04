@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		562D8BF62C884AC9001C0E6F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BF42C884AC9001C0E6F /* Model.xcdatamodeld */; };
+		562D8BF92C884B45001C0E6F /* DatabaseInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BF82C884B45001C0E6F /* DatabaseInitializer.swift */; };
+		562D8BFB2C884C03001C0E6F /* DatabaseDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BFA2C884C03001C0E6F /* DatabaseDependencies.swift */; };
+		562D8BFF2C887ECB001C0E6F /* CalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BFE2C887ECB001C0E6F /* CalendarDate.swift */; };
 		56B23A9F2C883FF600B07526 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B23A9E2C883FF600B07526 /* ModelTests.swift */; };
 		A76CD4232B1606DC00A9D4FE /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76CD4222B1606DC00A9D4FE /* WhatToTest.en-US.txt */; };
 		A7CBABE02C870B8700D4DFD3 /* AppCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0C2C870B8700D4DFD3 /* AppCustomization.swift */; };
@@ -175,6 +179,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		562D8BF52C884AC9001C0E6F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		562D8BF82C884B45001C0E6F /* DatabaseInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInitializer.swift; sourceTree = "<group>"; };
+		562D8BFA2C884C03001C0E6F /* DatabaseDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDependencies.swift; sourceTree = "<group>"; };
+		562D8BFE2C887ECB001C0E6F /* CalendarDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDate.swift; sourceTree = "<group>"; };
 		563257112ADE57D80000F33C /* PeriodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeriodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		563257212ADE57DA0000F33C /* PeriodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeriodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B23A9D2C883F0B00B07526 /* PeriodTrackerTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PeriodTrackerTestPlan.xctestplan; sourceTree = "<group>"; };
@@ -354,6 +362,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		562D8BF32C884AA1001C0E6F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				562D8BFC2C887DC0001C0E6F /* Repositories */,
+				562D8BF72C884B2D001C0E6F /* Initializer */,
+				562D8BFA2C884C03001C0E6F /* DatabaseDependencies.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		562D8BF72C884B2D001C0E6F /* Initializer */ = {
+			isa = PBXGroup;
+			children = (
+				562D8BF82C884B45001C0E6F /* DatabaseInitializer.swift */,
+			);
+			path = Initializer;
+			sourceTree = "<group>";
+		};
+		562D8BFC2C887DC0001C0E6F /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		562D8BFD2C887DE7001C0E6F /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				562D8BFE2C887ECB001C0E6F /* CalendarDate.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		563257082ADE57D80000F33C = {
 			isa = PBXGroup;
 			children = (
@@ -640,6 +681,7 @@
 		A7CBAB5A2C870B8700D4DFD3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				562D8BFD2C887DE7001C0E6F /* Calendar */,
 				A7CBAB592C870B8700D4DFD3 /* Common */,
 			);
 			path = Models;
@@ -726,6 +768,7 @@
 			children = (
 				A7CBAB742C870B8700D4DFD3 /* Assets.xcassets */,
 				A7CBAB752C870B8700D4DFD3 /* Localizable.strings */,
+				562D8BF42C884AC9001C0E6F /* Model.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1049,6 +1092,7 @@
 				A7CBAB502C870B8700D4DFD3 /* Data */,
 				A7CBAB522C870B8700D4DFD3 /* Extensions */,
 				A7CBAB5A2C870B8700D4DFD3 /* Models */,
+				562D8BF32C884AA1001C0E6F /* Database */,
 				A7CBAB622C870B8700D4DFD3 /* Modules */,
 				A7CBAB642C870B8700D4DFD3 /* Preview Content */,
 				A7CBAB732C870B8700D4DFD3 /* Providers */,
@@ -1300,6 +1344,7 @@
 				A7CBAC0D2C870B8700D4DFD3 /* KeyValueStorageImpl.swift in Sources */,
 				A7CBAC082C870B8700D4DFD3 /* AppDelegate.swift in Sources */,
 				A7CBAC482C870B8700D4DFD3 /* UpdateIdentifiersMessage.swift in Sources */,
+				562D8BF62C884AC9001C0E6F /* Model.xcdatamodeld in Sources */,
 				A7CBAC382C870B8700D4DFD3 /* IntercomDependencies.swift in Sources */,
 				A7CBAC542C870B8700D4DFD3 /* MigrationServiceImpl.swift in Sources */,
 				A7CBAC212C870B8700D4DFD3 /* AppSettingsProvider.swift in Sources */,
@@ -1307,6 +1352,7 @@
 				A7CBABE22C870B8700D4DFD3 /* AppCustomizationImpl.swift in Sources */,
 				A7CBAC5D2C870B8700D4DFD3 /* PushNotificationServiceImpl.swift in Sources */,
 				A7CBAC522C870B8700D4DFD3 /* MigrationLaunchServiceImpl.swift in Sources */,
+				562D8BFF2C887ECB001C0E6F /* CalendarDate.swift in Sources */,
 				A7CBAC4B2C870B8700D4DFD3 /* MessagePublisherService.swift in Sources */,
 				A7CBAC3A2C870B8700D4DFD3 /* IntercomUpdaterImpl.swift in Sources */,
 				A7CBAC5E2C870B8700D4DFD3 /* AnalyticEvent.swift in Sources */,
@@ -1324,6 +1370,7 @@
 				A7CBAC1E2C870B8700D4DFD3 /* AccountProvider.swift in Sources */,
 				A7CBABF82C870B8700D4DFD3 /* NewSubscriptionInitializer.swift in Sources */,
 				A7CBAC3C2C870B8700D4DFD3 /* IntercomServiceImpl.swift in Sources */,
+				562D8BFB2C884C03001C0E6F /* DatabaseDependencies.swift in Sources */,
 				A7CBAC4E2C870B8700D4DFD3 /* MessengerServiceImpl.swift in Sources */,
 				A7CBAC0C2C870B8700D4DFD3 /* DataDependencies.swift in Sources */,
 				A7CBABED2C870B8700D4DFD3 /* AppStudioApiSettingsProvider.swift in Sources */,
@@ -1369,6 +1416,7 @@
 				A7CBAC4C2C870B8700D4DFD3 /* MessageSubjectService.swift in Sources */,
 				A7CBAC572C870B8700D4DFD3 /* ProductProvider.swift in Sources */,
 				A7CBAC182C870B8700D4DFD3 /* RootRoute.swift in Sources */,
+				562D8BF92C884B45001C0E6F /* DatabaseInitializer.swift in Sources */,
 				A7CBAC532C870B8700D4DFD3 /* MigrationService.swift in Sources */,
 				A7CBABF32C870B8700D4DFD3 /* TelecomApiProvider.swift in Sources */,
 				A7CBAC112C870B8700D4DFD3 /* Contacts.swift in Sources */,
@@ -1694,6 +1742,20 @@
 			productName = AppStudioStyles;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		562D8BF42C884AC9001C0E6F /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				562D8BF52C884AC9001C0E6F /* Model.xcdatamodel */,
+			);
+			currentVersion = 562D8BF52C884AC9001C0E6F /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = /Users/deniskhlopin/GitProjects/AppStudio.Fasting.iOS/PeriodTracker/Resources/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 563257092ADE57D80000F33C /* Project object */;
 }

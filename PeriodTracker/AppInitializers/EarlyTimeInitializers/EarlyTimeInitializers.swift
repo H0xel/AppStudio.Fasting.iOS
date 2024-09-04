@@ -11,6 +11,7 @@ final class EarlyTimeInitializers: Initializers {
 
     func initializers() -> [AppInitializer] {
         [
+            DatabaseInitializer(),
             PreferencesInitializer(),
             FirebaseInitializer(),
             CrashlyticsInitializer(),
