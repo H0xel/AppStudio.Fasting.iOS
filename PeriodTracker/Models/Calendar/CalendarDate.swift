@@ -18,9 +18,15 @@ struct MenstrualCycleCalendar: Codable {
     let dayDate: Date
 }
 
+enum MenstrualCyclePhase {
+    case menstruation
+    case follicular
+    case ovulation
+    case luteal
+}
+
 struct MenstrualCycleParameters {
     let fullCycleLength: Int
     let menstruationPhaseLength: Int
     let follicularPhaseLength: Int
-    
 }
