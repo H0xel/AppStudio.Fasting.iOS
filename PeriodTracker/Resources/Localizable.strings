@@ -13,3 +13,8 @@
 "Error.Network.title" = "No Internet Connection";
 "Error.Unknonw.title" = "Something Wrong";
 "Error.Unknown.message" = "Try again or restart the app";
+
+// MARK: - App Tab
+"AppTab.tracker" = "Cycle";
+"AppTab.nova" = "Nova";
+"AppTab.calendar" = "Calendar";

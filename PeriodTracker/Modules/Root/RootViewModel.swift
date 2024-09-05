@@ -16,7 +16,7 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.rootInitializationService) private var rootInitializationService
 
     var router: RootRouter!
-    @Published private(set) var rootScreen: RootScreen = .launchScreen
+    @Published private(set) var rootScreen: RootScreen = .periodTracker
     @Published private(set) var isProcessingSubscription = false
     @Published private(set) var hasSubscription = false
 

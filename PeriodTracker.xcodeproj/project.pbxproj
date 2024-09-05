@@ -12,6 +12,16 @@
 		562D8BFB2C884C03001C0E6F /* DatabaseDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BFA2C884C03001C0E6F /* DatabaseDependencies.swift */; };
 		562D8BFF2C887ECB001C0E6F /* CalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BFE2C887ECB001C0E6F /* CalendarDate.swift */; };
 		56B23A9F2C883FF600B07526 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B23A9E2C883FF600B07526 /* ModelTests.swift */; };
+		A0EF029E2C88D1450035A3FA /* PeriodTrackerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF029D2C88D1450035A3FA /* PeriodTrackerScreen.swift */; };
+		A0EF02A02C88D15C0035A3FA /* PeriodTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF029F2C88D15C0035A3FA /* PeriodTrackerViewModel.swift */; };
+		A0EF02A32C88D2ED0035A3FA /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF02A22C88D2ED0035A3FA /* TabBarView.swift */; };
+		A0EF02A52C88D3070035A3FA /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF02A42C88D3070035A3FA /* AppTab.swift */; };
+		A0EF02A72C88D3890035A3FA /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF02A62C88D3890035A3FA /* TabBarViewModel.swift */; };
+		A0EF02A92C88D99A0035A3FA /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF02A82C88D99A0035A3FA /* TabBarRouter.swift */; };
+		A0EF02AB2C88DA240035A3FA /* PeriodTackerRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF02AA2C88DA240035A3FA /* PeriodTackerRoute.swift */; };
+		A0EF02AD2C88DA370035A3FA /* PeriodTrackerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF02AC2C88DA370035A3FA /* PeriodTrackerInput.swift */; };
+		A0EF02AF2C88DA480035A3FA /* PeriodTrackerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF02AE2C88DA480035A3FA /* PeriodTrackerOutput.swift */; };
+		A0EF02B22C88DA670035A3FA /* PeriodTrackerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF02B12C88DA670035A3FA /* PeriodTrackerRouter.swift */; };
 		A76CD4232B1606DC00A9D4FE /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76CD4222B1606DC00A9D4FE /* WhatToTest.en-US.txt */; };
 		A7CBABE02C870B8700D4DFD3 /* AppCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0C2C870B8700D4DFD3 /* AppCustomization.swift */; };
 		A7CBABE12C870B8700D4DFD3 /* AppCustomizationDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0D2C870B8700D4DFD3 /* AppCustomizationDependency.swift */; };
@@ -187,6 +197,16 @@
 		563257212ADE57DA0000F33C /* PeriodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeriodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B23A9D2C883F0B00B07526 /* PeriodTrackerTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PeriodTrackerTestPlan.xctestplan; sourceTree = "<group>"; };
 		56B23A9E2C883FF600B07526 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		A0EF029D2C88D1450035A3FA /* PeriodTrackerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTrackerScreen.swift; sourceTree = "<group>"; };
+		A0EF029F2C88D15C0035A3FA /* PeriodTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTrackerViewModel.swift; sourceTree = "<group>"; };
+		A0EF02A22C88D2ED0035A3FA /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		A0EF02A42C88D3070035A3FA /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
+		A0EF02A62C88D3890035A3FA /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		A0EF02A82C88D99A0035A3FA /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
+		A0EF02AA2C88DA240035A3FA /* PeriodTackerRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTackerRoute.swift; sourceTree = "<group>"; };
+		A0EF02AC2C88DA370035A3FA /* PeriodTrackerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTrackerInput.swift; sourceTree = "<group>"; };
+		A0EF02AE2C88DA480035A3FA /* PeriodTrackerOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTrackerOutput.swift; sourceTree = "<group>"; };
+		A0EF02B12C88DA670035A3FA /* PeriodTrackerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTrackerRouter.swift; sourceTree = "<group>"; };
 		A76CD4222B1606DC00A9D4FE /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
 		A7CBAB0C2C870B8700D4DFD3 /* AppCustomization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCustomization.swift; sourceTree = "<group>"; };
 		A7CBAB0D2C870B8700D4DFD3 /* AppCustomizationDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCustomizationDependency.swift; sourceTree = "<group>"; };
@@ -421,6 +441,38 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0EF029C2C88D1260035A3FA /* PeriodTracker */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF02B02C88DA530035A3FA /* Routing */,
+				A0EF029D2C88D1450035A3FA /* PeriodTrackerScreen.swift */,
+				A0EF029F2C88D15C0035A3FA /* PeriodTrackerViewModel.swift */,
+			);
+			path = PeriodTracker;
+			sourceTree = "<group>";
+		};
+		A0EF02A12C88D2680035A3FA /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF02A42C88D3070035A3FA /* AppTab.swift */,
+				A0EF02A22C88D2ED0035A3FA /* TabBarView.swift */,
+				A0EF02A62C88D3890035A3FA /* TabBarViewModel.swift */,
+				A0EF02A82C88D99A0035A3FA /* TabBarRouter.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		A0EF02B02C88DA530035A3FA /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF02AA2C88DA240035A3FA /* PeriodTackerRoute.swift */,
+				A0EF02AC2C88DA370035A3FA /* PeriodTrackerInput.swift */,
+				A0EF02AE2C88DA480035A3FA /* PeriodTrackerOutput.swift */,
+				A0EF02B12C88DA670035A3FA /* PeriodTrackerRouter.swift */,
+			);
+			path = Routing;
 			sourceTree = "<group>";
 		};
 		A76CD4212B1606DC00A9D4FE /* TestFlight */ = {
@@ -701,6 +753,8 @@
 		A7CBAB622C870B8700D4DFD3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A0EF02A12C88D2680035A3FA /* TabBar */,
+				A0EF029C2C88D1260035A3FA /* PeriodTracker */,
 				A7CBAB612C870B8700D4DFD3 /* Root */,
 			);
 			path = Modules;
@@ -1289,6 +1343,7 @@
 			files = (
 				A7CBAC312C870B8700D4DFD3 /* ServicesDependencies.swift in Sources */,
 				A7CBABFB2C870B8700D4DFD3 /* AppSyncServiceInitializer.swift in Sources */,
+				A0EF02B22C88DA670035A3FA /* PeriodTrackerRouter.swift in Sources */,
 				A7CBAC452C870B8700D4DFD3 /* MigrationFinishedMessage.swift in Sources */,
 				A7CBABEB2C870B8700D4DFD3 /* ApiDependencies.swift in Sources */,
 				A7CBAC4A2C870B8700D4DFD3 /* WillTerminateMessage.swift in Sources */,
@@ -1296,13 +1351,16 @@
 				A7CBAC6A2C870B8700D4DFD3 /* ForceUpdateBanner.swift in Sources */,
 				A7CBAC652C870B8700D4DFD3 /* AppSyncService.swift in Sources */,
 				A7CBAC322C870B8700D4DFD3 /* FirstLaunchService.swift in Sources */,
+				A0EF029E2C88D1450035A3FA /* PeriodTrackerScreen.swift in Sources */,
 				A7CBABF02C870B8700D4DFD3 /* SubscriptionTarget.swift in Sources */,
 				A7CBAC202C870B8700D4DFD3 /* AccountProviderPreview.swift in Sources */,
 				A7CBAC2F2C870B8700D4DFD3 /* AppSyncServiceDependencies.swift in Sources */,
+				A0EF02A32C88D2ED0035A3FA /* TabBarView.swift in Sources */,
 				A7CBAC622C870B8700D4DFD3 /* AccountSyncService.swift in Sources */,
 				A7CBAC662C870B8700D4DFD3 /* AppSyncServiceImpl.swift in Sources */,
 				A7CBAC6F2C870B8700D4DFD3 /* BaseViewModel+ErrorHandling.swift in Sources */,
 				A7CBAC152C870B8700D4DFD3 /* RestoreResult.swift in Sources */,
+				A0EF02A92C88D99A0035A3FA /* TabBarRouter.swift in Sources */,
 				A7CBAC5A2C870B8700D4DFD3 /* ProductIdsService.swift in Sources */,
 				A7CBAC792C8746FA00D4DFD3 /* RootInitializationDependencies.swift in Sources */,
 				A7CBABE92C870B8700D4DFD3 /* AccountApiImpl.swift in Sources */,
@@ -1335,6 +1393,7 @@
 				A7CBAC062C870B8700D4DFD3 /* AppInitializer.swift in Sources */,
 				A7CBABE32C870B8700D4DFD3 /* ExperimentLifeCycleDelegateImpl.swift in Sources */,
 				A7CBABFD2C870B8700D4DFD3 /* CrashlyticsInitializer.swift in Sources */,
+				A0EF02A02C88D15C0035A3FA /* PeriodTrackerViewModel.swift in Sources */,
 				A7CBABE72C870B8700D4DFD3 /* PutPushTokenRequest.swift in Sources */,
 				A7CBAC1B2C870B8700D4DFD3 /* RootViewModel.swift in Sources */,
 				A7CBABEE2C870B8700D4DFD3 /* SandboxApiSettingsProviderImpl.swift in Sources */,
@@ -1366,6 +1425,7 @@
 				A7CBAC262C870B8700D4DFD3 /* AppStudioMobileDeviceDataProviderPreview.swift in Sources */,
 				A7CBAC412C870B8700D4DFD3 /* AppStudioMessage.swift in Sources */,
 				A7CBABF72C870B8700D4DFD3 /* AppInitializerServiceImpl.swift in Sources */,
+				A0EF02AF2C88DA480035A3FA /* PeriodTrackerOutput.swift in Sources */,
 				A7CBAC5B2C870B8700D4DFD3 /* Push.swift in Sources */,
 				A7CBAC1E2C870B8700D4DFD3 /* AccountProvider.swift in Sources */,
 				A7CBABF82C870B8700D4DFD3 /* NewSubscriptionInitializer.swift in Sources */,
@@ -1383,9 +1443,11 @@
 				A7CBAC292C870B8700D4DFD3 /* BackendEnvironmentService.swift in Sources */,
 				A7CBABE02C870B8700D4DFD3 /* AppCustomization.swift in Sources */,
 				A7CBAC342C870B8700D4DFD3 /* IDFARequestService.swift in Sources */,
+				A0EF02AD2C88DA370035A3FA /* PeriodTrackerInput.swift in Sources */,
 				A7CBAC2E2C870B8700D4DFD3 /* Synchronized.swift in Sources */,
 				A7CBABE82C870B8700D4DFD3 /* AccountApi.swift in Sources */,
 				A7CBAC362C870B8700D4DFD3 /* IntercomDataStorage.swift in Sources */,
+				A0EF02A72C88D3890035A3FA /* TabBarViewModel.swift in Sources */,
 				A7CBABFE2C870B8700D4DFD3 /* EarlyTimeInitializers.swift in Sources */,
 				A7CBAC512C870B8700D4DFD3 /* MigrationLaunchService.swift in Sources */,
 				A7CBAC7C2C8746FA00D4DFD3 /* RootSetup.swift in Sources */,
@@ -1402,6 +1464,7 @@
 				A7CBAC402C870B8700D4DFD3 /* AppInitializedMessage.swift in Sources */,
 				A7CBAC702C870B8700D4DFD3 /* ErrorHandling.swift in Sources */,
 				A7CBAC6E2C870B8700D4DFD3 /* DebugMenuScreen.swift in Sources */,
+				A0EF02AB2C88DA240035A3FA /* PeriodTackerRoute.swift in Sources */,
 				A7CBABF92C870B8700D4DFD3 /* NewSubscriptionInitializerDependency.swift in Sources */,
 				A7CBABEA2C870B8700D4DFD3 /* AccountTarget.swift in Sources */,
 				A7CBAC502C870B8700D4DFD3 /* Migration.swift in Sources */,
@@ -1429,6 +1492,7 @@
 				A7CBAC432C870B8700D4DFD3 /* CloudStoragesUpdateRequestMessage.swift in Sources */,
 				A7CBAC302C870B8700D4DFD3 /* ObfuscatorDepenendencies.swift in Sources */,
 				A7CBAC102C870B8700D4DFD3 /* Account.swift in Sources */,
+				A0EF02A52C88D3070035A3FA /* AppTab.swift in Sources */,
 				A7CBAC002C870B8700D4DFD3 /* MobileDeviceDataProviderInitializer.swift in Sources */,
 				A7CBAC5F2C870B8700D4DFD3 /* Contexts.swift in Sources */,
 				A7CBABEC2C870B8700D4DFD3 /* ApiSettingsProviderImpl.swift in Sources */,

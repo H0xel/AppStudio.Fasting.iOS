@@ -15,11 +15,11 @@ struct RootScreen: View {
 
     var body: some View {
         currentView
-        .onDidBecomeActiveNotification { _ in
-            viewModel.requestIdfa()
-        }
-        .withInAppPurchase(status: viewModel.handle)
-        .withDebugMenu()
+            .onDidBecomeActiveNotification { _ in
+                viewModel.requestIdfa()
+            }
+            .withInAppPurchase(status: viewModel.handle)
+            .withDebugMenu()
     }
 
     @ViewBuilder
@@ -34,7 +34,7 @@ struct RootScreen: View {
         case .onboarding:
             Text("onboarding")
         case .periodTracker:
-            Text("periodTracker")
+            TabBarView()
         }
         if viewModel.isProcessingSubscription {
             DimmedProgressBanner().view
