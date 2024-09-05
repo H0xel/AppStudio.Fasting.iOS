@@ -15,13 +15,15 @@ class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.idfaRequestService) private var idfaRequestService
     @Dependency(\.rootInitializationService) private var rootInitializationService
 
-    var router: RootRouter!
     @Published private(set) var rootScreen: RootScreen = .periodTracker
     @Published private(set) var isProcessingSubscription = false
     @Published private(set) var hasSubscription = false
 
-    init(input: RootInput, output: @escaping RootOutputBlock) {
-        super.init(output: output)
+    private let router: RootRouter
+
+    override init() {
+        router = RootRouter(navigator: Navigator())
+        super.init()
         initialize()
     }
 

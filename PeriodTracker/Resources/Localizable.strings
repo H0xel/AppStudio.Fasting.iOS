@@ -18,3 +18,16 @@
 "AppTab.tracker" = "Cycle";
 "AppTab.nova" = "Nova";
 "AppTab.calendar" = "Calendar";
+
+"CurrentPeriodViewConfiguration.periodInProgress.subtitle" = "day of period";
+"CurrentPeriodViewConfiguration.ovulation.subtitle.plural" = "days until ovulation";
+"CurrentPeriodViewConfiguration.ovulation.subtitle.single" = "day until ovulation";
+"CurrentPeriodViewConfiguration.ovulationDay.subtitle" = "Ovulation Day";
+"CurrentPeriodViewConfiguration.period.subtitle.plural" = "days until period";
+"CurrentPeriodViewConfiguration.period.subtitle.single" = "day until period";
+
+"CurrentPeriodViewConfiguration.lowPregnancyChance" = "Low chances of getting pregnant";
+"CurrentPeriodViewConfiguration.highPregnancyChance" = "Hight chanses of getting pregnant";
+
+"CurrentPeriodViewConfiguration.editPeriodDates" = "Edit period dates";
+"CurrentPeriodViewConfiguration.logPeriod" = "Log period";
