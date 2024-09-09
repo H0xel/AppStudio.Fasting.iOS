@@ -10,8 +10,8 @@
 /// SETUP your global constants
 public enum GlobalConstants {
     // MARK: - Common Application Settings
-    public static let applicationName = "APP_NAME"
-    public static let applicationPrefix = "APP_PREFIX"
+    public static let applicationName = "period-tracker"
+    public static let applicationPrefix = ""
     public static let appStoreURL = "https://apps.apple.com/us/app/APPSTORE_IDENTIFIER"
 
     // MARK: - Contact and other info

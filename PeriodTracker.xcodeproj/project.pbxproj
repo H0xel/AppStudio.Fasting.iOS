@@ -11,6 +11,12 @@
 		562D8BF92C884B45001C0E6F /* DatabaseInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BF82C884B45001C0E6F /* DatabaseInitializer.swift */; };
 		562D8BFB2C884C03001C0E6F /* DatabaseDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BFA2C884C03001C0E6F /* DatabaseDependencies.swift */; };
 		562D8BFF2C887ECB001C0E6F /* CalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BFE2C887ECB001C0E6F /* CalendarDate.swift */; };
+		5698C0722C8B14EA000CB8B5 /* MenstrualCycleCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698C0712C8B14EA000CB8B5 /* MenstrualCycleCalendar.swift */; };
+		5698C0742C8B1508000CB8B5 /* CalendarDayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698C0732C8B1508000CB8B5 /* CalendarDayType.swift */; };
+		5698C0772C8B15A2000CB8B5 /* MenstrualCycleCalendar+Mapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698C0762C8B15A2000CB8B5 /* MenstrualCycleCalendar+Mapped.swift */; };
+		5698C07E2C8B1995000CB8B5 /* MenstrualCycleCalendarRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698C07B2C8B1995000CB8B5 /* MenstrualCycleCalendarRepositoryImpl.swift */; };
+		5698C07F2C8B1995000CB8B5 /* MenstrualCycleCalendarRepositoryDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698C07C2C8B1995000CB8B5 /* MenstrualCycleCalendarRepositoryDependencies.swift */; };
+		5698C0802C8B1995000CB8B5 /* MenstrualCycleCalendarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698C07D2C8B1995000CB8B5 /* MenstrualCycleCalendarRepository.swift */; };
 		56B23A9F2C883FF600B07526 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B23A9E2C883FF600B07526 /* ModelTests.swift */; };
 		A0EF029E2C88D1450035A3FA /* PeriodTrackerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF029D2C88D1450035A3FA /* PeriodTrackerScreen.swift */; };
 		A0EF02A02C88D15C0035A3FA /* PeriodTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF029F2C88D15C0035A3FA /* PeriodTrackerViewModel.swift */; };
@@ -195,6 +201,12 @@
 		562D8BFE2C887ECB001C0E6F /* CalendarDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDate.swift; sourceTree = "<group>"; };
 		563257112ADE57D80000F33C /* PeriodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeriodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		563257212ADE57DA0000F33C /* PeriodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeriodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5698C0712C8B14EA000CB8B5 /* MenstrualCycleCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenstrualCycleCalendar.swift; sourceTree = "<group>"; };
+		5698C0732C8B1508000CB8B5 /* CalendarDayType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayType.swift; sourceTree = "<group>"; };
+		5698C0762C8B15A2000CB8B5 /* MenstrualCycleCalendar+Mapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenstrualCycleCalendar+Mapped.swift"; sourceTree = "<group>"; };
+		5698C07B2C8B1995000CB8B5 /* MenstrualCycleCalendarRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenstrualCycleCalendarRepositoryImpl.swift; sourceTree = "<group>"; };
+		5698C07C2C8B1995000CB8B5 /* MenstrualCycleCalendarRepositoryDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenstrualCycleCalendarRepositoryDependencies.swift; sourceTree = "<group>"; };
+		5698C07D2C8B1995000CB8B5 /* MenstrualCycleCalendarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenstrualCycleCalendarRepository.swift; sourceTree = "<group>"; };
 		56B23A9D2C883F0B00B07526 /* PeriodTrackerTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PeriodTrackerTestPlan.xctestplan; sourceTree = "<group>"; };
 		56B23A9E2C883FF600B07526 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		A0EF029D2C88D1450035A3FA /* PeriodTrackerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTrackerScreen.swift; sourceTree = "<group>"; };
@@ -385,6 +397,7 @@
 		562D8BF32C884AA1001C0E6F /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				5698C0702C8B1409000CB8B5 /* Entity */,
 				562D8BFC2C887DC0001C0E6F /* Repositories */,
 				562D8BF72C884B2D001C0E6F /* Initializer */,
 				562D8BFA2C884C03001C0E6F /* DatabaseDependencies.swift */,
@@ -403,16 +416,19 @@
 		562D8BFC2C887DC0001C0E6F /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				5698C07A2C8B1982000CB8B5 /* MenstrualCycleCalendarRepository */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
 		};
-		562D8BFD2C887DE7001C0E6F /* Calendar */ = {
+		562D8BFD2C887DE7001C0E6F /* MenstrualCycleCalendar */ = {
 			isa = PBXGroup;
 			children = (
 				562D8BFE2C887ECB001C0E6F /* CalendarDate.swift */,
+				5698C0712C8B14EA000CB8B5 /* MenstrualCycleCalendar.swift */,
+				5698C0732C8B1508000CB8B5 /* CalendarDayType.swift */,
 			);
-			path = Calendar;
+			path = MenstrualCycleCalendar;
 			sourceTree = "<group>";
 		};
 		563257082ADE57D80000F33C = {
@@ -434,6 +450,31 @@
 				563257212ADE57DA0000F33C /* PeriodTrackerTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5698C0702C8B1409000CB8B5 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				5698C0762C8B15A2000CB8B5 /* MenstrualCycleCalendar+Mapped.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		5698C0752C8B155E000CB8B5 /* MenstrualCycle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MenstrualCycle;
+			sourceTree = "<group>";
+		};
+		5698C07A2C8B1982000CB8B5 /* MenstrualCycleCalendarRepository */ = {
+			isa = PBXGroup;
+			children = (
+				5698C07B2C8B1995000CB8B5 /* MenstrualCycleCalendarRepositoryImpl.swift */,
+				5698C07C2C8B1995000CB8B5 /* MenstrualCycleCalendarRepositoryDependencies.swift */,
+				5698C07D2C8B1995000CB8B5 /* MenstrualCycleCalendarRepository.swift */,
+			);
+			path = MenstrualCycleCalendarRepository;
 			sourceTree = "<group>";
 		};
 		A07D95912AE9206100D2C2E2 /* Frameworks */ = {
@@ -733,7 +774,8 @@
 		A7CBAB5A2C870B8700D4DFD3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				562D8BFD2C887DE7001C0E6F /* Calendar */,
+				5698C0752C8B155E000CB8B5 /* MenstrualCycle */,
+				562D8BFD2C887DE7001C0E6F /* MenstrualCycleCalendar */,
 				A7CBAB592C870B8700D4DFD3 /* Common */,
 			);
 			path = Models;
@@ -1342,6 +1384,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7CBAC312C870B8700D4DFD3 /* ServicesDependencies.swift in Sources */,
+				5698C07E2C8B1995000CB8B5 /* MenstrualCycleCalendarRepositoryImpl.swift in Sources */,
+				5698C07F2C8B1995000CB8B5 /* MenstrualCycleCalendarRepositoryDependencies.swift in Sources */,
+				5698C0802C8B1995000CB8B5 /* MenstrualCycleCalendarRepository.swift in Sources */,
 				A7CBABFB2C870B8700D4DFD3 /* AppSyncServiceInitializer.swift in Sources */,
 				A0EF02B22C88DA670035A3FA /* PeriodTrackerRouter.swift in Sources */,
 				A7CBAC452C870B8700D4DFD3 /* MigrationFinishedMessage.swift in Sources */,
@@ -1383,6 +1428,7 @@
 				A7CBAC2C2C870B8700D4DFD3 /* Atomic.swift in Sources */,
 				A7CBAC672C870B8700D4DFD3 /* AppSyncServicePreview.swift in Sources */,
 				A7CBAC1D2C870B8700D4DFD3 /* AccountIdProviderImpl.swift in Sources */,
+				5698C0742C8B1508000CB8B5 /* CalendarDayType.swift in Sources */,
 				A7CBAC2A2C870B8700D4DFD3 /* ConcurrentDispatchQueue.swift in Sources */,
 				A7CBAC032C870B8700D4DFD3 /* AppCustomizationInitializer.swift in Sources */,
 				A7CBAC472C870B8700D4DFD3 /* PushReceivedMessage.swift in Sources */,
@@ -1406,6 +1452,7 @@
 				562D8BF62C884AC9001C0E6F /* Model.xcdatamodeld in Sources */,
 				A7CBAC382C870B8700D4DFD3 /* IntercomDependencies.swift in Sources */,
 				A7CBAC542C870B8700D4DFD3 /* MigrationServiceImpl.swift in Sources */,
+				5698C0722C8B14EA000CB8B5 /* MenstrualCycleCalendar.swift in Sources */,
 				A7CBAC212C870B8700D4DFD3 /* AppSettingsProvider.swift in Sources */,
 				A7CBAC4D2C870B8700D4DFD3 /* MessengerService.swift in Sources */,
 				A7CBABE22C870B8700D4DFD3 /* AppCustomizationImpl.swift in Sources */,
@@ -1429,6 +1476,7 @@
 				A7CBAC5B2C870B8700D4DFD3 /* Push.swift in Sources */,
 				A7CBAC1E2C870B8700D4DFD3 /* AccountProvider.swift in Sources */,
 				A7CBABF82C870B8700D4DFD3 /* NewSubscriptionInitializer.swift in Sources */,
+				5698C0772C8B15A2000CB8B5 /* MenstrualCycleCalendar+Mapped.swift in Sources */,
 				A7CBAC3C2C870B8700D4DFD3 /* IntercomServiceImpl.swift in Sources */,
 				562D8BFB2C884C03001C0E6F /* DatabaseDependencies.swift in Sources */,
 				A7CBAC4E2C870B8700D4DFD3 /* MessengerServiceImpl.swift in Sources */,
