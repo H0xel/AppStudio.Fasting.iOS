@@ -10,17 +10,7 @@ import AppStudioNavigation
 
 struct RootRoute: Route {
 
-    private let viewModel: RootViewModel
-
-    init(navigator: Navigator,
-         input: RootInput,
-         output: @escaping RootOutputBlock) {
-
-        let router = RootRouter(navigator: navigator)
-        let viewModel = RootViewModel(input: input, output: output)
-        viewModel.router = router
-        self.viewModel = viewModel
-    }
+    private let viewModel = RootViewModel()
 
     var view: AnyView {
         RootScreen(viewModel: viewModel)

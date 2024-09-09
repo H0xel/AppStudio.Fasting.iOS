@@ -11,11 +11,10 @@ import AppStudioNavigation
 @main
 struct AppStudioTemplateApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    let navigator = Navigator()
 
     var body: some Scene {
         WindowGroup {
-            navigator.initialize(route: RootRoute(navigator: navigator, input: RootInput(), output: { _ in }))
+            RootRoute()
         }
     }
 }

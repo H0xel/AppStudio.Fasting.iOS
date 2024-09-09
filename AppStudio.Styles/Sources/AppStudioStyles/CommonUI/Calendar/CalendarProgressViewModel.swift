@@ -62,9 +62,8 @@ public class CalendarProgressViewModel: BaseViewModel<CalendarProgressOutput> {
             return
         }
         DispatchQueue.main.async {
-            self.currentDay = newDate
-            let currentWeek = Week(ofDay: newDate)
-            self.currentWeek = currentWeek
+            self.currentDay = newDate.startOfTheDay
+            self.currentWeek = Week(ofDay: newDate)
         }
     }
 

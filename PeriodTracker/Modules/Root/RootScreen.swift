@@ -57,11 +57,6 @@ private extension RootScreen {
 
 struct RootScreen_Previews: PreviewProvider {
     static var previews: some View {
-        RootScreen(
-            viewModel: RootViewModel(
-                input: RootInput(),
-                output: { _ in }
-            )
-        )
+        RootScreen(viewModel: RootViewModel())
     }
 }
