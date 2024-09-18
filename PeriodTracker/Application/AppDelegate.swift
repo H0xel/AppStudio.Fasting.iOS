@@ -24,6 +24,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
+        guard !UIScreen.isPreview else { return true}
         appInitializerService.initialize()
         trackLaunch()
         initializeMessageEvents()

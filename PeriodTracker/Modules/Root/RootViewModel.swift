@@ -14,12 +14,26 @@ import NewAppStudioSubscriptions
 class RootViewModel: BaseViewModel<RootOutput> {
     @Dependency(\.idfaRequestService) private var idfaRequestService
     @Dependency(\.rootInitializationService) private var rootInitializationService
+    @Dependency(\.cloudStorage) private var cloudStorage
 
-    @Published private(set) var rootScreen: RootScreen = .periodTracker
+    @Published private(set) var rootScreen: RootScreen = .launchScreen
     @Published private(set) var isProcessingSubscription = false
     @Published private(set) var hasSubscription = false
 
     private let router: RootRouter
+
+    lazy var onboardingScreen: some View = {
+        router.onboardingScreen { [weak self] event in
+            switch event {
+            case .onboardingIsFinished:
+                self?.cloudStorage.onboardingIsFinished = true
+                DispatchQueue.main.async {
+                    self?.router.popToRoot()
+                    self?.rootScreen = .periodTracker
+                }
+            }
+        }
+    }()
 
     override init() {
         router = RootRouter(navigator: Navigator())

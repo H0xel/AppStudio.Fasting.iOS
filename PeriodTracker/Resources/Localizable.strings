@@ -1,13 +1,18 @@
 
 "Paywall.title" = "Paywall Title";
 "Paywall.noPaymentNow" = "No payments title";
-"Paywall.cancelTitle" = "Cancel";
+"Paywall.cancelTitle" = "Get in Shape You Always Dreamed Of!";
 "Paywall.cancelSubtitle" = "Cancel subtitle description";
 "Paywall.Continue" = "Continue";
 "Paywall.restore" = "Restore";
 "Paywall.headerTitle" = "Paywall Header Title";
 "Paywall.headerDescription" = "Paywall Header Description";
 "Paywall.headerBottomTitle" = "Paywall Header Bottom Title";
+"Paywall.cancelAnyTime" = "Unlock your advantage now!";
+"Paywall.noPaymentNow" = "No payments title";
+"Paywall.startJourney" = "Ready to start\nyour journey?";
+"Paywall.tryForFree" = "Try 3 days for free, then %@";
+"Paywall.renewsAt" = "Get Plus for %@";
 "Paywall.savePercent" = "Save percent";
 "Error.Network.message" = "Please verify your internet connection and retry.";
 "Error.Network.title" = "No Internet Connection";
@@ -31,3 +36,54 @@
 
 "CurrentPeriodViewConfiguration.editPeriodDates" = "Edit period dates";
 "CurrentPeriodViewConfiguration.logPeriod" = "Log period";
+
+// MARK: Onboardifng
+"Onboarding.next" = "Next";
+"Onboarding.buttonTitle" = "Get started";
+"Onboarding.description" = "Take your health\nand well-being\nto the next level";
+"Onboarding.birthday.title" = "When is your birthday?";
+"Onboarding.birthday.subTitle" = "Helps tailor health advice and predictions based on age.";
+"Onboarding.lastPeriod.title" = "When did your last period start?";
+"Onboarding.lastPeriod.subTitle" = "Helps tailor health advice and predictions based on age.";
+"Onboarding.lastPeriod.currentWeight" = "What's your current weight?";
+
+"Onboarding.lastPeriod.menstrualPeriodTitle" = "Is your menstrual cycle regular or irregular?";
+"Onboarding.lastPeriod.menstrualPeriod.regular.title" = "Regular";
+"Onboarding.lastPeriod.menstrualPeriod.regular.subtitle" = "Typically occurs every 21 to 35 days with a variation of up to ±7 days.";
+"Onboarding.lastPeriod.menstrualPeriod.irregular.title" = "Irregular";
+"Onboarding.lastPeriod.menstrualPeriod.irregular.subtitle" = "Varies more widely in timing, with periods coming earlier or later than expected, or includes skipped periods.?";
+
+"Onboarding.lastPeriod.menstrualPeriod.pharmacyTitle" = "Are you currently using any form of birth control?";
+"Onboarding.lastPeriod.menstrualPeriod.pharmacy.yes" = "Yes";
+"Onboarding.lastPeriod.menstrualPeriod.pharmacy.no" = "No";
+
+"Onboarding.lastPeriod.fertilityGoals.title" = "What are your current fertility goals?";
+"Onboarding.lastPeriod.fertilityGoals.tryingToConceive" = "Trying to Conceive";
+"Onboarding.lastPeriod.fertilityGoals.avoidingPregnancy" = "Avoiding Pregnancy";
+"Onboarding.lastPeriod.fertilityGoals.trackingForHealth" = "Tracking for Health";
+"Onboarding.lastPeriod.fertilityGoals.notSureYet" = "Not Sure Yet";
+
+"Onboarding.topics.title" = "What topics are you most interested in learning about?";
+"Onboarding.topics.reproductiveHealth" = "Reproductive Health";
+"Onboarding.topics.mentalWellBeing" = "Mental Well-Being";
+"Onboarding.topics.nutritionAndLifestyle" = "Nutrition and Lifestyle";
+"Onboarding.topics.productReviews" = "Product Reviews";
+"Onboarding.topics.personalStoriesAndExperiences" = "Personal Stories and Experiences";
+
+"Onboarding.features.title" = "What are your current fertility goals?";
+"Onboarding.features.accuratePeriodTracking" = "Accurate Period Tracking";
+"Onboarding.features.ovulationAndFertilityTracking" = "Ovulation and Fertility Tracking";
+"Onboarding.features.symptomTracking" = "Symptom Tracking";
+"Onboarding.features.healthInsightsAndRecommendations" = "Health Insights and Recommendations";
+"OnboardingCalculationProccess.progress.title1" = "Analyzing your results...";
+"OnboardingCalculationProccess.progress.title2" = "Aligning your plan\nto your goal...";
+"OnboardingCalculationProccess.progress.title3" = "Adjusting plan\nto your information...";
+"OnboardingCalculationProccess.progress.title4" = "All done!\nYour plan is ready";
+
+"PeriodOnboarding.ovulationDate" = "Ovulation Date";
+"PeriodOnboardingDetailsScreen.title" = "Your estimate next cycle in";
+"PeriodOnboardingDetailsScreen.days" = "days;";
+"PeriodOnboardingDetailsScreen.cycleStarted" = "Cycle Started";
+"PeriodOnboardingDetailsScreen.ovulation" = "Ovulation";
+"PeriodOnboardingDetailsScreen.now" = "Now";
+"PeriodOnboardingDetailsScreen.ovulation.description" = "Upon analyzing your data on physical activity and body metrics, your predicted ovulation date is Sep 30, helping you plan or avoid conception";

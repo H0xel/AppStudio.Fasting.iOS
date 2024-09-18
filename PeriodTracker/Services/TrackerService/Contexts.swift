@@ -13,11 +13,6 @@ extension AnalyticEventType: TrackerParam {
     }
 }
 
-extension PaywallContext: TrackerParam {
-    var description: String {
-        return self.rawValue
-    }
-}
 extension RestoreResult: TrackerParam {
     var description: String {
         return self.rawValue

@@ -36,4 +36,5 @@ public extension Color {
     static let studioSky = Color(.studioSky)
     static let studioSpecialOffer = Color(.studioSpecialOffer)
     static let studioUserMessage = Color(.studioUserMessage)
+    static let studioGreyFillIcon = Color(.studioGreyFillIcon)
 }

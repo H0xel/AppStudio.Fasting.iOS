@@ -30,9 +30,9 @@ struct RootScreen: View {
                 viewModel.openAppStore(link)
             }
         case .launchScreen:
-            Text("launchScreen")
+            LaunchScreen()
         case .onboarding:
-            Text("onboarding")
+            viewModel.onboardingScreen
         case .periodTracker:
             TabBarView()
         }

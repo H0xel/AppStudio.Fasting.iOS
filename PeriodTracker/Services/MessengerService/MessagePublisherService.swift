@@ -25,13 +25,6 @@ extension MessagePublisherService {
         publish(message: AppWillEnterForegroundMessage(sender: sender))
     }
 
-    func publishFinishTransactionMessage(state: SKPaymentTransactionState,
-                                         context: PaywallContext?,
-                                         error: SKError? = nil,
-                                         sender: Any?) {
-        publish(message: FinishTransactionMessage(state: state, context: context, error: error, sender: sender))
-    }
-
     func publishPurchaseMessage(sender: Any?) {
         publish(message: PurchaseMessage(sender: sender))
     }

@@ -14,10 +14,15 @@ public struct AccentButton: View {
     private let action: () -> Void
     @Environment(\.isEnabled) private var isEnabled
     private var cornerRadius: CGFloat
+    private let backgroundColor: Color
 
-    public init(title: TitleType, cornerRadius: CGFloat = 22, action: @escaping () -> Void) {
+    public init(title: TitleType, 
+                cornerRadius: CGFloat = 22,
+                backgroundColor: Color = Color.studioBlackLight,
+                action: @escaping () -> Void) {
         self.title = title
         self.action = action
+        self.backgroundColor = backgroundColor
         self.cornerRadius = cornerRadius
     }
 
@@ -26,10 +31,18 @@ public struct AccentButton: View {
             switch title {
             case .localizedString(let localizedStringKey):
                 Text(localizedStringKey)
-                    .accentButtonStyle(isEnabled: isEnabled, cornerRadius: cornerRadius)
+                    .accentButtonStyle(
+                        isEnabled: isEnabled,
+                        cornerRadius: cornerRadius,
+                        backgroundColor: backgroundColor
+                    )
             case .string(let string):
                 Text(string)
-                    .accentButtonStyle(isEnabled: isEnabled, cornerRadius: cornerRadius)
+                    .accentButtonStyle(
+                        isEnabled: isEnabled,
+                        cornerRadius: cornerRadius,
+                        backgroundColor: backgroundColor
+                    )
             }
         }
     }
@@ -39,6 +52,7 @@ private struct AccentButtonModifier: ViewModifier {
 
     var isEnabled: Bool
     var cornerRadius: CGFloat
+    var backgroundColor: Color
 
     func body(content: Content) -> some View {
         content
@@ -47,14 +61,14 @@ private struct AccentButtonModifier: ViewModifier {
             .foregroundStyle(.white)
             .padding(.vertical, .verticalPadding)
             .aligned(.centerHorizontaly)
-            .background(isEnabled ? Color.studioBlackLight : .studioGreyStrokeFill)
+            .background(isEnabled ? backgroundColor : .studioGreyStrokeFill)
             .continiousCornerRadius(cornerRadius)
     }
 }
 
 extension View {
-    func accentButtonStyle(isEnabled: Bool, cornerRadius: CGFloat = 22) -> some View {
-        modifier(AccentButtonModifier(isEnabled: isEnabled, cornerRadius: cornerRadius))
+    func accentButtonStyle(isEnabled: Bool, cornerRadius: CGFloat = 22, backgroundColor: Color) -> some View {
+        modifier(AccentButtonModifier(isEnabled: isEnabled, cornerRadius: cornerRadius, backgroundColor: backgroundColor))
     }
 }
 

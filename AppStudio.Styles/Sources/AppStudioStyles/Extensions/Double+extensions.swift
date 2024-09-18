@@ -23,4 +23,14 @@ public extension Double {
 
         return false
     }
+
+    func getIntegerAndFractionalPartsAsInt(fractionalMultiplier: Double) -> (integerPart: Int, fractionalPart: Int) {
+        let integerPart = Int(self)
+
+        let fractionalPart = self - Double(integerPart)
+
+        let fractionalPartAsInt = Int(fractionalPart * fractionalMultiplier)
+
+        return (integerPart, fractionalPartAsInt)
+    }
 }

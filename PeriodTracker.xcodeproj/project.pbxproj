@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		562D8BF62C884AC9001C0E6F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BF42C884AC9001C0E6F /* Model.xcdatamodeld */; };
 		562D8BF92C884B45001C0E6F /* DatabaseInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BF82C884B45001C0E6F /* DatabaseInitializer.swift */; };
 		562D8BFB2C884C03001C0E6F /* DatabaseDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BFA2C884C03001C0E6F /* DatabaseDependencies.swift */; };
 		562D8BFF2C887ECB001C0E6F /* CalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D8BFE2C887ECB001C0E6F /* CalendarDate.swift */; };
@@ -44,6 +43,47 @@
 		A0EF02B92C8A2F2D0035A3FA /* PeriodTrackerLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF02B82C8A2F2D0035A3FA /* PeriodTrackerLabelView.swift */; };
 		A0EF02BB2C8A32010035A3FA /* PeriodTrackerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EF02BA2C8A32010035A3FA /* PeriodTrackerButtonView.swift */; };
 		A76CD4232B1606DC00A9D4FE /* WhatToTest.en-US.txt in Resources */ = {isa = PBXBuildFile; fileRef = A76CD4222B1606DC00A9D4FE /* WhatToTest.en-US.txt */; };
+		A78A3C572C98064C007E8E7A /* OnboardingFlowIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C562C98064C007E8E7A /* OnboardingFlowIndicatorView.swift */; };
+		A78A3C592C9806C2007E8E7A /* OnboardingPreviousPageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C582C9806C2007E8E7A /* OnboardingPreviousPageButton.swift */; };
+		A78A3C5E2C9809C0007E8E7A /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A78A3C5A2C9809C0007E8E7A /* Poppins-Regular.ttf */; };
+		A78A3C5F2C9809C0007E8E7A /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A78A3C5B2C9809C0007E8E7A /* Poppins-SemiBold.ttf */; };
+		A78A3C612C980F17007E8E7A /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C602C980F17007E8E7A /* OnboardingData.swift */; };
+		A78A3C692C982B20007E8E7A /* PeriodOnboardingDetailsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C632C982B20007E8E7A /* PeriodOnboardingDetailsInput.swift */; };
+		A78A3C6A2C982B20007E8E7A /* PeriodOnboardingDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C642C982B20007E8E7A /* PeriodOnboardingDetailsRouter.swift */; };
+		A78A3C6B2C982B20007E8E7A /* PeriodOnboardingDetailsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C652C982B20007E8E7A /* PeriodOnboardingDetailsRoute.swift */; };
+		A78A3C6C2C982B20007E8E7A /* PeriodOnboardingDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C662C982B20007E8E7A /* PeriodOnboardingDetailsScreen.swift */; };
+		A78A3C6D2C982B20007E8E7A /* PeriodOnboardingDetailsOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C672C982B20007E8E7A /* PeriodOnboardingDetailsOutput.swift */; };
+		A78A3C6E2C982B20007E8E7A /* PeriodOnboardingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C682C982B20007E8E7A /* PeriodOnboardingDetailsViewModel.swift */; };
+		A78A3C722C986823007E8E7A /* PeriodOnboardingDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C712C986823007E8E7A /* PeriodOnboardingDescriptionView.swift */; };
+		A78A3C862C9965C0007E8E7A /* Image+Paywall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C732C9965BF007E8E7A /* Image+Paywall.swift */; };
+		A78A3C872C9965C0007E8E7A /* PaywallScreenInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C752C9965BF007E8E7A /* PaywallScreenInput.swift */; };
+		A78A3C882C9965C0007E8E7A /* PaywallScreenOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C762C9965BF007E8E7A /* PaywallScreenOutput.swift */; };
+		A78A3C892C9965C0007E8E7A /* UsageLimitPaywallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C782C9965BF007E8E7A /* UsageLimitPaywallScreen.swift */; };
+		A78A3C8A2C9965C0007E8E7A /* UsageLimitPaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C792C9965BF007E8E7A /* UsageLimitPaywallViewModel.swift */; };
+		A78A3C8B2C9965C0007E8E7A /* UsagePaywallRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C7A2C9965BF007E8E7A /* UsagePaywallRoute.swift */; };
+		A78A3C8C2C9965C0007E8E7A /* PaywallBottomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C7C2C9965BF007E8E7A /* PaywallBottomInfoView.swift */; };
+		A78A3C8D2C9965C0007E8E7A /* PaywallCancelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C7D2C9965BF007E8E7A /* PaywallCancelView.swift */; };
+		A78A3C8E2C9965C0007E8E7A /* PaywallTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C7E2C9965BF007E8E7A /* PaywallTitleView.swift */; };
+		A78A3C8F2C9965C0007E8E7A /* ShadingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C7F2C9965BF007E8E7A /* ShadingImageView.swift */; };
+		A78A3C902C9965C0007E8E7A /* PaywallRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C812C9965BF007E8E7A /* PaywallRoute.swift */; };
+		A78A3C912C9965C0007E8E7A /* PaywallRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C822C9965BF007E8E7A /* PaywallRouter.swift */; };
+		A78A3C922C9965C0007E8E7A /* PaywallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C832C9965BF007E8E7A /* PaywallScreen.swift */; };
+		A78A3C932C9965C0007E8E7A /* PaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C842C9965BF007E8E7A /* PaywallViewModel.swift */; };
+		A78A3C982C996FD0007E8E7A /* OnboardingUserDataServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C952C996FD0007E8E7A /* OnboardingUserDataServiceImpl.swift */; };
+		A78A3C992C996FD0007E8E7A /* OnboardingUserDataDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C962C996FD0007E8E7A /* OnboardingUserDataDependencies.swift */; };
+		A78A3C9A2C996FD0007E8E7A /* OnboardingUserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C972C996FD0007E8E7A /* OnboardingUserDataService.swift */; };
+		A78A3C9C2C99754D007E8E7A /* PeriodGraphDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C9B2C99754D007E8E7A /* PeriodGraphDescriptionView.swift */; };
+		A78A3C9E2C99780B007E8E7A /* AppCustomizationPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C9D2C99780B007E8E7A /* AppCustomizationPreview.swift */; };
+		A78A3CA02C997ACD007E8E7A /* PeriodEllipseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3C9F2C997ACD007E8E7A /* PeriodEllipseView.swift */; };
+		A78A3CA82C997ECF007E8E7A /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A3CA72C997ECF007E8E7A /* LaunchScreen.swift */; };
+		A7B6D8862C93068900637C9E /* OnboardingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6D8802C93068900637C9E /* OnboardingInput.swift */; };
+		A7B6D8872C93068900637C9E /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6D8812C93068900637C9E /* OnboardingRouter.swift */; };
+		A7B6D8882C93068900637C9E /* OnboardingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6D8822C93068900637C9E /* OnboardingRoute.swift */; };
+		A7B6D8892C93068900637C9E /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6D8832C93068900637C9E /* OnboardingScreen.swift */; };
+		A7B6D88A2C93068900637C9E /* OnboardingOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6D8842C93068900637C9E /* OnboardingOutput.swift */; };
+		A7B6D88B2C93068900637C9E /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6D8852C93068900637C9E /* OnboardingViewModel.swift */; };
+		A7B6D88E2C9306D700637C9E /* OnboardingFlowStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6D88D2C9306D700637C9E /* OnboardingFlowStep.swift */; };
+		A7B6D8912C9309A700637C9E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7B6D88F2C9309A700637C9E /* Model.xcdatamodeld */; };
 		A7CBABE02C870B8700D4DFD3 /* AppCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0C2C870B8700D4DFD3 /* AppCustomization.swift */; };
 		A7CBABE12C870B8700D4DFD3 /* AppCustomizationDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0D2C870B8700D4DFD3 /* AppCustomizationDependency.swift */; };
 		A7CBABE22C870B8700D4DFD3 /* AppCustomizationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB0E2C870B8700D4DFD3 /* AppCustomizationImpl.swift */; };
@@ -85,7 +125,7 @@
 		A7CBAC062C870B8700D4DFD3 /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB422C870B8700D4DFD3 /* AppInitializer.swift */; };
 		A7CBAC072C870B8700D4DFD3 /* Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB432C870B8700D4DFD3 /* Initializers.swift */; };
 		A7CBAC082C870B8700D4DFD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB452C870B8700D4DFD3 /* AppDelegate.swift */; };
-		A7CBAC092C870B8700D4DFD3 /* AppStudioTemplateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB462C870B8700D4DFD3 /* AppStudioTemplateApp.swift */; };
+		A7CBAC092C870B8700D4DFD3 /* PeriodTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB462C870B8700D4DFD3 /* PeriodTrackerApp.swift */; };
 		A7CBAC0A2C870B8700D4DFD3 /* AppTemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB472C870B8700D4DFD3 /* AppTemplateManager.swift */; };
 		A7CBAC0B2C870B8700D4DFD3 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB482C870B8700D4DFD3 /* GlobalConstants.swift */; };
 		A7CBAC0C2C870B8700D4DFD3 /* DataDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB4A2C870B8700D4DFD3 /* DataDependencies.swift */; };
@@ -96,7 +136,6 @@
 		A7CBAC112C870B8700D4DFD3 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB542C870B8700D4DFD3 /* Contacts.swift */; };
 		A7CBAC122C870B8700D4DFD3 /* InstallationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB552C870B8700D4DFD3 /* InstallationType.swift */; };
 		A7CBAC132C870B8700D4DFD3 /* IntercomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB562C870B8700D4DFD3 /* IntercomData.swift */; };
-		A7CBAC142C870B8700D4DFD3 /* PaywallContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB572C870B8700D4DFD3 /* PaywallContext.swift */; };
 		A7CBAC152C870B8700D4DFD3 /* RestoreResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB582C870B8700D4DFD3 /* RestoreResult.swift */; };
 		A7CBAC162C870B8700D4DFD3 /* RootInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB5B2C870B8700D4DFD3 /* RootInput.swift */; };
 		A7CBAC172C870B8700D4DFD3 /* RootOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB5C2C870B8700D4DFD3 /* RootOutput.swift */; };
@@ -144,7 +183,6 @@
 		A7CBAC412C870B8700D4DFD3 /* AppStudioMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB9A2C870B8700D4DFD3 /* AppStudioMessage.swift */; };
 		A7CBAC422C870B8700D4DFD3 /* AppWillEnterForegroundMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB9B2C870B8700D4DFD3 /* AppWillEnterForegroundMessage.swift */; };
 		A7CBAC432C870B8700D4DFD3 /* CloudStoragesUpdateRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB9C2C870B8700D4DFD3 /* CloudStoragesUpdateRequestMessage.swift */; };
-		A7CBAC442C870B8700D4DFD3 /* FinishTransactionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB9D2C870B8700D4DFD3 /* FinishTransactionMessage.swift */; };
 		A7CBAC452C870B8700D4DFD3 /* MigrationFinishedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB9E2C870B8700D4DFD3 /* MigrationFinishedMessage.swift */; };
 		A7CBAC462C870B8700D4DFD3 /* PurchaseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAB9F2C870B8700D4DFD3 /* PurchaseMessage.swift */; };
 		A7CBAC472C870B8700D4DFD3 /* PushReceivedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBABA02C870B8700D4DFD3 /* PushReceivedMessage.swift */; };
@@ -197,6 +235,7 @@
 		A7CBAC812C874B2B00D4DFD3 /* AppStudioModels in Frameworks */ = {isa = PBXBuildFile; productRef = A7CBAC802C874B2B00D4DFD3 /* AppStudioModels */; };
 		A7CBAC832C874B2B00D4DFD3 /* AppStudioServices in Frameworks */ = {isa = PBXBuildFile; productRef = A7CBAC822C874B2B00D4DFD3 /* AppStudioServices */; };
 		A7CBAC852C874B2B00D4DFD3 /* AppStudioStyles in Frameworks */ = {isa = PBXBuildFile; productRef = A7CBAC842C874B2B00D4DFD3 /* AppStudioStyles */; };
+		A7D5D3BA2C9994AF007F16D4 /* AppCustomization+Pricing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D5D3B92C9994AF007F16D4 /* AppCustomization+Pricing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,7 +249,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		562D8BF52C884AC9001C0E6F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		562D8BF82C884B45001C0E6F /* DatabaseInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInitializer.swift; sourceTree = "<group>"; };
 		562D8BFA2C884C03001C0E6F /* DatabaseDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDependencies.swift; sourceTree = "<group>"; };
 		562D8BFE2C887ECB001C0E6F /* CalendarDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDate.swift; sourceTree = "<group>"; };
@@ -250,6 +288,47 @@
 		A0EF02B82C8A2F2D0035A3FA /* PeriodTrackerLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTrackerLabelView.swift; sourceTree = "<group>"; };
 		A0EF02BA2C8A32010035A3FA /* PeriodTrackerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTrackerButtonView.swift; sourceTree = "<group>"; };
 		A76CD4222B1606DC00A9D4FE /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
+		A78A3C562C98064C007E8E7A /* OnboardingFlowIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowIndicatorView.swift; sourceTree = "<group>"; };
+		A78A3C582C9806C2007E8E7A /* OnboardingPreviousPageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPreviousPageButton.swift; sourceTree = "<group>"; };
+		A78A3C5A2C9809C0007E8E7A /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		A78A3C5B2C9809C0007E8E7A /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		A78A3C602C980F17007E8E7A /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
+		A78A3C632C982B20007E8E7A /* PeriodOnboardingDetailsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodOnboardingDetailsInput.swift; sourceTree = "<group>"; };
+		A78A3C642C982B20007E8E7A /* PeriodOnboardingDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodOnboardingDetailsRouter.swift; sourceTree = "<group>"; };
+		A78A3C652C982B20007E8E7A /* PeriodOnboardingDetailsRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodOnboardingDetailsRoute.swift; sourceTree = "<group>"; };
+		A78A3C662C982B20007E8E7A /* PeriodOnboardingDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodOnboardingDetailsScreen.swift; sourceTree = "<group>"; };
+		A78A3C672C982B20007E8E7A /* PeriodOnboardingDetailsOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodOnboardingDetailsOutput.swift; sourceTree = "<group>"; };
+		A78A3C682C982B20007E8E7A /* PeriodOnboardingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodOnboardingDetailsViewModel.swift; sourceTree = "<group>"; };
+		A78A3C712C986823007E8E7A /* PeriodOnboardingDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodOnboardingDescriptionView.swift; sourceTree = "<group>"; };
+		A78A3C732C9965BF007E8E7A /* Image+Paywall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Paywall.swift"; sourceTree = "<group>"; };
+		A78A3C752C9965BF007E8E7A /* PaywallScreenInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallScreenInput.swift; sourceTree = "<group>"; };
+		A78A3C762C9965BF007E8E7A /* PaywallScreenOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallScreenOutput.swift; sourceTree = "<group>"; };
+		A78A3C782C9965BF007E8E7A /* UsageLimitPaywallScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsageLimitPaywallScreen.swift; sourceTree = "<group>"; };
+		A78A3C792C9965BF007E8E7A /* UsageLimitPaywallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsageLimitPaywallViewModel.swift; sourceTree = "<group>"; };
+		A78A3C7A2C9965BF007E8E7A /* UsagePaywallRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsagePaywallRoute.swift; sourceTree = "<group>"; };
+		A78A3C7C2C9965BF007E8E7A /* PaywallBottomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallBottomInfoView.swift; sourceTree = "<group>"; };
+		A78A3C7D2C9965BF007E8E7A /* PaywallCancelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallCancelView.swift; sourceTree = "<group>"; };
+		A78A3C7E2C9965BF007E8E7A /* PaywallTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallTitleView.swift; sourceTree = "<group>"; };
+		A78A3C7F2C9965BF007E8E7A /* ShadingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadingImageView.swift; sourceTree = "<group>"; };
+		A78A3C812C9965BF007E8E7A /* PaywallRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallRoute.swift; sourceTree = "<group>"; };
+		A78A3C822C9965BF007E8E7A /* PaywallRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallRouter.swift; sourceTree = "<group>"; };
+		A78A3C832C9965BF007E8E7A /* PaywallScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallScreen.swift; sourceTree = "<group>"; };
+		A78A3C842C9965BF007E8E7A /* PaywallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallViewModel.swift; sourceTree = "<group>"; };
+		A78A3C952C996FD0007E8E7A /* OnboardingUserDataServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUserDataServiceImpl.swift; sourceTree = "<group>"; };
+		A78A3C962C996FD0007E8E7A /* OnboardingUserDataDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUserDataDependencies.swift; sourceTree = "<group>"; };
+		A78A3C972C996FD0007E8E7A /* OnboardingUserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUserDataService.swift; sourceTree = "<group>"; };
+		A78A3C9B2C99754D007E8E7A /* PeriodGraphDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodGraphDescriptionView.swift; sourceTree = "<group>"; };
+		A78A3C9D2C99780B007E8E7A /* AppCustomizationPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomizationPreview.swift; sourceTree = "<group>"; };
+		A78A3C9F2C997ACD007E8E7A /* PeriodEllipseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodEllipseView.swift; sourceTree = "<group>"; };
+		A78A3CA72C997ECF007E8E7A /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		A7B6D8802C93068900637C9E /* OnboardingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInput.swift; sourceTree = "<group>"; };
+		A7B6D8812C93068900637C9E /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
+		A7B6D8822C93068900637C9E /* OnboardingRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoute.swift; sourceTree = "<group>"; };
+		A7B6D8832C93068900637C9E /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		A7B6D8842C93068900637C9E /* OnboardingOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOutput.swift; sourceTree = "<group>"; };
+		A7B6D8852C93068900637C9E /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		A7B6D88D2C9306D700637C9E /* OnboardingFlowStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowStep.swift; sourceTree = "<group>"; };
+		A7B6D8902C9309A700637C9E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		A7CBAB0C2C870B8700D4DFD3 /* AppCustomization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCustomization.swift; sourceTree = "<group>"; };
 		A7CBAB0D2C870B8700D4DFD3 /* AppCustomizationDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCustomizationDependency.swift; sourceTree = "<group>"; };
 		A7CBAB0E2C870B8700D4DFD3 /* AppCustomizationImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCustomizationImpl.swift; sourceTree = "<group>"; };
@@ -291,7 +370,7 @@
 		A7CBAB422C870B8700D4DFD3 /* AppInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
 		A7CBAB432C870B8700D4DFD3 /* Initializers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initializers.swift; sourceTree = "<group>"; };
 		A7CBAB452C870B8700D4DFD3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A7CBAB462C870B8700D4DFD3 /* AppStudioTemplateApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStudioTemplateApp.swift; sourceTree = "<group>"; };
+		A7CBAB462C870B8700D4DFD3 /* PeriodTrackerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodTrackerApp.swift; sourceTree = "<group>"; };
 		A7CBAB472C870B8700D4DFD3 /* AppTemplateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTemplateManager.swift; sourceTree = "<group>"; };
 		A7CBAB482C870B8700D4DFD3 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		A7CBAB4A2C870B8700D4DFD3 /* DataDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDependencies.swift; sourceTree = "<group>"; };
@@ -302,7 +381,6 @@
 		A7CBAB542C870B8700D4DFD3 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		A7CBAB552C870B8700D4DFD3 /* InstallationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallationType.swift; sourceTree = "<group>"; };
 		A7CBAB562C870B8700D4DFD3 /* IntercomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntercomData.swift; sourceTree = "<group>"; };
-		A7CBAB572C870B8700D4DFD3 /* PaywallContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaywallContext.swift; sourceTree = "<group>"; };
 		A7CBAB582C870B8700D4DFD3 /* RestoreResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreResult.swift; sourceTree = "<group>"; };
 		A7CBAB5B2C870B8700D4DFD3 /* RootInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInput.swift; sourceTree = "<group>"; };
 		A7CBAB5C2C870B8700D4DFD3 /* RootOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootOutput.swift; sourceTree = "<group>"; };
@@ -350,7 +428,6 @@
 		A7CBAB9A2C870B8700D4DFD3 /* AppStudioMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStudioMessage.swift; sourceTree = "<group>"; };
 		A7CBAB9B2C870B8700D4DFD3 /* AppWillEnterForegroundMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWillEnterForegroundMessage.swift; sourceTree = "<group>"; };
 		A7CBAB9C2C870B8700D4DFD3 /* CloudStoragesUpdateRequestMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudStoragesUpdateRequestMessage.swift; sourceTree = "<group>"; };
-		A7CBAB9D2C870B8700D4DFD3 /* FinishTransactionMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishTransactionMessage.swift; sourceTree = "<group>"; };
 		A7CBAB9E2C870B8700D4DFD3 /* MigrationFinishedMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationFinishedMessage.swift; sourceTree = "<group>"; };
 		A7CBAB9F2C870B8700D4DFD3 /* PurchaseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseMessage.swift; sourceTree = "<group>"; };
 		A7CBABA02C870B8700D4DFD3 /* PushReceivedMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushReceivedMessage.swift; sourceTree = "<group>"; };
@@ -400,6 +477,7 @@
 		A7CBAC752C8746FA00D4DFD3 /* RootInitializationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInitializationService.swift; sourceTree = "<group>"; };
 		A7CBAC762C8746FA00D4DFD3 /* RootInitializationServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootInitializationServiceImpl.swift; sourceTree = "<group>"; };
 		A7CBAC772C8746FA00D4DFD3 /* RootSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootSetup.swift; sourceTree = "<group>"; };
+		A7D5D3B92C9994AF007F16D4 /* AppCustomization+Pricing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCustomization+Pricing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -598,6 +676,159 @@
 			path = TestFlight;
 			sourceTree = "<group>";
 		};
+		A78A3C5C2C9809C0007E8E7A /* Poppins */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3C5A2C9809C0007E8E7A /* Poppins-Regular.ttf */,
+				A78A3C5B2C9809C0007E8E7A /* Poppins-SemiBold.ttf */,
+			);
+			path = Poppins;
+			sourceTree = "<group>";
+		};
+		A78A3C5D2C9809C0007E8E7A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3C5C2C9809C0007E8E7A /* Poppins */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A78A3C622C982B0C007E8E7A /* PeriodOnboardingDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3C702C986814007E8E7A /* View */,
+				A78A3C6F2C982B23007E8E7A /* Routing */,
+				A78A3C662C982B20007E8E7A /* PeriodOnboardingDetailsScreen.swift */,
+				A78A3C682C982B20007E8E7A /* PeriodOnboardingDetailsViewModel.swift */,
+			);
+			path = PeriodOnboardingDetails;
+			sourceTree = "<group>";
+		};
+		A78A3C6F2C982B23007E8E7A /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3C632C982B20007E8E7A /* PeriodOnboardingDetailsInput.swift */,
+				A78A3C642C982B20007E8E7A /* PeriodOnboardingDetailsRouter.swift */,
+				A78A3C652C982B20007E8E7A /* PeriodOnboardingDetailsRoute.swift */,
+				A78A3C672C982B20007E8E7A /* PeriodOnboardingDetailsOutput.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		A78A3C702C986814007E8E7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3C712C986823007E8E7A /* PeriodOnboardingDescriptionView.swift */,
+				A78A3C9B2C99754D007E8E7A /* PeriodGraphDescriptionView.swift */,
+				A78A3C9F2C997ACD007E8E7A /* PeriodEllipseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A78A3C742C9965BF007E8E7A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3C732C9965BF007E8E7A /* Image+Paywall.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A78A3C772C9965BF007E8E7A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3C752C9965BF007E8E7A /* PaywallScreenInput.swift */,
+				A78A3C762C9965BF007E8E7A /* PaywallScreenOutput.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A78A3C7B2C9965BF007E8E7A /* UsageLimitPaywall */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3C782C9965BF007E8E7A /* UsageLimitPaywallScreen.swift */,
+				A78A3C792C9965BF007E8E7A /* UsageLimitPaywallViewModel.swift */,
+				A78A3C7A2C9965BF007E8E7A /* UsagePaywallRoute.swift */,
+			);
+			path = UsageLimitPaywall;
+			sourceTree = "<group>";
+		};
+		A78A3C802C9965BF007E8E7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3C7C2C9965BF007E8E7A /* PaywallBottomInfoView.swift */,
+				A78A3C7D2C9965BF007E8E7A /* PaywallCancelView.swift */,
+				A78A3C7E2C9965BF007E8E7A /* PaywallTitleView.swift */,
+				A78A3C7F2C9965BF007E8E7A /* ShadingImageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A78A3C852C9965BF007E8E7A /* Paywall */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3C742C9965BF007E8E7A /* Extensions */,
+				A78A3C772C9965BF007E8E7A /* Model */,
+				A78A3C7B2C9965BF007E8E7A /* UsageLimitPaywall */,
+				A78A3C802C9965BF007E8E7A /* View */,
+				A78A3C812C9965BF007E8E7A /* PaywallRoute.swift */,
+				A78A3C822C9965BF007E8E7A /* PaywallRouter.swift */,
+				A78A3C832C9965BF007E8E7A /* PaywallScreen.swift */,
+				A78A3C842C9965BF007E8E7A /* PaywallViewModel.swift */,
+			);
+			path = Paywall;
+			sourceTree = "<group>";
+		};
+		A78A3C942C996FBB007E8E7A /* OnboardingUserDataService */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3C952C996FD0007E8E7A /* OnboardingUserDataServiceImpl.swift */,
+				A78A3C962C996FD0007E8E7A /* OnboardingUserDataDependencies.swift */,
+				A78A3C972C996FD0007E8E7A /* OnboardingUserDataService.swift */,
+			);
+			path = OnboardingUserDataService;
+			sourceTree = "<group>";
+		};
+		A78A3CA62C997EC4007E8E7A /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3CA72C997ECF007E8E7A /* LaunchScreen.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		A7B6D87F2C93067600637C9E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A7B6D8922C930BE000637C9E /* View */,
+				A7B6D88C2C9306A100637C9E /* Routing */,
+				A7B6D8832C93068900637C9E /* OnboardingScreen.swift */,
+				A7B6D8852C93068900637C9E /* OnboardingViewModel.swift */,
+				A7B6D88D2C9306D700637C9E /* OnboardingFlowStep.swift */,
+				A78A3C602C980F17007E8E7A /* OnboardingData.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		A7B6D88C2C9306A100637C9E /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				A7B6D8802C93068900637C9E /* OnboardingInput.swift */,
+				A7B6D8812C93068900637C9E /* OnboardingRouter.swift */,
+				A7B6D8822C93068900637C9E /* OnboardingRoute.swift */,
+				A7B6D8842C93068900637C9E /* OnboardingOutput.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		A7B6D8922C930BE000637C9E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A78A3C562C98064C007E8E7A /* OnboardingFlowIndicatorView.swift */,
+				A78A3C582C9806C2007E8E7A /* OnboardingPreviousPageButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A7CBAB0B2C870B8700D4DFD3 /* PeriodTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,6 +844,8 @@
 				A7CBAB0D2C870B8700D4DFD3 /* AppCustomizationDependency.swift */,
 				A7CBAB0E2C870B8700D4DFD3 /* AppCustomizationImpl.swift */,
 				A7CBAB0F2C870B8700D4DFD3 /* ExperimentLifeCycleDelegateImpl.swift */,
+				A78A3C9D2C99780B007E8E7A /* AppCustomizationPreview.swift */,
+				A7D5D3B92C9994AF007F16D4 /* AppCustomization+Pricing.swift */,
 			);
 			path = AppCustomization;
 			sourceTree = "<group>";
@@ -783,7 +1016,7 @@
 			isa = PBXGroup;
 			children = (
 				A7CBAB452C870B8700D4DFD3 /* AppDelegate.swift */,
-				A7CBAB462C870B8700D4DFD3 /* AppStudioTemplateApp.swift */,
+				A7CBAB462C870B8700D4DFD3 /* PeriodTrackerApp.swift */,
 				A7CBAB472C870B8700D4DFD3 /* AppTemplateManager.swift */,
 				A7CBAB482C870B8700D4DFD3 /* GlobalConstants.swift */,
 			);
@@ -839,7 +1072,6 @@
 				A7CBAB542C870B8700D4DFD3 /* Contacts.swift */,
 				A7CBAB552C870B8700D4DFD3 /* InstallationType.swift */,
 				A7CBAB562C870B8700D4DFD3 /* IntercomData.swift */,
-				A7CBAB572C870B8700D4DFD3 /* PaywallContext.swift */,
 				A7CBAB582C870B8700D4DFD3 /* RestoreResult.swift */,
 			);
 			path = Common;
@@ -869,6 +1101,10 @@
 		A7CBAB622C870B8700D4DFD3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A78A3CA62C997EC4007E8E7A /* LaunchScreen */,
+				A78A3C852C9965BF007E8E7A /* Paywall */,
+				A78A3C622C982B0C007E8E7A /* PeriodOnboardingDetails */,
+				A7B6D87F2C93067600637C9E /* Onboarding */,
 				A0EF02A12C88D2680035A3FA /* TabBar */,
 				A0EF029C2C88D1260035A3FA /* PeriodTracker */,
 				A7CBAB612C870B8700D4DFD3 /* Root */,
@@ -938,7 +1174,7 @@
 			children = (
 				A7CBAB742C870B8700D4DFD3 /* Assets.xcassets */,
 				A7CBAB752C870B8700D4DFD3 /* Localizable.strings */,
-				562D8BF42C884AC9001C0E6F /* Model.xcdatamodeld */,
+				A7B6D88F2C9309A700637C9E /* Model.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1054,7 +1290,6 @@
 				A7CBAB9A2C870B8700D4DFD3 /* AppStudioMessage.swift */,
 				A7CBAB9B2C870B8700D4DFD3 /* AppWillEnterForegroundMessage.swift */,
 				A7CBAB9C2C870B8700D4DFD3 /* CloudStoragesUpdateRequestMessage.swift */,
-				A7CBAB9D2C870B8700D4DFD3 /* FinishTransactionMessage.swift */,
 				A7CBAB9E2C870B8700D4DFD3 /* MigrationFinishedMessage.swift */,
 				A7CBAB9F2C870B8700D4DFD3 /* PurchaseMessage.swift */,
 				A7CBABA02C870B8700D4DFD3 /* PushReceivedMessage.swift */,
@@ -1171,6 +1406,7 @@
 		A7CBABCC2C870B8700D4DFD3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A78A3C942C996FBB007E8E7A /* OnboardingUserDataService */,
 				5641581E2C8F16F100F62243 /* MenstrualCycleStorage */,
 				5641581D2C8F16D500F62243 /* MenstrualCycleService */,
 				564158142C8F10EE00F62243 /* MenstrualCalendarService */,
@@ -1258,6 +1494,7 @@
 		A7CBABDE2C870B8700D4DFD3 /* PeriodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				A78A3C5D2C9809C0007E8E7A /* Fonts */,
 				A7CBAB152C870B8700D4DFD3 /* ABTesting */,
 				A7CBAB2C2C870B8700D4DFD3 /* API */,
 				A7CBAB442C870B8700D4DFD3 /* AppInitializers */,
@@ -1394,8 +1631,10 @@
 			files = (
 				A7CBAC1C2C870B8700D4DFD3 /* Preview Assets.xcassets in Resources */,
 				A7CBAC282C870B8700D4DFD3 /* Localizable.strings in Resources */,
+				A78A3C5E2C9809C0007E8E7A /* Poppins-Regular.ttf in Resources */,
 				A7CBAC682C870B8700D4DFD3 /* GoogleService-Info.plist in Resources */,
 				A7CBAC272C870B8700D4DFD3 /* Assets.xcassets in Resources */,
+				A78A3C5F2C9809C0007E8E7A /* Poppins-SemiBold.ttf in Resources */,
 				A7CBAC692C870B8700D4DFD3 /* Settings.bundle in Resources */,
 				A76CD4232B1606DC00A9D4FE /* WhatToTest.en-US.txt in Resources */,
 			);
@@ -1469,11 +1708,14 @@
 				A7CBAC452C870B8700D4DFD3 /* MigrationFinishedMessage.swift in Sources */,
 				A7CBABEB2C870B8700D4DFD3 /* ApiDependencies.swift in Sources */,
 				A7CBAC4A2C870B8700D4DFD3 /* WillTerminateMessage.swift in Sources */,
+				A78A3C912C9965C0007E8E7A /* PaywallRouter.swift in Sources */,
 				A7CBAC222C870B8700D4DFD3 /* AppSettingsProviderImpl.swift in Sources */,
 				A7CBAC6A2C870B8700D4DFD3 /* ForceUpdateBanner.swift in Sources */,
+				A78A3C8F2C9965C0007E8E7A /* ShadingImageView.swift in Sources */,
 				A7CBAC652C870B8700D4DFD3 /* AppSyncService.swift in Sources */,
 				A7CBAC322C870B8700D4DFD3 /* FirstLaunchService.swift in Sources */,
 				A0EF029E2C88D1450035A3FA /* PeriodTrackerScreen.swift in Sources */,
+				A78A3C892C9965C0007E8E7A /* UsageLimitPaywallScreen.swift in Sources */,
 				A7CBABF02C870B8700D4DFD3 /* SubscriptionTarget.swift in Sources */,
 				A7CBAC202C870B8700D4DFD3 /* AccountProviderPreview.swift in Sources */,
 				A7CBAC2F2C870B8700D4DFD3 /* AppSyncServiceDependencies.swift in Sources */,
@@ -1488,23 +1730,28 @@
 				A7CBABE92C870B8700D4DFD3 /* AccountApiImpl.swift in Sources */,
 				A7CBABF22C870B8700D4DFD3 /* TelecomError.swift in Sources */,
 				A7CBAC3E2C870B8700D4DFD3 /* MailSenderServiceImpl.swift in Sources */,
+				A7B6D88E2C9306D700637C9E /* OnboardingFlowStep.swift in Sources */,
 				A7CBABF62C870B8700D4DFD3 /* AppInitializerServiceDependency.swift in Sources */,
 				A7CBAC252C870B8700D4DFD3 /* AppStudioMobileDeviceDataProviderImpl.swift in Sources */,
 				A7CBAC0F2C870B8700D4DFD3 /* Data.swift in Sources */,
+				A78A3CA02C997ACD007E8E7A /* PeriodEllipseView.swift in Sources */,
 				A7CBAC0A2C870B8700D4DFD3 /* AppTemplateManager.swift in Sources */,
 				A7CBAC132C870B8700D4DFD3 /* IntercomData.swift in Sources */,
 				A0EF02B52C89FD870035A3FA /* PeriodTrackerCurrentPeriodView.swift in Sources */,
 				A7CBAC2D2C870B8700D4DFD3 /* ServiceBaseImpl.swift in Sources */,
 				A7CBABF52C870B8700D4DFD3 /* AppInitializerService.swift in Sources */,
 				A7CBABE62C870B8700D4DFD3 /* PutAccountRequest.swift in Sources */,
+				A78A3C9E2C99780B007E8E7A /* AppCustomizationPreview.swift in Sources */,
 				A7CBAC242C870B8700D4DFD3 /* AppStudioMobileDeviceDataProvider.swift in Sources */,
 				A7CBABFC2C870B8700D4DFD3 /* BusinessAccountProviderInitializer.swift in Sources */,
 				A7CBAC422C870B8700D4DFD3 /* AppWillEnterForegroundMessage.swift in Sources */,
 				A7CBAC592C870B8700D4DFD3 /* ProductProviderImpl.swift in Sources */,
+				A7B6D8912C9309A700637C9E /* Model.xcdatamodeld in Sources */,
 				A7CBABF42C870B8700D4DFD3 /* TelecomTargetType.swift in Sources */,
 				A7CBAC7A2C8746FA00D4DFD3 /* RootInitializationService.swift in Sources */,
 				A7CBAC2C2C870B8700D4DFD3 /* Atomic.swift in Sources */,
 				A7CBAC672C870B8700D4DFD3 /* AppSyncServicePreview.swift in Sources */,
+				A78A3CA82C997ECF007E8E7A /* LaunchScreen.swift in Sources */,
 				A7CBAC1D2C870B8700D4DFD3 /* AccountIdProviderImpl.swift in Sources */,
 				5698C0742C8B1508000CB8B5 /* CalendarDayType.swift in Sources */,
 				A7CBAC2A2C870B8700D4DFD3 /* ConcurrentDispatchQueue.swift in Sources */,
@@ -1516,6 +1763,13 @@
 				A7CBAC472C870B8700D4DFD3 /* PushReceivedMessage.swift in Sources */,
 				A7CBAC582C870B8700D4DFD3 /* ProductProviderDependencies.swift in Sources */,
 				A7CBAC232C870B8700D4DFD3 /* ProvidersDependencies.swift in Sources */,
+				A78A3C692C982B20007E8E7A /* PeriodOnboardingDetailsInput.swift in Sources */,
+				A78A3C6A2C982B20007E8E7A /* PeriodOnboardingDetailsRouter.swift in Sources */,
+				A78A3C8D2C9965C0007E8E7A /* PaywallCancelView.swift in Sources */,
+				A78A3C6B2C982B20007E8E7A /* PeriodOnboardingDetailsRoute.swift in Sources */,
+				A78A3C6C2C982B20007E8E7A /* PeriodOnboardingDetailsScreen.swift in Sources */,
+				A78A3C6D2C982B20007E8E7A /* PeriodOnboardingDetailsOutput.swift in Sources */,
+				A78A3C6E2C982B20007E8E7A /* PeriodOnboardingDetailsViewModel.swift in Sources */,
 				A7CBAC172C870B8700D4DFD3 /* RootOutput.swift in Sources */,
 				5641581C2C8F16BE00F62243 /* MenstrualCycle.swift in Sources */,
 				A7CBAC562C870B8700D4DFD3 /* PreferencesServiceImpl.swift in Sources */,
@@ -1524,15 +1778,16 @@
 				A7CBABFD2C870B8700D4DFD3 /* CrashlyticsInitializer.swift in Sources */,
 				A0EF02A02C88D15C0035A3FA /* PeriodTrackerViewModel.swift in Sources */,
 				A7CBABE72C870B8700D4DFD3 /* PutPushTokenRequest.swift in Sources */,
+				A78A3C8A2C9965C0007E8E7A /* UsageLimitPaywallViewModel.swift in Sources */,
 				A7CBAC1B2C870B8700D4DFD3 /* RootViewModel.swift in Sources */,
 				A7CBABEE2C870B8700D4DFD3 /* SandboxApiSettingsProviderImpl.swift in Sources */,
+				A7D5D3BA2C9994AF007F16D4 /* AppCustomization+Pricing.swift in Sources */,
 				A7CBAC642C870B8700D4DFD3 /* SyncServiceBaseImpl.swift in Sources */,
 				A7CBAC072C870B8700D4DFD3 /* Initializers.swift in Sources */,
 				A7CBAC1A2C870B8700D4DFD3 /* RootScreen.swift in Sources */,
 				A7CBAC0D2C870B8700D4DFD3 /* KeyValueStorageImpl.swift in Sources */,
 				A7CBAC082C870B8700D4DFD3 /* AppDelegate.swift in Sources */,
 				A7CBAC482C870B8700D4DFD3 /* UpdateIdentifiersMessage.swift in Sources */,
-				562D8BF62C884AC9001C0E6F /* Model.xcdatamodeld in Sources */,
 				A7CBAC382C870B8700D4DFD3 /* IntercomDependencies.swift in Sources */,
 				A7CBAC542C870B8700D4DFD3 /* MigrationServiceImpl.swift in Sources */,
 				5698C0722C8B14EA000CB8B5 /* MenstrualCycleCalendar.swift in Sources */,
@@ -1544,10 +1799,11 @@
 				562D8BFF2C887ECB001C0E6F /* CalendarDate.swift in Sources */,
 				A7CBAC4B2C870B8700D4DFD3 /* MessagePublisherService.swift in Sources */,
 				A7CBAC3A2C870B8700D4DFD3 /* IntercomUpdaterImpl.swift in Sources */,
+				A78A3C592C9806C2007E8E7A /* OnboardingPreviousPageButton.swift in Sources */,
 				A7CBAC5E2C870B8700D4DFD3 /* AnalyticEvent.swift in Sources */,
 				A7CBAC4F2C870B8700D4DFD3 /* AppMigrationsProvider.swift in Sources */,
 				A7CBAC552C870B8700D4DFD3 /* PreferencesService.swift in Sources */,
-				A7CBAC092C870B8700D4DFD3 /* AppStudioTemplateApp.swift in Sources */,
+				A7CBAC092C870B8700D4DFD3 /* PeriodTrackerApp.swift in Sources */,
 				A7CBAC612C870B8700D4DFD3 /* TrackerServiceDependencies.swift in Sources */,
 				A7CBAC462C870B8700D4DFD3 /* PurchaseMessage.swift in Sources */,
 				A7CBAC1F2C870B8700D4DFD3 /* AccountProviderImpl.swift in Sources */,
@@ -1565,7 +1821,11 @@
 				A7CBABF82C870B8700D4DFD3 /* NewSubscriptionInitializer.swift in Sources */,
 				5698C0772C8B15A2000CB8B5 /* MenstrualCycleCalendar+Mapped.swift in Sources */,
 				A7CBAC3C2C870B8700D4DFD3 /* IntercomServiceImpl.swift in Sources */,
+				A78A3C9C2C99754D007E8E7A /* PeriodGraphDescriptionView.swift in Sources */,
 				562D8BFB2C884C03001C0E6F /* DatabaseDependencies.swift in Sources */,
+				A78A3C982C996FD0007E8E7A /* OnboardingUserDataServiceImpl.swift in Sources */,
+				A78A3C992C996FD0007E8E7A /* OnboardingUserDataDependencies.swift in Sources */,
+				A78A3C9A2C996FD0007E8E7A /* OnboardingUserDataService.swift in Sources */,
 				A7CBAC4E2C870B8700D4DFD3 /* MessengerServiceImpl.swift in Sources */,
 				A7CBAC0C2C870B8700D4DFD3 /* DataDependencies.swift in Sources */,
 				A7CBABED2C870B8700D4DFD3 /* AppStudioApiSettingsProvider.swift in Sources */,
@@ -1573,6 +1833,8 @@
 				A7CBABE42C870B8700D4DFD3 /* PricingOngoingExperiment.swift in Sources */,
 				564158182C8F112700F62243 /* MenstrualCalendarServiceImpl.swift in Sources */,
 				564158192C8F112700F62243 /* MenstrualCalendarDependencies.swift in Sources */,
+				A78A3C8E2C9965C0007E8E7A /* PaywallTitleView.swift in Sources */,
+				A78A3C612C980F17007E8E7A /* OnboardingData.swift in Sources */,
 				5641581A2C8F112700F62243 /* MenstrualCalendarService.swift in Sources */,
 				A7CBABF12C870B8700D4DFD3 /* EmptyResult.swift in Sources */,
 				A7CBAC3D2C870B8700D4DFD3 /* MailSenderService.swift in Sources */,
@@ -1590,23 +1852,24 @@
 				A7CBAC512C870B8700D4DFD3 /* MigrationLaunchService.swift in Sources */,
 				A7CBAC7C2C8746FA00D4DFD3 /* RootSetup.swift in Sources */,
 				A7CBAC632C870B8700D4DFD3 /* AccountSyncServiceImpl.swift in Sources */,
-				A7CBAC442C870B8700D4DFD3 /* FinishTransactionMessage.swift in Sources */,
 				A7CBAC392C870B8700D4DFD3 /* IntercomUpdater.swift in Sources */,
 				A7CBABFF2C870B8700D4DFD3 /* FirebaseInitializer.swift in Sources */,
-				A7CBAC142C870B8700D4DFD3 /* PaywallContext.swift in Sources */,
 				A7CBAC3B2C870B8700D4DFD3 /* IntercomService.swift in Sources */,
 				A7CBABFA2C870B8700D4DFD3 /* AccountProviderInitializer.swift in Sources */,
 				A7CBAC0E2C870B8700D4DFD3 /* StorageService.swift in Sources */,
 				5641582C2C90341F00F62243 /* MenstrualCycleType.swift in Sources */,
 				A7CBAC492C870B8700D4DFD3 /* UpdateSubscriptionMessage.swift in Sources */,
 				A7CBAC332C870B8700D4DFD3 /* FirstLaunchServiceImpl.swift in Sources */,
+				A78A3C932C9965C0007E8E7A /* PaywallViewModel.swift in Sources */,
 				A7CBAC402C870B8700D4DFD3 /* AppInitializedMessage.swift in Sources */,
+				A78A3C862C9965C0007E8E7A /* Image+Paywall.swift in Sources */,
 				A7CBAC702C870B8700D4DFD3 /* ErrorHandling.swift in Sources */,
 				A7CBAC6E2C870B8700D4DFD3 /* DebugMenuScreen.swift in Sources */,
 				A0EF02AB2C88DA240035A3FA /* PeriodTackerRoute.swift in Sources */,
 				A7CBABF92C870B8700D4DFD3 /* NewSubscriptionInitializerDependency.swift in Sources */,
 				A7CBABEA2C870B8700D4DFD3 /* AccountTarget.swift in Sources */,
 				A7CBAC502C870B8700D4DFD3 /* Migration.swift in Sources */,
+				A78A3C902C9965C0007E8E7A /* PaywallRoute.swift in Sources */,
 				A7CBAC372C870B8700D4DFD3 /* IntercomDataStorageImpl.swift in Sources */,
 				A7CBAC0B2C870B8700D4DFD3 /* GlobalConstants.swift in Sources */,
 				A7CBAC7B2C8746FA00D4DFD3 /* RootInitializationServiceImpl.swift in Sources */,
@@ -1625,11 +1888,21 @@
 				A7CBAC6D2C870B8700D4DFD3 /* DebugMenuInfoView.swift in Sources */,
 				A7CBAC602C870B8700D4DFD3 /* TrackerService+track.swift in Sources */,
 				A0EF02B92C8A2F2D0035A3FA /* PeriodTrackerLabelView.swift in Sources */,
+				A78A3C872C9965C0007E8E7A /* PaywallScreenInput.swift in Sources */,
+				A78A3C8C2C9965C0007E8E7A /* PaywallBottomInfoView.swift in Sources */,
 				A7CBAC122C870B8700D4DFD3 /* InstallationType.swift in Sources */,
+				A7B6D8862C93068900637C9E /* OnboardingInput.swift in Sources */,
+				A7B6D8872C93068900637C9E /* OnboardingRouter.swift in Sources */,
+				A7B6D8882C93068900637C9E /* OnboardingRoute.swift in Sources */,
+				A7B6D8892C93068900637C9E /* OnboardingScreen.swift in Sources */,
+				A7B6D88A2C93068900637C9E /* OnboardingOutput.swift in Sources */,
+				A7B6D88B2C93068900637C9E /* OnboardingViewModel.swift in Sources */,
 				A7CBAC352C870B8700D4DFD3 /* IDFARequestServiceImpl.swift in Sources */,
 				A7CBAC6B2C870B8700D4DFD3 /* WithDebugMenuModifier.swift in Sources */,
 				A7CBAC012C870B8700D4DFD3 /* PreferencesInitializer.swift in Sources */,
 				A7CBAC432C870B8700D4DFD3 /* CloudStoragesUpdateRequestMessage.swift in Sources */,
+				A78A3C882C9965C0007E8E7A /* PaywallScreenOutput.swift in Sources */,
+				A78A3C8B2C9965C0007E8E7A /* UsagePaywallRoute.swift in Sources */,
 				A7CBAC302C870B8700D4DFD3 /* ObfuscatorDepenendencies.swift in Sources */,
 				A7CBAC102C870B8700D4DFD3 /* Account.swift in Sources */,
 				A0EF02A52C88D3070035A3FA /* AppTab.swift in Sources */,
@@ -1637,8 +1910,11 @@
 				A7CBAC5F2C870B8700D4DFD3 /* Contexts.swift in Sources */,
 				A7CBABEC2C870B8700D4DFD3 /* ApiSettingsProviderImpl.swift in Sources */,
 				A7CBABE12C870B8700D4DFD3 /* AppCustomizationDependency.swift in Sources */,
+				A78A3C572C98064C007E8E7A /* OnboardingFlowIndicatorView.swift in Sources */,
 				A7CBAC162C870B8700D4DFD3 /* RootInput.swift in Sources */,
 				A7CBAC022C870B8700D4DFD3 /* TrackerServiceInitializer.swift in Sources */,
+				A78A3C922C9965C0007E8E7A /* PaywallScreen.swift in Sources */,
+				A78A3C722C986823007E8E7A /* PeriodOnboardingDescriptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1948,14 +2224,14 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		562D8BF42C884AC9001C0E6F /* Model.xcdatamodeld */ = {
+		A7B6D88F2C9309A700637C9E /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				562D8BF52C884AC9001C0E6F /* Model.xcdatamodel */,
+				A7B6D8902C9309A700637C9E /* Model.xcdatamodel */,
 			);
-			currentVersion = 562D8BF52C884AC9001C0E6F /* Model.xcdatamodel */;
+			currentVersion = A7B6D8902C9309A700637C9E /* Model.xcdatamodel */;
 			name = Model.xcdatamodeld;
-			path = /Users/deniskhlopin/GitProjects/AppStudio.Fasting.iOS/PeriodTracker/Resources/Model.xcdatamodeld;
+			path = /Users/amakhin/AppStudio/AppStudio.Fasting.iOS/PeriodTracker/Resources/Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

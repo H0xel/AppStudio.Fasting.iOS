@@ -10,11 +10,13 @@ import SwiftUI
 public struct OnboardingDatePickerView: View {
 
     private let title: String
+    private let description: String?
     private let canChoosePast: Bool
     @Binding private var date: Date
 
-    public init(title: String, canChoosePast: Bool, date: Binding<Date>) {
+    public init(title: String, description: String? = nil, canChoosePast: Bool, date: Binding<Date>) {
         self.title = title
+        self.description = description
         self.canChoosePast = canChoosePast
         self._date = date
     }
@@ -26,6 +28,14 @@ public struct OnboardingDatePickerView: View {
                 .foregroundStyle(Color.studioBlackLight)
                 .padding(.top, Layout.topPadding)
                 .multilineTextAlignment(.center)
+
+            if let description {
+                Text(description)
+                    .foregroundStyle(Color.studioGrayText)
+                    .font(.poppins(.body))
+                    .padding(.top, Layout.descriptionTopPadding)
+                    .multilineTextAlignment(.center)
+            }
 
             Spacer()
             if canChoosePast {
@@ -47,6 +57,7 @@ private extension OnboardingDatePickerView {
     enum Layout {
         static let topPadding: CGFloat = 24
         static let bottomPadding: CGFloat = 80
+        static var descriptionTopPadding: CGFloat = 16
     }
 }
 

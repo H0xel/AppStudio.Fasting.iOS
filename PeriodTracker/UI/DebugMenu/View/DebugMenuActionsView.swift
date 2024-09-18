@@ -13,6 +13,7 @@ struct DebugMenuActionsView: View {
     @Dependency(\.backendEnvironmentService) private var backendEnvironmentService
     @Dependency(\.accountIdProvider) private var accountIdProvider
     @Dependency(\.cloudStorage) private var cloudStorage
+    @Dependency(\.onboardingUserDataService) private var onboardingUserDataService
 
     @State private var currentEnvironment: BackendEnvironment
 
@@ -40,6 +41,12 @@ struct DebugMenuActionsView: View {
             cloudStorage.clearAllData()
         }
         .foregroundColor(.red)
+
+        Button("Reset onboarding") {
+            cloudStorage.onboardingIsFinished = false
+            onboardingUserDataService.reset()
+        }
+
         Button("Crash application") {
             fatalError("Crash for testing crashlytics")
         }

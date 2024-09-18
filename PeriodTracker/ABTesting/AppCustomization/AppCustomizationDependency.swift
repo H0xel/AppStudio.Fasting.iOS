@@ -17,10 +17,15 @@ extension DependencyValues {
     var lifeCycleDelegate: ExperimentLifecycleDelegate {
         self[ExperimentLifecycleDelegateKey.self]
     }
+
+    var productIdsService: ProductIdsService {
+        self[AppCustomizationKey.self]
+    }
 }
 
 private enum AppCustomizationKey: DependencyKey {
-    static let liveValue = AppCustomizationImpl()
+    static let liveValue: AppCustomization & ProductIdsService = AppCustomizationImpl()
+    static let previewValue: AppCustomization & ProductIdsService = AppCustomizationPreview()
 }
 
 private enum ExperimentLifecycleDelegateKey: DependencyKey {

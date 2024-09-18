@@ -15,6 +15,7 @@ import Dependencies
 
 private let requiredAppVersionKey = "force_update_version"
 private let forceUpdateLink = "force_update_link"
+private let closePaywallButtonDelayKey = "close_paywall_button_delay"
 
 class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsService {
     var forceUpdateAppVersion: Observable<String> {
@@ -26,15 +27,13 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
     }
 
 
-    private let productIdsRelay = BehaviorRelay<[String]>(value: [])
-    private let disposeBag = DisposeBag()
+    let productIdsRelay = BehaviorRelay<[String]>(value: [])
+    let disposeBag = DisposeBag()
 
     func initialize() {
         @Dependency(\.lifeCycleDelegate) var lifeCycleDelegate
         super.initialize(lifecycleDelegate: lifeCycleDelegate)
-
-        // Uncoment to start pricing experiment
-//        configurePricingExperiment()
+        configurePricingExperiment()
     }
 
     override func registerExperiments() async {
@@ -52,6 +51,8 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
         // 4) Register pricing experiment
 //        await register(experiment: PricingOngoingExperiment(experimentName: pricingExperimentName))
+        let experimentName = await pricingExperimentName()
+        await register(experiment: PricingOngoingExperiment(experimentName: experimentName))
     }
 
     var productIds: Observable<[String]> {
@@ -60,6 +61,11 @@ class AppCustomizationImpl: BaseAppCustomization, AppCustomization, ProductIdsSe
 
     var paywallProductIds: Observable<[String]> {
         productIds
+    }
+
+    func closePaywallButtonDelay() async throws -> Int {
+        let value = try await remoteConfigValue(forKey: closePaywallButtonDelayKey, defaultValue: "3")
+        return Int(value) ?? 3
     }
 }
 
@@ -73,13 +79,6 @@ private extension AppCustomizationImpl {
             return remoteValue.substring(from: experimentPrefix.count)
         }
         return defaultName
-    }
-
-    func configurePricingExperiment() {
-        experimentValueObservable(forType: PricingOngoingExperiment.self, defaultValue: .base)
-            .map { $0.productIds }
-            .bind(to: productIdsRelay)
-            .disposed(by: disposeBag)
     }
 }
 
